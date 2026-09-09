@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quy trình Nghiệp Vụ Kiểm sát - VKSNDTPCT</title>
+    <title>Kỹ năng Kiểm sát - VKSND TPCT</title>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -366,10 +366,10 @@
     <!-- ===== OS WORKSPACE ===== -->
     <div id="os-workspace">
         <div class="os-window-header" id="os-window-header">
-            <span class="win-title" id="win-title">Công cụ</span>
+            <span class="win-title" id="win-title">Kỹ năng</span>
             <span class="win-close" onclick="closeTool()">✕</span>
         </div>
-        <iframe id="tool-iframe" src="" title="Công cụ" allow="clipboard-read; clipboard-write"></iframe>
+        <iframe id="tool-iframe" src="" title="Kỹ năng" allow="clipboard-read; clipboard-write"></iframe>
     </div>
     <div class="os-loading" id="os-loading"><div class="os-loading-spinner"></div></div>
 
@@ -398,17 +398,17 @@
         };
 
         var TOOLS = [
-            { id:'tinh-lai-suat', span:'span-4', badge:'CÔNG CỤ', badgeClass:'badge-teal', title:'Tính lãi suất', desc:'Tự động tính tiền lãi trong hạn, lãi quá hạn, lãi chậm trả trong giao dịch dân sự.', illust:ILLUST.chartWave, url:'Tool/App_tinh_lai_suat/index.html', accent:'', footer:'' },
-            { id:'tinh-an-phi', span:'span-4', badge:'CÔNG CỤ', badgeClass:'badge-teal', title:'Tính án phí', desc:'Tra cứu và tự động tính nhanh số tiền án phí hình sự và dân sự.', illust:ILLUST.bars, url:'Tool/App_DS/index.html', accent:'', footer:'' },
-            { id:'kiem-sat-ban-an-chung', span:'span-4', badge:'CÔNG CỤ', badgeClass:'badge-teal', title:'Kiểm sát Bản án hình sự, dân sự', desc:'Đối chiếu phát hiện lỗi chính tả, mâu thuẫn, vi phạm, thiếu sót trong Bản án hình sự, dân sự (bản miễn phí - dùng chung cho các đơn vị).', illust:ILLUST.laser, url:'https://udify.app/chat/FoGbxKbFMFZSylhe', accent:'', footer:'' },
-            { id:'kiem-sat-ban-an-nang-cao', span:'span-7', badge:'ĐỘC QUYỀN VIP', badgeClass:'badge-amber', title:'Kiểm sát Bản án hình sự, dân sự', desc:'Bản nâng cấp tối ưu đặc biệt.', illust:ILLUST.shield, url:'https://udify.app/chat/Ho3TdpoYQ9OjTbIq', accent:'accent-vip', footer:'<span>Phiên bản chuyên biệt</span><span style="margin-left:auto;">Dành riêng Viện KSND KV5 Bắc Ninh</span>' },
+            { id:'tinh-lai-suat', span:'span-4', badge:'KỸ NĂNG', badgeClass:'badge-teal', title:'Tính lãi suất', desc:'Tự động tính tiền lãi trong hạn, lãi quá hạn, lãi chậm trả trong giao dịch dân sự.', illust:ILLUST.chartWave, url:'Tool/App_tinh_lai_suat/index.html', accent:'', footer:'' },
+            { id:'tinh-an-phi', span:'span-4', badge:'KỸ NĂNG', badgeClass:'badge-teal', title:'Tính án phí', desc:'Tra cứu và tự động tính nhanh số tiền án phí hình sự và dân sự.', illust:ILLUST.bars, url:'Tool/App_DS/index.html', accent:'', footer:'' },
+            { id:'kiem-sat-ban-an-chung', span:'span-4', badge:'KỸ NĂNG', badgeClass:'badge-teal', title:'Kiểm sát Bản án hình sự, dân sự', desc:'Đối chiếu phát hiện lỗi chính tả, mâu thuẫn, vi phạm, thiếu sót trong Bản án hình sự, dân sự (bản miễn phí - dùng chung cho các đơn vị).', illust:ILLUST.laser, url:'https://udify.app/chat/FoGbxKbFMFZSylhe', accent:'', footer:'' },
+            { id:'kiem-sat-ban-an-nang-cao', span:'span-7', badge:'ĐẶC BIỆT', badgeClass:'badge-amber', title:'Kiểm sát Bản án hình sự, dân sự', desc:'Bản nâng cấp tối ưu đặc biệt.', illust:ILLUST.shield, url:'https://udify.app/chat/Ho3TdpoYQ9OjTbIq', accent:'accent-vip', footer:'<span>Phần Thử nghiệm </span><span style="margin-left:auto;">VIỆN KIỂM SÁT NHÂN DÂN THÀNH PHỐ CẦN THƠ</span>' },
             { id:'notebook-lm', span:'span-5', badge:'TRỢ LÝ ẢO AI', badgeClass:'badge-purple', title:'Hình sự & Tố tụng hình sự', desc:'Tra cứu Điều luật, hỗ trợ lập luận tố tụng dựa trên kho tri thức hiện hành.', illust:ILLUST.aiNodes, url:'https://notebooklm.google.com/notebook/af52b719-3125-4b4e-aaad-93432843b0ee', accent:'', newTab:true, footer:'<span>Nền tảng tri thức</span><span style="margin-left:auto;font-weight:700;color:#7e22ce;">notebookLM</span>' },
-            { id:'tinh-tuoi-thoi-han', span:'span-4', badge:'CÔNG CỤ', badgeClass:'badge-teal', title:'Tính tuổi — Tính thời hạn', desc:'Tự động tính tuổi của đối tượng, tính chính xác ngày tháng năm, giờ phút, kiểm soát chặt chẽ thời hạn tạm giữ, tạm giam tố tụng.', illust:ILLUST.clockIcon, url:'Data/TinhTuoiThoiHan.html', accent:'', footer:'' },
+            { id:'tinh-tuoi-thoi-han', span:'span-4', badge:'KỸ NĂNG', badgeClass:'badge-teal', title:'Tính tuổi — Tính thời hạn', desc:'Tự động tính tuổi của đối tượng, tính chính xác ngày tháng năm, giờ phút, kiểm soát chặt chẽ thời hạn tạm giữ, tạm giam tố tụng.', illust:ILLUST.clockIcon, url:'Data/TinhTuoiThoiHan.html', accent:'', footer:'' },
             { id:'huong-dan-so-do-tu-duy', span:'span-4', badge:'HƯỚNG DẪN', badgeClass:'badge-emerald', title:'Tạo sơ đồ tư duy', desc:'Thao tác chi tiết và bộ promt mẫu để tạo sơ đồ tư duy tự động.', illust:ILLUST.mindmap, url:'Data/HuongDan.html', accent:'', footer:'' },
-            { id:'an-danh-tool', span:'span-4', badge:'CÔNG CỤ', badgeClass:'badge-teal', title:'Tự động che thông tin - không kết nối mạng', desc:'Tự động ẩn toàn bộ thông tin cá nhân trong văn bản trước khi công bố hoặc giao cho AI xử lý.', illust:ILLUST.censor, url:'Tool/AnDanh/index.html', accent:'', footer:'Phát triển bởi Trần Huy — Viện KSND KV11, Đắk Lắk' },
-            { id:'file-renamer-tool', span:'span-4', badge:'CÔNG CỤ', badgeClass:'badge-teal', title:'Tự động đổi tên file - không kết nối mạng', desc:'Tự động sửa tên file để AI dễ tiếp cận hoặc cho phép đổi tên file hàng loạt (ví dụ: Đánh số bút lục, tài liệu).', illust:ILLUST.rename, url:'Tool/FileRenamer/index.html', accent:'', footer:'' },
-            { id:'docx-to-md-tool', span:'span-4', badge:'CÔNG CỤ', badgeClass:'badge-teal', title:'Chuyển file doc, docx sang Markdown - không kết nối mạng', desc:'Dùng python tự động chuyển đổi file doc, docx sang dạng Markdown trước khi chuyển cho AI xử lý.', illust:ILLUST.convert, url:'Tool/DocxToMd/index.html', accent:'', footer:'' },
-            { id:'ocr-pdf-tool', span:'span-4', badge:'CÔNG CỤ', badgeClass:'badge-teal', title:'Nhận dạng chữ trong fille PDF, file ảnh - không kết nối mạng', desc:'Tự động trích xuất chữ từ file pdf, file ảnh mà không cần kết nối mạng, cho phép chọn đầu ra (word, md, txt).', illust:ILLUST.scan, url:'Tool/OCR_PDF_Tool/index.html', accent:'', footer:'' }
+            { id:'an-danh-tool', span:'span-4', badge:'KỸ NĂNG', badgeClass:'badge-teal', title:'Tự động che thông tin - không kết nối mạng', desc:'Tự động ẩn toàn bộ thông tin cá nhân trong văn bản trước khi công bố hoặc giao cho AI xử lý.', illust:ILLUST.censor, url:'Tool/AnDanh/index.html', accent:'', footer:'Đội ngũ xây dựng: Nhóm IT — VKSND TP.Cần Thơ' },
+            { id:'file-renamer-tool', span:'span-4', badge:'KỸ NĂNG', badgeClass:'badge-teal', title:'Tự động đổi tên file - không kết nối mạng', desc:'Tự động sửa tên file để AI dễ tiếp cận hoặc cho phép đổi tên file hàng loạt (ví dụ: Đánh số bút lục, tài liệu).', illust:ILLUST.rename, url:'Tool/FileRenamer/index.html', accent:'', footer:'' },
+            { id:'docx-to-md-tool', span:'span-4', badge:'KỸ NĂNG', badgeClass:'badge-teal', title:'Chuyển file doc, docx sang Markdown - không kết nối mạng', desc:'Dùng python tự động chuyển đổi file doc, docx sang dạng Markdown trước khi chuyển cho AI xử lý.', illust:ILLUST.convert, url:'Tool/DocxToMd/index.html', accent:'', footer:'' },
+            { id:'ocr-pdf-tool', span:'span-4', badge:'KỸ NĂNG', badgeClass:'badge-teal', title:'Nhận dạng chữ trong fille PDF, file ảnh - không kết nối mạng', desc:'Tự động trích xuất chữ từ file pdf, file ảnh mà không cần kết nối mạng, cho phép chọn đầu ra (word, md, txt).', illust:ILLUST.scan, url:'Tool/OCR_PDF_Tool/index.html', accent:'', footer:'' }
         ];
 
         var isDashboardVisible=false, isInToolView=false, currentToolId=null, activeToolTitle='';
@@ -452,8 +452,8 @@
                 html+='</div>';
             }
             html+='<div class="bento-card span-12 disabled"><div style="display:flex;align-items:flex-start;justify-content:space-between;"><div>';
-            html+='<span class="bento-card-badge badge-slate">ĐANG PHÁT TRIỂN, SẮP PHÁT HÀNH</span>';
-            html+='<h3 class="bento-card-title" style="color:#94a3b8;">Công cụ tự động soạn thảo Quyết định phân công KSV - từ Thông báo thụ lý, Quyết định thi hành án (scan)</h3>';
+            html+='<span class="bento-card-badge badge-slate">KỸ NĂNG</span>';
+            html+='<h3 class="bento-card-title" style="color:#94a3b8;">Kỹ năng tự động soạn thảo Quyết định phân công KSV - từ Thông báo thụ lý, Quyết định thi hành án (scan)</h3>';
             html+='<p class="bento-card-desc" style="color:#94a3b8;">Tự động đọc và trích xuất thông tin từ Thông báo thụ lý, QĐ thi hành án hình sự/ dân sự và soạn thảo QĐ phân công KSV, trích thông tin để nhập sổ quản lý của khâu công tác.</p></div>';
             html+='<div class="bento-illust">'+ILLUST.radarPulse+'</div></div></div>';
             toolsGrid.innerHTML=html;
