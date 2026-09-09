@@ -25,7 +25,7 @@
       out += '<mark data-cat="'+f.category+'">'+escapeHtml(inner)+"</mark>";
       cursor = f.end;
     });
-    return out + escapeHtml(text.slice(cursor);
+    return out + escapeHtml(text.slice(cursor));
   }
   function decodeXml(s){
     return s.replace(/\u0026lt;/g,"<").replace(/\u0026gt;/g,">").replace(/\u0026quot;/g,'"').replace(/\u0026apos;/g,"'").replace(/&#39;/g,"'").replace(/\u0026amp;/g,"\u0026");
