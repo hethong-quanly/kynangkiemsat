@@ -408,7 +408,8 @@
             { id:'an-danh-tool', span:'span-4', badge:'KỸ NĂNG', badgeClass:'badge-teal', title:'Tự động che thông tin - không kết nối mạng', desc:'Tự động ẩn toàn bộ thông tin cá nhân trong văn bản trước khi công bố hoặc giao cho AI xử lý.', illust:ILLUST.censor, url:'Tool/AnDanh/index.html', accent:'', footer:'Đội ngũ xây dựng: Nhóm IT — VKSND TP.Cần Thơ' },
             { id:'file-renamer-tool', span:'span-4', badge:'KỸ NĂNG', badgeClass:'badge-teal', title:'Tự động đổi tên file - không kết nối mạng', desc:'Tự động sửa tên file để AI dễ tiếp cận hoặc cho phép đổi tên file hàng loạt (ví dụ: Đánh số bút lục, tài liệu).', illust:ILLUST.rename, url:'Tool/FileRenamer/index.html', accent:'', footer:'' },
             { id:'docx-to-md-tool', span:'span-4', badge:'KỸ NĂNG', badgeClass:'badge-teal', title:'Chuyển file doc, docx sang Markdown - không kết nối mạng', desc:'Dùng python tự động chuyển đổi file doc, docx sang dạng Markdown trước khi chuyển cho AI xử lý.', illust:ILLUST.convert, url:'Tool/DocxToMd/index.html', accent:'', footer:'' },
-            { id:'ocr-pdf-tool', span:'span-4', badge:'KỸ NĂNG', badgeClass:'badge-teal', title:'Nhận dạng chữ trong fille PDF, file ảnh - không kết nối mạng', desc:'Tự động trích xuất chữ từ file pdf, file ảnh mà không cần kết nối mạng, cho phép chọn đầu ra (word, md, txt).', illust:ILLUST.scan, url:'Tool/OCR_PDF_Tool/index.html', accent:'', footer:'' }
+            { id:'ocr-pdf-tool', span:'span-4', badge:'KỸ NĂNG', badgeClass:'badge-teal', title:'Nhận dạng chữ trong fille PDF, file ảnh - không kết nối mạng', desc:'Tự động trích xuất chữ từ file pdf, file ảnh mà không cần kết nối mạng, cho phép chọn đầu ra (word, md, txt).', illust:ILLUST.scan, url:'Tool/OCR_PDF_Tool/index.html', accent:'', footer:'' },
+            { id:'soan-qd-phan-cong', span:'span-12', badge:'KỸ NĂNG', badgeClass:'badge-teal', title:'Kỹ năng tự động soạn thảo Quyết định phân công KSV – từ Thông báo thụ lý, Quyết định thi hành án (scan)', desc:'Tự động đọc và trích xuất thông tin từ Thông báo thụ lý, QĐ thi hành án hình sự/ dân sự và soạn thảo QĐ phân công KSV, trích thông tin để nhập sổ quản lý của khâu công tác.', illust:ILLUST.radarPulse, url:'Tool/SoanQdPhanCong/index.html', accent:'', footer:'NHÓM IT — Viện KSND thành phố Cần Thơ' }
         ];
 
         var isDashboardVisible=false, isInToolView=false, currentToolId=null, activeToolTitle='';
@@ -451,11 +452,6 @@
                 if(t.footer) html+='<div class="bento-card-footer">'+t.footer+'</div>';
                 html+='</div>';
             }
-            html+='<div class="bento-card span-12 disabled"><div style="display:flex;align-items:flex-start;justify-content:space-between;"><div>';
-            html+='<span class="bento-card-badge badge-slate">KỸ NĂNG</span>';
-            html+='<h3 class="bento-card-title" style="color:#94a3b8;">Kỹ năng tự động soạn thảo Quyết định phân công KSV - từ Thông báo thụ lý, Quyết định thi hành án (scan)</h3>';
-            html+='<p class="bento-card-desc" style="color:#94a3b8;">Tự động đọc và trích xuất thông tin từ Thông báo thụ lý, QĐ thi hành án hình sự/ dân sự và soạn thảo QĐ phân công KSV, trích thông tin để nhập sổ quản lý của khâu công tác.</p></div>';
-            html+='<div class="bento-illust">'+ILLUST.radarPulse+'</div></div></div>';
             toolsGrid.innerHTML=html;
         }
 
