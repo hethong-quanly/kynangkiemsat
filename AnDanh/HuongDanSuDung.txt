@@ -1,47 +1,59 @@
-HUONG DAN SU DUNG CONG CU AN DANH VAN BAN
+HƯỚNG DẪN SỬ DỤNG CÔNG CỤ ẨN DANH VĂN BẢN
 ================================================
 
-Tac gia: NHOM IT - VIEN KIEM SAT NHAN DAN THANH PHO CAN THO
-Phien ban: Web + Windows
+Tác giả: NHÓM IT — VIỆN KIỂM SÁT NHÂN DÂN THÀNH PHỐ CẦN THƠ
+Phiên bản: 1.0
+Phạm vi: Dành riêng cho Viện KSND TP Cần Thơ
 
 ================================================
-I. GIOI THIEU
+I. GIỚI THIỆU
 ================================================
 
-Cong cu tu dong che thong tin trong van ban (ho ten, CCCD, dien thoai,
-dia chi, ngay sinh, so tai khoan, email, bien so, ma so thue).
+Công cụ tự động che thông tin trong văn bản giúp phát hiện và che giấu
+các thông tin nhạy cảm như: họ tên, số điện thoại, số CMND/CCCD, địa chỉ,
+ngày tháng năm sinh, số tài khoản ngân hàng trong file văn bản .docx.
 
-Hai cach dung:
-1) Tren trinh duyet (GitHub Pages) — khong can cai dat:
-   https://hethong-quanly.github.io/quytrinhkiemsat/AnDanh/
-   hoac mo the "Tu dong che thong tin" tren trang chu.
-2) Ban Windows doc lap: giai nen AnDanhTool.zip va chay AnDanhTool.exe.
-
-Tinh nang:
-- Ho tro .docx va .txt, hoac dan van ban
-- Tu dong nhan dien, ra soat roi tai file da an
-- Xu ly tren may cua ban — khong gui tep len may chu
+TÍNH NĂNG:
+- Hỗ trợ định dạng văn bản: .docx
+- Tự động nhận diện thông tin cần che, KHÔNG CẦN INTERNET
+- Giao diện trực quan, dễ sử dụng
+- Xử lý nhanh chóng, chính xác
+- Bảo mật tuyệt đối - xử lý hoàn toàn OFFLINE trên máy,
+  không gửi dữ liệu lên mạng, tự xóa file sau khi tắt phần mềm
 
 ================================================
-II. CACH DUNG BAN WEB
+II. CÀI ĐẶT
 ================================================
 
-1. Mo trang AnDanh (hoac bam the tren dashboard)
-2. Chon tep .docx / .txt, keo tha, dan noi dung, hoac dung van ban mau
-3. Ra soat danh sach phat hien — bo tick cho khong can che
-4. Chon kieu che (thanh den, dau sao, nhan)
-5. Tai file AnDanh_*.docx
+1. Tải AnDanhTool.zip từ trang khởi chạy (nút KHỞI CHẠY CÔNG CỤ)
+   hoặc nhận file nén do NHÓM IT cung cấp
+2. Giải nén AnDanhTool.zip vào một thư mục trên máy
+3. Không cần cài đặt Python hay thư viện gì thêm
+4. File AnDanhTool.exe đã được đóng gói đầy đủ
 
 ================================================
-III. BAN WINDOWS (.exe)
+III. CÁCH SỬ DỤNG
 ================================================
 
-1. Giai nen AnDanhTool.zip
-2. Nhap dup AnDanhTool.exe (Windows 10/11)
-3. Trinh duyet mo giao dien — thao tac nhu ban web
+1. Nhấp đúp vào AnDanhTool.exe để khởi chạy
+2. Trình duyệt sẽ tự động mở giao diện web
+3. Chọn file .docx cần che thông tin
+4. Công cụ tự động quét và đánh dấu các thông tin nhạy cảm
+5. Bỏ tích mục không cần ẩn, sửa tên ẩn danh nếu muốn
+6. Nhấn xuất file để tải văn bản đã được che thông tin
 
 ================================================
-IV. LIEN HE
+IV. YÊU CẦU HỆ THỐNG
 ================================================
 
-NHOM IT — Vien Kiem sat nhan dan thanh pho Can Tho
+- Hệ điều hành: Windows 10/11
+- Không yêu cầu cài đặt thêm phần mềm
+- File .exe chạy độc lập, không cần mạng
+
+================================================
+V. LIÊN HỆ
+================================================
+
+Phát triển bởi: NHÓM IT
+Đơn vị: Viện Kiểm sát nhân dân thành phố Cần Thơ
+Phạm vi sử dụng: Dành riêng Viện KSND TP Cần Thơ
