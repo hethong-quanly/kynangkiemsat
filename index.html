@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bộ Công Cụ Nghiệp Vụ - VKSND</title>
+    <title>Quy trình Nghiệp Vụ Kiểm sát - VKSNDTPCT</title>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -338,7 +338,7 @@
             <div class="text-center mt-2 space-y-2">
                 <h2 class="text-[13px] font-bold text-slate-400 tracking-[0.35em] uppercase">Viện Kiểm Sát Nhân Dân</h2>
                 <h1 class="text-[29px] md:text-[34px] font-extrabold tracking-wide text-slate-800">
-                    BỘ CÔNG CỤ <span class="bg-gradient-to-r from-proc-blue to-proc-neon bg-clip-text text-transparent">NGHIỆP VỤ</span>
+                    QUY TRÌNH <span class="bg-gradient-to-r from-proc-blue to-proc-neon bg-clip-text text-transparent">NGHIỆP VỤ</span>
                 </h1>
                 <p class="text-[12px] font-bold text-proc-neon tracking-widest uppercase animate-pulse pt-1" onclick="showTools()" style="cursor:pointer;">
                     — BẤM VÀO LOGO ĐỂ TRUY CẬP —
@@ -351,7 +351,7 @@
     <div id="dashboard-page">
         <div class="header">
             <div class="header-left">
-                <h1>BỘ CÔNG CỤ HỖ TRỢ NGHIỆP VỤ KIỂM SÁT</h1>
+                <h1>QUY TRÌNH NGHIỆP VỤ KIỂM SÁT</h1>
                 <div class="header-underline"></div>
             </div>
         </div>
@@ -375,7 +375,7 @@
 
     <div class="os-taskbar" id="os-taskbar">
         <div class="os-taskbar-left">
-            <div class="os-taskbar-start" onclick="closeTool()">⬥ Bộ công cụ</div>
+            <div class="os-taskbar-start" onclick="closeTool()">⬥ Quy trình</div>
             <div class="os-taskbar-breadcrumb" id="taskbar-breadcrumb"></div>
         </div>
         <div class="os-taskbar-right"><span class="os-clock" id="os-clock">00:00</span></div>
@@ -482,7 +482,7 @@
         }
 
         function updateBreadcrumb(){
-            var h='<span class="breadcrumb-item" onclick="closeTool()">Bộ công cụ</span><span class="breadcrumb-sep">›</span><span class="breadcrumb-item" onclick="closeTool()">Menu chính</span>';
+            var h='<span class="breadcrumb-item" onclick="closeTool()">Quy trình</span><span class="breadcrumb-sep">›</span><span class="breadcrumb-item" onclick="closeTool()">Menu chính</span>';
             if(currentToolId) h+='<span class="breadcrumb-sep">›</span><span class="breadcrumb-item active">'+activeToolTitle+'</span>';
             breadcrumb.innerHTML=h;
         }
