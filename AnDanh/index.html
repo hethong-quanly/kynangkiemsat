@@ -8,7 +8,54 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
-  <link rel="stylesheet" href="andanh.css" />
+  <style>
+    :root {
+      --sky-dark: #1e5a8a; --plum-dark: #5a1f30; --bronze: #c9952e; --bronze-light: #e8c675;
+      --navy: #0c2340; --paper: #fbf8f1; --ink: #1c2128; --muted: #5e6772; --line: #d9d2c5;
+      --crimson: #8b2332; --ok: #1f6b4a; --teal: #0d9488;
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: "Be Vietnam Pro", Arial, sans-serif; color: var(--ink); background: #eef7f9; }
+    button:not(:disabled), [role="button"]:not(:disabled) { cursor: pointer; }
+    .wrap { max-width: 1120px; margin: 0 auto; padding: 20px 16px 48px; }
+    .privacy { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px;
+      background: var(--navy); color: var(--paper); border-radius: 12px; padding: 12px 16px; margin-bottom: 18px; }
+    .privacy small { color: var(--bronze-light); }
+    .drop { border: 2px dashed #cbd5e1; background: #fff; border-radius: 16px; padding: 28px 20px; text-align: center; }
+    .drop.over { border-color: var(--teal); background: #f0fdfa; }
+    h1 { font-size: 22px; margin: 0 0 6px; }
+    .muted { color: var(--muted); font-size: 13px; line-height: 1.55; }
+    .row { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin-top: 16px; }
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 42px;
+      padding: 0 16px; border-radius: 10px; border: 1px solid transparent; font: inherit; font-weight: 700; font-size: 14px; }
+    .btn-primary { background: var(--navy); color: #fff; }
+    .btn-primary:hover { background: var(--sky-dark); }
+    .btn-ghost { background: #fff; border-color: #d9d2c5; color: var(--ink); }
+    .btn-ok { background: var(--ok); color: #fff; }
+    .btn-danger { background: transparent; color: var(--crimson); border-color: #f1c5c8; }
+    .err { margin-top: 12px; color: var(--crimson); font-size: 13px; font-weight: 600; }
+    textarea { width: 100%; min-height: 140px; margin-top: 12px; padding: 10px; border-radius: 10px; border: 1px solid #d9d2c5;
+      font: inherit; font-size: 13px; }
+    .grid { display: grid; gap: 14px; }
+    @media (min-width: 900px) { .grid { grid-template-columns: 340px 1fr; } }
+    .card { background: #fff; border: 1px solid rgba(203,213,225,.5); border-radius: 14px; padding: 14px; }
+    .chips { display: flex; flex-wrap: wrap; gap: 6px; margin: 10px 0; }
+    .chip { border: 1px solid #e2e8f0; background: #f8fafc; border-radius: 999px; padding: 4px 10px; font-size: 11px; font-weight: 700; }
+    .chip.on { background: #0c2340; color: #fff; border-color: #0c2340; }
+    .styles { display: flex; flex-wrap: wrap; gap: 6px; }
+    .styles button { font-size: 12px; }
+    .styles button.on { outline: 2px solid var(--bronze); }
+    .find { max-height: 280px; overflow: auto; font-size: 12px; }
+    .find label { display: flex; gap: 8px; align-items: flex-start; padding: 4px 0; }
+    .preview { white-space: pre-wrap; word-break: break-word; font-size: 13px; line-height: 1.65; max-height: 520px; overflow: auto;
+      font-family: "Times New Roman", "Source Serif 4", serif; }
+    .preview mark { background: rgba(201,149,46,.32); border-radius: 2px; padding: 0 1px; }
+    .preview mark[data-cat="hoten"], .preview mark[data-cat="cccd"], .preview mark[data-cat="ngaysinh"] { background: rgba(139,35,50,.24); }
+    .toolbar { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 10px; }
+    .kicker { font-size: 11px; font-weight: 800; letter-spacing: .16em; color: var(--teal); text-transform: uppercase; }
+    .win { font-size: 11px; color: var(--muted); margin-top: 16px; text-align: center; }
+    a.winlink { color: var(--sky-dark); font-weight: 700; }
+  </style>
 </head>
 <body>
   <div class="wrap">
