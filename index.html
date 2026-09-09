@@ -338,7 +338,7 @@
             <div class="text-center mt-2 space-y-2">
                 <h2 class="text-[13px] font-bold text-slate-400 tracking-[0.35em] uppercase">Viện kiểm sát nhân dân thành phố Cần Thơ</h2>
                 <h1 class="text-[29px] md:text-[34px] font-extrabold tracking-wide text-slate-800">
-                    QUY TRÌNH <span class="bg-gradient-to-r from-proc-blue to-proc-neon bg-clip-text text-transparent">NGHIỆP VỤ</span>
+                    KỸ NĂNG <span class="bg-gradient-to-r from-proc-blue to-proc-neon bg-clip-text text-transparent">NGHIỆP VỤ</span>
                 </h1>
                 <p class="text-[12px] font-bold text-proc-neon tracking-widest uppercase animate-pulse pt-1" onclick="showTools()" style="cursor:pointer;">
                    ♥ PHỤC VỤ CÔNG TÁC KIỂM SÁT ♥
@@ -351,7 +351,7 @@
     <div id="dashboard-page">
         <div class="header">
             <div class="header-left">
-                <h1>QUY TRÌNH NGHIỆP VỤ KIỂM SÁT</h1>
+                <h1>KỸ NĂNG ỨNG DỤNG TRONG NGHIỆP VỤ KIỂM SÁT</h1>
                 <div class="header-underline"></div>
             </div>
         </div>
@@ -359,7 +359,7 @@
         <footer class="site-footer">
             <p class="footer-author"><span>Viện Kiểm sát nhân dân thành phố Cần Thơ</span></p>
             <p class="footer-unit"></p>
-            <p class="footer-copy">&copy; 2025 — Hệ thống Quy trình nghiệp vụ Kiểm sát</p>
+            <p class="footer-copy">&copy; 2025 — Hệ thống Kỹ năng nghiệp vụ Kiểm sát</p>
         </footer>
     </div>
 
@@ -375,7 +375,7 @@
 
     <div class="os-taskbar" id="os-taskbar">
         <div class="os-taskbar-left">
-            <div class="os-taskbar-start" onclick="closeTool()">⬥ Quy trình</div>
+            <div class="os-taskbar-start" onclick="closeTool()">⬥ Danh mục chính</div>
             <div class="os-taskbar-breadcrumb" id="taskbar-breadcrumb"></div>
         </div>
         <div class="os-taskbar-right"><span class="os-clock" id="os-clock">00:00</span></div>
@@ -482,7 +482,7 @@
         }
 
         function updateBreadcrumb(){
-            var h='<span class="breadcrumb-item" onclick="closeTool()">Quy trình</span><span class="breadcrumb-sep">›</span><span class="breadcrumb-item" onclick="closeTool()">Menu chính</span>';
+            var h='<span class="breadcrumb-item" onclick="closeTool()">Kỹ năng</span><span class="breadcrumb-sep">›</span><span class="breadcrumb-item" onclick="closeTool()">Menu chính</span>';
             if(currentToolId) h+='<span class="breadcrumb-sep">›</span><span class="breadcrumb-item active">'+activeToolTitle+'</span>';
             breadcrumb.innerHTML=h;
         }
