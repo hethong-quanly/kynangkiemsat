@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bộ Công Cụ Nghiệp Vụ - VKSND</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        proc: {
+                            blue: '#1d4ed8',
+                            neon: '#06b6d4',
+                            gold: '#f59e0b'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Inter Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --sky: #5da9d9; --sky-light: #a8d4f0; --sky-dark: #1e5a8a;
+            --bronze: #c9952e; --bronze-light: #e8c675;
+            --plum: #7b2d42; --plum-dark: #5a1f30; --plum-light: #a84560;
+            --taskbar-height: 42px;
+            --teal-50: #f0fdfa; --teal-100: #ccfbf1; --teal-500: #14b8a6; --teal-600: #0d9488;
+            --slate-50: #f8fafc; --slate-100: #f1f5f9; --slate-200: #e2e8f0;
+            --slate-300: #cbd5e1; --slate-400: #94a3b8; --slate-500: #64748b;
+            --slate-600: #475569; --slate-700: #334155; --slate-800: #1e293b;
+            --bg-body: #eef7f9;
+            --proc-blue: #6b8acb; --proc-dark: #4c6aa8;
+        }
+        * { box-sizing: border-box; }
+        body {
+            margin: 0; font-family: 'Be Vietnam Pro', Arial, sans-serif;
+            color: var(--slate-800); min-height: 100vh;
+            background: var(--bg-body); overflow-x: hidden;
+        }
+
+        /* ===== LANDING PAGE - GLASS CORE + CONCENTRIC WAVES ===== */
+        #landing-page {
+            font-family: 'Inter', sans-serif;
+            background: radial-gradient(circle at center, #ffffff 0%, #c5d9ec 40%, #8db4d4 100%);
+        }
+        body.landing-locked {
+            overflow: hidden;
+        }
+
+        /* Lưới công nghệ mờ siêu mảnh */
+        .tech-grid {
+            background-image: 
+                radial-gradient(rgba(30, 64, 175, 0.06) 1px, transparent 1px),
+                linear-gradient(to right, rgba(30, 64, 175, 0.015) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(30, 64, 175, 0.015) 1px, transparent 1px);
+            background-size: 32px 32px, 96px 96px, 96px 96px;
+            background-position: center center;
+        }
+
+        /* Sóng tròn đồng tâm lan tỏa (Concentric Ping Rings) */
+        @keyframes ping-ring {
+            0% { transform: translate(-50%, -50%) scale(0.8); opacity: 0.5; }
+            100% { transform: translate(-50%, -50%) scale(1.8); opacity: 0; }
+        }
+        .ping-ring {
+            position: absolute; top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            border-radius: 50%; pointer-events: none;
+            animation: ping-ring 3.5s ease-out infinite;
+        }
+        .ping-ring:nth-child(1) { animation-delay: 0s; }
+        .ping-ring:nth-child(2) { animation-delay: 1.2s; }
+        .ping-ring:nth-child(3) { animation-delay: 2.4s; }
+
+        /* Kính mờ cao cấp cho Logo */
+        .glass-core {
+            position: relative;
+            background: transparent;
+            transition: all 0.5s ease-out;
+            overflow: hidden;
+        }
+        .glass-core:hover {
+            transform: scale(1.05);
+        }
+
+        /* Ping rings rõ hơn */
+        .ping-ring:nth-child(1) { border-width: 3px; border-color: rgba(59, 130, 246, 0.2); }
+        .ping-ring:nth-child(2) { border-width: 2px; border-color: rgba(59, 130, 246, 0.15); }
+        .ping-ring:nth-child(3) { border-width: 2px; border-color: rgba(59, 130, 246, 0.2); }
+
+        /* ===== DASHBOARD - BENTO GRID ===== */
+        #dashboard-page {
+            display: none; opacity: 0; transition: opacity 0.5s ease;
+            padding: 20px 24px calc(var(--taskbar-height) + 30px);
+            max-width: 1280px; margin: 0 auto; min-height: 100vh;
+        }
+        #dashboard-page.visible-layout { display: flex; flex-direction: column; }
+
+        .header {
+            display: flex; align-items: center; justify-content: space-between;
+            padding: 16px 0 20px; flex-wrap: wrap; gap: 12px;
+        }
+        .header-left h1 {
+            font-size: clamp(18px,3vw,24px); font-weight: 800;
+            color: var(--slate-800); margin: 0; letter-spacing: 0.5px;
+        }
+        .header-left p {
+            font-size: 12px; color: var(--slate-400); margin: 4px 0 0;
+            font-weight: 500; letter-spacing: 0.5px;
+        }
+        .header-underline {
+            height: 3px; width: clamp(160px, 28vw, 360px);
+            background: linear-gradient(to right, transparent, var(--proc-blue), var(--proc-dark), var(--proc-blue), transparent);
+            margin: 10px 0 4px; border-radius: 2px;
+            position: relative;
+        }
+        .header-underline::after {
+            content: ''; position: absolute; top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            width: 8px; height: 8px; border-radius: 50%;
+            background: var(--proc-blue);
+            box-shadow: 0 0 8px var(--proc-blue), 0 0 16px rgba(107,138,203,0.5);
+        }
+
+        .bento-grid {
+            display: grid; grid-template-columns: repeat(12, 1fr);
+            gap: 16px; flex: 1;
+        }
+        .span-4 { grid-column: span 4; }
+        .span-5 { grid-column: span 5; }
+        .span-7 { grid-column: span 7; }
+        .span-12 { grid-column: span 12; }
+
+        .bento-card {
+            background: #fff; border: 1px solid rgba(203,213,225,0.45);
+            border-radius: 24px; padding: 20px 20px 18px;
+            box-shadow: 0 4px 20px -2px rgba(148,163,184,0.08), 0 2px 8px -1px rgba(148,163,184,0.04);
+            transition: all 0.3s cubic-bezier(0.4,0,0.2,1);
+            cursor: pointer; display: flex; flex-direction: column; justify-content: space-between;
+            min-height: 150px; position: relative; overflow: hidden;
+        }
+        .bento-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 25px -5px rgba(148,163,184,0.15), 0 8px 10px -6px rgba(148,163,184,0.1);
+        }
+        .bento-card.disabled {
+            cursor: not-allowed; pointer-events: none;
+            background: var(--slate-50); border-style: dashed;
+            border-color: var(--slate-300); opacity: 0.7;
+        }
+        .bento-card.disabled:hover { transform: none; box-shadow: 0 4px 20px -2px rgba(148,163,184,0.08); }
+
+        .bento-card-top { display: flex; align-items: flex-start; justify-content: space-between; }
+        .bento-card-badge {
+            display: inline-flex; padding: 3px 10px; font-size: 10px; font-weight: 700;
+            letter-spacing: 1.5px; text-transform: uppercase; border-radius: 20px; white-space: nowrap;
+        }
+        .badge-teal { background: var(--teal-50); color: var(--teal-600); }
+        .badge-amber { background: #fffbeb; color: #b45309; }
+        .badge-purple { background: #faf5ff; color: #7e22ce; }
+        .badge-emerald { background: #ecfdf5; color: #047857; }
+        .badge-slate { background: #f1f5f9; color: #64748b; }
+
+        .bento-card-title {
+            font-size: 15px; font-weight: 800; color: var(--slate-800);
+            margin: 10px 0 6px; line-height: 1.3;
+        }
+        .bento-card-desc { font-size: 12px; color: var(--slate-400); line-height: 1.5; margin: 0; }
+        .bento-card-footer {
+            margin-top: 14px; padding-top: 12px; border-top: 1px solid var(--slate-100);
+            font-size: 11px; color: var(--slate-400); display: flex; align-items: center; gap: 6px; font-weight: 500;
+        }
+        .bento-card.accent-vip {
+            border-color: rgba(245,158,11,0.35);
+            background: linear-gradient(135deg,#fff,#fffbeb);
+        }
+
+        /* Bento animations */
+        @keyframes draw-path { 0% { stroke-dashoffset: 100; } 100% { stroke-dashoffset: 0; } }
+        .anim-chart-path { stroke-dasharray: 100; stroke-dashoffset: 100; animation: draw-path 3s ease-out infinite alternate; }
+        @keyframes pulse-dot { 0%,100% { transform: scale(1); opacity: 1; } 50% { transform: scale(1.5); opacity: 0.6; } }
+        .anim-pulse-dot { animation: pulse-dot 1.5s infinite ease-in-out; }
+        @keyframes grow-bar { 0% { transform: scaleY(0.2); } 100% { transform: scaleY(1); } }
+        .bar-a1 { animation: grow-bar 1.2s ease-out infinite alternate; transform-origin: bottom; }
+        .bar-a2 { animation: grow-bar 1.6s ease-out infinite alternate; transform-origin: bottom; }
+        .bar-a3 { animation: grow-bar 1s ease-out infinite alternate; transform-origin: bottom; }
+        .bar-a4 { animation: grow-bar 1.4s ease-out infinite alternate; transform-origin: bottom; }
+        @keyframes laser-scan { 0%,100% { transform: translateY(0); } 50% { transform: translateY(38px); } }
+        .anim-scan-line { animation: laser-scan 2s ease-in-out infinite; }
+        @keyframes spin-slow { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+        .anim-spin-slow { animation: spin-slow 12s linear infinite; transform-origin: center; }
+        @keyframes pulse-glow { 0%,100% { filter: drop-shadow(0 0 1px rgba(139,92,246,0.4)); } 50% { filter: drop-shadow(0 0 6px rgba(139,92,246,0.8)); } }
+        .anim-ai-glow { animation: pulse-glow 2s infinite ease-in-out; }
+        @keyframes rotate-ring { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+        .anim-rotate-ring { animation: rotate-ring 8s linear infinite; transform-origin: 24px 24px; }
+        @keyframes spin-clock { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+        .anim-spin-clock { animation: spin-clock 12s linear infinite; transform-origin: 12px 12px; }
+        @keyframes expand-node { 0%,100% { transform: scale(0.9); } 50% { transform: scale(1.1); } }
+        .anim-node-pulse { animation: expand-node 2.5s infinite ease-in-out; transform-origin: center; }
+        @keyframes slide-cover { 0%,100% { width: 0%; } 50% { width: 100%; } }
+        .anim-censor-bar { animation: slide-cover 2.5s ease-in-out infinite; }
+        @keyframes soft-pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.5; } }
+        .anim-soft-pulse { animation: soft-pulse 2s infinite ease-in-out; }
+        @keyframes arrow-bounce { 0%,100% { transform: translateX(0); } 50% { transform: translateX(4px); } }
+        .anim-arrow-bounce { animation: arrow-bounce 1.2s infinite ease-in-out; }
+        @keyframes icon-bounce { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-4px); } }
+        .anim-icon-bounce { animation: icon-bounce 1.5s infinite ease-in-out; }
+        @keyframes radar-pulse { 0% { r: 2px; opacity: 1; } 100% { r: 28px; opacity: 0; } }
+        .anim-radar-pulse { animation: radar-pulse 2s cubic-bezier(0.1,0.8,0.3,1) infinite; }
+
+        .bento-illust { width: 56px; height: 48px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+
+        /* Site Footer */
+        .site-footer {
+            text-align: center; padding: 30px 20px 40px;
+            border-top: 1px solid var(--slate-200); margin-top: 28px;
+        }
+        .site-footer .footer-author { font-size: 13px; font-weight: 600; color: var(--slate-600); margin: 0; }
+        .site-footer .footer-author span { color: var(--teal-600); font-weight: 700; }
+        .site-footer .footer-unit { font-size: 12px; color: var(--slate-500); margin: 4px 0; }
+        .site-footer .footer-copy { font-size: 10px; color: var(--slate-400); letter-spacing: 1.5px; text-transform: uppercase; margin: 2px 0 0; }
+
+        /* ===== OS WORKSPACE ===== */
+        #os-workspace {
+            display: none; position: fixed; top: 0; left: 0; right: 0;
+            bottom: var(--taskbar-height); z-index: 500; background: #fff;
+            opacity: 0; transition: opacity 0.4s ease;
+        }
+        #os-workspace.visible { display: block; opacity: 1; }
+        #os-workspace iframe { width: 100%; height: 100%; border: none; background: #fff; }
+        .os-loading {
+            position: fixed; top: 0; left: 0; right: 0; bottom: var(--taskbar-height);
+            z-index: 550; display: none; align-items: center; justify-content: center;
+            background: rgba(255,255,255,0.85); backdrop-filter: blur(2px);
+        }
+        .os-loading.visible { display: flex; }
+        .os-loading-spinner {
+            width: 48px; height: 48px; border: 4px solid var(--sky-light);
+            border-top-color: var(--sky-dark); border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+        }
+        @keyframes spin { to { transform: rotate(360deg); } }
+        .os-window-header {
+            position: absolute; top: 0; left: 0; right: 0; z-index: 10;
+            display: none; align-items: center; padding: 8px 16px;
+            background: linear-gradient(135deg, var(--sky-dark), var(--plum-dark));
+            color: #fff; font-size: 13px; font-weight: 700; gap: 10px; height: 44px;
+        }
+        .os-window-header.visible { display: flex; }
+        .os-window-header .win-title { flex: 1; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+        .os-window-header .win-close { cursor: pointer; padding: 4px 10px; border-radius: 6px; background: rgba(255,255,255,0.15); font-size: 16px; line-height: 1; transition: background 0.2s; }
+        .os-window-header .win-close:hover { background: rgba(255,50,50,0.4); }
+
+        .os-taskbar {
+            position: fixed; bottom: 0; left: 0; right: 0; z-index: 1001;
+            height: var(--taskbar-height);
+            background: linear-gradient(135deg, rgba(30,90,138,0.95), rgba(90,31,48,0.95));
+            backdrop-filter: blur(12px); display: none; align-items: center;
+            justify-content: space-between; padding: 0 16px;
+            border-top: 2px solid var(--bronze); box-shadow: 0 -4px 20px rgba(0,0,0,0.25);
+            font-size: 12px; color: var(--bronze-light); user-select: none;
+        }
+        .os-taskbar.visible { display: flex; }
+        .os-taskbar-left { display: flex; align-items: center; gap: 6px; flex-shrink: 0; }
+        .os-taskbar-start {
+            display: flex; align-items: center; gap: 8px; padding: 5px 14px;
+            border-radius: 6px; background: rgba(255,255,255,0.1); color: #fff;
+            font-weight: 700; font-size: 13px; cursor: pointer; transition: background 0.2s;
+            border: 1px solid rgba(255,255,255,0.08);
+        }
+        .os-taskbar-start:hover { background: rgba(255,255,255,0.2); }
+        .os-taskbar-breadcrumb { display: flex; align-items: center; gap: 4px; font-size: 12px; color: rgba(255,255,255,0.7); flex: 1; overflow: hidden; }
+        .os-taskbar-breadcrumb .breadcrumb-item {
+            padding: 3px 7px; border-radius: 4px; cursor: pointer; font-weight: 600;
+            white-space: nowrap; transition: background 0.2s, color 0.2s; color: rgba(255,255,255,0.6);
+        }
+        .os-taskbar-breadcrumb .breadcrumb-item:hover { background: rgba(255,255,255,0.12); color: #fff; }
+        .os-taskbar-breadcrumb .breadcrumb-item.active { color: var(--bronze-light); cursor: default; }
+        .os-taskbar-breadcrumb .breadcrumb-sep { color: rgba(255,255,255,0.35); font-size: 14px; font-weight: 300; flex-shrink: 0; }
+        .os-taskbar-right { display: flex; align-items: center; gap: 10px; font-size: 12px; color: rgba(255,255,255,0.7); min-width: 120px; justify-content: flex-end; flex-shrink: 0; }
+        .os-clock { font-weight: 600; color: #fff; font-size: 13px; letter-spacing: 0.5px; }
+
+        @media (max-width: 1024px) {
+            .bento-grid { grid-template-columns: repeat(6, 1fr); }
+            .span-4, .span-5, .span-7 { grid-column: span 6; }
+            .span-12 { grid-column: span 6; }
+        }
+        @media (max-width: 640px) {
+            .bento-grid { grid-template-columns: 1fr; }
+            .span-4, .span-5, .span-7, .span-12 { grid-column: span 1; }
+            #dashboard-page { padding: 12px 12px calc(var(--taskbar-height) + 20px); }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ===== LANDING PAGE - NEURAL MODE ===== -->
+    <div id="landing-page" class="relative w-screen h-screen flex items-center justify-center select-none">
+
+        <!-- LỚP NỀN CÔNG NGHỆ -->
+        <div class="absolute inset-0 z-0 overflow-hidden">
+            <div class="absolute inset-0 tech-grid"></div>
+        </div>
+
+        <!-- TRUNG TÂM (ping rings chung tâm logo + logo + text) -->
+        <div class="relative z-10 flex flex-col items-center justify-center">
+            
+            <!-- LOGO TRONG KHUNG KÍNH MỜ + METALLIC SWEEP -->
+            <div class="relative w-[480px] h-[480px] flex items-center justify-center cursor-pointer group z-10" onclick="showTools()">
+                
+                <!-- VÒNG SÓNG LAN TỎA (CONCENTRIC PING) - absolute trong logo container, chung tâm -->
+                <div class="ping-ring w-[800px] h-[800px]"></div>
+                <div class="ping-ring w-[640px] h-[640px]"></div>
+                <div class="ping-ring w-[520px] h-[520px]"></div>
+
+                <!-- Bệ kính mờ logo -->
+                <div class="glass-core w-[340px] h-[340px] rounded-full flex items-center justify-center p-[30px] overflow-hidden">
+                    
+                    <!-- Logo chính -->
+                    <img class="w-[220px] h-[220px] object-contain relative z-20 transition-transform duration-500 ease-out group-hover:scale-[1.05]" 
+                         src=".\static\logo_moi.png" 
+                         alt="Phù hiệu VKSND">
+
+                    <!-- Metallic Sweep - quét sáng khi hover -->
+                    <div class="absolute inset-0 w-[200%] h-full bg-gradient-to-r from-transparent via-white/50 to-transparent -translate-x-full -rotate-45 transition-transform duration-1000 ease-out group-hover:translate-x-full z-30"></div>
+                </div>
+            </div>
+
+            <!-- THÔNG TIN VĂN BẢN -->
+            <div class="text-center mt-2 space-y-2">
+                <h2 class="text-[13px] font-bold text-slate-400 tracking-[0.35em] uppercase">Viện Kiểm Sát Nhân Dân</h2>
+                <h1 class="text-[29px] md:text-[34px] font-extrabold tracking-wide text-slate-800">
+                    BỘ CÔNG CỤ <span class="bg-gradient-to-r from-proc-blue to-proc-neon bg-clip-text text-transparent">NGHIỆP VỤ</span>
+                </h1>
+                <p class="text-[12px] font-bold text-proc-neon tracking-widest uppercase animate-pulse pt-1" onclick="showTools()" style="cursor:pointer;">
+                    — BẤM VÀO LOGO ĐỂ TRUY CẬP —
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== DASHBOARD ===== -->
+    <div id="dashboard-page">
+        <div class="header">
+            <div class="header-left">
+                <h1>BỘ CÔNG CỤ HỖ TRỢ NGHIỆP VỤ KIỂM SÁT</h1>
+                <div class="header-underline"></div>
+            </div>
+        </div>
+        <div class="bento-grid" id="tools-grid"></div>
+        <footer class="site-footer">
+            <p class="footer-author"><span>Viện Kiểm sát nhân dân thành phố Cần Thơ</span></p>
+            <p class="footer-unit"></p>
+            <p class="footer-copy">&copy; 2025 — Hệ thống nghiệp vụ ngành Kiểm sát nhân dân</p>
+        </footer>
+    </div>
+
+    <!-- ===== OS WORKSPACE ===== -->
+    <div id="os-workspace">
+        <div class="os-window-header" id="os-window-header">
+            <span class="win-title" id="win-title">Công cụ</span>
+            <span class="win-close" onclick="closeTool()">✕</span>
+        </div>
+        <iframe id="tool-iframe" src="" title="Công cụ" allow="clipboard-read; clipboard-write"></iframe>
+    </div>
+    <div class="os-loading" id="os-loading"><div class="os-loading-spinner"></div></div>
+
+    <div class="os-taskbar" id="os-taskbar">
+        <div class="os-taskbar-left">
+            <div class="os-taskbar-start" onclick="closeTool()">⬥ Bộ công cụ</div>
+            <div class="os-taskbar-breadcrumb" id="taskbar-breadcrumb"></div>
+        </div>
+        <div class="os-taskbar-right"><span class="os-clock" id="os-clock">00:00</span></div>
+    </div>
+
+    <script>
+        var ILLUST = {
+            chartWave: '<svg viewBox="0 0 60 30" fill="none" style="width:60px;height:30px;"><path class="anim-chart-path" d="M5,25 Q15,5 30,18 T55,5" stroke="#14b8a6" stroke-width="2.5" stroke-linecap="round"/><circle class="anim-pulse-dot" cx="55" cy="5" r="3" fill="#14b8a6"/></svg>',
+            bars: '<div style="display:flex;align-items:flex-end;gap:2px;height:32px;width:40px;"><div class="bar-a1" style="width:7px;background:#c084fc;border-radius:2px 2px 0 0;height:14px;"></div><div class="bar-a2" style="width:7px;background:#a855f7;border-radius:2px 2px 0 0;height:28px;"></div><div class="bar-a3" style="width:7px;background:#c4b5fd;border-radius:2px 2px 0 0;height:20px;"></div><div class="bar-a4" style="width:7px;background:#9333ea;border-radius:2px 2px 0 0;height:32px;"></div></div>',
+            laser: '<div style="width:44px;height:44px;background:#f8fafc;border-radius:8px;border:1px solid #e2e8f0;overflow:hidden;position:relative;"><div style="position:absolute;top:6px;left:8px;right:8px;"><div style="height:3px;background:#cbd5e1;width:100%;margin-bottom:4px;border-radius:1px;"></div><div style="height:3px;background:#cbd5e1;width:80%;margin-bottom:4px;border-radius:1px;"></div><div style="height:3px;background:#cbd5e1;width:65%;border-radius:1px;"></div></div><div class="anim-scan-line" style="position:absolute;top:0;left:0;right:0;height:2px;background:#f59e0b;box-shadow:0 0 8px #f59e0b;"></div></div>',
+            shield: '<svg viewBox="0 0 64 64" style="width:56px;height:56px;"><circle class="anim-spin-slow" cx="32" cy="32" r="26" fill="none" stroke="#fbbf24" stroke-width="1.5" stroke-dasharray="6,4" opacity="0.5"/><rect x="22" y="20" width="20" height="28" rx="6" fill="#fef3c7" stroke="#f59e0b" stroke-width="2"/><path d="M27 32l4 4 6-8" stroke="#b45309" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>',
+            aiNodes: '<svg viewBox="0 0 48 48" style="width:48px;height:48px;"><circle class="anim-rotate-ring" cx="24" cy="24" r="18" stroke="#e9d5ff" stroke-width="1.5" stroke-dasharray="5,3" fill="none"/><circle class="anim-ai-glow" cx="24" cy="24" r="10" fill="#9333ea"/><path d="M20 22l3 3 5-5" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>',
+            clockIcon: '<svg viewBox="0 0 24 24" style="width:40px;height:40px;" fill="none" stroke="#0ea5e9" stroke-width="2"><circle cx="12" cy="12" r="10"/><line class="anim-spin-clock" x1="12" y1="12" x2="12" y2="6" stroke-linecap="round"/></svg>',
+            mindmap: '<svg viewBox="0 0 60 40" style="width:48px;height:32px;" fill="none" stroke="#10b981" stroke-width="2"><circle class="anim-node-pulse" cx="14" cy="20" r="6" fill="#10b981"/><circle cx="44" cy="10" r="5" fill="#fff" stroke="#10b981"/><circle cx="44" cy="30" r="5" fill="#fff" stroke="#10b981"/><line x1="20" y1="20" x2="39" y2="10" stroke-dasharray="2,2"/><line x1="20" y1="20" x2="39" y2="30" stroke-dasharray="2,2"/></svg>',
+            censor: '<div style="width:48px;height:32px;background:#f8fafc;border-radius:6px;border:1px solid #e2e8f0;padding:6px;position:relative;overflow:hidden;"><div style="height:4px;background:#cbd5e1;width:100%;margin-bottom:4px;border-radius:1px;"></div><div style="height:4px;background:#cbd5e1;width:70%;border-radius:1px;position:relative;"><div class="anim-censor-bar" style="position:absolute;top:0;left:0;height:100%;background:#1e293b;border-radius:1px;"></div></div></div>',
+            rename: '<svg viewBox="0 0 24 24" style="width:36px;height:36px;" fill="none" stroke="#f97316" stroke-width="2"><path class="anim-soft-pulse" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/></svg>',
+            convert: '<div style="display:flex;align-items:center;gap:4px;font-size:10px;font-weight:700;"><span style="color:#0284c7;">DOCX</span><svg class="anim-arrow-bounce" viewBox="0 0 24 24" style="width:16px;height:16px;" fill="none" stroke="#14b8a6" stroke-width="2.5"><path d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg><span style="color:#059669;">MD</span></div>',
+            scan: '<svg viewBox="0 0 24 24" style="width:36px;height:36px;" fill="none" stroke="#8b5cf6" stroke-width="2"><circle class="anim-icon-bounce" cx="11" cy="11" r="7"/><path d="M21 21l-4.35-4.35"/><path d="M8 11h6"/><path d="M11 8v6"/></svg>',
+            radarPulse: '<svg viewBox="0 0 56 56" style="width:48px;height:48px;"><circle class="anim-radar-pulse" cx="28" cy="28" r="2" fill="rgba(20,184,166,0.3)"/><circle cx="28" cy="28" r="5" fill="#14b8a6"/></svg>'
+        };
+
+        var TOOLS = [
+            { id:'tinh-lai-suat', span:'span-4', badge:'CÔNG CỤ', badgeClass:'badge-teal', title:'Tính lãi suất', desc:'Tự động tính tiền lãi trong hạn, lãi quá hạn, lãi chậm trả trong giao dịch dân sự.', illust:ILLUST.chartWave, url:'Tool/App_tinh_lai_suat/index.html', accent:'', footer:'' },
+            { id:'tinh-an-phi', span:'span-4', badge:'CÔNG CỤ', badgeClass:'badge-teal', title:'Tính án phí', desc:'Tra cứu và tự động tính nhanh số tiền án phí hình sự và dân sự.', illust:ILLUST.bars, url:'Tool/App_DS/index.html', accent:'', footer:'' },
+            { id:'kiem-sat-ban-an-chung', span:'span-4', badge:'CÔNG CỤ', badgeClass:'badge-teal', title:'Kiểm sát Bản án hình sự, dân sự', desc:'Đối chiếu phát hiện lỗi chính tả, mâu thuẫn, vi phạm, thiếu sót trong Bản án hình sự, dân sự (bản miễn phí - dùng chung cho các đơn vị).', illust:ILLUST.laser, url:'https://udify.app/chat/FoGbxKbFMFZSylhe', accent:'', footer:'' },
+            { id:'kiem-sat-ban-an-nang-cao', span:'span-7', badge:'ĐỘC QUYỀN VIP', badgeClass:'badge-amber', title:'Kiểm sát Bản án hình sự, dân sự', desc:'Bản nâng cấp tối ưu đặc biệt.', illust:ILLUST.shield, url:'https://udify.app/chat/Ho3TdpoYQ9OjTbIq', accent:'accent-vip', footer:'<span>Phiên bản chuyên biệt</span><span style="margin-left:auto;">Dành riêng Viện KSND KV5 Bắc Ninh</span>' },
+            { id:'notebook-lm', span:'span-5', badge:'TRỢ LÝ ẢO AI', badgeClass:'badge-purple', title:'Hình sự & Tố tụng hình sự', desc:'Tra cứu Điều luật, hỗ trợ lập luận tố tụng dựa trên kho tri thức hiện hành.', illust:ILLUST.aiNodes, url:'https://notebooklm.google.com/notebook/af52b719-3125-4b4e-aaad-93432843b0ee', accent:'', newTab:true, footer:'<span>Nền tảng tri thức</span><span style="margin-left:auto;font-weight:700;color:#7e22ce;">notebookLM</span>' },
+            { id:'tinh-tuoi-thoi-han', span:'span-4', badge:'CÔNG CỤ', badgeClass:'badge-teal', title:'Tính tuổi — Tính thời hạn', desc:'Tự động tính tuổi của đối tượng, tính chính xác ngày tháng năm, giờ phút, kiểm soát chặt chẽ thời hạn tạm giữ, tạm giam tố tụng.', illust:ILLUST.clockIcon, url:'Data/TinhTuoiThoiHan.html', accent:'', footer:'' },
+            { id:'huong-dan-so-do-tu-duy', span:'span-4', badge:'HƯỚNG DẪN', badgeClass:'badge-emerald', title:'Tạo sơ đồ tư duy', desc:'Thao tác chi tiết và bộ promt mẫu để tạo sơ đồ tư duy tự động.', illust:ILLUST.mindmap, url:'Data/HuongDan.html', accent:'', footer:'' },
+            { id:'an-danh-tool', span:'span-4', badge:'CÔNG CỤ', badgeClass:'badge-teal', title:'Tự động che thông tin - không kết nối mạng', desc:'Tự động ẩn toàn bộ thông tin cá nhân trong văn bản trước khi công bố hoặc giao cho AI xử lý.', illust:ILLUST.censor, url:'Tool/AnDanh/index.html', accent:'', footer:'Phát triển bởi Trần Huy — Viện KSND KV11, Đắk Lắk' },
+            { id:'file-renamer-tool', span:'span-4', badge:'CÔNG CỤ', badgeClass:'badge-teal', title:'Tự động đổi tên file - không kết nối mạng', desc:'Tự động sửa tên file để AI dễ tiếp cận hoặc cho phép đổi tên file hàng loạt (ví dụ: Đánh số bút lục, tài liệu).', illust:ILLUST.rename, url:'Tool/FileRenamer/index.html', accent:'', footer:'' },
+            { id:'docx-to-md-tool', span:'span-4', badge:'CÔNG CỤ', badgeClass:'badge-teal', title:'Chuyển file doc, docx sang Markdown - không kết nối mạng', desc:'Dùng python tự động chuyển đổi file doc, docx sang dạng Markdown trước khi chuyển cho AI xử lý.', illust:ILLUST.convert, url:'Tool/DocxToMd/index.html', accent:'', footer:'' },
+            { id:'ocr-pdf-tool', span:'span-4', badge:'CÔNG CỤ', badgeClass:'badge-teal', title:'Nhận dạng chữ trong fille PDF, file ảnh - không kết nối mạng', desc:'Tự động trích xuất chữ từ file pdf, file ảnh mà không cần kết nối mạng, cho phép chọn đầu ra (word, md, txt).', illust:ILLUST.scan, url:'Tool/OCR_PDF_Tool/index.html', accent:'', footer:'' }
+        ];
+
+        var isDashboardVisible=false, isInToolView=false, currentToolId=null, activeToolTitle='';
+        var landing=document.getElementById('landing-page');
+        var dashboard=document.getElementById('dashboard-page');
+        var osWorkspace=document.getElementById('os-workspace');
+        var osTaskbar=document.getElementById('os-taskbar');
+        var toolIframe=document.getElementById('tool-iframe');
+        var osLoading=document.getElementById('os-loading');
+        var winTitle=document.getElementById('win-title');
+        var osClock=document.getElementById('os-clock');
+        var breadcrumb=document.getElementById('taskbar-breadcrumb');
+        var toolsGrid=document.getElementById('tools-grid');
+
+        function init(){ renderToolCards(); startClock(); document.body.classList.add('landing-locked'); }
+
+        function fadeToDashboard(){
+            document.body.classList.remove('landing-locked');
+            landing.style.opacity='0';
+            setTimeout(function(){ landing.style.display='none'; dashboard.style.display='flex'; dashboard.classList.add('visible-layout'); setTimeout(function(){ dashboard.style.opacity='1'; },50); isDashboardVisible=true; },500);
+        }
+        function fadeToLanding(){
+            if(isInToolView) closeToolInternal();
+            document.body.classList.add('landing-locked');
+            dashboard.style.opacity='0';
+            setTimeout(function(){ dashboard.style.display='none'; dashboard.classList.remove('visible-layout'); landing.style.display='flex'; setTimeout(function(){ landing.style.opacity='1'; },50); isDashboardVisible=false; },500);
+        }
+
+        function renderToolCards(){
+            var html='';
+            for(var i=0;i<TOOLS.length;i++){
+                var t=TOOLS[i];
+                html+='<div class="bento-card '+t.span+' '+t.accent+'" data-tool-id="'+t.id+'" onclick="openTool(\''+t.id+'\')">';
+                html+='<div>';
+                html+='<div class="bento-card-top"><div>';
+                html+='<span class="bento-card-badge '+t.badgeClass+'">'+t.badge+'</span>';
+                html+='<h3 class="bento-card-title">'+t.title+'</h3></div>';
+                html+='<div class="bento-illust">'+t.illust+'</div></div>';
+                html+='<p class="bento-card-desc">'+t.desc+'</p></div>';
+                if(t.footer) html+='<div class="bento-card-footer">'+t.footer+'</div>';
+                html+='</div>';
+            }
+            html+='<div class="bento-card span-12 disabled"><div style="display:flex;align-items:flex-start;justify-content:space-between;"><div>';
+            html+='<span class="bento-card-badge badge-slate">ĐANG PHÁT TRIỂN, SẮP PHÁT HÀNH</span>';
+            html+='<h3 class="bento-card-title" style="color:#94a3b8;">Công cụ tự động soạn thảo Quyết định phân công KSV - từ Thông báo thụ lý, Quyết định thi hành án (scan)</h3>';
+            html+='<p class="bento-card-desc" style="color:#94a3b8;">Tự động đọc và trích xuất thông tin từ Thông báo thụ lý, QĐ thi hành án hình sự/ dân sự và soạn thảo QĐ phân công KSV, trích thông tin để nhập sổ quản lý của khâu công tác.</p></div>';
+            html+='<div class="bento-illust">'+ILLUST.radarPulse+'</div></div></div>';
+            toolsGrid.innerHTML=html;
+        }
+
+        function showTools(){ fadeToDashboard(); }
+        function showLanding(){ fadeToLanding(); }
+
+        function openTool(toolId){
+            var tool=null;
+            for(var i=0;i<TOOLS.length;i++){ if(TOOLS[i].id===toolId){ tool=TOOLS[i]; break; } }
+            if(!tool) return;
+            if(tool.newTab){ window.open(tool.url,'_blank'); return; }
+            currentToolId=toolId; activeToolTitle=tool.title; isInToolView=true;
+            dashboard.style.opacity='0'; dashboard.style.display='none'; dashboard.classList.remove('visible-layout');
+            osLoading.classList.add('visible'); osWorkspace.style.display='block'; osTaskbar.classList.add('visible');
+            winTitle.textContent=tool.title; updateBreadcrumb(); toolIframe.src=tool.url;
+            toolIframe.onload=function(){ osLoading.classList.remove('visible'); osWorkspace.classList.add('visible'); };
+            setTimeout(function(){ osLoading.classList.remove('visible'); osWorkspace.classList.add('visible'); },10000);
+            isDashboardVisible=false;
+        }
+        function closeTool(){ closeToolInternal(); dashboard.style.display='flex'; dashboard.classList.add('visible-layout'); setTimeout(function(){ dashboard.style.opacity='1'; },50); isDashboardVisible=true; }
+        function closeToolInternal(){
+            isInToolView=false; currentToolId=null; osWorkspace.classList.remove('visible'); osWorkspace.style.display='none';
+            toolIframe.src=''; toolIframe.onload=null; osTaskbar.classList.remove('visible'); osLoading.classList.remove('visible'); updateBreadcrumb();
+        }
+
+        function updateBreadcrumb(){
+            var h='<span class="breadcrumb-item" onclick="closeTool()">Bộ công cụ</span><span class="breadcrumb-sep">›</span><span class="breadcrumb-item" onclick="closeTool()">Menu chính</span>';
+            if(currentToolId) h+='<span class="breadcrumb-sep">›</span><span class="breadcrumb-item active">'+activeToolTitle+'</span>';
+            breadcrumb.innerHTML=h;
+        }
+        function startClock(){ updateClock(); setInterval(updateClock,1000); }
+        function updateClock(){
+            var n=new Date(), days=['CN','T2','T3','T4','T5','T6','T7'];
+            osClock.textContent=days[n.getDay()]+', '+String(n.getDate()).padStart(2,'0')+'/'+String(n.getMonth()+1).padStart(2,'0')+' '+String(n.getHours()).padStart(2,'0')+':'+String(n.getMinutes()).padStart(2,'0');
+        }
+
+        window.addEventListener('message',function(e){});
+        setInterval(function(){ if(!isInToolView) return; try{ var d=toolIframe.contentDocument||toolIframe.contentWindow.document; if(d&&d.body){} }catch(e){} },2000);
+        document.addEventListener('keydown',function(e){ if(e.key==='Escape'&&isInToolView) closeTool(); });
+
+        init();
+    </script>
+</body>
+</html>
