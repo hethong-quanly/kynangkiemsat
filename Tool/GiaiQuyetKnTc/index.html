@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Thời hạn KN-TC — NHÓM IT · VKSND TP Cần Thơ</title>
+  <title>Kỹ năng giải quyết khiếu nại, tố cáo — NHÓM IT · VKSND TP Cần Thơ</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;700;800&display=swap" rel="stylesheet" />
   <style>
@@ -24,235 +24,1852 @@
     @media (min-width:720px) { .g2 { grid-template-columns:1fr 1fr; } .g3 { grid-template-columns:1fr 1fr 1fr; } }
     .khau { border:1px solid #e2e8f0; background:#f8fafc; border-radius:12px; padding:12px; text-align:left; font:inherit; min-height:72px; }
     .khau.on { background:var(--navy); color:#fff; border-color:var(--navy); }
+    .khau.ks.on { border-color:var(--bronze); }
     .khau small { display:block; opacity:.75; margin-top:4px; font-size:11px; }
     label { display:block; font-size:12px; font-weight:600; color:var(--muted); margin:8px 0 4px; }
-    input, select { width:100%; min-height:42px; border:1px solid var(--line); border-radius:10px; padding:8px 10px; font:inherit; font-size:14px; background:#f8fafc; }
+    input { width:100%; min-height:42px; border:1px solid var(--line); border-radius:10px; padding:8px 10px; font:inherit; font-size:14px; background:#f8fafc; }
     .row { display:flex; flex-wrap:wrap; gap:8px; margin-top:10px; }
     .chip { min-height:40px; padding:0 12px; border-radius:999px; border:1px solid var(--line); background:#fff; font:inherit; font-size:12px; font-weight:700; }
     .chip.on { background:var(--navy); color:#fff; border-color:var(--navy); }
+    .tab { min-height:40px; padding:0 14px; border-radius:999px; border:1px solid var(--line); background:#fff; font:inherit; font-size:12px; font-weight:800; }
+    .tab.on { background:var(--navy); color:#fff; border-color:var(--navy); }
     .btn { display:inline-flex; align-items:center; justify-content:center; min-height:42px; padding:0 14px; border-radius:10px; border:1px solid var(--line); background:#fff; font:inherit; font-weight:700; font-size:13px; }
-    .btn-primary { background:var(--navy); color:#fff; border-color:var(--navy); }
     .hero { border:1px solid #e2e8f0; border-radius:14px; padding:14px; background:var(--paper); }
     .hero b { display:block; font-family:ui-monospace,Menlo,monospace; font-size:18px; color:var(--navy); margin:6px 0; }
+    .hero .span { font-size:10px; font-weight:800; color:var(--bronze); }
     .pill { display:inline-flex; border-radius:999px; padding:2px 8px; font-size:10px; font-weight:800; }
     .ok { background:#f0fdfa; color:var(--teal); } .soon { background:#fffbeb; color:#b45309; } .over { background:#fef2f2; color:var(--crimson); }
     .item { display:flex; justify-content:space-between; gap:12px; padding:10px 0; border-bottom:1px solid #f1f5f9; }
     .item:last-child { border-bottom:0; }
-    ul.plain { margin:8px 0 0; padding:0 0 0 16px; font-size:13px; color:#475569; line-height:1.55; }
+    table { width:100%; border-collapse:collapse; font-size:12px; }
+    th { background:var(--navy); color:#fff; text-align:left; padding:8px 10px; }
+    td { padding:8px 10px; border-bottom:1px solid #f1f5f9; vertical-align:top; }
+    .step { display:flex; gap:12px; margin-top:12px; }
+    .num { width:28px; height:28px; border-radius:50%; background:var(--navy); color:#fff; font-size:10px; font-weight:800; display:flex; align-items:center; justify-content:center; flex-shrink:0; margin-top:2px; }
     .foot { text-align:center; margin-top:18px; font-size:12px; color:var(--muted); }
+    .hide { display:none; }
+    @media print {
+      .hdr, .no-print, .foot { display:none !important; }
+      body { background:#fff; }
+      .card { box-shadow:none; }
+    }
   </style>
 </head>
 <body>
   <header class="hdr">
     <div class="hdr-icon">KN</div>
     <div>
-      <h1>Thời hạn <span>khiếu nại — tố cáo</span></h1>
+      <h1>Kỹ năng giải quyết <span>khiếu nại — tố cáo</span></h1>
       <p>NHÓM IT · Viện KSND thành phố Cần Thơ · Không kết nối mạng</p>
     </div>
   </header>
   <div class="wrap">
-    <p class="muted">Tính hạn thụ lý, xác minh và giải quyết đơn khiếu nại, tố cáo theo BLTTHS, Luật Khiếu nại (sửa 2025), Luật Tố cáo 2018 và Quy định 50/QĐ-VKSTC ngày 20/3/2026. Đối chiếu văn bản gốc trước khi chốt hạn trên sổ.</p>
-    <div class="card">
-      <p class="kicker">1. Loại việc</p>
-      <div class="grid g2" id="tracks"></div>
+    <p class="muted">Tính hạn thụ lý, xác minh, giải quyết; kiểm sát hạn CQĐT/Tòa án; tra cứu toàn bộ thời hạn ngành Kiểm sát theo BLTTHS, Luật Khiếu nại (sửa 2025), Luật Tố cáo và Quy định 50/QĐ-VKSTC ngày 20/3/2026. Đối chiếu văn bản gốc trước khi chốt hạn trên sổ.</p>
+    <div class="row no-print" id="tabs">
+      <button class="tab on" data-tab="tinh" type="button">Tính hạn</button>
+      <button class="tab" data-tab="tra" type="button">Bảng tra cứu</button>
+      <button class="tab" data-tab="quytrinh" type="button">Quy trình kỹ năng</button>
+      <button class="tab" data-tab="so" type="button">Sổ việc</button>
     </div>
-    <div class="card">
-      <p class="kicker">2. Tình huống</p>
-      <div class="row" id="opts"></div>
-      <div class="row">
-        <button class="btn" type="button" id="s1">Mẫu tạm giam</button>
-        <button class="btn" type="button" id="s2">Mẫu KN hành chính</button>
-        <button class="btn" type="button" id="s3">Mẫu tố cáo</button>
+    <div id="pane-tinh">
+      <div class="card">
+        <p class="kicker">1. Loại việc</p>
+        <div class="grid g2" id="tracks"></div>
+      </div>
+      <div class="card">
+        <p class="kicker">2. Tình huống</p>
+        <div class="row" id="opts"></div>
+        <div class="row no-print">
+          <button class="btn" type="button" id="s1">Mẫu tạm giam</button>
+          <button class="btn" type="button" id="s2">Mẫu KN hành chính</button>
+          <button class="btn" type="button" id="s3">Mẫu tố cáo</button>
+          <button class="btn" type="button" id="s4">Mẫu kiểm sát CQĐT</button>
+        </div>
+      </div>
+      <div class="card">
+        <p class="kicker">3. Ngày trên đơn</p>
+        <div class="grid g2">
+          <div><label id="lbNhan">Ngày nhận đơn</label><input id="ngayNhan" type="date" /></div>
+          <div><label>Giờ nhận</label><input id="gioNhan" type="time" value="08:00" /></div>
+          <div><label>Ngày thụ lý (nếu đã thụ lý)</label><input id="ngayThuLy" type="date" /></div>
+          <div><label>Ngày biết QĐ / hành vi (thời hiệu)</label><input id="ngayBiet" type="date" /></div>
+          <div><label>Ngày ban hành QĐ / kết luận</label><input id="ngayBanHanh" type="date" /></div>
+          <div id="wrapNhanKs"><label>Ngày VKS nhận QĐ (khâu kiểm sát)</label><input id="ngayNhanKs" type="date" /></div>
+        </div>
+      </div>
+      <div id="out"></div>
+    </div>
+    <div id="pane-tra" class="hide">
+      <div class="card">
+        <p class="kicker">Bảng tra cứu thời hạn</p>
+        <input id="mq" placeholder="Lọc: tạm giam, 07 ngày làm việc, Điều 481…" />
+        <div style="overflow-x:auto;margin-top:10px"><table><thead><tr><th>Loại việc</th><th>Mốc</th><th>Thời hạn</th><th>Loại ngày</th><th>Căn cứ</th></tr></thead><tbody id="matrix"></tbody></table></div>
       </div>
     </div>
-    <div class="card">
-      <p class="kicker">3. Ngày trên đơn</p>
-      <div class="grid g2">
-        <div><label id="lbNhan">Ngày nhận đơn</label><input id="ngayNhan" type="date" /></div>
-        <div><label>Giờ nhận</label><input id="gioNhan" type="time" value="08:00" /></div>
-        <div><label>Ngày thụ lý (nếu đã thụ lý)</label><input id="ngayThuLy" type="date" /></div>
-        <div><label>Ngày biết QĐ / hành vi (thời hiệu)</label><input id="ngayBiet" type="date" /></div>
+    <div id="pane-quytrinh" class="hide"></div>
+    <div id="pane-so" class="hide">
+      <div class="card">
+        <p class="kicker">Sổ việc trên máy này</p>
+        <div id="soList"></div>
       </div>
     </div>
-    <div id="out"></div>
     <p class="foot">Công cụ hỗ trợ nghiệp vụ — không thay thế đối chiếu văn bản gốc và ý kiến lãnh đạo Viện.<br/>NHÓM IT — Viện Kiểm sát nhân dân thành phố Cần Thơ</p>
   </div>
 <script>
-(function(){
-  var HOLIDAYS = {"2026-01-01":1,"2026-02-16":1,"2026-02-17":1,"2026-02-18":1,"2026-02-19":1,"2026-02-20":1,"2026-02-21":1,"2026-02-22":1,"2026-04-26":1,"2026-04-30":1,"2026-05-01":1,"2026-09-02":1,"2027-01-01":1,"2027-02-06":1,"2027-02-07":1,"2027-02-08":1,"2027-02-09":1,"2027-02-10":1,"2027-02-11":1,"2027-02-12":1,"2027-04-16":1,"2027-04-30":1,"2027-05-01":1,"2027-09-02":1};
-  var TRACKS = [
-    {id:"kn-tths", short:"KN TTHS", label:"Khiếu nại trong tố tụng hình sự", hint:"BLTTHS · TTLT 02/2018 · QĐ 50"},
-    {id:"tc-tths", short:"TC TTHS", label:"Tố cáo trong tố tụng hình sự", hint:"Điều 481 BLTTHS · QĐ 50"},
-    {id:"kn-hc", short:"KN hành chính", label:"Khiếu nại hành chính (Luật Khiếu nại)", hint:"Luật KN sửa 2025 · QĐ 50"},
-    {id:"tc-hc", short:"TC hành chính", label:"Tố cáo hành chính (Luật Tố cáo)", hint:"Luật TC 2018 · NĐ 31/2019"}
-  ];
-  var st = { track:"kn-tths", lan:1, phucTap:false, dacBiet:false, vungSau:false, subject:"dtv" };
-
-  function pad(n){ return (n<10?"0":"")+n; }
-  function iso(d){ return d.getFullYear()+"-"+pad(d.getMonth()+1)+"-"+pad(d.getDate()); }
-  function parseDay(s){ if(!s) return null; var p=s.split("-"); if(p.length<3) return null; var d=new Date(+p[0], +p[1]-1, +p[2], 0,0,0,0); return isNaN(d)?null:d; }
-  function parseDT(day, hm){ var d=parseDay(day); if(!d) return null; var p=(hm||"08:00").split(":"); d.setHours(+p[0]||8, +p[1]||0, 0, 0); return d; }
-  function fmt(d){ return pad(d.getDate())+"/"+pad(d.getMonth()+1)+"/"+d.getFullYear(); }
-  function fmtT(d){ return fmt(d)+" "+pad(d.getHours())+":"+pad(d.getMinutes()); }
-  function off(d){ var x=d.getDay(); return x===0||x===6||HOLIDAYS[iso(d)]; }
-  function addCal(start,n){ var d=new Date(start); d.setHours(0,0,0,0); d.setDate(d.getDate()+n); return d; }
-  function addWork(start,n){ var d=new Date(start); d.setHours(0,0,0,0); var left=n; while(left>0){ d.setDate(d.getDate()+1); if(!off(d)) left--; } return d; }
-  function addH(start,h){ return new Date(start.getTime()+h*3600000); }
-  function remain(dead){
-    var ms=dead.getTime()-Date.now();
-    if(ms<0){ var late=-ms; return late<86400000 ? "Quá hạn "+Math.max(1,Math.round(late/3600000))+" giờ" : "Quá hạn "+Math.ceil(late/86400000)+" ngày"; }
-    if(ms<86400000) return "Còn "+Math.max(1,Math.round(ms/3600000))+" giờ";
-    return "Còn "+Math.ceil(ms/86400000)+" ngày";
-  }
-  function urg(dead){ var ms=dead.getTime()-Date.now(); if(ms<0) return "over"; if(ms<=3*86400000) return "soon"; return "ok"; }
-
-  function compute(){
-    var rec=parseDay(document.getElementById("ngayNhan").value);
-    var recAt=parseDT(document.getElementById("ngayNhan").value, document.getElementById("gioNhan").value);
-    if(!rec||!recAt) return null;
-    var thu=parseDay(document.getElementById("ngayThuLy").value);
-    var biet=parseDay(document.getElementById("ngayBiet").value);
-    var ms=[], title="", cites=[], notes=[], check=[];
-    function add(id,group,label,at,kind,cite,hint){ if(at) ms.push({id:id,group:group,label:label,at:at,kind:kind,cite:cite,hint:hint||""}); }
-
-    if(st.track==="kn-tths"){
-      title = st.subject==="tu-do" ? "Khiếu nại giữ người, bắt, tạm giữ, tạm giam" : st.subject==="dtv" ? "Khiếu nại ĐTV / Thủ trưởng CQĐT" : st.subject==="ksv" ? "Khiếu nại Kiểm sát viên, Phó Viện trưởng" : "Khiếu nại Viện trưởng";
-      cites=["Chương XXXIII BLTTHS","TTLT 02/2018","QĐ 50/QĐ-VKSTC 20/3/2026"];
-      notes=["Hạn TTHS tính từ ngày nhận khiếu nại.","Xác minh không vượt hạn giải quyết.","CQĐT/TA gửi thông báo thụ lý hoặc QĐ cho VKS trong 03 ngày."];
-      check=["Đơn hoặc khiếu nại trực tiếp.","Còn thời hiệu 15 ngày (Điều 471); lần hai 03 ngày.","Thuộc thẩm quyền.","Chưa có QĐ có hiệu lực; chưa rút đơn."];
-      add("hieu","hieu","Hết thời hiệu khiếu nại lần đầu", addCal(biet||rec,15), "cal", "Điều 471 BLTTHS");
-      if(st.subject==="tu-do"){
-        if(st.lan===2){
-          add("thuly","thuly","Hạn thụ lý lần hai", thu||addCal(rec,3), "cal", "QĐ 50");
-          add("xm","xacminh","Hạn xác minh", addCal(rec,7), "cal", "Điều 474 BLTTHS");
-          add("gq","giaiquyet","Hạn VKS cấp trên giải quyết lần hai (07 ngày)", addCal(rec,7), "cal", "Điều 474 BLTTHS");
-        } else {
-          add("thuly","thuly","Hạn thụ lý và thông báo (08 giờ)", addH(recAt,8), "h", "QĐ 50");
-          add("gq24","giaiquyet","Hạn giải quyết ngay (24 giờ)", addH(recAt,24), "h", "Điều 474 BLTTHS");
-          add("xm","xacminh","Hạn xác minh thêm (tối đa 03 ngày)", addCal(rec,3), "cal", "Điều 474 BLTTHS");
-          add("gq","giaiquyet","Hạn giải quyết tối đa", addCal(rec,3), "cal", "Điều 474 BLTTHS");
-        }
-      } else if(st.subject==="dtv"){
-        var gq=addCal(rec,7);
-        add("thuly","thuly","Hạn thụ lý", thu||addCal(rec,3), "cal", "TTLT 02/2018 · QĐ 50");
-        add("xm","xacminh","Hạn xác minh (không vượt hạn giải quyết)", gq, "cal", "TTLT 02/2018");
-        add("gq","giaiquyet", st.lan===1?"Hạn giải quyết lần đầu (07 ngày)":"Hạn VKS giải quyết lần hai (07 ngày)", gq, "cal", "Điều 475 BLTTHS");
-      } else if(st.subject==="ksv"){
-        var g1=addCal(rec,7), g2=addCal(rec,15);
-        add("thuly","thuly","Hạn thụ lý", thu||addCal(rec,3), "cal", "QĐ 50");
-        add("xm","xacminh","Hạn xác minh", st.lan===1?g1:g2, "cal", "QĐ 50");
-        add("gq","giaiquyet", st.lan===1?"Hạn Viện trưởng giải quyết (07 ngày)":"Hạn VKS cấp trên (15 ngày)", st.lan===1?g1:g2, "cal", "Điều 476 BLTTHS");
-      } else {
-        add("thuly","thuly","Hạn thụ lý", thu||addCal(rec,3), "cal", "QĐ 50");
-        add("xm","xacminh","Hạn xác minh", addCal(rec,15), "cal", "QĐ 50");
-        add("gq","giaiquyet","Hạn VKS cấp trên giải quyết KN Viện trưởng (15 ngày)", addCal(rec,15), "cal", "Điều 476 BLTTHS");
-      }
-      add("gui","gui","Hạn gửi QĐ cho người KN và VKS cấp trên (03 ngày làm việc)", addWork(thu||rec,3), "w", "QĐ 50");
-      add("ks","ks","Hạn CQĐT/TA gửi thông báo/QĐ cho VKS để kiểm sát (03 ngày)", addCal(thu||rec,3), "cal", "TTLT 02/2018");
-    } else if(st.track==="tc-tths"){
-      title = st.subject==="tu-do" ? "Tố cáo liên quan bắt, tạm giữ, tạm giam" : (st.phucTap?"Tố cáo TTHS — phức tạp":"Tố cáo TTHS — thông thường");
-      cites=["Điều 481 BLTTHS","TTLT 02/2018","QĐ 50/QĐ-VKSTC"];
-      notes=["Kiểm tra họ tên, địa chỉ người tố cáo trong 10 ngày (12 giờ nếu bắt/tạm giam).","Xác minh không vượt hạn giải quyết.","Tố cáo có dấu hiệu tội phạm theo Điều 147 BLTTHS."];
-      check=["Đúng hình thức; có người tố cáo, người bị tố cáo, hành vi.","Thuộc thẩm quyền.","Còn thời hiệu xử lý hành vi.","Chưa giải quyết, trừ tình tiết mới."];
-      if(st.subject==="tu-do"){
-        add("thuly","thuly","Hạn kiểm tra/thụ lý (12 giờ)", addH(recAt,12), "h", "TTLT 02/2018 · Điều 481.4");
-        add("xm","xacminh","Hạn xác minh thêm (tối đa 03 ngày)", addCal(rec,3), "cal", "Điều 481 BLTTHS");
-        add("gq","giaiquyet","Hạn giải quyết (ngay / tối đa 03 ngày)", addCal(rec,3), "cal", "Điều 481 BLTTHS");
-      } else {
-        add("thuly","thuly","Hạn kiểm tra điều kiện và thụ lý (10 ngày)", addCal(rec,10), "cal", "TTLT 02/2018 · QĐ 50");
-        var base=thu||addCal(rec,10);
-        var gqd=addCal(base, st.phucTap?60:30);
-        add("xm","xacminh","Hạn xác minh (không vượt hạn giải quyết)", gqd, "cal", "QĐ 50");
-        add("gq","giaiquyet", st.phucTap?"Hạn giải quyết phức tạp (60 ngày từ thụ lý)":"Hạn giải quyết (30 ngày từ thụ lý)", gqd, "cal", "Điều 481 BLTTHS");
-      }
-      add("gui","gui","Hạn gửi QĐ tố cáo cho VKS (03 ngày)", addCal(thu||rec,3), "cal", "TTLT 02/2018");
-      add("congbo","gui","Hạn công bố kết luận (07 ngày làm việc)", addWork(thu||rec,7), "w", "QĐ 50");
-    } else if(st.track==="kn-hc"){
-      title="Khiếu nại hành chính lần "+st.lan+(st.phucTap?" — phức tạp":"")+(st.vungSau?" — vùng sâu":"");
-      cites=["Luật Khiếu nại 2011 (Luật 136/2025/QH15, hiệu lực 01/7/2026)","NĐ 124/2020/NĐ-CP","QĐ 50/QĐ-VKSTC"];
-      notes=["Thụ lý 07 ngày làm việc (Điều 27 sau sửa 2025).","Hạn giải quyết tính từ ngày thụ lý.","Xác minh phải xong trong hạn giải quyết."];
-      check=["Đơn hoặc trực tiếp; có năng lực hành vi.","Còn thời hiệu 90 ngày.","Thuộc thẩm quyền; không thuộc Điều 11.","Chưa có QĐ lần hai; chưa rút đơn."];
-      add("hieu","hieu","Hết thời hiệu khiếu nại (90 ngày)", addCal(biet||rec,90), "cal", "Điều 9 Luật KN");
-      var tl=addWork(rec,7);
-      add("thuly","thuly","Hạn thụ lý (07 ngày làm việc)", tl, "w", "Điều 27 Luật KN (sửa 2025)");
-      var base=thu||tl, days=st.lan===1?30:45;
-      if(st.lan===1){ if(st.vungSau&&st.phucTap) days=60; else if(st.vungSau||st.phucTap) days=45; }
-      else { if(st.vungSau&&st.phucTap) days=70; else if(st.vungSau||st.phucTap) days=60; }
-      var gq=addCal(base,days);
-      add("xm","xacminh","Hạn xác minh (không vượt hạn giải quyết)", gq, "cal", "Điều 29 Luật KN · QĐ 50");
-      add("gq","giaiquyet","Hạn giải quyết lần "+st.lan+" ("+days+" ngày từ thụ lý)", gq, "cal", st.lan===1?"Điều 28 Luật KN":"Điều 37 Luật KN");
-      add("gui","gui", st.lan===1?"Hạn gửi QĐ lần đầu (03 ngày làm việc)":"Hạn gửi QĐ lần hai (07 ngày làm việc)", addWork(base, st.lan===1?3:7), "w", "NĐ 124/2020 · QĐ 50");
-      if(st.lan===1) add("lan2","hieu", st.vungSau?"Hạn KN lần hai (45 ngày)":"Hạn KN lần hai (30 ngày)", addCal(gq, st.vungSau?45:30), "cal", "Điều 33 Luật KN");
-    } else {
-      title=st.dacBiet?"Tố cáo hành chính — đặc biệt phức tạp":st.phucTap?"Tố cáo hành chính — phức tạp":"Tố cáo hành chính — thông thường";
-      cites=["Luật Tố cáo 2018","NĐ 31/2019/NĐ-CP","QĐ 50/QĐ-VKSTC"];
-      notes=["Không có hạn xác minh riêng — không vượt hạn giải quyết.","Gia hạn phải bằng văn bản.","Phức tạp / đặc biệt phức tạp: Điều 3 NĐ 31/2019."];
-      check=["Đúng hình thức; xác định người tố cáo, người bị tố cáo, hành vi.","Thuộc thẩm quyền.","Còn thời hiệu xử lý hành vi.","Không thuộc trường hợp không thụ lý."];
-      var xu=addWork(rec, (st.phucTap||st.dacBiet)?10:7);
-      add("thuly","thuly", (st.phucTap||st.dacBiet)?"Hạn xử lý ban đầu / thụ lý (10 ngày làm việc)":"Hạn xử lý ban đầu / thụ lý (07 ngày làm việc)", xu, "w", "Điều 24, 29 Luật TC");
-      var base=thu||xu;
-      add("tb","thuly","Hạn thông báo thụ lý (05 ngày làm việc)", addWork(base,5), "w", "Điều 29 Luật TC");
-      var extra=st.dacBiet?60:st.phucTap?30:0;
-      var gq=addCal(base,30+extra);
-      add("xm","xacminh","Hạn xác minh (không vượt hạn giải quyết)", gq, "cal", "Điều 31 Luật TC");
-      add("gq","giaiquyet", st.dacBiet?"Hạn giải quyết tối đa (30+60 ngày)":st.phucTap?"Hạn giải quyết khi gia hạn (60 ngày)":"Hạn giải quyết (30 ngày từ thụ lý)", gq, "cal", "Điều 30 Luật TC");
-      add("kl","gui","Hạn gửi kết luận (05 ngày làm việc)", addWork(base,5), "w", "Điều 35 Luật TC");
+"use strict";
+var KnTc = (() => {
+  var __defProp = Object.defineProperty;
+  var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
+  var __getOwnPropNames = Object.getOwnPropertyNames;
+  var __hasOwnProp = Object.prototype.hasOwnProperty;
+  var __export = (target, all) => {
+    for (var name in all)
+      __defProp(target, name, { get: all[name], enumerable: true });
+  };
+  var __copyProps = (to, from, except, desc) => {
+    if (from && typeof from === "object" || typeof from === "function") {
+      for (let key of __getOwnPropNames(from))
+        if (!__hasOwnProp.call(to, key) && key !== except)
+          __defProp(to, key, { get: () => from[key], enumerable: !(desc = __getOwnPropDesc(from, key)) || desc.enumerable });
     }
-    return {title:title,cites:cites,notes:notes,check:check,ms:ms};
-  }
+    return to;
+  };
+  var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
-  function find(ms,id){ for(var i=0;i<ms.length;i++) if(ms[i].id===id) return ms[i]; return null; }
-  function hero(title,item){
-    if(!item) return '<div class="hero"><span class="kicker">'+title+'</span><p class="muted">Không áp dụng</p></div>';
-    var u=urg(item.at);
-    return '<div class="hero"><span class="kicker">'+title+'</span><b>'+(item.kind==="h"?fmtT(item.at):fmt(item.at))+'</b><span class="pill '+u+'">'+remain(item.at)+'</span><div class="muted" style="margin-top:6px;font-size:11px">'+item.cite+'</div></div>';
-  }
-  function render(){
-    document.getElementById("tracks").innerHTML = TRACKS.map(function(t){
-      return '<button type="button" class="khau'+(t.id===st.track?' on':'')+'" data-id="'+t.id+'"><strong>'+t.short+'</strong><div>'+t.label+'</div><small>'+t.hint+'</small></button>';
-    }).join("");
-    var chips=[];
-    function chip(key,on,label){ chips.push('<button type="button" class="chip'+(on?' on':'')+'" data-k="'+key+'">'+label+'</button>'); }
-    if(st.track==="kn-tths"||st.track==="kn-hc"){ chip("lan1",st.lan===1,"Lần đầu"); chip("lan2",st.lan===2,"Lần hai"); }
-    if(st.track==="kn-tths"){ chip("tu-do",st.subject==="tu-do","Bắt / tạm giữ / tạm giam"); chip("dtv",st.subject==="dtv","ĐTV / CQĐT"); chip("ksv",st.subject==="ksv","Kiểm sát viên"); chip("vt",st.subject==="vien-truong","Viện trưởng"); }
-    if(st.track==="tc-tths") chip("tu-do",st.subject==="tu-do","Tố cáo bắt / tạm giam");
-    if(st.track==="tc-tths"||st.track==="kn-hc"||st.track==="tc-hc") chip("phuc",st.phucTap,"Vụ việc phức tạp");
-    if(st.track==="tc-hc") chip("dac",st.dacBiet,"Đặc biệt phức tạp");
-    if(st.track==="kn-hc") chip("vung",st.vungSau,"Vùng sâu, vùng xa");
-    document.getElementById("opts").innerHTML=chips.join("");
-    document.getElementById("lbNhan").textContent = (st.lan===2 && st.track.indexOf("kn")===0) ? "Ngày nhận đơn / QĐ lần hai" : "Ngày nhận đơn";
-    var r=compute(); var box=document.getElementById("out");
-    if(!r){ box.innerHTML=""; return; }
-    var g=GROUP={hieu:"Thời hiệu",thuly:"Thụ lý",xacminh:"Xác minh",giaiquyet:"Giải quyết",gui:"Gửi / công bố",ks:"Kiểm sát"};
-    var list=r.ms.map(function(m){
-      var u=urg(m.at);
-      return '<div class="item"><div><div class="kicker">'+g[m.group]+'</div><div style="font-weight:700;font-size:14px">'+m.label+'</div><div class="muted" style="font-size:11px">'+m.cite+(m.hint?" — "+m.hint:"")+'</div></div><div style="text-align:right"><div style="font-family:ui-monospace,Menlo,monospace;font-weight:800;color:var(--navy)">'+(m.kind==="h"?fmtT(m.at):fmt(m.at))+'</div><span class="pill '+u+'">'+remain(m.at)+'</span></div></div>';
-    }).join("");
-    var tsv=["Loại đơn","Nội dung","Ngày nhận","Hạn thụ lý","Hạn xác minh","Hạn giải quyết"].join("\t")+"\n"+
-      [st.track,r.title,document.getElementById("ngayNhan").value,(find(r.ms,"thuly")?fmt(find(r.ms,"thuly").at):""),(find(r.ms,"xm")?fmt(find(r.ms,"xm").at):""),(find(r.ms,"gq")?fmt(find(r.ms,"gq").at):"")].join("\t");
-    window.__tsv=tsv;
-    box.innerHTML = '<div class="card"><p class="kicker" style="margin:0 0 8px">Kết quả — '+r.title+'</p><div class="grid g3">'+hero("Hạn thụ lý",find(r.ms,"thuly"))+hero("Hạn xác minh",find(r.ms,"xm"))+hero("Hạn giải quyết",find(r.ms,"gq"))+'</div></div>'+
-      '<div class="card"><div class="row" style="justify-content:space-between;align-items:center;margin:0 0 8px"><p class="kicker" style="margin:0">Các mốc thời hạn</p><button class="btn btn-primary" type="button" id="copy">Sao chép sổ Excel</button></div>'+list+'</div>'+
-      '<div class="card grid g2"><div><p class="kicker">Điều kiện thụ lý</p><ul class="plain">'+r.check.map(function(c){return "<li>"+c+"</li>";}).join("")+'</ul></div><div><p class="kicker">Lưu ý</p><ul class="plain">'+r.notes.map(function(c){return "<li>"+c+"</li>";}).join("")+'</ul><p class="muted" style="margin-top:8px;font-size:11px">Cách tính: không tính ngày nhận. Hạn «ngày làm việc» bỏ T7, CN và ngày lễ.</p></div></div>'+
-      '<div class="card"><p class="kicker">Căn cứ pháp lý</p><ul class="plain">'+r.cites.map(function(c){return "<li>"+c+"</li>";}).join("")+'</ul></div>';
-    var b=document.getElementById("copy"); if(b) b.onclick=function(){ navigator.clipboard.writeText(window.__tsv||"").then(function(){ alert("Đã sao chép dòng sổ (dán vào Excel)."); }); };
-  }
-
-  function today(){ var n=new Date(); document.getElementById("ngayNhan").value=iso(n); }
-  today(); render();
-  document.getElementById("tracks").addEventListener("click", function(e){ var b=e.target.closest("[data-id]"); if(!b) return; st.track=b.getAttribute("data-id"); render(); });
-  document.getElementById("opts").addEventListener("click", function(e){
-    var b=e.target.closest("[data-k]"); if(!b) return; var k=b.getAttribute("data-k");
-    if(k==="lan1") st.lan=1; if(k==="lan2") st.lan=2;
-    if(k==="tu-do") st.subject = st.subject==="tu-do" && st.track==="tc-tths" ? "dtv" : "tu-do";
-    if(k==="dtv") st.subject="dtv"; if(k==="ksv") st.subject="ksv"; if(k==="vt") st.subject="vien-truong";
-    if(k==="phuc") st.phucTap=!st.phucTap; if(k==="dac") st.dacBiet=!st.dacBiet; if(k==="vung") st.vungSau=!st.vungSau;
-    render();
+  // src/lib/kn-tc/standalone.ts
+  var standalone_exports = {};
+  __export(standalone_exports, {
+    EMPTY_OPTS: () => EMPTY_OPTS,
+    MATRIX: () => MATRIX,
+    PROCESS: () => PROCESS,
+    SO_HEADERS: () => SO_HEADERS,
+    TRACKS: () => TRACKS,
+    computeKnTc: () => computeKnTc,
+    formatVi: () => formatVi,
+    formatViDateTime: () => formatViDateTime,
+    remainLabel: () => remainLabel,
+    urgencyOf: () => urgencyOf
   });
-  ["ngayNhan","gioNhan","ngayThuLy","ngayBiet"].forEach(function(id){ document.getElementById(id).addEventListener("input", render); });
-  document.getElementById("s1").onclick=function(){ st={track:"kn-tths",lan:1,phucTap:false,dacBiet:false,vungSau:false,subject:"tu-do"}; today(); document.getElementById("gioNhan").value="08:30"; document.getElementById("ngayThuLy").value=""; document.getElementById("ngayBiet").value=""; render(); };
-  document.getElementById("s2").onclick=function(){ st={track:"kn-hc",lan:1,phucTap:true,dacBiet:false,vungSau:false,subject:"dtv"}; today(); render(); };
-  document.getElementById("s3").onclick=function(){ st={track:"tc-hc",lan:1,phucTap:true,dacBiet:false,vungSau:false,subject:"dtv"}; today(); render(); };
+
+  // src/lib/kn-tc/dates.ts
+  var HOLIDAYS = /* @__PURE__ */ new Set([
+    "2026-01-01",
+    "2026-02-16",
+    "2026-02-17",
+    "2026-02-18",
+    "2026-02-19",
+    "2026-02-20",
+    "2026-02-21",
+    "2026-02-22",
+    "2026-04-26",
+    "2026-04-30",
+    "2026-05-01",
+    "2026-09-02",
+    "2027-01-01",
+    "2027-02-06",
+    "2027-02-07",
+    "2027-02-08",
+    "2027-02-09",
+    "2027-02-10",
+    "2027-02-11",
+    "2027-02-12",
+    "2027-04-16",
+    "2027-04-30",
+    "2027-05-01",
+    "2027-09-02"
+  ]);
+  function parseIso(iso) {
+    const m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(iso.trim());
+    if (!m) return null;
+    const d = new Date(Number(m[1]), Number(m[2]) - 1, Number(m[3]), 0, 0, 0, 0);
+    return Number.isNaN(d.getTime()) ? null : d;
+  }
+  function parseDateTime(isoDate, hm) {
+    const d = parseIso(isoDate);
+    if (!d) return null;
+    const t = /^(\d{1,2}):(\d{2})$/.exec(hm || "08:00");
+    d.setHours(t ? Number(t[1]) : 8, t ? Number(t[2]) : 0, 0, 0);
+    return d;
+  }
+  function toIso(d) {
+    const y = d.getFullYear();
+    const m = String(d.getMonth() + 1).padStart(2, "0");
+    const day = String(d.getDate()).padStart(2, "0");
+    return `${y}-${m}-${day}`;
+  }
+  function formatVi(d) {
+    return `${String(d.getDate()).padStart(2, "0")}/${String(d.getMonth() + 1).padStart(2, "0")}/${d.getFullYear()}`;
+  }
+  function formatViDateTime(d) {
+    return `${formatVi(d)} ${String(d.getHours()).padStart(2, "0")}:${String(d.getMinutes()).padStart(2, "0")}`;
+  }
+  function startOfDay(d) {
+    const n = new Date(d);
+    n.setHours(0, 0, 0, 0);
+    return n;
+  }
+  function isNonWorking(d) {
+    const dow = d.getDay();
+    if (dow === 0 || dow === 6) return true;
+    return HOLIDAYS.has(toIso(d));
+  }
+  function addCalendarDays(start, n) {
+    const d = startOfDay(start);
+    d.setDate(d.getDate() + n);
+    return d;
+  }
+  function addWorkingDays(start, n) {
+    const d = startOfDay(start);
+    let left = n;
+    while (left > 0) {
+      d.setDate(d.getDate() + 1);
+      if (!isNonWorking(d)) left -= 1;
+    }
+    return d;
+  }
+  function addHours(start, hours) {
+    return new Date(start.getTime() + hours * 36e5);
+  }
+  function workingDaysRemaining(deadline, now = /* @__PURE__ */ new Date()) {
+    const end = startOfDay(deadline);
+    const d = startOfDay(now);
+    if (end.getTime() < d.getTime()) return 0;
+    let n = 0;
+    while (d.getTime() < end.getTime()) {
+      d.setDate(d.getDate() + 1);
+      if (!isNonWorking(d)) n += 1;
+    }
+    return n;
+  }
+  function urgencyOf(deadline, now = /* @__PURE__ */ new Date()) {
+    const ms = deadline.getTime() - now.getTime();
+    if (ms < 0) return "overdue";
+    if (ms <= 12 * 36e5) return "due";
+    const days = (startOfDay(deadline).getTime() - startOfDay(now).getTime()) / 864e5;
+    if (days <= 3) return "soon";
+    return "ok";
+  }
+  function remainLabel(deadline, now = /* @__PURE__ */ new Date(), kind = "calendar") {
+    const ms = deadline.getTime() - now.getTime();
+    if (ms < 0) {
+      const late = Math.abs(ms);
+      if (late < 864e5) return `Qu\xE1 h\u1EA1n ${Math.max(1, Math.round(late / 36e5))} gi\u1EDD`;
+      return `Qu\xE1 h\u1EA1n ${Math.ceil(late / 864e5)} ng\xE0y`;
+    }
+    if (kind === "hours" || ms < 864e5) {
+      return `C\xF2n ${Math.max(1, Math.round(ms / 36e5))} gi\u1EDD`;
+    }
+    if (kind === "working") {
+      return `C\xF2n ${workingDaysRemaining(deadline, now)} ng\xE0y l\xE0m vi\u1EC7c`;
+    }
+    const days = Math.ceil(ms / 864e5);
+    return `C\xF2n ${days} ng\xE0y`;
+  }
+
+  // src/lib/kn-tc/types.ts
+  var EMPTY_OPTS = {
+    lan: 1,
+    phucTap: false,
+    dacBiet: false,
+    vungSau: false,
+    subject: "dtv",
+    chuyenDon: false,
+    ksKind: "kn"
+  };
+  var TRACKS = [
+    {
+      id: "kn-tths",
+      short: "KN TTHS",
+      label: "Khi\u1EBFu n\u1EA1i trong t\u1ED1 t\u1EE5ng h\xECnh s\u1EF1",
+      hint: "BLTTHS 474\u2013476 \xB7 TTLT 02/2018 \xB7 Q\u0110 50"
+    },
+    {
+      id: "tc-tths",
+      short: "TC TTHS",
+      label: "T\u1ED1 c\xE1o trong t\u1ED1 t\u1EE5ng h\xECnh s\u1EF1",
+      hint: "\u0110i\u1EC1u 481 BLTTHS \xB7 h\u1EA1n GQ t\xEDnh t\u1EEB ng\xE0y nh\u1EADn"
+    },
+    {
+      id: "kn-hc",
+      short: "KN h\xE0nh ch\xEDnh",
+      label: "Khi\u1EBFu n\u1EA1i h\xE0nh ch\xEDnh / k\u1EF7 lu\u1EADt CBCC",
+      hint: "Lu\u1EADt KN 2011, s\u1EEDa 2025 \xB7 th\u1EE5 l\xFD 07 ng\xE0y LV"
+    },
+    {
+      id: "tc-hc",
+      short: "TC h\xE0nh ch\xEDnh",
+      label: "T\u1ED1 c\xE1o h\xE0nh ch\xEDnh (Lu\u1EADt T\u1ED1 c\xE1o)",
+      hint: "Lu\u1EADt TC 2018 \xB7 N\u0110 31/2019 \xB7 Q\u0110 50"
+    },
+    {
+      id: "ks-kntc",
+      short: "Ki\u1EC3m s\xE1t KN-TC",
+      label: "Ki\u1EC3m s\xE1t vi\u1EC7c gi\u1EA3i quy\u1EBFt KN, TC c\u1EE7a CQ\u0110T / T\xF2a \xE1n",
+      hint: "TTLT 02/2018 \xB7 Q\u0110 50 \xB7 \u0110i\u1EC1u 483 BLTTHS"
+    }
+  ];
+
+  // src/lib/kn-tc/compute.ts
+  function push(list, m) {
+    if (!m.at) return;
+    list.push(m);
+  }
+  function computeKnTc(track, opts, dates) {
+    const receivedDay = parseIso(dates.ngayNhan);
+    const receivedAt = parseDateTime(dates.ngayNhan, dates.gioNhan || "08:00");
+    if (!receivedDay || !receivedAt) return null;
+    const thuLyIn = parseIso(dates.ngayThuLy);
+    const biet = parseIso(dates.ngayBiet);
+    const banHanh = parseIso(dates.ngayBanHanh);
+    const nhanKs = parseIso(dates.ngayNhanKs);
+    const milestones = [];
+    if (opts.chuyenDon && track !== "ks-kntc") {
+      return chuyenDon(track, opts, receivedDay, milestones);
+    }
+    if (track === "kn-tths") return knTths(opts, receivedDay, receivedAt, thuLyIn, biet, banHanh, milestones);
+    if (track === "tc-tths") return tcTths(opts, receivedDay, receivedAt, thuLyIn, banHanh, milestones);
+    if (track === "kn-hc") return knHc(opts, receivedDay, thuLyIn, biet, banHanh, milestones);
+    if (track === "tc-hc") return tcHc(opts, receivedDay, thuLyIn, banHanh, milestones);
+    return ksKntc(opts, receivedDay, receivedAt, thuLyIn, banHanh, nhanKs, milestones);
+  }
+  function chuyenDon(track, opts, receivedDay, milestones) {
+    const tths = track === "kn-tths" || track === "tc-tths";
+    const han = tths ? addCalendarDays(receivedDay, 3) : addWorkingDays(receivedDay, 5);
+    push(milestones, {
+      id: "thuly",
+      group: "thuly",
+      label: tths ? "H\u1EA1n chuy\u1EC3n / tr\u1EA3 / h\u01B0\u1EDBng d\u1EABn \u0111\u01A1n kh\xF4ng thu\u1ED9c th\u1EA9m quy\u1EC1n (03 ng\xE0y)" : "H\u1EA1n chuy\u1EC3n \u0111\u01A1n kh\xF4ng thu\u1ED9c th\u1EA9m quy\u1EC1n (05 ng\xE0y l\xE0m vi\u1EC7c)",
+      at: han,
+      kind: tths ? "calendar" : "working",
+      spanLabel: tths ? "03 ng\xE0y" : "05 ng\xE0y l\xE0m vi\u1EC7c",
+      cite: tths ? "TTLT 02/2018 \u0110i\u1EC1u 5, 6" : track === "tc-hc" ? "\u0110i\u1EC1u 25 Lu\u1EADt T\u1ED1 c\xE1o" : "N\u0110 124/2020/N\u0110-CP",
+      hint: "Th\xF4ng b\xE1o cho ng\u01B0\u1EDDi g\u1EEDi \u0111\u01A1n bi\u1EBFt c\u01A1 quan \u0111\u01B0\u1EE3c chuy\u1EC3n \u0111\u1EBFn."
+    });
+    return pack(
+      "\u0110\u01A1n kh\xF4ng thu\u1ED9c th\u1EA9m quy\u1EC1n \u2014 chuy\u1EC3n \u0111\u01A1n",
+      tths ? ["TTLT 02/2018/TTLT-VKSTC-TATC-BCA-BQP-BTC-BNN&PTNT"] : track === "tc-hc" ? ["\u0110i\u1EC1u 25 Lu\u1EADt T\u1ED1 c\xE1o 2018"] : ["Ngh\u1ECB \u0111\u1ECBnh 124/2020/N\u0110-CP", "Lu\u1EADt Khi\u1EBFu n\u1EA1i 2011"],
+      milestones,
+      [
+        "X\xE1c \u0111\u1ECBnh \u0111\xFAng c\u01A1 quan, ng\u01B0\u1EDDi c\xF3 th\u1EA9m quy\u1EC1n gi\u1EA3i quy\u1EBFt.",
+        "Gi\u1EEF b\u1EA3n sao \u0111\u01A1n v\xE0 t\xE0i li\u1EC7u k\xE8m theo \u0111\u1EC3 theo d\xF5i.",
+        "Th\xF4ng b\xE1o ng\u01B0\u1EDDi g\u1EEDi \u0111\u01A1n; kh\xF4ng \u0111\u1EC3 t\u1ED3n \u0111\u1ECDng qu\xE1 h\u1EA1n chuy\u1EC3n."
+      ],
+      ["Chuy\u1EC3n \u0111\u01A1n kh\xF4ng thay cho vi\u1EC7c th\u1EE5 l\xFD. Kh\xF4ng t\xEDnh h\u1EA1n x\xE1c minh / gi\u1EA3i quy\u1EBFt t\u1EA1i Vi\u1EC7n n\xE0y."],
+      receivedDay,
+      opts,
+      track
+    );
+  }
+  function knTths(opts, receivedDay, receivedAt, thuLyIn, biet, banHanh, milestones) {
+    const cites = [
+      "Ch\u01B0\u01A1ng XXXIII BLTTHS 2015 (s\u1EEDa \u0111\u1ED5i, b\u1ED5 sung 2025)",
+      "Th\xF4ng t\u01B0 li\xEAn t\u1ECBch 02/2018/TTLT-VKSTC-TATC-BCA-BQP-BTC-BNN&PTNT",
+      "Quy\u1EBFt \u0111\u1ECBnh 50/Q\u0110-VKSTC ng\xE0y 20/3/2026"
+    ];
+    const notes = [
+      "Th\u1EDDi h\u1EA1n gi\u1EA3i quy\u1EBFt khi\u1EBFu n\u1EA1i TTHS t\xEDnh t\u1EEB ng\xE0y nh\u1EADn \u0111\u01B0\u1EE3c khi\u1EBFu n\u1EA1i, kh\xF4ng ph\u1EA3i ng\xE0y th\u1EE5 l\xFD.",
+      "Th\u1EDDi h\u1EA1n x\xE1c minh kh\xF4ng \u0111\u01B0\u1EE3c v\u01B0\u1EE3t qu\xE1 th\u1EDDi h\u1EA1n gi\u1EA3i quy\u1EBFt (Q\u0110 50 \u0110i\u1EC1u 9.9, TTLT 02/2018).",
+      "CQ\u0110T/T\xF2a \xE1n g\u1EEDi th\xF4ng b\xE1o th\u1EE5 l\xFD ho\u1EB7c Q\u0110 gi\u1EA3i quy\u1EBFt cho VKS trong 03 ng\xE0y \u0111\u1EC3 ki\u1EC3m s\xE1t."
+    ];
+    const checklist = [
+      "\u0110\u01A1n ho\u1EB7c khi\u1EBFu n\u1EA1i tr\u1EF1c ti\u1EBFp, \u0111\u1EE7 n\u1ED9i dung theo BLTTHS.",
+      "C\xF2n th\u1EDDi hi\u1EC7u (\u0110i\u1EC1u 471: 15 ng\xE0y k\u1EC3 t\u1EEB ng\xE0y nh\u1EADn/bi\u1EBFt quy\u1EBFt \u0111\u1ECBnh, h\xE0nh vi; l\u1EA7n hai: 03 ng\xE0y).",
+      "Thu\u1ED9c th\u1EA9m quy\u1EC1n c\u1EE7a Vi\u1EC7n ki\u1EC3m s\xE1t / ng\u01B0\u1EDDi c\xF3 th\u1EA9m quy\u1EC1n.",
+      "Ch\u01B0a c\xF3 quy\u1EBFt \u0111\u1ECBnh gi\u1EA3i quy\u1EBFt c\xF3 hi\u1EC7u l\u1EF1c ph\xE1p lu\u1EADt; ch\u01B0a r\xFAt khi\u1EBFu n\u1EA1i.",
+      "Kh\xF4ng thu\u1ED9c tr\u01B0\u1EDDng h\u1EE3p kh\xF4ng th\u1EE5 l\xFD theo Q\u0110 50 \u0110i\u1EC1u 6."
+    ];
+    push(milestones, {
+      id: "hieu",
+      group: "hieu",
+      label: "H\u1EBFt th\u1EDDi hi\u1EC7u khi\u1EBFu n\u1EA1i l\u1EA7n \u0111\u1EA7u",
+      at: addCalendarDays(biet ?? receivedDay, 15),
+      kind: "calendar",
+      spanLabel: "15 ng\xE0y",
+      cite: "\u0110i\u1EC1u 471 BLTTHS",
+      hint: "15 ng\xE0y k\u1EC3 t\u1EEB ng\xE0y nh\u1EADn \u0111\u01B0\u1EE3c ho\u1EB7c bi\u1EBFt \u0111\u01B0\u1EE3c quy\u1EBFt \u0111\u1ECBnh, h\xE0nh vi b\u1ECB khi\u1EBFu n\u1EA1i. Tr\u1EDF ng\u1EA1i kh\xE1ch quan kh\xF4ng t\xEDnh v\xE0o th\u1EDDi hi\u1EC7u."
+    });
+    if (opts.subject === "tu-do") {
+      if (opts.lan === 2) {
+        push(milestones, {
+          id: "lan2-file",
+          group: "hieu",
+          label: "H\u1EA1n khi\u1EBFu n\u1EA1i l\u1EA7n hai (03 ng\xE0y k\u1EC3 t\u1EEB nh\u1EADn Q\u0110 l\u1EA7n \u0111\u1EA7u)",
+          at: addCalendarDays(receivedDay, 3),
+          kind: "calendar",
+          spanLabel: "03 ng\xE0y",
+          cite: "\u0110i\u1EC1u 471, 474 BLTTHS \xB7 TTLT 02/2018",
+          hint: "Ng\xE0y nh\u1EADn \u1EDF \u0111\xE2y l\xE0 ng\xE0y nh\u1EADn quy\u1EBFt \u0111\u1ECBnh gi\u1EA3i quy\u1EBFt l\u1EA7n \u0111\u1EA7u."
+        });
+        push(milestones, {
+          id: "thuly",
+          group: "thuly",
+          label: "H\u1EA1n th\u1EE5 l\xFD l\u1EA7n hai",
+          at: thuLyIn ?? addCalendarDays(receivedDay, 3),
+          kind: "calendar",
+          spanLabel: "03 ng\xE0y",
+          cite: "Q\u0110 50/Q\u0110-VKSTC"
+        });
+        const gq2 = addCalendarDays(receivedDay, 7);
+        push(milestones, {
+          id: "xm",
+          group: "xacminh",
+          label: "H\u1EA1n x\xE1c minh (kh\xF4ng v\u01B0\u1EE3t 07 ng\xE0y)",
+          at: gq2,
+          kind: "calendar",
+          spanLabel: "07 ng\xE0y",
+          cite: "\u0110i\u1EC1u 474 BLTTHS"
+        });
+        push(milestones, {
+          id: "gq",
+          group: "giaiquyet",
+          label: "H\u1EA1n VKS c\u1EA5p tr\xEAn gi\u1EA3i quy\u1EBFt l\u1EA7n hai (07 ng\xE0y)",
+          at: gq2,
+          kind: "calendar",
+          spanLabel: "07 ng\xE0y",
+          cite: "\u0110i\u1EC1u 474 BLTTHS"
+        });
+      } else {
+        push(milestones, {
+          id: "thuly",
+          group: "thuly",
+          label: "H\u1EA1n th\u1EE5 l\xFD v\xE0 th\xF4ng b\xE1o th\u1EE5 l\xFD (08 gi\u1EDD)",
+          at: addHours(receivedAt, 8),
+          kind: "hours",
+          spanLabel: "08 gi\u1EDD",
+          cite: "Q\u0110 50/Q\u0110-VKSTC",
+          hint: "Khi\u1EBFu n\u1EA1i gi\u1EEF ng\u01B0\u1EDDi kh\u1EA9n c\u1EA5p, b\u1EAFt, t\u1EA1m gi\u1EEF, t\u1EA1m giam: th\u1EE5 l\xFD trong 08 gi\u1EDD k\u1EC3 t\u1EEB khi nh\u1EADn."
+        });
+        push(milestones, {
+          id: "gq",
+          group: "giaiquyet",
+          label: "H\u1EA1n gi\u1EA3i quy\u1EBFt ngay (24 gi\u1EDD)",
+          at: addHours(receivedAt, 24),
+          kind: "hours",
+          spanLabel: "24 gi\u1EDD",
+          cite: "\u0110i\u1EC1u 474 BLTTHS",
+          hint: "Ph\u1EA3i gi\u1EA3i quy\u1EBFt ngay. Ch\u1EC9 khi c\u1EA7n x\xE1c minh th\xEAm m\u1EDBi \xE1p d\u1EE5ng h\u1EA1n 03 ng\xE0y."
+        });
+        push(milestones, {
+          id: "xm",
+          group: "xacminh",
+          label: "H\u1EA1n x\xE1c minh th\xEAm / gi\u1EA3i quy\u1EBFt t\u1ED1i \u0111a (03 ng\xE0y)",
+          at: addCalendarDays(receivedDay, 3),
+          kind: "calendar",
+          spanLabel: "03 ng\xE0y",
+          cite: "\u0110i\u1EC1u 474 BLTTHS",
+          hint: "Ch\u1EC9 khi c\u1EA7n x\xE1c minh th\xEAm. Kh\xF4ng \u0111\u01B0\u1EE3c v\u01B0\u1EE3t 03 ng\xE0y k\u1EC3 t\u1EEB ng\xE0y nh\u1EADn khi\u1EBFu n\u1EA1i."
+        });
+      }
+    } else if (opts.subject === "dtv") {
+      const gq = addCalendarDays(receivedDay, 7);
+      push(milestones, {
+        id: "thuly",
+        group: "thuly",
+        label: "H\u1EA1n th\u1EE5 l\xFD (trong th\u1EDDi h\u1EA1n gi\u1EA3i quy\u1EBFt)",
+        at: thuLyIn ?? addCalendarDays(receivedDay, 3),
+        kind: "calendar",
+        spanLabel: "03 ng\xE0y",
+        cite: "TTLT 02/2018 \xB7 Q\u0110 50",
+        hint: "Th\u1EE5 l\xFD ngay khi \u0111\u1EE7 \u0111i\u1EC1u ki\u1EC7n; th\xF4ng b\xE1o b\u1EB1ng v\u0103n b\u1EA3n. M\u1ED1c tham chi\u1EBFu 03 ng\xE0y theo quy tr\xECnh ng\xE0nh."
+      });
+      push(milestones, {
+        id: "xm",
+        group: "xacminh",
+        label: "H\u1EA1n x\xE1c minh (kh\xF4ng v\u01B0\u1EE3t h\u1EA1n gi\u1EA3i quy\u1EBFt)",
+        at: gq,
+        kind: "calendar",
+        spanLabel: "07 ng\xE0y",
+        cite: "TTLT 02/2018 \xB7 Q\u0110 50 \u0110i\u1EC1u 9"
+      });
+      push(milestones, {
+        id: "gq",
+        group: "giaiquyet",
+        label: opts.lan === 1 ? "H\u1EA1n Th\u1EE7 tr\u01B0\u1EDFng CQ\u0110T / VKS gi\u1EA3i quy\u1EBFt l\u1EA7n \u0111\u1EA7u (07 ng\xE0y)" : "H\u1EA1n VKS gi\u1EA3i quy\u1EBFt l\u1EA7n hai (07 ng\xE0y)",
+        at: gq,
+        kind: "calendar",
+        spanLabel: "07 ng\xE0y",
+        cite: "\u0110i\u1EC1u 475 BLTTHS"
+      });
+      if (opts.lan === 2) {
+        push(milestones, {
+          id: "lan2-file",
+          group: "hieu",
+          label: "H\u1EA1n g\u1EEDi khi\u1EBFu n\u1EA1i l\u1EA7n hai",
+          at: addCalendarDays(receivedDay, 3),
+          kind: "calendar",
+          spanLabel: "03 ng\xE0y",
+          cite: "\u0110i\u1EC1u 475 BLTTHS \xB7 TTLT 02/2018"
+        });
+      }
+    } else if (opts.subject === "ksv") {
+      const gq1 = addCalendarDays(receivedDay, 7);
+      const gq2 = addCalendarDays(receivedDay, 15);
+      const gq = opts.lan === 1 ? gq1 : gq2;
+      push(milestones, {
+        id: "thuly",
+        group: "thuly",
+        label: "H\u1EA1n th\u1EE5 l\xFD",
+        at: thuLyIn ?? addCalendarDays(receivedDay, 3),
+        kind: "calendar",
+        spanLabel: "03 ng\xE0y",
+        cite: "Q\u0110 50/Q\u0110-VKSTC"
+      });
+      push(milestones, {
+        id: "xm",
+        group: "xacminh",
+        label: "H\u1EA1n x\xE1c minh (kh\xF4ng v\u01B0\u1EE3t h\u1EA1n gi\u1EA3i quy\u1EBFt)",
+        at: gq,
+        kind: "calendar",
+        spanLabel: opts.lan === 1 ? "07 ng\xE0y" : "15 ng\xE0y",
+        cite: "Q\u0110 50 \u0110i\u1EC1u 9"
+      });
+      push(milestones, {
+        id: "gq",
+        group: "giaiquyet",
+        label: opts.lan === 1 ? "H\u1EA1n Vi\u1EC7n tr\u01B0\u1EDFng gi\u1EA3i quy\u1EBFt (07 ng\xE0y)" : "H\u1EA1n VKS c\u1EA5p tr\xEAn gi\u1EA3i quy\u1EBFt (15 ng\xE0y)",
+        at: gq,
+        kind: "calendar",
+        spanLabel: opts.lan === 1 ? "07 ng\xE0y" : "15 ng\xE0y",
+        cite: "\u0110i\u1EC1u 476 BLTTHS (s\u1EEDa 2025)"
+      });
+    } else {
+      const gq = addCalendarDays(receivedDay, 15);
+      push(milestones, {
+        id: "thuly",
+        group: "thuly",
+        label: "H\u1EA1n th\u1EE5 l\xFD",
+        at: thuLyIn ?? addCalendarDays(receivedDay, 3),
+        kind: "calendar",
+        spanLabel: "03 ng\xE0y",
+        cite: "Q\u0110 50/Q\u0110-VKSTC"
+      });
+      push(milestones, {
+        id: "xm",
+        group: "xacminh",
+        label: "H\u1EA1n x\xE1c minh (kh\xF4ng v\u01B0\u1EE3t h\u1EA1n gi\u1EA3i quy\u1EBFt)",
+        at: gq,
+        kind: "calendar",
+        spanLabel: "15 ng\xE0y",
+        cite: "Q\u0110 50 \u0110i\u1EC1u 9"
+      });
+      push(milestones, {
+        id: "gq",
+        group: "giaiquyet",
+        label: "H\u1EA1n VKS c\u1EA5p tr\xEAn gi\u1EA3i quy\u1EBFt khi\u1EBFu n\u1EA1i Vi\u1EC7n tr\u01B0\u1EDFng (15 ng\xE0y)",
+        at: gq,
+        kind: "calendar",
+        spanLabel: "15 ng\xE0y",
+        cite: "\u0110i\u1EC1u 476.2 BLTTHS"
+      });
+    }
+    const guiBase = banHanh ?? thuLyIn ?? receivedDay;
+    const isTamtGiam = opts.subject === "tu-do";
+    let guiAt;
+    if (isTamtGiam) {
+      const from = banHanh ? new Date(banHanh) : new Date(receivedAt);
+      if (banHanh) from.setHours(8, 0, 0, 0);
+      guiAt = addHours(from, 24);
+    } else {
+      guiAt = addWorkingDays(guiBase, 3);
+    }
+    push(milestones, {
+      id: "gui",
+      group: "gui",
+      label: isTamtGiam ? "H\u1EA1n g\u1EEDi Q\u0110 gi\u1EA3i quy\u1EBFt (t\u1EA1m gi\u1EEF, t\u1EA1m giam \u2014 24 gi\u1EDD k\u1EC3 t\u1EEB ban h\xE0nh)" : "H\u1EA1n g\u1EEDi Q\u0110 cho ng\u01B0\u1EDDi KN, ng\u01B0\u1EDDi b\u1ECB KN v\xE0 VKS c\u1EA5p tr\xEAn (03 ng\xE0y l\xE0m vi\u1EC7c)",
+      at: guiAt,
+      kind: isTamtGiam ? "hours" : "working",
+      spanLabel: isTamtGiam ? "24 gi\u1EDD" : "03 ng\xE0y l\xE0m vi\u1EC7c",
+      cite: "Q\u0110 50 \u0110i\u1EC1u 11.2",
+      hint: banHanh ? "T\xEDnh t\u1EEB ng\xE0y ban h\xE0nh quy\u1EBFt \u0111\u1ECBnh." : "Ch\u01B0a nh\u1EADp ng\xE0y ban h\xE0nh \u2014 t\u1EA1m l\u1EA5y ng\xE0y th\u1EE5 l\xFD / ng\xE0y nh\u1EADn l\xE0m m\u1ED1c tham chi\u1EBFu."
+    });
+    push(milestones, {
+      id: "ks-gui",
+      group: "ks",
+      label: "H\u1EA1n CQ\u0110T/TA g\u1EEDi th\xF4ng b\xE1o th\u1EE5 l\xFD ho\u1EB7c Q\u0110 cho VKS \u0111\u1EC3 ki\u1EC3m s\xE1t",
+      at: addCalendarDays(thuLyIn ?? receivedDay, 3),
+      kind: "calendar",
+      spanLabel: "03 ng\xE0y",
+      cite: "TTLT 02/2018"
+    });
+    push(milestones, {
+      id: "ks-tl",
+      group: "ks",
+      label: "H\u1EA1n VKS th\xF4ng b\xE1o \u0111\u1ED3ng \xFD / kh\xF4ng \u0111\u1ED3ng \xFD v\u1EDBi Q\u0110 gi\u1EA3i quy\u1EBFt",
+      at: addCalendarDays(guiBase, 3),
+      kind: "calendar",
+      spanLabel: "03 ng\xE0y",
+      cite: "TTLT 02/2018",
+      hint: "03 ng\xE0y k\u1EC3 t\u1EEB ng\xE0y nh\u1EADn quy\u1EBFt \u0111\u1ECBnh gi\u1EA3i quy\u1EBFt khi\u1EBFu n\u1EA1i."
+    });
+    const title = opts.subject === "tu-do" ? opts.lan === 2 ? "Khi\u1EBFu n\u1EA1i gi\u1EEF ng\u01B0\u1EDDi, b\u1EAFt, t\u1EA1m gi\u1EEF, t\u1EA1m giam \u2014 l\u1EA7n hai" : "Khi\u1EBFu n\u1EA1i gi\u1EEF ng\u01B0\u1EDDi, b\u1EAFt, t\u1EA1m gi\u1EEF, t\u1EA1m giam" : opts.subject === "dtv" ? "Khi\u1EBFu n\u1EA1i quy\u1EBFt \u0111\u1ECBnh/h\xE0nh vi \u0110i\u1EC1u tra vi\xEAn, Th\u1EE7 tr\u01B0\u1EDFng CQ\u0110T" : opts.subject === "ksv" ? "Khi\u1EBFu n\u1EA1i Ki\u1EC3m s\xE1t vi\xEAn, Ph\xF3 Vi\u1EC7n tr\u01B0\u1EDFng" : "Khi\u1EBFu n\u1EA1i Vi\u1EC7n tr\u01B0\u1EDFng Vi\u1EC7n ki\u1EC3m s\xE1t";
+    return pack(title, cites, milestones, checklist, notes, receivedDay, opts, "kn-tths");
+  }
+  function tcTths(opts, receivedDay, receivedAt, thuLyIn, banHanh, milestones) {
+    const cites = [
+      "\u0110i\u1EC1u 481 BLTTHS 2015 (s\u1EEDa \u0111\u1ED5i, b\u1ED5 sung 2025)",
+      "TTLT 02/2018/TTLT-VKSTC-TATC-BCA-BQP-BTC-BNN&PTNT",
+      "Quy\u1EBFt \u0111\u1ECBnh 50/Q\u0110-VKSTC ng\xE0y 20/3/2026"
+    ];
+    const notes = [
+      "\u0110i\u1EC1u 481.3: h\u1EA1n gi\u1EA3i quy\u1EBFt t\u1ED1 c\xE1o TTHS t\xEDnh t\u1EEB ng\xE0y nh\u1EADn \u0111\u01B0\u1EE3c t\u1ED1 c\xE1o \u2014 kh\xF4ng ph\u1EA3i ng\xE0y th\u1EE5 l\xFD.",
+      "Tr\u01B0\u1EDBc khi th\u1EE5 l\xFD: ki\u1EC3m tra h\u1ECD t\xEAn, \u0111\u1ECBa ch\u1EC9 ng\u01B0\u1EDDi t\u1ED1 c\xE1o trong 10 ng\xE0y (12 gi\u1EDD n\u1EBFu t\u1ED1 c\xE1o b\u1EAFt, t\u1EA1m gi\u1EEF, t\u1EA1m giam).",
+      "T\u1ED1 c\xE1o c\xF3 d\u1EA5u hi\u1EC7u t\u1ED9i ph\u1EA1m \u0111\u01B0\u1EE3c gi\u1EA3i quy\u1EBFt theo th\u1EE7 t\u1EE5c t\u1ED1 gi\xE1c, tin b\xE1o (\u0110i\u1EC1u 145/147 BLTTHS) \u2014 kh\xF4ng d\xF9ng h\u1EA1n n\xE0y."
+    ];
+    const checklist = [
+      "T\u1ED1 c\xE1o \u0111\xFAng h\xECnh th\u1EE9c; c\xF3 th\xF4ng tin ng\u01B0\u1EDDi t\u1ED1 c\xE1o, ng\u01B0\u1EDDi b\u1ECB t\u1ED1 c\xE1o, h\xE0nh vi.",
+      "Thu\u1ED9c th\u1EA9m quy\u1EC1n Vi\u1EC7n ki\u1EC3m s\xE1t / ng\u01B0\u1EDDi \u0111\u1EE9ng \u0111\u1EA7u c\u01A1 quan ti\u1EBFn h\xE0nh t\u1ED1 t\u1EE5ng.",
+      "C\xF2n th\u1EDDi hi\u1EC7u x\u1EED l\xFD h\xE0nh vi b\u1ECB t\u1ED1 c\xE1o.",
+      "Ch\u01B0a \u0111\u01B0\u1EE3c gi\u1EA3i quy\u1EBFt, tr\u1EEB tr\u01B0\u1EDDng h\u1EE3p c\xF3 t\xECnh ti\u1EBFt m\u1EDBi.",
+      "Kh\xF4ng c\xF3 d\u1EA5u hi\u1EC7u t\u1ED9i ph\u1EA1m \u2014 n\u1EBFu c\xF3 th\xEC chuy\u1EC3n \u0110i\u1EC1u 145/147 BLTTHS."
+    ];
+    if (opts.subject === "tu-do") {
+      push(milestones, {
+        id: "check",
+        group: "thuly",
+        label: "H\u1EA1n ki\u1EC3m tra \u0111i\u1EC1u ki\u1EC7n th\u1EE5 l\xFD (12 gi\u1EDD)",
+        at: addHours(receivedAt, 12),
+        kind: "hours",
+        spanLabel: "12 gi\u1EDD",
+        cite: "TTLT 02/2018 \xB7 Q\u0110 50"
+      });
+      push(milestones, {
+        id: "thuly",
+        group: "thuly",
+        label: "H\u1EA1n th\u1EE5 l\xFD v\xE0 th\xF4ng b\xE1o (12 gi\u1EDD)",
+        at: addHours(receivedAt, 12),
+        kind: "hours",
+        spanLabel: "12 gi\u1EDD",
+        cite: "Q\u0110 50/Q\u0110-VKSTC"
+      });
+      push(milestones, {
+        id: "gq",
+        group: "giaiquyet",
+        label: "H\u1EA1n Vi\u1EC7n tr\u01B0\u1EDFng gi\u1EA3i quy\u1EBFt (24 gi\u1EDD)",
+        at: addHours(receivedAt, 24),
+        kind: "hours",
+        spanLabel: "24 gi\u1EDD",
+        cite: "\u0110i\u1EC1u 481.4 BLTTHS"
+      });
+      push(milestones, {
+        id: "xm",
+        group: "xacminh",
+        label: "H\u1EA1n x\xE1c minh th\xEAm / gi\u1EA3i quy\u1EBFt t\u1ED1i \u0111a (03 ng\xE0y)",
+        at: addCalendarDays(receivedDay, 3),
+        kind: "calendar",
+        spanLabel: "03 ng\xE0y",
+        cite: "\u0110i\u1EC1u 481.4 BLTTHS",
+        hint: "Ch\u1EC9 khi c\u1EA7n x\xE1c minh th\xEAm. T\xEDnh t\u1EEB ng\xE0y nh\u1EADn t\u1ED1 c\xE1o."
+      });
+    } else {
+      push(milestones, {
+        id: "check",
+        group: "thuly",
+        label: "H\u1EA1n ki\u1EC3m tra h\u1ECD t\xEAn, \u0111\u1ECBa ch\u1EC9 ng\u01B0\u1EDDi t\u1ED1 c\xE1o",
+        at: addCalendarDays(receivedDay, 10),
+        kind: "calendar",
+        spanLabel: "10 ng\xE0y",
+        cite: "TTLT 02/2018",
+        hint: "10 ng\xE0y k\u1EC3 t\u1EEB khi ti\u1EBFp nh\u1EADn t\u1ED1 c\xE1o thu\u1ED9c th\u1EA9m quy\u1EC1n."
+      });
+      const thuLyDeadline = addCalendarDays(receivedDay, 10);
+      push(milestones, {
+        id: "thuly",
+        group: "thuly",
+        label: "H\u1EA1n th\u1EE5 l\xFD t\u1ED1 c\xE1o (10 ng\xE0y)",
+        at: thuLyDeadline,
+        kind: "calendar",
+        spanLabel: "10 ng\xE0y",
+        cite: "Q\u0110 50/Q\u0110-VKSTC",
+        hint: "10 ng\xE0y k\u1EC3 t\u1EEB ng\xE0y nh\u1EADn t\u1ED1 c\xE1o \u0111\u1EE7 \u0111i\u1EC1u ki\u1EC7n. Th\xF4ng b\xE1o cho ng\u01B0\u1EDDi t\u1ED1 c\xE1o n\u1EBFu h\u1ECD y\xEAu c\u1EA7u."
+      });
+      const gqDays = opts.phucTap ? 60 : 30;
+      const gq = addCalendarDays(receivedDay, gqDays);
+      if (opts.phucTap) {
+        push(milestones, {
+          id: "gq-goc",
+          group: "giaiquyet",
+          label: "H\u1EA1n gi\u1EA3i quy\u1EBFt th\xF4ng th\u01B0\u1EDDng (30 ng\xE0y k\u1EC3 t\u1EEB ng\xE0y nh\u1EADn)",
+          at: addCalendarDays(receivedDay, 30),
+          kind: "calendar",
+          spanLabel: "30 ng\xE0y",
+          cite: "\u0110i\u1EC1u 481.3 BLTTHS"
+        });
+      }
+      push(milestones, {
+        id: "xm",
+        group: "xacminh",
+        label: "H\u1EA1n x\xE1c minh (kh\xF4ng v\u01B0\u1EE3t h\u1EA1n gi\u1EA3i quy\u1EBFt)",
+        at: gq,
+        kind: "calendar",
+        spanLabel: `${gqDays} ng\xE0y`,
+        cite: "Q\u0110 50 \u0110i\u1EC1u 21 \xB7 TTLT 02/2018"
+      });
+      push(milestones, {
+        id: "gq",
+        group: "giaiquyet",
+        label: opts.phucTap ? "H\u1EA1n gi\u1EA3i quy\u1EBFt v\u1EE5 vi\u1EC7c ph\u1EE9c t\u1EA1p (60 ng\xE0y k\u1EC3 t\u1EEB ng\xE0y nh\u1EADn)" : "H\u1EA1n gi\u1EA3i quy\u1EBFt t\u1ED1 c\xE1o (30 ng\xE0y k\u1EC3 t\u1EEB ng\xE0y nh\u1EADn)",
+        at: gq,
+        kind: "calendar",
+        spanLabel: `${gqDays} ng\xE0y`,
+        cite: "\u0110i\u1EC1u 481.3 BLTTHS",
+        hint: "T\xEDnh t\u1EEB ng\xE0y nh\u1EADn t\u1ED1 c\xE1o, kh\xF4ng ph\u1EA3i ng\xE0y th\u1EE5 l\xFD."
+      });
+    }
+    const congBoBase = banHanh ?? thuLyIn ?? receivedDay;
+    push(milestones, {
+      id: "gui",
+      group: "gui",
+      label: "H\u1EA1n CQ\u0110T/TA g\u1EEDi Q\u0110 gi\u1EA3i quy\u1EBFt t\u1ED1 c\xE1o cho VKS \u0111\u1EC3 ki\u1EC3m s\xE1t",
+      at: addCalendarDays(banHanh ?? thuLyIn ?? receivedDay, 3),
+      kind: "calendar",
+      spanLabel: "03 ng\xE0y",
+      cite: "TTLT 02/2018"
+    });
+    push(milestones, {
+      id: "congbo",
+      group: "gui",
+      label: "H\u1EA1n c\xF4ng khai k\u1EBFt lu\u1EADn / Q\u0110 gi\u1EA3i quy\u1EBFt t\u1ED1 c\xE1o (07 ng\xE0y l\xE0m vi\u1EC7c)",
+      at: addWorkingDays(congBoBase, 7),
+      kind: "working",
+      spanLabel: "07 ng\xE0y l\xE0m vi\u1EC7c",
+      cite: "Q\u0110 50 \u0110i\u1EC1u 25.1",
+      hint: banHanh ? "T\xEDnh t\u1EEB ng\xE0y ban h\xE0nh." : "Ch\u01B0a nh\u1EADp ng\xE0y ban h\xE0nh \u2014 t\u1EA1m l\u1EA5y ng\xE0y th\u1EE5 l\xFD / ng\xE0y nh\u1EADn."
+    });
+    return pack(
+      opts.subject === "tu-do" ? "T\u1ED1 c\xE1o li\xEAn quan b\u1EAFt, t\u1EA1m gi\u1EEF, t\u1EA1m giam" : opts.phucTap ? "T\u1ED1 c\xE1o trong TTHS \u2014 v\u1EE5 vi\u1EC7c ph\u1EE9c t\u1EA1p" : "T\u1ED1 c\xE1o trong TTHS \u2014 th\xF4ng th\u01B0\u1EDDng",
+      cites,
+      milestones,
+      checklist,
+      notes,
+      receivedDay,
+      opts,
+      "tc-tths"
+    );
+  }
+  function knHc(opts, receivedDay, thuLyIn, biet, banHanh, milestones) {
+    const kyLuat = opts.subject === "ky-luat";
+    const cites = kyLuat ? [
+      "\u0110i\u1EC1u 48, 50 Lu\u1EADt Khi\u1EBFu n\u1EA1i 2011 (Lu\u1EADt 136/2025/QH15, HL 01/7/2026)",
+      "Quy\u1EBFt \u0111\u1ECBnh 50/Q\u0110-VKSTC ng\xE0y 20/3/2026"
+    ] : [
+      "Lu\u1EADt Khi\u1EBFu n\u1EA1i 2011 (s\u1EEDa \u0111\u1ED5i; Lu\u1EADt 136/2025/QH15 c\xF3 hi\u1EC7u l\u1EF1c 01/7/2026)",
+      "Ngh\u1ECB \u0111\u1ECBnh 124/2020/N\u0110-CP",
+      "Quy\u1EBFt \u0111\u1ECBnh 50/Q\u0110-VKSTC ng\xE0y 20/3/2026"
+    ];
+    const notes = [
+      "Th\u1EE5 l\xFD: 07 ng\xE0y l\xE0m vi\u1EC7c k\u1EC3 t\u1EEB ng\xE0y nh\u1EADn khi\u1EBFu n\u1EA1i thu\u1ED9c th\u1EA9m quy\u1EC1n (\u0110i\u1EC1u 27/36/50, sau Lu\u1EADt 136/2025).",
+      "Th\u1EDDi h\u1EA1n gi\u1EA3i quy\u1EBFt t\xEDnh t\u1EEB ng\xE0y th\u1EE5 l\xFD, kh\xF4ng ph\u1EA3i ng\xE0y nh\u1EADn \u0111\u01A1n.",
+      "X\xE1c minh ph\u1EA3i xong trong th\u1EDDi h\u1EA1n gi\u1EA3i quy\u1EBFt; gia h\u1EA1n x\xE1c minh kh\xF4ng v\u01B0\u1EE3t h\u1EA1n gi\u1EA3i quy\u1EBFt (Q\u0110 50 \u0110i\u1EC1u 9)."
+    ];
+    const checklist = kyLuat ? [
+      "\u0110\u01A1n g\u1EEDi \u0111\xFAng ng\u01B0\u1EDDi \u0111\xE3 ra quy\u1EBFt \u0111\u1ECBnh k\u1EF7 lu\u1EADt (l\u1EA7n \u0111\u1EA7u) ho\u1EB7c c\u01A1 quan gi\u1EA3i quy\u1EBFt l\u1EA7n hai.",
+      "C\xF2n th\u1EDDi hi\u1EC7u 15 ng\xE0y (l\u1EA7n \u0111\u1EA7u); l\u1EA7n hai 10 ng\xE0y, ho\u1EB7c 30 ng\xE0y n\u1EBFu bu\u1ED9c th\xF4i vi\u1EC7c.",
+      "Thu\u1ED9c th\u1EA9m quy\u1EC1n; ch\u01B0a r\xFAt khi\u1EBFu n\u1EA1i."
+    ] : [
+      "Khi\u1EBFu n\u1EA1i b\u1EB1ng \u0111\u01A1n ho\u1EB7c tr\u1EF1c ti\u1EBFp; ng\u01B0\u1EDDi KN c\xF3 n\u0103ng l\u1EF1c h\xE0nh vi.",
+      "C\xF2n th\u1EDDi hi\u1EC7u 90 ng\xE0y k\u1EC3 t\u1EEB ng\xE0y nh\u1EADn quy\u1EBFt \u0111\u1ECBnh h\xE0nh ch\xEDnh ho\u1EB7c bi\u1EBFt h\xE0nh vi h\xE0nh ch\xEDnh.",
+      "Thu\u1ED9c th\u1EA9m quy\u1EC1n; kh\xF4ng thu\u1ED9c \u0110i\u1EC1u 11 Lu\u1EADt Khi\u1EBFu n\u1EA1i (kh\xF4ng th\u1EE5 l\xFD).",
+      "Ch\u01B0a c\xF3 quy\u1EBFt \u0111\u1ECBnh gi\u1EA3i quy\u1EBFt l\u1EA7n hai; ch\u01B0a r\xFAt khi\u1EBFu n\u1EA1i."
+    ];
+    if (kyLuat) {
+      const hieuLan1 = addCalendarDays(biet ?? receivedDay, 15);
+      const hieuLan2 = addCalendarDays(biet ?? receivedDay, 10);
+      push(milestones, {
+        id: "hieu",
+        group: "hieu",
+        label: opts.lan === 1 ? "H\u1EBFt th\u1EDDi hi\u1EC7u khi\u1EBFu n\u1EA1i k\u1EF7 lu\u1EADt l\u1EA7n \u0111\u1EA7u (15 ng\xE0y)" : "H\u1EBFt th\u1EDDi hi\u1EC7u khi\u1EBFu n\u1EA1i k\u1EF7 lu\u1EADt l\u1EA7n hai (10 ng\xE0y)",
+        at: opts.lan === 1 ? hieuLan1 : hieuLan2,
+        kind: "calendar",
+        spanLabel: opts.lan === 1 ? "15 ng\xE0y" : "10 ng\xE0y",
+        cite: "\u0110i\u1EC1u 48 Lu\u1EADt Khi\u1EBFu n\u1EA1i"
+      });
+    } else {
+      push(milestones, {
+        id: "hieu",
+        group: "hieu",
+        label: "H\u1EBFt th\u1EDDi hi\u1EC7u khi\u1EBFu n\u1EA1i (90 ng\xE0y)",
+        at: addCalendarDays(biet ?? receivedDay, 90),
+        kind: "calendar",
+        spanLabel: "90 ng\xE0y",
+        cite: "\u0110i\u1EC1u 9 Lu\u1EADt Khi\u1EBFu n\u1EA1i"
+      });
+    }
+    const thuLyDeadline = addWorkingDays(receivedDay, 7);
+    push(milestones, {
+      id: "thuly",
+      group: "thuly",
+      label: "H\u1EA1n th\u1EE5 l\xFD v\xE0 th\xF4ng b\xE1o th\u1EE5 l\xFD (07 ng\xE0y l\xE0m vi\u1EC7c)",
+      at: thuLyDeadline,
+      kind: "working",
+      spanLabel: "07 ng\xE0y l\xE0m vi\u1EC7c",
+      cite: kyLuat ? "\u0110i\u1EC1u 50 Lu\u1EADt KN (s\u1EEDa 2025)" : "\u0110i\u1EC1u 27 Lu\u1EADt Khi\u1EBFu n\u1EA1i (s\u1EEDa 2025)"
+    });
+    const base = thuLyIn ?? thuLyDeadline;
+    let gqDays = opts.lan === 1 ? 30 : 45;
+    if (kyLuat) {
+      gqDays = opts.phucTap ? 45 : 30;
+    } else if (opts.lan === 1) {
+      if (opts.vungSau && opts.phucTap) gqDays = 60;
+      else if (opts.vungSau || opts.phucTap) gqDays = 45;
+    } else if (opts.vungSau && opts.phucTap) gqDays = 70;
+    else if (opts.vungSau || opts.phucTap) gqDays = 60;
+    const gocDays = opts.lan === 1 || kyLuat ? 30 : 45;
+    if (gqDays !== gocDays) {
+      push(milestones, {
+        id: "gq-goc",
+        group: "giaiquyet",
+        label: `H\u1EA1n gi\u1EA3i quy\u1EBFt th\xF4ng th\u01B0\u1EDDng (${gocDays} ng\xE0y k\u1EC3 t\u1EEB th\u1EE5 l\xFD)`,
+        at: addCalendarDays(base, gocDays),
+        kind: "calendar",
+        spanLabel: `${gocDays} ng\xE0y`,
+        cite: kyLuat ? "\u0110i\u1EC1u 50 Lu\u1EADt KN" : opts.lan === 1 ? "\u0110i\u1EC1u 28 Lu\u1EADt Khi\u1EBFu n\u1EA1i" : "\u0110i\u1EC1u 37 Lu\u1EADt Khi\u1EBFu n\u1EA1i"
+      });
+    }
+    const gq = addCalendarDays(base, gqDays);
+    push(milestones, {
+      id: "xm",
+      group: "xacminh",
+      label: "H\u1EA1n x\xE1c minh (kh\xF4ng v\u01B0\u1EE3t h\u1EA1n gi\u1EA3i quy\u1EBFt)",
+      at: gq,
+      kind: "calendar",
+      spanLabel: `${gqDays} ng\xE0y`,
+      cite: "\u0110i\u1EC1u 29 Lu\u1EADt Khi\u1EBFu n\u1EA1i \xB7 Q\u0110 50"
+    });
+    push(milestones, {
+      id: "gq",
+      group: "giaiquyet",
+      label: `H\u1EA1n gi\u1EA3i quy\u1EBFt l\u1EA7n ${opts.lan} (${gqDays} ng\xE0y k\u1EC3 t\u1EEB th\u1EE5 l\xFD)`,
+      at: gq,
+      kind: "calendar",
+      spanLabel: `${gqDays} ng\xE0y`,
+      cite: kyLuat ? "\u0110i\u1EC1u 50 Lu\u1EADt KN" : opts.lan === 1 ? "\u0110i\u1EC1u 28 Lu\u1EADt Khi\u1EBFu n\u1EA1i" : "\u0110i\u1EC1u 37 Lu\u1EADt Khi\u1EBFu n\u1EA1i"
+    });
+    const guiDays = opts.lan === 1 ? 3 : 7;
+    const guiBase = banHanh ?? base;
+    push(milestones, {
+      id: "gui",
+      group: "gui",
+      label: opts.lan === 1 ? "H\u1EA1n g\u1EEDi quy\u1EBFt \u0111\u1ECBnh gi\u1EA3i quy\u1EBFt l\u1EA7n \u0111\u1EA7u (03 ng\xE0y l\xE0m vi\u1EC7c)" : "H\u1EA1n g\u1EEDi quy\u1EBFt \u0111\u1ECBnh gi\u1EA3i quy\u1EBFt l\u1EA7n hai (07 ng\xE0y l\xE0m vi\u1EC7c)",
+      at: addWorkingDays(guiBase, guiDays),
+      kind: "working",
+      spanLabel: opts.lan === 1 ? "03 ng\xE0y l\xE0m vi\u1EC7c" : "07 ng\xE0y l\xE0m vi\u1EC7c",
+      cite: opts.lan === 1 ? "\u0110i\u1EC1u 32 Lu\u1EADt KN \xB7 Q\u0110 50 \u0110i\u1EC1u 11.2" : "\u0110i\u1EC1u 40 Lu\u1EADt Khi\u1EBFu n\u1EA1i",
+      hint: banHanh ? "T\xEDnh t\u1EEB ng\xE0y ban h\xE0nh." : "Ch\u01B0a nh\u1EADp ng\xE0y ban h\xE0nh \u2014 t\u1EA1m l\u1EA5y ng\xE0y th\u1EE5 l\xFD."
+    });
+    if (opts.lan === 1 && !kyLuat) {
+      push(milestones, {
+        id: "lan2",
+        group: "hieu",
+        label: opts.vungSau ? "H\u1EA1n khi\u1EBFu n\u1EA1i l\u1EA7n hai (45 ng\xE0y, v\xF9ng s\xE2u)" : "H\u1EA1n khi\u1EBFu n\u1EA1i l\u1EA7n hai (30 ng\xE0y)",
+        at: addCalendarDays(gq, opts.vungSau ? 45 : 30),
+        kind: "calendar",
+        spanLabel: opts.vungSau ? "45 ng\xE0y" : "30 ng\xE0y",
+        cite: "\u0110i\u1EC1u 33 Lu\u1EADt Khi\u1EBFu n\u1EA1i (s\u1EEDa 2025)",
+        hint: "T\xEDnh t\u1EEB ng\xE0y h\u1EBFt h\u1EA1n gi\u1EA3i quy\u1EBFt l\u1EA7n \u0111\u1EA7u ho\u1EB7c ng\xE0y nh\u1EADn Q\u0110 l\u1EA7n \u0111\u1EA7u."
+      });
+    }
+    const title = kyLuat ? `Khi\u1EBFu n\u1EA1i k\u1EF7 lu\u1EADt CBCC l\u1EA7n ${opts.lan}${opts.phucTap ? " \u2014 ph\u1EE9c t\u1EA1p" : ""}` : `Khi\u1EBFu n\u1EA1i h\xE0nh ch\xEDnh l\u1EA7n ${opts.lan}${opts.phucTap ? " \u2014 ph\u1EE9c t\u1EA1p" : ""}${opts.vungSau ? " \u2014 v\xF9ng s\xE2u, v\xF9ng xa" : ""}`;
+    return pack(title, cites, milestones, checklist, notes, receivedDay, opts, "kn-hc");
+  }
+  function tcHc(opts, receivedDay, thuLyIn, banHanh, milestones) {
+    const cites = [
+      "Lu\u1EADt T\u1ED1 c\xE1o 2018",
+      "Ngh\u1ECB \u0111\u1ECBnh 31/2019/N\u0110-CP",
+      "Quy\u1EBFt \u0111\u1ECBnh 50/Q\u0110-VKSTC ng\xE0y 20/3/2026"
+    ];
+    const notes = [
+      "Lu\u1EADt T\u1ED1 c\xE1o kh\xF4ng \u1EA5n \u0111\u1ECBnh s\u1ED1 ng\xE0y x\xE1c minh ri\xEAng: ng\u01B0\u1EDDi gi\u1EA3i quy\u1EBFt \u1EA5n \u0111\u1ECBnh trong k\u1EBF ho\u1EA1ch, kh\xF4ng v\u01B0\u1EE3t h\u1EA1n gi\u1EA3i quy\u1EBFt.",
+      "V\u1EE5 vi\u1EC7c ph\u1EE9c t\u1EA1p / \u0111\u1EB7c bi\u1EC7t ph\u1EE9c t\u1EA1p theo \u0110i\u1EC1u 3 Ngh\u1ECB \u0111\u1ECBnh 31/2019/N\u0110-CP.",
+      "Gia h\u1EA1n gi\u1EA3i quy\u1EBFt ph\u1EA3i b\u1EB1ng v\u0103n b\u1EA3n v\xE0 th\xF4ng b\xE1o ng\u01B0\u1EDDi t\u1ED1 c\xE1o, ng\u01B0\u1EDDi b\u1ECB t\u1ED1 c\xE1o (\u0110i\u1EC1u 30.4)."
+    ];
+    const checklist = [
+      "T\u1ED1 c\xE1o \u0111\xFAng h\xECnh th\u1EE9c; x\xE1c \u0111\u1ECBnh \u0111\u01B0\u1EE3c ng\u01B0\u1EDDi t\u1ED1 c\xE1o, ng\u01B0\u1EDDi b\u1ECB t\u1ED1 c\xE1o, h\xE0nh vi.",
+      "Thu\u1ED9c th\u1EA9m quy\u1EC1n Vi\u1EC7n tr\u01B0\u1EDFng VKS / ng\u01B0\u1EDDi gi\u1EA3i quy\u1EBFt t\u1ED1 c\xE1o.",
+      "C\xF2n th\u1EDDi hi\u1EC7u x\u1EED l\xFD h\xE0nh vi b\u1ECB t\u1ED1 c\xE1o.",
+      "Kh\xF4ng thu\u1ED9c tr\u01B0\u1EDDng h\u1EE3p kh\xF4ng th\u1EE5 l\xFD (\u0110i\u1EC1u 29 Lu\u1EADt T\u1ED1 c\xE1o)."
+    ];
+    const xuLy = addWorkingDays(receivedDay, opts.phucTap || opts.dacBiet ? 10 : 7);
+    push(milestones, {
+      id: "xuly",
+      group: "thuly",
+      label: opts.phucTap || opts.dacBiet ? "H\u1EA1n x\u1EED l\xFD ban \u0111\u1EA7u, ki\u1EC3m tra \u0111i\u1EC1u ki\u1EC7n th\u1EE5 l\xFD (10 ng\xE0y l\xE0m vi\u1EC7c)" : "H\u1EA1n x\u1EED l\xFD ban \u0111\u1EA7u, ki\u1EC3m tra \u0111i\u1EC1u ki\u1EC7n th\u1EE5 l\xFD (07 ng\xE0y l\xE0m vi\u1EC7c)",
+      at: xuLy,
+      kind: "working",
+      spanLabel: opts.phucTap || opts.dacBiet ? "10 ng\xE0y l\xE0m vi\u1EC7c" : "07 ng\xE0y l\xE0m vi\u1EC7c",
+      cite: "\u0110i\u1EC1u 24 Lu\u1EADt T\u1ED1 c\xE1o"
+    });
+    push(milestones, {
+      id: "thuly",
+      group: "thuly",
+      label: "H\u1EA1n ra quy\u1EBFt \u0111\u1ECBnh th\u1EE5 l\xFD (khi \u0111\u1EE7 \u0111i\u1EC1u ki\u1EC7n)",
+      at: xuLy,
+      kind: "working",
+      spanLabel: opts.phucTap || opts.dacBiet ? "10 ng\xE0y l\xE0m vi\u1EC7c" : "07 ng\xE0y l\xE0m vi\u1EC7c",
+      cite: "\u0110i\u1EC1u 29 Lu\u1EADt T\u1ED1 c\xE1o"
+    });
+    const base = thuLyIn ?? xuLy;
+    push(milestones, {
+      id: "tb",
+      group: "thuly",
+      label: "H\u1EA1n th\xF4ng b\xE1o th\u1EE5 l\xFD cho ng\u01B0\u1EDDi t\u1ED1 c\xE1o / ng\u01B0\u1EDDi b\u1ECB t\u1ED1 c\xE1o (05 ng\xE0y l\xE0m vi\u1EC7c)",
+      at: addWorkingDays(base, 5),
+      kind: "working",
+      spanLabel: "05 ng\xE0y l\xE0m vi\u1EC7c",
+      cite: "\u0110i\u1EC1u 29.3 Lu\u1EADt T\u1ED1 c\xE1o"
+    });
+    let extra = 0;
+    if (opts.dacBiet) extra = 60;
+    else if (opts.phucTap) extra = 30;
+    const gq = addCalendarDays(base, 30 + extra);
+    if (extra > 0) {
+      push(milestones, {
+        id: "gq-goc",
+        group: "giaiquyet",
+        label: "H\u1EA1n gi\u1EA3i quy\u1EBFt th\xF4ng th\u01B0\u1EDDng (30 ng\xE0y k\u1EC3 t\u1EEB th\u1EE5 l\xFD)",
+        at: addCalendarDays(base, 30),
+        kind: "calendar",
+        spanLabel: "30 ng\xE0y",
+        cite: "\u0110i\u1EC1u 30.1 Lu\u1EADt T\u1ED1 c\xE1o"
+      });
+    }
+    push(milestones, {
+      id: "xm",
+      group: "xacminh",
+      label: "H\u1EA1n x\xE1c minh (kh\xF4ng v\u01B0\u1EE3t h\u1EA1n gi\u1EA3i quy\u1EBFt)",
+      at: gq,
+      kind: "calendar",
+      spanLabel: `${30 + extra} ng\xE0y`,
+      cite: "\u0110i\u1EC1u 31 Lu\u1EADt T\u1ED1 c\xE1o \xB7 N\u0110 31/2019"
+    });
+    push(milestones, {
+      id: "gq",
+      group: "giaiquyet",
+      label: opts.dacBiet ? "H\u1EA1n gi\u1EA3i quy\u1EBFt t\u1ED1i \u0111a (30 + 2 l\u1EA7n gia h\u1EA1n 30 ng\xE0y)" : opts.phucTap ? "H\u1EA1n gi\u1EA3i quy\u1EBFt khi gia h\u1EA1n 1 l\u1EA7n (60 ng\xE0y k\u1EC3 t\u1EEB th\u1EE5 l\xFD)" : "H\u1EA1n gi\u1EA3i quy\u1EBFt t\u1ED1 c\xE1o (30 ng\xE0y k\u1EC3 t\u1EEB th\u1EE5 l\xFD)",
+      at: gq,
+      kind: "calendar",
+      spanLabel: `${30 + extra} ng\xE0y`,
+      cite: "\u0110i\u1EC1u 30 Lu\u1EADt T\u1ED1 c\xE1o"
+    });
+    const klBase = banHanh ?? base;
+    push(milestones, {
+      id: "kl",
+      group: "gui",
+      label: "H\u1EA1n g\u1EEDi k\u1EBFt lu\u1EADn n\u1ED9i dung t\u1ED1 c\xE1o (05 ng\xE0y l\xE0m vi\u1EC7c k\u1EC3 t\u1EEB ban h\xE0nh)",
+      at: addWorkingDays(klBase, 5),
+      kind: "working",
+      spanLabel: "05 ng\xE0y l\xE0m vi\u1EC7c",
+      cite: "\u0110i\u1EC1u 35 Lu\u1EADt T\u1ED1 c\xE1o",
+      hint: banHanh ? "T\xEDnh t\u1EEB ng\xE0y ban h\xE0nh." : "Ch\u01B0a nh\u1EADp ng\xE0y ban h\xE0nh \u2014 t\u1EA1m l\u1EA5y ng\xE0y th\u1EE5 l\xFD."
+    });
+    push(milestones, {
+      id: "congbo",
+      group: "gui",
+      label: "H\u1EA1n c\xF4ng khai k\u1EBFt lu\u1EADn t\u1EA1i n\u01A1i l\xE0m vi\u1EC7c ng\u01B0\u1EDDi b\u1ECB t\u1ED1 c\xE1o (07 ng\xE0y l\xE0m vi\u1EC7c)",
+      at: addWorkingDays(klBase, 7),
+      kind: "working",
+      spanLabel: "07 ng\xE0y l\xE0m vi\u1EC7c",
+      cite: "Q\u0110 50 \u0110i\u1EC1u 25.1"
+    });
+    const title = opts.dacBiet ? "T\u1ED1 c\xE1o h\xE0nh ch\xEDnh \u2014 \u0111\u1EB7c bi\u1EC7t ph\u1EE9c t\u1EA1p" : opts.phucTap ? "T\u1ED1 c\xE1o h\xE0nh ch\xEDnh \u2014 ph\u1EE9c t\u1EA1p" : "T\u1ED1 c\xE1o h\xE0nh ch\xEDnh \u2014 th\xF4ng th\u01B0\u1EDDng";
+    return pack(title, cites, milestones, checklist, notes, receivedDay, opts, "tc-hc");
+  }
+  function ksKntc(opts, receivedDay, receivedAt, thuLyIn, banHanh, nhanKs, milestones) {
+    const cites = [
+      "\u0110i\u1EC1u 483 BLTTHS \u2014 nhi\u1EC7m v\u1EE5, quy\u1EC1n h\u1EA1n c\u1EE7a VKS khi ki\u1EC3m s\xE1t vi\u1EC7c gi\u1EA3i quy\u1EBFt KN, TC",
+      "TTLT 02/2018/TTLT-VKSTC-TATC-BCA-BQP-BTC-BNN&PTNT",
+      "Quy\u1EBFt \u0111\u1ECBnh 50/Q\u0110-VKSTC ng\xE0y 20/3/2026 (\u0110i\u1EC1u 32, 33)"
+    ];
+    const notes = [
+      "H\u1EA1n 03 ng\xE0y g\u1EEDi TB/Q\u0110 cho VKS t\xEDnh t\u1EEB ng\xE0y CQ\u0110T/TA th\u1EE5 l\xFD ho\u1EB7c ban h\xE0nh Q\u0110 \u2014 \u0111\xE2y l\xE0 h\u1EA1n c\u1EE7a c\u01A1 quan b\u1ECB ki\u1EC3m s\xE1t.",
+      "H\u1EA1n 03 ng\xE0y VKS h\u1ED3i \u0111\xE1p t\xEDnh t\u1EEB ng\xE0y VKS nh\u1EADn \u0111\u01B0\u1EE3c Q\u0110, kh\xF4ng ph\u1EA3i ng\xE0y ban h\xE0nh.",
+      "\u0110\u1ED1i chi\u1EBFu h\u1EA1n gi\u1EA3i quy\u1EBFt c\u1EE7a CQ\u0110T/TA v\u1EDBi BLTTHS 474\u2013477, 481. Ch\u1EADm h\u1EA1n l\xE0 n\u1ED9i dung ki\u1EBFn ngh\u1ECB."
+    ];
+    const checklist = [
+      "\u0110\xE3 nh\u1EADn th\xF4ng b\xE1o th\u1EE5 l\xFD ho\u1EB7c Q\u0110 gi\u1EA3i quy\u1EBFt / \u0111\xECnh ch\u1EC9 c\u1EE7a CQ\u0110T ho\u1EB7c T\xF2a \xE1n.",
+      "H\u1ED3 s\u01A1 k\xE8m theo \u0111\u1EE7 \u0111\u1EC3 \u0111\u1ED1i chi\u1EBFu t\xEDnh c\xF3 c\u0103n c\u1EE9, h\u1EE3p ph\xE1p.",
+      "C\xF2n trong h\u1EA1n 03 ng\xE0y \u0111\u1EC3 th\xF4ng b\xE1o \u0111\u1ED3ng \xFD / kh\xF4ng \u0111\u1ED3ng \xFD.",
+      "N\u1EBFu kh\xF4ng \u0111\u1ED3ng \xFD: d\u1EF1 th\u1EA3o y\xEAu c\u1EA7u gi\u1EA3i quy\u1EBFt l\u1EA1i, ki\u1EBFn ngh\u1ECB ho\u1EB7c kh\xE1ng ngh\u1ECB."
+    ];
+    const isTc = opts.ksKind === "tc";
+    let gq;
+    let gqLabel;
+    let gqSpan;
+    let gqCite;
+    if (opts.subject === "tu-do") {
+      gq = isTc ? addHours(receivedAt, 24) : addHours(receivedAt, 24);
+      gqLabel = isTc ? "H\u1EA1n CQ\u0110T/VKS gi\u1EA3i quy\u1EBFt t\u1ED1 c\xE1o t\u1EA1m giam (24 gi\u1EDD)" : "H\u1EA1n c\u01A1 quan b\u1ECB ki\u1EC3m s\xE1t gi\u1EA3i quy\u1EBFt KN t\u1EA1m giam (24 gi\u1EDD)";
+      gqSpan = "24 gi\u1EDD";
+      gqCite = isTc ? "\u0110i\u1EC1u 481.4 BLTTHS" : "\u0110i\u1EC1u 474 BLTTHS";
+      push(milestones, {
+        id: "xm",
+        group: "xacminh",
+        label: "H\u1EA1n x\xE1c minh th\xEAm t\u1ED1i \u0111a c\u1EE7a c\u01A1 quan b\u1ECB ki\u1EC3m s\xE1t (03 ng\xE0y)",
+        at: addCalendarDays(receivedDay, 3),
+        kind: "calendar",
+        spanLabel: "03 ng\xE0y",
+        cite: isTc ? "\u0110i\u1EC1u 481.4 BLTTHS" : "\u0110i\u1EC1u 474 BLTTHS"
+      });
+    } else if (opts.subject === "tham-phan") {
+      gq = addCalendarDays(receivedDay, 7);
+      gqLabel = "H\u1EA1n Ch\xE1nh \xE1n gi\u1EA3i quy\u1EBFt khi\u1EBFu n\u1EA1i Th\u1EA9m ph\xE1n (07 ng\xE0y)";
+      gqSpan = "07 ng\xE0y";
+      gqCite = "\u0110i\u1EC1u 477 BLTTHS";
+      push(milestones, {
+        id: "xm",
+        group: "xacminh",
+        label: "H\u1EA1n x\xE1c minh (kh\xF4ng v\u01B0\u1EE3t h\u1EA1n gi\u1EA3i quy\u1EBFt c\u1EE7a TA)",
+        at: gq,
+        kind: "calendar",
+        spanLabel: "07 ng\xE0y",
+        cite: "\u0110i\u1EC1u 477 BLTTHS \xB7 TTLT 02/2018"
+      });
+    } else if (opts.subject === "chan-an") {
+      gq = addCalendarDays(receivedDay, 15);
+      gqLabel = "H\u1EA1n Ch\xE1nh \xE1n c\u1EA5p tr\xEAn gi\u1EA3i quy\u1EBFt khi\u1EBFu n\u1EA1i Ch\xE1nh \xE1n (15 ng\xE0y)";
+      gqSpan = "15 ng\xE0y";
+      gqCite = "\u0110i\u1EC1u 477 BLTTHS";
+      push(milestones, {
+        id: "xm",
+        group: "xacminh",
+        label: "H\u1EA1n x\xE1c minh (kh\xF4ng v\u01B0\u1EE3t h\u1EA1n gi\u1EA3i quy\u1EBFt c\u1EE7a TA)",
+        at: gq,
+        kind: "calendar",
+        spanLabel: "15 ng\xE0y",
+        cite: "\u0110i\u1EC1u 477 BLTTHS"
+      });
+    } else if (isTc) {
+      const days = opts.phucTap ? 60 : 30;
+      gq = addCalendarDays(receivedDay, days);
+      gqLabel = opts.phucTap ? "H\u1EA1n CQ\u0110T/TA gi\u1EA3i quy\u1EBFt t\u1ED1 c\xE1o ph\u1EE9c t\u1EA1p (60 ng\xE0y k\u1EC3 t\u1EEB ng\xE0y nh\u1EADn)" : "H\u1EA1n CQ\u0110T/TA gi\u1EA3i quy\u1EBFt t\u1ED1 c\xE1o (30 ng\xE0y k\u1EC3 t\u1EEB ng\xE0y nh\u1EADn)";
+      gqSpan = `${days} ng\xE0y`;
+      gqCite = "\u0110i\u1EC1u 481.3 BLTTHS";
+      push(milestones, {
+        id: "xm",
+        group: "xacminh",
+        label: "H\u1EA1n x\xE1c minh c\u1EE7a c\u01A1 quan b\u1ECB ki\u1EC3m s\xE1t (kh\xF4ng v\u01B0\u1EE3t h\u1EA1n GQ)",
+        at: gq,
+        kind: "calendar",
+        spanLabel: `${days} ng\xE0y`,
+        cite: "\u0110i\u1EC1u 481 BLTTHS"
+      });
+    } else {
+      gq = addCalendarDays(receivedDay, 7);
+      gqLabel = "H\u1EA1n Th\u1EE7 tr\u01B0\u1EDFng CQ\u0110T gi\u1EA3i quy\u1EBFt khi\u1EBFu n\u1EA1i \u0110TV (07 ng\xE0y)";
+      gqSpan = "07 ng\xE0y";
+      gqCite = "\u0110i\u1EC1u 475 BLTTHS";
+      push(milestones, {
+        id: "xm",
+        group: "xacminh",
+        label: "H\u1EA1n x\xE1c minh c\u1EE7a c\u01A1 quan b\u1ECB ki\u1EC3m s\xE1t (kh\xF4ng v\u01B0\u1EE3t 07 ng\xE0y)",
+        at: gq,
+        kind: "calendar",
+        spanLabel: "07 ng\xE0y",
+        cite: "\u0110i\u1EC1u 475 BLTTHS"
+      });
+    }
+    const thuLyDeadline = opts.subject === "tu-do" ? addHours(receivedAt, isTc ? 12 : 8) : addCalendarDays(receivedDay, isTc ? 10 : 3);
+    push(milestones, {
+      id: "thuly",
+      group: "thuly",
+      label: opts.subject === "tu-do" ? isTc ? "H\u1EA1n CQ\u0110T/VKS th\u1EE5 l\xFD t\u1ED1 c\xE1o t\u1EA1m giam (12 gi\u1EDD)" : "H\u1EA1n c\u01A1 quan b\u1ECB ki\u1EC3m s\xE1t th\u1EE5 l\xFD KN t\u1EA1m giam (08 gi\u1EDD)" : isTc ? "H\u1EA1n CQ\u0110T/TA th\u1EE5 l\xFD t\u1ED1 c\xE1o (10 ng\xE0y)" : "H\u1EA1n CQ\u0110T/TA th\u1EE5 l\xFD khi\u1EBFu n\u1EA1i (m\u1ED1c 03 ng\xE0y)",
+      at: thuLyIn ?? thuLyDeadline,
+      kind: opts.subject === "tu-do" ? "hours" : "calendar",
+      spanLabel: opts.subject === "tu-do" ? isTc ? "12 gi\u1EDD" : "08 gi\u1EDD" : isTc ? "10 ng\xE0y" : "03 ng\xE0y",
+      cite: "Q\u0110 50 \xB7 TTLT 02/2018"
+    });
+    push(milestones, {
+      id: "gq",
+      group: "giaiquyet",
+      label: gqLabel,
+      at: gq,
+      kind: opts.subject === "tu-do" ? "hours" : "calendar",
+      spanLabel: gqSpan,
+      cite: gqCite,
+      hint: "H\u1EA1n c\u1EE7a c\u01A1 quan b\u1ECB ki\u1EC3m s\xE1t \u2014 VKS \u0111\u1ED1i chi\u1EBFu \u0111\u1EC3 ph\xE1t hi\u1EC7n ch\u1EADm h\u1EA1n."
+    });
+    const guiTu = thuLyIn ?? receivedDay;
+    push(milestones, {
+      id: "ks-gui-tl",
+      group: "ks",
+      label: "H\u1EA1n CQ\u0110T/TA g\u1EEDi th\xF4ng b\xE1o th\u1EE5 l\xFD cho VKS",
+      at: addCalendarDays(guiTu, 3),
+      kind: "calendar",
+      spanLabel: "03 ng\xE0y",
+      cite: "TTLT 02/2018"
+    });
+    if (banHanh) {
+      push(milestones, {
+        id: "ks-gui-qd",
+        group: "ks",
+        label: "H\u1EA1n CQ\u0110T/TA g\u1EEDi Q\u0110 gi\u1EA3i quy\u1EBFt / \u0111\xECnh ch\u1EC9 cho VKS",
+        at: addCalendarDays(banHanh, 3),
+        kind: "calendar",
+        spanLabel: "03 ng\xE0y",
+        cite: "TTLT 02/2018"
+      });
+    }
+    push(milestones, {
+      id: "ks-tl",
+      group: "ks",
+      label: "H\u1EA1n VKS th\xF4ng b\xE1o \u0111\u1ED3ng \xFD / kh\xF4ng \u0111\u1ED3ng \xFD",
+      at: addCalendarDays(nhanKs ?? banHanh ?? receivedDay, 3),
+      kind: "calendar",
+      spanLabel: "03 ng\xE0y",
+      cite: "TTLT 02/2018",
+      hint: nhanKs ? "T\xEDnh t\u1EEB ng\xE0y VKS nh\u1EADn \u0111\u01B0\u1EE3c quy\u1EBFt \u0111\u1ECBnh." : "Ch\u01B0a nh\u1EADp ng\xE0y VKS nh\u1EADn Q\u0110 \u2014 t\u1EA1m l\u1EA5y ng\xE0y ban h\xE0nh / ng\xE0y nh\u1EADn \u0111\u01A1n."
+    });
+    push(milestones, {
+      id: "ks-kl",
+      group: "gui",
+      label: "H\u1EA1n g\u1EEDi k\u1EBFt lu\u1EADn ki\u1EC3m s\xE1t, ki\u1EBFn ngh\u1ECB, kh\xE1ng ngh\u1ECB (03 ng\xE0y l\xE0m vi\u1EC7c k\u1EC3 t\u1EEB ban h\xE0nh)",
+      at: addWorkingDays(banHanh ?? receivedDay, 3),
+      kind: "working",
+      spanLabel: "03 ng\xE0y l\xE0m vi\u1EC7c",
+      cite: "Q\u0110 50 \u0110i\u1EC1u 33"
+    });
+    const who = opts.subject === "tu-do" ? "b\u1EAFt, t\u1EA1m gi\u1EEF, t\u1EA1m giam" : opts.subject === "tham-phan" ? "Th\u1EA9m ph\xE1n" : opts.subject === "chan-an" ? "Ch\xE1nh \xE1n" : "\u0110i\u1EC1u tra vi\xEAn / CQ\u0110T";
+    const title = `${isTc ? "Ki\u1EC3m s\xE1t gi\u1EA3i quy\u1EBFt t\u1ED1 c\xE1o" : "Ki\u1EC3m s\xE1t gi\u1EA3i quy\u1EBFt khi\u1EBFu n\u1EA1i"} \u2014 ${who}`;
+    return pack(title, cites, milestones, checklist, notes, receivedDay, opts, "ks-kntc");
+  }
+  function pack(title, cites, milestones, checklist, notes, receivedDay, opts, track) {
+    const order = ["hieu", "thuly", "xacminh", "giaiquyet", "gui", "ks"];
+    milestones.sort((a, b) => {
+      const g = order.indexOf(a.group) - order.indexOf(b.group);
+      if (g !== 0) return g;
+      return a.at.getTime() - b.at.getTime();
+    });
+    const gq = milestones.find((m) => m.id === "gq");
+    const thuly = milestones.find((m) => m.id === "thuly");
+    const xm = milestones.find((m) => m.id === "xm");
+    const meta = TRACKS.find((t) => t.id === track);
+    const soRow = [
+      meta?.short ?? track,
+      title,
+      formatVi(receivedDay),
+      thuly ? formatVi(thuly.at) : "",
+      xm ? formatVi(xm.at) : "",
+      gq ? formatVi(gq.at) : "",
+      opts.chuyenDon ? "Chuy\u1EC3n \u0111\u01A1n" : opts.dacBiet ? "\u0110\u1EB7c bi\u1EC7t ph\u1EE9c t\u1EA1p" : opts.phucTap ? "Ph\u1EE9c t\u1EA1p" : "Th\xF4ng th\u01B0\u1EDDng",
+      ""
+    ];
+    return { title, cites, milestones, checklist, notes, soRow };
+  }
+  var SO_HEADERS = [
+    "Lo\u1EA1i \u0111\u01A1n",
+    "N\u1ED9i dung / lo\u1EA1i vi\u1EC7c",
+    "Ng\xE0y nh\u1EADn",
+    "H\u1EA1n th\u1EE5 l\xFD",
+    "H\u1EA1n x\xE1c minh",
+    "H\u1EA1n gi\u1EA3i quy\u1EBFt",
+    "Ph\xE2n lo\u1EA1i",
+    "Ghi ch\xFA"
+  ];
+
+  // src/lib/kn-tc/matrix.ts
+  var MATRIX = [
+    {
+      track: "KN TTHS \u2014 b\u1EAFt, t\u1EA1m gi\u1EEF, t\u1EA1m giam",
+      moc: "Th\u1EE5 l\xFD v\xE0 th\xF4ng b\xE1o th\u1EE5 l\xFD",
+      han: "08 gi\u1EDD k\u1EC3 t\u1EEB khi nh\u1EADn khi\u1EBFu n\u1EA1i",
+      kind: "Gi\u1EDD",
+      cite: "Q\u0110 50/Q\u0110-VKSTC"
+    },
+    {
+      track: "KN TTHS \u2014 b\u1EAFt, t\u1EA1m gi\u1EEF, t\u1EA1m giam",
+      moc: "Gi\u1EA3i quy\u1EBFt ngay",
+      han: "24 gi\u1EDD k\u1EC3 t\u1EEB khi nh\u1EADn khi\u1EBFu n\u1EA1i",
+      kind: "Gi\u1EDD",
+      cite: "\u0110i\u1EC1u 474 BLTTHS"
+    },
+    {
+      track: "KN TTHS \u2014 b\u1EAFt, t\u1EA1m gi\u1EEF, t\u1EA1m giam",
+      moc: "X\xE1c minh th\xEAm / gi\u1EA3i quy\u1EBFt t\u1ED1i \u0111a",
+      han: "Kh\xF4ng qu\xE1 03 ng\xE0y k\u1EC3 t\u1EEB ng\xE0y nh\u1EADn",
+      kind: "D\u01B0\u01A1ng l\u1ECBch",
+      cite: "\u0110i\u1EC1u 474 BLTTHS"
+    },
+    {
+      track: "KN TTHS \u2014 b\u1EAFt, t\u1EA1m gi\u1EEF, t\u1EA1m giam",
+      moc: "G\u1EEDi Q\u0110 gi\u1EA3i quy\u1EBFt (t\u1EA1m gi\u1EEF, t\u1EA1m giam)",
+      han: "24 gi\u1EDD k\u1EC3 t\u1EEB khi ban h\xE0nh",
+      kind: "Gi\u1EDD",
+      cite: "Q\u0110 50 \u0110i\u1EC1u 11.2"
+    },
+    {
+      track: "KN TTHS \u2014 b\u1EAFt, t\u1EA1m gi\u1EEF, t\u1EA1m giam",
+      moc: "Khi\u1EBFu n\u1EA1i l\u1EA7n hai",
+      han: "03 ng\xE0y k\u1EC3 t\u1EEB ng\xE0y nh\u1EADn Q\u0110 l\u1EA7n \u0111\u1EA7u",
+      kind: "D\u01B0\u01A1ng l\u1ECBch",
+      cite: "\u0110i\u1EC1u 471, 474 BLTTHS"
+    },
+    {
+      track: "KN TTHS \u2014 b\u1EAFt, t\u1EA1m gi\u1EEF, t\u1EA1m giam",
+      moc: "VKS c\u1EA5p tr\xEAn gi\u1EA3i quy\u1EBFt l\u1EA7n hai",
+      han: "07 ng\xE0y k\u1EC3 t\u1EEB ng\xE0y nh\u1EADn khi\u1EBFu n\u1EA1i l\u1EA7n hai",
+      kind: "D\u01B0\u01A1ng l\u1ECBch",
+      cite: "\u0110i\u1EC1u 474 BLTTHS \xB7 TTLT 02/2018"
+    },
+    {
+      track: "KN TTHS \u2014 \u0110i\u1EC1u tra vi\xEAn, CQ\u0110T",
+      moc: "Th\u1EDDi hi\u1EC7u khi\u1EBFu n\u1EA1i l\u1EA7n \u0111\u1EA7u",
+      han: "15 ng\xE0y k\u1EC3 t\u1EEB ng\xE0y nh\u1EADn/bi\u1EBFt Q\u0110, h\xE0nh vi",
+      kind: "D\u01B0\u01A1ng l\u1ECBch",
+      cite: "\u0110i\u1EC1u 471 BLTTHS"
+    },
+    {
+      track: "KN TTHS \u2014 \u0110i\u1EC1u tra vi\xEAn, CQ\u0110T",
+      moc: "Th\u1EE7 tr\u01B0\u1EDFng CQ\u0110T gi\u1EA3i quy\u1EBFt l\u1EA7n \u0111\u1EA7u",
+      han: "07 ng\xE0y k\u1EC3 t\u1EEB ng\xE0y nh\u1EADn khi\u1EBFu n\u1EA1i",
+      kind: "D\u01B0\u01A1ng l\u1ECBch",
+      cite: "\u0110i\u1EC1u 475 BLTTHS"
+    },
+    {
+      track: "KN TTHS \u2014 \u0110i\u1EC1u tra vi\xEAn, CQ\u0110T",
+      moc: "Th\u1EE5 l\xFD (quy tr\xECnh ng\xE0nh)",
+      han: "Trong h\u1EA1n gi\u1EA3i quy\u1EBFt; m\u1ED1c 03 ng\xE0y",
+      kind: "D\u01B0\u01A1ng l\u1ECBch",
+      cite: "Q\u0110 50 \xB7 TTLT 02/2018"
+    },
+    {
+      track: "KN TTHS \u2014 \u0110i\u1EC1u tra vi\xEAn, CQ\u0110T",
+      moc: "Khi\u1EBFu n\u1EA1i l\u1EA7n hai / VKS gi\u1EA3i quy\u1EBFt",
+      han: "03 ng\xE0y g\u1EEDi KN l\u1EA7n hai; VKS gi\u1EA3i quy\u1EBFt 07 ng\xE0y",
+      kind: "D\u01B0\u01A1ng l\u1ECBch",
+      cite: "\u0110i\u1EC1u 475 BLTTHS"
+    },
+    {
+      track: "KN TTHS \u2014 Ki\u1EC3m s\xE1t vi\xEAn, Ph\xF3 Vi\u1EC7n tr\u01B0\u1EDFng",
+      moc: "Vi\u1EC7n tr\u01B0\u1EDFng gi\u1EA3i quy\u1EBFt l\u1EA7n \u0111\u1EA7u",
+      han: "07 ng\xE0y k\u1EC3 t\u1EEB ng\xE0y nh\u1EADn khi\u1EBFu n\u1EA1i",
+      kind: "D\u01B0\u01A1ng l\u1ECBch",
+      cite: "\u0110i\u1EC1u 476.1 BLTTHS (s\u1EEDa 2025)"
+    },
+    {
+      track: "KN TTHS \u2014 Ki\u1EC3m s\xE1t vi\xEAn, Ph\xF3 Vi\u1EC7n tr\u01B0\u1EDFng",
+      moc: "VKS c\u1EA5p tr\xEAn gi\u1EA3i quy\u1EBFt l\u1EA7n hai",
+      han: "15 ng\xE0y k\u1EC3 t\u1EEB ng\xE0y nh\u1EADn khi\u1EBFu n\u1EA1i l\u1EA7n hai",
+      kind: "D\u01B0\u01A1ng l\u1ECBch",
+      cite: "\u0110i\u1EC1u 476.1 BLTTHS"
+    },
+    {
+      track: "KN TTHS \u2014 Vi\u1EC7n tr\u01B0\u1EDFng",
+      moc: "VKS c\u1EA5p tr\xEAn gi\u1EA3i quy\u1EBFt",
+      han: "15 ng\xE0y k\u1EC3 t\u1EEB ng\xE0y nh\u1EADn khi\u1EBFu n\u1EA1i",
+      kind: "D\u01B0\u01A1ng l\u1ECBch",
+      cite: "\u0110i\u1EC1u 476.2 BLTTHS"
+    },
+    {
+      track: "KN TTHS \u2014 Th\u1EA9m ph\xE1n",
+      moc: "Ch\xE1nh \xE1n gi\u1EA3i quy\u1EBFt l\u1EA7n \u0111\u1EA7u",
+      han: "07 ng\xE0y k\u1EC3 t\u1EEB ng\xE0y nh\u1EADn khi\u1EBFu n\u1EA1i",
+      kind: "D\u01B0\u01A1ng l\u1ECBch",
+      cite: "\u0110i\u1EC1u 477 BLTTHS"
+    },
+    {
+      track: "KN TTHS \u2014 Ch\xE1nh \xE1n",
+      moc: "Ch\xE1nh \xE1n c\u1EA5p tr\xEAn gi\u1EA3i quy\u1EBFt",
+      han: "15 ng\xE0y k\u1EC3 t\u1EEB ng\xE0y nh\u1EADn khi\u1EBFu n\u1EA1i",
+      kind: "D\u01B0\u01A1ng l\u1ECBch",
+      cite: "\u0110i\u1EC1u 477 BLTTHS"
+    },
+    {
+      track: "KN TTHS \u2014 chung",
+      moc: "X\xE1c minh",
+      han: "Kh\xF4ng v\u01B0\u1EE3t th\u1EDDi h\u1EA1n gi\u1EA3i quy\u1EBFt; gia h\u1EA1n kh\xF4ng v\u01B0\u1EE3t h\u1EA1n GQ",
+      kind: "Trong h\u1EA1n GQ",
+      cite: "Q\u0110 50 \u0110i\u1EC1u 9.9 \xB7 TTLT 02/2018"
+    },
+    {
+      track: "KN TTHS \u2014 chung",
+      moc: "G\u1EEDi Q\u0110 cho ng\u01B0\u1EDDi KN, ng\u01B0\u1EDDi b\u1ECB KN, VKS c\u1EA5p tr\xEAn",
+      han: "03 ng\xE0y l\xE0m vi\u1EC7c k\u1EC3 t\u1EEB ng\xE0y ban h\xE0nh",
+      kind: "Ng\xE0y LV",
+      cite: "Q\u0110 50 \u0110i\u1EC1u 11.2"
+    },
+    {
+      track: "TC TTHS \u2014 th\xF4ng th\u01B0\u1EDDng",
+      moc: "Ki\u1EC3m tra h\u1ECD t\xEAn, \u0111\u1ECBa ch\u1EC9 / \u0111i\u1EC1u ki\u1EC7n th\u1EE5 l\xFD",
+      han: "10 ng\xE0y k\u1EC3 t\u1EEB khi ti\u1EBFp nh\u1EADn t\u1ED1 c\xE1o thu\u1ED9c th\u1EA9m quy\u1EC1n",
+      kind: "D\u01B0\u01A1ng l\u1ECBch",
+      cite: "TTLT 02/2018"
+    },
+    {
+      track: "TC TTHS \u2014 th\xF4ng th\u01B0\u1EDDng",
+      moc: "Th\u1EE5 l\xFD t\u1ED1 c\xE1o",
+      han: "10 ng\xE0y k\u1EC3 t\u1EEB ng\xE0y nh\u1EADn t\u1ED1 c\xE1o \u0111\u1EE7 \u0111i\u1EC1u ki\u1EC7n",
+      kind: "D\u01B0\u01A1ng l\u1ECBch",
+      cite: "Q\u0110 50/Q\u0110-VKSTC"
+    },
+    {
+      track: "TC TTHS \u2014 th\xF4ng th\u01B0\u1EDDng",
+      moc: "Gi\u1EA3i quy\u1EBFt t\u1ED1 c\xE1o",
+      han: "30 ng\xE0y k\u1EC3 t\u1EEB ng\xE0y nh\u1EADn \u0111\u01B0\u1EE3c t\u1ED1 c\xE1o (kh\xF4ng ph\u1EA3i ng\xE0y th\u1EE5 l\xFD)",
+      kind: "D\u01B0\u01A1ng l\u1ECBch",
+      cite: "\u0110i\u1EC1u 481.3 BLTTHS"
+    },
+    {
+      track: "TC TTHS \u2014 ph\u1EE9c t\u1EA1p",
+      moc: "Gi\u1EA3i quy\u1EBFt t\u1ED1 c\xE1o",
+      han: "C\xF3 th\u1EC3 k\xE9o d\xE0i nh\u01B0ng kh\xF4ng qu\xE1 60 ng\xE0y k\u1EC3 t\u1EEB ng\xE0y nh\u1EADn",
+      kind: "D\u01B0\u01A1ng l\u1ECBch",
+      cite: "\u0110i\u1EC1u 481.3 BLTTHS"
+    },
+    {
+      track: "TC TTHS \u2014 b\u1EAFt, t\u1EA1m gi\u1EEF, t\u1EA1m giam",
+      moc: "Th\u1EE5 l\xFD v\xE0 th\xF4ng b\xE1o",
+      han: "12 gi\u1EDD k\u1EC3 t\u1EEB khi nh\u1EADn t\u1ED1 c\xE1o",
+      kind: "Gi\u1EDD",
+      cite: "Q\u0110 50/Q\u0110-VKSTC"
+    },
+    {
+      track: "TC TTHS \u2014 b\u1EAFt, t\u1EA1m gi\u1EEF, t\u1EA1m giam",
+      moc: "Vi\u1EC7n tr\u01B0\u1EDFng gi\u1EA3i quy\u1EBFt",
+      han: "24 gi\u1EDD; n\u1EBFu x\xE1c minh th\xEAm kh\xF4ng qu\xE1 03 ng\xE0y",
+      kind: "Gi\u1EDD / d\u01B0\u01A1ng l\u1ECBch",
+      cite: "\u0110i\u1EC1u 481.4 BLTTHS"
+    },
+    {
+      track: "TC TTHS \u2014 d\u1EA5u hi\u1EC7u t\u1ED9i ph\u1EA1m",
+      moc: "Kh\xF4ng d\xF9ng h\u1EA1n t\u1ED1 c\xE1o h\xE0nh ch\xEDnh / TTHS",
+      han: "Gi\u1EA3i quy\u1EBFt theo t\u1ED1 gi\xE1c, tin b\xE1o t\u1ED9i ph\u1EA1m",
+      kind: "\u2014",
+      cite: "\u0110i\u1EC1u 481.2 \xB7 \u0110i\u1EC1u 145/147 BLTTHS"
+    },
+    {
+      track: "TC TTHS \u2014 chung",
+      moc: "C\xF4ng khai k\u1EBFt lu\u1EADn / Q\u0110 gi\u1EA3i quy\u1EBFt",
+      han: "07 ng\xE0y l\xE0m vi\u1EC7c k\u1EC3 t\u1EEB ng\xE0y ban h\xE0nh, t\u1EA1i n\u01A1i l\xE0m vi\u1EC7c ng\u01B0\u1EDDi b\u1ECB t\u1ED1 c\xE1o",
+      kind: "Ng\xE0y LV",
+      cite: "Q\u0110 50 \u0110i\u1EC1u 25.1"
+    },
+    {
+      track: "KN h\xE0nh ch\xEDnh",
+      moc: "Th\u1EDDi hi\u1EC7u khi\u1EBFu n\u1EA1i",
+      han: "90 ng\xE0y k\u1EC3 t\u1EEB ng\xE0y nh\u1EADn Q\u0110 h\xE0nh ch\xEDnh ho\u1EB7c bi\u1EBFt h\xE0nh vi",
+      kind: "D\u01B0\u01A1ng l\u1ECBch",
+      cite: "\u0110i\u1EC1u 9 Lu\u1EADt Khi\u1EBFu n\u1EA1i"
+    },
+    {
+      track: "KN h\xE0nh ch\xEDnh",
+      moc: "Th\u1EE5 l\xFD l\u1EA7n \u0111\u1EA7u / l\u1EA7n hai",
+      han: "07 ng\xE0y l\xE0m vi\u1EC7c k\u1EC3 t\u1EEB ng\xE0y nh\u1EADn khi\u1EBFu n\u1EA1i thu\u1ED9c th\u1EA9m quy\u1EC1n",
+      kind: "Ng\xE0y LV",
+      cite: "\u0110i\u1EC1u 27, 36 Lu\u1EADt KN (Lu\u1EADt 136/2025, HL 01/7/2026)"
+    },
+    {
+      track: "KN h\xE0nh ch\xEDnh \u2014 l\u1EA7n \u0111\u1EA7u",
+      moc: "Gi\u1EA3i quy\u1EBFt",
+      han: "30 ng\xE0y k\u1EC3 t\u1EEB th\u1EE5 l\xFD; ph\u1EE9c t\u1EA1p 45; ph\u1EE9c t\u1EA1p v\xF9ng s\xE2u 60",
+      kind: "D\u01B0\u01A1ng l\u1ECBch",
+      cite: "\u0110i\u1EC1u 28 Lu\u1EADt Khi\u1EBFu n\u1EA1i"
+    },
+    {
+      track: "KN h\xE0nh ch\xEDnh \u2014 l\u1EA7n hai",
+      moc: "Gi\u1EA3i quy\u1EBFt",
+      han: "45 ng\xE0y k\u1EC3 t\u1EEB th\u1EE5 l\xFD; ph\u1EE9c t\u1EA1p 60; ph\u1EE9c t\u1EA1p v\xF9ng s\xE2u 70",
+      kind: "D\u01B0\u01A1ng l\u1ECBch",
+      cite: "\u0110i\u1EC1u 37 Lu\u1EADt Khi\u1EBFu n\u1EA1i"
+    },
+    {
+      track: "KN h\xE0nh ch\xEDnh",
+      moc: "Quy\u1EC1n KN l\u1EA7n hai",
+      han: "30 ng\xE0y (v\xF9ng s\xE2u 45) k\u1EC3 t\u1EEB h\u1EBFt h\u1EA1n GQ l\u1EA7n \u0111\u1EA7u ho\u1EB7c nh\u1EADn Q\u0110 l\u1EA7n \u0111\u1EA7u",
+      kind: "D\u01B0\u01A1ng l\u1ECBch",
+      cite: "\u0110i\u1EC1u 33 Lu\u1EADt KN (s\u1EEDa 2025)"
+    },
+    {
+      track: "KN h\xE0nh ch\xEDnh",
+      moc: "G\u1EEDi Q\u0110 gi\u1EA3i quy\u1EBFt l\u1EA7n \u0111\u1EA7u",
+      han: "03 ng\xE0y l\xE0m vi\u1EC7c k\u1EC3 t\u1EEB ng\xE0y ban h\xE0nh",
+      kind: "Ng\xE0y LV",
+      cite: "\u0110i\u1EC1u 32 Lu\u1EADt KN \xB7 Q\u0110 50 \u0110i\u1EC1u 11.2"
+    },
+    {
+      track: "KN h\xE0nh ch\xEDnh",
+      moc: "G\u1EEDi Q\u0110 gi\u1EA3i quy\u1EBFt l\u1EA7n hai",
+      han: "07 ng\xE0y l\xE0m vi\u1EC7c k\u1EC3 t\u1EEB ng\xE0y ban h\xE0nh",
+      kind: "Ng\xE0y LV",
+      cite: "\u0110i\u1EC1u 40 Lu\u1EADt Khi\u1EBFu n\u1EA1i"
+    },
+    {
+      track: "KN h\xE0nh ch\xEDnh",
+      moc: "X\xE1c minh",
+      han: "Ph\u1EA3i xong trong th\u1EDDi h\u1EA1n gi\u1EA3i quy\u1EBFt; gia h\u1EA1n XM kh\xF4ng v\u01B0\u1EE3t h\u1EA1n GQ",
+      kind: "Trong h\u1EA1n GQ",
+      cite: "\u0110i\u1EC1u 29 Lu\u1EADt KN \xB7 Q\u0110 50 \u0110i\u1EC1u 9"
+    },
+    {
+      track: "KN k\u1EF7 lu\u1EADt CBCC",
+      moc: "Th\u1EDDi hi\u1EC7u l\u1EA7n \u0111\u1EA7u / l\u1EA7n hai",
+      han: "15 ng\xE0y (l\u1EA7n \u0111\u1EA7u); 10 ng\xE0y l\u1EA7n hai; 30 ng\xE0y n\u1EBFu bu\u1ED9c th\xF4i vi\u1EC7c",
+      kind: "D\u01B0\u01A1ng l\u1ECBch",
+      cite: "\u0110i\u1EC1u 48 Lu\u1EADt Khi\u1EBFu n\u1EA1i"
+    },
+    {
+      track: "KN k\u1EF7 lu\u1EADt CBCC",
+      moc: "Th\u1EE5 l\xFD v\xE0 gi\u1EA3i quy\u1EBFt",
+      han: "Th\u1EE5 l\xFD 07 ng\xE0y LV; GQ 30 ng\xE0y, ph\u1EE9c t\u1EA1p 45 ng\xE0y k\u1EC3 t\u1EEB th\u1EE5 l\xFD",
+      kind: "Ng\xE0y LV / d\u01B0\u01A1ng l\u1ECBch",
+      cite: "\u0110i\u1EC1u 50 Lu\u1EADt KN (s\u1EEDa 2025)"
+    },
+    {
+      track: "TC h\xE0nh ch\xEDnh",
+      moc: "X\u1EED l\xFD ban \u0111\u1EA7u, ki\u1EC3m tra \u0111i\u1EC1u ki\u1EC7n th\u1EE5 l\xFD",
+      han: "07 ng\xE0y l\xE0m vi\u1EC7c; nhi\u1EC1u \u0111\u1ECBa \u0111i\u1EC3m / \u1EE7y quy\u1EC1n: t\u1ED1i \u0111a 10 ng\xE0y LV",
+      kind: "Ng\xE0y LV",
+      cite: "\u0110i\u1EC1u 24 Lu\u1EADt T\u1ED1 c\xE1o"
+    },
+    {
+      track: "TC h\xE0nh ch\xEDnh",
+      moc: "Th\xF4ng b\xE1o th\u1EE5 l\xFD cho ng\u01B0\u1EDDi t\u1ED1 c\xE1o / b\u1ECB t\u1ED1 c\xE1o",
+      han: "05 ng\xE0y l\xE0m vi\u1EC7c k\u1EC3 t\u1EEB ng\xE0y ra Q\u0110 th\u1EE5 l\xFD",
+      kind: "Ng\xE0y LV",
+      cite: "\u0110i\u1EC1u 29.3 Lu\u1EADt T\u1ED1 c\xE1o"
+    },
+    {
+      track: "TC h\xE0nh ch\xEDnh",
+      moc: "Gi\u1EA3i quy\u1EBFt t\u1ED1 c\xE1o",
+      han: "30 ng\xE0y k\u1EC3 t\u1EEB th\u1EE5 l\xFD; ph\u1EE9c t\u1EA1p gia h\u1EA1n 1 l\u1EA7n \u2264 30; \u0111\u1EB7c bi\u1EC7t ph\u1EE9c t\u1EA1p 2 l\u1EA7n \u2264 30",
+      kind: "D\u01B0\u01A1ng l\u1ECBch",
+      cite: "\u0110i\u1EC1u 30 Lu\u1EADt T\u1ED1 c\xE1o \xB7 N\u0110 31/2019 \u0110i\u1EC1u 3"
+    },
+    {
+      track: "TC h\xE0nh ch\xEDnh",
+      moc: "X\xE1c minh",
+      han: "Ng\u01B0\u1EDDi gi\u1EA3i quy\u1EBFt \u1EA5n \u0111\u1ECBnh trong k\u1EBF ho\u1EA1ch, kh\xF4ng v\u01B0\u1EE3t h\u1EA1n gi\u1EA3i quy\u1EBFt",
+      kind: "Trong h\u1EA1n GQ",
+      cite: "\u0110i\u1EC1u 31 Lu\u1EADt TC \xB7 Q\u0110 50 \u0110i\u1EC1u 21"
+    },
+    {
+      track: "TC h\xE0nh ch\xEDnh",
+      moc: "G\u1EEDi / c\xF4ng khai k\u1EBFt lu\u1EADn",
+      han: "G\u1EEDi 05 ng\xE0y LV (Lu\u1EADt TC); c\xF4ng khai t\u1EA1i n\u01A1i l\xE0m vi\u1EC7c 07 ng\xE0y LV (Q\u0110 50)",
+      kind: "Ng\xE0y LV",
+      cite: "\u0110i\u1EC1u 35 Lu\u1EADt TC \xB7 Q\u0110 50 \u0110i\u1EC1u 25.1"
+    },
+    {
+      track: "Kh\xF4ng thu\u1ED9c th\u1EA9m quy\u1EC1n",
+      moc: "Chuy\u1EC3n \u0111\u01A1n t\u1ED1 c\xE1o",
+      han: "05 ng\xE0y l\xE0m vi\u1EC7c k\u1EC3 t\u1EEB ng\xE0y nh\u1EADn",
+      kind: "Ng\xE0y LV",
+      cite: "\u0110i\u1EC1u 25 Lu\u1EADt T\u1ED1 c\xE1o"
+    },
+    {
+      track: "Kh\xF4ng thu\u1ED9c th\u1EA9m quy\u1EC1n",
+      moc: "Chuy\u1EC3n \u0111\u01A1n khi\u1EBFu n\u1EA1i h\xE0nh ch\xEDnh",
+      han: "05 ng\xE0y l\xE0m vi\u1EC7c k\u1EC3 t\u1EEB ng\xE0y nh\u1EADn",
+      kind: "Ng\xE0y LV",
+      cite: "N\u0110 124/2020/N\u0110-CP"
+    },
+    {
+      track: "Ki\u1EC3m s\xE1t KN-TC (CQ\u0110T / TA)",
+      moc: "CQ\u0110T, TA g\u1EEDi TB th\u1EE5 l\xFD ho\u1EB7c Q\u0110 cho VKS",
+      han: "03 ng\xE0y k\u1EC3 t\u1EEB ng\xE0y th\u1EE5 l\xFD ho\u1EB7c ban h\xE0nh Q\u0110",
+      kind: "D\u01B0\u01A1ng l\u1ECBch",
+      cite: "TTLT 02/2018"
+    },
+    {
+      track: "Ki\u1EC3m s\xE1t KN-TC (CQ\u0110T / TA)",
+      moc: "VKS th\xF4ng b\xE1o \u0111\u1ED3ng \xFD / kh\xF4ng \u0111\u1ED3ng \xFD",
+      han: "03 ng\xE0y k\u1EC3 t\u1EEB ng\xE0y nh\u1EADn \u0111\u01B0\u1EE3c Q\u0110 gi\u1EA3i quy\u1EBFt",
+      kind: "D\u01B0\u01A1ng l\u1ECBch",
+      cite: "TTLT 02/2018"
+    },
+    {
+      track: "Ki\u1EC3m s\xE1t KN-TC (CQ\u0110T / TA)",
+      moc: "Gi\u1EA3i tr\xECnh, cung c\u1EA5p h\u1ED3 s\u01A1 khi VKS y\xEAu c\u1EA7u",
+      han: "03 ng\xE0y k\u1EC3 t\u1EEB ng\xE0y nh\u1EADn y\xEAu c\u1EA7u",
+      kind: "D\u01B0\u01A1ng l\u1ECBch",
+      cite: "TTLT 02/2018"
+    },
+    {
+      track: "Ki\u1EC3m s\xE1t tr\u1EF1c ti\u1EBFp",
+      moc: "G\u1EEDi quy\u1EBFt \u0111\u1ECBnh tr\u1EF1c ti\u1EBFp ki\u1EC3m s\xE1t",
+      han: "\xCDt nh\u1EA5t 15 ng\xE0y l\xE0m vi\u1EC7c tr\u01B0\u1EDBc ng\xE0y ki\u1EC3m s\xE1t",
+      kind: "Ng\xE0y LV",
+      cite: "Q\u0110 50 \u0110i\u1EC1u 32.3.a"
+    },
+    {
+      track: "Ki\u1EC3m s\xE1t tr\u1EF1c ti\u1EBFp",
+      moc: "G\u1EEDi k\u1EBFt lu\u1EADn ki\u1EC3m s\xE1t, ki\u1EBFn ngh\u1ECB, kh\xE1ng ngh\u1ECB",
+      han: "03 ng\xE0y l\xE0m vi\u1EC7c k\u1EC3 t\u1EEB ng\xE0y ban h\xE0nh",
+      kind: "Ng\xE0y LV",
+      cite: "Q\u0110 50 \u0110i\u1EC1u 33"
+    }
+  ];
+
+  // src/lib/kn-tc/process.ts
+  var PROCESS = {
+    "kn-tths": {
+      lead: "K\u1EF9 n\u0103ng gi\u1EA3i quy\u1EBFt khi\u1EBFu n\u1EA1i trong TTHS \u2014 \u0111\u01A1n v\u1ECB ch\u1EE7 tr\xEC c\u1EE7a Vi\u1EC7n ki\u1EC3m s\xE1t theo Q\u0110 50/Q\u0110-VKSTC v\xE0 Ch\u01B0\u01A1ng XXXIII BLTTHS.",
+      steps: [
+        {
+          n: "01",
+          title: "Ti\u1EBFp nh\u1EADn, v\xE0o s\u1ED5",
+          body: "V\xE0o s\u1ED5 qu\u1EA3n l\xFD \u0111\u01A1n ngay khi nh\u1EADn. Ghi gi\u1EDD nh\u1EADn \u0111\u1ED1i v\u1EDBi khi\u1EBFu n\u1EA1i gi\u1EEF ng\u01B0\u1EDDi, b\u1EAFt, t\u1EA1m gi\u1EEF, t\u1EA1m giam (h\u1EA1n 08 gi\u1EDD / 24 gi\u1EDD). Ph\xE2n lo\u1EA1i \u0111\u1ED1i t\u01B0\u1EE3ng b\u1ECB khi\u1EBFu n\u1EA1i: \u0110TV/CQ\u0110T, KSV, Vi\u1EC7n tr\u01B0\u1EDFng hay bi\u1EC7n ph\xE1p t\u1EA1m giam."
+        },
+        {
+          n: "02",
+          title: "Ki\u1EC3m tra \u0111i\u1EC1u ki\u1EC7n th\u1EE5 l\xFD",
+          body: "Theo Q\u0110 50 \u0110i\u1EC1u 6: \u0111\u01A1n ho\u1EB7c khi\u1EBFu n\u1EA1i tr\u1EF1c ti\u1EBFp; c\xF2n th\u1EDDi hi\u1EC7u (\u0110i\u1EC1u 471: 15 ng\xE0y, l\u1EA7n hai 03 ng\xE0y); thu\u1ED9c th\u1EA9m quy\u1EC1n; ch\u01B0a c\xF3 Q\u0110 c\xF3 hi\u1EC7u l\u1EF1c v\xE0 ch\u01B0a r\xFAt \u0111\u01A1n. H\u1EBFt th\u1EDDi hi\u1EC7u nh\u01B0ng c\xF3 d\u1EA5u hi\u1EC7u oan, sai, b\u1ECF l\u1ECDt t\u1ED9i \u2014 v\u1EABn xem x\xE9t, tr\u1EA3 l\u1EDDi b\u1EB1ng v\u0103n b\u1EA3n."
+        },
+        {
+          n: "03",
+          title: "Th\u1EE5 l\xFD ho\u1EB7c kh\xF4ng th\u1EE5 l\xFD",
+          body: "\u0110\u1EE7 \u0111i\u1EC1u ki\u1EC7n: th\u1EE5 l\xFD v\xE0 th\xF4ng b\xE1o b\u1EB1ng v\u0103n b\u1EA3n. Kh\xF4ng \u0111\u1EE7: th\xF4ng b\xE1o n\xEAu r\xF5 l\xFD do. T\u1EA1m giam: th\u1EE5 l\xFD trong 08 gi\u1EDD. Tr\u01B0\u1EDDng h\u1EE3p kh\xE1c: trong h\u1EA1n gi\u1EA3i quy\u1EBFt, m\u1ED1c quy tr\xECnh 03 ng\xE0y."
+        },
+        {
+          n: "04",
+          title: "Y\xEAu c\u1EA7u tr\xECnh b\xE0y, gi\u1EA3i tr\xECnh",
+          body: "Y\xEAu c\u1EA7u ng\u01B0\u1EDDi khi\u1EBFu n\u1EA1i cung c\u1EA5p ch\u1EE9ng c\u1EE9; ng\u01B0\u1EDDi b\u1ECB khi\u1EBFu n\u1EA1i gi\u1EA3i tr\xECnh. Th\u1EDDi h\u1EA1n y\xEAu c\u1EA7u ph\u1EA3i n\u1EB1m trong h\u1EA1n gi\u1EA3i quy\u1EBFt (Q\u0110 50 \u0110i\u1EC1u 9). CQ\u0110T/TA cung c\u1EA5p h\u1ED3 s\u01A1 trong 03 ng\xE0y khi VKS y\xEAu c\u1EA7u (TTLT 02/2018)."
+        },
+        {
+          n: "05",
+          title: "X\xE1c minh \u2014 kh\xF4ng v\u01B0\u1EE3t h\u1EA1n gi\u1EA3i quy\u1EBFt",
+          body: "X\xE1c minh kh\xE1ch quan, l\u1EADp bi\xEAn b\u1EA3n. Gia h\u1EA1n x\xE1c minh kh\xF4ng \u0111\u01B0\u1EE3c v\u01B0\u1EE3t th\u1EDDi h\u1EA1n gi\u1EA3i quy\u1EBFt theo BLTTHS. T\u1EA1m giam: x\xE1c minh th\xEAm t\u1ED1i \u0111a 03 ng\xE0y k\u1EC3 t\u1EEB ng\xE0y nh\u1EADn."
+        },
+        {
+          n: "06",
+          title: "\u0110\u1ED1i tho\u1EA1i, b\xE1o c\xE1o, ban h\xE0nh Q\u0110",
+          body: "\u0110\u1ED1i tho\u1EA1i khi c\u1EA7n, l\u1EADp bi\xEAn b\u1EA3n. Ng\u01B0\u1EDDi \u0111\u01B0\u1EE3c ph\xE2n c\xF4ng b\xE1o c\xE1o Vi\u1EC7n tr\u01B0\u1EDFng / ng\u01B0\u1EDDi c\xF3 th\u1EA9m quy\u1EC1n. Ban h\xE0nh quy\u1EBFt \u0111\u1ECBnh gi\u1EA3i quy\u1EBFt khi\u1EBFu n\u1EA1i trong h\u1EA1n 07 ng\xE0y (\u0110TV, KSV) ho\u1EB7c 15 ng\xE0y (Vi\u1EC7n tr\u01B0\u1EDFng / l\u1EA7n hai KSV)."
+        },
+        {
+          n: "07",
+          title: "G\u1EEDi quy\u1EBFt \u0111\u1ECBnh, ki\u1EC3m s\xE1t c\u1EA5p tr\xEAn",
+          body: "G\u1EEDi ng\u01B0\u1EDDi KN, ng\u01B0\u1EDDi b\u1ECB KN v\xE0 VKS c\u1EA5p tr\xEAn trong 03 ng\xE0y l\xE0m vi\u1EC7c; t\u1EA1m gi\u1EEF/t\u1EA1m giam: 24 gi\u1EDD (Q\u0110 50 \u0110i\u1EC1u 11.2). CQ\u0110T/TA g\u1EEDi TB th\u1EE5 l\xFD ho\u1EB7c Q\u0110 cho VKS trong 03 ng\xE0y \u0111\u1EC3 ki\u1EC3m s\xE1t (TTLT 02/2018)."
+        }
+      ]
+    },
+    "tc-tths": {
+      lead: "T\u1ED1 c\xE1o trong TTHS: h\u1EA1n gi\u1EA3i quy\u1EBFt t\xEDnh t\u1EEB ng\xE0y nh\u1EADn t\u1ED1 c\xE1o (\u0110i\u1EC1u 481.3), kh\xF4ng ph\u1EA3i ng\xE0y th\u1EE5 l\xFD. T\u1ED1 c\xE1o c\xF3 d\u1EA5u hi\u1EC7u t\u1ED9i ph\u1EA1m chuy\u1EC3n th\u1EE7 t\u1EE5c t\u1ED1 gi\xE1c, tin b\xE1o.",
+      steps: [
+        {
+          n: "01",
+          title: "Ti\u1EBFp nh\u1EADn, b\u1EA3o v\u1EC7 ng\u01B0\u1EDDi t\u1ED1 c\xE1o",
+          body: "V\xE0o s\u1ED5, gi\u1EEF b\xED m\u1EADt th\xF4ng tin ng\u01B0\u1EDDi t\u1ED1 c\xE1o. Ghi gi\u1EDD nh\u1EADn n\u1EBFu li\xEAn quan b\u1EAFt, t\u1EA1m gi\u1EEF, t\u1EA1m giam."
+        },
+        {
+          n: "02",
+          title: "Ki\u1EC3m tra \u0111i\u1EC1u ki\u1EC7n th\u1EE5 l\xFD",
+          body: "H\xECnh th\u1EE9c t\u1ED1 c\xE1o, th\xF4ng tin ng\u01B0\u1EDDi t\u1ED1 c\xE1o / b\u1ECB t\u1ED1 c\xE1o / h\xE0nh vi, th\u1EA9m quy\u1EC1n, th\u1EDDi hi\u1EC7u x\u1EED l\xFD h\xE0nh vi. TTLT 02/2018: ki\u1EC3m tra h\u1ECD t\xEAn, \u0111\u1ECBa ch\u1EC9 trong 10 ng\xE0y (12 gi\u1EDD n\u1EBFu t\u1EA1m giam)."
+        },
+        {
+          n: "03",
+          title: "Th\u1EE5 l\xFD",
+          body: "Q\u0110 50: 10 ng\xE0y k\u1EC3 t\u1EEB ng\xE0y nh\u1EADn t\u1ED1 c\xE1o \u0111\u1EE7 \u0111i\u1EC1u ki\u1EC7n; t\u1EA1m giam: 12 gi\u1EDD. Th\xF4ng b\xE1o cho ng\u01B0\u1EDDi t\u1ED1 c\xE1o n\u1EBFu h\u1ECD y\xEAu c\u1EA7u. Kh\xF4ng \u0111\u1EE7 \u0111i\u1EC1u ki\u1EC7n: th\xF4ng b\xE1o kh\xF4ng th\u1EE5 l\xFD."
+        },
+        {
+          n: "04",
+          title: "Ph\xE2n bi\u1EC7t d\u1EA5u hi\u1EC7u t\u1ED9i ph\u1EA1m",
+          body: "N\u1EBFu h\xE0nh vi b\u1ECB t\u1ED1 c\xE1o c\xF3 d\u1EA5u hi\u1EC7u t\u1ED9i ph\u1EA1m \u2014 chuy\u1EC3n gi\u1EA3i quy\u1EBFt theo \u0110i\u1EC1u 145/147 BLTTHS, kh\xF4ng d\xF9ng h\u1EA1n 30/60 ng\xE0y c\u1EE7a \u0110i\u1EC1u 481.3."
+        },
+        {
+          n: "05",
+          title: "X\xE1c minh trong h\u1EA1n gi\u1EA3i quy\u1EBFt",
+          body: "K\u1EBF ho\u1EA1ch x\xE1c minh do ng\u01B0\u1EDDi gi\u1EA3i quy\u1EBFt \u1EA5n \u0111\u1ECBnh, kh\xF4ng v\u01B0\u1EE3t 30 ng\xE0y (ph\u1EE9c t\u1EA1p 60 ng\xE0y) k\u1EC3 t\u1EEB ng\xE0y nh\u1EADn. Gia h\u1EA1n x\xE1c minh kh\xF4ng v\u01B0\u1EE3t h\u1EA1n GQ."
+        },
+        {
+          n: "06",
+          title: "K\u1EBFt lu\u1EADn / Q\u0110 gi\u1EA3i quy\u1EBFt, c\xF4ng khai",
+          body: "Ban h\xE0nh Q\u0110 gi\u1EA3i quy\u1EBFt t\u1ED1 c\xE1o trong TTHS. C\xF4ng khai t\u1EA1i n\u01A1i l\xE0m vi\u1EC7c ng\u01B0\u1EDDi b\u1ECB t\u1ED1 c\xE1o trong 07 ng\xE0y l\xE0m vi\u1EC7c k\u1EC3 t\u1EEB ban h\xE0nh (Q\u0110 50 \u0110i\u1EC1u 25.1). G\u1EEDi VKS \u0111\u1EC3 ki\u1EC3m s\xE1t trong 03 ng\xE0y (TTLT 02/2018)."
+        }
+      ]
+    },
+    "kn-hc": {
+      lead: "Khi\u1EBFu n\u1EA1i h\xE0nh ch\xEDnh v\xE0 khi\u1EBFu n\u1EA1i k\u1EF7 lu\u1EADt CBCC trong ng\xE0nh Ki\u1EC3m s\xE1t \u2014 Lu\u1EADt Khi\u1EBFu n\u1EA1i 2011 \u0111\u01B0\u1EE3c s\u1EEDa b\u1EDFi Lu\u1EADt 136/2025/QH15 (hi\u1EC7u l\u1EF1c 01/7/2026): th\u1EE5 l\xFD 07 ng\xE0y l\xE0m vi\u1EC7c.",
+      steps: [
+        {
+          n: "01",
+          title: "Ph\xE2n lo\u1EA1i \u0111\u01A1n",
+          body: "Khi\u1EBFu n\u1EA1i Q\u0110/h\xE0nh vi h\xE0nh ch\xEDnh hay k\u1EF7 lu\u1EADt CBCC? Thu\u1ED9c th\u1EA9m quy\u1EC1n Vi\u1EC7n tr\u01B0\u1EDFng hay ph\u1EA3i chuy\u1EC3n? Nhi\u1EC1u ng\u01B0\u1EDDi c\xF9ng n\u1ED9i dung \u2014 th\u1EF1c hi\u1EC7n theo Lu\u1EADt Ti\u1EBFp c\xF4ng d\xE2n."
+        },
+        {
+          n: "02",
+          title: "Th\u1EDDi hi\u1EC7u",
+          body: "90 ng\xE0y k\u1EC3 t\u1EEB nh\u1EADn Q\u0110 ho\u1EB7c bi\u1EBFt h\xE0nh vi (\u0110i\u1EC1u 9). K\u1EF7 lu\u1EADt CBCC: 15 ng\xE0y l\u1EA7n \u0111\u1EA7u; l\u1EA7n hai 10 ng\xE0y (30 ng\xE0y n\u1EBFu bu\u1ED9c th\xF4i vi\u1EC7c). Tr\u1EDF ng\u1EA1i kh\xE1ch quan kh\xF4ng t\xEDnh v\xE0o th\u1EDDi hi\u1EC7u."
+        },
+        {
+          n: "03",
+          title: "Th\u1EE5 l\xFD 07 ng\xE0y l\xE0m vi\u1EC7c",
+          body: "\u0110i\u1EC1u 27, 36, 50 Lu\u1EADt KN (s\u1EEDa 2025). Th\xF4ng b\xE1o th\u1EE5 l\xFD cho ng\u01B0\u1EDDi KN, c\u01A1 quan chuy\u1EC3n \u0111\u01A1n v\xE0 c\u01A1 quan thanh tra c\xF9ng c\u1EA5p. Kh\xF4ng th\u1EE5 l\xFD: n\xEAu r\xF5 l\xFD do. Kh\xF4ng thu\u1ED9c th\u1EA9m quy\u1EC1n: chuy\u1EC3n trong 05 ng\xE0y l\xE0m vi\u1EC7c."
+        },
+        {
+          n: "04",
+          title: "X\xE1c minh, \u0111\u1ED1i tho\u1EA1i",
+          body: "X\xE1c minh trong h\u1EA1n gi\u1EA3i quy\u1EBFt (30/45/60 l\u1EA7n \u0111\u1EA7u; 45/60/70 l\u1EA7n hai). Ng\u01B0\u1EDDi khi\u1EBFu n\u1EA1i c\xF3 quy\u1EC1n y\xEAu c\u1EA7u \u0111\u1ED1i tho\u1EA1i tr\u1EF1c ti\u1EBFp (Lu\u1EADt 136/2025). L\u1EADp bi\xEAn b\u1EA3n \u0111\u1ED1i tho\u1EA1i."
+        },
+        {
+          n: "05",
+          title: "Ban h\xE0nh v\xE0 g\u1EEDi Q\u0110",
+          body: "GQ t\xEDnh t\u1EEB ng\xE0y th\u1EE5 l\xFD. G\u1EEDi Q\u0110 l\u1EA7n \u0111\u1EA7u trong 03 ng\xE0y LV; l\u1EA7n hai 07 ng\xE0y LV. Q\u0110 50: g\u1EEDi th\xEAm VKS c\u1EA5p tr\xEAn trong 03 ng\xE0y LV."
+        },
+        {
+          n: "06",
+          title: "T\u1EA1m \u0111\xECnh ch\u1EC9, c\xF4ng khai",
+          body: "Lu\u1EADt 136/2025 b\u1ED5 sung t\u1EA1m \u0111\xECnh ch\u1EC9 / \u0111\xECnh ch\u1EC9 (\u0110i\u1EC1u 11a); th\u1EDDi gian t\u1EA1m \u0111\xECnh ch\u1EC9 kh\xF4ng t\xEDnh v\xE0o h\u1EA1n GQ. C\xF4ng khai Q\u0110 tr\xEAn c\u1ED5ng th\xF4ng tin \u0111i\u1EC7n t\u1EED theo quy \u0111\u1ECBnh m\u1EDBi."
+        }
+      ]
+    },
+    "tc-hc": {
+      lead: "T\u1ED1 c\xE1o h\xE0nh vi vi ph\u1EA1m ph\xE1p lu\u1EADt trong th\u1EF1c hi\u1EC7n nhi\u1EC7m v\u1EE5, c\xF4ng v\u1EE5 \u2014 Lu\u1EADt T\u1ED1 c\xE1o 2018, N\u0110 31/2019/N\u0110-CP, Q\u0110 50/Q\u0110-VKSTC.",
+      steps: [
+        {
+          n: "01",
+          title: "X\u1EED l\xFD ban \u0111\u1EA7u th\xF4ng tin t\u1ED1 c\xE1o",
+          body: "07 ng\xE0y l\xE0m vi\u1EC7c: v\xE0o s\u1ED5, ph\xE2n lo\u1EA1i, ki\u1EC3m tra ng\u01B0\u1EDDi t\u1ED1 c\xE1o v\xE0 \u0111i\u1EC1u ki\u1EC7n th\u1EE5 l\xFD. Nhi\u1EC1u \u0111\u1ECBa \u0111i\u1EC3m / \u1EE7y quy\u1EC1n: t\u1ED1i \u0111a 10 ng\xE0y LV (\u0110i\u1EC1u 24)."
+        },
+        {
+          n: "02",
+          title: "Ra Q\u0110 th\u1EE5 l\xFD",
+          body: "Q\u0110 th\u1EE5 l\xFD ghi n\u1ED9i dung t\u1ED1 c\xE1o v\xE0 th\u1EDDi h\u1EA1n gi\u1EA3i quy\u1EBFt (\u0110i\u1EC1u 29). Th\xF4ng b\xE1o ng\u01B0\u1EDDi t\u1ED1 c\xE1o v\xE0 ng\u01B0\u1EDDi b\u1ECB t\u1ED1 c\xE1o trong 05 ng\xE0y LV. Kh\xF4ng \u0111\u1EE7 \u0111i\u1EC1u ki\u1EC7n: th\xF4ng b\xE1o ngay l\xFD do kh\xF4ng th\u1EE5 l\xFD."
+        },
+        {
+          n: "03",
+          title: "K\u1EBF ho\u1EA1ch x\xE1c minh",
+          body: "Ng\u01B0\u1EDDi gi\u1EA3i quy\u1EBFt \u1EA5n \u0111\u1ECBnh th\u1EDDi gian x\xE1c minh trong h\u1EA1n GQ. Ph\u1EE9c t\u1EA1p theo N\u0110 31/2019 \u0110i\u1EC1u 3 (hai \u0111\u1ECBa \u0111i\u1EC3m, hai n\u1ED9i dung, y\u1EBFu t\u1ED1 n\u01B0\u1EDBc ngo\xE0i\u2026). \u0110\u1EB7c bi\u1EC7t ph\u1EE9c t\u1EA1p: t\u1EEB hai ti\xEAu ch\xED tr\u1EDF l\xEAn."
+        },
+        {
+          n: "04",
+          title: "Gia h\u1EA1n \u0111\xFAng th\u1EA9m quy\u1EC1n",
+          body: "Ph\u1EE9c t\u1EA1p: gia h\u1EA1n 01 l\u1EA7n \u2264 30 ng\xE0y. \u0110\u1EB7c bi\u1EC7t ph\u1EE9c t\u1EA1p: 02 l\u1EA7n, m\u1ED7i l\u1EA7n \u2264 30 ng\xE0y. Ph\u1EA3i c\xF3 quy\u1EBFt \u0111\u1ECBnh b\u1EB1ng v\u0103n b\u1EA3n, th\xF4ng b\xE1o ng\u01B0\u1EDDi t\u1ED1 c\xE1o v\xE0 ng\u01B0\u1EDDi b\u1ECB t\u1ED1 c\xE1o (\u0110i\u1EC1u 30.4)."
+        },
+        {
+          n: "05",
+          title: "K\u1EBFt lu\u1EADn, x\u1EED l\xFD, c\xF4ng khai",
+          body: "G\u1EEDi k\u1EBFt lu\u1EADn trong 05 ng\xE0y LV (\u0110i\u1EC1u 35). C\xF4ng khai t\u1EA1i n\u01A1i l\xE0m vi\u1EC7c ng\u01B0\u1EDDi b\u1ECB t\u1ED1 c\xE1o trong 07 ng\xE0y LV (Q\u0110 50 \u0110i\u1EC1u 25). C\xF3 d\u1EA5u hi\u1EC7u t\u1ED9i ph\u1EA1m: chuy\u1EC3n CQ\u0110T / VKS c\xF3 th\u1EA9m quy\u1EC1n."
+        }
+      ]
+    },
+    "ks-kntc": {
+      lead: "Nhi\u1EC7m v\u1EE5 \u0111\u1EB7c th\xF9 c\u1EE7a Vi\u1EC7n ki\u1EC3m s\xE1t: ki\u1EC3m s\xE1t vi\u1EC7c gi\u1EA3i quy\u1EBFt khi\u1EBFu n\u1EA1i, t\u1ED1 c\xE1o c\u1EE7a CQ\u0110T, c\u01A1 quan \u0111\u01B0\u1EE3c giao m\u1ED9t s\u1ED1 ho\u1EA1t \u0111\u1ED9ng \u0111i\u1EC1u tra v\xE0 T\xF2a \xE1n (\u0110i\u1EC1u 483 BLTTHS, TTLT 02/2018, Q\u0110 50).",
+      steps: [
+        {
+          n: "01",
+          title: "Theo d\xF5i h\u1EA1n g\u1EEDi c\u1EE7a CQ\u0110T / TA",
+          body: "Trong 03 ng\xE0y k\u1EC3 t\u1EEB th\u1EE5 l\xFD ho\u1EB7c ban h\xE0nh Q\u0110, CQ\u0110T/TA ph\u1EA3i g\u1EEDi th\xF4ng b\xE1o th\u1EE5 l\xFD ho\u1EB7c Q\u0110 gi\u1EA3i quy\u1EBFt (ho\u1EB7c \u0111\xECnh ch\u1EC9) cho VKS c\xF9ng c\u1EA5p / VKS c\xF3 th\u1EA9m quy\u1EC1n. Qu\xE1 h\u1EA1n \u2014 \u0111\xF4n \u0111\u1ED1c, y\xEAu c\u1EA7u b\xE1o c\xE1o."
+        },
+        {
+          n: "02",
+          title: "\u0110\u1ED1i chi\u1EBFu h\u1EA1n gi\u1EA3i quy\u1EBFt c\u1EE7a c\u01A1 quan b\u1ECB ki\u1EC3m s\xE1t",
+          body: "KN \u0110TV: 07 ng\xE0y. KN KSV: 07/15 ng\xE0y. KN t\u1EA1m giam: 24 gi\u1EDD / 03 ng\xE0y. TC TTHS: 30/60 ng\xE0y t\u1EEB ng\xE0y nh\u1EADn. Th\u1EA9m ph\xE1n: 07 ng\xE0y; Ch\xE1nh \xE1n: 15 ng\xE0y. Ph\xE1t hi\u1EC7n ch\u1EADm h\u1EA1n l\xE0 n\u1ED9i dung ki\u1EC3m s\xE1t."
+        },
+        {
+          n: "03",
+          title: "Nghi\xEAn c\u1EE9u h\u1ED3 s\u01A1, y\xEAu c\u1EA7u gi\u1EA3i tr\xECnh",
+          body: "CQ\u0110T ch\u1EC9 cung c\u1EA5p t\xE0i li\u1EC7u VKS ch\u01B0a c\xF3. Gi\u1EA3i tr\xECnh, cung c\u1EA5p h\u1ED3 s\u01A1 trong 03 ng\xE0y k\u1EC3 t\u1EEB y\xEAu c\u1EA7u (TTLT 02/2018). Ki\u1EC3m tra t\xEDnh c\xF3 c\u0103n c\u1EE9, h\u1EE3p ph\xE1p c\u1EE7a Q\u0110, h\xE0nh vi b\u1ECB khi\u1EBFu n\u1EA1i v\xE0 Q\u0110 gi\u1EA3i quy\u1EBFt."
+        },
+        {
+          n: "04",
+          title: "Th\xF4ng b\xE1o \u0111\u1ED3ng \xFD / kh\xF4ng \u0111\u1ED3ng \xFD",
+          body: "Trong 03 ng\xE0y k\u1EC3 t\u1EEB ng\xE0y nh\u1EADn Q\u0110 gi\u1EA3i quy\u1EBFt, VKS th\xF4ng b\xE1o b\u1EB1ng v\u0103n b\u1EA3n \u0111\u1ED3ng \xFD hay kh\xF4ng \u0111\u1ED3ng \xFD. Kh\xF4ng \u0111\u1ED3ng \xFD: y\xEAu c\u1EA7u gi\u1EA3i quy\u1EBFt l\u1EA1i ho\u1EB7c ki\u1EBFn ngh\u1ECB, kh\xE1ng ngh\u1ECB theo th\u1EA9m quy\u1EC1n."
+        },
+        {
+          n: "05",
+          title: "Ki\u1EC3m s\xE1t tr\u1EF1c ti\u1EBFp theo k\u1EBF ho\u1EA1ch",
+          body: "Q\u0110 tr\u1EF1c ti\u1EBFp ki\u1EC3m s\xE1t g\u1EEDi c\u01A1 quan \u0111\u01B0\u1EE3c ki\u1EC3m s\xE1t \xEDt nh\u1EA5t 15 ng\xE0y l\xE0m vi\u1EC7c tr\u01B0\u1EDBc ng\xE0y ki\u1EC3m s\xE1t (Q\u0110 50 \u0110i\u1EC1u 32). K\u1EBFt lu\u1EADn, ki\u1EBFn ngh\u1ECB, kh\xE1ng ngh\u1ECB g\u1EEDi Th\u1EE7 tr\u01B0\u1EDFng c\u01A1 quan \u0111\u01B0\u1EE3c ki\u1EC3m s\xE1t v\xE0 VKS c\u1EA5p tr\xEAn trong 03 ng\xE0y LV (\u0110i\u1EC1u 33)."
+        },
+        {
+          n: "06",
+          title: "S\u1ED5 ki\u1EC3m s\xE1t v\xE0 b\xE1o c\xE1o",
+          body: "Ghi s\u1ED5 theo d\xF5i KN-TC kh\xE2u ki\u1EC3m s\xE1t: ng\xE0y nh\u1EADn TB/Q\u0110, h\u1EA1n h\u1ED3i \u0111\xE1p, k\u1EBFt qu\u1EA3 \u0111\u1ED3ng \xFD hay kh\xF4ng, ki\u1EBFn ngh\u1ECB. B\xE1o c\xE1o l\xE3nh \u0111\u1EA1o Vi\u1EC7n c\xE1c tr\u01B0\u1EDDng h\u1EE3p qu\xE1 h\u1EA1n ho\u1EB7c kh\xF4ng \u0111\u1ED3ng \xFD."
+        }
+      ]
+    }
+  };
+  return __toCommonJS(standalone_exports);
+})();
+
+</script>
+<script>
+(function () {
+  const S = KnTc;
+  const LS = "vks.kntc.so.v1";
+  const GROUPS = { hieu:"Thời hiệu", thuly:"Thụ lý", xacminh:"Xác minh", giaiquyet:"Giải quyết", gui:"Gửi / công bố", ks:"Kiểm sát" };
+  let track = "kn-tths";
+  let opts = { ...S.EMPTY_OPTS };
+  const el = (id) => document.getElementById(id);
+
+  function today() {
+    const n = new Date();
+    return n.getFullYear() + "-" + String(n.getMonth()+1).padStart(2,"0") + "-" + String(n.getDate()).padStart(2,"0");
+  }
+  el("ngayNhan").value = today();
+
+  function pill(at, kind) {
+    const u = S.urgencyOf(at);
+    const cls = u === "overdue" ? "over" : (u === "ok" ? "ok" : "soon");
+    return '<span class="pill ' + cls + '">' + S.remainLabel(at, new Date(), kind) + "</span>";
+  }
+  function fmt(m) { return m.kind === "hours" ? S.formatViDateTime(m.at) : S.formatVi(m.at); }
+
+  function renderTracks() {
+    el("tracks").innerHTML = S.TRACKS.map(function (t) {
+      const on = t.id === track ? " on" + (t.id === "ks-kntc" ? " ks" : "") : "";
+      return '<button class="khau' + on + '" data-id="' + t.id + '" type="button"><b>' + t.short + "</b><br/>" + t.label + "<small>" + t.hint + "</small></button>";
+    }).join("");
+  }
+  function chip(label, on, fn) {
+    return '<button class="chip' + (on ? " on" : "") + '" type="button" data-fn="' + fn + '">' + label + "</button>";
+  }
+  function renderOpts() {
+    let h = "";
+    if (track === "kn-tths" || track === "kn-hc") {
+      h += chip("Lần đầu", opts.lan === 1, "lan1") + chip("Lần hai", opts.lan === 2, "lan2");
+    }
+    if (track === "ks-kntc") {
+      h += chip("Kiểm sát khiếu nại", opts.ksKind === "kn", "ksKn") + chip("Kiểm sát tố cáo", opts.ksKind === "tc", "ksTc");
+      h += chip("Bắt / tạm giam", opts.subject === "tu-do", "tuDo") + chip("ĐTV / CQĐT", opts.subject === "dtv", "dtv");
+      h += chip("Thẩm phán", opts.subject === "tham-phan", "tp") + chip("Chánh án", opts.subject === "chan-an", "ca");
+    }
+    if (track === "kn-tths") {
+      h += chip("Bắt / tạm giữ / tạm giam", opts.subject === "tu-do", "tuDo");
+      h += chip("Điều tra viên / CQĐT", opts.subject === "dtv", "dtv");
+      h += chip("Kiểm sát viên", opts.subject === "ksv", "ksv");
+      h += chip("Viện trưởng", opts.subject === "vien-truong", "vt");
+    }
+    if (track === "tc-tths") h += chip("Tố cáo bắt / tạm giữ / tạm giam", opts.subject === "tu-do", "tuDoToggle");
+    if (track === "kn-hc") h += chip("Kỷ luật cán bộ, công chức", opts.subject === "ky-luat", "kyluat");
+    if (track === "tc-tths" || track === "kn-hc" || track === "tc-hc" || (track === "ks-kntc" && opts.ksKind === "tc"))
+      h += chip("Vụ việc phức tạp", opts.phucTap, "phucTap");
+    if (track === "tc-hc") h += chip("Đặc biệt phức tạp", opts.dacBiet, "dacBiet");
+    if (track === "kn-hc" && opts.subject !== "ky-luat") h += chip("Vùng sâu, vùng xa", opts.vungSau, "vungSau");
+    if (track !== "ks-kntc") h += chip("Không thuộc thẩm quyền — chuyển đơn", opts.chuyenDon, "chuyen");
+    el("opts").innerHTML = h;
+    el("wrapNhanKs").style.display = track === "ks-kntc" ? "" : "none";
+    el("lbNhan").textContent = track === "ks-kntc" ? "Ngày CQĐT / TA nhận đơn" : (opts.lan === 2 && track.indexOf("kn") === 0 ? "Ngày nhận đơn / QĐ lần hai" : "Ngày nhận đơn");
+  }
+
+  function renderOut() {
+    const r = S.computeKnTc(track, opts, {
+      ngayNhan: el("ngayNhan").value,
+      gioNhan: el("gioNhan").value,
+      ngayThuLy: el("ngayThuLy").value,
+      ngayBiet: el("ngayBiet").value,
+      ngayBanHanh: el("ngayBanHanh").value,
+      ngayNhanKs: el("ngayNhanKs").value,
+    });
+    if (!r) { el("out").innerHTML = '<p class="muted">Nhập ngày nhận đơn để tính hạn.</p>'; return; }
+    const hero = function (id, title) {
+      const m = r.milestones.find(function (x) { return x.id === id; });
+      if (!m) return '<div class="hero"><div class="kicker">' + title + '</div><p class="muted">Không áp dụng</p></div>';
+      return '<div class="hero"><div class="kicker">' + title + '</div><div class="span">' + m.spanLabel + "</div><b>" + fmt(m) + "</b>" + pill(m.at, m.kind) + '<div class="muted" style="margin-top:6px">' + m.cite + "</div></div>";
+    };
+    const items = r.milestones.map(function (m) {
+      return '<div class="item"><div><div class="kicker">' + GROUPS[m.group] + " · " + m.spanLabel + "</div><div style='font-weight:700;font-size:14px'>" + m.label + "</div><div class='muted'>" + m.cite + (m.hint ? " — " + m.hint : "") + "</div></div><div style='text-align:right'><b style='font-family:ui-monospace,Menlo,monospace;color:var(--navy)'>" + fmt(m) + "</b><div>" + pill(m.at, m.kind) + "</div></div></div>";
+    }).join("");
+    el("out").innerHTML =
+      '<div class="card"><p style="font-weight:800;color:var(--navy);margin:0 0 10px">' + r.title + "</p>" +
+      '<div class="grid g3">' + hero("thuly","Hạn thụ lý") + hero("xm","Hạn xác minh") + hero("gq","Hạn giải quyết") + "</div>" +
+      '<div class="row no-print" style="margin-top:12px">' +
+      '<button class="btn" type="button" id="copySo">Sao chép sổ Excel</button>' +
+      '<button class="btn" type="button" id="saveSo">Ghi sổ việc</button>' +
+      '<button class="btn" type="button" id="printPh">In phiếu</button></div>' +
+      "<div style='margin-top:8px'>" + items + "</div></div>" +
+      '<div class="grid g2"><div class="card"><p class="kicker">Điều kiện thụ lý</p><ul>' + r.checklist.map(function (c) { return "<li>" + c + "</li>"; }).join("") +
+      '</ul></div><div class="card"><p class="kicker">Lưu ý khi áp dụng</p><ul>' + r.notes.map(function (c) { return "<li>" + c + "</li>"; }).join("") +
+      "</ul><p class='muted'>Cách tính: không tính ngày nhận. Hạn «ngày làm việc» bỏ T7, CN và lễ 2026–2027.</p></div></div>" +
+      '<div class="card"><p class="kicker">Căn cứ pháp lý</p><ul>' + r.cites.map(function (c) { return "<li>" + c + "</li>"; }).join("") + "</ul></div>";
+    const copyBtn = document.getElementById("copySo");
+    if (copyBtn) copyBtn.onclick = function () {
+      const tsv = S.SO_HEADERS.join("\t") + "\n" + r.soRow.join("\t");
+      navigator.clipboard.writeText(tsv).then(function () { alert("Đã sao chép dòng sổ."); }, function () { alert("Không sao chép được."); });
+    };
+    const saveBtn = document.getElementById("saveSo");
+    if (saveBtn) saveBtn.onclick = function () {
+      const rows = loadSo();
+      rows.unshift({ id: String(Date.now()), title: r.title, track: track, ngayNhan: el("ngayNhan").value, hanThuLy: r.soRow[3], hanXm: r.soRow[4], hanGq: r.soRow[5], phanLoai: r.soRow[6] });
+      localStorage.setItem(LS, JSON.stringify(rows.slice(0, 80)));
+      alert("Đã ghi sổ việc trên máy này.");
+    };
+    const pr = document.getElementById("printPh");
+    if (pr) pr.onclick = function () { window.print(); };
+  }
+
+  function loadSo() { try { return JSON.parse(localStorage.getItem(LS) || "[]"); } catch (e) { return []; } }
+  function renderSo() {
+    const rows = loadSo();
+    if (!rows.length) { el("soList").innerHTML = '<p class="muted">Chưa có dòng nào. Tính hạn xong bấm «Ghi sổ việc».</p>'; return; }
+    el("soList").innerHTML = rows.map(function (r) {
+      return '<div class="item"><div><b>' + r.title + "</b><div class='muted'>Nhận " + r.ngayNhan + " · TL " + r.hanThuLy + " · XM " + r.hanXm + " · GQ " + r.hanGq + "</div></div></div>";
+    }).join("");
+  }
+  function renderMatrix() {
+    const q = (el("mq").value || "").toLowerCase();
+    const rows = S.MATRIX.filter(function (r) {
+      return !q || (r.track + " " + r.moc + " " + r.han + " " + r.cite).toLowerCase().indexOf(q) >= 0;
+    });
+    el("matrix").innerHTML = rows.map(function (r) {
+      return "<tr><td><b>" + r.track + "</b></td><td>" + r.moc + "</td><td>" + r.han + "</td><td>" + r.kind + "</td><td>" + r.cite + "</td></tr>";
+    }).join("");
+  }
+  function renderProcess() {
+    el("pane-quytrinh").innerHTML = S.TRACKS.map(function (t) {
+      const p = S.PROCESS[t.id];
+      return '<div class="card"><p class="kicker">' + t.short + "</p><p style='font-weight:800;color:var(--navy);margin:4px 0'>" + t.label + "</p><p class='muted'>" + p.lead + "</p>" +
+        p.steps.map(function (s) { return '<div class="step"><div class="num">' + s.n + "</div><div><b>" + s.title + "</b><div class='muted'>" + s.body + "</div></div></div>"; }).join("") + "</div>";
+    }).join("");
+  }
+
+  el("tracks").addEventListener("click", function (e) {
+    const b = e.target.closest("[data-id]");
+    if (!b) return;
+    track = b.getAttribute("data-id");
+    renderTracks(); renderOpts(); renderOut();
+  });
+  el("opts").addEventListener("click", function (e) {
+    const b = e.target.closest("[data-fn]");
+    if (!b) return;
+    const fn = b.getAttribute("data-fn");
+    if (fn === "lan1") opts.lan = 1;
+    if (fn === "lan2") opts.lan = 2;
+    if (fn === "ksKn") opts.ksKind = "kn";
+    if (fn === "ksTc") opts.ksKind = "tc";
+    if (fn === "tuDo") opts.subject = "tu-do";
+    if (fn === "dtv") opts.subject = "dtv";
+    if (fn === "ksv") opts.subject = "ksv";
+    if (fn === "vt") opts.subject = "vien-truong";
+    if (fn === "tp") opts.subject = "tham-phan";
+    if (fn === "ca") opts.subject = "chan-an";
+    if (fn === "tuDoToggle") opts.subject = opts.subject === "tu-do" ? "dtv" : "tu-do";
+    if (fn === "kyluat") opts.subject = opts.subject === "ky-luat" ? "dtv" : "ky-luat";
+    if (fn === "phucTap") opts.phucTap = !opts.phucTap;
+    if (fn === "dacBiet") opts.dacBiet = !opts.dacBiet;
+    if (fn === "vungSau") opts.vungSau = !opts.vungSau;
+    if (fn === "chuyen") opts.chuyenDon = !opts.chuyenDon;
+    renderOpts(); renderOut();
+  });
+  ["ngayNhan","gioNhan","ngayThuLy","ngayBiet","ngayBanHanh","ngayNhanKs"].forEach(function (id) {
+    el(id).addEventListener("input", renderOut);
+  });
+  el("mq").addEventListener("input", renderMatrix);
+  document.getElementById("tabs").addEventListener("click", function (e) {
+    const b = e.target.closest("[data-tab]");
+    if (!b) return;
+    const tab = b.getAttribute("data-tab");
+    document.querySelectorAll(".tab").forEach(function (t) { t.classList.toggle("on", t.getAttribute("data-tab") === tab); });
+    ["tinh","tra","quytrinh","so"].forEach(function (p) {
+      el("pane-" + p).classList.toggle("hide", p !== tab);
+    });
+    if (tab === "so") renderSo();
+    if (tab === "tra") renderMatrix();
+  });
+  function sample(kind) {
+    el("ngayNhan").value = today();
+    el("gioNhan").value = "08:30";
+    el("ngayThuLy").value = ""; el("ngayBiet").value = ""; el("ngayBanHanh").value = ""; el("ngayNhanKs").value = "";
+    opts = { ...S.EMPTY_OPTS };
+    if (kind === "tudo") { track = "kn-tths"; opts.subject = "tu-do"; }
+    else if (kind === "hc") { track = "kn-hc"; opts.phucTap = true; }
+    else if (kind === "tc") { track = "tc-hc"; opts.phucTap = true; }
+    else { track = "ks-kntc"; opts.ksKind = "kn"; opts.subject = "dtv"; }
+    renderTracks(); renderOpts(); renderOut();
+  }
+  el("s1").onclick = function () { sample("tudo"); };
+  el("s2").onclick = function () { sample("hc"); };
+  el("s3").onclick = function () { sample("tc"); };
+  el("s4").onclick = function () { sample("ks"); };
+
+  renderTracks(); renderOpts(); renderOut(); renderMatrix(); renderProcess();
 })();
 </script>
 </body>
