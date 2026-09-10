@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Thời hạn KN-TC — NHÓM IT · VKSND TP Cần Thơ</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root { --sky-dark:#1e5a8a; --plum-dark:#5a1f30; --bronze:#c9952e; --bronze-light:#e8c675; --navy:#0c2340; --paper:#fbf8f1; --ink:#1c2128; --muted:#5e6772; --line:#d9d2c5; --ok:#1f6b4a; --teal:#0d9488; --crimson:#8b2332; --bg:#eef7f9; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Be Vietnam Pro",Arial,sans-serif; color:var(--ink); background:var(--bg); }
+    button:not(:disabled) { cursor:pointer; }
+    .hdr { background:linear-gradient(135deg,var(--sky-dark),var(--plum-dark)); border-bottom:3px solid var(--bronze); color:#fff; padding:14px 20px; display:flex; align-items:center; gap:12px; }
+    .hdr-icon { width:44px; height:44px; border-radius:12px; flex-shrink:0; background:linear-gradient(135deg,var(--bronze),#e8a830); display:flex; align-items:center; justify-content:center; font-weight:800; }
+    .hdr h1 { margin:0; font-size:clamp(16px,2.4vw,22px); font-weight:800; }
+    .hdr h1 span { color:var(--bronze-light); }
+    .hdr p { margin:2px 0 0; font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:rgba(255,255,255,.72); font-weight:600; }
+    .wrap { max-width:920px; margin:0 auto; padding:20px 16px 56px; }
+    .kicker { font-size:11px; font-weight:800; letter-spacing:.16em; color:var(--teal); text-transform:uppercase; }
+    .muted { color:var(--muted); font-size:13px; line-height:1.55; }
+    .card { background:#fff; border:1px solid rgba(203,213,225,.5); border-radius:16px; padding:16px; margin-top:14px; box-shadow:0 4px 20px -4px rgba(148,163,184,.12); }
+    .grid { display:grid; gap:8px; }
+    @media (min-width:720px) { .g2 { grid-template-columns:1fr 1fr; } .g3 { grid-template-columns:1fr 1fr 1fr; } }
+    .khau { border:1px solid #e2e8f0; background:#f8fafc; border-radius:12px; padding:12px; text-align:left; font:inherit; min-height:72px; }
+    .khau.on { background:var(--navy); color:#fff; border-color:var(--navy); }
+    .khau small { display:block; opacity:.75; margin-top:4px; font-size:11px; }
+    label { display:block; font-size:12px; font-weight:600; color:var(--muted); margin:8px 0 4px; }
+    input, select { width:100%; min-height:42px; border:1px solid var(--line); border-radius:10px; padding:8px 10px; font:inherit; font-size:14px; background:#f8fafc; }
+    .row { display:flex; flex-wrap:wrap; gap:8px; margin-top:10px; }
+    .chip { min-height:40px; padding:0 12px; border-radius:999px; border:1px solid var(--line); background:#fff; font:inherit; font-size:12px; font-weight:700; }
+    .chip.on { background:var(--navy); color:#fff; border-color:var(--navy); }
+    .btn { display:inline-flex; align-items:center; justify-content:center; min-height:42px; padding:0 14px; border-radius:10px; border:1px solid var(--line); background:#fff; font:inherit; font-weight:700; font-size:13px; }
+    .btn-primary { background:var(--navy); color:#fff; border-color:var(--navy); }
+    .hero { border:1px solid #e2e8f0; border-radius:14px; padding:14px; background:var(--paper); }
+    .hero b { display:block; font-family:ui-monospace,Menlo,monospace; font-size:18px; color:var(--navy); margin:6px 0; }
+    .pill { display:inline-flex; border-radius:999px; padding:2px 8px; font-size:10px; font-weight:800; }
+    .ok { background:#f0fdfa; color:var(--teal); } .soon { background:#fffbeb; color:#b45309; } .over { background:#fef2f2; color:var(--crimson); }
+    .item { display:flex; justify-content:space-between; gap:12px; padding:10px 0; border-bottom:1px solid #f1f5f9; }
+    .item:last-child { border-bottom:0; }
+    ul.plain { margin:8px 0 0; padding:0 0 0 16px; font-size:13px; color:#475569; line-height:1.55; }
+    .foot { text-align:center; margin-top:18px; font-size:12px; color:var(--muted); }
+  </style>
+</head>
+<body>
+  <header class="hdr">
+    <div class="hdr-icon">KN</div>
+    <div>
+      <h1>Thời hạn <span>khiếu nại — tố cáo</span></h1>
+      <p>NHÓM IT · Viện KSND thành phố Cần Thơ · Không kết nối mạng</p>
+    </div>
+  </header>
+  <div class="wrap">
+    <p class="muted">Tính hạn thụ lý, xác minh và giải quyết đơn khiếu nại, tố cáo theo BLTTHS, Luật Khiếu nại (sửa 2025), Luật Tố cáo 2018 và Quy định 50/QĐ-VKSTC ngày 20/3/2026. Đối chiếu văn bản gốc trước khi chốt hạn trên sổ.</p>
+    <div class="card">
+      <p class="kicker">1. Loại việc</p>
+      <div class="grid g2" id="tracks"></div>
+    </div>
+    <div class="card">
+      <p class="kicker">2. Tình huống</p>
+      <div class="row" id="opts"></div>
+      <div class="row">
+        <button class="btn" type="button" id="s1">Mẫu tạm giam</button>
+        <button class="btn" type="button" id="s2">Mẫu KN hành chính</button>
+        <button class="btn" type="button" id="s3">Mẫu tố cáo</button>
+      </div>
+    </div>
+    <div class="card">
+      <p class="kicker">3. Ngày trên đơn</p>
+      <div class="grid g2">
+        <div><label id="lbNhan">Ngày nhận đơn</label><input id="ngayNhan" type="date" /></div>
+        <div><label>Giờ nhận</label><input id="gioNhan" type="time" value="08:00" /></div>
+        <div><label>Ngày thụ lý (nếu đã thụ lý)</label><input id="ngayThuLy" type="date" /></div>
+        <div><label>Ngày biết QĐ / hành vi (thời hiệu)</label><input id="ngayBiet" type="date" /></div>
+      </div>
+    </div>
+    <div id="out"></div>
+    <p class="foot">Công cụ hỗ trợ nghiệp vụ — không thay thế đối chiếu văn bản gốc và ý kiến lãnh đạo Viện.<br/>NHÓM IT — Viện Kiểm sát nhân dân thành phố Cần Thơ</p>
+  </div>
+<script>
+(function(){
+  var HOLIDAYS = {"2026-01-01":1,"2026-02-16":1,"2026-02-17":1,"2026-02-18":1,"2026-02-19":1,"2026-02-20":1,"2026-02-21":1,"2026-02-22":1,"2026-04-26":1,"2026-04-30":1,"2026-05-01":1,"2026-09-02":1,"2027-01-01":1,"2027-02-06":1,"2027-02-07":1,"2027-02-08":1,"2027-02-09":1,"2027-02-10":1,"2027-02-11":1,"2027-02-12":1,"2027-04-16":1,"2027-04-30":1,"2027-05-01":1,"2027-09-02":1};
+  var TRACKS = [
+    {id:"kn-tths", short:"KN TTHS", label:"Khiếu nại trong tố tụng hình sự", hint:"BLTTHS · TTLT 02/2018 · QĐ 50"},
+    {id:"tc-tths", short:"TC TTHS", label:"Tố cáo trong tố tụng hình sự", hint:"Điều 481 BLTTHS · QĐ 50"},
+    {id:"kn-hc", short:"KN hành chính", label:"Khiếu nại hành chính (Luật Khiếu nại)", hint:"Luật KN sửa 2025 · QĐ 50"},
+    {id:"tc-hc", short:"TC hành chính", label:"Tố cáo hành chính (Luật Tố cáo)", hint:"Luật TC 2018 · NĐ 31/2019"}
+  ];
+  var st = { track:"kn-tths", lan:1, phucTap:false, dacBiet:false, vungSau:false, subject:"dtv" };
+
+  function pad(n){ return (n<10?"0":"")+n; }
+  function iso(d){ return d.getFullYear()+"-"+pad(d.getMonth()+1)+"-"+pad(d.getDate()); }
+  function parseDay(s){ if(!s) return null; var d=new Date(s+"T00:00:00"); return isNaN(d)?null:d; }
+  function parseDT(day, hm){ var d=parseDay(day); if(!d) return null; var p=(hm||"08:00").split(":"); d.setHours(+p[0]||8, +p[1]||0, 0, 0); return d; }
+  function fmt(d){ return pad(d.getDate())+"/"+pad(d.getMonth()+1)+"/"+d.getFullYear(); }
+  function fmtT(d){ return fmt(d)+" "+pad(d.getHours())+":"+pad(d.getMinutes()); }
+  function off(d){ var x=d.getDay(); return x===0||x===6||HOLIDAYS[iso(d)]; }
+  function addCal(start,n){ var d=new Date(start); d.setHours(0,0,0,0); d.setDate(d.getDate()+n); return d; }
+  function addWork(start,n){ var d=new Date(start); d.setHours(0,0,0,0); var left=n; while(left>0){ d.setDate(d.getDate()+1); if(!off(d)) left--; } return d; }
+  function addH(start,h){ return new Date(start.getTime()+h*3600000); }
+  function remain(dead){
+    var ms=dead.getTime()-Date.now();
+    if(ms<0){ var late=-ms; return late<86400000 ? "Quá hạn "+Math.max(1,Math.round(late/3600000))+" giờ" : "Quá hạn "+Math.ceil(late/86400000)+" ngày"; }
+    if(ms<86400000) return "Còn "+Math.max(1,Math.round(ms/3600000))+" giờ";
+    return "Còn "+Math.ceil(ms/86400000)+" ngày";
+  }
+  function urg(dead){ var ms=dead.getTime()-Date.now(); if(ms<0) return "over"; if(ms<=3*86400000) return "soon"; return "ok"; }
+
+  function compute(){
+    var rec=parseDay(document.getElementById("ngayNhan").value);
+    var recAt=parseDT(document.getElementById("ngayNhan").value, document.getElementById("gioNhan").value);
+    if(!rec||!recAt) return null;
+    var thu=parseDay(document.getElementById("ngayThuLy").value);
+    var biet=parseDay(document.getElementById("ngayBiet").value);
+    var ms=[], title="", cites=[], notes=[], check=[];
+    function add(id,group,label,at,kind,cite,hint){ if(at) ms.push({id:id,group:group,label:label,at:at,kind:kind,cite:cite,hint:hint||""}); }
+
+    if(st.track==="kn-tths"){
+      title = st.subject==="tu-do" ? "Khiếu nại giữ người, bắt, tạm giữ, tạm giam" : st.subject==="dtv" ? "Khiếu nại ĐTV / Thủ trưởng CQĐT" : st.subject==="ksv" ? "Khiếu nại Kiểm sát viên, Phó Viện trưởng" : "Khiếu nại Viện trưởng";
+      cites=["Chương XXXIII BLTTHS","TTLT 02/2018","QĐ 50/QĐ-VKSTC 20/3/2026"];
+      notes=["Hạn TTHS tính từ ngày nhận khiếu nại.","Xác minh không vượt hạn giải quyết.","CQĐT/TA gửi thông báo thụ lý hoặc QĐ cho VKS trong 03 ngày."];
+      check=["Đơn hoặc khiếu nại trực tiếp.","Còn thời hiệu 15 ngày (Điều 471); lần hai 03 ngày.","Thuộc thẩm quyền.","Chưa có QĐ có hiệu lực; chưa rút đơn."];
+      add("hieu","hieu","Hết thời hiệu khiếu nại lần đầu", addCal(biet||rec,15), "cal", "Điều 471 BLTTHS");
+      if(st.subject==="tu-do"){
+        if(st.lan===2){
+          add("thuly","thuly","Hạn thụ lý lần hai", thu||addCal(rec,3), "cal", "QĐ 50");
+          add("xm","xacminh","Hạn xác minh", addCal(rec,7), "cal", "Điều 474 BLTTHS");
+          add("gq","giaiquyet","Hạn VKS cấp trên giải quyết lần hai (07 ngày)", addCal(rec,7), "cal", "Điều 474 BLTTHS");
+        } else {
+          add("thuly","thuly","Hạn thụ lý và thông báo (08 giờ)", addH(recAt,8), "h", "QĐ 50");
+          add("gq24","giaiquyet","Hạn giải quyết ngay (24 giờ)", addH(recAt,24), "h", "Điều 474 BLTTHS");
+          add("xm","xacminh","Hạn xác minh thêm (tối đa 03 ngày)", addCal(rec,3), "cal", "Điều 474 BLTTHS");
+          add("gq","giaiquyet","Hạn giải quyết tối đa", addCal(rec,3), "cal", "Điều 474 BLTTHS");
+        }
+      } else if(st.subject==="dtv"){
+        var gq=addCal(rec,7);
+        add("thuly","thuly","Hạn thụ lý", thu||addCal(rec,3), "cal", "TTLT 02/2018 · QĐ 50");
+        add("xm","xacminh","Hạn xác minh (không vượt hạn giải quyết)", gq, "cal", "TTLT 02/2018");
+        add("gq","giaiquyet", st.lan===1?"Hạn giải quyết lần đầu (07 ngày)":"Hạn VKS giải quyết lần hai (07 ngày)", gq, "cal", "Điều 475 BLTTHS");
+      } else if(st.subject==="ksv"){
+        var g1=addCal(rec,7), g2=addCal(rec,15);
+        add("thuly","thuly","Hạn thụ lý", thu||addCal(rec,3), "cal", "QĐ 50");
+        add("xm","xacminh","Hạn xác minh", st.lan===1?g1:g2, "cal", "QĐ 50");
+        add("gq","giaiquyet", st.lan===1?"Hạn Viện trưởng giải quyết (07 ngày)":"Hạn VKS cấp trên (15 ngày)", st.lan===1?g1:g2, "cal", "Điều 476 BLTTHS");
+      } else {
+        add("thuly","thuly","Hạn thụ lý", thu||addCal(rec,3), "cal", "QĐ 50");
+        add("xm","xacminh","Hạn xác minh", addCal(rec,15), "cal", "QĐ 50");
+        add("gq","giaiquyet","Hạn VKS cấp trên giải quyết KN Viện trưởng (15 ngày)", addCal(rec,15), "cal", "Điều 476 BLTTHS");
+      }
+      add("gui","gui","Hạn gửi QĐ cho người KN và VKS cấp trên (03 ngày làm việc)", addWork(thu||rec,3), "w", "QĐ 50");
+      add("ks","ks","Hạn CQĐT/TA gửi thông báo/QĐ cho VKS để kiểm sát (03 ngày)", addCal(thu||rec,3), "cal", "TTLT 02/2018");
+    } else if(st.track==="tc-tths"){
+      title = st.subject==="tu-do" ? "Tố cáo liên quan bắt, tạm giữ, tạm giam" : (st.phucTap?"Tố cáo TTHS — phức tạp":"Tố cáo TTHS — thông thường");
+      cites=["Điều 481 BLTTHS","TTLT 02/2018","QĐ 50/QĐ-VKSTC"];
+      notes=["Kiểm tra họ tên, địa chỉ người tố cáo trong 10 ngày (12 giờ nếu bắt/tạm giam).","Xác minh không vượt hạn giải quyết.","Tố cáo có dấu hiệu tội phạm theo Điều 147 BLTTHS."];
+      check=["Đúng hình thức; có người tố cáo, người bị tố cáo, hành vi.","Thuộc thẩm quyền.","Còn thời hiệu xử lý hành vi.","Chưa giải quyết, trừ tình tiết mới."];
+      if(st.subject==="tu-do"){
+        add("thuly","thuly","Hạn kiểm tra/thụ lý (12 giờ)", addH(recAt,12), "h", "TTLT 02/2018 · Điều 481.4");
+        add("xm","xacminh","Hạn xác minh thêm (tối đa 03 ngày)", addCal(rec,3), "cal", "Điều 481 BLTTHS");
+        add("gq","giaiquyet","Hạn giải quyết (ngay / tối đa 03 ngày)", addCal(rec,3), "cal", "Điều 481 BLTTHS");
+      } else {
+        add("thuly","thuly","Hạn kiểm tra điều kiện và thụ lý (10 ngày)", addCal(rec,10), "cal", "TTLT 02/2018 · QĐ 50");
+        var base=thu||addCal(rec,10);
+        var gqd=addCal(base, st.phucTap?60:30);
+        add("xm","xacminh","Hạn xác minh (không vượt hạn giải quyết)", gqd, "cal", "QĐ 50");
+        add("gq","giaiquyet", st.phucTap?"Hạn giải quyết phức tạp (60 ngày từ thụ lý)":"Hạn giải quyết (30 ngày từ thụ lý)", gqd, "cal", "Điều 481 BLTTHS");
+      }
+      add("gui","gui","Hạn gửi QĐ tố cáo cho VKS (03 ngày)", addCal(thu||rec,3), "cal", "TTLT 02/2018");
+      add("congbo","gui","Hạn công bố kết luận (07 ngày làm việc)", addWork(thu||rec,7), "w", "QĐ 50");
+    } else if(st.track==="kn-hc"){
+      title="Khiếu nại hành chính lần "+st.lan+(st.phucTap?" — phức tạp":"")+(st.vungSau?" — vùng sâu":"");
+      cites=["Luật Khiếu nại 2011 (Luật 136/2025/QH15, hiệu lực 01/7/2026)","NĐ 124/2020/NĐ-CP","QĐ 50/QĐ-VKSTC"];
+      notes=["Thụ lý 07 ngày làm việc (Điều 27 sau sửa 2025).","Hạn giải quyết tính từ ngày thụ lý.","Xác minh phải xong trong hạn giải quyết."];
+      check=["Đơn hoặc trực tiếp; có năng lực hành vi.","Còn thời hiệu 90 ngày.","Thuộc thẩm quyền; không thuộc Điều 11.","Chưa có QĐ lần hai; chưa rút đơn."];
+      add("hieu","hieu","Hết thời hiệu khiếu nại (90 ngày)", addCal(biet||rec,90), "cal", "Điều 9 Luật KN");
+      var tl=addWork(rec,7);
+      add("thuly","thuly","Hạn thụ lý (07 ngày làm việc)", tl, "w", "Điều 27 Luật KN (sửa 2025)");
+      var base=thu||tl, days=st.lan===1?30:45;
+      if(st.lan===1){ if(st.vungSau&&st.phucTap) days=60; else if(st.vungSau||st.phucTap) days=45; }
+      else { if(st.vungSau&&st.phucTap) days=70; else if(st.vungSau||st.phucTap) days=60; }
+      var gq=addCal(base,days);
+      add("xm","xacminh","Hạn xác minh (không vượt hạn giải quyết)", gq, "cal", "Điều 29 Luật KN · QĐ 50");
+      add("gq","giaiquyet","Hạn giải quyết lần "+st.lan+" ("+days+" ngày từ thụ lý)", gq, "cal", st.lan===1?"Điều 28 Luật KN":"Điều 37 Luật KN");
+      add("gui","gui", st.lan===1?"Hạn gửi QĐ lần đầu (03 ngày làm việc)":"Hạn gửi QĐ lần hai (07 ngày làm việc)", addWork(base, st.lan===1?3:7), "w", "NĐ 124/2020 · QĐ 50");
+      if(st.lan===1) add("lan2","hieu", st.vungSau?"Hạn KN lần hai (45 ngày)":"Hạn KN lần hai (30 ngày)", addCal(gq, st.vungSau?45:30), "cal", "Điều 33 Luật KN");
+    } else {
+      title=st.dacBiet?"Tố cáo hành chính — đặc biệt phức tạp":st.phucTap?"Tố cáo hành chính — phức tạp":"Tố cáo hành chính — thông thường";
+      cites=["Luật Tố cáo 2018","NĐ 31/2019/NĐ-CP","QĐ 50/QĐ-VKSTC"];
+      notes=["Không có hạn xác minh riêng — không vượt hạn giải quyết.","Gia hạn phải bằng văn bản.","Phức tạp / đặc biệt phức tạp: Điều 3 NĐ 31/2019."];
+      check=["Đúng hình thức; xác định người tố cáo, người bị tố cáo, hành vi.","Thuộc thẩm quyền.","Còn thời hiệu xử lý hành vi.","Không thuộc trường hợp không thụ lý."];
+      var xu=addWork(rec, (st.phucTap||st.dacBiet)?10:7);
+      add("thuly","thuly", (st.phucTap||st.dacBiet)?"Hạn xử lý ban đầu / thụ lý (10 ngày làm việc)":"Hạn xử lý ban đầu / thụ lý (07 ngày làm việc)", xu, "w", "Điều 24, 29 Luật TC");
+      var base=thu||xu;
+      add("tb","thuly","Hạn thông báo thụ lý (05 ngày làm việc)", addWork(base,5), "w", "Điều 29 Luật TC");
+      var extra=st.dacBiet?60:st.phucTap?30:0;
+      var gq=addCal(base,30+extra);
+      add("xm","xacminh","Hạn xác minh (không vượt hạn giải quyết)", gq, "cal", "Điều 31 Luật TC");
+      add("gq","giaiquyet", st.dacBiet?"Hạn giải quyết tối đa (30+60 ngày)":st.phucTap?"Hạn giải quyết khi gia hạn (60 ngày)":"Hạn giải quyết (30 ngày từ thụ lý)", gq, "cal", "Điều 30 Luật TC");
+      add("kl","gui","Hạn gửi kết luận (05 ngày làm việc)", addWork(base,5), "w", "Điều 35 Luật TC");
+    }
+    return {title:title,cites:cites,notes:notes,check:check,ms:ms};
+  }
+
+  function find(ms,id){ for(var i=0;i<ms.length;i++) if(ms[i].id===id) return ms[i]; return null; }
+  function hero(title,item){
+    if(!item) return '<div class="hero"><span class="kicker">'+title+'</span><p class="muted">Không áp dụng</p></div>';
+    var u=urg(item.at);
+    return '<div class="hero"><span class="kicker">'+title+'</span><b>'+(item.kind==="h"?fmtT(item.at):fmt(item.at))+'</b><span class="pill '+u+'">'+remain(item.at)+'</span><div class="muted" style="margin-top:6px;font-size:11px">'+item.cite+'</div></div>';
+  }
+  function render(){
+    document.getElementById("tracks").innerHTML = TRACKS.map(function(t){
+      return '<button type="button" class="khau'+(t.id===st.track?' on':'')+'" data-id="'+t.id+'"><strong>'+t.short+'</strong><div>'+t.label+'</div><small>'+t.hint+'</small></button>';
+    }).join("");
+    var chips=[];
+    function chip(key,on,label){ chips.push('<button type="button" class="chip'+(on?' on':'')+'" data-k="'+key+'">'+label+'</button>'); }
+    if(st.track==="kn-tths"||st.track==="kn-hc"){ chip("lan1",st.lan===1,"Lần đầu"); chip("lan2",st.lan===2,"Lần hai"); }
+    if(st.track==="kn-tths"){ chip("tu-do",st.subject==="tu-do","Bắt / tạm giữ / tạm giam"); chip("dtv",st.subject==="dtv","ĐTV / CQĐT"); chip("ksv",st.subject==="ksv","Kiểm sát viên"); chip("vt",st.subject==="vien-truong","Viện trưởng"); }
+    if(st.track==="tc-tths") chip("tu-do",st.subject==="tu-do","Tố cáo bắt / tạm giam");
+    if(st.track==="tc-tths"||st.track==="kn-hc"||st.track==="tc-hc") chip("phuc",st.phucTap,"Vụ việc phức tạp");
+    if(st.track==="tc-hc") chip("dac",st.dacBiet,"Đặc biệt phức tạp");
+    if(st.track==="kn-hc") chip("vung",st.vungSau,"Vùng sâu, vùng xa");
+    document.getElementById("opts").innerHTML=chips.join("");
+    document.getElementById("lbNhan").textContent = (st.lan===2 && st.track.indexOf("kn")===0) ? "Ngày nhận đơn / QĐ lần hai" : "Ngày nhận đơn";
+    var r=compute(); var box=document.getElementById("out");
+    if(!r){ box.innerHTML=""; return; }
+    var g=GROUP={hieu:"Thời hiệu",thuly:"Thụ lý",xacminh:"Xác minh",giaiquyet:"Giải quyết",gui:"Gửi / công bố",ks:"Kiểm sát"};
+    var list=r.ms.map(function(m){
+      var u=urg(m.at);
+      return '<div class="item"><div><div class="kicker">'+g[m.group]+'</div><div style="font-weight:700;font-size:14px">'+m.label+'</div><div class="muted" style="font-size:11px">'+m.cite+(m.hint?" — "+m.hint:"")+'</div></div><div style="text-align:right"><div style="font-family:ui-monospace,Menlo,monospace;font-weight:800;color:var(--navy)">'+(m.kind==="h"?fmtT(m.at):fmt(m.at))+'</div><span class="pill '+u+'">'+remain(m.at)+'</span></div></div>';
+    }).join("");
+    var tsv=["Loại đơn","Nội dung","Ngày nhận","Hạn thụ lý","Hạn xác minh","Hạn giải quyết"].join("\t")+"\n"+
+      [st.track,r.title,document.getElementById("ngayNhan").value,(find(r.ms,"thuly")?fmt(find(r.ms,"thuly").at):""),(find(r.ms,"xm")?fmt(find(r.ms,"xm").at):""),(find(r.ms,"gq")?fmt(find(r.ms,"gq").at):"")].join("\t");
+    window.__tsv=tsv;
+    box.innerHTML = '<div class="card"><p class="kicker" style="margin:0 0 8px">Kết quả — '+r.title+'</p><div class="grid g3">'+hero("Hạn thụ lý",find(r.ms,"thuly"))+hero("Hạn xác minh",find(r.ms,"xm"))+hero("Hạn giải quyết",find(r.ms,"gq"))+'</div></div>'+
+      '<div class="card"><div class="row" style="justify-content:space-between;align-items:center;margin:0 0 8px"><p class="kicker" style="margin:0">Các mốc thời hạn</p><button class="btn btn-primary" type="button" id="copy">Sao chép sổ Excel</button></div>'+list+'</div>'+
+      '<div class="card grid g2"><div><p class="kicker">Điều kiện thụ lý</p><ul class="plain">'+r.check.map(function(c){return "<li>"+c+"</li>";}).join("")+'</ul></div><div><p class="kicker">Lưu ý</p><ul class="plain">'+r.notes.map(function(c){return "<li>"+c+"</li>";}).join("")+'</ul><p class="muted" style="margin-top:8px;font-size:11px">Cách tính: không tính ngày nhận. Hạn «ngày làm việc» bỏ T7, CN và ngày lễ.</p></div></div>'+
+      '<div class="card"><p class="kicker">Căn cứ pháp lý</p><ul class="plain">'+r.cites.map(function(c){return "<li>"+c+"</li>";}).join("")+'</ul></div>';
+    var b=document.getElementById("copy"); if(b) b.onclick=function(){ navigator.clipboard.writeText(window.__tsv||"").then(function(){ alert("Đã sao chép dòng sổ (dán vào Excel)."); }); };
+  }
+
+  function today(){ var n=new Date(); document.getElementById("ngayNhan").value=iso(n); }
+  today(); render();
+  document.getElementById("tracks").addEventListener("click", function(e){ var b=e.target.closest("[data-id]"); if(!b) return; st.track=b.getAttribute("data-id"); render(); });
+  document.getElementById("opts").addEventListener("click", function(e){
+    var b=e.target.closest("[data-k]"); if(!b) return; var k=b.getAttribute("data-k");
+    if(k==="lan1") st.lan=1; if(k==="lan2") st.lan=2;
+    if(k==="tu-do") st.subject = st.subject==="tu-do" && st.track==="tc-tths" ? "dtv" : "tu-do";
+    if(k==="dtv") st.subject="dtv"; if(k==="ksv") st.subject="ksv"; if(k==="vt") st.subject="vien-truong";
+    if(k==="phuc") st.phucTap=!st.phucTap; if(k==="dac") st.dacBiet=!st.dacBiet; if(k==="vung") st.vungSau=!st.vungSau;
+    render();
+  });
+  ["ngayNhan","gioNhan","ngayThuLy","ngayBiet"].forEach(function(id){ document.getElementById(id).addEventListener("input", render); });
+  document.getElementById("s1").onclick=function(){ st={track:"kn-tths",lan:1,phucTap:false,dacBiet:false,vungSau:false,subject:"tu-do"}; today(); document.getElementById("gioNhan").value="08:30"; document.getElementById("ngayThuLy").value=""; document.getElementById("ngayBiet").value=""; render(); };
+  document.getElementById("s2").onclick=function(){ st={track:"kn-hc",lan:1,phucTap:true,dacBiet:false,vungSau:false,subject:"dtv"}; today(); render(); };
+  document.getElementById("s3").onclick=function(){ st={track:"tc-hc",lan:1,phucTap:true,dacBiet:false,vungSau:false,subject:"dtv"}; today(); render(); };
+})();
+</script>
+</body>
+</html>
