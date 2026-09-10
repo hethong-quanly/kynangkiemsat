@@ -162,8 +162,8 @@
   }
   function detect(text){
     var t = text.toLowerCase();
-    if(/thi hành án dân sự|thads|chấp hành viên|người phải thi hành án|chi cục thi hành án dân sự/.test(t)) return "ktha-ds";
-    if(/thi hành án|thahs|người chấp hành án/.test(t)) return "ktha-hs";
+    if(/thi hành án dân sự|thads|chấp hành viên|người phải thi hành án|chi cục thi hành án dân sự/.test(t)) return "kstha-ds";
+    if(/thi hành án|thahs|người chấp hành án/.test(t)) return "kstha-hs";
     if(/xét xử|cáo trạng|phiên tòa|truy tố/.test(t)) return "ksxx";
     return "ksdt";
   }
@@ -203,8 +203,8 @@
     var nguon = [F.soVanBan, F.ngayVanBan, F.coQuanGui].filter(Boolean).join(" — ");
     var dt = (F.doiTuong||"…") + (F.namSinh ? ", sinh "+F.namSinh : "");
     var vu = "";
-    if(khau==="ktha-ds") vu = "việc thi hành án dân sự"+(F.soThuLy?" số "+F.soThuLy:"");
-    else if(khau==="ktha-hs") vu = "việc thi hành án hình sự đối với "+dt+(F.soBanAn?" theo bản án số "+F.soBanAn:"");
+    if(khau==="kstha-ds") vu = "việc thi hành án dân sự"+(F.soThuLy?" số "+F.soThuLy:"");
+    else if(khau==="kstha-hs") vu = "việc thi hành án hình sự đối với "+dt+(F.soBanAn?" theo bản án số "+F.soBanAn:"");
     else vu = "vụ án hình sự thụ lý số "+(F.soThuLy||F.soVanBan||"…")+(F.ngayThuLy?" ngày "+F.ngayThuLy:"")+" đối với bị can/bị cáo "+dt+(F.toiDanh?" về tội "+F.toiDanh:"")+(F.dieuLuat?" ("+F.dieuLuat+")":"");
     var phu = a.ksvPhu ? "\nPhân công đồng chí "+a.ksvPhu+" phối hợp, hỗ trợ Kiểm sát viên thụ lý chính." : "";
     return "VIỆN KIỂM SÁT NHÂN DÂN\nTHÀNH PHỐ CẦN THƠ\nSố: "+(a.soQd||"…")+"/QĐ-VKS-"+k.so+"\n\nCỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM\nĐộc lập - Tự do - Hạnh phúc\n\nCần Thơ, "+isoToLong(a.ngayQd)+"\n\nQUYẾT ĐỊNH\nPhân công Kiểm sát viên "+k.nv+"\n\n"+a.chucDanh.toUpperCase()+" VIỆN KIỂM SÁT NHÂN DÂN THÀNH PHỐ CẦN THƠ\n\nCăn cứ:\n"+k.cc.map(function(c){return "- "+c+";";}).join("\n")+"\n\nXét đề nghị phân công và văn bản nguồn"+(nguon?": "+nguon:"")+";\n\nQUYẾT ĐỊNH:\n\nĐiều 1. Phân công đồng chí "+(a.ksv||"…")+", "+a.chucVu+", "+k.nv+" "+vu+"."+phu+"\nĐồng chí được phân công là Kiểm sát viên thụ lý chính, chịu trách nhiệm lập, quản lý hồ sơ kiểm sát và báo cáo tiến độ theo quy chế công tác.\n\nĐiều 2. Đồng chí có tên tại Điều 1 chịu trách nhiệm thi hành Quyết định này.\n\nĐiều 3. Quyết định này có hiệu lực kể từ ngày ký.\n\nNơi nhận:                                      "+a.chucDanh.toUpperCase()+"\n- Như Điều 1;                                  Viện kiểm sát nhân dân thành phố Cần Thơ\n- Lưu: VT, hồ sơ kiểm sát.                     (đã ký)\n\n                                               "+(a.vienTruong||"…")+"\n";
@@ -312,8 +312,8 @@
   });
   document.getElementById("btnParse").onclick = function(){ apply(document.getElementById("src").value); };
   document.getElementById("btnS1").onclick = function(){ apply(SAMPLE1, "ksdt"); };
-  document.getElementById("btnS2").onclick = function(){ apply(SAMPLE2, "ktha-hs"); };
-  document.getElementById("btnS3").onclick = function(){ apply(SAMPLE3, "ktha-ds"); };
+  document.getElementById("btnS2").onclick = function(){ apply(SAMPLE2, "kstha-hs"); };
+  document.getElementById("btnS3").onclick = function(){ apply(SAMPLE3, "kstha-ds"); };
   document.getElementById("btnFile").onclick = function(){ document.getElementById("file").click(); };
   document.getElementById("file").onchange = function(e){
     var f = e.target.files && e.target.files[0]; e.target.value=""; if(f) readFile(f);
