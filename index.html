@@ -2,7 +2,17 @@
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="theme-color" content="#1e5a8a">
+    <meta name="description" content="Bộ công cụ kỹ năng nghiệp vụ Kiểm sát — Viện KSND thành phố Cần Thơ. Cài ra màn hình điện thoại, dùng được khi không có mạng.">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="KN Kiểm sát">
+    <link rel="manifest" href="manifest.json">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32.png">
     <title>Kỹ năng Kiểm sát - VKSND TPCT</title>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -296,6 +306,85 @@
             .bento-grid { grid-template-columns: 1fr; }
             .span-4, .span-5, .span-7, .span-12 { grid-column: span 1; }
             #dashboard-page { padding: 12px 12px calc(var(--taskbar-height) + 20px); }
+            .pwa-banner { flex-wrap: wrap; }
+            .pwa-banner-actions { width: 100%; }
+            .pwa-banner .btn-go { flex: 1; }
+            .header { align-items: flex-start; }
+            .btn-install { width: 100%; }
+        }
+
+        /* ===== PWA / APP ĐIỆN THOẠI ===== */
+        .header-right { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+        .btn-install {
+            min-height: 44px; padding: 0 16px; border: none; border-radius: 12px;
+            background: linear-gradient(135deg, var(--sky-dark), var(--plum-dark));
+            color: #fff; font: inherit; font-weight: 700; font-size: 13px; cursor: pointer;
+            white-space: nowrap;
+        }
+        .btn-install:active { transform: scale(0.98); }
+        body.is-standalone .btn-install { display: none; }
+        .pwa-banner {
+            display: none; align-items: flex-start; gap: 12px; margin: 0 0 16px;
+            padding: 14px 16px; background: #fff; border: 1px solid rgba(30,90,138,0.18);
+            border-radius: 16px; box-shadow: 0 4px 20px -4px rgba(148,163,184,.12);
+        }
+        .pwa-banner.show { display: flex; }
+        .pwa-banner-text { flex: 1; min-width: 0; }
+        .pwa-banner-text strong { display: block; font-size: 14px; font-weight: 800; color: var(--slate-800); margin: 0 0 4px; }
+        .pwa-banner-text span { display: block; font-size: 12px; color: var(--slate-500); line-height: 1.5; }
+        .pwa-banner-actions { display: flex; gap: 8px; flex-shrink: 0; align-items: center; }
+        .pwa-banner .btn-go {
+            min-height: 44px; padding: 0 16px; border: none; border-radius: 12px;
+            background: var(--sky-dark); color: #fff; font: inherit; font-weight: 700; font-size: 13px; cursor: pointer;
+        }
+        .pwa-banner .btn-x {
+            min-width: 44px; min-height: 44px; border: 1px solid var(--slate-200); background: #fff;
+            border-radius: 12px; color: var(--slate-500); font-size: 18px; cursor: pointer;
+        }
+        .bento-badges { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+        .kind-chip {
+            display: inline-flex; padding: 3px 8px; font-size: 9px; font-weight: 800;
+            letter-spacing: 0.7px; text-transform: uppercase; border-radius: 20px; white-space: nowrap;
+        }
+        .kind-offline { background: var(--teal-50); color: var(--teal-600); }
+        .kind-online { background: #fff7ed; color: #c2410c; }
+        .kind-desktop { background: var(--slate-100); color: var(--slate-600); }
+        .bento-card.needs-net { opacity: 0.55; }
+        .net-dot {
+            display: inline-flex; align-items: center; gap: 6px; font-size: 11px; font-weight: 600;
+            color: rgba(255,255,255,.8);
+        }
+        .net-dot .net-pip { width: 8px; height: 8px; border-radius: 50%; background: #34d399; display: inline-block; }
+        .net-dot.off .net-pip { background: #f87171; }
+        .pwa-toast {
+            position: fixed; left: 50%; bottom: calc(var(--taskbar-height) + 16px + env(safe-area-inset-bottom));
+            transform: translateX(-50%) translateY(12px);
+            background: var(--slate-800); color: #fff; padding: 12px 16px; border-radius: 12px;
+            font-size: 13px; line-height: 1.45; max-width: min(92vw, 420px);
+            z-index: 1200; opacity: 0; pointer-events: none;
+            transition: opacity .2s ease, transform .2s ease;
+        }
+        .pwa-toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+        .pwa-sheet {
+            display: none; position: fixed; inset: 0; z-index: 1300;
+            background: rgba(15,23,42,.45); align-items: flex-end; justify-content: center;
+        }
+        .pwa-sheet.show { display: flex; }
+        .pwa-sheet-card {
+            width: min(100%, 440px); background: #fff; border-radius: 20px 20px 0 0;
+            padding: 20px 20px calc(20px + env(safe-area-inset-bottom));
+        }
+        .pwa-sheet-card h3 { margin: 0 0 8px; font-size: 16px; color: var(--slate-800); }
+        .pwa-sheet-card p { margin: 0 0 10px; font-size: 13px; color: var(--slate-500); line-height: 1.5; }
+        .pwa-sheet-card ol { margin: 0; padding-left: 18px; color: var(--slate-600); font-size: 13px; line-height: 1.65; }
+        .pwa-sheet-card .btn-go { width: 100%; margin-top: 16px; min-height: 44px; border: none; border-radius: 12px;
+            background: var(--sky-dark); color: #fff; font: inherit; font-weight: 700; cursor: pointer; }
+        @media (display-mode: standalone) {
+            body { padding-top: env(safe-area-inset-top); }
+            .os-taskbar { padding-bottom: env(safe-area-inset-bottom); height: calc(var(--taskbar-height) + env(safe-area-inset-bottom)); }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            .pwa-banner, .pwa-toast { transition: none; }
         }
     </style>
 </head>
@@ -353,6 +442,19 @@
                 <h1>KỸ NĂNG ỨNG DỤNG TRONG NGHIỆP VỤ KIỂM SÁT</h1>
                 <div class="header-underline"></div>
             </div>
+            <div class="header-right">
+                <button type="button" class="btn-install" id="btn-install" onclick="promptInstall()">Cài ra điện thoại</button>
+            </div>
+        </div>
+        <div class="pwa-banner" id="pwa-banner" role="region" aria-label="Cài ứng dụng">
+            <div class="pwa-banner-text">
+                <strong>Cài ra màn hình điện thoại</strong>
+                <span>Dùng tính hạn, THADS, THAHS, KN-TC khi không có mạng. Mở một lần khi có mạng để tải sẵn. Công cụ Udify / NotebookLM vẫn cần mạng.</span>
+            </div>
+            <div class="pwa-banner-actions">
+                <button type="button" class="btn-go" id="pwa-go" onclick="promptInstall()">Cài app</button>
+                <button type="button" class="btn-x" onclick="dismissPwaBanner()" aria-label="Đóng">✕</button>
+            </div>
         </div>
         <div class="bento-grid" id="tools-grid"></div>
         <footer class="site-footer">
@@ -377,7 +479,25 @@
             <div class="os-taskbar-start" onclick="closeTool()">⬥ Danh mục chính</div>
             <div class="os-taskbar-breadcrumb" id="taskbar-breadcrumb"></div>
         </div>
-        <div class="os-taskbar-right"><span class="os-clock" id="os-clock">00:00</span></div>
+        <div class="os-taskbar-right">
+            <span class="net-dot" id="net-status"><span class="net-pip"></span><span id="net-label">Trực tuyến</span></span>
+            <span class="os-clock" id="os-clock">00:00</span>
+        </div>
+    </div>
+
+    <div class="pwa-toast" id="pwa-toast" role="status"></div>
+    <div class="pwa-sheet" id="pwa-sheet" onclick="if(event.target===this) closeInstallSheet()">
+        <div class="pwa-sheet-card" role="dialog" aria-labelledby="pwa-sheet-title">
+            <h3 id="pwa-sheet-title">Cài ra màn hình chính</h3>
+            <p>Không cần cửa hàng ứng dụng. Lần đầu mở khi có mạng để tải sẵn công cụ HTML.</p>
+            <ol>
+                <li>Mở trang này bằng <strong>Safari</strong> (iPhone / iPad) hoặc <strong>Chrome</strong> (Android).</li>
+                <li>iPhone: bấm nút Chia sẻ (hình vuông có mũi tên lên) rồi chọn <strong>Thêm vào Màn hình chính</strong>.</li>
+                <li>Android: bấm <strong>Cài app</strong> trên banner, hoặc menu Chrome → Cài đặt ứng dụng.</li>
+                <li>Mở icon <strong>KN Kiểm sát</strong> trên màn hình. Tính hạn, THADS, THAHS, KN-TC chạy khi mất mạng.</li>
+            </ol>
+            <button type="button" class="btn-go" onclick="closeInstallSheet()">Đã hiểu</button>
+        </div>
     </div>
 
     <script>
@@ -400,21 +520,21 @@
         };
 
         var TOOLS = [
-            { id:'tinh-lai-suat', span:'span-4', badge:'PHƯƠNG PHÁP', badgeClass:'badge-teal', title:'Tính lãi suất', desc:'Tự động tính tiền lãi trong hạn, lãi quá hạn, lãi chậm trả trong giao dịch dân sự.', illust:ILLUST.chartWave, url:'Tool/App_tinh_lai_suat/index.html', accent:'', footer:'' },
-            { id:'tinh-an-phi', span:'span-4', badge:'PHƯƠNG PHÁP', badgeClass:'badge-teal', title:'Tính án phí', desc:'Tra cứu và tự động tính nhanh số tiền án phí hình sự và dân sự.', illust:ILLUST.bars, url:'Tool/App_DS/index.html', accent:'', footer:'' },
-            { id:'kiem-sat-ban-an-chung', span:'span-4', badge:'KỸ NĂNG', badgeClass:'badge-teal', title:'Kiểm sát Bản án hình sự, dân sự', desc:'Đối chiếu phát hiện lỗi chính tả, mâu thuẫn, vi phạm, thiếu sót trong Bản án hình sự, dân sự (bản miễn phí - dùng chung cho các đơn vị).', illust:ILLUST.laser, url:'https://udify.app/chat/FoGbxKbFMFZSylhe', accent:'', footer:'' },
-            { id:'kiem-sat-ban-an-nang-cao', span:'span-4', badge:'KỸ NĂNG', badgeClass:'badge-amber', title:'Kiểm sát Bản án hình sự, dân sự', desc:'Bản nâng cấp tối ưu đặc biệt.', illust:ILLUST.shield, url:'https://udify.app/chat/Ho3TdpoYQ9OjTbIq', accent:'accent-vip', footer:'<span>Dành cho KSV </span><span style="margin-left:auto;">VIỆN KIỂM SÁT NHÂN DÂN THÀNH PHỐ CẦN THƠ</span>' },
-            { id:'notebook-lm', span:'span-4', badge:'TRỢ LÝ ẢO', badgeClass:'badge-purple', title:'Hình sự & Tố tụng hình sự', desc:'Tra cứu Điều luật, hỗ trợ lập luận tố tụng dựa trên kho tri thức hiện hành.', illust:ILLUST.aiNodes, url:'https://notebooklm.google.com/notebook/af52b719-3125-4b4e-aaad-93432843b0ee', accent:'', newTab:true, footer:'<span>Nền tảng tri thức</span><span style="margin-left:auto;font-weight:700;color:#7e22ce;">notebookLM</span>' },
-            { id:'tinh-tuoi-thoi-han', span:'span-4', badge:'PHƯƠNG PHÁP', badgeClass:'badge-teal', title:'Tính tuổi — Tính thời hạn', desc:'Tự động tính tuổi của đối tượng, tính chính xác ngày tháng năm, giờ phút, kiểm soát chặt chẽ thời hạn tạm giữ, tạm giam tố tụng.', illust:ILLUST.clockIcon, url:'Data/TinhTuoiThoiHan.html', accent:'', footer:'' },
-            { id:'huong-dan-so-do-tu-duy', span:'span-4', badge:'HƯỚNG DẪN', badgeClass:'badge-emerald', title:'Tạo sơ đồ tư duy', desc:'Thao tác chi tiết và bộ promt mẫu để tạo sơ đồ tư duy tự động.', illust:ILLUST.mindmap, url:'Data/HuongDan.html', accent:'', footer:'' },
-            { id:'an-danh-tool', span:'span-4', badge:'KỸ NĂNG', badgeClass:'badge-teal', title:'Tự động che thông tin - không kết nối mạng', desc:'Tự động ẩn toàn bộ thông tin cá nhân trong văn bản trước khi công bố hoặc giao cho AI xử lý.', illust:ILLUST.censor, url:'Tool/AnDanh/index.html', accent:'', footer:'Đội ngũ xây dựng: Nhóm IT — VKSND TP.Cần Thơ' },
-            { id:'file-renamer-tool', span:'span-4', badge:'KỸ NĂNG', badgeClass:'badge-teal', title:'Tự động đổi tên file - không kết nối mạng', desc:'Tự động sửa tên file để AI dễ tiếp cận hoặc cho phép đổi tên file hàng loạt (ví dụ: Đánh số bút lục, tài liệu).', illust:ILLUST.rename, url:'Tool/FileRenamer/index.html', accent:'', footer:'' },
-            { id:'docx-to-md-tool', span:'span-4', badge:'KỸ NĂNG', badgeClass:'badge-teal', title:'Chuyển file doc, docx sang Markdown - không kết nối mạng', desc:'Dùng python tự động chuyển đổi file doc, docx sang dạng Markdown trước khi chuyển cho AI xử lý.', illust:ILLUST.convert, url:'Tool/DocxToMd/index.html', accent:'', footer:'' },
-            { id:'ocr-pdf-tool', span:'span-4', badge:'KỸ NĂNG', badgeClass:'badge-teal', title:'Nhận dạng chữ trong fille PDF, file ảnh - không kết nối mạng', desc:'Tự động trích xuất chữ từ file pdf, file ảnh mà không cần kết nối mạng, cho phép chọn đầu ra (word, md, txt).', illust:ILLUST.scan, url:'Tool/OCR_PDF_Tool/index.html', accent:'', footer:'' },
-            { id:'soan-qd-phan-cong', span:'span-4', badge:'KỸ NĂNG', badgeClass:'badge-teal', title:'Kỹ năng tự động soạn thảo Quyết định phân công KSV – từ Thông báo thụ lý, Quyết định thi hành án (scan)', desc:'Tự động đọc và trích xuất thông tin từ Thông báo thụ lý, QĐ thi hành án hình sự/ dân sự và soạn thảo QĐ phân công KSV, trích thông tin để nhập sổ quản lý của khâu công tác.', illust:ILLUST.radarPulse, url:'Tool/SoanQdPhanCong/index.html', accent:'', footer:'NHÓM IT — Viện KSND thành phố Cần Thơ' },
-            { id:'giai-quyet-kn-tc', span:'span-4', badge:'KỸ NĂNG', badgeClass:'badge-teal', title:'Kỹ năng giải quyết khiếu nại, tố cáo — thời hạn thụ lý, xác minh, giải quyết đơn', desc:'Tự động tính thời hạn thụ lý, xác minh, giải quyết đơn khiếu nại, tố cáo; kiểm sát hạn CQĐT/Tòa án; bảng tra cứu và quy trình kỹ năng theo BLTTHS, Luật Khiếu nại, Luật Tố cáo và QĐ 50/QĐ-VKSTC 2026.', illust:ILLUST.stampClock, url:'Tool/GiaiQuyetKnTc/index.html', accent:'', footer:'NHÓM IT — Viện KSND thành phố Cần Thơ' },
-            { id:'kiem-sat-thads', span:'span-4', badge:'KỸ NĂNG', badgeClass:'badge-teal', title:'Kỹ năng kiểm sát thi hành án dân sự — thời hạn, hạ giá, cưỡng chế', desc:'Tính hạn ra QĐ THA, xác minh, thẩm định giá, bán đấu giá, thu chi tiền; tính % hạ giá sau đấu giá không thành; phương pháp kiểm sát kê biên, giao tài sản theo Luật 106/2025, NĐ 151–152/2026.', illust:ILLUST.gavel, url:'Tool/KiemSatThads/index.html', accent:'', footer:'NHÓM IT — Viện KSND thành phố Cần Thơ' },
-            { id:'kiem-sat-thahs', span:'span-4', badge:'KỸ NĂNG', badgeClass:'badge-teal', title:'Kỹ năng kiểm sát thi hành án hình sự — hồ sơ, chế độ, giảm án', desc:'Hồ sơ tạm giữ, tạm giam, phạm nhân; chế độ ăn, mặc, lễ Tết, căn tin, bếp ăn, lưu ký tiền; tính hạn QĐ THA, giảm án, tha tù theo Luật 127/2025, Luật 128/2025, NĐ 170–213/2026.', illust:ILLUST.barsCell, url:'Tool/KiemSatThahs/index.html', accent:'', footer:'NHÓM IT — Viện KSND thành phố Cần Thơ' }
+            { id:'tinh-lai-suat', span:'span-4', badge:'PHƯƠNG PHÁP', badgeClass:'badge-teal', title:'Tính lãi suất', desc:'Tự động tính tiền lãi trong hạn, lãi quá hạn, lãi chậm trả trong giao dịch dân sự.', illust:ILLUST.chartWave, url:'Tool/App_tinh_lai_suat/index.html', accent:'', footer:'', mode:'offline' },
+            { id:'tinh-an-phi', span:'span-4', badge:'PHƯƠNG PHÁP', badgeClass:'badge-teal', title:'Tính án phí', desc:'Tra cứu và tự động tính nhanh số tiền án phí hình sự và dân sự.', illust:ILLUST.bars, url:'Tool/App_DS/index.html', accent:'', footer:'', mode:'offline' },
+            { id:'kiem-sat-ban-an-chung', span:'span-4', badge:'KỸ NĂNG', badgeClass:'badge-teal', title:'Kiểm sát Bản án hình sự, dân sự', desc:'Đối chiếu phát hiện lỗi chính tả, mâu thuẫn, vi phạm, thiếu sót trong Bản án hình sự, dân sự (bản miễn phí - dùng chung cho các đơn vị).', illust:ILLUST.laser, url:'https://udify.app/chat/FoGbxKbFMFZSylhe', accent:'', footer:'', mode:'online' },
+            { id:'kiem-sat-ban-an-nang-cao', span:'span-4', badge:'KỸ NĂNG', badgeClass:'badge-amber', title:'Kiểm sát Bản án hình sự, dân sự', desc:'Bản nâng cấp tối ưu đặc biệt.', illust:ILLUST.shield, url:'https://udify.app/chat/Ho3TdpoYQ9OjTbIq', accent:'accent-vip', footer:'<span>Dành cho KSV </span><span style="margin-left:auto;">VIỆN KIỂM SÁT NHÂN DÂN THÀNH PHỐ CẦN THƠ</span>', mode:'online' },
+            { id:'notebook-lm', span:'span-4', badge:'TRỢ LÝ ẢO', badgeClass:'badge-purple', title:'Hình sự & Tố tụng hình sự', desc:'Tra cứu Điều luật, hỗ trợ lập luận tố tụng dựa trên kho tri thức hiện hành.', illust:ILLUST.aiNodes, url:'https://notebooklm.google.com/notebook/af52b719-3125-4b4e-aaad-93432843b0ee', accent:'', newTab:true, footer:'<span>Nền tảng tri thức</span><span style="margin-left:auto;font-weight:700;color:#7e22ce;">notebookLM</span>', mode:'online' },
+            { id:'tinh-tuoi-thoi-han', span:'span-4', badge:'PHƯƠNG PHÁP', badgeClass:'badge-teal', title:'Tính tuổi — Tính thời hạn', desc:'Tự động tính tuổi của đối tượng, tính chính xác ngày tháng năm, giờ phút, kiểm soát chặt chẽ thời hạn tạm giữ, tạm giam tố tụng.', illust:ILLUST.clockIcon, url:'Data/TinhTuoiThoiHan.html', accent:'', footer:'', mode:'offline' },
+            { id:'huong-dan-so-do-tu-duy', span:'span-4', badge:'HƯỚNG DẪN', badgeClass:'badge-emerald', title:'Tạo sơ đồ tư duy', desc:'Thao tác chi tiết và bộ promt mẫu để tạo sơ đồ tư duy tự động.', illust:ILLUST.mindmap, url:'Data/HuongDan.html', accent:'', footer:'', mode:'offline' },
+            { id:'an-danh-tool', span:'span-4', badge:'KỸ NĂNG', badgeClass:'badge-teal', title:'Tự động che thông tin - không kết nối mạng', desc:'Tự động ẩn toàn bộ thông tin cá nhân trong văn bản trước khi công bố hoặc giao cho AI xử lý.', illust:ILLUST.censor, url:'Tool/AnDanh/index.html', accent:'', footer:'Đội ngũ xây dựng: Nhóm IT — VKSND TP.Cần Thơ', mode:'desktop' },
+            { id:'file-renamer-tool', span:'span-4', badge:'KỸ NĂNG', badgeClass:'badge-teal', title:'Tự động đổi tên file - không kết nối mạng', desc:'Tự động sửa tên file để AI dễ tiếp cận hoặc cho phép đổi tên file hàng loạt (ví dụ: Đánh số bút lục, tài liệu).', illust:ILLUST.rename, url:'Tool/FileRenamer/index.html', accent:'', footer:'', mode:'desktop' },
+            { id:'docx-to-md-tool', span:'span-4', badge:'KỸ NĂNG', badgeClass:'badge-teal', title:'Chuyển file doc, docx sang Markdown - không kết nối mạng', desc:'Dùng python tự động chuyển đổi file doc, docx sang dạng Markdown trước khi chuyển cho AI xử lý.', illust:ILLUST.convert, url:'Tool/DocxToMd/index.html', accent:'', footer:'', mode:'desktop' },
+            { id:'ocr-pdf-tool', span:'span-4', badge:'KỸ NĂNG', badgeClass:'badge-teal', title:'Nhận dạng chữ trong fille PDF, file ảnh - không kết nối mạng', desc:'Tự động trích xuất chữ từ file pdf, file ảnh mà không cần kết nối mạng, cho phép chọn đầu ra (word, md, txt).', illust:ILLUST.scan, url:'Tool/OCR_PDF_Tool/index.html', accent:'', footer:'', mode:'desktop' },
+            { id:'soan-qd-phan-cong', span:'span-4', badge:'KỸ NĂNG', badgeClass:'badge-teal', title:'Kỹ năng tự động soạn thảo Quyết định phân công KSV – từ Thông báo thụ lý, Quyết định thi hành án (scan)', desc:'Tự động đọc và trích xuất thông tin từ Thông báo thụ lý, QĐ thi hành án hình sự/ dân sự và soạn thảo QĐ phân công KSV, trích thông tin để nhập sổ quản lý của khâu công tác.', illust:ILLUST.radarPulse, url:'Tool/SoanQdPhanCong/index.html', accent:'', footer:'NHÓM IT — Viện KSND thành phố Cần Thơ', mode:'offline' },
+            { id:'giai-quyet-kn-tc', span:'span-4', badge:'KỸ NĂNG', badgeClass:'badge-teal', title:'Kỹ năng giải quyết khiếu nại, tố cáo — thời hạn thụ lý, xác minh, giải quyết đơn', desc:'Tự động tính thời hạn thụ lý, xác minh, giải quyết đơn khiếu nại, tố cáo; kiểm sát hạn CQĐT/Tòa án; bảng tra cứu và quy trình kỹ năng theo BLTTHS, Luật Khiếu nại, Luật Tố cáo và QĐ 50/QĐ-VKSTC 2026.', illust:ILLUST.stampClock, url:'Tool/GiaiQuyetKnTc/index.html', accent:'', footer:'NHÓM IT — Viện KSND thành phố Cần Thơ', mode:'offline' },
+            { id:'kiem-sat-thads', span:'span-4', badge:'KỸ NĂNG', badgeClass:'badge-teal', title:'Kỹ năng kiểm sát thi hành án dân sự — thời hạn, hạ giá, cưỡng chế', desc:'Tính hạn ra QĐ THA, xác minh, thẩm định giá, bán đấu giá, thu chi tiền; tính % hạ giá sau đấu giá không thành; phương pháp kiểm sát kê biên, giao tài sản theo Luật 106/2025, NĐ 151–152/2026.', illust:ILLUST.gavel, url:'Tool/KiemSatThads/index.html', accent:'', footer:'NHÓM IT — Viện KSND thành phố Cần Thơ', mode:'offline' },
+            { id:'kiem-sat-thahs', span:'span-4', badge:'KỸ NĂNG', badgeClass:'badge-teal', title:'Kỹ năng kiểm sát thi hành án hình sự — hồ sơ, chế độ, giảm án', desc:'Hồ sơ tạm giữ, tạm giam, phạm nhân; chế độ ăn, mặc, lễ Tết, căn tin, bếp ăn, lưu ký tiền; tính hạn QĐ THA, giảm án, tha tù theo Luật 127/2025, Luật 128/2025, NĐ 170–213/2026.', illust:ILLUST.barsCell, url:'Tool/KiemSatThahs/index.html', accent:'', footer:'NHÓM IT — Viện KSND thành phố Cần Thơ', mode:'offline' }
         ];
 
         var isDashboardVisible=false, isInToolView=false, currentToolId=null, activeToolTitle='';
@@ -428,8 +548,87 @@
         var osClock=document.getElementById('os-clock');
         var breadcrumb=document.getElementById('taskbar-breadcrumb');
         var toolsGrid=document.getElementById('tools-grid');
+        var deferredPrompt=null;
+        var toastTimer=null;
 
-        function init(){ renderToolCards(); startClock(); document.body.classList.add('landing-locked'); }
+        function isStandalone(){
+            return window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true;
+        }
+        function isIos(){ return /iphone|ipad|ipod/i.test(navigator.userAgent || ''); }
+        function kindMeta(mode){
+            if(mode==='online') return { label:'CẦN MẠNG', cls:'kind-online' };
+            if(mode==='desktop') return { label:'MÁY TÍNH · WINDOWS', cls:'kind-desktop' };
+            return { label:'ĐIỆN THOẠI · OFFLINE', cls:'kind-offline' };
+        }
+        function showToast(msg){
+            var el=document.getElementById('pwa-toast');
+            if(!el) return;
+            el.textContent=msg; el.classList.add('show');
+            clearTimeout(toastTimer);
+            toastTimer=setTimeout(function(){ el.classList.remove('show'); }, 4200);
+        }
+        function updateOnlineUi(){
+            var on=navigator.onLine;
+            var net=document.getElementById('net-status');
+            var lab=document.getElementById('net-label');
+            if(net) net.classList.toggle('off', !on);
+            if(lab) lab.textContent=on ? 'Trực tuyến' : 'Ngoại tuyến';
+            var cards=document.querySelectorAll('.bento-card[data-mode="online"]');
+            for(var i=0;i<cards.length;i++) cards[i].classList.toggle('needs-net', !on);
+        }
+        function showPwaBanner(){
+            if(isStandalone()) return;
+            if(localStorage.getItem('knks-pwa-dismiss')==='1') return;
+            var b=document.getElementById('pwa-banner');
+            if(b) b.classList.add('show');
+        }
+        function dismissPwaBanner(){
+            var b=document.getElementById('pwa-banner');
+            if(b) b.classList.remove('show');
+            try { localStorage.setItem('knks-pwa-dismiss','1'); } catch(e){}
+        }
+        function promptInstall(){
+            if(deferredPrompt){
+                deferredPrompt.prompt();
+                deferredPrompt.userChoice.then(function(choice){
+                    deferredPrompt=null;
+                    if(choice && choice.outcome==='accepted') dismissPwaBanner();
+                });
+                return;
+            }
+            document.getElementById('pwa-sheet').classList.add('show');
+        }
+        function closeInstallSheet(){ document.getElementById('pwa-sheet').classList.remove('show'); }
+        function registerPwa(){
+            if(isStandalone()) document.body.classList.add('is-standalone');
+            window.addEventListener('beforeinstallprompt', function(e){
+                e.preventDefault(); deferredPrompt=e; showPwaBanner();
+            });
+            window.addEventListener('appinstalled', function(){ dismissPwaBanner(); deferredPrompt=null; });
+            if(isIos() && !isStandalone()) showPwaBanner();
+            if(!isStandalone() && window.matchMedia('(max-width: 900px)').matches) showPwaBanner();
+            if('serviceWorker' in navigator){
+                var swUrl=new URL('sw.js', location.href);
+                var scope=new URL('./', location.href);
+                navigator.serviceWorker.register(swUrl.href, { scope: scope.href }).catch(function(){});
+            }
+            window.addEventListener('online', updateOnlineUi);
+            window.addEventListener('offline', updateOnlineUi);
+            updateOnlineUi();
+        }
+
+        function init(){
+            renderToolCards(); startClock(); registerPwa();
+            var skip=isStandalone() || /(?:^|[?&])vao=1(?:&|$)/.test(location.search);
+            if(skip){
+                landing.style.display='none'; landing.style.opacity='0';
+                document.body.classList.remove('landing-locked');
+                dashboard.style.display='flex'; dashboard.classList.add('visible-layout'); dashboard.style.opacity='1';
+                isDashboardVisible=true;
+            } else {
+                document.body.classList.add('landing-locked');
+            }
+        }
 
         function fadeToDashboard(){
             document.body.classList.remove('landing-locked');
@@ -447,10 +646,13 @@
             var html='';
             for(var i=0;i<TOOLS.length;i++){
                 var t=TOOLS[i];
-                html+='<div class="bento-card '+t.span+' '+t.accent+'" data-tool-id="'+t.id+'" onclick="openTool(\''+t.id+'\')">';
+                var k=kindMeta(t.mode);
+                var netCls=(!navigator.onLine && t.mode==='online') ? ' needs-net' : '';
+                html+='<div class="bento-card '+t.span+' '+t.accent+netCls+'" data-tool-id="'+t.id+'" data-mode="'+(t.mode||'offline')+'" onclick="openTool(\''+t.id+'\')">';
                 html+='<div>';
                 html+='<div class="bento-card-top"><div>';
-                html+='<span class="bento-card-badge '+t.badgeClass+'">'+t.badge+'</span>';
+                html+='<div class="bento-badges"><span class="bento-card-badge '+t.badgeClass+'">'+t.badge+'</span>';
+                html+='<span class="kind-chip '+k.cls+'">'+k.label+'</span></div>';
                 html+='<h3 class="bento-card-title">'+t.title+'</h3></div>';
                 html+='<div class="bento-illust">'+t.illust+'</div></div>';
                 html+='<p class="bento-card-desc">'+t.desc+'</p></div>';
@@ -467,6 +669,10 @@
             var tool=null;
             for(var i=0;i<TOOLS.length;i++){ if(TOOLS[i].id===toolId){ tool=TOOLS[i]; break; } }
             if(!tool) return;
+            if(tool.mode==='online' && !navigator.onLine){
+                showToast('Công cụ này cần kết nối mạng (Udify / NotebookLM).');
+                return;
+            }
             if(tool.newTab){ window.open(tool.url,'_blank'); return; }
             currentToolId=toolId; activeToolTitle=tool.title; isInToolView=true;
             dashboard.style.opacity='0'; dashboard.style.display='none'; dashboard.classList.remove('visible-layout');

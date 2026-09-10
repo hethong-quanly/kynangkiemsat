@@ -1,0 +1,41 @@
+{
+  "id": "/kynangkiemsat/",
+  "name": "Kỹ năng Kiểm sát — VKSND TP Cần Thơ",
+  "short_name": "KN Kiểm sát",
+  "description": "Bộ công cụ kỹ năng nghiệp vụ Kiểm sát. Tính hạn, THADS, THAHS, KN-TC — cài ra màn hình điện thoại, dùng được khi không có mạng.",
+  "lang": "vi",
+  "dir": "ltr",
+  "start_url": "./?vao=1",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#eef7f9",
+  "theme_color": "#1e5a8a",
+  "categories": ["productivity", "government"],
+  "icons": [
+    {
+      "src": "icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/icon-192-maskable.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "icons/icon-512-maskable.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}
