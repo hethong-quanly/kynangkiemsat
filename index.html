@@ -3,6 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <script>
+        (function(){try{var t=localStorage.getItem('knks-theme');if(t!=='dark'&&t!=='light')t=(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.setAttribute('data-theme',t);document.documentElement.style.colorScheme=t;}catch(e){}})();
+    </script>
+    <script src="theme.js"></script>
     <meta name="theme-color" content="#1e5a8a">
     <meta name="description" content="Bộ công cụ kỹ năng nghiệp vụ Kiểm sát — Viện KSND thành phố Cần Thơ. Cài ra màn hình điện thoại, dùng được khi không có mạng.">
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -386,12 +390,101 @@
         @media (prefers-reduced-motion: reduce) {
             .pwa-banner, .pwa-toast { transition: none; }
         }
+
+        /* ===== GIAO DIỆN SÁNG / TỐI ===== */
+        .theme-switch {
+            display: inline-flex; align-items: stretch; height: 44px; overflow: hidden;
+            border: 1px solid var(--slate-200); border-radius: 12px; background: #fff;
+        }
+        .theme-switch.compact { height: 28px; border-radius: 6px; background: rgba(255,255,255,.1); border-color: rgba(255,255,255,.12); }
+        .theme-btn {
+            display: inline-flex; align-items: center; justify-content: center; gap: 6px;
+            min-width: 44px; padding: 0 12px; border: 0; background: transparent;
+            font: inherit; font-size: 12px; font-weight: 700; color: var(--slate-500); cursor: pointer;
+        }
+        .theme-switch.compact .theme-btn { min-width: 28px; padding: 0 8px; color: rgba(255,255,255,.75); }
+        .theme-btn svg { width: 16px; height: 16px; flex-shrink: 0; }
+        .theme-switch.compact .theme-btn svg { width: 14px; height: 14px; }
+        .theme-btn[aria-pressed="true"] { background: var(--sky-dark); color: #fff; }
+        .theme-switch.compact .theme-btn[aria-pressed="true"] { background: rgba(255,255,255,.18); color: #fff; }
+        .theme-fab {
+            position: absolute; top: max(12px, env(safe-area-inset-top));
+            right: max(12px, env(safe-area-inset-right)); z-index: 30;
+        }
+
+        html[data-theme="dark"] {
+            color-scheme: dark;
+            --slate-50: #121c26; --slate-100: #1a2836; --slate-200: #2c3d4e;
+            --slate-300: #3d5166; --slate-400: #7c8b9a; --slate-500: #93a4b3;
+            --slate-600: #c5d0db; --slate-700: #d5dee8; --slate-800: #e8eef4;
+            --bg-body: #0b141c;
+            --teal-50: #0f2a28; --teal-100: #134e4a;
+        }
+        html[data-theme="dark"] body { background: var(--bg-body); color: var(--slate-800); }
+        html[data-theme="dark"] #landing-page {
+            background: radial-gradient(circle at center, #1a3048 0%, #0c1620 45%, #070d14 100%);
+        }
+        html[data-theme="dark"] #landing-page h2 { color: #93a4b3 !important; }
+        html[data-theme="dark"] #landing-page h1 { color: #e8eef4 !important; }
+        html[data-theme="dark"] .bento-card {
+            background: #182430; border-color: rgba(148,163,184,.16);
+            box-shadow: 0 0 0 1px rgba(255,255,255,.04);
+        }
+        html[data-theme="dark"] .bento-card:hover {
+            box-shadow: 0 12px 28px -8px rgba(0,0,0,.45);
+        }
+        html[data-theme="dark"] .bento-card.accent-vip {
+            background: linear-gradient(135deg, #182430, #2a2410);
+            border-color: rgba(201,149,46,.4);
+        }
+        html[data-theme="dark"] .badge-amber { background: #3a2a0a; color: #fbbf24; }
+        html[data-theme="dark"] .badge-purple { background: #2a1848; color: #c4b5fd; }
+        html[data-theme="dark"] .badge-emerald { background: #0f2f24; color: #6ee7b7; }
+        html[data-theme="dark"] .kind-online { background: #3a2410; color: #fdba74; }
+        html[data-theme="dark"] .kind-desktop { background: #1a2836; color: #94a3b8; }
+        html[data-theme="dark"] .pwa-banner {
+            background: #182430; border-color: rgba(148,163,184,.2);
+        }
+        html[data-theme="dark"] .pwa-banner .btn-x {
+            background: #15202b; border-color: #2c3d4e; color: #94a3b8;
+        }
+        html[data-theme="dark"] .pwa-sheet { background: rgba(0,0,0,.55); }
+        html[data-theme="dark"] .pwa-sheet-card { background: #182430; }
+        html[data-theme="dark"] #os-workspace,
+        html[data-theme="dark"] #os-workspace iframe { background: #0b141c; }
+        html[data-theme="dark"] .os-loading { background: rgba(11,20,28,.82); }
+        html[data-theme="dark"] .theme-switch:not(.compact) {
+            background: #15202b; border-color: #2c3d4e;
+        }
+        html[data-theme="dark"] .theme-switch:not(.compact) .theme-btn { color: #94a3b8; }
+        html[data-theme="dark"] .theme-switch:not(.compact) .theme-btn[aria-pressed="true"] {
+            background: #1e5a8a; color: #fff;
+        }
+        html[data-theme="dark"] .btn-install {
+            background: linear-gradient(135deg, #2a7ab8, #8a3a52);
+        }
+        html[data-theme="dark"] .pwa-banner .btn-go,
+        html[data-theme="dark"] .pwa-sheet-card .btn-go {
+            background: #2a7ab8;
+        }
     </style>
 </head>
 <body>
 
     <!-- ===== LANDING PAGE - NEURAL MODE ===== -->
     <div id="landing-page" class="relative w-screen h-screen flex items-center justify-center select-none">
+        <div class="theme-fab">
+            <div class="theme-switch" role="group" aria-label="Chọn giao diện">
+                <button type="button" class="theme-btn" data-theme-set="light" aria-pressed="true" title="Giao diện sáng">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+                    <span>Sáng</span>
+                </button>
+                <button type="button" class="theme-btn" data-theme-set="dark" aria-pressed="false" title="Giao diện tối">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 14.5A8.5 8.5 0 1 1 9.5 3 7 7 0 0 0 21 14.5z"/></svg>
+                    <span>Tối</span>
+                </button>
+            </div>
+        </div>
 
         <!-- LỚP NỀN CÔNG NGHỆ -->
         <div class="absolute inset-0 z-0 overflow-hidden">
@@ -443,6 +536,16 @@
                 <div class="header-underline"></div>
             </div>
             <div class="header-right">
+                <div class="theme-switch" role="group" aria-label="Chọn giao diện">
+                    <button type="button" class="theme-btn" data-theme-set="light" aria-pressed="true" title="Giao diện sáng">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+                        <span>Sáng</span>
+                    </button>
+                    <button type="button" class="theme-btn" data-theme-set="dark" aria-pressed="false" title="Giao diện tối">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 14.5A8.5 8.5 0 1 1 9.5 3 7 7 0 0 0 21 14.5z"/></svg>
+                        <span>Tối</span>
+                    </button>
+                </div>
                 <button type="button" class="btn-install" id="btn-install" onclick="promptInstall()">Cài ra điện thoại</button>
             </div>
         </div>
@@ -480,6 +583,14 @@
             <div class="os-taskbar-breadcrumb" id="taskbar-breadcrumb"></div>
         </div>
         <div class="os-taskbar-right">
+            <div class="theme-switch compact" role="group" aria-label="Chọn giao diện">
+                <button type="button" class="theme-btn" data-theme-set="light" aria-pressed="true" title="Giao diện sáng">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+                </button>
+                <button type="button" class="theme-btn" data-theme-set="dark" aria-pressed="false" title="Giao diện tối">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 14.5A8.5 8.5 0 1 1 9.5 3 7 7 0 0 0 21 14.5z"/></svg>
+                </button>
+            </div>
             <span class="net-dot" id="net-status"><span class="net-pip"></span><span id="net-label">Trực tuyến</span></span>
             <span class="os-clock" id="os-clock">00:00</span>
         </div>
@@ -615,6 +726,13 @@
             window.addEventListener('online', updateOnlineUi);
             window.addEventListener('offline', updateOnlineUi);
             updateOnlineUi();
+            window.addEventListener('knks-theme', notifyIframeTheme);
+        }
+        function notifyIframeTheme(){
+            try {
+                var t = document.documentElement.getAttribute('data-theme') || 'light';
+                if (toolIframe && toolIframe.contentWindow) toolIframe.contentWindow.postMessage({ knksTheme: t }, '*');
+            } catch (e) {}
         }
 
         function init(){
@@ -678,7 +796,7 @@
             dashboard.style.opacity='0'; dashboard.style.display='none'; dashboard.classList.remove('visible-layout');
             osLoading.classList.add('visible'); osWorkspace.style.display='block'; osTaskbar.classList.add('visible');
             winTitle.textContent=tool.title; updateBreadcrumb(); toolIframe.src=tool.url;
-            toolIframe.onload=function(){ osLoading.classList.remove('visible'); osWorkspace.classList.add('visible'); };
+            toolIframe.onload=function(){ osLoading.classList.remove('visible'); osWorkspace.classList.add('visible'); notifyIframeTheme(); };
             setTimeout(function(){ osLoading.classList.remove('visible'); osWorkspace.classList.add('visible'); },10000);
             isDashboardVisible=false;
         }

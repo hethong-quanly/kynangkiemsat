@@ -1,0 +1,115 @@
+/* Dark theme for HTML tools (KN-TC, THADS, THAHS, soạn QĐ, tính hạn…). */
+html[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #0b141c;
+  --ink: #e8eef4;
+  --paper: #15202b;
+  --muted: #93a4b3;
+  --line: #2c3d4e;
+  --ok: #5eead4;
+  --teal: #2dd4bf;
+  --crimson: #f87171;
+}
+
+html[data-theme="dark"] body {
+  background: var(--bg) !important;
+  color: var(--ink) !important;
+}
+
+html[data-theme="dark"] .card,
+html[data-theme="dark"] .container,
+html[data-theme="dark"] .hero,
+html[data-theme="dark"] .preview,
+html[data-theme="dark"] .drop {
+  background: #182430 !important;
+  color: var(--ink);
+  border-color: #2c3d4e !important;
+  box-shadow: none;
+}
+
+html[data-theme="dark"] .khau,
+html[data-theme="dark"] .chip,
+html[data-theme="dark"] .tab,
+html[data-theme="dark"] .btn,
+html[data-theme="dark"] .btn-ghost {
+  background: #15202b;
+  color: var(--ink);
+  border-color: #2c3d4e;
+}
+
+html[data-theme="dark"] .khau.on,
+html[data-theme="dark"] .chip.on,
+html[data-theme="dark"] .tab.on,
+html[data-theme="dark"] .btn-primary,
+html[data-theme="dark"] .khau.ks.on {
+  background: #1e5a8a;
+  color: #fff;
+  border-color: #1e5a8a;
+}
+
+html[data-theme="dark"] input,
+html[data-theme="dark"] textarea,
+html[data-theme="dark"] select {
+  background: #121c26 !important;
+  color: var(--ink) !important;
+  border-color: #2c3d4e !important;
+}
+
+html[data-theme="dark"] label,
+html[data-theme="dark"] .muted,
+html[data-theme="dark"] .foot,
+html[data-theme="dark"] .kicker {
+  color: var(--muted);
+}
+
+html[data-theme="dark"] .kicker { color: #5eead4; }
+
+html[data-theme="dark"] .hero b { color: #9ec5e8; }
+
+html[data-theme="dark"] table { color: inherit; }
+html[data-theme="dark"] th { background: #1e5a8a; color: #fff; }
+html[data-theme="dark"] td { border-color: #2c3d4e; }
+html[data-theme="dark"] .item { border-color: #243140; }
+
+html[data-theme="dark"] .ok { background: #0f2f2c; color: #5eead4; }
+html[data-theme="dark"] .soon { background: #3a2a0a; color: #fbbf24; }
+html[data-theme="dark"] .over { background: #3f1a1a; color: #f87171; }
+
+html[data-theme="dark"] .note,
+html[data-theme="dark"] .teal {
+  background: #12211f;
+  border-color: #134e4a;
+  color: #99f6e4;
+}
+
+html[data-theme="dark"] .num { background: #1e5a8a; color: #fff; }
+
+html[data-theme="dark"] a { color: #7dd3fc; }
+
+html[data-theme="dark"] .modal-content,
+html[data-theme="dark"] .form-control,
+html[data-theme="dark"] .form-select,
+html[data-theme="dark"] .list-group-item,
+html[data-theme="dark"] .accordion-item,
+html[data-theme="dark"] .accordion-button {
+  background-color: #182430;
+  color: #e8eef4;
+  border-color: #2c3d4e;
+}
+
+html[data-theme="dark"] fieldset {
+  border-color: #2c3d4e;
+  background: #15202b;
+}
+
+@media print {
+  html[data-theme="dark"] body {
+    background: #fff !important;
+    color: #111 !important;
+  }
+  html[data-theme="dark"] .card,
+  html[data-theme="dark"] .hero {
+    background: #fff !important;
+    color: #111 !important;
+  }
+}
