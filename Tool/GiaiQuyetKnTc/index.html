@@ -16,13 +16,13 @@
     .hdr h1 { margin:0; font-size:clamp(16px,2.4vw,22px); font-weight:800; }
     .hdr h1 span { color:var(--bronze-light); }
     .hdr p { margin:2px 0 0; font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:rgba(255,255,255,.72); font-weight:600; }
-    .wrap { max-width:920px; margin:0 auto; padding:20px 16px 56px; }
+    .wrap { max-width:1240px; margin:0 auto; padding:20px 16px 56px; }
     .kicker { font-size:11px; font-weight:800; letter-spacing:.16em; color:var(--teal); text-transform:uppercase; }
     .muted { color:var(--muted); font-size:13px; line-height:1.55; }
     .card { background:#fff; border:1px solid rgba(203,213,225,.5); border-radius:16px; padding:16px; margin-top:14px; box-shadow:0 4px 20px -4px rgba(148,163,184,.12); }
-    .grid { display:grid; gap:8px; }
+    .grid { display:grid; gap:10px; align-items:stretch; }
     @media (min-width:720px) { .g2 { grid-template-columns:1fr 1fr; } .g3 { grid-template-columns:1fr 1fr 1fr; } }
-    .khau { border:1px solid #e2e8f0; background:#f8fafc; border-radius:12px; padding:12px; text-align:left; font:inherit; min-height:72px; }
+    .khau { border:1px solid #e2e8f0; background:#f8fafc; border-radius:12px; padding:12px; text-align:left; font:inherit; min-height:92px; height:100%; }
     .khau.on { background:var(--navy); color:#fff; border-color:var(--navy); }
     .khau.ks.on { border-color:var(--bronze); }
     .khau small { display:block; opacity:.75; margin-top:4px; font-size:11px; }
@@ -74,7 +74,7 @@
     <div id="pane-tinh">
       <div class="card">
         <p class="kicker">1. Loại việc</p>
-        <div class="grid g2" id="tracks"></div>
+        <div class="grid g3" id="tracks"></div>
       </div>
       <div class="card">
         <p class="kicker">2. Tình huống</p>
@@ -88,7 +88,7 @@
       </div>
       <div class="card">
         <p class="kicker">3. Ngày trên đơn</p>
-        <div class="grid g2">
+        <div class="grid g3">
           <div><label id="lbNhan">Ngày nhận đơn</label><input id="ngayNhan" type="date" /></div>
           <div><label>Giờ nhận</label><input id="gioNhan" type="time" value="08:00" /></div>
           <div><label>Ngày thụ lý (nếu đã thụ lý)</label><input id="ngayThuLy" type="date" /></div>
@@ -103,7 +103,7 @@
       <div class="card">
         <p class="kicker">Bảng tra cứu thời hạn</p>
         <input id="mq" placeholder="Lọc: tạm giam, 07 ngày làm việc, Điều 481…" />
-        <div style="overflow-x:auto;margin-top:10px"><table><thead><tr><th>Loại việc</th><th>Mốc</th><th>Thời hạn</th><th>Loại ngày</th><th>Căn cứ</th></tr></thead><tbody id="matrix"></tbody></table></div>
+        <div class="grid g3" id="matrix" style="margin-top:10px"></div>
       </div>
     </div>
     <div id="pane-quytrinh" class="hide"></div>
@@ -1765,10 +1765,10 @@ var KnTc = (() => {
       '<button class="btn" type="button" id="saveSo">Ghi sổ việc</button>' +
       '<button class="btn" type="button" id="printPh">In phiếu</button></div>' +
       "<div style='margin-top:8px'>" + items + "</div></div>" +
-      '<div class="grid g2"><div class="card"><p class="kicker">Điều kiện thụ lý</p><ul>' + r.checklist.map(function (c) { return "<li>" + c + "</li>"; }).join("") +
+      '<div class="grid g3"><div class="card"><p class="kicker">Điều kiện thụ lý</p><ul>' + r.checklist.map(function (c) { return "<li>" + c + "</li>"; }).join("") +
       '</ul></div><div class="card"><p class="kicker">Lưu ý khi áp dụng</p><ul>' + r.notes.map(function (c) { return "<li>" + c + "</li>"; }).join("") +
-      "</ul><p class='muted'>Cách tính: không tính ngày nhận. Hạn «ngày làm việc» bỏ T7, CN và lễ 2026–2027.</p></div></div>" +
-      '<div class="card"><p class="kicker">Căn cứ pháp lý</p><ul>' + r.cites.map(function (c) { return "<li>" + c + "</li>"; }).join("") + "</ul></div>";
+      "</ul><p class='muted'>Cách tính: không tính ngày nhận. Hạn «ngày làm việc» bỏ T7, CN và lễ 2026–2027.</p></div>" +
+      '<div class="card"><p class="kicker">Căn cứ pháp lý</p><ul>' + r.cites.map(function (c) { return "<li>" + c + "</li>"; }).join("") + "</ul></div></div>";
     const copyBtn = document.getElementById("copySo");
     if (copyBtn) copyBtn.onclick = function () {
       const tsv = S.SO_HEADERS.join("\t") + "\n" + r.soRow.join("\t");
@@ -1798,16 +1798,25 @@ var KnTc = (() => {
     const rows = S.MATRIX.filter(function (r) {
       return !q || (r.track + " " + r.moc + " " + r.han + " " + r.cite).toLowerCase().indexOf(q) >= 0;
     });
-    el("matrix").innerHTML = rows.map(function (r) {
-      return "<tr><td><b>" + r.track + "</b></td><td>" + r.moc + "</td><td>" + r.han + "</td><td>" + r.kind + "</td><td>" + r.cite + "</td></tr>";
+    const groups = [
+      { title: "Tố tụng hình sự", hint: "BLTTHS · TTLT 02/2018 · QĐ 50", test: function (t) { return t.indexOf("TTHS") >= 0; } },
+      { title: "Hành chính / kỷ luật", hint: "Luật KN · Luật TC · NĐ 124 · NĐ 31", test: function (t) { return t.indexOf("hành chính") >= 0 || t.indexOf("kỷ luật") >= 0 || t.indexOf("Không thuộc") >= 0; } },
+      { title: "Kiểm sát KN-TC", hint: "TTLT 02/2018 · QĐ 50 · Điều 483", test: function (t) { return t.indexOf("Kiểm sát") >= 0; } }
+    ];
+    el("matrix").innerHTML = groups.map(function (g) {
+      const rs = rows.filter(function (r) { return g.test(r.track); });
+      const body = rs.length ? rs.map(function (r) {
+        return "<tr><td><b>" + r.moc + "</b><div class='muted' style='font-size:10px'>" + r.track + " · " + r.cite + "</div></td><td>" + r.han + "</td></tr>";
+      }).join("") : "<tr><td colspan='2' class='muted'>Không có mốc khớp bộ lọc.</td></tr>";
+      return '<div class="card" style="margin-top:0;padding:0;overflow:hidden"><div style="background:var(--navy);color:#fff;padding:10px 12px"><b>' + g.title + "</b><div style='font-size:10px;color:var(--bronze-light);margin-top:2px'>" + g.hint + " · " + rs.length + " mốc</div></div><div style='max-height:420px;overflow:auto'><table><thead><tr><th>Mốc</th><th>Thời hạn</th></tr></thead><tbody>" + body + "</tbody></table></div></div>";
     }).join("");
   }
   function renderProcess() {
-    el("pane-quytrinh").innerHTML = S.TRACKS.map(function (t) {
+    el("pane-quytrinh").innerHTML = '<div class="grid g3">' + S.TRACKS.map(function (t) {
       const p = S.PROCESS[t.id];
-      return '<div class="card"><p class="kicker">' + t.short + "</p><p style='font-weight:800;color:var(--navy);margin:4px 0'>" + t.label + "</p><p class='muted'>" + p.lead + "</p>" +
+      return '<div class="card" style="margin-top:0"><p class="kicker">' + t.short + "</p><p style='font-weight:800;color:var(--navy);margin:4px 0'>" + t.label + "</p><p class='muted'>" + p.lead + "</p>" +
         p.steps.map(function (s) { return '<div class="step"><div class="num">' + s.n + "</div><div><b>" + s.title + "</b><div class='muted'>" + s.body + "</div></div></div>"; }).join("") + "</div>";
-    }).join("");
+    }).join("") + "</div>";
   }
 
   el("tracks").addEventListener("click", function (e) {
