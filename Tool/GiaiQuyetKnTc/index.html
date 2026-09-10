@@ -90,7 +90,7 @@
 
   function pad(n){ return (n<10?"0":"")+n; }
   function iso(d){ return d.getFullYear()+"-"+pad(d.getMonth()+1)+"-"+pad(d.getDate()); }
-  function parseDay(s){ if(!s) return null; var d=new Date(s+"T00:00:00"); return isNaN(d)?null:d; }
+  function parseDay(s){ if(!s) return null; var p=s.split("-"); if(p.length<3) return null; var d=new Date(+p[0], +p[1]-1, +p[2], 0,0,0,0); return isNaN(d)?null:d; }
   function parseDT(day, hm){ var d=parseDay(day); if(!d) return null; var p=(hm||"08:00").split(":"); d.setHours(+p[0]||8, +p[1]||0, 0, 0); return d; }
   function fmt(d){ return pad(d.getDate())+"/"+pad(d.getMonth()+1)+"/"+d.getFullYear(); }
   function fmtT(d){ return fmt(d)+" "+pad(d.getHours())+":"+pad(d.getMinutes()); }
