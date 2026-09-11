@@ -1,0 +1,1398 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kỹ năng kiểm sát án hình sự — NHÓM IT · VKSND TP Cần Thơ</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../../theme-tool.css" />
+  <script src="../../theme.js" data-knks-theme></script>
+  <style>
+:root { --sky-dark:#1e5a8a; --plum-dark:#5a1f30; --bronze:#c9952e; --bronze-light:#e8c675; --navy:#0c2340; --paper:#fbf8f1; --ink:#1c2128; --muted:#5e6772; --line:#d9d2c5; --ok:#1f6b4a; --teal:#0d9488; --crimson:#8b2332; --bg:#eef7f9; }
+* { box-sizing:border-box; }
+body { margin:0; font-family:"Be Vietnam Pro",Arial,sans-serif; color:var(--ink); background:var(--bg); }
+button:not(:disabled) { cursor:pointer; }
+.hdr { background:linear-gradient(135deg,var(--sky-dark),var(--plum-dark)); border-bottom:3px solid var(--bronze); color:#fff; padding:14px 20px; display:flex; align-items:center; gap:12px; }
+.hdr-icon { width:44px; height:44px; border-radius:12px; flex-shrink:0; background:linear-gradient(135deg,var(--bronze),#e8a830); display:flex; align-items:center; justify-content:center; font-weight:800; }
+.hdr h1 { margin:0; font-size:clamp(16px,2.4vw,22px); font-weight:800; }
+.hdr h1 span { color:var(--bronze-light); }
+.hdr p { margin:2px 0 0; font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:rgba(255,255,255,.72); font-weight:600; }
+.wrap { max-width:1240px; margin:0 auto; padding:20px 16px 56px; }
+.kicker { font-size:11px; font-weight:800; letter-spacing:.16em; color:var(--teal); text-transform:uppercase; }
+.muted { color:var(--muted); font-size:13px; line-height:1.55; }
+.card { background:#fff; border:1px solid rgba(203,213,225,.5); border-radius:16px; padding:16px; margin-top:14px; box-shadow:0 4px 20px -4px rgba(148,163,184,.12); }
+.grid { display:grid; gap:10px; align-items:stretch; }
+@media (min-width:720px) { .g2 { grid-template-columns:1fr 1fr; } .g3 { grid-template-columns:1fr 1fr 1fr; } .g4 { grid-template-columns:1fr 1fr 1fr 1fr; } }
+.khau { border:1px solid #e2e8f0; background:#f8fafc; border-radius:12px; padding:12px; text-align:left; font:inherit; min-height:92px; height:100%; }
+.khau.on { background:var(--navy); color:#fff; border-color:var(--navy); }
+.khau small { display:block; opacity:.75; margin-top:4px; font-size:11px; }
+label { display:block; font-size:12px; font-weight:600; color:var(--muted); margin:8px 0 4px; }
+input, textarea { width:100%; min-height:42px; border:1px solid var(--line); border-radius:10px; padding:8px 10px; font:inherit; font-size:14px; background:#f8fafc; }
+.row { display:flex; flex-wrap:wrap; gap:8px; margin-top:10px; }
+.chip { min-height:40px; padding:0 12px; border-radius:999px; border:1px solid var(--line); background:#fff; font:inherit; font-size:12px; font-weight:700; }
+.chip.on { background:var(--navy); color:#fff; border-color:var(--navy); }
+.tab { min-height:40px; padding:0 14px; border-radius:999px; border:1px solid var(--line); background:#fff; font:inherit; font-size:12px; font-weight:800; }
+.tab.on { background:var(--navy); color:#fff; border-color:var(--navy); }
+.btn { display:inline-flex; align-items:center; justify-content:center; min-height:42px; padding:0 14px; border-radius:10px; border:1px solid var(--line); background:#fff; font:inherit; font-weight:700; font-size:13px; }
+.hero { border:1px solid #e2e8f0; border-radius:14px; padding:14px; background:var(--paper); }
+.hero b { display:block; font-family:ui-monospace,Menlo,monospace; font-size:18px; color:var(--navy); margin:6px 0; }
+.hero .span { font-size:10px; font-weight:800; color:var(--bronze); }
+.pill { display:inline-flex; border-radius:999px; padding:2px 8px; font-size:10px; font-weight:800; }
+.ok { background:#f0fdfa; color:var(--teal); } .soon { background:#fffbeb; color:#b45309; } .over { background:#fef2f2; color:var(--crimson); }
+.item { display:flex; justify-content:space-between; gap:12px; padding:10px 0; border-bottom:1px solid #f1f5f9; }
+.item:last-child { border-bottom:0; }
+table { width:100%; border-collapse:collapse; font-size:12px; }
+th { background:var(--navy); color:#fff; text-align:left; padding:8px 10px; }
+td { padding:8px 10px; border-bottom:1px solid #f1f5f9; vertical-align:top; }
+.step { display:flex; gap:12px; margin-top:12px; }
+.num { width:28px; height:28px; border-radius:50%; background:var(--navy); color:#fff; font-size:10px; font-weight:800; display:flex; align-items:center; justify-content:center; flex-shrink:0; margin-top:2px; }
+.foot { text-align:center; margin-top:18px; font-size:12px; color:var(--muted); }
+.hide { display:none; }
+.chk { display:flex; gap:8px; align-items:flex-start; font-size:12px; line-height:1.5; margin:8px 0; }
+.chk input { width:16px; height:16px; min-height:0; margin-top:2px; flex-shrink:0; }
+.teal { background:#f0fdfa; border-color:#99f6e4; }
+@media print {
+  .hdr, .no-print, .foot { display:none !important; }
+  body { background:#fff; }
+  .card { box-shadow:none; }
+}
+</style>
+</head>
+<body>
+  <header class="hdr">
+    <div class="hdr-icon">AH</div>
+    <div>
+      <h1>Kỹ năng kiểm sát <span>án hình sự</span></h1>
+      <p>NHÓM IT · Viện KSND thành phố Cần Thơ · Không kết nối mạng</p>
+    </div>
+  </header>
+  <div class="wrap">
+    <p class="muted">Toàn bộ quá trình THQCT, kiểm sát nguồn tin, phê chuẩn lệnh/QĐ CQĐT, điều tra, truy tố, xét xử theo Quy chế 06/QĐ-VKSTC 23/3/2026, Quy chế 09/QĐ-VKSTC 05/5/2026, BLTTHS, Luật Tổ chức VKSND và quy trình duyệt báo cáo đề xuất của VKSND hai cấp TP Cần Thơ. Đối chiếu văn bản gốc trước khi đề xuất, kiến nghị, kháng nghị.</p>
+    
+    <div class="row no-print" id="tabs">
+      <button class="tab on" data-tab="phuongphap" type="button">Phương pháp kiểm sát</button>
+      <button class="tab" data-tab="hoso" type="button">Hồ sơ · phê chuẩn</button>
+      <button class="tab" data-tab="tinh" type="button">Tính hạn</button>
+      <button class="tab" data-tab="tra" type="button">Bảng tra cứu</button>
+      <button class="tab" data-tab="so" type="button">Sổ việc</button>
+    </div>
+    <div id="pane-phuongphap"></div>
+    <div id="pane-hoso" class="hide"></div>
+    <div id="pane-tinh" class="hide">
+      <div class="card"><p class="kicker">1. Chọn khâu</p><div class="grid g2" id="tracks"></div></div>
+      <div class="card"><p class="kicker">2. Tình huống</p><div class="row" id="opts"></div></div>
+      <div class="card"><p class="kicker">3. Ngày trên hồ sơ</p>
+        <div class="grid g3">
+          <div><label id="lbMoc">Mốc</label><input id="moc" type="date" /></div>
+          <div id="wrapGio"><label>Giờ nhận hồ sơ</label><input id="gio" type="time" value="08:00" /></div>
+          <div><label>Ghi chú sổ</label><input id="ghiChu" placeholder="Số vụ, bị can, CQĐT…" /></div>
+        </div>
+      </div>
+      <div id="out"></div>
+    </div>
+    <div id="pane-tra" class="hide"><div class="card"><p class="kicker">Bảng tra cứu thời hạn — biểu mẫu</p><input id="mq" placeholder="Lọc: 12 giờ, 03 ngày, cáo trạng, kháng nghị, Mẫu 31/HS…" /><div class="grid g2" id="matrix" style="margin-top:10px"></div><div class="grid g2" id="mau" style="margin-top:14px"></div></div></div>
+    <div id="pane-so" class="hide"><div class="card"><p class="kicker">Sổ việc trên máy này</p><div id="soList"></div></div></div>
+
+    <p class="foot">Công cụ hỗ trợ nghiệp vụ — không thay thế đối chiếu văn bản gốc và ý kiến lãnh đạo Viện.<br/>NHÓM IT — Viện Kiểm sát nhân dân thành phố Cần Thơ</p>
+  </div>
+<script>
+"use strict";
+"use strict";
+var KsHs = (() => {
+  var __defProp = Object.defineProperty;
+  var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
+  var __getOwnPropNames = Object.getOwnPropertyNames;
+  var __hasOwnProp = Object.prototype.hasOwnProperty;
+  var __export = (target, all) => {
+    for (var name in all)
+      __defProp(target, name, { get: all[name], enumerable: true });
+  };
+  var __copyProps = (to, from, except, desc) => {
+    if (from && typeof from === "object" || typeof from === "function") {
+      for (let key of __getOwnPropNames(from))
+        if (!__hasOwnProp.call(to, key) && key !== except)
+          __defProp(to, key, { get: () => from[key], enumerable: !(desc = __getOwnPropDesc(from, key)) || desc.enumerable });
+    }
+    return to;
+  };
+  var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
+
+  // src/lib/ks-hs/standalone.ts
+  var standalone_exports = {};
+  __export(standalone_exports, {
+    EMPTY_OPTS: () => EMPTY_OPTS,
+    FILE_GROUPS: () => FILE_GROUPS,
+    LOOKUP_GROUPS: () => LOOKUP_GROUPS,
+    MATRIX: () => MATRIX,
+    MAU: () => MAU,
+    MAU_GROUPS: () => MAU_GROUPS,
+    METHODS: () => METHODS,
+    NGUYEN_TAC: () => NGUYEN_TAC,
+    PHE_LABEL: () => PHE_LABEL,
+    PROCESS: () => PROCESS,
+    PROCESS_INTRO: () => PROCESS_INTRO,
+    SO_HEADERS: () => SO_HEADERS,
+    TOI_LABEL: () => TOI_LABEL,
+    TRACKS: () => TRACKS,
+    computeKsHs: () => computeKsHs,
+    formatVi: () => formatVi,
+    formatViDateTime: () => formatViDateTime,
+    remainLabel: () => remainLabel,
+    urgencyOf: () => urgencyOf
+  });
+
+  // src/lib/kn-tc/dates.ts
+  var HOLIDAYS = /* @__PURE__ */ new Set([
+    "2026-01-01",
+    "2026-02-16",
+    "2026-02-17",
+    "2026-02-18",
+    "2026-02-19",
+    "2026-02-20",
+    "2026-02-21",
+    "2026-02-22",
+    "2026-04-26",
+    "2026-04-30",
+    "2026-05-01",
+    "2026-09-02",
+    "2027-01-01",
+    "2027-02-06",
+    "2027-02-07",
+    "2027-02-08",
+    "2027-02-09",
+    "2027-02-10",
+    "2027-02-11",
+    "2027-02-12",
+    "2027-04-16",
+    "2027-04-30",
+    "2027-05-01",
+    "2027-09-02"
+  ]);
+  function parseIso(iso) {
+    const m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(iso.trim());
+    if (!m) return null;
+    const d = new Date(Number(m[1]), Number(m[2]) - 1, Number(m[3]), 0, 0, 0, 0);
+    return Number.isNaN(d.getTime()) ? null : d;
+  }
+  function parseDateTime(isoDate, hm) {
+    const d = parseIso(isoDate);
+    if (!d) return null;
+    const t = /^(\d{1,2}):(\d{2})$/.exec(hm || "08:00");
+    d.setHours(t ? Number(t[1]) : 8, t ? Number(t[2]) : 0, 0, 0);
+    return d;
+  }
+  function toIso(d) {
+    const y = d.getFullYear();
+    const m = String(d.getMonth() + 1).padStart(2, "0");
+    const day = String(d.getDate()).padStart(2, "0");
+    return `${y}-${m}-${day}`;
+  }
+  function formatVi(d) {
+    return `${String(d.getDate()).padStart(2, "0")}/${String(d.getMonth() + 1).padStart(2, "0")}/${d.getFullYear()}`;
+  }
+  function formatViDateTime(d) {
+    return `${formatVi(d)} ${String(d.getHours()).padStart(2, "0")}:${String(d.getMinutes()).padStart(2, "0")}`;
+  }
+  function startOfDay(d) {
+    const n = new Date(d);
+    n.setHours(0, 0, 0, 0);
+    return n;
+  }
+  function isNonWorking(d) {
+    const dow = d.getDay();
+    if (dow === 0 || dow === 6) return true;
+    return HOLIDAYS.has(toIso(d));
+  }
+  function addCalendarDays(start, n) {
+    const d = startOfDay(start);
+    d.setDate(d.getDate() + n);
+    return d;
+  }
+  function addHours(start, hours) {
+    return new Date(start.getTime() + hours * 36e5);
+  }
+  function workingDaysRemaining(deadline, now = /* @__PURE__ */ new Date()) {
+    const end = startOfDay(deadline);
+    const d = startOfDay(now);
+    if (end.getTime() < d.getTime()) return 0;
+    let n = 0;
+    while (d.getTime() < end.getTime()) {
+      d.setDate(d.getDate() + 1);
+      if (!isNonWorking(d)) n += 1;
+    }
+    return n;
+  }
+  function urgencyOf(deadline, now = /* @__PURE__ */ new Date()) {
+    const ms = deadline.getTime() - now.getTime();
+    if (ms < 0) return "overdue";
+    if (ms <= 12 * 36e5) return "due";
+    const days = (startOfDay(deadline).getTime() - startOfDay(now).getTime()) / 864e5;
+    if (days <= 3) return "soon";
+    return "ok";
+  }
+  function remainLabel(deadline, now = /* @__PURE__ */ new Date(), kind = "calendar") {
+    const ms = deadline.getTime() - now.getTime();
+    if (ms < 0) {
+      const late = Math.abs(ms);
+      if (late < 864e5) return `Qu\xE1 h\u1EA1n ${Math.max(1, Math.round(late / 36e5))} gi\u1EDD`;
+      return `Qu\xE1 h\u1EA1n ${Math.ceil(late / 864e5)} ng\xE0y`;
+    }
+    if (kind === "hours" || ms < 864e5) {
+      return `C\xF2n ${Math.max(1, Math.round(ms / 36e5))} gi\u1EDD`;
+    }
+    if (kind === "working") {
+      return `C\xF2n ${workingDaysRemaining(deadline, now)} ng\xE0y l\xE0m vi\u1EC7c`;
+    }
+    const days = Math.ceil(ms / 864e5);
+    return `C\xF2n ${days} ng\xE0y`;
+  }
+
+  // src/lib/ks-hs/dates.ts
+  function addMonths(start, n) {
+    const d = startOfDay(start);
+    const day = d.getDate();
+    d.setMonth(d.getMonth() + n);
+    if (d.getDate() < day) d.setDate(0);
+    return startOfDay(d);
+  }
+
+  // src/lib/ks-hs/types.ts
+  var EMPTY_OPTS = {
+    toiKind: "nt",
+    pheKind: "tam-giam",
+    capVks: "cung-cap",
+    banAnKind: "ban-an",
+    phucTap: false,
+    nctn: false
+  };
+  var TRACKS = [
+    {
+      id: "nguon-tin",
+      short: "Ngu\u1ED3n tin",
+      label: "Ti\u1EBFp nh\u1EADn, gi\u1EA3i quy\u1EBFt ngu\u1ED3n tin v\u1EC1 t\u1ED9i ph\u1EA1m",
+      hint: "20 ng\xE0y \xB7 ph\u1EE9c t\u1EA1p 02 th\xE1ng \xB7 ph\xE2n c\xF4ng 03 ng\xE0y"
+    },
+    {
+      id: "phe-chuan",
+      short: "Ph\xEA chu\u1EA9n",
+      label: "Duy\u1EC7t b\xE1o c\xE1o, ph\xEA chu\u1EA9n l\u1EC7nh / quy\u1EBFt \u0111\u1ECBnh CQ\u0110T",
+      hint: "L\u0110 ph\xF2ng 12 gi\u1EDD \xB7 kh\u1EDFi t\u1ED1 b\u1ECB can 03 ng\xE0y \xB7 gia h\u1EA1n t\u1EA1m gi\u1EEF 12 gi\u1EDD"
+    },
+    {
+      id: "dieu-tra",
+      short: "\u0110i\u1EC1u tra",
+      label: "Ki\u1EC3m s\xE1t kh\u1EDFi t\u1ED1, \u0111i\u1EC1u tra v\u1EE5 \xE1n",
+      hint: "02\u201304 th\xE1ng \xB7 \u0111\u1EC1 ngh\u1ECB gia h\u1EA1n tr\u01B0\u1EDBc 10 ng\xE0y"
+    },
+    {
+      id: "truy-to",
+      short: "Truy t\u1ED1",
+      label: "Quy\u1EBFt \u0111\u1ECBnh vi\u1EC7c truy t\u1ED1",
+      hint: "20 / 30 ng\xE0y \xB7 giao c\xE1o tr\u1EA1ng 03 ng\xE0y"
+    },
+    {
+      id: "xet-xu",
+      short: "X\xE9t x\u1EED",
+      label: "THQCT, ki\u1EC3m s\xE1t x\xE9t x\u1EED \u2014 kh\xE1ng ngh\u1ECB",
+      hint: "Chu\u1EA9n b\u1ECB XX \xB7 KN ph\xFAc th\u1EA9m 15 / 30 ng\xE0y"
+    }
+  ];
+  var TOI_LABEL = {
+    "it-nt": "\xCDt nghi\xEAm tr\u1ECDng",
+    nt: "Nghi\xEAm tr\u1ECDng",
+    "rat-nt": "R\u1EA5t nghi\xEAm tr\u1ECDng",
+    "dac-biet-nt": "\u0110\u1EB7c bi\u1EC7t nghi\xEAm tr\u1ECDng"
+  };
+  var PHE_LABEL = {
+    "khan-cap": "B\u1EAFt ng\u01B0\u1EDDi b\u1ECB gi\u1EEF kh\u1EA9n c\u1EA5p",
+    "tam-giu": "Gia h\u1EA1n t\u1EA1m gi\u1EEF",
+    "khoi-to-bc": "Kh\u1EDFi t\u1ED1 b\u1ECB can",
+    "tam-giam": "B\u1EAFt / t\u1EA1m giam",
+    "kham-xet": "Kh\xE1m x\xE9t \xB7 k\xEA bi\xEAn \xB7 phong t\u1ECFa"
+  };
+
+  // src/lib/ks-hs/compute.ts
+  var SO_HEADERS = ["Ng\xE0y ghi", "Kh\xE2u", "Lo\u1EA1i vi\u1EC7c", "M\u1ED1c g\u1ED1c", "H\u1EA1n ch\xEDnh", "H\u1EA1n ph\u1EE5", "Ghi ch\xFA"];
+  var TOI = {
+    "it-nt": { dtMonths: 2, dtGiaHan: 2, tgMonths: 2, tgGiaHan: 1, truyTo: 20, truyToGia: 10, xxDays: 30, xxMonths: null, xxGiaDays: 15, xxGiaMonths: null },
+    nt: { dtMonths: 3, dtGiaHan: 3, tgMonths: 3, tgGiaHan: 2, truyTo: 20, truyToGia: 10, xxDays: 45, xxMonths: null, xxGiaDays: 15, xxGiaMonths: null },
+    "rat-nt": { dtMonths: 4, dtGiaHan: 4, tgMonths: 4, tgGiaHan: 3, truyTo: 30, truyToGia: 15, xxDays: null, xxMonths: 2, xxGiaDays: null, xxGiaMonths: 1 },
+    "dac-biet-nt": { dtMonths: 4, dtGiaHan: 4, tgMonths: 4, tgGiaHan: 4, truyTo: 30, truyToGia: 30, xxDays: null, xxMonths: 3, xxGiaDays: null, xxGiaMonths: 1 }
+  };
+  function push(list, m) {
+    if (!m.at) return;
+    list.push(m);
+  }
+  function pack(track, title, cites, milestones, checklist, notes, moc) {
+    var _a, _b, _c, _d;
+    const chinh = (_a = milestones.find((m) => m.id === "chinh")) != null ? _a : milestones[0];
+    const phu = (_b = milestones.find((m) => m.id === "phu")) != null ? _b : milestones[1];
+    return {
+      title,
+      cites,
+      milestones,
+      checklist,
+      notes,
+      soRow: [
+        formatVi(/* @__PURE__ */ new Date()),
+        (_d = (_c = TRACKS.find((t) => t.id === track)) == null ? void 0 : _c.short) != null ? _d : "",
+        title,
+        formatVi(moc),
+        chinh ? formatVi(chinh.at) : "",
+        phu ? formatVi(phu.at) : "",
+        ""
+      ]
+    };
+  }
+  function computeKsHs(track, opts = EMPTY_OPTS, dates) {
+    const moc = parseIso(dates.moc);
+    if (!moc) return null;
+    if (track === "nguon-tin") return nguonTin(opts, moc);
+    if (track === "phe-chuan") return pheChuan(opts, moc, dates.gio || "08:00");
+    if (track === "dieu-tra") return dieuTra(opts, moc);
+    if (track === "truy-to") return truyTo(opts, moc);
+    return xetXu(opts, moc);
+  }
+  function nguonTin(opts, moc) {
+    const ms = [];
+    const phucTap = opts.phucTap;
+    const han20 = addCalendarDays(moc, 20);
+    const han2th = addMonths(moc, 2);
+    push(ms, {
+      id: "chinh",
+      group: "nt",
+      label: phucTap ? "H\u1EA1n gi\u1EA3i quy\u1EBFt ngu\u1ED3n tin \u2014 v\u1EE5 vi\u1EC7c ph\u1EE9c t\u1EA1p (k\xE9o d\xE0i kh\xF4ng qu\xE1 02 th\xE1ng)" : "H\u1EA1n gi\u1EA3i quy\u1EBFt ngu\u1ED3n tin \u2014 th\u1EDDi h\u1EA1n th\xF4ng th\u01B0\u1EDDng",
+      at: phucTap ? han2th : han20,
+      kind: "calendar",
+      spanLabel: phucTap ? "Kh\xF4ng qu\xE1 02 th\xE1ng" : "20 ng\xE0y",
+      cite: phucTap ? "\u0110i\u1EC1u 147.2 BLTTHS" : "\u0110i\u1EC1u 147.1 BLTTHS",
+      hint: "K\u1EC3 t\u1EEB ng\xE0y CQ\u0110T / c\u01A1 quan \u0111\u01B0\u1EE3c giao nhi\u1EC7m v\u1EE5 \u0110T nh\u1EADn t\u1ED1 gi\xE1c, tin b\xE1o, ki\u1EBFn ngh\u1ECB kh\u1EDFi t\u1ED1. Ra Q\u0110 kh\u1EDFi t\u1ED1 / kh\xF4ng kh\u1EDFi t\u1ED1 / t\u1EA1m \u0111\xECnh ch\u1EC9."
+    });
+    push(ms, {
+      id: "phan-cong",
+      group: "ks",
+      label: "H\u1EA1n l\xE3nh \u0111\u1EA1o Vi\u1EC7n ra quy\u1EBFt \u0111\u1ECBnh ph\xE2n c\xF4ng KSV (M\u1EABu 03/HS)",
+      at: addCalendarDays(moc, 3),
+      kind: "calendar",
+      spanLabel: "03 ng\xE0y",
+      cite: "\u0110i\u1EC1u 7.1 Quy ch\u1EBF 06/Q\u0110-VKSTC 2026",
+      hint: "K\u1EC3 t\u1EEB ng\xE0y nh\u1EADn th\xF4ng b\xE1o b\u1EB1ng v\u0103n b\u1EA3n v\u1EC1 vi\u1EC7c ti\u1EBFp nh\u1EADn ngu\u1ED3n tin. Ghi r\xF5 KSV th\u1EE5 l\xFD ch\xEDnh n\u1EBFu ph\xE2n c\xF4ng nhi\u1EC1u ng\u01B0\u1EDDi."
+    });
+    const deNghiMoc = phucTap ? han2th : han20;
+    push(ms, {
+      id: "de-nghi",
+      group: "nt",
+      label: "H\u1EA1n CQ\u0110T g\u1EEDi v\u0103n b\u1EA3n \u0111\u1EC1 ngh\u1ECB gia h\u1EA1n (ch\u1EADm nh\u1EA5t 05 ng\xE0y tr\u01B0\u1EDBc khi h\u1EBFt h\u1EA1n)",
+      at: addCalendarDays(deNghiMoc, -5),
+      kind: "calendar",
+      spanLabel: "05 ng\xE0y tr\u01B0\u1EDBc h\u1EBFt h\u1EA1n",
+      cite: "\u0110i\u1EC1u 147.2 BLTTHS",
+      hint: "VKS xem x\xE9t, quy\u1EBFt \u0111\u1ECBnh gia h\u1EA1n m\u1ED9t l\u1EA7n kh\xF4ng qu\xE1 02 th\xE1ng (Vi\u1EC7n tr\u01B0\u1EDFng / PVT \u0111\u01B0\u1EE3c ph\xE2n c\xF4ng)."
+    });
+    push(ms, {
+      id: "phu",
+      group: "nt",
+      label: phucTap ? "H\u1EA1n t\u1ED1i \u0111a n\u1EBFu VKS gia h\u1EA1n th\xEAm m\u1ED9t l\u1EA7n (kh\xF4ng qu\xE1 02 th\xE1ng)" : "H\u1EA1n k\xE9o d\xE0i n\u1EBFu v\u1EE5 vi\u1EC7c ph\u1EE9c t\u1EA1p (ch\u01B0a gia h\u1EA1n VKS)",
+      at: phucTap ? addMonths(han2th, 2) : han2th,
+      kind: "calendar",
+      spanLabel: phucTap ? "Th\xEAm 02 th\xE1ng" : "Kh\xF4ng qu\xE1 02 th\xE1ng",
+      cite: "\u0110i\u1EC1u 147.2 BLTTHS",
+      hint: phucTap ? "T\u1ED5ng th\u1EDDi h\u1EA1n t\u1ED1i \u0111a kho\u1EA3ng 04 th\xE1ng. KSV theo d\xF5i, \u0111\xF4n \u0111\u1ED1c CQ\u0110T khi t\u1EA1m \u0111\xECnh ch\u1EC9 (\u0110i\u1EC1u 148\u2013149)." : "Ch\u1EC9 khi nhi\u1EC1u t\xECnh ti\u1EBFt ph\u1EE9c t\u1EA1p ho\u1EB7c x\xE1c minh nhi\u1EC1u \u0111\u1ECBa \u0111i\u1EC3m."
+    });
+    push(ms, {
+      id: "gui-qd",
+      group: "ks",
+      label: "H\u1EA1n th\xF4ng b\xE1o k\u1EBFt qu\u1EA3 gi\u1EA3i quy\u1EBFt ngu\u1ED3n tin",
+      at: addCalendarDays(phucTap ? han2th : han20, 3),
+      kind: "calendar",
+      spanLabel: "03 ng\xE0y sau khi ra Q\u0110",
+      cite: "\u0110i\u1EC1u 147 BLTTHS \xB7 TTLT 07/2025",
+      hint: "Th\xF4ng b\xE1o cho c\u01A1 quan, t\u1ED5 ch\u1EE9c, c\xE1 nh\xE2n \u0111\xE3 t\u1ED1 gi\xE1c, b\xE1o tin. M\u1EABu 30/HS TT 03/2026."
+    });
+    return pack(
+      "nguon-tin",
+      phucTap ? "Ngu\u1ED3n tin v\u1EC1 t\u1ED9i ph\u1EA1m \u2014 v\u1EE5 vi\u1EC7c ph\u1EE9c t\u1EA1p" : "Ngu\u1ED3n tin v\u1EC1 t\u1ED9i ph\u1EA1m \u2014 th\u1EDDi h\u1EA1n th\xF4ng th\u01B0\u1EDDng",
+      [
+        "\u0110i\u1EC1u 145\u2013149 BLTTHS (Lu\u1EADt 101/2015, s\u1EEDa \u0111\u1ED5i Lu\u1EADt 99/2025/QH15)",
+        "\u0110i\u1EC1u 7, 34\u201339 Quy ch\u1EBF 06/Q\u0110-VKSTC ng\xE0y 23/3/2026",
+        "TTLT 01/2017, TTLT 01/2020, TTLT 07/2025",
+        "TT 03/2026/TT-VKSTC \xB7 Q\u0110 359/Q\u0110-VKSTC"
+      ],
+      ms,
+      [
+        "V\xE0o s\u1ED5 ti\u1EBFp nh\u1EADn (M\u1EABu s\u1ED1 03 Q\u0110 359) / s\u1ED5 th\u1EE5 l\xFD ngu\u1ED3n tin (M\u1EABu s\u1ED1 04).",
+        "C\xF3 th\xF4ng b\xE1o ti\u1EBFp nh\u1EADn ngu\u1ED3n tin c\u1EE7a CQ\u0110T g\u1EEDi VKS \u0111\u1EC3 ph\xE2n c\xF4ng trong 03 ng\xE0y.",
+        "Ki\u1EC3m tra th\u1EA9m quy\u1EC1n, c\u0103n c\u1EE9, th\u1EDDi h\u1EA1n; t\xE0i li\u1EC7u quan tr\u1ECDng ph\u1EA3i ki\u1EC3m tra tr\u1EF1c ti\u1EBFp.",
+        phucTap ? "\u0110\xE3 c\xF3 c\u0103n c\u1EE9 ph\u1EE9c t\u1EA1p / x\xE1c minh nhi\u1EC1u n\u01A1i tr\u01B0\u1EDBc khi k\xE9o d\xE0i 02 th\xE1ng." : "V\u1EE5 vi\u1EC7c \u0111\u01A1n gi\u1EA3n: k\u1EBFt th\xFAc trong 20 ng\xE0y, kh\xF4ng k\xE9o d\xE0i t\xF9y ti\u1EC7n.",
+        "T\u1EA1m \u0111\xECnh ch\u1EC9: theo d\xF5i c\u0103n c\u1EE9 \u0110i\u1EC1u 148; khi c\xF3 c\u0103n c\u1EE9 ph\u1EE5c h\u1ED3i theo \u0110i\u1EC1u 149."
+      ],
+      [
+        "Kh\xF4ng t\xEDnh ng\xE0y nh\u1EADn. \xABNg\xE0y\xBB \u1EDF \u0110i\u1EC1u 147 l\xE0 ng\xE0y d\u01B0\u01A1ng l\u1ECBch.",
+        "VKS nh\u1EADn t\u1ED1 gi\xE1c tr\u1EF1c ti\u1EBFp: l\u1EADp BB M\u1EABu 01/HS, phi\u1EBFu chuy\u1EC3n M\u1EABu 02/HS \u0111\u1EBFn CQ\u0110T c\xF3 th\u1EA9m quy\u1EC1n (\u0110i\u1EC1u 146.2 BLTTHS, \u0110i\u1EC1u 34 QC 06).",
+        "Tr\u01B0\u1EDBc khi k\u1EBFt th\xFAc x\xE1c minh: KSV v\xE0 \u0110TV r\xE0 so\xE1t ch\u1EE9ng c\u1EE9, l\u1EADp bi\xEAn b\u1EA3n (kho\u1EA3n 2 \u0110i\u1EC1u 5 TTLT 01/2020)."
+      ],
+      moc
+    );
+  }
+  function pheChuan(opts, moc, gio) {
+    var _a;
+    const start = (_a = parseDateTime(
+      `${moc.getFullYear()}-${String(moc.getMonth() + 1).padStart(2, "0")}-${String(moc.getDate()).padStart(2, "0")}`,
+      gio
+    )) != null ? _a : moc;
+    const kind = opts.pheKind;
+    const ms = [];
+    push(ms, {
+      id: "phu",
+      group: "pc",
+      label: "H\u1EA1n l\xE3nh \u0111\u1EA1o ph\xF2ng / PVT ph\u1EE5 tr\xE1ch duy\u1EC7t nghi\u1EC7p v\u1EE5",
+      at: addHours(start, 12),
+      kind: "hours",
+      spanLabel: "12 gi\u1EDD k\u1EC3 t\u1EEB nh\u1EADn h\u1ED3 s\u01A1",
+      cite: "Quy tr\xECnh duy\u1EC7t BC \u0111\u1EC1 xu\u1EA5t ph\xEA chu\u1EA9n \u2014 VKSND hai c\u1EA5p TP C\u1EA7n Th\u01A1 \xB7 QC 06",
+      hint: "Xem x\xE9t h\u1ED3 s\u01A1, b\xE1o c\xE1o \u0111\u1EC1 xu\u1EA5t, c\u0103n c\u1EE9, th\u1EDDi h\u1EA1n. C\xF3 th\u1EC3 y\xEAu c\u1EA7u KSV b\xE1o c\xE1o tr\u1EF1c ti\u1EBFp, b\u1ED5 sung t\xE0i li\u1EC7u, h\u1ECDp nghi\u1EC7p v\u1EE5."
+    });
+    if (kind === "tam-giu") {
+      push(ms, {
+        id: "chinh",
+        group: "pc",
+        label: "H\u1EA1n VKS ph\xEA chu\u1EA9n ho\u1EB7c kh\xF4ng ph\xEA chu\u1EA9n quy\u1EBFt \u0111\u1ECBnh gia h\u1EA1n t\u1EA1m gi\u1EEF",
+        at: addHours(start, 12),
+        kind: "hours",
+        spanLabel: "12 gi\u1EDD k\u1EC3 t\u1EEB nh\u1EADn h\u1ED3 s\u01A1 \u0111\u1EC1 ngh\u1ECB",
+        cite: "\u0110i\u1EC1u 118.2 BLTTHS",
+        hint: "M\u1ECDi tr\u01B0\u1EDDng h\u1EE3p gia h\u1EA1n t\u1EA1m gi\u1EEF \u0111\u1EC1u ph\u1EA3i \u0111\u01B0\u1EE3c VKS ph\xEA chu\u1EA9n. M\u1EABu 33/HS ph\xEA chu\u1EA9n, 34/HS kh\xF4ng ph\xEA chu\u1EA9n."
+      });
+    } else if (kind === "khoi-to-bc") {
+      push(ms, {
+        id: "chinh",
+        group: "pc",
+        label: "H\u1EA1n x\xE9t ph\xEA chu\u1EA9n quy\u1EBFt \u0111\u1ECBnh kh\u1EDFi t\u1ED1 b\u1ECB can",
+        at: addCalendarDays(moc, 3),
+        kind: "calendar",
+        spanLabel: "03 ng\xE0y k\u1EC3 t\u1EEB nh\u1EADn Q\u0110 v\xE0 h\u1ED3 s\u01A1 \u0111\u1EC1 ngh\u1ECB",
+        cite: "\u0110i\u1EC1u 42.1 Quy ch\u1EBF 06/Q\u0110-VKSTC 2026",
+        hint: "Ng\u01B0\u1EDDi \u0111ang b\u1ECB t\u1EA1m gi\u1EEF: th\u1EDDi h\u1EA1n x\xE9t ph\xEA chu\u1EA9n kh\xF4ng qu\xE1 th\u1EDDi h\u1EA1n t\u1EA1m gi\u1EEF c\xF2n l\u1EA1i. CQ\u0110T chuy\u1EC3n h\u1ED3 s\u01A1 ch\u1EADm nh\u1EA5t 24 gi\u1EDD tr\u01B0\u1EDBc khi h\u1EBFt h\u1EA1n t\u1EA1m gi\u1EEF (TTLT 01/2026)."
+      });
+    } else {
+      push(ms, {
+        id: "chinh",
+        group: "pc",
+        label: kind === "khan-cap" ? "H\u1EA1n l\xE3nh \u0111\u1EA1o Vi\u1EC7n k\xFD Q\u0110 ph\xEA chu\u1EA9n / kh\xF4ng ph\xEA chu\u1EA9n l\u1EC7nh b\u1EAFt ng\u01B0\u1EDDi b\u1ECB gi\u1EEF kh\u1EA9n c\u1EA5p" : kind === "kham-xet" ? "H\u1EA1n l\xE3nh \u0111\u1EA1o Vi\u1EC7n k\xFD Q\u0110 ph\xEA chu\u1EA9n / kh\xF4ng ph\xEA chu\u1EA9n l\u1EC7nh kh\xE1m x\xE9t, k\xEA bi\xEAn, phong t\u1ECFa" : "H\u1EA1n l\xE3nh \u0111\u1EA1o Vi\u1EC7n k\xFD Q\u0110 ph\xEA chu\u1EA9n / kh\xF4ng ph\xEA chu\u1EA9n l\u1EC7nh b\u1EAFt / t\u1EA1m giam",
+        at: addCalendarDays(moc, 3),
+        kind: "calendar",
+        spanLabel: "Theo d\xF5i trong 03 ng\xE0y \xB7 k\xFD ngay khi \u0111\u1EE7 c\u0103n c\u1EE9",
+        cite: kind === "khan-cap" ? "\u0110i\u1EC1u 15 QC 06 \xB7 \u0110i\u1EC1u 110 BLTTHS \xB7 M\u1EABu 31/HS, 32/HS" : kind === "kham-xet" ? "\u0110i\u1EC1u 24, 50 QC 06 \xB7 \u0110i\u1EC1u 192\u2013195 BLTTHS \xB7 M\u1EABu 119/HS, 120/HS" : "\u0110i\u1EC1u 17 QC 06 \xB7 \u0110i\u1EC1u 113, 119 BLTTHS \xB7 M\u1EABu 37\u201341/HS",
+        hint: "B\u1EAFt bu\u1ED9c ki\u1EC3m tra tr\u1EF1c ti\u1EBFp t\xE0i li\u1EC7u quan tr\u1ECDng (b\u1EAFt, t\u1EA1m giam, kh\xE1m x\xE9t, kh\u1EDFi t\u1ED1 b\u1ECB can). KSV t\u1EEB ch\u1ED1i / b\u1ECB thay \u0111\u1ED5i theo \u0110i\u1EC1u 52 BLTTHS."
+      });
+    }
+    push(ms, {
+      id: "phan-cong",
+      group: "ks",
+      label: "H\u1EA1n ra Q\u0110 ph\xE2n c\xF4ng gi\u1EA3i quy\u1EBFt v\u1EE5 vi\u1EC7c / v\u1EE5 \xE1n n\u1EBFu ch\u01B0a ph\xE2n c\xF4ng",
+      at: addCalendarDays(moc, 3),
+      kind: "calendar",
+      spanLabel: "03 ng\xE0y",
+      cite: "\u0110i\u1EC1u 7 QC 06 \xB7 M\u1EABu 03/HS, 70/HS, 71/HS TT 03/2026",
+      hint: "T\u1EEB ng\xE0y nh\u1EADn TB ngu\u1ED3n tin ho\u1EB7c Q\u0110 kh\u1EDFi t\u1ED1 v\u1EE5 \xE1n."
+    });
+    push(ms, {
+      id: "gui-qd",
+      group: "pc",
+      label: "H\u1EA1n ph\xE1t h\xE0nh, g\u1EEDi CQ\u0110T v\xE0 v\xE0o s\u1ED5 nghi\u1EC7p v\u1EE5 (M\u1EABu s\u1ED1 06 Q\u0110 359)",
+      at: addCalendarDays(moc, 3),
+      kind: "calendar",
+      spanLabel: "03 ng\xE0y sau ti\u1EBFp nh\u1EADn",
+      cite: "Quy tr\xECnh duy\u1EC7t BC \u0111\u1EC1 xu\u1EA5t ph\xEA chu\u1EA9n \u2014 b\u01B0\u1EDBc 6",
+      hint: "V\u0103n th\u01B0 \u0111\xF3ng d\u1EA5u, ph\xE1t h\xE0nh; KSV l\u01B0u h\u1ED3 s\u01A1 ki\u1EC3m s\xE1t. B\xE1o c\xE1o n\u1EC1n t\u1EA3ng s\u1ED1: VT/PVT duy\u1EC7t, k\xFD s\u1ED1, chuy\u1EC3n l\u1EA1i KSV."
+    });
+    return pack(
+      "phe-chuan",
+      `Ph\xEA chu\u1EA9n \u2014 ${PHE_LABEL[kind]}`,
+      [
+        "BLTTHS \u0110i\u1EC1u 110, 113, 118, 119, 173, 192\u2013195",
+        "Quy ch\u1EBF 06/Q\u0110-VKSTC ng\xE0y 23/3/2026 \u0110i\u1EC1u 7, 15\u201317, 24, 42",
+        "TTLT 01/2026/TTLT-VKSNDTC-BCA-BQP",
+        "TT 03/2026/TT-VKSTC \xB7 Quy tr\xECnh VKSND hai c\u1EA5p TP C\u1EA7n Th\u01A1"
+      ],
+      ms,
+      [
+        "H\u1ED3 s\u01A1 tr\xECnh \u0111\u1EE7: \u0111\u1EC1 xu\u1EA5t; h\u1ED3 s\u01A1 ch\xEDnh; tr\xEDch h\u1ED3 s\u01A1 ph\xEA chu\u1EA9n; th\u1EE7 t\u1EE5c t\u1ED1 t\u1EE5ng; th\u1EDDi h\u1EA1n.",
+        "B\xE1o c\xE1o \u0111\u1EC1 xu\u1EA5t: t\xF3m t\u1EAFt v\u1EE5 \xE1n; di\u1EC5n bi\u1EBFn t\u1ED1 t\u1EE5ng; nh\u1EADn x\xE9t ch\u1EE9ng c\u1EE9; c\u0103n c\u1EE9 ph\xE1p lu\u1EADt; quan \u0111i\u1EC3m (ph\xEA chu\u1EA9n / kh\xF4ng / y\xEAu c\u1EA7u b\u1ED5 sung).",
+        "Ki\u1EC3m tra c\u0103n c\u1EE9 h\u1EA1n ch\u1EBF quy\u1EC1n con ng\u01B0\u1EDDi tr\u01B0\u1EDBc khi \u0111\u1EC1 xu\u1EA5t t\u1EA1m giam, kh\xE1m x\xE9t.",
+        "L\u0110 ph\xF2ng th\u1ED1ng nh\u1EA5t ho\u1EB7c kh\xF4ng th\u1ED1ng nh\u1EA5t trong 12 gi\u1EDD."
+      ],
+      [
+        "Gi\u1EDD nh\u1EADp l\xE0 gi\u1EDD VKS nh\u1EADn h\u1ED3 s\u01A1 \u0111\u1EC1 ngh\u1ECB (kh\xF4ng d\xF9ng m\xFAi gi\u1EDD m\xE1y ch\u1EE7).",
+        "Kh\xF4ng ph\xEA chu\u1EA9n th\xEC ph\u1EA3i n\xEAu r\xF5 l\xFD do; y\xEAu c\u1EA7u b\u1ED5 sung t\xE0i li\u1EC7u khi ch\u01B0a \u0111\u1EE7 c\u0103n c\u1EE9.",
+        "\xDD ki\u1EBFn kh\xE1c nhau KSV / L\u0110 \u0111\u01A1n v\u1ECB / PVT / VT: \u0110i\u1EC1u 83 Lu\u1EADt T\u1ED5 ch\u1EE9c VKSND 2014 (s\u1EEDa \u0111\u1ED5i Lu\u1EADt 82/2025)."
+      ],
+      moc
+    );
+  }
+  function dieuTra(opts, moc) {
+    const rule = TOI[opts.toiKind];
+    const label = TOI_LABEL[opts.toiKind];
+    const hanDt = addMonths(moc, rule.dtMonths);
+    const hanGia = addMonths(hanDt, rule.dtGiaHan);
+    const hanTg = addMonths(moc, rule.tgMonths);
+    const ms = [];
+    push(ms, {
+      id: "ks-kt",
+      group: "dt",
+      label: "H\u1EA1n KSV ki\u1EC3m tra t\xEDnh c\xF3 c\u0103n c\u1EE9, h\u1EE3p ph\xE1p c\u1EE7a Q\u0110 kh\u1EDFi t\u1ED1 v\u1EE5 \xE1n",
+      at: addCalendarDays(moc, 3),
+      kind: "calendar",
+      spanLabel: "03 ng\xE0y k\u1EC3 t\u1EEB nh\u1EADn Q\u0110 kh\u1EDFi t\u1ED1 VA",
+      cite: "\u0110i\u1EC1u 40.1 Quy ch\u1EBF 06/Q\u0110-VKSTC 2026",
+      hint: "N\u1EBFu c\xF3 c\u0103n c\u1EE9: g\u1EEDi Q\u0110 ph\xE2n c\xF4ng (M\u1EABu 70/HS, 71/HS). N\u1EBFu ch\u01B0a r\xF5: y\xEAu c\u1EA7u b\u1ED5 sung. Q\u0110 kh\xF4ng kh\u1EDFi t\u1ED1: ki\u1EC3m tra trong 02 ng\xE0y (\u0110i\u1EC1u 41 QC 06)."
+    });
+    push(ms, {
+      id: "chinh",
+      group: "dt",
+      label: `H\u1EA1n \u0111i\u1EC1u tra l\u1EA7n \u0111\u1EA7u \u2014 t\u1ED9i ${label.toLowerCase()}`,
+      at: hanDt,
+      kind: "calendar",
+      spanLabel: `Kh\xF4ng qu\xE1 ${String(rule.dtMonths).padStart(2, "0")} th\xE1ng`,
+      cite: "\u0110i\u1EC1u 172.1 BLTTHS",
+      hint: "K\u1EC3 t\u1EEB khi kh\u1EDFi t\u1ED1 v\u1EE5 \xE1n \u0111\u1EBFn khi k\u1EBFt th\xFAc \u0111i\u1EC1u tra. Th\xF4ng b\xE1o s\u1EAFp h\u1EBFt h\u1EA1n: M\u1EABu 16/HS QC 06."
+    });
+    push(ms, {
+      id: "de-nghi",
+      group: "dt",
+      label: "H\u1EA1n CQ\u0110T g\u1EEDi v\u0103n b\u1EA3n \u0111\u1EC1 ngh\u1ECB gia h\u1EA1n \u0111i\u1EC1u tra",
+      at: addCalendarDays(hanDt, -10),
+      kind: "calendar",
+      spanLabel: "10 ng\xE0y tr\u01B0\u1EDBc khi h\u1EBFt h\u1EA1n",
+      cite: "\u0110i\u1EC1u 172.2 BLTTHS",
+      hint: "KSV b\xE1o c\xE1o L\u0110 Vi\u1EC7n xem x\xE9t gia h\u1EA1n. M\u1EABu 8/HS QC 06 \u2014 b\xE1o c\xE1o \u0111\u1EC1 xu\u1EA5t gia h\u1EA1n \u0111i\u1EC1u tra, gia h\u1EA1n t\u1EA1m giam."
+    });
+    push(ms, {
+      id: "phu",
+      group: "dt",
+      label: `H\u1EA1n sau gia h\u1EA1n \u0111i\u1EC1u tra l\u1EA7n 1 \u2014 t\u1ED9i ${label.toLowerCase()}`,
+      at: hanGia,
+      kind: "calendar",
+      spanLabel: `Th\xEAm kh\xF4ng qu\xE1 ${String(rule.dtGiaHan).padStart(2, "0")} th\xE1ng`,
+      cite: "\u0110i\u1EC1u 172.2 BLTTHS",
+      hint: opts.toiKind === "dac-biet-nt" ? "H\u1EBFt gia h\u1EA1n l\u1EA7n 1: VKS c\u1EA5p t\u1EC9nh c\xF3 th\u1EC3 gia h\u1EA1n th\xEAm theo \u0110i\u1EC1u 172.3. \u0110\u1ED1i chi\u1EBFu v\u0103n b\u1EA3n g\u1ED1c tr\u01B0\u1EDBc khi \u0111\u1EC1 xu\u1EA5t." : "H\u1EBFt th\u1EDDi h\u1EA1n gia h\u1EA1n m\xE0 ch\u01B0a k\u1EBFt th\xFAc: xem \u0110i\u1EC1u 172 v\u1EC1 th\u1EA9m quy\u1EC1n gia h\u1EA1n c\u1EA5p tr\xEAn."
+    });
+    push(ms, {
+      id: "tam-giam",
+      group: "dt",
+      label: `H\u1EA1n t\u1EA1m giam \u0111\u1EC3 \u0111i\u1EC1u tra l\u1EA7n \u0111\u1EA7u \u2014 t\u1ED9i ${label.toLowerCase()}`,
+      at: hanTg,
+      kind: "calendar",
+      spanLabel: `Kh\xF4ng qu\xE1 ${String(rule.tgMonths).padStart(2, "0")} th\xE1ng`,
+      cite: "\u0110i\u1EC1u 173.1 BLTTHS",
+      hint: `Gia h\u1EA1n t\u1EA1m giam l\u1EA7n 1 kh\xF4ng qu\xE1 ${String(rule.tgGiaHan).padStart(2, "0")} th\xE1ng. CQ\u0110T \u0111\u1EC1 ngh\u1ECB ch\u1EADm nh\u1EA5t 10 ng\xE0y tr\u01B0\u1EDBc h\u1EBFt h\u1EA1n. Th\xF4ng b\xE1o s\u1EAFp h\u1EBFt h\u1EA1n t\u1EA1m giam: M\u1EABu 17/HS.`
+    });
+    return pack(
+      "dieu-tra",
+      `Ki\u1EC3m s\xE1t \u0111i\u1EC1u tra \u2014 t\u1ED9i ${label.toLowerCase()}`,
+      [
+        "\u0110i\u1EC1u 172, 173 BLTTHS",
+        "\u0110i\u1EC1u 40\u201342, 43\u201362 Quy ch\u1EBF 06/Q\u0110-VKSTC 2026",
+        "TTLT 01/2026/TTLT-VKSNDTC-BCA-BQP (t\xEDnh h\u1EA1n khi nh\u1EADp v\u1EE5 \xE1n, t\u1EA1m gi\u1EEF tr\u1EEB t\u1EA1m giam)",
+        "Lu\u1EADt t\u1ED5 ch\u1EE9c c\u01A1 quan \u0111i\u1EC1u tra h\xECnh s\u1EF1 99/2015/QH13"
+      ],
+      ms,
+      [
+        "K\u1EBF ho\u1EA1ch THQCT, ki\u1EC3m s\xE1t \u0111i\u1EC1u tra (M\u1EABu 15/HS) \u2014 tr\u1EEB th\u1EE7 t\u1EE5c r\xFAt g\u1ECDn.",
+        "Y\xEAu c\u1EA7u \u0111i\u1EC1u tra c\u1EE5 th\u1EC3, s\xE1t n\u1ED9i dung v\u1EE5 \xE1n, tr\xECnh L\u0110 ph\xF2ng, L\u0110 Vi\u1EC7n.",
+        "Ho\u1EA1t \u0111\u1ED9ng b\u1EAFt bu\u1ED9c KSV c\xF3 m\u1EB7t: kh\xF4ng v\u1EAFng m\u1EB7t khi ch\u01B0a b\xE1o c\xE1o L\u0110 ph\xF2ng.",
+        "H\u1ECFi cung: KSV tr\u1EF1c ti\u1EBFp ki\u1EC3m s\xE1t \xEDt nh\u1EA5t 01 l\u1EA7n n\u1EBFu v\u1EE5 \xE1n c\u01A1 b\u1EA3n \u0111\xE3 r\xF5.",
+        "Tr\u01B0\u1EDBc k\u1EBFt th\xFAc \u0110T: r\xE0 so\xE1t ch\u1EE9ng c\u1EE9, th\u1EE7 t\u1EE5c, t\u1ED9i danh v\u1EDBi \u0110TV."
+      ],
+      [
+        "Th\u1EDDi h\u1EA1n \u0111i\u1EC1u tra / t\u1EA1m giam t\xEDnh theo t\u1ED9i n\u1EB7ng nh\u1EA5t \u0111\xE3 kh\u1EDFi t\u1ED1 khi nh\u1EADp v\u1EE5 \xE1n (TTLT 01/2026 \u0110i\u1EC1u 14).",
+        "T\xF2a tr\u1EA3 h\u1ED3 s\u01A1 \u0110TBS: \u0111\u1ED1i chi\u1EBFu TTLT 02/2017; L\u0110 ph\xF2ng t\u1ED5 ch\u1EE9c r\xFAt kinh nghi\u1EC7m.",
+        "Ng\u01B0\u1EDDi ch\u01B0a th\xE0nh ni\xEAn: th\xEAm Lu\u1EADt T\u01B0 ph\xE1p ng\u01B0\u1EDDi ch\u01B0a th\xE0nh ni\xEAn v\xE0 \u0110i\u1EC1u 69 QC 06."
+      ],
+      moc
+    );
+  }
+  function truyTo(opts, moc) {
+    const rule = TOI[opts.toiKind];
+    const label = TOI_LABEL[opts.toiKind];
+    const han = addCalendarDays(moc, rule.truyTo);
+    const hanGia = addCalendarDays(han, rule.truyToGia);
+    const ms = [];
+    push(ms, {
+      id: "chinh",
+      group: "tt",
+      label: `H\u1EA1n quy\u1EBFt \u0111\u1ECBnh vi\u1EC7c truy t\u1ED1 \u2014 t\u1ED9i ${label.toLowerCase()}`,
+      at: han,
+      kind: "calendar",
+      spanLabel: `${rule.truyTo} ng\xE0y k\u1EC3 t\u1EEB nh\u1EADn h\u1ED3 s\u01A1 v\xE0 b\u1EA3n k\u1EBFt lu\u1EADn \u0111i\u1EC1u tra`,
+      cite: "\u0110i\u1EC1u 240.1 BLTTHS",
+      hint: "Ra m\u1ED9t trong c\xE1c Q\u0110: c\xE1o tr\u1EA1ng; tr\u1EA3 h\u1ED3 s\u01A1 \u0110TBS; \u0111\xECnh ch\u1EC9 / t\u1EA1m \u0111\xECnh ch\u1EC9 v\u1EE5 \xE1n (ho\u1EB7c \u0111\u1ED1i v\u1EDBi b\u1ECB can). M\u1EABu 12/HS QC 06."
+    });
+    push(ms, {
+      id: "phu",
+      group: "tt",
+      label: "H\u1EA1n n\u1EBFu Vi\u1EC7n tr\u01B0\u1EDFng gia h\u1EA1n quy\u1EBFt \u0111\u1ECBnh vi\u1EC7c truy t\u1ED1",
+      at: hanGia,
+      kind: "calendar",
+      spanLabel: `Th\xEAm kh\xF4ng qu\xE1 ${rule.truyToGia} ng\xE0y`,
+      cite: "\u0110i\u1EC1u 240.1 BLTTHS",
+      hint: "\xCDt NT / NT: 10 ng\xE0y; r\u1EA5t NT: 15 ng\xE0y; \u0111\u1EB7c bi\u1EC7t NT: 30 ng\xE0y. M\u1EABu 144/HS TT 03/2026."
+    });
+    push(ms, {
+      id: "gui-qd",
+      group: "tt",
+      label: "H\u1EA1n giao c\xE1o tr\u1EA1ng / Q\u0110 \u0111\xECnh ch\u1EC9, t\u1EA1m \u0111\xECnh ch\u1EC9 cho b\u1ECB can",
+      at: addCalendarDays(han, 3),
+      kind: "calendar",
+      spanLabel: opts.phucTap ? "03 ng\xE0y (ph\u1EE9c t\u1EA1p c\xF3 th\u1EC3 \u0111\u1EBFn 10 ng\xE0y)" : "03 ng\xE0y k\u1EC3 t\u1EEB ng\xE0y ra Q\u0110",
+      cite: "\u0110i\u1EC1u 240.2 BLTTHS",
+      hint: "\u0110\u1ED3ng th\u1EDDi g\u1EEDi CQ\u0110T, ng\u01B0\u1EDDi b\xE0o ch\u1EEFa; th\xF4ng b\xE1o b\u1ECB h\u1EA1i, \u0111\u01B0\u01A1ng s\u1EF1. V\u1EE5 ph\u1EE9c t\u1EA1p: kh\xF4ng qu\xE1 10 ng\xE0y. M\u1EABu 156/HS c\xE1o tr\u1EA1ng, 164/HS BB giao nh\u1EADn."
+    });
+    if (opts.phucTap) {
+      push(ms, {
+        id: "phuc-tap",
+        group: "tt",
+        label: "H\u1EA1n giao c\xE1o tr\u1EA1ng n\u1EBFu v\u1EE5 \xE1n ph\u1EE9c t\u1EA1p",
+        at: addCalendarDays(han, 10),
+        kind: "calendar",
+        spanLabel: "Kh\xF4ng qu\xE1 10 ng\xE0y",
+        cite: "\u0110i\u1EC1u 240.2 BLTTHS"
+      });
+    }
+    return pack(
+      "truy-to",
+      `Quy\u1EBFt \u0111\u1ECBnh vi\u1EC7c truy t\u1ED1 \u2014 t\u1ED9i ${label.toLowerCase()}`,
+      [
+        "\u0110i\u1EC1u 240 BLTTHS",
+        "\u0110i\u1EC1u 63\u201368 Quy ch\u1EBF 06/Q\u0110-VKSTC 2026",
+        "TTLT 01/2026 (ki\u1EC3m tra h\u1EA1n t\u1EA1m giam ngay khi nh\u1EADn h\u1ED3 s\u01A1)",
+        "TT 03/2026/TT-VKSTC M\u1EABu 141\u2013168"
+      ],
+      ms,
+      [
+        "Ngay khi nh\u1EADn h\u1ED3 s\u01A1: KSV ki\u1EC3m tra h\u1EA1n t\u1EA1m giam b\u1ECB can, b\xE1o c\xE1o VT/PVT (TTLT 01/2026).",
+        "N\u1EBFu h\u1EA1n t\u1EA1m giam c\xF2n \u2265 h\u1EA1n truy t\u1ED1 v\xE0 c\u1EA7n ti\u1EBFp t\u1EE5c t\u1EA1m giam: s\u1EED d\u1EE5ng l\u1EC7nh t\u1EA1m giam giai \u0111o\u1EA1n \u0110T ho\u1EB7c ra l\u1EC7nh m\u1EDBi.",
+        "C\xE1o tr\u1EA1ng \u0111\u1EE7 c\u0103n c\u1EE9, \u0111\xFAng ng\u01B0\u1EDDi, \u0111\xFAng t\u1ED9i; b\u1EA3n k\xEA v\u1EADt ch\u1EE9ng (M\u1EABu 157); danh s\xE1ch tri\u1EC7u t\u1EADp (M\u1EABu 158).",
+        "Tr\u1EA3 h\u1ED3 s\u01A1 \u0110TBS (M\u1EABu 145/HS): \u0111\u1EE7 c\u0103n c\u1EE9 \u0110i\u1EC1u 245 BLTTHS; photo g\u1EEDi L\u0110 ph\xF2ng \u0111\u1EC3 theo d\xF5i chuy\xEAn \u0111\u1EC1."
+      ],
+      [
+        "Giai \u0111o\u1EA1n truy t\u1ED1, KSV th\u1EE5 l\xFD \u0110T \u0111\u1ED3ng th\u1EDDi THQCT, KSXX s\u01A1 th\u1EA9m \u1EDF VKS c\u1EA5p t\u1EC9nh / khu v\u1EF1c (QC 06 \u0110i\u1EC1u 68, QC 09).",
+        "Ph\xE2n c\xF4ng VKS c\u1EA5p d\u01B0\u1EDBi KSXX: M\u1EABu 159/HS."
+      ],
+      moc
+    );
+  }
+  function xetXu(opts, moc) {
+    var _a, _b;
+    const rule = TOI[opts.toiKind];
+    const label = TOI_LABEL[opts.toiKind];
+    const ms = [];
+    const xxAt = rule.xxDays != null ? addCalendarDays(moc, rule.xxDays) : addMonths(moc, (_a = rule.xxMonths) != null ? _a : 2);
+    const xxSpan = rule.xxDays != null ? `${rule.xxDays} ng\xE0y` : `${String(rule.xxMonths).padStart(2, "0")} th\xE1ng`;
+    const giaAt = rule.xxGiaDays != null ? addCalendarDays(xxAt, rule.xxGiaDays) : addMonths(xxAt, (_b = rule.xxGiaMonths) != null ? _b : 1);
+    const giaSpan = rule.xxGiaDays != null ? `${rule.xxGiaDays} ng\xE0y` : `${String(rule.xxGiaMonths).padStart(2, "0")} th\xE1ng`;
+    const knDays = opts.banAnKind === "quyet-dinh" ? opts.capVks === "cung-cap" ? 7 : 15 : opts.capVks === "cung-cap" ? 15 : 30;
+    const knLabel = opts.banAnKind === "quyet-dinh" ? opts.capVks === "cung-cap" ? "H\u1EA1n kh\xE1ng ngh\u1ECB ph\xFAc th\u1EA9m Q\u0110 s\u01A1 th\u1EA9m \u2014 VKS c\xF9ng c\u1EA5p" : "H\u1EA1n kh\xE1ng ngh\u1ECB ph\xFAc th\u1EA9m Q\u0110 s\u01A1 th\u1EA9m \u2014 VKS c\u1EA5p tr\xEAn tr\u1EF1c ti\u1EBFp" : opts.capVks === "cung-cap" ? "H\u1EA1n kh\xE1ng ngh\u1ECB ph\xFAc th\u1EA9m b\u1EA3n \xE1n s\u01A1 th\u1EA9m \u2014 VKS c\xF9ng c\u1EA5p" : "H\u1EA1n kh\xE1ng ngh\u1ECB ph\xFAc th\u1EA9m b\u1EA3n \xE1n s\u01A1 th\u1EA9m \u2014 VKS c\u1EA5p tr\xEAn tr\u1EF1c ti\u1EBFp";
+    push(ms, {
+      id: "phan-cong-tp",
+      group: "xx",
+      label: "H\u1EA1n Ch\xE1nh \xE1n ph\xE2n c\xF4ng Th\u1EA9m ph\xE1n ch\u1EE7 t\u1ECDa phi\xEAn t\xF2a",
+      at: addCalendarDays(moc, 3),
+      kind: "calendar",
+      spanLabel: "03 ng\xE0y k\u1EC3 t\u1EEB th\u1EE5 l\xFD",
+      cite: "\u0110i\u1EC1u 276.2 BLTTHS \xB7 \u0110i\u1EC1u 12.2 QC 09",
+      hint: "KSV ki\u1EC3m s\xE1t th\u1EDDi h\u1EA1n ph\xE2n c\xF4ng, th\u1EDDi h\u1EA1n chu\u1EA9n b\u1ECB x\xE9t x\u1EED v\xE0 gia h\u1EA1n (\u0110i\u1EC1u 277)."
+    });
+    push(ms, {
+      id: "chinh",
+      group: "xx",
+      label: `H\u1EA1n chu\u1EA9n b\u1ECB x\xE9t x\u1EED \u2014 t\u1ED9i ${label.toLowerCase()}`,
+      at: xxAt,
+      kind: "calendar",
+      spanLabel: xxSpan,
+      cite: "\u0110i\u1EC1u 277.1 BLTTHS",
+      hint: "K\u1EC3 t\u1EEB ng\xE0y T\xF2a th\u1EE5 l\xFD. Trong h\u1EA1n n\xE0y Th\u1EA9m ph\xE1n ph\u1EA3i ra Q\u0110 \u0111\u01B0a v\u1EE5 \xE1n ra x\xE9t x\u1EED / tr\u1EA3 h\u1ED3 s\u01A1 \u0110TBS / t\u1EA1m \u0111\xECnh ch\u1EC9 / \u0111\xECnh ch\u1EC9."
+    });
+    push(ms, {
+      id: "gia-han-xx",
+      group: "xx",
+      label: "H\u1EA1n n\u1EBFu Ch\xE1nh \xE1n gia h\u1EA1n chu\u1EA9n b\u1ECB x\xE9t x\u1EED",
+      at: giaAt,
+      kind: "calendar",
+      spanLabel: `Th\xEAm kh\xF4ng qu\xE1 ${giaSpan}`,
+      cite: "\u0110i\u1EC1u 277.1 BLTTHS"
+    });
+    push(ms, {
+      id: "phu",
+      group: "xx",
+      label: knLabel,
+      at: addCalendarDays(moc, knDays),
+      kind: "calendar",
+      spanLabel: `${String(knDays).padStart(2, "0")} ng\xE0y k\u1EC3 t\u1EEB tuy\xEAn \xE1n / ra Q\u0110`,
+      cite: "\u0110i\u1EC1u 337 BLTTHS \xB7 \u0110i\u1EC1u 27 QC 09/Q\u0110-VKSTC 2026",
+      hint: "H\u1EBFt h\u1EA1n c\xF9ng c\u1EA5p: b\xE1o c\xE1o VKS c\u1EA5p tr\xEAn kh\xE1ng ngh\u1ECB k\xE8m h\u1ED3 s\u01A1 ki\u1EC3m s\xE1t (\u0110i\u1EC1u 24 QC 09). M\u1EABu 19 QC 09."
+    });
+    push(ms, {
+      id: "gui-qd",
+      group: "xx",
+      label: "H\u1EA1n VKS c\u1EA5p tr\xEAn tr\u1EA3 h\u1ED3 s\u01A1 n\u1EBFu kh\xF4ng kh\xE1ng ngh\u1ECB ph\xFAc th\u1EA9m",
+      at: addCalendarDays(addCalendarDays(moc, opts.banAnKind === "quyet-dinh" ? 15 : 30), 7),
+      kind: "calendar",
+      spanLabel: "07 ng\xE0y k\u1EC3 t\u1EEB h\u1EBFt h\u1EA1n KN c\u1EA5p tr\xEAn",
+      cite: "\u0110i\u1EC1u 24.2 Quy ch\u1EBF 09/Q\u0110-VKSTC ng\xE0y 05/5/2026",
+      hint: "Tr\u1EA3 h\u1ED3 s\u01A1 ki\u1EC3m s\xE1t cho VKS c\u1EA5p d\u01B0\u1EDBi v\xE0 tr\u1EA3 h\u1ED3 s\u01A1 v\u1EE5 \xE1n cho T\xF2a \u0111\xE3 x\xE9t x\u1EED s\u01A1 th\u1EA9m."
+    });
+    push(ms, {
+      id: "mo-pt",
+      group: "xx",
+      label: "H\u1EA1n T\xF2a m\u1EDF phi\xEAn t\xF2a k\u1EC3 t\u1EEB Q\u0110 \u0111\u01B0a v\u1EE5 \xE1n ra x\xE9t x\u1EED (nh\u1EADp ng\xE0y ra Q\u0110 n\u1EBFu kh\xE1c m\u1ED1c th\u1EE5 l\xFD)",
+      at: addCalendarDays(moc, opts.phucTap ? 30 : 15),
+      kind: "calendar",
+      spanLabel: opts.phucTap ? "30 ng\xE0y (v\u1EE5 ph\u1EE9c t\u1EA1p)" : "15 ng\xE0y",
+      cite: "\u0110i\u1EC1u 277.3 BLTTHS"
+    });
+    return pack(
+      "xet-xu",
+      `Ki\u1EC3m s\xE1t x\xE9t x\u1EED \u2014 t\u1ED9i ${label.toLowerCase()} \xB7 ${opts.banAnKind === "ban-an" ? "b\u1EA3n \xE1n" : "quy\u1EBFt \u0111\u1ECBnh"} \xB7 ${opts.capVks === "cung-cap" ? "VKS c\xF9ng c\u1EA5p" : "VKS c\u1EA5p tr\xEAn"}`,
+      [
+        "\u0110i\u1EC1u 276, 277, 337, 338 BLTTHS",
+        "Quy ch\u1EBF 09/Q\u0110-VKSTC ng\xE0y 05/5/2026 \u0110i\u1EC1u 12, 23\u201328, 52",
+        "Lu\u1EADt T\u1ED5 ch\u1EE9c VKSND 63/2014 (s\u1EEDa \u0111\u1ED5i Lu\u1EADt 82/2025) \u0110i\u1EC1u 18, 19",
+        "TT 02/2025/TT-VKSTC (th\u1EA9m quy\u1EC1n VKS c\xE1c c\u1EA5p)"
+      ],
+      ms,
+      [
+        "Tr\u01B0\u1EDBc phi\xEAn t\xF2a: nghi\xEAn c\u1EE9u h\u1ED3 s\u01A1, BC nghi\xEAn c\u1EE9u \xE1n (M\u1EABu 09 QC 09), \u0111\u1EC1 c\u01B0\u01A1ng x\xE9t h\u1ECFi (M\u1EABu 10), lu\u1EADn t\u1ED9i (M\u1EABu 11).",
+        "T\u1EA1i phi\xEAn t\xF2a: c\xF4ng b\u1ED1 c\xE1o tr\u1EA1ng, x\xE9t h\u1ECFi, lu\u1EADn t\u1ED9i, tranh lu\u1EADn; ki\u1EC3m s\xE1t th\xE0nh ph\u1EA7n H\u0110XX, th\u1EE7 t\u1EE5c.",
+        "Sau phi\xEAn t\xF2a: b\xE1o c\xE1o ngay k\u1EBFt qu\u1EA3 (M\u1EABu 14); phi\u1EBFu ki\u1EC3m s\xE1t b\u1EA3n \xE1n (M\u1EABu 15); sao g\u1EEDi b\u1EA3n \xE1n c\xF3 hi\u1EC7u l\u1EF1c cho VKS c\u1EA5p tr\xEAn (\u0110i\u1EC1u 23 QC 09).",
+        "R\xFAt quy\u1EBFt \u0111\u1ECBnh truy t\u1ED1 / k\u1EBFt lu\u1EADn t\u1ED9i nh\u1EB9 h\u01A1n t\u1EA1i phi\xEAn t\xF2a: t\u1EA1m ng\u1EEBng, xin \xFD ki\u1EBFn L\u0110 Vi\u1EC7n (\u0110i\u1EC1u 18 QC 09, \u0110i\u1EC1u 319 BLTTHS)."
+      ],
+      [
+        "M\u1ED1c m\u1EB7c \u0111\u1ECBnh: ng\xE0y T\xF2a th\u1EE5 l\xFD (chu\u1EA9n b\u1ECB XX) ho\u1EB7c ng\xE0y tuy\xEAn \xE1n (kh\xE1ng ngh\u1ECB). \u0110\u1ED5i m\u1ED1c cho \u0111\xFAng vi\u1EC7c \u0111ang theo d\xF5i.",
+        "NCTN: ki\u1EC3m s\xE1t th\xE0nh ph\u1EA7n H\u0110XX, bi\u1EC7n ph\xE1p chuy\u1EC3n h\u01B0\u1EDBng \u2014 Lu\u1EADt T\u01B0 ph\xE1p NCTN, \u0110i\u1EC1u 11 QC 09.",
+        "Kh\xE1ng ngh\u1ECB G\u0110T/t\xE1i th\u1EA9m: \u0110i\u1EC1u 371, 373, 379, 398, 400, 401 BLTTHS \xB7 \u0110i\u1EC1u 52 QC 09."
+      ],
+      moc
+    );
+  }
+
+  // src/lib/ks-hs/files.ts
+  var FILE_GROUPS = [
+    {
+      id: "trinh-pc",
+      title: "H\u1ED3 s\u01A1 tr\xECnh ph\xEA chu\u1EA9n l\u1EC7nh / Q\u0110 CQ\u0110T",
+      cite: "Quy tr\xECnh duy\u1EC7t BC \u0111\u1EC1 xu\u1EA5t \u2014 VKSND hai c\u1EA5p TP C\u1EA7n Th\u01A1",
+      lead: "Tr\xECnh L\u0110 Vi\u1EC7n ph\u1EE5 tr\xE1ch ngay sau khi ho\xE0n t\u1EA5t. Thi\u1EBFu m\u1ED9t th\xE0nh ph\u1EA7n th\xEC ch\u01B0a \u0111\u01B0a k\xFD ph\xEA chu\u1EA9n / kh\xF4ng ph\xEA chu\u1EA9n.",
+      items: [
+        { id: "pc-dx", text: "B\xE1o c\xE1o \u0111\u1EC1 xu\u1EA5t c\u1EE7a Ki\u1EC3m s\xE1t vi\xEAn (M\u1EABu 02\u201308/HS QC 06 t\xF9y lo\u1EA1i vi\u1EC7c)" },
+        { id: "pc-chinh", text: "H\u1ED3 s\u01A1 ch\xEDnh do CQ\u0110T chuy\u1EC3n (l\u1EC7nh / Q\u0110, bi\xEAn b\u1EA3n, ch\u1EE9ng c\u1EE9 k\xE8m theo)" },
+        { id: "pc-trich", text: "Tr\xEDch h\u1ED3 s\u01A1 ph\xEA chu\u1EA9n (b\xFAt l\u1EE5c c\u1EA7n thi\u1EBFt \u0111\u1EC3 L\u0110 Vi\u1EC7n xem x\xE9t \u0111\u1ED9c l\u1EADp)" },
+        { id: "pc-tt", text: "Th\u1EE7 t\u1EE5c t\u1ED1 t\u1EE5ng ph\xEA chu\u1EA9n (th\u1EA9m quy\u1EC1n, ch\u1EEF k\xFD, con d\u1EA5u, th\u1EDDi h\u1EA1n c\xF2n l\u1EA1i)" },
+        { id: "pc-han", text: "Th\u1EDDi h\u1EA1n: h\u1EA1n t\u1EA1m gi\u1EEF / t\u1EA1m giam / kh\xE1m x\xE9t c\xF2n l\u1EA1i; gi\u1EDD VKS nh\u1EADn h\u1ED3 s\u01A1" },
+        {
+          id: "pc-nd",
+          text: "N\u1ED9i dung BC: t\xF3m t\u1EAFt v\u1EE5 \xE1n; di\u1EC5n bi\u1EBFn t\u1ED1 t\u1EE5ng; nh\u1EADn x\xE9t ch\u1EE9ng c\u1EE9; c\u0103n c\u1EE9 ph\xE1p lu\u1EADt; quan \u0111i\u1EC3m x\u1EED l\xFD",
+          note: "Quan \u0111i\u1EC3m: ph\xEA chu\u1EA9n \xB7 kh\xF4ng ph\xEA chu\u1EA9n \xB7 y\xEAu c\u1EA7u b\u1ED5 sung \xB7 v\u1EA5n \u0111\u1EC1 c\u1EA7n l\xE0m r\xF5."
+        }
+      ]
+    },
+    {
+      id: "nt",
+      title: "H\u1ED3 s\u01A1 ki\u1EC3m s\xE1t ngu\u1ED3n tin v\u1EC1 t\u1ED9i ph\u1EA1m",
+      cite: "\u0110i\u1EC1u 145\u2013149 BLTTHS \xB7 \u0110i\u1EC1u 34\u201339 QC 06 \xB7 TTLT 01/2020 \u0110i\u1EC1u 14",
+      lead: "L\u1EADp t\u1EEB khi ti\u1EBFp nh\u1EADn. B\xE0n giao \u0111\u1EA7u m\u1ED1i khi kh\xF4ng kh\u1EDFi t\u1ED1 ho\u1EB7c t\u1EA1m \u0111\xECnh ch\u1EC9.",
+      items: [
+        { id: "nt-bb", text: "Bi\xEAn b\u1EA3n ti\u1EBFp nh\u1EADn M\u1EABu 01/HS ho\u1EB7c phi\u1EBFu chuy\u1EC3n M\u1EABu 02/HS (n\u1EBFu VKS nh\u1EADn r\u1ED3i chuy\u1EC3n CQ\u0110T)" },
+        { id: "nt-so", text: "S\u1ED5 ti\u1EBFp nh\u1EADn M\u1EABu s\u1ED1 03 Q\u0110 359 \xB7 s\u1ED5 th\u1EE5 l\xFD ngu\u1ED3n tin M\u1EABu s\u1ED1 04" },
+        { id: "nt-pc", text: "Q\u0110 ph\xE2n c\xF4ng KSV M\u1EABu 03/HS TT 03/2026 (trong 03 ng\xE0y)" },
+        { id: "nt-yc", text: "Y\xEAu c\u1EA7u ki\u1EC3m tra, x\xE1c minh / cung c\u1EA5p t\xE0i li\u1EC7u (M\u1EABu 05\u201307/HS)" },
+        { id: "nt-bc", text: "B\xE1o c\xE1o th\u1EE5 l\xFD M\u1EABu 01/HS QC 06 \xB7 b\xE1o c\xE1o \u0111\u1EC1 xu\u1EA5t gi\u1EA3i quy\u1EBFt M\u1EABu 02/HS QC 06" },
+        { id: "nt-qd", text: "Q\u0110 gi\u1EA3i quy\u1EBFt: kh\u1EDFi t\u1ED1 / kh\xF4ng kh\u1EDFi t\u1ED1 / t\u1EA1m \u0111\xECnh ch\u1EC9 / gia h\u1EA1n / ph\u1EE5c h\u1ED3i (M\u1EABu 09\u201330/HS)" },
+        { id: "nt-bb2", text: "Bi\xEAn b\u1EA3n r\xE0 so\xE1t ch\u1EE9ng c\u1EE9 tr\u01B0\u1EDBc khi k\u1EBFt th\xFAc x\xE1c minh (kho\u1EA3n 2 \u0110i\u1EC1u 5 TTLT 01/2020)" }
+      ]
+    },
+    {
+      id: "bpnc",
+      title: "H\u1ED3 s\u01A1 bi\u1EC7n ph\xE1p ng\u0103n ch\u1EB7n, c\u01B0\u1EE1ng ch\u1EBF",
+      cite: "\u0110i\u1EC1u 110\u2013129, 192\u2013195 BLTTHS \xB7 \u0110i\u1EC1u 15\u201325 QC 06",
+      lead: "B\u1EAFt bu\u1ED9c ki\u1EC3m tra tr\u1EF1c ti\u1EBFp t\xE0i li\u1EC7u quan tr\u1ECDng. \u0110\u1ED1i chi\u1EBFu h\u1EA1n c\xF2n l\u1EA1i tr\u01B0\u1EDBc khi \u0111\u1EC1 xu\u1EA5t.",
+      items: [
+        { id: "bp-lenh", text: "L\u1EC7nh / Q\u0110 c\u1EE7a CQ\u0110T: gi\u1EEF kh\u1EA9n c\u1EA5p, b\u1EAFt, t\u1EA1m gi\u1EEF, t\u1EA1m giam, kh\xE1m x\xE9t, k\xEA bi\xEAn, phong t\u1ECFa" },
+        { id: "bp-hs", text: "T\xE0i li\u1EC7u ch\u1EE9ng minh c\u0103n c\u1EE9 BPNC, c\u0103n c\u1EE9 h\u1EA1n ch\u1EBF quy\u1EC1n con ng\u01B0\u1EDDi" },
+        { id: "bp-vks", text: "Q\u0110 ph\xEA chu\u1EA9n / kh\xF4ng ph\xEA chu\u1EA9n c\u1EE7a VKS (M\u1EABu 31\u201352, 119\u2013120/HS TT 03/2026)" },
+        { id: "bp-han", text: "B\u1EA3ng theo d\xF5i h\u1EA1n t\u1EA1m gi\u1EEF (03+03+03 ng\xE0y), h\u1EA1n t\u1EA1m giam theo t\u1ED9i, l\u1EA7n gia h\u1EA1n" },
+        { id: "bp-24h", text: "Ng\u01B0\u1EDDi \u0111ang t\u1EA1m gi\u1EEF: h\u1ED3 s\u01A1 \u0111\u1EC1 ngh\u1ECB kh\u1EDFi t\u1ED1 b\u1ECB can chuy\u1EC3n tr\u01B0\u1EDBc 24 gi\u1EDD h\u1EBFt h\u1EA1n (TTLT 01/2026)" }
+      ]
+    },
+    {
+      id: "dt-tt",
+      title: "H\u1ED3 s\u01A1 ki\u1EC3m s\xE1t \u0111i\u1EC1u tra \u2014 truy t\u1ED1",
+      cite: "\u0110i\u1EC1u 39\u201368 QC 06 \xB7 TT 03/2026 M\u1EABu 85\u2013168",
+      lead: "B\u1ED5 sung li\xEAn t\u1EE5c t\u1EEB kh\u1EDFi t\u1ED1 \u0111\u1EBFn c\xE1o tr\u1EA1ng. Thi\u1EBFu k\u1EBF ho\u1EA1ch / y\xEAu c\u1EA7u \u0111i\u1EC1u tra l\xE0 n\u1ED9i dung ki\u1EBFn ngh\u1ECB n\u1ED9i b\u1ED9.",
+      items: [
+        { id: "dt-pc", text: "Q\u0110 ph\xE2n c\xF4ng PVT, KSV, KTV M\u1EABu 70/HS, 71/HS" },
+        { id: "dt-kh", text: "K\u1EBF ho\u1EA1ch THQCT, ki\u1EC3m s\xE1t \u0111i\u1EC1u tra M\u1EABu 15/HS QC 06" },
+        { id: "dt-yc", text: "Y\xEAu c\u1EA7u \u0111i\u1EC1u tra; bi\xEAn b\u1EA3n h\u1ECDp \u0111\xE1nh gi\xE1 ch\u1EE9ng c\u1EE9 M\u1EABu 13\u201314/HS QC 06" },
+        { id: "dt-td", text: "B\xE1o c\xE1o ti\u1EBFn \u0111\u1ED9 M\u1EABu 10/HS \xB7 th\xF4ng b\xE1o s\u1EAFp h\u1EBFt h\u1EA1n \u0110T / t\u1EA1m giam M\u1EABu 16\u201317/HS" },
+        { id: "dt-kl", text: "B\u1EA3n k\u1EBFt lu\u1EADn \u0111i\u1EC1u tra, b\u1EA3n c\xE1o tr\u1EA1ng M\u1EABu 156/HS, b\u1EA3n k\xEA v\u1EADt ch\u1EE9ng M\u1EABu 157, danh s\xE1ch tri\u1EC7u t\u1EADp M\u1EABu 158" },
+        { id: "dt-dtbs", text: "N\u1EBFu T\xF2a / VKS tr\u1EA3 h\u1ED3 s\u01A1 \u0110TBS: Q\u0110 M\u1EABu 145/HS, photo g\u1EEDi L\u0110 ph\xF2ng, n\u1ED9i dung r\xFAt kinh nghi\u1EC7m" }
+      ]
+    },
+    {
+      id: "xx",
+      title: "H\u1ED3 s\u01A1 ki\u1EC3m s\xE1t x\xE9t x\u1EED",
+      cite: "\u0110i\u1EC1u 6, 12\u201323 Quy ch\u1EBF 09/Q\u0110-VKSTC 2026",
+      lead: "L\u1EADp khi chuy\u1EC3n c\xE1o tr\u1EA1ng \u0111\u1EBFn T\xF2a. Qu\u1EA3n l\xFD, l\u01B0u tr\u1EEF theo quy \u0111\u1ECBnh Ng\xE0nh.",
+      items: [
+        { id: "xx-pc", text: "Q\u0110 ph\xE2n c\xF4ng KSV KSXX s\u01A1 th\u1EA9m M\u1EABu 02 QC 09" },
+        { id: "xx-bc", text: "B\xE1o c\xE1o k\u1EBFt qu\u1EA3 nghi\xEAn c\u1EE9u v\u1EE5 \xE1n M\u1EABu 09 QC 09" },
+        { id: "xx-dc", text: "\u0110\u1EC1 c\u01B0\u01A1ng x\xE9t h\u1ECFi M\u1EABu 10 \xB7 lu\u1EADn t\u1ED9i M\u1EABu 11 \xB7 \u0111\u1EC1 c\u01B0\u01A1ng tranh lu\u1EADn M\u1EABu 12" },
+        { id: "xx-tt", text: "T\xF3m t\u1EAFt di\u1EC5n bi\u1EBFn phi\xEAn t\xF2a M\u1EABu 13 \xB7 BC k\u1EBFt qu\u1EA3 XX s\u01A1 th\u1EA9m M\u1EABu 14" },
+        { id: "xx-phieu", text: "Phi\u1EBFu ki\u1EC3m s\xE1t b\u1EA3n \xE1n, quy\u1EBFt \u0111\u1ECBnh c\u1EE7a T\xF2a \xE1n M\u1EABu 15 QC 09" },
+        { id: "xx-kn", text: "N\u1EBFu kh\xE1ng ngh\u1ECB: Q\u0110 kh\xE1ng ngh\u1ECB ph\xFAc th\u1EA9m M\u1EABu 19; G\u0110T M\u1EABu 35; t\xE1i th\u1EA9m M\u1EABu 36" },
+        { id: "xx-sao", text: "B\u1EA3n \xE1n / Q\u0110 \u0111\xE3 sao g\u1EEDi VKS c\u1EA5p tr\xEAn khi c\xF3 hi\u1EC7u l\u1EF1c (\u0110i\u1EC1u 23 QC 09)" }
+      ]
+    }
+  ];
+
+  // src/lib/ks-hs/matrix.ts
+  var LOOKUP_GROUPS = [
+    {
+      id: "nt",
+      title: "Ngu\u1ED3n tin \xB7 ph\xE2n c\xF4ng",
+      hint: "\u0110i\u1EC1u 145\u2013149 BLTTHS \xB7 \u0110i\u1EC1u 7, 34 QC 06",
+      match: (t) => t.includes("Ngu\u1ED3n tin") || t.includes("Ph\xE2n c\xF4ng") || t.includes("Chuy\u1EC3n")
+    },
+    {
+      id: "pc",
+      title: "Ph\xEA chu\u1EA9n \xB7 BPNC",
+      hint: "\u0110i\u1EC1u 110\u2013119, 173 \xB7 QC 06 \u0110i\u1EC1u 15\u201324, 42",
+      match: (t) => t.includes("Ph\xEA chu\u1EA9n") || t.includes("T\u1EA1m gi\u1EEF") || t.includes("T\u1EA1m giam") || t.includes("Kh\u1EDFi t\u1ED1 b\u1ECB can") || t.includes("Kh\xE1m x\xE9t")
+    },
+    {
+      id: "dt",
+      title: "\u0110i\u1EC1u tra \xB7 truy t\u1ED1",
+      hint: "\u0110i\u1EC1u 172, 173, 240 BLTTHS",
+      match: (t) => t.includes("\u0110i\u1EC1u tra") || t.includes("Truy t\u1ED1") || t.includes("C\xE1o tr\u1EA1ng") || t.includes("Kh\u1EDFi t\u1ED1 v\u1EE5 \xE1n")
+    },
+    {
+      id: "xx",
+      title: "X\xE9t x\u1EED \xB7 kh\xE1ng ngh\u1ECB",
+      hint: "\u0110i\u1EC1u 276, 277, 337 \xB7 QC 09",
+      match: (t) => t.includes("X\xE9t x\u1EED") || t.includes("Kh\xE1ng ngh\u1ECB") || t.includes("Phi\xEAn t\xF2a") || t.includes("B\u1EA3n \xE1n")
+    }
+  ];
+  var MATRIX = [
+    { track: "Ngu\u1ED3n tin", moc: "CQ\u0110T ra Q\u0110 gi\u1EA3i quy\u1EBFt ngu\u1ED3n tin", han: "20 ng\xE0y k\u1EC3 t\u1EEB ng\xE0y nh\u1EADn t\u1ED1 gi\xE1c, tin b\xE1o, ki\u1EBFn ngh\u1ECB kh\u1EDFi t\u1ED1", kind: "D\u01B0\u01A1ng l\u1ECBch", cite: "\u0110i\u1EC1u 147.1 BLTTHS" },
+    { track: "Ngu\u1ED3n tin", moc: "V\u1EE5 vi\u1EC7c ph\u1EE9c t\u1EA1p / x\xE1c minh nhi\u1EC1u n\u01A1i", han: "K\xE9o d\xE0i kh\xF4ng qu\xE1 02 th\xE1ng", kind: "D\u01B0\u01A1ng l\u1ECBch", cite: "\u0110i\u1EC1u 147.2 BLTTHS" },
+    { track: "Ngu\u1ED3n tin", moc: "VKS gia h\u1EA1n gi\u1EA3i quy\u1EBFt ngu\u1ED3n tin", han: "M\u1ED9t l\u1EA7n, kh\xF4ng qu\xE1 02 th\xE1ng; CQ\u0110T \u0111\u1EC1 ngh\u1ECB ch\u1EADm nh\u1EA5t 05 ng\xE0y tr\u01B0\u1EDBc h\u1EBFt h\u1EA1n", kind: "D\u01B0\u01A1ng l\u1ECBch", cite: "\u0110i\u1EC1u 147.2 BLTTHS" },
+    { track: "Ph\xE2n c\xF4ng", moc: "L\u0110 Vi\u1EC7n ra Q\u0110 ph\xE2n c\xF4ng KSV v\u1EE5 vi\u1EC7c / v\u1EE5 \xE1n", han: "03 ng\xE0y k\u1EC3 t\u1EEB nh\u1EADn TB ti\u1EBFp nh\u1EADn ngu\u1ED3n tin ho\u1EB7c Q\u0110 kh\u1EDFi t\u1ED1 VA", kind: "D\u01B0\u01A1ng l\u1ECBch", cite: "\u0110i\u1EC1u 7.1 QC 06/Q\u0110-VKSTC 2026" },
+    { track: "Chuy\u1EC3n", moc: "Chuy\u1EC3n ngu\u1ED3n tin kh\xF4ng thu\u1ED9c th\u1EA9m quy\u1EC1n", han: "24 gi\u1EDD k\u1EC3 t\u1EEB khi c\xF3 c\u0103n c\u1EE9 x\xE1c \u0111\u1ECBnh", kind: "Gi\u1EDD", cite: "TTLT 07/2025" },
+    { track: "Ngu\u1ED3n tin", moc: "Th\xF4ng b\xE1o k\u1EBFt qu\u1EA3 gi\u1EA3i quy\u1EBFt ngu\u1ED3n tin", han: "03 ng\xE0y k\u1EC3 t\u1EEB ng\xE0y ra Q\u0110", kind: "D\u01B0\u01A1ng l\u1ECBch", cite: "\u0110i\u1EC1u 147 BLTTHS \xB7 TTLT 07/2025" },
+    { track: "T\u1EA1m gi\u1EEF", moc: "Th\u1EDDi h\u1EA1n t\u1EA1m gi\u1EEF l\u1EA7n \u0111\u1EA7u", han: "Kh\xF4ng qu\xE1 03 ng\xE0y k\u1EC3 t\u1EEB nh\u1EADn ng\u01B0\u1EDDi / ra Q\u0110 t\u1EA1m gi\u1EEF", kind: "D\u01B0\u01A1ng l\u1ECBch", cite: "\u0110i\u1EC1u 118.1 BLTTHS" },
+    { track: "T\u1EA1m gi\u1EEF", moc: "Gia h\u1EA1n t\u1EA1m gi\u1EEF", han: "M\u1ED7i l\u1EA7n kh\xF4ng qu\xE1 03 ng\xE0y, t\u1ED1i \u0111a 02 l\u1EA7n; m\u1ECDi gia h\u1EA1n do VKS ph\xEA chu\u1EA9n", kind: "D\u01B0\u01A1ng l\u1ECBch", cite: "\u0110i\u1EC1u 118.2 BLTTHS" },
+    { track: "Ph\xEA chu\u1EA9n", moc: "VKS x\xE9t ph\xEA chu\u1EA9n gia h\u1EA1n t\u1EA1m gi\u1EEF", han: "12 gi\u1EDD k\u1EC3 t\u1EEB nh\u1EADn h\u1ED3 s\u01A1 \u0111\u1EC1 ngh\u1ECB", kind: "Gi\u1EDD", cite: "\u0110i\u1EC1u 118.2 BLTTHS" },
+    { track: "Ph\xEA chu\u1EA9n", moc: "L\u0110 ph\xF2ng / PVT duy\u1EC7t nghi\u1EC7p v\u1EE5 h\u1ED3 s\u01A1 tr\xECnh ph\xEA chu\u1EA9n", han: "12 gi\u1EDD k\u1EC3 t\u1EEB nh\u1EADn h\u1ED3 s\u01A1", kind: "Gi\u1EDD", cite: "Quy tr\xECnh VKSND hai c\u1EA5p TP C\u1EA7n Th\u01A1" },
+    { track: "Kh\u1EDFi t\u1ED1 b\u1ECB can", moc: "X\xE9t ph\xEA chu\u1EA9n Q\u0110 kh\u1EDFi t\u1ED1 b\u1ECB can", han: "03 ng\xE0y k\u1EC3 t\u1EEB nh\u1EADn Q\u0110 v\xE0 h\u1ED3 s\u01A1 \u0111\u1EC1 ngh\u1ECB", kind: "D\u01B0\u01A1ng l\u1ECBch", cite: "\u0110i\u1EC1u 42.1 QC 06/Q\u0110-VKSTC 2026" },
+    { track: "Kh\u1EDFi t\u1ED1 b\u1ECB can", moc: "Ng\u01B0\u1EDDi \u0111ang b\u1ECB t\u1EA1m gi\u1EEF", han: "Kh\xF4ng qu\xE1 h\u1EA1n t\u1EA1m gi\u1EEF c\xF2n l\u1EA1i; CQ\u0110T chuy\u1EC3n ch\u1EADm nh\u1EA5t 24 gi\u1EDD tr\u01B0\u1EDBc h\u1EBFt h\u1EA1n", kind: "Gi\u1EDD", cite: "TTLT 01/2026/TTLT-VKSNDTC-BCA-BQP" },
+    { track: "Kh\u1EDFi t\u1ED1 v\u1EE5 \xE1n", moc: "KSV ki\u1EC3m tra Q\u0110 kh\u1EDFi t\u1ED1 v\u1EE5 \xE1n", han: "03 ng\xE0y k\u1EC3 t\u1EEB nh\u1EADn Q\u0110 v\xE0 t\xE0i li\u1EC7u li\xEAn quan", kind: "D\u01B0\u01A1ng l\u1ECBch", cite: "\u0110i\u1EC1u 40.1 QC 06" },
+    { track: "Kh\u1EDFi t\u1ED1 v\u1EE5 \xE1n", moc: "KSV ki\u1EC3m tra Q\u0110 kh\xF4ng kh\u1EDFi t\u1ED1 v\u1EE5 \xE1n", han: "02 ng\xE0y k\u1EC3 t\u1EEB nh\u1EADn Q\u0110 v\xE0 t\xE0i li\u1EC7u", kind: "D\u01B0\u01A1ng l\u1ECBch", cite: "\u0110i\u1EC1u 41.1 QC 06" },
+    { track: "\u0110i\u1EC1u tra", moc: "H\u1EA1n \u0111i\u1EC1u tra l\u1EA7n \u0111\u1EA7u", han: "02 th\xE1ng (\xEDt NT) \xB7 03 th\xE1ng (NT) \xB7 04 th\xE1ng (r\u1EA5t NT, \u0111\u1EB7c bi\u1EC7t NT)", kind: "Th\xE1ng", cite: "\u0110i\u1EC1u 172.1 BLTTHS" },
+    { track: "\u0110i\u1EC1u tra", moc: "Gia h\u1EA1n \u0111i\u1EC1u tra l\u1EA7n 1", han: "02 / 03 / 04 / 04 th\xE1ng theo lo\u1EA1i t\u1ED9i; \u0111\u1EC1 ngh\u1ECB tr\u01B0\u1EDBc 10 ng\xE0y", kind: "Th\xE1ng", cite: "\u0110i\u1EC1u 172.2 BLTTHS" },
+    { track: "T\u1EA1m giam", moc: "H\u1EA1n t\u1EA1m giam \u0111\u1EC3 \u0111i\u1EC1u tra l\u1EA7n \u0111\u1EA7u", han: "02 / 03 / 04 / 04 th\xE1ng theo lo\u1EA1i t\u1ED9i", kind: "Th\xE1ng", cite: "\u0110i\u1EC1u 173.1 BLTTHS" },
+    { track: "T\u1EA1m giam", moc: "Gia h\u1EA1n t\u1EA1m giam l\u1EA7n 1", han: "01 / 02 / 03 / 04 th\xE1ng; \u0111\u1EC1 ngh\u1ECB tr\u01B0\u1EDBc 10 ng\xE0y", kind: "Th\xE1ng", cite: "\u0110i\u1EC1u 173.2 BLTTHS" },
+    { track: "Truy t\u1ED1", moc: "Quy\u1EBFt \u0111\u1ECBnh vi\u1EC7c truy t\u1ED1", han: "20 ng\xE0y (\xEDt NT, NT) \xB7 30 ng\xE0y (r\u1EA5t NT, \u0111\u1EB7c bi\u1EC7t NT)", kind: "D\u01B0\u01A1ng l\u1ECBch", cite: "\u0110i\u1EC1u 240.1 BLTTHS" },
+    { track: "Truy t\u1ED1", moc: "Vi\u1EC7n tr\u01B0\u1EDFng gia h\u1EA1n quy\u1EBFt \u0111\u1ECBnh truy t\u1ED1", han: "10 / 10 / 15 / 30 ng\xE0y", kind: "D\u01B0\u01A1ng l\u1ECBch", cite: "\u0110i\u1EC1u 240.1 BLTTHS" },
+    { track: "C\xE1o tr\u1EA1ng", moc: "Giao c\xE1o tr\u1EA1ng, Q\u0110 \u0111\xECnh ch\u1EC9 / t\u1EA1m \u0111\xECnh ch\u1EC9 cho b\u1ECB can", han: "03 ng\xE0y; v\u1EE5 ph\u1EE9c t\u1EA1p kh\xF4ng qu\xE1 10 ng\xE0y", kind: "D\u01B0\u01A1ng l\u1ECBch", cite: "\u0110i\u1EC1u 240.2 BLTTHS" },
+    { track: "X\xE9t x\u1EED", moc: "Ch\xE1nh \xE1n ph\xE2n c\xF4ng Th\u1EA9m ph\xE1n ch\u1EE7 t\u1ECDa", han: "03 ng\xE0y k\u1EC3 t\u1EEB th\u1EE5 l\xFD", kind: "D\u01B0\u01A1ng l\u1ECBch", cite: "\u0110i\u1EC1u 276.2 BLTTHS" },
+    { track: "X\xE9t x\u1EED", moc: "Th\u1EDDi h\u1EA1n chu\u1EA9n b\u1ECB x\xE9t x\u1EED", han: "30 ng\xE0y \xB7 45 ng\xE0y \xB7 02 th\xE1ng \xB7 03 th\xE1ng theo lo\u1EA1i t\u1ED9i", kind: "D\u01B0\u01A1ng l\u1ECBch", cite: "\u0110i\u1EC1u 277.1 BLTTHS" },
+    { track: "X\xE9t x\u1EED", moc: "Gia h\u1EA1n chu\u1EA9n b\u1ECB x\xE9t x\u1EED", han: "15 ng\xE0y (\xEDt NT, NT) \xB7 01 th\xE1ng (r\u1EA5t NT, \u0111\u1EB7c bi\u1EC7t NT)", kind: "D\u01B0\u01A1ng l\u1ECBch", cite: "\u0110i\u1EC1u 277.1 BLTTHS" },
+    { track: "Phi\xEAn t\xF2a", moc: "M\u1EDF phi\xEAn t\xF2a k\u1EC3 t\u1EEB Q\u0110 \u0111\u01B0a v\u1EE5 \xE1n ra x\xE9t x\u1EED", han: "15 ng\xE0y; v\u1EE5 ph\u1EE9c t\u1EA1p 30 ng\xE0y", kind: "D\u01B0\u01A1ng l\u1ECBch", cite: "\u0110i\u1EC1u 277.3 BLTTHS" },
+    { track: "Kh\xE1ng ngh\u1ECB", moc: "KN ph\xFAc th\u1EA9m b\u1EA3n \xE1n s\u01A1 th\u1EA9m \u2014 VKS c\xF9ng c\u1EA5p", han: "15 ng\xE0y k\u1EC3 t\u1EEB ng\xE0y tuy\xEAn \xE1n", kind: "D\u01B0\u01A1ng l\u1ECBch", cite: "\u0110i\u1EC1u 337 BLTTHS \xB7 \u0110i\u1EC1u 27 QC 09" },
+    { track: "Kh\xE1ng ngh\u1ECB", moc: "KN ph\xFAc th\u1EA9m b\u1EA3n \xE1n s\u01A1 th\u1EA9m \u2014 VKS c\u1EA5p tr\xEAn", han: "30 ng\xE0y k\u1EC3 t\u1EEB ng\xE0y tuy\xEAn \xE1n", kind: "D\u01B0\u01A1ng l\u1ECBch", cite: "\u0110i\u1EC1u 337 BLTTHS" },
+    { track: "Kh\xE1ng ngh\u1ECB", moc: "KN ph\xFAc th\u1EA9m quy\u1EBFt \u0111\u1ECBnh s\u01A1 th\u1EA9m \u2014 VKS c\xF9ng c\u1EA5p / c\u1EA5p tr\xEAn", han: "07 ng\xE0y / 15 ng\xE0y k\u1EC3 t\u1EEB ng\xE0y T\xF2a ra Q\u0110", kind: "D\u01B0\u01A1ng l\u1ECBch", cite: "\u0110i\u1EC1u 337.2 BLTTHS" },
+    { track: "Kh\xE1ng ngh\u1ECB", moc: "VKS c\u1EA5p tr\xEAn tr\u1EA3 h\u1ED3 s\u01A1 n\u1EBFu kh\xF4ng KN ph\xFAc th\u1EA9m", han: "07 ng\xE0y k\u1EC3 t\u1EEB h\u1EBFt h\u1EA1n KN c\u1EA5p tr\xEAn", kind: "D\u01B0\u01A1ng l\u1ECBch", cite: "\u0110i\u1EC1u 24.2 QC 09/Q\u0110-VKSTC 2026" },
+    { track: "B\u1EA3n \xE1n", moc: "Ki\u1EC3m s\xE1t n\u1ED9i dung, h\xECnh th\u1EE9c, giao g\u1EEDi b\u1EA3n \xE1n, Q\u0110", han: "Ngay khi nh\u1EADn; phi\u1EBFu KS M\u1EABu 15 QC 09", kind: "Th\u1EE7 t\u1EE5c", cite: "\u0110i\u1EC1u 23 QC 09 \xB7 \u0110i\u1EC1u 260, 262 BLTTHS" }
+  ];
+  var MAU_GROUPS = [
+    { id: "tt03-nt", title: "TT 03/2026 \u2014 Ngu\u1ED3n tin (01\u201330/HS)", hint: "Ti\u1EBFp nh\u1EADn, ph\xE2n c\xF4ng, gia h\u1EA1n, kh\u1EDFi t\u1ED1 VA" },
+    { id: "tt03-bp", title: "TT 03/2026 \u2014 BPNC, c\u01B0\u1EE1ng ch\u1EBF (31\u201369/HS)", hint: "Ph\xEA chu\u1EA9n b\u1EAFt, t\u1EA1m gi\u1EEF, t\u1EA1m giam, kh\xE1m x\xE9t" },
+    { id: "tt03-dt", title: "TT 03/2026 \u2014 \u0110i\u1EC1u tra, truy t\u1ED1 (70\u2013168/HS)", hint: "Ph\xE2n c\xF4ng, c\xE1o tr\u1EA1ng, tr\u1EA3 h\u1ED3 s\u01A1" },
+    { id: "qc06", title: "QC 06 \u2014 M\u1EABu b\xE1o c\xE1o \u0111\u1EC1 xu\u1EA5t (01\u201318/HS)", hint: "Ph\u1EE5 l\u1EE5c Q\u0110 06/Q\u0110-VKSTC 23/3/2026" },
+    { id: "qc09", title: "QC 09 \u2014 46 bi\u1EC3u m\u1EABu KSXX", hint: "Ph\u1EE5 l\u1EE5c Q\u0110 09/Q\u0110-VKSTC 05/5/2026" }
+  ];
+  var MAU = [
+    { so: "01/HS", ten: "Bi\xEAn b\u1EA3n ti\u1EBFp nh\u1EADn ngu\u1ED3n tin v\u1EC1 t\u1ED9i ph\u1EA1m", nhom: "tt03-nt", cite: "TT 03/2026" },
+    { so: "02/HS", ten: "Phi\u1EBFu chuy\u1EC3n ngu\u1ED3n tin v\u1EC1 t\u1ED9i ph\u1EA1m", nhom: "tt03-nt", cite: "TT 03/2026" },
+    { so: "03/HS", ten: "Q\u0110 ph\xE2n c\xF4ng THQCT, KS ti\u1EBFp nh\u1EADn, gi\u1EA3i quy\u1EBFt ngu\u1ED3n tin", nhom: "tt03-nt", cite: "TT 03/2026" },
+    { so: "09/HS", ten: "Q\u0110 gia h\u1EA1n th\u1EDDi h\u1EA1n gi\u1EA3i quy\u1EBFt ngu\u1ED3n tin", nhom: "tt03-nt", cite: "TT 03/2026" },
+    { so: "10/HS", ten: "Q\u0110 t\u1EA1m \u0111\xECnh ch\u1EC9 gi\u1EA3i quy\u1EBFt ngu\u1ED3n tin", nhom: "tt03-nt", cite: "TT 03/2026" },
+    { so: "12/HS", ten: "Q\u0110 ph\u1EE5c h\u1ED3i gi\u1EA3i quy\u1EBFt ngu\u1ED3n tin", nhom: "tt03-nt", cite: "TT 03/2026" },
+    { so: "17/HS", ten: "Y\xEAu c\u1EA7u kh\u1EDFi t\u1ED1 v\u1EE5 \xE1n h\xECnh s\u1EF1", nhom: "tt03-nt", cite: "TT 03/2026" },
+    { so: "21/HS", ten: "Q\u0110 kh\xF4ng kh\u1EDFi t\u1ED1 v\u1EE5 \xE1n h\xECnh s\u1EF1", nhom: "tt03-nt", cite: "TT 03/2026" },
+    { so: "23/HS", ten: "Q\u0110 kh\u1EDFi t\u1ED1 v\u1EE5 \xE1n h\xECnh s\u1EF1", nhom: "tt03-nt", cite: "TT 03/2026" },
+    { so: "30/HS", ten: "Th\xF4ng b\xE1o k\u1EBFt qu\u1EA3 gi\u1EA3i quy\u1EBFt ngu\u1ED3n tin", nhom: "tt03-nt", cite: "TT 03/2026" },
+    { so: "31/HS", ten: "Q\u0110 ph\xEA chu\u1EA9n l\u1EC7nh b\u1EAFt ng\u01B0\u1EDDi b\u1ECB gi\u1EEF trong tr\u01B0\u1EDDng h\u1EE3p kh\u1EA9n c\u1EA5p", nhom: "tt03-bp", cite: "TT 03/2026" },
+    { so: "32/HS", ten: "Q\u0110 kh\xF4ng ph\xEA chu\u1EA9n l\u1EC7nh b\u1EAFt ng\u01B0\u1EDDi b\u1ECB gi\u1EEF kh\u1EA9n c\u1EA5p", nhom: "tt03-bp", cite: "TT 03/2026" },
+    { so: "33/HS", ten: "Q\u0110 ph\xEA chu\u1EA9n Q\u0110 gia h\u1EA1n t\u1EA1m gi\u1EEF", nhom: "tt03-bp", cite: "TT 03/2026" },
+    { so: "34/HS", ten: "Q\u0110 kh\xF4ng ph\xEA chu\u1EA9n Q\u0110 gia h\u1EA1n t\u1EA1m gi\u1EEF", nhom: "tt03-bp", cite: "TT 03/2026" },
+    { so: "37/HS", ten: "Q\u0110 ph\xEA chu\u1EA9n l\u1EC7nh b\u1EAFt b\u1ECB can \u0111\u1EC3 t\u1EA1m giam", nhom: "tt03-bp", cite: "TT 03/2026" },
+    { so: "38/HS", ten: "Q\u0110 kh\xF4ng ph\xEA chu\u1EA9n l\u1EC7nh b\u1EAFt b\u1ECB can \u0111\u1EC3 t\u1EA1m giam", nhom: "tt03-bp", cite: "TT 03/2026" },
+    { so: "40/HS", ten: "Q\u0110 ph\xEA chu\u1EA9n l\u1EC7nh t\u1EA1m giam", nhom: "tt03-bp", cite: "TT 03/2026" },
+    { so: "41/HS", ten: "Q\u0110 kh\xF4ng ph\xEA chu\u1EA9n l\u1EC7nh t\u1EA1m giam", nhom: "tt03-bp", cite: "TT 03/2026" },
+    { so: "42/HS", ten: "Q\u0110 gia h\u1EA1n t\u1EA1m giam", nhom: "tt03-bp", cite: "TT 03/2026" },
+    { so: "62/HS", ten: "L\u1EC7nh k\xEA bi\xEAn t\xE0i s\u1EA3n", nhom: "tt03-bp", cite: "TT 03/2026" },
+    { so: "66/HS", ten: "L\u1EC7nh phong t\u1ECFa t\xE0i kho\u1EA3n", nhom: "tt03-bp", cite: "TT 03/2026" },
+    { so: "70/HS", ten: "Q\u0110 ph\xE2n c\xF4ng PVT THQCT, KS gi\u1EA3i quy\u1EBFt VAHS", nhom: "tt03-dt", cite: "TT 03/2026" },
+    { so: "71/HS", ten: "Q\u0110 ph\xE2n c\xF4ng KSV, KTV THQCT, KS gi\u1EA3i quy\u1EBFt VAHS", nhom: "tt03-dt", cite: "TT 03/2026" },
+    { so: "90/HS", ten: "Q\u0110 ph\xEA chu\u1EA9n Q\u0110 kh\u1EDFi t\u1ED1 b\u1ECB can", nhom: "tt03-dt", cite: "TT 03/2026" },
+    { so: "119/HS", ten: "Q\u0110 ph\xEA chu\u1EA9n l\u1EC7nh kh\xE1m x\xE9t", nhom: "tt03-dt", cite: "TT 03/2026" },
+    { so: "120/HS", ten: "Q\u0110 kh\xF4ng ph\xEA chu\u1EA9n l\u1EC7nh kh\xE1m x\xE9t", nhom: "tt03-dt", cite: "TT 03/2026" },
+    { so: "144/HS", ten: "Q\u0110 gia h\u1EA1n th\u1EDDi h\u1EA1n quy\u1EBFt \u0111\u1ECBnh vi\u1EC7c truy t\u1ED1", nhom: "tt03-dt", cite: "TT 03/2026" },
+    { so: "145/HS", ten: "Q\u0110 tr\u1EA3 h\u1ED3 s\u01A1 v\u1EE5 \xE1n \u0111\u1EC3 \u0111i\u1EC1u tra b\u1ED5 sung", nhom: "tt03-dt", cite: "TT 03/2026" },
+    { so: "156/HS", ten: "C\xE1o tr\u1EA1ng", nhom: "tt03-dt", cite: "TT 03/2026" },
+    { so: "159/HS", ten: "Q\u0110 ph\xE2n c\xF4ng VKS c\u1EA5p d\u01B0\u1EDBi THQCT, KSXX VAHS", nhom: "tt03-dt", cite: "TT 03/2026" },
+    { so: "01/HS QC06", ten: "B\xE1o c\xE1o th\u1EE5 l\xFD ngu\u1ED3n tin v\u1EC1 t\u1ED9i ph\u1EA1m", nhom: "qc06", cite: "Ph\u1EE5 l\u1EE5c QC 06" },
+    { so: "02/HS QC06", ten: "B\xE1o c\xE1o \u0111\u1EC1 xu\u1EA5t gi\u1EA3i quy\u1EBFt ngu\u1ED3n tin v\u1EC1 t\u1ED9i ph\u1EA1m", nhom: "qc06", cite: "Ph\u1EE5 l\u1EE5c QC 06" },
+    { so: "03/HS QC06", ten: "B\xE1o c\xE1o \u0111\u1EC1 xu\u1EA5t ph\xEA chu\u1EA9n l\u1EC7nh b\u1EAFt ng\u01B0\u1EDDi b\u1ECB gi\u1EEF kh\u1EA9n c\u1EA5p", nhom: "qc06", cite: "Ph\u1EE5 l\u1EE5c QC 06" },
+    { so: "04/HS QC06", ten: "B\xE1o c\xE1o \u0111\u1EC1 xu\u1EA5t ph\xEA chu\u1EA9n gia h\u1EA1n t\u1EA1m gi\u1EEF", nhom: "qc06", cite: "Ph\u1EE5 l\u1EE5c QC 06" },
+    { so: "05/HS QC06", ten: "B\xE1o c\xE1o v\u1EC1 vi\u1EC7c kh\u1EDFi t\u1ED1 v\u1EE5 \xE1n h\xECnh s\u1EF1", nhom: "qc06", cite: "Ph\u1EE5 l\u1EE5c QC 06" },
+    { so: "06/HS QC06", ten: "B\xE1o c\xE1o \u0111\u1EC1 xu\u1EA5t ph\xEA chu\u1EA9n (ho\u1EB7c h\u1EE7y) Q\u0110 kh\u1EDFi t\u1ED1 b\u1ECB can", nhom: "qc06", cite: "Ph\u1EE5 l\u1EE5c QC 06" },
+    { so: "07/HS QC06", ten: "B\xE1o c\xE1o \u0111\u1EC1 xu\u1EA5t BPNC / BP\u0110T \u0111\u1EB7c bi\u1EC7t / ho\u1EA1t \u0111\u1ED9ng c\u1EA7n ph\xEA chu\u1EA9n", nhom: "qc06", cite: "Ph\u1EE5 l\u1EE5c QC 06" },
+    { so: "08/HS QC06", ten: "B\xE1o c\xE1o \u0111\u1EC1 xu\u1EA5t gia h\u1EA1n \u0111i\u1EC1u tra, gia h\u1EA1n t\u1EA1m giam", nhom: "qc06", cite: "Ph\u1EE5 l\u1EE5c QC 06" },
+    { so: "12/HS QC06", ten: "B\xE1o c\xE1o \u0111\u1EC1 xu\u1EA5t gi\u1EA3i quy\u1EBFt trong giai \u0111o\u1EA1n truy t\u1ED1", nhom: "qc06", cite: "Ph\u1EE5 l\u1EE5c QC 06" },
+    { so: "15/HS QC06", ten: "K\u1EBF ho\u1EA1ch THQCT, ki\u1EC3m s\xE1t \u0111i\u1EC1u tra", nhom: "qc06", cite: "Ph\u1EE5 l\u1EE5c QC 06" },
+    { so: "16/HS QC06", ten: "Th\xF4ng b\xE1o s\u1EAFp h\u1EBFt th\u1EDDi h\u1EA1n \u0111i\u1EC1u tra", nhom: "qc06", cite: "Ph\u1EE5 l\u1EE5c QC 06" },
+    { so: "17/HS QC06", ten: "Th\xF4ng b\xE1o s\u1EAFp h\u1EBFt th\u1EDDi h\u1EA1n t\u1EA1m giam \u0111\u1EC3 \u0111i\u1EC1u tra", nhom: "qc06", cite: "Ph\u1EE5 l\u1EE5c QC 06" },
+    { so: "M\u1EABu 02", ten: "Q\u0110 ph\xE2n c\xF4ng KSV THQCT, KSXX s\u01A1 th\u1EA9m", nhom: "qc09", cite: "QC 09/Q\u0110-VKSTC 2026" },
+    { so: "M\u1EABu 09", ten: "B\xE1o c\xE1o k\u1EBFt qu\u1EA3 nghi\xEAn c\u1EE9u v\u1EE5 \xE1n (s\u01A1 th\u1EA9m)", nhom: "qc09", cite: "QC 09" },
+    { so: "M\u1EABu 10", ten: "\u0110\u1EC1 c\u01B0\u01A1ng x\xE9t h\u1ECFi c\u1EE7a KSV t\u1EA1i phi\xEAn t\xF2a", nhom: "qc09", cite: "QC 09" },
+    { so: "M\u1EABu 11", ten: "B\u1EA3n lu\u1EADn t\u1ED9i", nhom: "qc09", cite: "QC 09" },
+    { so: "M\u1EABu 12", ten: "\u0110\u1EC1 c\u01B0\u01A1ng tranh lu\u1EADn c\u1EE7a KSV", nhom: "qc09", cite: "QC 09" },
+    { so: "M\u1EABu 14", ten: "B\xE1o c\xE1o k\u1EBFt qu\u1EA3 THQCT v\xE0 KSXX s\u01A1 th\u1EA9m", nhom: "qc09", cite: "QC 09" },
+    { so: "M\u1EABu 15", ten: "Phi\u1EBFu ki\u1EC3m s\xE1t b\u1EA3n \xE1n, quy\u1EBFt \u0111\u1ECBnh c\u1EE7a T\xF2a \xE1n", nhom: "qc09", cite: "QC 09" },
+    { so: "M\u1EABu 19", ten: "Quy\u1EBFt \u0111\u1ECBnh kh\xE1ng ngh\u1ECB ph\xFAc th\u1EA9m", nhom: "qc09", cite: "QC 09" },
+    { so: "M\u1EABu 23", ten: "B\xE1o c\xE1o k\u1EBFt qu\u1EA3 nghi\xEAn c\u1EE9u v\u1EE5 \xE1n (ph\xFAc th\u1EA9m)", nhom: "qc09", cite: "QC 09" },
+    { so: "M\u1EABu 27", ten: "B\xE1o c\xE1o \u0111\u1EC1 ngh\u1ECB kh\xE1ng ngh\u1ECB G\u0110T / t\xE1i th\u1EA9m", nhom: "qc09", cite: "QC 09" },
+    { so: "M\u1EABu 35", ten: "Quy\u1EBFt \u0111\u1ECBnh kh\xE1ng ngh\u1ECB gi\xE1m \u0111\u1ED1c th\u1EA9m", nhom: "qc09", cite: "QC 09" },
+    { so: "M\u1EABu 36", ten: "Quy\u1EBFt \u0111\u1ECBnh kh\xE1ng ngh\u1ECB t\xE1i th\u1EA9m", nhom: "qc09", cite: "QC 09" },
+    { so: "M\u1EABu 42", ten: "Ki\u1EBFn ngh\u1ECB y\xEAu c\u1EA7u kh\u1EAFc ph\u1EE5c vi ph\u1EA1m ph\xE1p lu\u1EADt", nhom: "qc09", cite: "QC 09" }
+  ];
+
+  // src/lib/ks-hs/process.ts
+  var PROCESS_INTRO = "K\u1EF9 n\u0103ng th\u1EF1c h\xE0nh quy\u1EC1n c\xF4ng t\u1ED1, ki\u1EC3m s\xE1t \xE1n h\xECnh s\u1EF1 t\u1EEB ngu\u1ED3n tin \u0111\u1EBFn x\xE9t x\u1EED theo Quy ch\u1EBF 06/Q\u0110-VKSTC ng\xE0y 23/3/2026 (thay Q\u0110 111/2020), Quy ch\u1EBF 09/Q\u0110-VKSTC ng\xE0y 05/5/2026, Quy tr\xECnh duy\u1EC7t b\xE1o c\xE1o \u0111\u1EC1 xu\u1EA5t ph\xEA chu\u1EA9n l\u1EC7nh/Q\u0110 t\u1ED1 t\u1EE5ng c\u1EE7a CQ\u0110T (VKSND hai c\u1EA5p TP C\u1EA7n Th\u01A1), BLTTHS 2015 \u0111\xE3 s\u1EEDa \u0111\u1ED5i (Lu\u1EADt 02/2021, 34/2024, 59/2024, 99/2025), Lu\u1EADt T\u1ED5 ch\u1EE9c VKSND 2014 s\u1EEDa \u0111\u1ED5i Lu\u1EADt 82/2025, Lu\u1EADt t\u1ED5 ch\u1EE9c CQ\u0110T h\xECnh s\u1EF1 99/2015, TT 03/2026/TT-VKSTC, Q\u0110 359/Q\u0110-VKSTC, TTLT 01/2017, 01/2020, 02/2017, 01/2026 v\xE0 TTLT 07/2025. Ki\u1EC3m s\xE1t vi\xEAn \u0111\u1ED1i chi\u1EBFu v\u0103n b\u1EA3n g\u1ED1c tr\u01B0\u1EDBc khi \u0111\u1EC1 xu\u1EA5t, ki\u1EBFn ngh\u1ECB, kh\xE1ng ngh\u1ECB.";
+  var METHODS = [
+    {
+      title: "Ki\u1EC3m s\xE1t v\u0103n b\u1EA3n \u2014 h\u1ED3 s\u01A1",
+      body: "\u0110\u1ED1i chi\u1EBFu 100% th\xF4ng b\xE1o ti\u1EBFp nh\u1EADn ngu\u1ED3n tin, Q\u0110 kh\u1EDFi t\u1ED1 / kh\xF4ng kh\u1EDFi t\u1ED1, l\u1EC7nh b\u1EAFt, t\u1EA1m gi\u1EEF, t\u1EA1m giam, kh\xE1m x\xE9t, k\xEA bi\xEAn, phong t\u1ECFa, b\u1EA3n k\u1EBFt lu\u1EADn \u0111i\u1EC1u tra, c\xE1o tr\u1EA1ng, b\u1EA3n \xE1n. Ghi s\u1ED5 Q\u0110 359 ngay khi nh\u1EADn. Thi\u1EBFu Q\u0110 ph\xEA chu\u1EA9n c\u1EE7a VKS l\xE0 vi ph\u1EA1m \u0111\u1ED9c l\u1EADp."
+    },
+    {
+      title: "Ki\u1EC3m tra tr\u1EF1c ti\u1EBFp t\xE0i li\u1EC7u",
+      body: "Quy tr\xECnh C\u1EA7n Th\u01A1: b\u1EAFt bu\u1ED9c ki\u1EC3m tra tr\u1EF1c ti\u1EBFp t\xE0i li\u1EC7u quan tr\u1ECDng \u0111\u1ED1i v\u1EDBi b\u1EAFt, t\u1EA1m giam, kh\xE1m x\xE9t, kh\u1EDFi t\u1ED1 b\u1ECB can. L\u0110 \u0111\u01A1n v\u1ECB, L\u0110 Vi\u1EC7n duy\u1EC7t, ghi \xFD ki\u1EBFn v\xE0o v\u0103n b\u1EA3n \u0111\u1EC1 xu\u1EA5t; h\u1ED3 s\u01A1 s\u1ED1 th\xEC k\xFD s\u1ED1, chuy\u1EC3n l\u1EA1i KSV."
+    },
+    {
+      title: "Tham gia ho\u1EA1t \u0111\u1ED9ng \u0111i\u1EC1u tra",
+      body: "KSV t\u0103ng c\u01B0\u1EDDng ki\u1EC3m s\xE1t ngay t\u1EEB kh\u1EDFi t\u1ED1, xuy\xEAn su\u1ED1t \u0111i\u1EC1u tra. C\xF3 m\u1EB7t khi ph\xE1p lu\u1EADt b\u1EAFt bu\u1ED9c; th\u1EF1c nghi\u1EC7m \u0111i\u1EC1u tra ph\u1EA3i xin \xFD ki\u1EBFn L\u0110 tr\u01B0\u1EDBc. H\u1ECFi cung: ki\u1EC3m s\xE1t tr\u1EF1c ti\u1EBFp \xEDt nh\u1EA5t 01 l\u1EA7n n\u1EBFu \xE1n \u0111\xE3 r\xF5. Tr\u01B0\u1EDBc k\u1EBFt th\xFAc \u0110T: r\xE0 so\xE1t ch\u1EE9ng c\u1EE9 v\u1EDBi \u0110TV."
+    },
+    {
+      title: "Ki\u1EBFn ngh\u1ECB \u2014 kh\xE1ng ngh\u1ECB \u2014 y\xEAu c\u1EA7u",
+      body: "Vi ph\u1EA1m th\u1EDDi h\u1EA1n, th\u1EE7 t\u1EE5c, c\u0103n c\u1EE9 BPNC, b\u1ECF l\u1ECDt / oan \u2192 y\xEAu c\u1EA7u, ki\u1EBFn ngh\u1ECB. B\u1EA3n \xE1n, Q\u0110 T\xF2a tr\xE1i ph\xE1p lu\u1EADt \u2192 kh\xE1ng ngh\u1ECB ph\xFAc th\u1EA9m (\u0110i\u1EC1u 337 BLTTHS, \u0110i\u1EC1u 24, 27 QC 09) ho\u1EB7c G\u0110T/t\xE1i th\u1EA9m. \xDD ki\u1EBFn kh\xE1c nhau th\u1EF1c hi\u1EC7n theo \u0110i\u1EC1u 83 Lu\u1EADt T\u1ED5 ch\u1EE9c VKSND."
+    }
+  ];
+  var NGUYEN_TAC = [
+    {
+      title: "Tu\xE2n th\u1EE7 ph\xE1p lu\u1EADt",
+      body: "Th\u1EF1c hi\u1EC7n \u0111\xFAng BLTTHS, Lu\u1EADt T\u1ED5 ch\u1EE9c VKSND, Lu\u1EADt CQ\u0110T v\xE0 quy ch\u1EBF Ng\xE0nh. Kh\xF4ng ph\xEA chu\u1EA9n khi ch\u01B0a \u0111\u1EE7 c\u0103n c\u1EE9, \u0111i\u1EC1u ki\u1EC7n, th\u1EA9m quy\u1EC1n."
+    },
+    {
+      title: "K\u1ECBp th\u1EDDi, kh\xE1ch quan, to\xE0n di\u1EC7n",
+      body: "Nghi\xEAn c\u1EE9u, \u0111\u1EC1 xu\u1EA5t, quy\u1EBFt \u0111\u1ECBnh ph\xEA chu\u1EA9n b\u1EA3o \u0111\u1EA3m k\u1ECBp th\u1EDDi \u2014 nh\u1EA5t l\xE0 12 gi\u1EDD duy\u1EC7t nghi\u1EC7p v\u1EE5 v\xE0 h\u1EA1n t\u1EA1m gi\u1EEF. \u0110\xE1nh gi\xE1 c\u1EA3 ch\u1EE9ng c\u1EE9 bu\u1ED9c t\u1ED9i v\xE0 g\u1EE1 t\u1ED9i."
+    },
+    {
+      title: "Ki\u1EC3m so\xE1t tr\xE1ch nhi\u1EC7m",
+      body: "KSV ch\u1ECBu tr\xE1ch nhi\u1EC7m to\xE0n b\u1ED9 n\u1ED9i dung ki\u1EC3m s\xE1t v\xE0 \u0111\u1EC1 xu\u1EA5t; L\u0110 \u0111\u01A1n v\u1ECB ki\u1EC3m tra, th\u1ED1ng nh\u1EA5t nghi\u1EC7p v\u1EE5; L\u0110 Vi\u1EC7n quy\u1EBFt \u0111\u1ECBnh ph\xEA duy\u1EC7t cu\u1ED1i c\xF9ng (Lu\u1EADt TC VKSND \u0110i\u1EC1u 5\u201316, 34\u201342)."
+    },
+    {
+      title: "H\u1ED3 s\u01A1 \u0111\u1EA7y \u0111\u1EE7",
+      body: "H\u1ED3 s\u01A1 tr\xECnh ph\xEA chu\u1EA9n: \u0111\u1EC1 xu\u1EA5t; h\u1ED3 s\u01A1 ch\xEDnh; tr\xEDch h\u1ED3 s\u01A1; th\u1EE7 t\u1EE5c t\u1ED1 t\u1EE5ng; th\u1EDDi h\u1EA1n. Thi\u1EBFu th\xE0nh ph\u1EA7n th\xEC ch\u01B0a \u0111\u01B0a L\u0110 Vi\u1EC7n k\xFD."
+    }
+  ];
+  var PROCESS = {
+    "nguon-tin": {
+      lead: "T\u1EEB khi VKS ho\u1EB7c CQ\u0110T ti\u1EBFp nh\u1EADn t\u1ED1 gi\xE1c, tin b\xE1o, ki\u1EBFn ngh\u1ECB kh\u1EDFi t\u1ED1 \u0111\u1EBFn khi ra Q\u0110 kh\u1EDFi t\u1ED1 / kh\xF4ng kh\u1EDFi t\u1ED1 / t\u1EA1m \u0111\xECnh ch\u1EC9. \xC1p d\u1EE5ng \u0110i\u1EC1u 145\u2013149 BLTTHS, \u0110i\u1EC1u 34\u201339 QC 06, TTLT 01/2017 v\xE0 01/2020.",
+      steps: [
+        {
+          n: "01",
+          title: "Ti\u1EBFp nh\u1EADn \u0111\u01A1n, tin",
+          body: "Ngu\u1ED3n: c\u01A1 quan, t\u1ED5 ch\u1EE9c, c\xE1 nh\xE2n tr\u1EF1c ti\u1EBFp t\u1EA1i VKS; b\u01B0u ch\xEDnh; ph\u01B0\u01A1ng ti\u1EC7n th\xF4ng tin kh\xE1c. Tr\u1EF1c ti\u1EBFp: l\u1EADp BB M\u1EABu 01/HS TT 03/2026, v\xE0o S\u1ED5 ti\u1EBFp nh\u1EADn M\u1EABu s\u1ED1 03 Q\u0110 359. Qua b\u01B0u ch\xEDnh: ghi \u0111\u1EA7y \u0111\u1EE7 th\xF4ng tin. Qua ph\u01B0\u01A1ng ti\u1EC7n kh\xE1c: h\u01B0\u1EDBng d\u1EABn \u0111\u1EBFn tr\xECnh b\xE0y ho\u1EB7c g\u1EEDi b\u1EA3n t\u1ED1 gi\xE1c k\xE8m t\xE0i li\u1EC7u."
+        },
+        {
+          n: "02",
+          title: "Ph\xE2n lo\u1EA1i, chuy\u1EC3n CQ\u0110T",
+          body: "KSV nghi\xEAn c\u1EE9u, \u0111\u1EC1 xu\u1EA5t L\u0110 chuy\u1EC3n t\u1ED1 gi\xE1c \u0111\u1EBFn CQ\u0110T c\xF3 th\u1EA9m quy\u1EC1n (\u0110i\u1EC1u 146.2 BLTTHS, kho\u1EA3n 3 \u0110i\u1EC1u 8 TTLT 01/2017, \u0110i\u1EC1u 34 QC 06). L\u1EADp phi\u1EBFu chuy\u1EC3n M\u1EABu 02/HS, l\u01B0u h\u1ED3 s\u01A1 theo d\xF5i. Kh\xF4ng thu\u1ED9c th\u1EA9m quy\u1EC1n: chuy\u1EC3n trong 24 gi\u1EDD khi c\xF3 c\u0103n c\u1EE9 (TTLT 07/2025)."
+        },
+        {
+          n: "03",
+          title: "Ph\xE2n c\xF4ng KSV",
+          body: "Trong 03 ng\xE0y k\u1EC3 t\u1EEB nh\u1EADn TB ti\u1EBFp nh\u1EADn ngu\u1ED3n tin, L\u0110 \u0111\u01A1n v\u1ECB / L\u0110 Vi\u1EC7n ra Q\u0110 ph\xE2n c\xF4ng M\u1EABu 03/HS (\u0110i\u1EC1u 7 QC 06). Nhi\u1EC1u KSV th\xEC ghi r\xF5 th\u1EE5 l\xFD ch\xEDnh. KSV, KTV t\u1EEB ch\u1ED1i ho\u1EB7c b\u1ECB thay \u0111\u1ED5i theo \u0110i\u1EC1u 52 BLTTHS."
+        },
+        {
+          n: "04",
+          title: "Ki\u1EC3m s\xE1t x\xE1c minh",
+          body: "V\xE0o s\u1ED5 th\u1EE5 l\xFD M\u1EABu s\u1ED1 04, BC th\u1EE5 l\xFD M\u1EABu 01/HS QC 06. \u0110\u1EC1 ra y\xEAu c\u1EA7u ki\u1EC3m tra, x\xE1c minh. Theo d\xF5i ti\u1EBFn \u0111\u1ED9; ph\u1ED1i h\u1EE3p \u0110TV. Kh\xE1m nghi\u1EC7m hi\u1EC7n tr\u01B0\u1EDDng: L\u0110 ph\xF2ng b\xE1o c\xE1o L\u0110 Vi\u1EC7n, ph\xE2n c\xF4ng KSV tham gia; sau kh\xE1m nghi\u1EC7m KSV b\xE1o c\xE1o ngay."
+        },
+        {
+          n: "05",
+          title: "Tr\u01B0\u1EDBc khi k\u1EBFt th\xFAc \u2014 quy\u1EBFt \u0111\u1ECBnh",
+          body: "KSV v\xE0 \u0110TV r\xE0 so\xE1t ch\u1EE9ng c\u1EE9, l\u1EADp bi\xEAn b\u1EA3n (kho\u1EA3n 2 \u0110i\u1EC1u 5 TTLT 01/2020). Ch\u01B0a th\u1ED1ng nh\u1EA5t: b\xE1o c\xE1o L\u0110 Vi\u1EC7n tr\u01B0\u1EDBc khi k\u1EBFt th\xFAc. H\u1EA1n 20 ng\xE0y; ph\u1EE9c t\u1EA1p kh\xF4ng qu\xE1 02 th\xE1ng; VKS gia h\u1EA1n th\xEAm kh\xF4ng qu\xE1 02 th\xE1ng. CQ\u0110T \u0111\u1EC1 ngh\u1ECB gia h\u1EA1n ch\u1EADm nh\u1EA5t 05 ng\xE0y tr\u01B0\u1EDBc h\u1EBFt h\u1EA1n."
+        },
+        {
+          n: "06",
+          title: "T\u1EA1m \u0111\xECnh ch\u1EC9, ph\u1EE5c h\u1ED3i, s\u1ED5",
+          body: "T\u1EA1m \u0111\xECnh ch\u1EC9: theo d\xF5i c\u0103n c\u1EE9 \u0110i\u1EC1u 148, v\u0103n b\u1EA3n nh\u1EAFc CQ\u0110T do L\u0110 Vi\u1EC7n k\xFD. C\xF3 c\u0103n c\u1EE9 ph\u1EE5c h\u1ED3i: y\xEAu c\u1EA7u \u0110TV theo \u0110i\u1EC1u 149. H\u1ED3 s\u01A1 kh\xF4ng kh\u1EDFi t\u1ED1, t\u1EA1m \u0111\xECnh ch\u1EC9 b\xE0n giao \u0111\u1EA7u m\u1ED1i theo \u0110i\u1EC1u 14 TTLT 01/2020. V\xE0o s\u1ED5 M\u1EABu s\u1ED1 06 Q\u0110 359."
+        }
+      ]
+    },
+    "phe-chuan": {
+      lead: "Quy tr\xECnh th\u1ED1ng nh\u1EA5t VKSND hai c\u1EA5p TP C\u1EA7n Th\u01A1 khi ti\u1EBFp nh\u1EADn, nghi\xEAn c\u1EE9u, tr\xECnh duy\u1EC7t v\xE0 ph\xEA chu\u1EA9n ho\u1EB7c kh\xF4ng ph\xEA chu\u1EA9n l\u1EC7nh, Q\u0110 t\u1ED1 t\u1EE5ng c\u1EE7a CQ\u0110T: gi\u1EEF kh\u1EA9n c\u1EA5p, b\u1EAFt ng\u01B0\u1EDDi b\u1ECB gi\u1EEF kh\u1EA9n c\u1EA5p, gia h\u1EA1n t\u1EA1m gi\u1EEF, kh\u1EDFi t\u1ED1 b\u1ECB can, b\u1EAFt t\u1EA1m giam, t\u1EA1m giam, gia h\u1EA1n t\u1EA1m giam, kh\xE1m x\xE9t, k\xEA bi\xEAn, phong t\u1ECFa t\xE0i kho\u1EA3n.",
+      steps: [
+        {
+          n: "01",
+          title: "Ti\u1EBFp nh\u1EADn h\u1ED3 s\u01A1 \u0111\u1EC1 ngh\u1ECB",
+          body: "KSV ki\u1EC3m tra th\u1EA9m quy\u1EC1n ban h\xE0nh, t\xE0i li\u1EC7u k\xE8m theo, bi\xEAn b\u1EA3n, ch\u1EE9ng c\u1EE9, c\u0103n c\u1EE9 \xE1p d\u1EE5ng, th\u1EE7 t\u1EE5c, th\u1EDDi h\u1EA1n (c\u0103n c\u1EE9 c\xE1c \u0110i\u1EC1u 9\u201312 QC 06). \u0110\u1EE7 c\u0103n c\u1EE9 th\xEC v\xE0o s\u1ED5, d\u1EF1 th\u1EA3o BC th\u1EE5 l\xFD M\u1EABu 01/HS tr\xECnh L\u0110."
+        },
+        {
+          n: "02",
+          title: "Nghi\xEAn c\u1EE9u, \u0111\u1EC1 xu\u1EA5t",
+          body: "Ki\u1EC3m tra c\u0103n c\u1EE9 ph\xE1p lu\u1EADt, t\xEDnh h\u1EE3p ph\xE1p, c\u1EA7n thi\u1EBFt, ch\u1EE9ng c\u1EE9 h\xE0nh vi ph\u1EA1m t\u1ED9i, c\u0103n c\u1EE9 BPNC. Ki\u1EC3m tra ch\u1EB7t c\u0103n c\u1EE9 h\u1EA1n ch\u1EBF quy\u1EC1n con ng\u01B0\u1EDDi. K\u1EBFt qu\u1EA3: BC \u0111\u1EC1 xu\u1EA5t gi\u1EA3i quy\u1EBFt ngu\u1ED3n tin M\u1EABu 02/HS, ho\u1EB7c M\u1EABu 03/HS (ph\xEA chu\u1EA9n b\u1EAFt kh\u1EA9n c\u1EA5p), M\u1EABu 04/HS (gia h\u1EA1n t\u1EA1m gi\u1EEF), M\u1EABu 5\u20138 QC 06 (kh\u1EDFi t\u1ED1 VA, kh\u1EDFi t\u1ED1 b\u1ECB can, BPNC, gia h\u1EA1n)."
+        },
+        {
+          n: "03",
+          title: "N\u1ED9i dung b\xE1o c\xE1o \u0111\u1EC1 xu\u1EA5t",
+          body: "T\xF3m t\u1EAFt v\u1EE5 \xE1n; di\u1EC5n bi\u1EBFn t\u1ED1 t\u1EE5ng; nh\u1EADn x\xE9t ch\u1EE9ng c\u1EE9; c\u0103n c\u1EE9 ph\xE1p lu\u1EADt; quan \u0111i\u1EC3m: ph\xEA chu\u1EA9n; kh\xF4ng ph\xEA chu\u1EA9n; y\xEAu c\u1EA7u b\u1ED5 sung t\xE0i li\u1EC7u; nh\u1EEFng v\u1EA5n \u0111\u1EC1 c\u1EA7n l\xE0m r\xF5. H\u1ED3 s\u01A1 tr\xECnh: \u0111\u1EC1 xu\u1EA5t + h\u1ED3 s\u01A1 ch\xEDnh + tr\xEDch h\u1ED3 s\u01A1 + th\u1EE7 t\u1EE5c + th\u1EDDi h\u1EA1n \u2014 tr\xECnh L\u0110 Vi\u1EC7n ph\u1EE5 tr\xE1ch ngay sau khi ho\xE0n t\u1EA5t."
+        },
+        {
+          n: "04",
+          title: "Duy\u1EC7t nghi\u1EC7p v\u1EE5 c\u1EA5p \u0111\u01A1n v\u1ECB \u2014 12 gi\u1EDD",
+          body: "L\u0110 ph\xF2ng / PVT ph\u1EE5 tr\xE1ch, trong 12 gi\u1EDD k\u1EC3 t\u1EEB nh\u1EADn h\u1ED3 s\u01A1: xem x\xE9t h\u1ED3 s\u01A1, BC \u0111\u1EC1 xu\u1EA5t, c\u0103n c\u1EE9, th\u1EDDi h\u1EA1n. C\xF3 th\u1EC3 y\xEAu c\u1EA7u KSV b\xE1o c\xE1o tr\u1EF1c ti\u1EBFp, b\u1ED5 sung t\xE0i li\u1EC7u, h\u1ECDp nghi\u1EC7p v\u1EE5. K\u1EBFt qu\u1EA3: th\u1ED1ng nh\u1EA5t ho\u1EB7c kh\xF4ng th\u1ED1ng nh\u1EA5t quan \u0111i\u1EC3m x\u1EED l\xFD."
+        },
+        {
+          n: "05",
+          title: "L\xE3nh \u0111\u1EA1o Vi\u1EC7n quy\u1EBFt \u0111\u1ECBnh",
+          body: "VT ho\u1EB7c PVT \u0111\u01B0\u1EE3c ph\xE2n c\xF4ng. Ph\xE2n c\xF4ng v\u1EE5 vi\u1EC7c/v\u1EE5 \xE1n trong 03 ng\xE0y (M\u1EABu 03/HS, 70/HS, 71/HS). K\xFD Q\u0110 ph\xEA chu\u1EA9n M\u1EABu 31/HS ho\u1EB7c kh\xF4ng ph\xEA chu\u1EA9n M\u1EABu 32/HS (v\xE0 c\xE1c m\u1EABu t\u01B0\u01A1ng \u1EE9ng: 33\u201334 gia h\u1EA1n t\u1EA1m gi\u1EEF, 37\u201341 t\u1EA1m giam, 90 kh\u1EDFi t\u1ED1 b\u1ECB can, 119\u2013120 kh\xE1m x\xE9t). N\u1EC1n t\u1EA3ng s\u1ED1: VT/PVT duy\u1EC7t, k\xFD s\u1ED1, chuy\u1EC3n l\u1EA1i KSV."
+        },
+        {
+          n: "06",
+          title: "Ph\xE1t h\xE0nh v\xE0 l\u01B0u",
+          body: "V\u0103n th\u01B0 \u0111\xF3ng d\u1EA5u, ph\xE1t h\xE0nh; g\u1EEDi CQ\u0110T \u0111\xFAng h\u1EA1n (03 ng\xE0y sau ti\u1EBFp nh\u1EADn theo quy tr\xECnh C\u1EA7n Th\u01A1); l\u01B0u h\u1ED3 s\u01A1 ki\u1EC3m s\xE1t; c\u1EADp nh\u1EADt s\u1ED5 M\u1EABu s\u1ED1 06 Q\u0110 359. T\u0103ng \u1EE9ng d\u1EE5ng h\u1ED3 s\u01A1 s\u1ED1."
+        }
+      ]
+    },
+    "dieu-tra": {
+      lead: "T\u1EEB \u0110i\u1EC1u 17\u201326 v\xE0 39\u201368 QC 06: ki\u1EC3m s\xE1t kh\u1EDFi t\u1ED1, \u0111i\u1EC1u tra xuy\xEAn su\u1ED1t. KSV \u0111\u1EC1 ra y\xEAu c\u1EA7u \u0111i\u1EC1u tra, tham gia ho\u1EA1t \u0111\u1ED9ng b\u1EAFt bu\u1ED9c, h\u1ECFi cung, k\u1EBFt th\xFAc \u0111i\u1EC1u tra, x\u1EED l\xFD T\xF2a tr\u1EA3 h\u1ED3 s\u01A1 \u0110TBS.",
+      steps: [
+        {
+          n: "01",
+          title: "Ki\u1EC3m s\xE1t Q\u0110 kh\u1EDFi t\u1ED1 v\u1EE5 \xE1n / b\u1ECB can",
+          body: "03 ng\xE0y k\u1EC3 t\u1EEB nh\u1EADn Q\u0110 kh\u1EDFi t\u1ED1 VA: ki\u1EC3m tra c\u0103n c\u1EE9, h\u1EE3p ph\xE1p (\u0110i\u1EC1u 40 QC 06). Q\u0110 kh\xF4ng kh\u1EDFi t\u1ED1: 02 ng\xE0y (\u0110i\u1EC1u 41). Kh\u1EDFi t\u1ED1 b\u1ECB can: 03 ng\xE0y x\xE9t ph\xEA chu\u1EA9n (\u0110i\u1EC1u 42); ng\u01B0\u1EDDi \u0111ang t\u1EA1m gi\u1EEF \u2014 kh\xF4ng v\u01B0\u1EE3t h\u1EA1n t\u1EA1m gi\u1EEF, CQ\u0110T chuy\u1EC3n tr\u01B0\u1EDBc 24 gi\u1EDD (TTLT 01/2026)."
+        },
+        {
+          n: "02",
+          title: "K\u1EBF ho\u1EA1ch v\xE0 y\xEAu c\u1EA7u \u0111i\u1EC1u tra",
+          body: "X\xE2y d\u1EF1ng k\u1EBF ho\u1EA1ch THQCT, KS\u0110T M\u1EABu 15/HS (kh\xF4ng b\u1EAFt bu\u1ED9c n\u1EBFu r\xFAt g\u1ECDn). Y\xEAu c\u1EA7u \u0111i\u1EC1u tra chi ti\u1EBFt, c\u1EE5 th\u1EC3, tr\xECnh L\u0110 ph\xF2ng, L\u0110 Vi\u1EC7n. Quan \u0111i\u1EC3m kh\xE1c v\u1EC1 ch\u1EE9ng c\u1EE9, t\u1ED9i danh: b\xE1o c\xE1o L\u0110 tr\u01B0\u1EDBc khi th\u1EF1c hi\u1EC7n."
+        },
+        {
+          n: "03",
+          title: "Tham gia ho\u1EA1t \u0111\u1ED9ng \u0111i\u1EC1u tra",
+          body: "C\xF3 m\u1EB7t khi ph\xE1p lu\u1EADt b\u1EAFt bu\u1ED9c; v\u1EAFng m\u1EB7t ph\u1EA3i xin \xFD ki\u1EBFn L\u0110 ph\xF2ng. Th\u1EF1c nghi\u1EC7m: b\xE1o c\xE1o k\u1EBF ho\u1EA1ch, n\u1ED9i dung, L\u0110 cho \xFD ki\u1EBFn tr\u01B0\u1EDBc. Ki\u1EC3m s\xE1t h\u1ECFi cung \xEDt nh\u1EA5t 01 l\u1EA7n n\u1EBFu \xE1n \u0111\xE3 r\xF5. Kh\xE1m x\xE9t, thu gi\u1EEF: \u0110i\u1EC1u 50 QC 06."
+        },
+        {
+          n: "04",
+          title: "Theo d\xF5i th\u1EDDi h\u1EA1n \u0111i\u1EC1u tra, t\u1EA1m giam",
+          body: "H\u1EA1n \u0110T / t\u1EA1m giam theo \u0110i\u1EC1u 172\u2013173. CQ\u0110T \u0111\u1EC1 ngh\u1ECB gia h\u1EA1n ch\u1EADm nh\u1EA5t 10 ng\xE0y tr\u01B0\u1EDBc h\u1EBFt h\u1EA1n. M\u1EABu 16/HS th\xF4ng b\xE1o s\u1EAFp h\u1EBFt h\u1EA1n \u0110T; M\u1EABu 17/HS s\u1EAFp h\u1EBFt h\u1EA1n t\u1EA1m giam; M\u1EABu 8/HS \u0111\u1EC1 xu\u1EA5t gia h\u1EA1n. T\xEDnh h\u1EA1n khi nh\u1EADp v\u1EE5 \xE1n theo t\u1ED9i n\u1EB7ng nh\u1EA5t (TTLT 01/2026)."
+        },
+        {
+          n: "05",
+          title: "Tr\u01B0\u1EDBc khi k\u1EBFt th\xFAc \u0111i\u1EC1u tra",
+          body: "Ch\u1EE7 \u0111\u1ED9ng y\xEAu c\u1EA7u \u0110TV \u0111\xE1nh gi\xE1 to\xE0n b\u1ED9 ch\u1EE9ng c\u1EE9, th\u1EE7 t\u1EE5c, t\u1ED9i danh. \u0110\u1EE7 c\u0103n c\u1EE9 th\xEC th\u1ED1ng nh\u1EA5t k\u1EBFt th\xFAc; c\u1EA7n b\u1ED5 sung th\xEC th\u1ED1ng nh\u1EA5t n\u1ED9i dung tr\u01B0\u1EDBc khi k\u1EBFt th\xFAc. Kh\xF4ng th\u1ED1ng nh\u1EA5t: b\xE1o c\xE1o l\xE3nh \u0111\u1EA1o hai \u0111\u01A1n v\u1ECB."
+        },
+        {
+          n: "06",
+          title: "T\xF2a tr\u1EA3 h\u1ED3 s\u01A1 \u0111i\u1EC1u tra b\u1ED5 sung",
+          body: "Nghi\xEAn c\u1EE9u h\u1EA1n t\u1EA1m giam, n\u1ED9i dung b\u1ED5 sung, \u0111\u1ED1i chi\u1EBFu TTLT 02/2017. B\xE1o c\xE1o ngay L\u0110 ph\xF2ng, L\u0110 Vi\u1EC7n. M\u1ECDi tr\u01B0\u1EDDng h\u1EE3p tr\u1EA3 h\u1ED3 s\u01A1: L\u0110 ph\xF2ng t\u1ED5 ch\u1EE9c r\xFAt kinh nghi\u1EC7m, x\xE1c \u0111\u1ECBnh tr\xE1ch nhi\u1EC7m. Photo Q\u0110 tr\u1EA3 h\u1ED3 s\u01A1 g\u1EEDi \u0111\u1ED3ng ch\xED ph\u1EE5 tr\xE1ch theo d\xF5i chuy\xEAn \u0111\u1EC1."
+        }
+      ]
+    },
+    "truy-to": {
+      lead: "\u0110i\u1EC1u 240 BLTTHS, \u0110i\u1EC1u 63\u201368 QC 06: nh\u1EADn h\u1ED3 s\u01A1 v\xE0 b\u1EA3n k\u1EBFt lu\u1EADn \u0111i\u1EC1u tra, ki\u1EC3m tra h\u1EA1n t\u1EA1m giam, quy\u1EBFt \u0111\u1ECBnh truy t\u1ED1 / tr\u1EA3 h\u1ED3 s\u01A1 / \u0111\xECnh ch\u1EC9, giao c\xE1o tr\u1EA1ng.",
+      steps: [
+        {
+          n: "01",
+          title: "Ti\u1EBFp nh\u1EADn h\u1ED3 s\u01A1, ki\u1EC3m tra h\u1EA1n t\u1EA1m giam",
+          body: "Ngay khi nh\u1EADn: KSV ki\u1EC3m tra h\u1EA1n t\u1EA1m giam b\u1ECB can, b\xE1o c\xE1o VT/PVT (TTLT 01/2026). N\u1EBFu h\u1EA1n c\xF2n \u2265 h\u1EA1n truy t\u1ED1 v\xE0 c\u1EA7n ti\u1EBFp t\u1EE5c t\u1EA1m giam: s\u1EED d\u1EE5ng l\u1EC7nh \u0110T ho\u1EB7c ra l\u1EC7nh m\u1EDBi. Th\u1EE5 l\xFD theo \u0110i\u1EC1u 63 QC 06."
+        },
+        {
+          n: "02",
+          title: "Nghi\xEAn c\u1EE9u, \u0111\u1EC1 xu\u1EA5t",
+          body: "BC \u0111\u1EC1 xu\u1EA5t gi\u1EA3i quy\u1EBFt giai \u0111o\u1EA1n truy t\u1ED1 M\u1EABu 12/HS; BPNC giai \u0111o\u1EA1n truy t\u1ED1 M\u1EABu 11/HS. C\xF3 th\u1EC3 ti\u1EBFn h\xE0nh m\u1ED9t s\u1ED1 ho\u1EA1t \u0111\u1ED9ng \u0111i\u1EC1u tra (\u0110i\u1EC1u 65 QC 06)."
+        },
+        {
+          n: "03",
+          title: "Ra quy\u1EBFt \u0111\u1ECBnh trong h\u1EA1n",
+          body: "20 ng\xE0y (\xEDt NT, NT) ho\u1EB7c 30 ng\xE0y (r\u1EA5t NT, \u0111\u1EB7c bi\u1EC7t NT). Gia h\u1EA1n: 10 / 10 / 15 / 30 ng\xE0y. M\u1ED9t trong: c\xE1o tr\u1EA1ng (M\u1EABu 156/HS); tr\u1EA3 h\u1ED3 s\u01A1 \u0110TBS (M\u1EABu 145); \u0111\xECnh ch\u1EC9 / t\u1EA1m \u0111\xECnh ch\u1EC9 (M\u1EABu 146\u2013153)."
+        },
+        {
+          n: "04",
+          title: "Giao c\xE1o tr\u1EA1ng, th\xF4ng b\xE1o",
+          body: "03 ng\xE0y k\u1EC3 t\u1EEB ra Q\u0110 (ph\u1EE9c t\u1EA1p kh\xF4ng qu\xE1 10 ng\xE0y): giao b\u1ECB can / ng\u01B0\u1EDDi \u0111\u1EA1i di\u1EC7n; g\u1EEDi CQ\u0110T, ng\u01B0\u1EDDi b\xE0o ch\u1EEFa; th\xF4ng b\xE1o b\u1ECB h\u1EA1i, \u0111\u01B0\u01A1ng s\u1EF1. BB giao nh\u1EADn M\u1EABu 164/HS. Th\xF4ng b\xE1o v\u1EE5 \xE1n c\xF3 b\u1ECB can b\u1ECB t\u1EA1m giam M\u1EABu 165/HS."
+        },
+        {
+          n: "05",
+          title: "Chuy\u1EC3n T\xF2a, ph\xE2n c\xF4ng KSXX",
+          body: "Chuy\u1EC3n c\xE1o tr\u1EA1ng c\xF9ng h\u1ED3 s\u01A1 \u0111\u1EBFn T\xF2a. KSV th\u1EE5 l\xFD \u0110T \u0111\u1ED3ng th\u1EDDi THQCT, KSXX s\u01A1 th\u1EA9m (tr\u1EEB v\u1EE5 \xE1n VKS c\u1EA5p tr\xEAn ph\xE2n c\xF4ng c\u1EA5p d\u01B0\u1EDBi \u2014 M\u1EABu 159/HS). L\u1EADp h\u1ED3 s\u01A1 ki\u1EC3m s\xE1t theo QC 09 \u0110i\u1EC1u 6."
+        }
+      ]
+    },
+    "xet-xu": {
+      lead: "QC 09/Q\u0110-VKSTC ng\xE0y 05/5/2026: t\u1EEB khi chuy\u1EC3n c\xE1o tr\u1EA1ng \u0111\u1EBFn khi b\u1EA3n \xE1n, Q\u0110 c\xF3 hi\u1EC7u l\u1EF1c, kh\xF4ng b\u1ECB kh\xE1ng c\xE1o, kh\xE1ng ngh\u1ECB. Ki\u1EC3m s\xE1t tr\u01B0\u1EDBc, t\u1EA1i, sau phi\xEAn t\xF2a; kh\xE1ng ngh\u1ECB ph\xFAc th\u1EA9m, G\u0110T, t\xE1i th\u1EA9m.",
+      steps: [
+        {
+          n: "01",
+          title: "Tr\u01B0\u1EDBc phi\xEAn t\xF2a s\u01A1 th\u1EA9m",
+          body: "Ki\u1EC3m s\xE1t ph\xE2n c\xF4ng Th\u1EA9m ph\xE1n (03 ng\xE0y), h\u1EA1n chu\u1EA9n b\u1ECB XX \u0110i\u1EC1u 277, Q\u0110 \u0111\u01B0a v\u1EE5 \xE1n ra x\xE9t x\u1EED, BPNC, tri\u1EC7u t\u1EADp. Nghi\xEAn c\u1EE9u h\u1ED3 s\u01A1: BC M\u1EABu 09, \u0111\u1EC1 c\u01B0\u01A1ng x\xE9t h\u1ECFi M\u1EABu 10, lu\u1EADn t\u1ED9i M\u1EABu 11, \u0111\u1EC1 c\u01B0\u01A1ng tranh lu\u1EADn M\u1EABu 12 QC 09. Q\u0110 ph\xE2n c\xF4ng KSV M\u1EABu 02 QC 09."
+        },
+        {
+          n: "02",
+          title: "T\u1EA1i phi\xEAn t\xF2a",
+          body: "C\xF4ng b\u1ED1 c\xE1o tr\u1EA1ng (\u0110i\u1EC1u 16 QC 09). Ki\u1EC3m s\xE1t th\xE0nh ph\u1EA7n, th\u1EE7 t\u1EE5c, x\xE9t h\u1ECFi, ch\u1EE9ng c\u1EE9 m\u1EDBi. Lu\u1EADn t\u1ED9i theo di\u1EC5n bi\u1EBFn phi\xEAn t\xF2a. Tranh lu\u1EADn, \u0111\u1ED1i \u0111\xE1p. R\xFAt Q\u0110 truy t\u1ED1 / t\u1ED9i nh\u1EB9 h\u01A1n: t\u1EA1m ng\u1EEBng, xin \xFD ki\u1EBFn L\u0110 (\u0110i\u1EC1u 18 QC 09). Ki\u1EC3m s\xE1t tuy\xEAn \xE1n, bi\xEAn b\u1EA3n phi\xEAn t\xF2a."
+        },
+        {
+          n: "03",
+          title: "Sau phi\xEAn t\xF2a \u2014 phi\u1EBFu ki\u1EC3m s\xE1t b\u1EA3n \xE1n",
+          body: "B\xE1o c\xE1o ngay k\u1EBFt qu\u1EA3 (M\u1EABu 14). Phi\u1EBFu ki\u1EC3m s\xE1t b\u1EA3n \xE1n, Q\u0110 (M\u1EABu 15). Ki\u1EC3m s\xE1t n\u1ED9i dung, h\xECnh th\u1EE9c, vi\u1EC7c giao g\u1EEDi theo \u0110i\u1EC1u 132, 260, 262 BLTTHS (\u0110i\u1EC1u 23 QC 09). Sao g\u1EEDi b\u1EA3n \xE1n c\xF3 hi\u1EC7u l\u1EF1c cho VKS c\u1EA5p tr\xEAn \u0111\u1EC3 xem G\u0110T/t\xE1i th\u1EA9m."
+        },
+        {
+          n: "04",
+          title: "Kh\xE1ng ngh\u1ECB ph\xFAc th\u1EA9m",
+          body: "C\u0103n c\u1EE9 \u0110i\u1EC1u 27 QC 09, th\u1EDDi h\u1EA1n \u0110i\u1EC1u 337 BLTTHS: b\u1EA3n \xE1n 15 ng\xE0y c\xF9ng c\u1EA5p / 30 ng\xE0y c\u1EA5p tr\xEAn; Q\u0110 07 / 15 ng\xE0y. H\u1EBFt h\u1EA1n c\xF9ng c\u1EA5p: b\xE1o c\xE1o c\u1EA5p tr\xEAn k\xE8m h\u1ED3 s\u01A1 ki\u1EC3m s\xE1t. Q\u0110 kh\xE1ng ngh\u1ECB M\u1EABu 19, g\u1EEDi theo \u0110i\u1EC1u 338. C\u1EA5p tr\xEAn kh\xF4ng KN: tr\u1EA3 h\u1ED3 s\u01A1 trong 07 ng\xE0y k\u1EC3 t\u1EEB h\u1EBFt h\u1EA1n (\u0110i\u1EC1u 24.2 QC 09)."
+        },
+        {
+          n: "05",
+          title: "Ph\xFAc th\u1EA9m \u2014 G\u0110T, t\xE1i th\u1EA9m",
+          body: "PT: BC nghi\xEAn c\u1EE9u M\u1EABu 23, ph\xE1t bi\u1EC3u M\u1EABu 24, theo d\xF5i k\u1EBFt qu\u1EA3. Kh\xF4ng nh\u1EA5t tr\xED PT \u2192 \u0111\u1EC1 ngh\u1ECB G\u0110T. G\u0110T/t\xE1i th\u1EA9m: c\u0103n c\u1EE9, th\u1EA9m quy\u1EC1n, th\u1EDDi h\u1EA1n \u0110i\u1EC1u 371, 373, 379, 398, 400, 401 BLTTHS v\xE0 TT 02/2025/TT-VKSTC; M\u1EABu 35\u201336 QC 09."
+        },
+        {
+          n: "06",
+          title: "NCTN, \xFD ki\u1EBFn kh\xE1c nhau, th\u1EC9nh th\u1ECB",
+          body: "NCTN: th\xE0nh ph\u1EA7n H\u0110XX, bi\u1EC7n ph\xE1p chuy\u1EC3n h\u01B0\u1EDBng \u2014 \u0110i\u1EC1u 11 QC 09, Lu\u1EADt T\u01B0 ph\xE1p NCTN. \xDD ki\u1EBFn kh\xE1c nhau: \u0110i\u1EC1u 83 Lu\u1EADt TC VKSND. V\u1EE5 ph\u1EE9c t\u1EA1p: t\u1EADp th\u1EC3 L\u0110 Vi\u1EC7n ho\u1EB7c \u1EE6y ban ki\u1EC3m s\xE1t. Th\u1EC9nh th\u1ECB c\u1EA5p tr\xEAn theo quy \u0111\u1ECBnh Ng\xE0nh (\u0110i\u1EC1u 65 QC 09)."
+        }
+      ]
+    }
+  };
+  return __toCommonJS(standalone_exports);
+})();
+</script>
+<script>
+(function () {
+  const S = KsHs;
+  const LS = "vks-kshs-so-v1";
+  const HS = "vks-kshs-hoso-v1";
+  let track = "phe-chuan";
+  let opts = Object.assign({}, S.EMPTY_OPTS);
+  const el = (id) => document.getElementById(id);
+  function today() {
+    const n = new Date();
+    return n.getFullYear() + "-" + String(n.getMonth()+1).padStart(2,"0") + "-" + String(n.getDate()).padStart(2,"0");
+  }
+  el("moc").value = today();
+  function pill(at, kind) {
+    const u = S.urgencyOf(at);
+    const cls = u === "overdue" ? "over" : (u === "ok" ? "ok" : "soon");
+    return '<span class="pill ' + cls + '">' + S.remainLabel(at, new Date(), kind) + "</span>";
+  }
+  function fmt(m) { return m.kind === "hours" ? S.formatViDateTime(m.at) : S.formatVi(m.at); }
+  function mocLabel() {
+    if (track === "nguon-tin") return "Ngày CQĐT / VKS nhận nguồn tin hoặc TB tiếp nhận";
+    if (track === "phe-chuan") return "Ngày VKS nhận hồ sơ đề nghị phê chuẩn";
+    if (track === "dieu-tra") return "Ngày khởi tố vụ án (hoặc ngày nhận QĐ khởi tố VA)";
+    if (track === "truy-to") return "Ngày VKS nhận hồ sơ vụ án và bản kết luận điều tra";
+    return "Ngày Tòa thụ lý / ngày tuyên án";
+  }
+  function renderTracks() {
+    el("tracks").innerHTML = S.TRACKS.map(function (t) {
+      return '<button class="khau' + (t.id === track ? " on" : "") + '" data-id="' + t.id + '" type="button"><b>' + t.short + "</b><br/>" + t.label + "<small>" + t.hint + "</small></button>";
+    }).join("");
+  }
+  function chip(k, v, label, on) {
+    return '<button class="chip' + (on ? " on" : "") + '" type="button" data-k="' + k + '" data-v="' + v + '">' + label + "</button>";
+  }
+  function renderOpts() {
+    const parts = [];
+    if (track === "phe-chuan") {
+      Object.keys(S.PHE_LABEL).forEach(function (k) {
+        parts.push(chip("pheKind", k, S.PHE_LABEL[k], opts.pheKind === k));
+      });
+    }
+    if (track === "nguon-tin" || track === "truy-to" || track === "xet-xu") {
+      parts.push(chip("phucTap", "1", "Vụ việc / vụ án phức tạp", opts.phucTap));
+    }
+    if (track === "dieu-tra" || track === "truy-to" || track === "xet-xu") {
+      Object.keys(S.TOI_LABEL).forEach(function (k) {
+        parts.push(chip("toiKind", k, S.TOI_LABEL[k], opts.toiKind === k));
+      });
+    }
+    if (track === "xet-xu") {
+      parts.push(chip("banAnKind", "ban-an", "Bản án sơ thẩm", opts.banAnKind === "ban-an"));
+      parts.push(chip("banAnKind", "quyet-dinh", "Quyết định sơ thẩm", opts.banAnKind === "quyet-dinh"));
+      parts.push(chip("capVks", "cung-cap", "VKS cùng cấp", opts.capVks === "cung-cap"));
+      parts.push(chip("capVks", "cap-tren", "VKS cấp trên", opts.capVks === "cap-tren"));
+    }
+    el("opts").innerHTML = parts.join("");
+    el("lbMoc").textContent = mocLabel();
+    el("wrapGio").classList.toggle("hide", track !== "phe-chuan");
+  }
+  function renderOut() {
+    const r = S.computeKsHs(track, opts, { moc: el("moc").value, gio: el("gio").value });
+    if (!r) { el("out").innerHTML = '<p class="muted">Nhập ngày trên hồ sơ để tính hạn.</p>'; return; }
+    const hero = function (id, title) {
+      const m = r.milestones.find(function (x) { return x.id === id; }) || (id === "chinh" ? r.milestones[0] : id === "phu" ? r.milestones[1] : r.milestones[2]);
+      if (!m) return '<div class="hero"><div class="kicker">' + title + '</div><p class="muted">Không áp dụng</p></div>';
+      return '<div class="hero"><div class="kicker">' + title + '</div><div class="span">' + m.spanLabel + "</div><b>" + fmt(m) + "</b>" + pill(m.at, m.kind) + '<div class="muted" style="margin-top:6px">' + m.cite + "</div></div>";
+    };
+    const items = r.milestones.map(function (m) {
+      return '<div class="item"><div><div class="kicker">' + m.spanLabel + "</div><div style='font-weight:700;font-size:14px'>" + m.label + "</div><div class='muted'>" + m.cite + (m.hint ? " — " + m.hint : "") + "</div></div><div style='text-align:right'><b style='font-family:ui-monospace,Menlo,monospace;color:var(--navy)'>" + fmt(m) + "</b><div>" + pill(m.at, m.kind) + "</div></div></div>";
+    }).join("");
+    el("out").innerHTML =
+      '<div class="card"><p style="font-weight:800;color:var(--navy);margin:0 0 10px">' + r.title + "</p>" +
+      '<div class="grid g3">' + hero("chinh","Hạn chính") + hero("phu","Hạn phụ") + hero("gui-qd","Hạn gửi / phân công") + "</div>" +
+      '<div class="row no-print" style="margin-top:12px">' +
+      '<button class="btn" type="button" id="copySo">Sao chép sổ Excel</button>' +
+      '<button class="btn" type="button" id="saveSo">Ghi sổ việc</button>' +
+      '<button class="btn" type="button" id="printPh">In phiếu</button></div>' +
+      "<div style='margin-top:8px'>" + items + "</div></div>" +
+      '<div class="grid g3"><div class="card"><p class="kicker">Điều kiện / hồ sơ</p><ul>' + r.checklist.map(function (c) { return "<li>" + c + "</li>"; }).join("") +
+      '</ul></div><div class="card"><p class="kicker">Lưu ý khi áp dụng</p><ul>' + r.notes.map(function (c) { return "<li>" + c + "</li>"; }).join("") +
+      "</ul></div>" +
+      '<div class="card"><p class="kicker">Căn cứ pháp lý</p><ul>' + r.cites.map(function (c) { return "<li>" + c + "</li>"; }).join("") + "</ul></div></div>";
+    const copyBtn = document.getElementById("copySo");
+    if (copyBtn) copyBtn.onclick = function () {
+      const tsv = S.SO_HEADERS.join("\t") + "\n" + r.soRow.join("\t");
+      navigator.clipboard.writeText(tsv).then(function () { alert("Đã sao chép dòng sổ."); }, function () { alert("Không sao chép được."); });
+    };
+    const saveBtn = document.getElementById("saveSo");
+    if (saveBtn) saveBtn.onclick = function () {
+      const rows = loadSo();
+      rows.unshift({ id: String(Date.now()), title: r.title, track: track, moc: el("moc").value, hanChinh: r.soRow[4], hanPhu: r.soRow[5], ghiChu: el("ghiChu").value });
+      localStorage.setItem(LS, JSON.stringify(rows.slice(0, 80)));
+      alert("Đã ghi sổ việc trên máy này.");
+    };
+    const pr = document.getElementById("printPh");
+    if (pr) pr.onclick = function () { window.print(); };
+  }
+  function loadSo() { try { return JSON.parse(localStorage.getItem(LS) || "[]"); } catch (e) { return []; } }
+  function loadHs() { try { return JSON.parse(localStorage.getItem(HS) || "{}"); } catch (e) { return {}; } }
+  function renderSo() {
+    const rows = loadSo();
+    if (!rows.length) { el("soList").innerHTML = '<p class="muted">Chưa có dòng nào. Tính hạn xong bấm «Ghi sổ việc».</p>'; return; }
+    el("soList").innerHTML = rows.map(function (r) {
+      return '<div class="item"><div><b>' + r.title + "</b><div class='muted'>Mốc " + r.moc + " · Chính " + r.hanChinh + " · Phụ " + r.hanPhu + (r.ghiChu ? " · " + r.ghiChu : "") + "</div></div></div>";
+    }).join("");
+  }
+  function renderHs() {
+    const tick = loadHs();
+    el("pane-hoso").innerHTML = '<p class="muted">Đánh dấu tài liệu đã có khi nghiên cứu hồ sơ, trình phê chuẩn hoặc kiểm sát xét xử. Tích được lưu trên máy này.</p><div class="grid g2">' + S.FILE_GROUPS.map(function (g) {
+      const done = g.items.filter(function (i) { return tick[i.id]; }).length;
+      return '<div class="card" style="margin-top:0"><div style="display:flex;justify-content:space-between;gap:8px"><div><p style="font-weight:800;color:var(--navy);margin:0">' + g.title + '</p><div class="muted" style="font-size:10px">' + g.cite + "</div></div><span class='pill ok'>" + done + "/" + g.items.length + "</span></div><p class='muted'>" + g.lead + "</p>" +
+        g.items.map(function (it) {
+          return '<label class="chk"><input type="checkbox" data-hs="' + it.id + '"' + (tick[it.id] ? " checked" : "") + " /><span>" + it.text + (it.note ? '<span class="muted" style="display:block;font-size:10px">' + it.note + "</span>" : "") + "</span></label>";
+        }).join("") + "</div>";
+    }).join("") + "</div>";
+  }
+  function renderMatrix() {
+    const q = (el("mq").value || "").toLowerCase();
+    const rows = S.MATRIX.filter(function (r) {
+      return !q || (r.track + " " + r.moc + " " + r.han + " " + r.cite).toLowerCase().indexOf(q) >= 0;
+    });
+    el("matrix").innerHTML = S.LOOKUP_GROUPS.map(function (g) {
+      const rs = rows.filter(function (r) { return g.match(r.track); });
+      const body = rs.length ? rs.map(function (r) {
+        return "<tr><td><b>" + r.moc + "</b><div class='muted' style='font-size:10px'>" + r.track + " · " + r.cite + "</div></td><td>" + r.han + "</td></tr>";
+      }).join("") : "<tr><td colspan='2' class='muted'>Không có mốc khớp bộ lọc.</td></tr>";
+      return '<div class="card" style="margin-top:0;padding:0;overflow:hidden"><div style="background:var(--navy);color:#fff;padding:10px 12px"><b>' + g.title + "</b><div style='font-size:10px;color:var(--bronze-light);margin-top:2px'>" + g.hint + " · " + rs.length + " mốc</div></div><div style='max-height:420px;overflow:auto'><table><thead><tr><th>Mốc</th><th>Thời hạn</th></tr></thead><tbody>" + body + "</tbody></table></div></div>";
+    }).join("");
+    const mau = S.MAU.filter(function (r) {
+      return !q || (r.so + " " + r.ten + " " + r.cite).toLowerCase().indexOf(q) >= 0;
+    });
+    el("mau").innerHTML = S.MAU_GROUPS.map(function (g) {
+      const rs = mau.filter(function (r) { return r.nhom === g.id; });
+      const body = rs.length ? rs.map(function (r) {
+        return "<tr><td><b>" + r.so + "</b></td><td>" + r.ten + "</td></tr>";
+      }).join("") : "<tr><td colspan='2' class='muted'>Không khớp bộ lọc.</td></tr>";
+      return '<div class="card" style="margin-top:0;padding:0;overflow:hidden"><div style="background:var(--navy);color:#fff;padding:10px 12px"><b>' + g.title + "</b><div style='font-size:10px;color:var(--bronze-light);margin-top:2px'>" + g.hint + "</div></div><div style='max-height:280px;overflow:auto'><table><thead><tr><th>Mẫu</th><th>Tên</th></tr></thead><tbody>" + body + "</tbody></table></div></div>";
+    }).join("");
+  }
+  function renderPp() {
+    const methods = S.METHODS.map(function (m) {
+      return '<div class="card" style="margin-top:0"><p style="font-weight:800;color:var(--navy);margin:0">' + m.title + "</p><p class='muted'>" + m.body + "</p></div>";
+    }).join("");
+    const nt = S.NGUYEN_TAC.map(function (m) {
+      return '<div class="card teal" style="margin-top:0"><p style="font-weight:800;color:var(--navy);margin:0">' + m.title + "</p><p class='muted'>" + m.body + "</p></div>";
+    }).join("");
+    const tracks = S.TRACKS.map(function (t) {
+      const p = S.PROCESS[t.id];
+      return '<div class="card" style="margin-top:0"><p class="kicker">' + t.short + "</p><p style='font-weight:800;color:var(--navy);margin:4px 0'>" + t.label + "</p><p class='muted'>" + p.lead + "</p>" +
+        p.steps.map(function (s) { return '<div class="step"><div class="num">' + s.n + "</div><div><b>" + s.title + "</b><div class='muted'>" + s.body + "</div></div></div>"; }).join("") +
+        '<div class="row no-print"><button class="btn" type="button" data-sample="' + t.id + '">Tính hạn</button></div></div>';
+    }).join("");
+    el("pane-phuongphap").innerHTML = '<p class="muted">' + S.PROCESS_INTRO + "</p><div class='grid g2'>" + methods + "</div><div class='grid g2' style='margin-top:10px'>" + nt + "</div><div class='grid g2' style='margin-top:14px'>" + tracks + "</div>";
+  }
+  el("tracks").addEventListener("click", function (e) {
+    const b = e.target.closest("[data-id]");
+    if (!b) return;
+    track = b.getAttribute("data-id");
+    renderTracks(); renderOpts(); renderOut();
+  });
+  el("opts").addEventListener("click", function (e) {
+    const b = e.target.closest("[data-k]");
+    if (!b) return;
+    const k = b.getAttribute("data-k");
+    const v = b.getAttribute("data-v");
+    if (k === "phucTap") opts.phucTap = !opts.phucTap;
+    else opts[k] = v;
+    renderOpts(); renderOut();
+  });
+  el("pane-phuongphap").addEventListener("click", function (e) {
+    const b = e.target.closest("[data-sample]");
+    if (!b) return;
+    track = b.getAttribute("data-sample");
+    el("moc").value = today();
+    document.querySelectorAll(".tab").forEach(function (t) { t.classList.toggle("on", t.getAttribute("data-tab") === "tinh"); });
+    ["phuongphap","hoso","tinh","tra","so"].forEach(function (p) { el("pane-" + p).classList.toggle("hide", p !== "tinh"); });
+    renderTracks(); renderOpts(); renderOut();
+  });
+  el("pane-hoso").addEventListener("change", function (e) {
+    const b = e.target.closest("[data-hs]");
+    if (!b) return;
+    const tick = loadHs();
+    tick[b.getAttribute("data-hs")] = b.checked;
+    localStorage.setItem(HS, JSON.stringify(tick));
+    renderHs();
+  });
+  ["moc","gio"].forEach(function (id) { el(id).addEventListener("input", renderOut); });
+  el("mq").addEventListener("input", renderMatrix);
+  document.getElementById("tabs").addEventListener("click", function (e) {
+    const b = e.target.closest("[data-tab]");
+    if (!b) return;
+    const tab = b.getAttribute("data-tab");
+    document.querySelectorAll(".tab").forEach(function (t) { t.classList.toggle("on", t.getAttribute("data-tab") === tab); });
+    ["phuongphap","hoso","tinh","tra","so"].forEach(function (p) { el("pane-" + p).classList.toggle("hide", p !== tab); });
+    if (tab === "so") renderSo();
+    if (tab === "tra") renderMatrix();
+    if (tab === "hoso") renderHs();
+  });
+  renderPp(); renderTracks(); renderOpts(); renderOut(); renderMatrix(); renderHs();
+})();
+</script>
+</body>
+</html>
