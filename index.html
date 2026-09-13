@@ -63,7 +63,7 @@
         /* ===== LANDING PAGE - GLASS CORE + CONCENTRIC WAVES ===== */
         #landing-page {
             font-family: 'Inter', sans-serif;
-            background: radial-gradient(circle at center, #ffffff 0%, #c5d9ec 40%, #8db4d4 100%);
+            background: radial-gradient(circle at 50% 38%, #1e5aa8 0%, #13407c 32%, #0a2a58 62%, #061830 100%);
         }
         body.landing-locked {
             overflow: hidden;
@@ -72,9 +72,9 @@
         /* Lưới công nghệ mờ siêu mảnh */
         .tech-grid {
             background-image: 
-                radial-gradient(rgba(30, 64, 175, 0.06) 1px, transparent 1px),
-                linear-gradient(to right, rgba(30, 64, 175, 0.015) 1px, transparent 1px),
-                linear-gradient(to bottom, rgba(30, 64, 175, 0.015) 1px, transparent 1px);
+                radial-gradient(rgba(232, 198, 117, 0.14) 1px, transparent 1px),
+                linear-gradient(to right, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
             background-size: 32px 32px, 96px 96px, 96px 96px;
             background-position: center center;
         }
@@ -106,9 +106,37 @@
         }
 
         /* Ping rings rõ hơn */
-        .ping-ring:nth-child(1) { border-width: 3px; border-color: rgba(59, 130, 246, 0.2); }
-        .ping-ring:nth-child(2) { border-width: 2px; border-color: rgba(59, 130, 246, 0.15); }
-        .ping-ring:nth-child(3) { border-width: 2px; border-color: rgba(59, 130, 246, 0.2); }
+        .ping-ring:nth-child(1) { border-width: 3px; border-color: rgba(232, 198, 117, 0.38); }
+        .ping-ring:nth-child(2) { border-width: 2px; border-color: rgba(125, 211, 252, 0.28); }
+        .ping-ring:nth-child(3) { border-width: 2px; border-color: rgba(232, 198, 117, 0.22); }
+
+        /* Dòng Viện — vàng in đậm 3D */
+        .vks-gold-3d {
+            font-weight: 900;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            font-size: clamp(12px, 3.3vw, 16px);
+            line-height: 1.55;
+            color: #ffe566;
+            text-shadow:
+                0 1px 0 #fff6c2,
+                1px 1px 0 #e8c675,
+                2px 2px 0 #c9952e,
+                3px 3px 0 #a67c1a,
+                4px 4px 0 #8a6414,
+                4px 6px 14px rgba(0,0,0,.5);
+            max-width: 92vw;
+            margin: 0 auto;
+            padding: 0 12px;
+        }
+        #landing-page .theme-switch:not(.compact) {
+            background: rgba(6, 21, 48, .72);
+            border-color: rgba(232, 198, 117, .38);
+        }
+        #landing-page .theme-switch:not(.compact) .theme-btn { color: #e8c675; }
+        #landing-page .theme-switch:not(.compact) .theme-btn[aria-pressed="true"] {
+            background: #1e5a8a; color: #fff;
+        }
 
         /* ===== DASHBOARD - BENTO GRID ===== */
         #dashboard-page {
@@ -422,10 +450,9 @@
         }
         html[data-theme="dark"] body { background: var(--bg-body); color: var(--slate-800); }
         html[data-theme="dark"] #landing-page {
-            background: radial-gradient(circle at center, #1a3048 0%, #0c1620 45%, #070d14 100%);
+            background: radial-gradient(circle at 50% 38%, #1e5aa8 0%, #13407c 32%, #0a2a58 62%, #061830 100%);
         }
-        html[data-theme="dark"] #landing-page h2 { color: #93a4b3 !important; }
-        html[data-theme="dark"] #landing-page h1 { color: #e8eef4 !important; }
+        html[data-theme="dark"] #landing-page h1 { color: #f4f7fb !important; }
         html[data-theme="dark"] .bento-card {
             background: #182430; border-color: rgba(148,163,184,.16);
             box-shadow: 0 0 0 1px rgba(255,255,255,.04);
@@ -517,8 +544,8 @@
 
             <!-- THÔNG TIN VĂN BẢN -->
             <div class="text-center mt-2 space-y-2">
-                <h2 class="text-[13px] font-bold text-slate-400 tracking-[0.35em] uppercase">Viện kiểm sát nhân dân thành phố Cần Thơ</h2>
-                <h1 class="text-[29px] md:text-[34px] font-extrabold tracking-wide text-slate-800">
+                <h2 class="vks-gold-3d">Viện kiểm sát nhân dân thành phố Cần Thơ</h2>
+                <h1 class="text-[29px] md:text-[34px] font-extrabold tracking-wide text-white">
                     KỸ NĂNG <span class="bg-gradient-to-r from-proc-blue to-proc-neon bg-clip-text text-transparent">NGHIỆP VỤ</span>
                 </h1>
                 <p class="text-[12px] font-bold text-proc-neon tracking-widest uppercase animate-pulse pt-1" onclick="showTools()" style="cursor:pointer;">
@@ -632,22 +659,22 @@
         };
 
         var TOOLS = [
-            { id:'tinh-lai-suat', span:'span-4', badge:'PHƯƠNG PHÁP', badgeClass:'badge-teal', title:'Tính lãi suất', desc:'Tự động tính tiền lãi trong hạn, lãi quá hạn, lãi chậm trả trong giao dịch dân sự.', illust:ILLUST.chartWave, url:'Tool/App_tinh_lai_suat/index.html', accent:'', footer:'', mode:'offline' },
-            { id:'tinh-an-phi', span:'span-4', badge:'PHƯƠNG PHÁP', badgeClass:'badge-teal', title:'Tính án phí', desc:'Tra cứu và tự động tính nhanh số tiền án phí hình sự và dân sự.', illust:ILLUST.bars, url:'Tool/App_DS/index.html', accent:'', footer:'', mode:'offline' },
             { id:'kiem-sat-ban-an-chung', span:'span-4', badge:'KỸ NĂNG', badgeClass:'badge-teal', title:'Kiểm sát Bản án hình sự, dân sự', desc:'Đối chiếu phát hiện lỗi chính tả, mâu thuẫn, vi phạm, thiếu sót trong Bản án hình sự, dân sự (bản miễn phí - dùng chung cho các đơn vị).', illust:ILLUST.laser, url:'https://udify.app/chat/FoGbxKbFMFZSylhe', accent:'', footer:'', mode:'online' },
             { id:'kiem-sat-ban-an-nang-cao', span:'span-4', badge:'KỸ NĂNG', badgeClass:'badge-amber', title:'Kiểm sát Bản án hình sự, dân sự', desc:'Bản nâng cấp tối ưu đặc biệt.', illust:ILLUST.shield, url:'https://udify.app/chat/Ho3TdpoYQ9OjTbIq', accent:'accent-vip', footer:'<span>Dành cho KSV </span><span style="margin-left:auto;">VIỆN KIỂM SÁT NHÂN DÂN THÀNH PHỐ CẦN THƠ</span>', mode:'online' },
-            { id:'notebook-lm', span:'span-4', badge:'TRỢ LÝ ẢO', badgeClass:'badge-purple', title:'Hình sự & Tố tụng hình sự', desc:'Tra cứu Điều luật, hỗ trợ lập luận tố tụng dựa trên kho tri thức hiện hành.', illust:ILLUST.aiNodes, url:'https://notebooklm.google.com/notebook/af52b719-3125-4b4e-aaad-93432843b0ee', accent:'', newTab:true, footer:'<span>Nền tảng tri thức</span><span style="margin-left:auto;font-weight:700;color:#7e22ce;">notebookLM</span>', mode:'online' },
-            { id:'tinh-tuoi-thoi-han', span:'span-4', badge:'PHƯƠNG PHÁP', badgeClass:'badge-teal', title:'Tính tuổi — Tính thời hạn', desc:'Tự động tính tuổi của đối tượng, tính chính xác ngày tháng năm, giờ phút, kiểm soát chặt chẽ thời hạn tạm giữ, tạm giam tố tụng.', illust:ILLUST.clockIcon, url:'Data/TinhTuoiThoiHan.html', accent:'', footer:'', mode:'offline' },
-            { id:'huong-dan-so-do-tu-duy', span:'span-4', badge:'HƯỚNG DẪN', badgeClass:'badge-emerald', title:'Tạo sơ đồ tư duy', desc:'Thao tác chi tiết và bộ promt mẫu để tạo sơ đồ tư duy tự động.', illust:ILLUST.mindmap, url:'Data/HuongDan.html', accent:'', footer:'', mode:'offline' },
-            { id:'an-danh-tool', span:'span-4', badge:'KỸ NĂNG', badgeClass:'badge-teal', title:'Tự động che thông tin - không kết nối mạng', desc:'Tự động ẩn toàn bộ thông tin cá nhân trong văn bản trước khi công bố hoặc giao cho AI xử lý.', illust:ILLUST.censor, url:'Tool/AnDanh/index.html', accent:'', footer:'Đội ngũ xây dựng: Nhóm IT — VKSND TP.Cần Thơ', mode:'desktop' },
-            { id:'file-renamer-tool', span:'span-4', badge:'KỸ NĂNG', badgeClass:'badge-teal', title:'Tự động đổi tên file - không kết nối mạng', desc:'Tự động sửa tên file để AI dễ tiếp cận hoặc cho phép đổi tên file hàng loạt (ví dụ: Đánh số bút lục, tài liệu).', illust:ILLUST.rename, url:'Tool/FileRenamer/index.html', accent:'', footer:'', mode:'desktop' },
-            { id:'docx-to-md-tool', span:'span-4', badge:'KỸ NĂNG', badgeClass:'badge-teal', title:'Chuyển file doc, docx sang Markdown - không kết nối mạng', desc:'Dùng python tự động chuyển đổi file doc, docx sang dạng Markdown trước khi chuyển cho AI xử lý.', illust:ILLUST.convert, url:'Tool/DocxToMd/index.html', accent:'', footer:'', mode:'desktop' },
-            { id:'ocr-pdf-tool', span:'span-4', badge:'KỸ NĂNG', badgeClass:'badge-teal', title:'Nhận dạng chữ trong fille PDF, file ảnh - không kết nối mạng', desc:'Tự động trích xuất chữ từ file pdf, file ảnh mà không cần kết nối mạng, cho phép chọn đầu ra (word, md, txt).', illust:ILLUST.scan, url:'Tool/OCR_PDF_Tool/index.html', accent:'', footer:'', mode:'desktop' },
             { id:'soan-qd-phan-cong', span:'span-4', badge:'KỸ NĂNG', badgeClass:'badge-teal', title:'Kỹ năng tự động soạn thảo Quyết định phân công KSV – từ Thông báo thụ lý, Quyết định thi hành án (scan)', desc:'Tự động đọc và trích xuất thông tin từ Thông báo thụ lý, QĐ thi hành án hình sự/ dân sự và soạn thảo QĐ phân công KSV, trích thông tin để nhập sổ quản lý của khâu công tác.', illust:ILLUST.radarPulse, url:'Tool/SoanQdPhanCong/index.html', accent:'', footer:'NHÓM IT — Viện KSND thành phố Cần Thơ', mode:'offline' },
             { id:'giai-quyet-kn-tc', span:'span-4', badge:'KỸ NĂNG', badgeClass:'badge-teal', title:'Kỹ năng giải quyết khiếu nại, tố cáo — thời hạn thụ lý, xác minh, giải quyết đơn', desc:'Tự động tính thời hạn thụ lý, xác minh, giải quyết đơn khiếu nại, tố cáo; kiểm sát hạn CQĐT/Tòa án; bảng tra cứu và quy trình kỹ năng theo BLTTHS, Luật Khiếu nại, Luật Tố cáo và QĐ 50/QĐ-VKSTC 2026.', illust:ILLUST.stampClock, url:'Tool/GiaiQuyetKnTc/index.html', accent:'', footer:'NHÓM IT — Viện KSND thành phố Cần Thơ', mode:'offline' },
             { id:'kiem-sat-thads', span:'span-4', badge:'KỸ NĂNG', badgeClass:'badge-teal', title:'Kỹ năng kiểm sát thi hành án dân sự — thời hạn, hạ giá, phí THA', desc:'Tính hạn ra QĐ THA, xác minh, thẩm định giá, bán đấu giá, thu chi tiền; tính phí THA theo Thông tư 72/2026/TT-BTC; tính % hạ giá sau đấu giá không thành; phương pháp kiểm sát kê biên, giao tài sản theo Luật 106/2025, NĐ 151–152/2026.', illust:ILLUST.gavel, url:'Tool/KiemSatThads/index.html', accent:'', footer:'NHÓM IT — Viện KSND thành phố Cần Thơ', mode:'offline' },
             { id:'kiem-sat-thahs', span:'span-4', badge:'KỸ NĂNG', badgeClass:'badge-teal', title:'Kỹ năng kiểm sát thi hành án hình sự — hồ sơ, chế độ, giảm án', desc:'Hồ sơ tạm giữ, tạm giam, phạm nhân; chế độ ăn, mặc, lễ Tết, căn tin, bếp ăn, lưu ký tiền; tính hạn QĐ THA, giảm án, tha tù theo Luật 127/2025, Luật 128/2025, NĐ 170–213/2026.', illust:ILLUST.barsCell, url:'Tool/KiemSatThahs/index.html', accent:'', footer:'NHÓM IT — Viện KSND thành phố Cần Thơ', mode:'offline' },
-            { id:'kiem-sat-an-hs', span:'span-4', badge:'KỸ NĂNG', badgeClass:'badge-teal', title:'Kỹ năng kiểm sát án hình sự — nguồn tin, phê chuẩn, xét xử', desc:'Toàn bộ quá trình THQCT, kiểm sát nguồn tin, phê chuẩn lệnh/QĐ CQĐT, điều tra, truy tố, xét xử theo Quy chế 06, Quy chế 09, BLTTHS, Luật Tổ chức VKSND và quy trình duyệt báo cáo đề xuất của VKSND hai cấp TP Cần Thơ.', illust:ILLUST.scales, url:'Tool/KiemSatAnHs/index.html', accent:'', footer:'NHÓM IT — Viện KSND thành phố Cần Thơ', mode:'offline' }
+            { id:'kiem-sat-an-hs', span:'span-4', badge:'KỸ NĂNG', badgeClass:'badge-teal', title:'Kỹ năng kiểm sát án hình sự — nguồn tin, phê chuẩn, xét xử', desc:'Toàn bộ quá trình THQCT, kiểm sát nguồn tin, phê chuẩn lệnh/QĐ CQĐT, điều tra, truy tố, xét xử theo Quy chế 06, Quy chế 09, BLTTHS, Luật Tổ chức VKSND và quy trình duyệt báo cáo đề xuất của VKSND hai cấp TP Cần Thơ.', illust:ILLUST.scales, url:'Tool/KiemSatAnHs/index.html', accent:'', footer:'NHÓM IT — Viện KSND thành phố Cần Thơ', mode:'offline' },
+            { id:'tinh-lai-suat', span:'span-4', badge:'PHƯƠNG PHÁP', badgeClass:'badge-teal', title:'Tính lãi suất', desc:'Tự động tính tiền lãi trong hạn, lãi quá hạn, lãi chậm trả trong giao dịch dân sự.', illust:ILLUST.chartWave, url:'Tool/App_tinh_lai_suat/index.html', accent:'', footer:'', mode:'offline' },
+            { id:'tinh-an-phi', span:'span-4', badge:'PHƯƠNG PHÁP', badgeClass:'badge-teal', title:'Tính án phí', desc:'Tra cứu và tự động tính nhanh số tiền án phí hình sự và dân sự.', illust:ILLUST.bars, url:'Tool/App_DS/index.html', accent:'', footer:'', mode:'offline' },
+            { id:'tinh-tuoi-thoi-han', span:'span-4', badge:'PHƯƠNG PHÁP', badgeClass:'badge-teal', title:'Tính tuổi — Tính thời hạn', desc:'Tự động tính tuổi của đối tượng, tính chính xác ngày tháng năm, giờ phút, kiểm soát chặt chẽ thời hạn tạm giữ, tạm giam tố tụng.', illust:ILLUST.clockIcon, url:'Data/TinhTuoiThoiHan.html', accent:'', footer:'', mode:'offline' },
+            { id:'notebook-lm', span:'span-4', badge:'TRỢ LÝ ẢO', badgeClass:'badge-purple', title:'Hình sự & Tố tụng hình sự', desc:'Tra cứu Điều luật, hỗ trợ lập luận tố tụng dựa trên kho tri thức hiện hành.', illust:ILLUST.aiNodes, url:'https://notebooklm.google.com/notebook/af52b719-3125-4b4e-aaad-93432843b0ee', accent:'', newTab:true, footer:'<span>Nền tảng tri thức</span><span style="margin-left:auto;font-weight:700;color:#7e22ce;">notebookLM</span>', mode:'online' },
+            { id:'huong-dan-so-do-tu-duy', span:'span-4', badge:'HƯỚNG DẪN', badgeClass:'badge-emerald', title:'Tạo sơ đồ tư duy', desc:'Thao tác chi tiết và bộ promt mẫu để tạo sơ đồ tư duy tự động.', illust:ILLUST.mindmap, url:'Data/HuongDan.html', accent:'', footer:'', mode:'offline', hidden:true },
+            { id:'an-danh-tool', span:'span-4', badge:'KỸ NĂNG', badgeClass:'badge-teal', title:'Tự động che thông tin - không kết nối mạng', desc:'Tự động ẩn toàn bộ thông tin cá nhân trong văn bản trước khi công bố hoặc giao cho AI xử lý.', illust:ILLUST.censor, url:'Tool/AnDanh/index.html', accent:'', footer:'Đội ngũ xây dựng: Nhóm IT — VKSND TP.Cần Thơ', mode:'desktop', hidden:true },
+            { id:'file-renamer-tool', span:'span-4', badge:'KỸ NĂNG', badgeClass:'badge-teal', title:'Tự động đổi tên file - không kết nối mạng', desc:'Tự động sửa tên file để AI dễ tiếp cận hoặc cho phép đổi tên file hàng loạt (ví dụ: Đánh số bút lục, tài liệu).', illust:ILLUST.rename, url:'Tool/FileRenamer/index.html', accent:'', footer:'', mode:'desktop', hidden:true },
+            { id:'docx-to-md-tool', span:'span-4', badge:'KỸ NĂNG', badgeClass:'badge-teal', title:'Chuyển file doc, docx sang Markdown - không kết nối mạng', desc:'Dùng python tự động chuyển đổi file doc, docx sang dạng Markdown trước khi chuyển cho AI xử lý.', illust:ILLUST.convert, url:'Tool/DocxToMd/index.html', accent:'', footer:'', mode:'desktop', hidden:true },
+            { id:'ocr-pdf-tool', span:'span-4', badge:'KỸ NĂNG', badgeClass:'badge-teal', title:'Nhận dạng chữ trong fille PDF, file ảnh - không kết nối mạng', desc:'Tự động trích xuất chữ từ file pdf, file ảnh mà không cần kết nối mạng, cho phép chọn đầu ra (word, md, txt).', illust:ILLUST.scan, url:'Tool/OCR_PDF_Tool/index.html', accent:'', footer:'', mode:'desktop', hidden:true }
         ];
 
         var isDashboardVisible=false, isInToolView=false, currentToolId=null, activeToolTitle='';
@@ -766,6 +793,7 @@
             var html='';
             for(var i=0;i<TOOLS.length;i++){
                 var t=TOOLS[i];
+                if(t.hidden) continue;
                 var k=kindMeta(t.mode);
                 var netCls=(!navigator.onLine && t.mode==='online') ? ' needs-net' : '';
                 html+='<div class="bento-card '+t.span+' '+t.accent+netCls+'" data-tool-id="'+t.id+'" data-mode="'+(t.mode||'offline')+'" onclick="openTool(\''+t.id+'\')">';
