@@ -57,13 +57,29 @@
         body {
             margin: 0; font-family: 'Be Vietnam Pro', Arial, sans-serif;
             color: var(--slate-800); min-height: 100vh;
-            background: var(--bg-body); overflow-x: hidden;
+            background-color: var(--bg-body);
+            background-image:
+                linear-gradient(rgba(238, 247, 249, 0.84), rgba(238, 247, 249, 0.9)),
+                url("static/tru-so-vksnd.jpg");
+            background-size: cover;
+            background-position: center 38%;
+            background-repeat: no-repeat;
+            overflow-x: hidden;
         }
 
         /* ===== LANDING PAGE - GLASS CORE + CONCENTRIC WAVES ===== */
         #landing-page {
             font-family: 'Inter', sans-serif;
-            background: radial-gradient(circle at 50% 38%, #1e5aa8 0%, #13407c 32%, #0a2a58 62%, #061830 100%);
+            background-color: #0a2a58;
+        }
+        #landing-page .hq-photo {
+            position: absolute; inset: 0; width: 100%; height: 100%;
+            object-fit: cover; object-position: center 38%;
+            pointer-events: none;
+        }
+        #landing-page .hq-veil {
+            position: absolute; inset: 0; pointer-events: none;
+            background: linear-gradient(180deg, rgba(6,22,48,.38) 0%, rgba(6,22,48,.22) 40%, rgba(6,22,48,.58) 100%);
         }
         body.landing-locked {
             overflow: hidden;
@@ -71,6 +87,7 @@
 
         /* Lưới công nghệ mờ siêu mảnh */
         .tech-grid {
+            opacity: 0.22;
             background-image: 
                 radial-gradient(rgba(232, 198, 117, 0.14) 1px, transparent 1px),
                 linear-gradient(to right, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
@@ -448,9 +465,21 @@
             --bg-body: #0b141c;
             --teal-50: #0f2a28; --teal-100: #134e4a;
         }
-        html[data-theme="dark"] body { background: var(--bg-body); color: var(--slate-800); }
+        html[data-theme="dark"] body {
+            background-color: var(--bg-body);
+            background-image:
+                linear-gradient(rgba(11, 20, 28, 0.78), rgba(11, 20, 28, 0.86)),
+                url("static/tru-so-vksnd.jpg");
+            background-size: cover;
+            background-position: center 38%;
+            background-repeat: no-repeat;
+            color: var(--slate-800);
+        }
         html[data-theme="dark"] #landing-page {
-            background: radial-gradient(circle at 50% 38%, #1e5aa8 0%, #13407c 32%, #0a2a58 62%, #061830 100%);
+            background-color: #061830;
+        }
+        html[data-theme="dark"] #landing-page .hq-veil {
+            background: linear-gradient(180deg, rgba(6,16,32,.5) 0%, rgba(6,16,32,.32) 40%, rgba(6,16,32,.7) 100%);
         }
         html[data-theme="dark"] #landing-page h1 { color: #f4f7fb !important; }
         html[data-theme="dark"] .bento-card {
@@ -513,8 +542,10 @@
             </div>
         </div>
 
-        <!-- LỚP NỀN CÔNG NGHỆ -->
+        <!-- LỚP NỀN TRỤ SỞ -->
         <div class="absolute inset-0 z-0 overflow-hidden">
+            <img class="hq-photo" src="static/tru-so-vksnd.jpg" alt="Trụ sở Viện kiểm sát nhân dân thành phố Cần Thơ">
+            <div class="hq-veil"></div>
             <div class="absolute inset-0 tech-grid"></div>
         </div>
 
