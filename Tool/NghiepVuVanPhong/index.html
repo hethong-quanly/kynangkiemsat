@@ -4032,7 +4032,15 @@ var VanPhong = (() => {
     const pane = el("pane-chitieu");
     if (!pane) return;
     const st = renderChiTieu._st || (renderChiTieu._st = { sub: "chitieu", q: "", g: "", cap: "", open: 1, loai: "hs", openBieu: "hs-01" });
-    const esc = function (s) { return String(s || "").replace(/[&<>"]/g, function (c) { return ({ "&": "&", "<": "<", ">": ">", '"': """ })[c]; }); };
+    const esc = function (s) {
+      return String(s || "").replace(/[&<>"']/g, function (c) {
+        if (c === "&") return "\u0026amp;";
+        if (c === "<") return "\u0026lt;";
+        if (c === ">") return "\u0026gt;";
+        if (c === '"') return "\u0026quot;";
+        return "\u0026#39;";
+      });
+    };
     const muc = function (v) { return S.formatMuc(v); };
     const pills = function (c) {
       let h = "";
