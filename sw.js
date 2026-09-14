@@ -1,7 +1,7 @@
 /* Kỹ năng Kiểm sát — service worker.
    Cache HTML tools + static assets so the installed app works offline.
    Skip large Windows zips, Tesseract, video. CDN fonts/css cached at runtime. */
-const CACHE = "knks-v6";
+const CACHE = "knks-v7";
 const SCOPE = self.registration.scope;
 
 const PRECACHE = [
@@ -25,6 +25,7 @@ const PRECACHE = [
   "./Tool/KiemSatThads/index.html",
   "./Tool/KiemSatThahs/index.html",
   "./Tool/KiemSatAnHs/index.html",
+  "./Tool/TroLyAoKiemSat/index.html",
   "./Tool/SoanQdPhanCong/index.html",
   "./Tool/AnDanh/index.html",
   "./Tool/FileRenamer/index.html",
@@ -42,6 +43,8 @@ const CDN = [
   "https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;700;800&display=swap",
   "https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css",
   "https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js",
+  "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js",
+  "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js",
   "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css",
   "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/webfonts/fa-solid-900.woff2",
   "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/webfonts/fa-regular-400.woff2",
