@@ -2411,7 +2411,10 @@ var VanPhong = (() => {
     function diem(n, per) { return n == null ? "—" : (n + " điểm" + (per || "")); }
     function esc(s) {
       return String(s == null ? "" : s).replace(/[&<>"]/g, function (c) {
-        return c === "&" ? "&" : c === "<" ? "<" : c === ">" ? ">" : """;
+        if (c === "&") return "&" + "amp;";
+        if (c === "<") return "&" + "lt;";
+        if (c === ">") return "&" + "gt;";
+        return "&" + "quot;";
       });
     }
     const chips = S.KPI_SECTIONS.map(function (s) {
