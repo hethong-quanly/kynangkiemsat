@@ -1,7 +1,7 @@
 /* Kỹ năng Kiểm sát — service worker.
    Cache HTML tools + static assets so the installed app works offline.
    Skip large Windows zips, Tesseract, video. CDN fonts/css cached at runtime. */
-const CACHE = "knks-v22";
+const CACHE = "knks-v23";
 const SCOPE = self.registration.scope;
 
 const PRECACHE = [
@@ -29,6 +29,13 @@ const PRECACHE = [
   "./Tool/KiemSatAnHs/bieu-mau/thong-tu-03-2026.pdf",
   "./Tool/KiemSatAnHs/bieu-mau/danh-muc-tt03.doc",
   "./Tool/KiemSatAnDs/index.html",
+  "./Tool/KiemSatAnDs/bieu-mau/qd-410.pdf",
+  "./Tool/KiemSatAnDs/bieu-mau/danh-muc-ds.docx",
+  "./Tool/KiemSatAnDs/bieu-mau/danh-muc-hc.docx",
+  "./Tool/KiemSatAnDs/bieu-mau/danh-muc-pl09.docx",
+  "./Tool/KiemSatAnDs/bieu-mau/bo-65-ds.docx",
+  "./Tool/KiemSatAnDs/bieu-mau/bo-65-hc.docx",
+  "./Tool/KiemSatAnDs/bieu-mau/bieu-pl09.doc",
   "./Tool/NghiepVuVanPhong/index.html",
   "./Tool/NghiepVuVanPhong/bieu-mau/bieu-hinh-su.xls",
   "./Tool/NghiepVuVanPhong/bieu-mau/bieu-dan-su.xls",
