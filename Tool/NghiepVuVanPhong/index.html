@@ -72,13 +72,12 @@ td { padding:8px 10px; border-bottom:1px solid #f1f5f9; vertical-align:top; }
     </div>
   </header>
   <div class="wrap">
-    <p class="muted">Chín mảng công tác Văn phòng Viện kiểm sát: văn thư, lưu trữ, tài sản công, lịch trực bảo vệ, thống kê (156 chỉ tiêu, 17 biểu HS + 12 PL, Biểu DS 18–25), CNTT, tham mưu báo cáo, thi đua khen thưởng, xây dựng cơ bản. Tra cứu điểm KPI theo Quyết định 287/QĐ-VKSTC ngày 19/9/2026 (Phiên bản 1.0). Quyết định tháng 9/2025 thay QĐ 140 từ kỳ 10/2025. Tính hạn theo NĐ 30/2020, Luật Lưu trữ 2024, QĐ 274/2025, TT 05/2026. Đối chiếu văn bản gốc trước khi ban hành, gửi báo cáo.</p>
+    <p class="muted">Chín mảng công tác Văn phòng Viện kiểm sát: văn thư, lưu trữ, tài sản công, lịch trực bảo vệ, thống kê (156 chỉ tiêu, 17 biểu HS + 12 PL, Biểu DS 18–25), CNTT, tham mưu báo cáo, thi đua khen thưởng, xây dựng cơ bản. Mục chỉ tiêu gồm điểm KPI theo Quyết định 287/QĐ-VKSTC ngày 19/9/2026 (bản nâng cấp đánh giá nhiệm vụ) và 156 chỉ tiêu, biểu mẫu thống kê. Quyết định tháng 9/2025 thay QĐ 140 từ kỳ 10/2025. Tính hạn theo NĐ 30/2020, Luật Lưu trữ 2024, QĐ 274/2025, TT 05/2026. Đối chiếu văn bản gốc trước khi ban hành, gửi báo cáo.</p>
     
     <div class="row no-print" id="tabs">
       <button class="tab on" data-tab="quytrinh" type="button">Quy trình 09 mảng</button>
       <button class="tab" data-tab="tinh" type="button">Tính hạn</button>
-      <button class="tab" data-tab="chitieu" type="button">Chỉ tiêu · biểu mẫu</button>
-      <button class="tab" data-tab="kpi" type="button">KPI · QĐ 287</button>
+      <button class="tab" data-tab="chitieu" type="button">Chỉ tiêu · KPI</button>
       <button class="tab" data-tab="tra" type="button">Bảng tra cứu</button>
       <button class="tab" data-tab="so" type="button">Sổ việc</button>
     </div>
@@ -96,7 +95,6 @@ td { padding:8px 10px; border-bottom:1px solid #f1f5f9; vertical-align:top; }
       <div id="out"></div>
     </div>
     <div id="pane-chitieu" class="hide"></div>
-    <div id="pane-kpi" class="hide"></div>
     <div id="pane-tra" class="hide"><div class="card"><p class="kicker">Bảng tra cứu thời hạn công tác văn phòng</p><input id="mq" placeholder="Lọc: 17 giờ thứ Tư, Điều 17, QĐ 140, khẩn…" /><div class="grid g3" id="matrix" style="margin-top:10px"></div></div></div>
     <div id="pane-so" class="hide"><div class="card"><p class="kicker">Sổ việc trên máy này</p><div id="soList"></div></div></div>
 
@@ -2255,7 +2253,7 @@ var VanPhong = (() => {
   function renderChiTieu() {
     const pane = el("pane-chitieu");
     if (!pane) return;
-    const st = renderChiTieu._st || (renderChiTieu._st = { sub: "chitieu", q: "", g: "", cap: "", open: 1, loai: "hs", openBieu: "hs-01" });
+    const st = renderChiTieu._st || (renderChiTieu._st = { sub: "kpi", q: "", g: "", cap: "", open: 1, loai: "hs", openBieu: "hs-01", kpiSec: "VIII", kpiQ: "", kpiCol: 1, kpiQty: "1", kpiPick: -1 });
     const esc = function (s) {
       return String(s || "").replace(/[&<>"']/g, function (c) {
         if (c === "&") return "\u0026amp;";
@@ -2276,9 +2274,11 @@ var VanPhong = (() => {
     const subBtn = function (id, label) {
       return '<button class="chip' + (st.sub === id ? " on" : "") + '" type="button" data-sub="' + id + '">' + label + "</button>";
     };
-    let body = '<div class="card"><p class="kicker">Chỉ tiêu · biểu mẫu thống kê</p><p class="muted">' + esc(S.TK_QD) + "</p><div class='row' style='margin-top:10px'>" +
-      subBtn("tongquan", "Tổng quan") + subBtn("chitieu", "156 chỉ tiêu") + subBtn("bieu", "Biểu mẫu") + subBtn("nguyen", "Nguyên tắc ghi") + "</div></div>";
-    if (st.sub === "tongquan") {
+    let body = '<div class="card"><p class="kicker">Chỉ tiêu · đánh giá KPI</p><p class="muted">Điểm KPI theo Quyết định 287/QĐ-VKSTC ngày 19/9/2026 là bản nâng cấp để đánh giá nhiệm vụ trong mục này. 156 chỉ tiêu và biểu mẫu thống kê vẫn dùng để ghi số liệu, không thay bảng điểm.</p><div class="row" style="margin-top:10px">' +
+      subBtn("kpi", "Điểm KPI") + subBtn("tongquan", "Tổng quan thống kê") + subBtn("chitieu", "156 chỉ tiêu") + subBtn("bieu", "Biểu mẫu") + subBtn("nguyen", "Nguyên tắc ghi") + "</div></div>";
+    if (st.sub === "kpi") {
+      body += kpiHtml(st, esc);
+    } else if (st.sub === "tongquan") {
       body += '<div class="grid g2">' +
         '<div class="card"><p style="font-weight:800;color:var(--navy);margin:0">Mục đích</p><p class="muted">' + esc(S.TK_INTRO.mucDich) + "</p></div>" +
         '<div class="card"><p style="font-weight:800;color:var(--navy);margin:0">Yêu cầu</p><p class="muted">' + esc(S.TK_INTRO.yeuCau) + "</p></div>" +
@@ -2329,10 +2329,34 @@ var VanPhong = (() => {
     pane.innerHTML = body;
     const qel = document.getElementById("ctq");
     if (qel) qel.addEventListener("input", function () { st.q = qel.value; renderChiTieu(); });
+    const kq = document.getElementById("kpiQ");
+    if (kq) kq.addEventListener("input", function () {
+      st.kpiQ = kq.value;
+      st.kpiPick = -1;
+      renderChiTieu();
+      const n = document.getElementById("kpiQ");
+      if (n) { n.focus(); n.setSelectionRange(n.value.length, n.value.length); }
+    });
+    const kqty = document.getElementById("kpiQty");
+    if (kqty) kqty.addEventListener("input", function () {
+      const pos = kqty.selectionStart;
+      st.kpiQty = kqty.value;
+      renderChiTieu();
+      const n = document.getElementById("kpiQty");
+      if (n) { n.focus(); if (pos != null) n.setSelectionRange(pos, pos); }
+    });
     pane.onclick = function (e) {
-      const b = e.target.closest("[data-sub],[data-g],[data-cap],[data-open],[data-loai],[data-bieu]");
+      const b = e.target.closest("[data-sub],[data-g],[data-cap],[data-open],[data-loai],[data-bieu],[data-ksec],[data-kcol],[data-krow]");
       if (!b) return;
       if (b.hasAttribute("data-sub")) st.sub = b.getAttribute("data-sub");
+      if (b.hasAttribute("data-ksec")) {
+        st.kpiSec = b.getAttribute("data-ksec");
+        st.kpiPick = -1;
+        const meta = S.KPI_SECTIONS.filter(function (s) { return s.id === st.kpiSec; })[0];
+        st.kpiCol = meta && meta.layout === "muc4" ? 0 : 1;
+      }
+      if (b.hasAttribute("data-kcol")) st.kpiCol = Number(b.getAttribute("data-kcol"));
+      if (b.hasAttribute("data-krow")) st.kpiPick = Number(b.getAttribute("data-krow"));
       if (b.hasAttribute("data-g")) st.g = b.getAttribute("data-g");
       if (b.hasAttribute("data-cap")) st.cap = b.getAttribute("data-cap");
       if (b.hasAttribute("data-open")) st.open = Number(b.getAttribute("data-open")) === st.open ? 0 : Number(b.getAttribute("data-open"));
@@ -2350,7 +2374,7 @@ var VanPhong = (() => {
       return '<div class="card" style="margin-top:0"><p class="kicker">' + t.short + "</p><p style='font-weight:800;color:var(--navy);margin:4px 0'>" + t.label + "</p><p class='muted'>" + p.lead + "</p>" +
         p.steps.map(function (s) { return '<div class="step"><div class="num">' + s.n + "</div><div><b>" + s.title + "</b><div class='muted'>" + s.body + "</div></div></div>"; }).join("") +
         '<div class="row no-print"><button class="btn" type="button" data-sample="' + t.id + '">Tính hạn</button>' +
-        (t.id === "thong-ke" ? '<button class="btn" type="button" data-chitieu="1">156 chỉ tiêu · biểu mẫu</button>' : "") +
+        (t.id === "thong-ke" ? '<button class="btn" type="button" data-chitieu="1">Chỉ tiêu · điểm KPI</button>' : "") +
         "</div></div>";
     }).join("");
     el("pane-quytrinh").innerHTML = '<p class="muted">' + S.PROCESS_INTRO + "</p><div class='grid g2'>" + methods + "</div><div class='grid g3' style='margin-top:14px'>" + tracks + "</div>";
@@ -2372,7 +2396,7 @@ var VanPhong = (() => {
     const ch = e.target.closest("[data-chitieu]");
     if (ch) {
       document.querySelectorAll(".tab").forEach(function (t) { t.classList.toggle("on", t.getAttribute("data-tab") === "chitieu"); });
-      ["quytrinh","tinh","chitieu","kpi","tra","so"].forEach(function (p) { el("pane-" + p).classList.toggle("hide", p !== "chitieu"); });
+      ["quytrinh","tinh","chitieu","tra","so"].forEach(function (p) { el("pane-" + p).classList.toggle("hide", p !== "chitieu"); });
       renderChiTieu();
       return;
     }
@@ -2382,43 +2406,29 @@ var VanPhong = (() => {
     opts.kind = S.DEFAULT_KIND[track];
     el("moc").value = today();
     document.querySelectorAll(".tab").forEach(function (t) { t.classList.toggle("on", t.getAttribute("data-tab") === "tinh"); });
-    ["quytrinh","tinh","chitieu","kpi","tra","so"].forEach(function (p) { el("pane-" + p).classList.toggle("hide", p !== "tinh"); });
+    ["quytrinh","tinh","chitieu","tra","so"].forEach(function (p) { el("pane-" + p).classList.toggle("hide", p !== "tinh"); });
     renderTracks(); renderOpts(); renderOut();
   });
   ["moc","gio"].forEach(function (id) { el(id).addEventListener("input", renderOut); });
   el("mq").addEventListener("input", renderMatrix);
-  let kpiSec = "VIII";
-  let kpiQ = "";
-  let kpiCol = 1;
-  let kpiQty = "1";
-  let kpiPick = -1;
-  function renderKpi() {
-    const pane = el("pane-kpi");
-    const sec = S.KPI_SECTIONS.filter(function (s) { return s.id === kpiSec; })[0] || S.KPI_SECTIONS[0];
+  function kpiHtml(st, esc) {
+    const sec = S.KPI_SECTIONS.filter(function (s) { return s.id === st.kpiSec; })[0] || S.KPI_SECTIONS[0];
     const colCount = sec.layout === "flat" ? 1 : sec.layout === "muc4" ? 4 : 3;
-    const active = sec.layout === "flat" ? 0 : Math.min(kpiCol, colCount - 1);
-    const q = kpiQ.trim().toLowerCase();
+    const active = sec.layout === "flat" ? 0 : Math.min(st.kpiCol, colCount - 1);
+    const q = st.kpiQ.trim().toLowerCase();
     const rows = S.KPI_ROWS.filter(function (r) {
-      if (r.sec !== kpiSec) return false;
+      if (r.sec !== st.kpiSec) return false;
       if (!q) return true;
       return (r.stt + " " + r.task + " " + r.out + " " + r.unit).toLowerCase().indexOf(q) >= 0;
     });
     const scored = rows.filter(function (r) { return !r.head; });
-    const picked = kpiPick >= 0 ? scored[kpiPick] : null;
+    const picked = st.kpiPick >= 0 ? scored[st.kpiPick] : null;
     const unitScore = picked ? picked.s[active] : null;
-    const qtyN = parseFloat(String(kpiQty).replace(",", "."));
+    const qtyN = parseFloat(String(st.kpiQty).replace(",", "."));
     const total = unitScore != null && isFinite(qtyN) ? unitScore * qtyN : null;
     function diem(n, per) { return n == null ? "—" : (n + " điểm" + (per || "")); }
-    function esc(s) {
-      return String(s == null ? "" : s).replace(/[&<>"]/g, function (c) {
-        if (c === "&") return "&" + "amp;";
-        if (c === "<") return "&" + "lt;";
-        if (c === ">") return "&" + "gt;";
-        return "&" + "quot;";
-      });
-    }
     const chips = S.KPI_SECTIONS.map(function (s) {
-      return '<button class="chip' + (s.id === kpiSec ? " on" : "") + '" type="button" data-ksec="' + s.id + '">' + esc(s.id) + "</button>";
+      return '<button class="chip' + (s.id === st.kpiSec ? " on" : "") + '" type="button" data-ksec="' + s.id + '">' + esc(s.id) + "</button>";
     }).join("");
     const colBtns = sec.layout === "flat" ? "" : sec.cols.slice(0, colCount).map(function (label, i) {
       return '<button class="chip' + (i === active ? " on" : "") + '" type="button" data-kcol="' + i + '">' + esc(label) + "</button>";
@@ -2435,17 +2445,17 @@ var VanPhong = (() => {
       for (let k = 0; k < colCount; k++) {
         cells.push("<td" + (k === active ? ' style="color:#0f766e;font-weight:800"' : "") + ">" + esc(diem(r.s[k], r.per[k])) + "</td>");
       }
-      return '<tr data-krow="' + idx + '" style="cursor:pointer' + (idx === kpiPick ? ";background:#f0fdfa" : "") + '"><td><b>' + esc(r.stt) + "</b></td><td><b>" + esc(r.task) + "</b>" + (r.out ? "<div class='muted'>" + esc(r.out) + "</div>" : "") + "</td><td>" + esc(r.unit || "—") + "</td>" + cells.join("") + "</tr>";
+      return '<tr data-krow="' + idx + '" style="cursor:pointer' + (idx === st.kpiPick ? ";background:#f0fdfa" : "") + '"><td><b>' + esc(r.stt) + "</b></td><td><b>" + esc(r.task) + "</b>" + (r.out ? "<div class='muted'>" + esc(r.out) + "</div>" : "") + "</td><td>" + esc(r.unit || "—") + "</td>" + cells.join("") + "</tr>";
     }).join("");
     let calc = "Bạn chọn một dòng trong bảng.";
     if (picked && unitScore == null) calc = "Bảng không ghi điểm ở cột này.";
     else if (picked && total != null) calc = esc(diem(unitScore, picked.per[active])) + " × " + qtyN + " = <b>" + total + " điểm</b>";
-    pane.innerHTML =
+    return (
       '<div class="card"><p class="kicker">KPI ngành kiểm sát · QĐ ' + esc(S.KPI_QD.so) + "</p>" +
       '<p class="muted">Ký ngày ' + esc(S.KPI_QD.ngayKy) + " — " + esc(S.KPI_QD.chucDanh) + " " + esc(S.KPI_QD.nguoiKy) + " (Phiên bản " + esc(S.KPI_QD.phienBan) + "). Phụ lục in ngày " + esc(S.KPI_QD.phuLucNgay) + ". Mặc định cột cấp tỉnh. Chín mảng hạn giữ nguyên.</p>" +
       '<p class="muted">' + esc(S.KPI_NOTE) + "</p>" +
       '<p class="muted">' + esc(S.KPI_COVERAGE) + "</p>" +
-      '<input id="kpiQ" placeholder="Tìm: văn thư, báo cáo tháng, thi đua, eTask…" value="' + esc(kpiQ) + '" />' +
+      '<input id="kpiQ" placeholder="Tìm: văn thư, báo cáo tháng, thi đua, eTask…" value="' + esc(st.kpiQ) + '" />' +
       '<div class="row">' + chips + "</div>" +
       (sec.note ? '<p class="muted">' + esc(sec.note) + "</p>" : "") +
       (colBtns ? '<div class="row">' + colBtns + "</div>" : "") +
@@ -2453,50 +2463,19 @@ var VanPhong = (() => {
       '<p class="muted">' + scored.length + " nhiệm vụ có điểm trong mục " + esc(sec.id) + ".</p>" +
       '<div class="hero"><span class="span">Tính nhẩm — không phải kết quả chấm chính thức</span>' +
       "<p>" + (picked ? "<b>" + esc(picked.stt + ". " + picked.task) + "</b>" : "Chưa chọn dòng") + "</p>" +
-      '<label>Số lượng</label><input id="kpiQty" inputmode="decimal" value="' + esc(kpiQty) + '" style="max-width:120px" />' +
-      "<p>" + calc + "</p></div></div>";
+      '<label>Số lượng</label><input id="kpiQty" inputmode="decimal" value="' + esc(st.kpiQty) + '" style="max-width:120px" />' +
+      "<p>" + calc + "</p></div></div>");
   }
-  el("pane-kpi").addEventListener("click", function (e) {
-    const secB = e.target.closest("[data-ksec]");
-    if (secB) {
-      kpiSec = secB.getAttribute("data-ksec");
-      kpiPick = -1;
-      const meta = S.KPI_SECTIONS.filter(function (s) { return s.id === kpiSec; })[0];
-      kpiCol = meta && meta.layout === "muc4" ? 0 : 1;
-      renderKpi();
-      return;
-    }
-    const colB = e.target.closest("[data-kcol]");
-    if (colB) { kpiCol = Number(colB.getAttribute("data-kcol")); renderKpi(); return; }
-    const rowB = e.target.closest("[data-krow]");
-    if (rowB) { kpiPick = Number(rowB.getAttribute("data-krow")); renderKpi(); }
-  });
-  el("pane-kpi").addEventListener("input", function (e) {
-    if (e.target.id === "kpiQ") {
-      kpiQ = e.target.value;
-      kpiPick = -1;
-      renderKpi();
-      const n = el("kpiQ");
-      if (n) { n.focus(); n.setSelectionRange(n.value.length, n.value.length); }
-    }
-    if (e.target.id === "kpiQty") {
-      const pos = e.target.selectionStart;
-      kpiQty = e.target.value;
-      renderKpi();
-      const n = el("kpiQty");
-      if (n) { n.focus(); if (pos != null) n.setSelectionRange(pos, pos); }
-    }
-  });
+
   document.getElementById("tabs").addEventListener("click", function (e) {
     const b = e.target.closest("[data-tab]");
     if (!b) return;
     const tab = b.getAttribute("data-tab");
     document.querySelectorAll(".tab").forEach(function (t) { t.classList.toggle("on", t.getAttribute("data-tab") === tab); });
-    ["quytrinh","tinh","chitieu","kpi","tra","so"].forEach(function (p) { el("pane-" + p).classList.toggle("hide", p !== tab); });
+    ["quytrinh","tinh","chitieu","tra","so"].forEach(function (p) { el("pane-" + p).classList.toggle("hide", p !== tab); });
     if (tab === "so") renderSo();
     if (tab === "tra") renderMatrix();
     if (tab === "chitieu") renderChiTieu();
-    if (tab === "kpi") renderKpi();
   });
   renderQt(); renderTracks(); renderOpts(); renderOut(); renderMatrix();
 })();
