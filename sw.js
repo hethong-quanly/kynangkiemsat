@@ -1,7 +1,7 @@
 /* Kỹ năng Kiểm sát — service worker.
    Cache HTML tools + static assets so the installed app works offline.
    Skip large Windows zips, Tesseract, video. CDN fonts/css cached at runtime. */
-const CACHE = "knks-v19";
+const CACHE = "knks-v21";
 const SCOPE = self.registration.scope;
 
 const PRECACHE = [
@@ -27,6 +27,27 @@ const PRECACHE = [
   "./Tool/KiemSatThahs/index.html",
   "./Tool/KiemSatAnHs/index.html",
   "./Tool/NghiepVuVanPhong/index.html",
+  "./Tool/NghiepVuVanPhong/bieu-mau/bieu-hinh-su.xls",
+  "./Tool/NghiepVuVanPhong/bieu-mau/bieu-dan-su.xls",
+  "./Tool/NghiepVuVanPhong/bieu-mau/bieu-hanh-chinh.xls",
+  "./Tool/NghiepVuVanPhong/bieu-mau/bieu-pha-san.xls",
+  "./Tool/NghiepVuVanPhong/bieu-mau/bieu-khieu-nai-to-cao.xls",
+  "./Tool/NghiepVuVanPhong/bieu-mau/bieu-thi-hanh-an-dan-su.xls",
+  "./Tool/NghiepVuVanPhong/bieu-mau/bieu-vi-pham-tu-phap.xls",
+  "./Tool/NghiepVuVanPhong/bieu-mau/phu-luc-tu-hinh.xls",
+  "./Tool/NghiepVuVanPhong/bieu-mau/quyet-dinh-ban-hanh.doc",
+  "./Tool/NghiepVuVanPhong/bieu-mau/che-do-bao-cao.doc",
+  "./Tool/NghiepVuVanPhong/bieu-mau/huong-dan-bieu-mau.doc",
+  "./Tool/NghiepVuVanPhong/bieu-mau/huong-dan-vi-pham.doc",
+  "./Tool/NghiepVuVanPhong/bieu-mau/to-trinh.doc",
+  "./Tool/NghiepVuVanPhong/bieu-mau/qd-358-ban-hanh.pdf",
+  "./Tool/NghiepVuVanPhong/bieu-mau/che-do-bao-cao-358.doc",
+  "./Tool/NghiepVuVanPhong/bieu-mau/bieu-hinh-su-358.xlsx",
+  "./Tool/NghiepVuVanPhong/bieu-mau/hd-bieu-hinh-su.docx",
+  "./Tool/NghiepVuVanPhong/bieu-mau/bieu-dan-su-358.xlsx",
+  "./Tool/NghiepVuVanPhong/bieu-mau/hd-bieu-dan-su.docx",
+  "./Tool/NghiepVuVanPhong/bieu-mau/htcttk-156.xlsx",
+  "./Tool/NghiepVuVanPhong/bieu-mau/hd-htcttk.docx",
   "./Tool/TroLyAoKiemSat/index.html",
   "./Tool/SoanQdPhanCong/index.html",
   "./Tool/AnDanh/index.html",
