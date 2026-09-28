@@ -1,14 +1,13 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-<script src="../../theme.js" data-knks-theme></script>
-<link rel="stylesheet" href="../../theme-tool.css" />
-
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Kỹ năng kiểm sát thi hành án hình sự — NHÓM IT · VKSND TP Cần Thơ</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../../theme-tool.css" />
+  <script src="../../theme.js" data-knks-theme></script>
   <style>
 :root { --sky-dark:#1e5a8a; --plum-dark:#5a1f30; --bronze:#c9952e; --bronze-light:#e8c675; --navy:#0c2340; --paper:#fbf8f1; --ink:#1c2128; --muted:#5e6772; --line:#d9d2c5; --ok:#1f6b4a; --teal:#0d9488; --crimson:#8b2332; --bg:#eef7f9; }
 * { box-sizing:border-box; }
@@ -53,6 +52,10 @@ td { padding:8px 10px; border-bottom:1px solid #f1f5f9; vertical-align:top; }
 .chk { display:flex; gap:8px; align-items:flex-start; font-size:12px; line-height:1.5; margin:8px 0; }
 .chk input { width:16px; height:16px; min-height:0; margin-top:2px; flex-shrink:0; }
 .teal { background:#f0fdfa; border-color:#99f6e4; }
+.msg { white-space:pre-wrap; border-radius:12px; padding:10px 12px; margin:8px 0; font-size:13px; line-height:1.55; }
+.msg.bot { background:#f8fafc; border:1px solid #e2e8f0; }
+.msg.me { background:var(--navy); color:#fff; margin-left:28px; }
+#chat { max-height:58vh; overflow:auto; min-height:280px; }
 @media print {
   .hdr, .no-print, .foot { display:none !important; }
   body { background:#fff; }
@@ -69,11 +72,12 @@ td { padding:8px 10px; border-bottom:1px solid #f1f5f9; vertical-align:top; }
     </div>
   </header>
   <div class="wrap">
-    <p class="muted">Hồ sơ tạm giữ, tạm giam, phạm nhân; chế độ ăn, mặc, lễ Tết, căn tin, bếp ăn, lưu ký tiền; giảm án, tha tù; phương pháp kiểm sát theo Luật 127/2025, Luật 128/2025, NĐ 170–213/2026 và Quy chế 259/QĐ-VKSTC. Đối chiếu văn bản gốc trước khi kiến nghị, kháng nghị.</p>
+    <p class="muted">Hồ sơ tạm giữ, tạm giam, phạm nhân; chế độ ăn, mặc, lễ Tết, căn tin, bếp ăn, lưu ký tiền; giảm án, tha tù; phương pháp kiểm sát theo Luật 127/2025, Luật 128/2025, NĐ 170–213/2026 và Quy chế 259/QĐ-VKSTC. Biểu mẫu nghiệp vụ kiểm sát tạm giữ, tạm giam, thi hành án hình sự theo Quyết định số 39/QĐ-VKSTC ngày 26/01/2018 — danh mục 80 mẫu chưa có trong tệp đính kèm nên không ghi tên từng mẫu. Đối chiếu văn bản gốc trước khi kiến nghị, kháng nghị.</p>
     
     <div class="row no-print" id="tabs">
       <button class="tab on" data-tab="phuongphap" type="button">Phương pháp kiểm sát</button>
       <button class="tab" data-tab="hoso" type="button">Hồ sơ</button>
+      <button class="tab" data-tab="bieu" type="button">Biểu mẫu QĐ 39</button>
       <button class="tab" data-tab="chedo" type="button">Chế độ · lưu ký</button>
       <button class="tab" data-tab="tinh" type="button">Tính hạn</button>
       <button class="tab" data-tab="tra" type="button">Bảng tra cứu</button>
@@ -81,6 +85,7 @@ td { padding:8px 10px; border-bottom:1px solid #f1f5f9; vertical-align:top; }
     </div>
     <div id="pane-phuongphap"></div>
     <div id="pane-hoso" class="hide"></div>
+    <div id="pane-bieu" class="hide"></div>
     <div id="pane-chedo" class="hide"></div>
     <div id="pane-tinh" class="hide">
       <div class="card"><p class="kicker">1. Chọn khâu</p><div class="grid g2" id="tracks"></div></div>
@@ -139,6 +144,10 @@ var Thahs = (() => {
     METHODS: () => METHODS,
     PROCESS: () => PROCESS,
     PROCESS_INTRO: () => PROCESS_INTRO,
+    QD39: () => QD39,
+    QD39_NOTE: () => QD39_NOTE,
+    QD39_POINTS: () => QD39_POINTS,
+    QD39_SIGNER: () => QD39_SIGNER,
     SO_HEADERS: () => SO_HEADERS,
     TRACKS: () => TRACKS,
     computeThahs: () => computeThahs,
@@ -570,6 +579,25 @@ var Thahs = (() => {
       moc
     );
   }
+
+  // src/lib/thahs/bieu-39.ts
+  var QD39 = "Quy\u1EBFt \u0111\u1ECBnh s\u1ED1 39/Q\u0110-VKSTC ng\xE0y 26/01/2018";
+  var QD39_SIGNER = "L\xEA Minh Tr\xED";
+  var QD39_NOTE = "Vi\u1EC7n tr\u01B0\u1EDFng L\xEA Minh Tr\xED k\xFD Quy\u1EBFt \u0111\u1ECBnh s\u1ED1 39/Q\u0110-VKSTC ng\xE0y 26/01/2018, ban h\xE0nh bi\u1EC3u m\u1EABu nghi\u1EC7p v\u1EE5 v\u1EC1 c\xF4ng t\xE1c ki\u1EC3m s\xE1t vi\u1EC7c t\u1EA1m gi\u1EEF, t\u1EA1m giam, thi h\xE0nh \xE1n h\xECnh s\u1EF1. \u0110i\u1EC1u 1: 80 bi\u1EC3u m\u1EABu theo danh m\u1EE5c k\xE8m theo. C\xF3 hi\u1EC7u l\u1EF1c k\u1EC3 t\u1EEB ng\xE0y k\xFD. Bi\u1EC3u m\u1EABu \u0111\xE3 th\u1EF1c hi\u1EC7n tr\u01B0\u1EDBc ng\xE0y quy\u1EBFt \u0111\u1ECBnh c\xF3 hi\u1EC7u l\u1EF1c v\u1EABn c\xF3 gi\xE1 tr\u1ECB theo quy \u0111\u1ECBnh c\u1EE7a ph\xE1p lu\u1EADt. T\u1EC7p \u0111\xEDnh k\xE8m kh\xF4ng c\xF3 danh m\u1EE5c v\xE0 m\u1EABu tr\u1ED1ng c\u1EE7a 80 bi\u1EC3u n\xE0y \u2014 kh\xF4ng ghi t\xEAn t\u1EEBng m\u1EABu khi ch\u01B0a c\xF3 b\u1EA3n danh m\u1EE5c.";
+  var QD39_POINTS = [
+    {
+      title: "Ph\u1EA1m vi",
+      body: "Bi\u1EC3u m\u1EABu nghi\u1EC7p v\u1EE5 d\xF9ng trong ki\u1EC3m s\xE1t vi\u1EC7c t\u1EA1m gi\u1EEF, t\u1EA1m giam v\xE0 thi h\xE0nh \xE1n h\xECnh s\u1EF1 c\u1EE7a Vi\u1EC7n ki\u1EC3m s\xE1t. Kh\xF4ng d\xF9ng thay bi\u1EC3u m\u1EABu t\u1ED1 t\u1EE5ng kh\u1EDFi t\u1ED1, \u0111i\u1EC1u tra, truy t\u1ED1 c\u1EE7a Th\xF4ng t\u01B0 03/2026/TT-VKSTC."
+    },
+    {
+      title: "S\u1ED1 l\u01B0\u1EE3ng",
+      body: "80 bi\u1EC3u m\u1EABu, theo danh m\u1EE5c k\xE8m Quy\u1EBFt \u0111\u1ECBnh. \xD4 t\xEAn m\u1EABu \u0111\u1EC3 tr\u1ED1ng cho \u0111\u1EBFn khi \u0111\u1ED1i chi\u1EBFu \u0111\xFAng danh m\u1EE5c g\u1ED1c."
+    },
+    {
+      title: "Hi\u1EC7u l\u1EF1c",
+      body: "T\u1EEB ng\xE0y 26/01/2018. M\u1EABu \u0111\xE3 ban h\xE0nh tr\u01B0\u1EDBc ng\xE0y n\xE0y kh\xF4ng b\u1ECB m\u1EA5t gi\xE1 tr\u1ECB ch\u1EC9 v\xEC Quy\u1EBFt \u0111\u1ECBnh m\u1EDBi c\xF3 hi\u1EC7u l\u1EF1c."
+    }
+  ];
 
   // src/lib/thahs/files.ts
   var FILE_GROUPS = [
@@ -1493,6 +1521,13 @@ var Thahs = (() => {
       quota("Chế độ mặc tạm giữ, tạm giam", "NĐ 213/2026", S.CLOTHING_TG) +
       '<div class="grid g2" style="margin-top:14px">' + kit + "</div><p class='kicker' style='margin-top:16px'>Quản lý thu, chi tiền — lưu ký</p><div class='grid g2'>" + luu + "</div>";
   }
+  function renderBieu39() {
+    el("pane-bieu").innerHTML = '<p class="muted" id="bieu-note"></p><div class="grid g3" id="bieu-cards"></div>';
+    el("bieu-note").textContent = S.QD39_NOTE;
+    el("bieu-cards").innerHTML = S.QD39_POINTS.map(function (p) {
+      return '<div class="card" style="margin-top:0"><p style="font-weight:800;color:var(--navy);margin:0">' + p.title + "</p><p class='muted'>" + p.body + "</p></div>";
+    }).join("");
+  }
   function renderMatrix() {
     const q = (el("mq").value || "").toLowerCase();
     const rows = S.MATRIX.filter(function (r) {
@@ -1545,7 +1580,7 @@ var Thahs = (() => {
     track = b.getAttribute("data-sample");
     el("moc").value = today();
     document.querySelectorAll(".tab").forEach(function (t) { t.classList.toggle("on", t.getAttribute("data-tab") === "tinh"); });
-    ["phuongphap","hoso","chedo","tinh","tra","so"].forEach(function (p) { el("pane-" + p).classList.toggle("hide", p !== "tinh"); });
+    ["phuongphap","hoso","bieu","chedo","tinh","tra","so"].forEach(function (p) { el("pane-" + p).classList.toggle("hide", p !== "tinh"); });
     renderTracks(); renderOpts(); renderOut();
   });
   el("pane-hoso").addEventListener("change", function (e) {
@@ -1563,13 +1598,14 @@ var Thahs = (() => {
     if (!b) return;
     const tab = b.getAttribute("data-tab");
     document.querySelectorAll(".tab").forEach(function (t) { t.classList.toggle("on", t.getAttribute("data-tab") === tab); });
-    ["phuongphap","hoso","chedo","tinh","tra","so"].forEach(function (p) { el("pane-" + p).classList.toggle("hide", p !== tab); });
+    ["phuongphap","hoso","bieu","chedo","tinh","tra","so"].forEach(function (p) { el("pane-" + p).classList.toggle("hide", p !== tab); });
     if (tab === "so") renderSo();
     if (tab === "tra") renderMatrix();
     if (tab === "hoso") renderHs();
     if (tab === "chedo") renderCheDo();
+    if (tab === "bieu") renderBieu39();
   });
-  renderPp(); renderTracks(); renderOpts(); renderOut(); renderMatrix(); renderHs(); renderCheDo();
+  renderPp(); renderTracks(); renderOpts(); renderOut(); renderMatrix(); renderHs(); renderCheDo(); renderBieu39();
 })();
 </script>
 </body>
