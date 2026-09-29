@@ -3613,6 +3613,1020 @@ var VanBanPl = (() => {
     // },
   ];
 
+  // src/lib/ks-hs/bieu-tt03.ts
+  var TT03_HL = "15/02/2026";
+  var TT03_NOTE = "Th\xF4ng t\u01B0 s\u1ED1 03/2026/TT-VKSTC do Vi\u1EC7n tr\u01B0\u1EDFng VKSND t\u1ED1i cao ban h\xE0nh ng\xE0y 09/02/2026, c\xF3 hi\u1EC7u l\u1EF1c t\u1EEB ng\xE0y 15/02/2026 (\u0110i\u1EC1u 5). \u0110i\u1EC1u 3 ban h\xE0nh k\xE8m 213 bi\u1EC3u m\u1EABu v\u0103n b\u1EA3n t\u1ED1 t\u1EE5ng, v\u0103n b\u1EA3n nghi\u1EC7p v\u1EE5 th\u1EF1c h\xE0nh quy\u1EC1n c\xF4ng t\u1ED1, ki\u1EC3m s\xE1t kh\u1EDFi t\u1ED1, \u0111i\u1EC1u tra v\xE0 truy t\u1ED1. B\u1EA5m \u0111\u1EC3 t\u1EA3i m\u1EABu tr\u1ED1ng. \u0110\u1ED1i chi\u1EBFu Th\xF4ng t\u01B0 g\u1ED1c tr\u01B0\u1EDBc khi tr\xECnh k\xFD.";
+  var BIEU_TT03 = [
+    {
+      id: "nt",
+      roman: "I",
+      title: "Ti\u1EBFp nh\u1EADn, gi\u1EA3i quy\u1EBFt ngu\u1ED3n tin v\u1EC1 t\u1ED9i ph\u1EA1m v\xE0 kh\u1EDFi t\u1ED1 v\u1EE5 \xE1n h\xECnh s\u1EF1",
+      items: [
+        { so: "01", n: 1, title: "Bi\xEAn b\u1EA3n ti\u1EBFp nh\u1EADn ngu\u1ED3n tin v\u1EC1 t\u1ED9i ph\u1EA1m", file: "mau-001.doc" },
+        { so: "02", n: 2, title: "Phi\u1EBFu chuy\u1EC3n ngu\u1ED3n tin v\u1EC1 t\u1ED9i ph\u1EA1m", file: "mau-002.doc" },
+        { so: "03", n: 3, title: "Q\u0110 ph\xE2n c\xF4ng THQCT, KS vi\u1EC7c ti\u1EBFp nh\u1EADn, gi\u1EA3i quy\u1EBFt ngu\u1ED3n tin v\u1EC1 t\u1ED9i ph\u1EA1m", file: "mau-003.doc" },
+        { so: "04", n: 4, title: "Q\u0110 thay \u0111\u1ED5i ng\u01B0\u1EDDi THQCT, KS vi\u1EC7c gi\u1EA3i quy\u1EBFt ngu\u1ED3n tin", file: "mau-004.doc" },
+        { so: "05", n: 5, title: "Y\xEAu c\u1EA7u ki\u1EC3m tra, x\xE1c minh ngu\u1ED3n tin v\u1EC1 t\u1ED9i ph\u1EA1m", file: "mau-005.doc" },
+        { so: "06", n: 6, title: "Y\xEAu c\u1EA7u ti\u1EBFp nh\u1EADn, ki\u1EC3m tra, x\xE1c minh, ra Q\u0110 gi\u1EA3i quy\u1EBFt ngu\u1ED3n tin v\u1EC1 t\u1ED9i ph\u1EA1m", file: "mau-006.doc" },
+        { so: "07", n: 7, title: "Y\xEAu c\u1EA7u cung c\u1EA5p t\xE0i li\u1EC7u \u0111\u1EC3 ki\u1EC3m s\xE1t vi\u1EC7c gi\u1EA3i quy\u1EBFt ngu\u1ED3n tin v\u1EC1 t\u1ED9i ph\u1EA1m", file: "mau-007.doc" },
+        { so: "08", n: 8, title: "Y\xEAu c\u1EA7u chuy\u1EC3n ngu\u1ED3n tin v\u1EC1 t\u1ED9i ph\u1EA1m", file: "mau-008.doc" },
+        { so: "09", n: 9, title: "Q\u0110 gia h\u1EA1n th\u1EDDi h\u1EA1n gi\u1EA3i quy\u1EBFt ngu\u1ED3n tin v\u1EC1 t\u1ED9i ph\u1EA1m", file: "mau-009.doc" },
+        { so: "10", n: 10, title: "Q\u0110 t\u1EA1m \u0111\xECnh ch\u1EC9 gi\u1EA3i quy\u1EBFt ngu\u1ED3n tin v\u1EC1 t\u1ED9i ph\u1EA1m", file: "mau-010.doc" },
+        { so: "11", n: 11, title: "Q\u0110 hu\u1EF7 b\u1ECF Q\u0110 t\u1EA1m \u0111\xECnh ch\u1EC9 vi\u1EC7c gi\u1EA3i quy\u1EBFt ngu\u1ED3n tin v\u1EC1 t\u1ED9i ph\u1EA1m", file: "mau-011.doc" },
+        { so: "12", n: 12, title: "Q\u0110 ph\u1EE5c h\u1ED3i gi\u1EA3i quy\u1EBFt ngu\u1ED3n tin", file: "mau-012.doc" },
+        { so: "13", n: 13, title: "Q\u0110 gi\u1EA3i quy\u1EBFt tranh ch\u1EA5p v\u1EC1 th\u1EA9m quy\u1EC1n gi\u1EA3i quy\u1EBFt ngu\u1ED3n tin", file: "mau-013.doc" },
+        { so: "14", n: 14, title: "Q\u0110 tr\u1EF1c ti\u1EBFp ki\u1EC3m s\xE1t ti\u1EBFp nh\u1EADn, gi\u1EA3i quy\u1EBFt ngu\u1ED3n tin v\u1EC1 t\u1ED9i ph\u1EA1m", file: "mau-014.doc" },
+        { so: "15", n: 15, title: "KH tr\u1EF1c ti\u1EBFp ki\u1EC3m s\xE1t vi\u1EC7c ti\u1EBFp nh\u1EADn, gi\u1EA3i quy\u1EBFt ngu\u1ED3n tin v\u1EC1 t\u1ED9i ph\u1EA1m", file: "mau-015.doc" },
+        { so: "16", n: 16, title: "KL tr\u1EF1c ti\u1EBFp ki\u1EC3m s\xE1t vi\u1EC7c ti\u1EBFp nh\u1EADn, gi\u1EA3i quy\u1EBFt ngu\u1ED3n tin v\u1EC1 t\u1ED9i ph\u1EA1m", file: "mau-016.doc" },
+        { so: "17", n: 17, title: "Y\xEAu c\u1EA7u kh\u1EDFi t\u1ED1 v\u1EE5 \xE1n h\xECnh s\u1EF1", file: "mau-017.doc" },
+        { so: "18", n: 18, title: "Y\xEAu c\u1EA7u ra Q\u0110 thay \u0111\u1ED5i Q\u0110 kh\u1EDFi t\u1ED1 v\u1EE5 \xE1n h\xECnh s\u1EF1", file: "mau-018.doc" },
+        { so: "19", n: 19, title: "Y\xEAu c\u1EA7u ra Q\u0110 b\u1ED5 sung Q\u0110 kh\u1EDFi t\u1ED1 v\u1EE5 \xE1n h\xECnh s\u1EF1", file: "mau-019.doc" },
+        { so: "20", n: 20, title: "Y\xEAu c\u1EA7u ra Q\u0110 h\u1EE7y b\u1ECF Q\u0110 kh\u1EDFi t\u1ED1, Q\u0110 kh\xF4ng kh\u1EDFi t\u1ED1", file: "mau-020.doc" },
+        { so: "21", n: 21, title: "Q\u0110 kh\xF4ng kh\u1EDFi t\u1ED1 v\u1EE5 \xE1n h\xECnh s\u1EF1", file: "mau-021.doc" },
+        { so: "22", n: 22, title: "Q\u0110 hu\u1EF7 b\u1ECF Q\u0110 kh\xF4ng kh\u1EDFi t\u1ED1 v\u1EE5 \xE1n h\xECnh s\u1EF1", file: "mau-022.doc" },
+        { so: "23", n: 23, title: "Q\u0110 kh\u1EDFi t\u1ED1 v\u1EE5 \xE1n h\xECnh s\u1EF1", file: "mau-023.doc" },
+        { so: "24", n: 24, title: "Q\u0110 thay \u0111\u1ED5i Q\u0110 kh\u1EDFi t\u1ED1 v\u1EE5 \xE1n h\xECnh s\u1EF1", file: "mau-024.doc" },
+        { so: "25", n: 25, title: "Q\u0110 b\u1ED5 sung Q\u0110 kh\u1EDFi t\u1ED1 v\u1EE5 \xE1n h\xECnh s\u1EF1", file: "mau-025.doc" },
+        { so: "26", n: 26, title: "Q\u0110 hu\u1EF7 b\u1ECF Q\u0110 kh\u1EDFi t\u1ED1 v\u1EE5 \xE1n h\xECnh s\u1EF1", file: "mau-026.doc" },
+        { so: "27", n: 27, title: "Th\xF4ng b\xE1o v\u1EC1 vi\u1EC7c hu\u1EF7 b\u1ECF Q\u0110 kh\u1EDFi t\u1ED1 v\u1EE5 \xE1n h\xECnh s\u1EF1", file: "mau-027.doc" },
+        { so: "28", n: 28, title: "Q\u0110 hu\u1EF7 b\u1ECF Q\u0110 thay \u0111\u1ED5i Q\u0110 kh\u1EDFi t\u1ED1 v\u1EE5 \xE1n h\xECnh s\u1EF1", file: "mau-028.doc" },
+        { so: "29", n: 29, title: "Q\u0110 hu\u1EF7 b\u1ECF Q\u0110 b\u1ED5 sung Q\u0110 kh\u1EDFi t\u1ED1 v\u1EE5 \xE1n h\xECnh s\u1EF1", file: "mau-029.doc" },
+        { so: "30", n: 30, title: "Th\xF4ng b\xE1o k\u1EBFt qu\u1EA3 gi\u1EA3i quy\u1EBFt ngu\u1ED3n tin v\u1EC1 t\u1ED9i ph\u1EA1m", file: "mau-030.doc" }
+      ]
+    },
+    {
+      id: "bp",
+      roman: "II",
+      title: "\xC1p d\u1EE5ng bi\u1EC7n ph\xE1p ng\u0103n ch\u1EB7n, bi\u1EC7n ph\xE1p c\u01B0\u1EE1ng ch\u1EBF",
+      items: [
+        { so: "31", n: 31, title: "Q\u0110 ph\xEA chu\u1EA9n L\u1EC7nh b\u1EAFt ng\u01B0\u1EDDi b\u1ECB gi\u1EEF trong tr\u01B0\u1EDDng h\u1EE3p kh\u1EA9n c\u1EA5p", file: "mau-031.doc" },
+        { so: "32", n: 32, title: "Q\u0110 kh\xF4ng ph\xEA chu\u1EA9n L\u1EC7nh b\u1EAFt ng\u01B0\u1EDDi b\u1ECB gi\u1EEF trong tr\u01B0\u1EDDng h\u1EE3p kh\u1EA9n c\u1EA5p", file: "mau-032.doc" },
+        { so: "33", n: 33, title: "Q\u0110 ph\xEA chu\u1EA9n Q\u0110 gia h\u1EA1n t\u1EA1m gi\u1EEF", file: "mau-033.doc" },
+        { so: "34", n: 34, title: "Q\u0110 kh\xF4ng ph\xEA chu\u1EA9n Q\u0110 gia h\u1EA1n t\u1EA1m gi\u1EEF", file: "mau-034.doc" },
+        { so: "35", n: 35, title: "Q\u0110 hu\u1EF7 b\u1ECF Q\u0110 t\u1EA1m gi\u1EEF, quy\u1EBFt \u0111\u1ECBnh gia h\u1EA1n t\u1EA1m gi\u1EEF", file: "mau-035.doc" },
+        { so: "36", n: 36, title: "Q\u0110 tr\u1EA3 t\u1EF1 do cho ng\u01B0\u1EDDi b\u1ECB t\u1EA1m gi\u1EEF", file: "mau-036.doc" },
+        { so: "37", n: 37, title: "Q\u0110 ph\xEA chu\u1EA9n L\u1EC7nh b\u1EAFt b\u1ECB can \u0111\u1EC3 t\u1EA1m giam", file: "mau-037.doc" },
+        { so: "38", n: 38, title: "Q\u0110 kh\xF4ng ph\xEA chu\u1EA9n L\u1EC7nh b\u1EAFt b\u1ECB can \u0111\u1EC3 t\u1EA1m giam", file: "mau-038.doc" },
+        { so: "39", n: 39, title: "L\u1EC7nh b\u1EAFt b\u1ECB can b\u1ECB t\u1EA1m giam", file: "mau-039.doc" },
+        { so: "40", n: 40, title: "Q\u0110 ph\xEA chu\u1EA9n L\u1EC7nh t\u1EA1m giam", file: "mau-040.doc" },
+        { so: "41", n: 41, title: "Q\u0110 kh\xF4ng ph\xEA chu\u1EA9n L\u1EC7nh t\u1EA1m giam", file: "mau-041.doc" },
+        { so: "42", n: 42, title: "Q\u0110 gia h\u1EA1n t\u1EA1m giam", file: "mau-042.doc" },
+        { so: "43", n: 43, title: "Q\u0110 hu\u1EF7 b\u1ECF bi\u1EC7n ph\xE1p t\u1EA1m giam", file: "mau-043.doc" },
+        { so: "44", n: 44, title: "Q\u0110 thay th\u1EBF bi\u1EC7n ph\xE1p t\u1EA1m giam", file: "mau-044.doc" },
+        { so: "45", n: 45, title: "Q\u0110 ph\xEA chu\u1EA9n Q\u0110 v\u1EC1 vi\u1EC7c b\u1EA3o l\u0129nh", file: "mau-045.doc" },
+        { so: "46", n: 46, title: "Q\u0110 kh\xF4ng ph\xEA chu\u1EA9n Q\u0110 v\u1EC1 vi\u1EC7c b\u1EA3o l\u0129nh", file: "mau-046.doc" },
+        { so: "47", n: 47, title: "Q\u0110 v\u1EC1 vi\u1EC7c b\u1EA3o l\u0129nh", file: "mau-047.doc" },
+        { so: "48", n: 48, title: "Q\u0110 hu\u1EF7 b\u1ECF bi\u1EC7n ph\xE1p b\u1EA3o l\u0129nh", file: "mau-048.doc" },
+        { so: "49", n: 49, title: "Q\u0110 ph\xEA chu\u1EA9n Q\u0110 v\u1EC1 vi\u1EC7c \u0111\u1EB7t ti\u1EC1n \u0111\u1EC3 b\u1EA3o \u0111\u1EA3m", file: "mau-049.doc" },
+        { so: "50", n: 50, title: "Q\u0110 kh\xF4ng ph\xEA chu\u1EA9n Q\u0110 v\u1EC1 vi\u1EC7c \u0111\u1EB7t ti\u1EC1n \u0111\u1EC3 b\u1EA3o \u0111\u1EA3m", file: "mau-050.doc" },
+        { so: "51", n: 51, title: "Q\u0110 v\u1EC1 vi\u1EC7c \u0111\u1EB7t ti\u1EC1n \u0111\u1EC3 b\u1EA3o \u0111\u1EA3m", file: "mau-051.doc" },
+        { so: "52", n: 52, title: "Q\u0110 hu\u1EF7 b\u1ECF bi\u1EC7n ph\xE1p \u0111\u1EB7t ti\u1EC1n \u0111\u1EC3 b\u1EA3o \u0111\u1EA3m", file: "mau-052.doc" },
+        { so: "53", n: 53, title: "L\u1EC7nh c\u1EA5m \u0111i kh\u1ECFi n\u01A1i c\u01B0 tr\xFA", file: "mau-053.doc" },
+        { so: "54", n: 54, title: "Th\xF4ng b\xE1o v\u1EC1 vi\u1EC7c \xE1p d\u1EE5ng bi\u1EC7n ph\xE1p c\u1EA5m \u0111i kh\u1ECFi n\u01A1i c\u01B0 tr\xFA", file: "mau-054.doc" },
+        { so: "55", n: 55, title: "Q\u0110 hu\u1EF7 b\u1ECF bi\u1EC7n ph\xE1p c\u1EA5m \u0111i kh\u1ECFi n\u01A1i c\u01B0 tr\xFA", file: "mau-055.doc" },
+        { so: "56", n: 56, title: "Q\u0110 t\u1EA1m ho\xE3n xu\u1EA5t c\u1EA3nh", file: "mau-056.doc" },
+        { so: "57", n: 57, title: "Q\u0110 hu\u1EF7 b\u1ECF bi\u1EC7n ph\xE1p t\u1EA1m ho\xE3n xu\u1EA5t c\u1EA3nh", file: "mau-057.doc" },
+        { so: "58", n: 58, title: "L\u1EC7nh t\u1EA1m giam", file: "mau-058.doc" },
+        { so: "59", n: 59, title: "Q\u0110 gia h\u1EA1n th\u1EDDi h\u1EA1n t\u1EA1m giam \u0111\u1EC3 truy t\u1ED1 1", file: "mau-059.doc" },
+        { so: "60", n: 60, title: "Q\u0110 \xE1p gi\u1EA3i b\u1ECB can", file: "mau-060.doc" },
+        { so: "61", n: 61, title: "Q\u0110 d\u1EABn gi\u1EA3i", file: "mau-061.doc" },
+        { so: "62", n: 62, title: "L\u1EC7nh k\xEA bi\xEAn t\xE0i s\u1EA3n", file: "mau-062.doc" },
+        { so: "63", n: 63, title: "Bi\xEAn b\u1EA3n k\xEA bi\xEAn t\xE0i s\u1EA3n", file: "mau-063.doc" },
+        { so: "64", n: 64, title: "Q\u0110 hu\u1EF7 b\u1ECF bi\u1EC7n ph\xE1p k\xEA bi\xEAn t\xE0i s\u1EA3n", file: "mau-064.doc" },
+        { so: "65", n: 65, title: "BB v\u1EC1 vi\u1EC7c thi h\xE0nh Quy\u1EBFt \u0111\u1ECBnh h\u1EE7y b\u1ECF L\u1EC7nh k\xEA bi\xEAn t\xE0i s\u1EA3n", file: "mau-065.doc" },
+        { so: "66", n: 66, title: "L\u1EC7nh phong to\u1EA3 t\xE0i kho\u1EA3n", file: "mau-066.doc" },
+        { so: "67", n: 67, title: "Bi\xEAn b\u1EA3n phong t\u1ECFa t\xE0i kho\u1EA3n", file: "mau-067.doc" },
+        { so: "68", n: 68, title: "Q\u0110 hu\u1EF7 b\u1ECF bi\u1EC7n ph\xE1p phong to\u1EA3 t\xE0i kho\u1EA3n", file: "mau-068.doc" },
+        { so: "69", n: 69, title: "BB v\u1EC1 vi\u1EC7c h\u1EE7y b\u1ECF bi\u1EC7n ph\xE1p phong t\u1ECFa t\xE0i kho\u1EA3n", file: "mau-069.doc" }
+      ]
+    },
+    {
+      id: "ng",
+      roman: "III",
+      title: "Ng\u01B0\u1EDDi c\xF3 th\u1EA9m quy\u1EC1n ti\u1EBFn h\xE0nh t\u1ED1 t\u1EE5ng, ng\u01B0\u1EDDi tham gia t\u1ED1 t\u1EE5ng",
+      items: [
+        { so: "70", n: 70, title: "Q\u0110 ph\xE2n c\xF4ng PVT THQCT, KS vi\u1EC7c gi\u1EA3i quy\u1EBFt VAHS", file: "mau-070.doc" },
+        { so: "71", n: 71, title: "Q\u0110 ph\xE2n c\xF4ng KSV, KTV THQCT, KS vi\u1EC7c gi\u1EA3i quy\u1EBFt VAHS", file: "mau-071.doc" },
+        { so: "72", n: 72, title: "Q\u0110 thay \u0111\u1ED5i VT, PVT, KSV, KTV THQCT, KS vi\u1EC7c gi\u1EA3i quy\u1EBFt v\u1EE5 \xE1n h\xECnh s\u1EF1", file: "mau-072.doc" },
+        { so: "73", n: 73, title: "Y\xEAu c\u1EA7u thay \u0111\u1ED5i Th\u1EE7 tr\u01B0\u1EDFng, PTT, \u0110TV c\u01A1 quan c\xF3 th\u1EA9m quy\u1EC1n \u0111i\u1EC1u tra", file: "mau-073.doc" },
+        { so: "74", n: 74, title: "Y\xEAu c\u1EA7u c\u1EED ng\u01B0\u1EDDi phi\xEAn d\u1ECBch, ng\u01B0\u1EDDi d\u1ECBch thu\u1EADt", file: "mau-074.doc" },
+        { so: "75", n: 75, title: "\u0110\u1EC1 ngh\u1ECB thay \u0111\u1ED5i ng\u01B0\u1EDDi phi\xEAn d\u1ECBch, ng\u01B0\u1EDDi d\u1ECBch thu\u1EADt", file: "mau-075.doc" },
+        { so: "76", n: 76, title: "Q\u0110 thay \u0111\u1ED5i ng\u01B0\u1EDDi phi\xEAn d\u1ECBch, ng\u01B0\u1EDDi d\u1ECBch thu\u1EADt", file: "mau-076.doc" },
+        { so: "77", n: 77, title: "Y\xEAu c\u1EA7u, \u0111\u1EC1 ngh\u1ECB c\u1EED ng\u01B0\u1EDDi b\xE0o ch\u1EEFa", file: "mau-077.doc" },
+        { so: "78", n: 78, title: "Th\xF4ng b\xE1o ng\u01B0\u1EDDi b\xE0o ch\u1EEFa", file: "mau-078.doc" },
+        { so: "79", n: 79, title: "Th\xF4ng b\xE1o hu\u1EF7 b\u1ECF vi\u1EC7c \u0111\u0103ng k\xFD b\xE0o ch\u1EEFa", file: "mau-079.doc" },
+        { so: "80", n: 80, title: "Th\xF4ng b\xE1o t\u1EEB ch\u1ED1i vi\u1EC7c \u0111\u0103ng k\xFD b\xE0o ch\u1EEFa", file: "mau-080.doc" },
+        { so: "81", n: 81, title: "Q\u0110 th\u1EDDi \u0111i\u1EC3m ng\u01B0\u1EDDi b\xE0o ch\u1EEFa tham gia t\u1ED1 t\u1EE5ng", file: "mau-081.doc" },
+        { so: "82", n: 82, title: "Th\xF4ng b\xE1o v\u1EC1 th\u1EDDi gian, \u0111\u1ECBa \u0111i\u1EC3m ti\u1EBFn h\xE0nh t\u1ED1 t\u1EE5ng cho ng\u01B0\u1EDDi b\xE0o ch\u1EEFa", file: "mau-082.doc" },
+        { so: "83", n: 83, title: "Y\xEAu c\u1EA7u thay \u0111\u1ED5i ng\u01B0\u1EDDi gi\xE1m \u0111\u1ECBnh, ng\u01B0\u1EDDi \u0111\u1ECBnh gi\xE1 t\xE0i s\u1EA3n", file: "mau-083.doc" },
+        { so: "84", n: 84, title: "Q\u0110 thay \u0111\u1ED5i ng\u01B0\u1EDDi gi\xE1m \u0111\u1ECBnh, ng\u01B0\u1EDDi \u0111\u1ECBnh gi\xE1 t\xE0i s\u1EA3n", file: "mau-084.doc" }
+      ]
+    },
+    {
+      id: "dt",
+      roman: "IV",
+      title: "Giai \u0111o\u1EA1n \u0111i\u1EC1u tra v\u1EE5 \xE1n h\xECnh s\u1EF1",
+      items: [
+        { so: "85", n: 85, title: "Q\u0110 chuy\u1EC3n v\u1EE5 \xE1n h\xECnh s\u1EF1 \u0111\u1EC3 \u0111i\u1EC1u tra theo th\u1EA9m quy\u1EC1n", file: "mau-085.doc" },
+        { so: "86", n: 86, title: "Q\u0110 chuy\u1EC3n vi\u1EC7c th\u1EF1c hi\u1EC7n th\u1EA9m quy\u1EC1n th\u1EF1c h\xE0nh quy\u1EC1n c\xF4ng t\u1ED1, ki\u1EC3m s\xE1t gi\u1EA3i quy\u1EBFt ngu\u1ED3n tin, kh\u1EDFi t\u1ED1 \u0111i\u1EC1u tra", file: "mau-086.doc" },
+        { so: "87", n: 87, title: "Y\xEAu c\u1EA7u \u0111i\u1EC1u tra", file: "mau-087.doc" },
+        { so: "88", n: 88, title: "Q\u0110 hu\u1EF7 b\u1ECF Q\u0110 nh\u1EADp v\u1EE5 \xE1n h\xECnh s\u1EF1", file: "mau-088.doc" },
+        { so: "89", n: 89, title: "Q\u0110 hu\u1EF7 b\u1ECF Q\u0110 t\xE1ch v\u1EE5 \xE1n h\xECnh s\u1EF1", file: "mau-089.doc" },
+        { so: "90", n: 90, title: "Q\u0110 ph\xEA chu\u1EA9n Q\u0110 kh\u1EDFi t\u1ED1 b\u1ECB can", file: "mau-090.doc" },
+        { so: "91", n: 91, title: "Q\u0110 ph\xEA chu\u1EA9n Q\u0110 thay \u0111\u1ED5i Q\u0110 kh\u1EDFi t\u1ED1 b\u1ECB can", file: "mau-091.doc" },
+        { so: "92", n: 92, title: "Q\u0110 ph\xEA chu\u1EA9n Q\u0110 b\u1ED5 sung Q\u0110 kh\u1EDFi t\u1ED1 b\u1ECB can", file: "mau-092.doc" },
+        { so: "93", n: 93, title: "Q\u0110 hu\u1EF7 b\u1ECF Q\u0110 thay \u0111\u1ED5i Q\u0110 kh\u1EDFi t\u1ED1 b\u1ECB can", file: "mau-093.doc" },
+        { so: "94", n: 94, title: "Q\u0110 hu\u1EF7 b\u1ECF Q\u0110 b\u1ED5 sung Q\u0110 kh\u1EDFi t\u1ED1 b\u1ECB can", file: "mau-094.doc" },
+        { so: "95", n: 95, title: "Q\u0110 hu\u1EF7 b\u1ECF Q\u0110 hu\u1EF7 b\u1ECF Q\u0110 kh\u1EDFi t\u1ED1 b\u1ECB can", file: "mau-095.doc" },
+        { so: "96", n: 96, title: "Y\xEAu c\u1EA7u ra Q\u0110 kh\u1EDFi t\u1ED1 b\u1ECB can", file: "mau-096.doc" },
+        { so: "97", n: 97, title: "Q\u0110 kh\u1EDFi t\u1ED1 b\u1ECB can", file: "mau-097.doc" },
+        { so: "98", n: 98, title: "Y\xEAu c\u1EA7u ra Q\u0110 thay \u0111\u1ED5i quy\u1EBFt \u0111\u1ECBnh kh\u1EDFi t\u1ED1 b\u1ECB can", file: "mau-098.doc" },
+        { so: "99", n: 99, title: "Q\u0110 thay \u0111\u1ED5i Q\u0110 kh\u1EDFi t\u1ED1 b\u1ECB can", file: "mau-099.doc" },
+        { so: "100", n: 100, title: "Y\xEAu c\u1EA7u ra Q\u0110 b\u1ED5 sung Q\u0110 kh\u1EDFi t\u1ED1 b\u1ECB can", file: "mau-100.doc" },
+        { so: "101", n: 101, title: "Q\u0110 b\u1ED5 sung Q\u0110 kh\u1EDFi t\u1ED1 b\u1ECB can", file: "mau-101.doc" },
+        { so: "102", n: 102, title: "Q\u0110 hu\u1EF7 b\u1ECF Q\u0110 kh\u1EDFi t\u1ED1 b\u1ECB can", file: "mau-102.doc" },
+        { so: "103", n: 103, title: "\u0110\u1EC1 ngh\u1ECB gia h\u1EA1n th\u1EDDi h\u1EA1n \u0111i\u1EC1u tra", file: "mau-103.doc" },
+        { so: "104", n: 104, title: "quy\u1EBFt \u0111\u1ECBnh gia h\u1EA1n th\u1EDDi h\u1EA1n \u0111i\u1EC1u tra VAHS", file: "mau-104.doc" },
+        { so: "105", n: 105, title: "Q\u0110 kh\xF4ng gia h\u1EA1n th\u1EDDi h\u1EA1n \u0111i\u1EC1u tra VAHS", file: "mau-105.doc" },
+        { so: "106", n: 106, title: "Y\xEAu c\u1EA7u truy n\xE3 b\u1ECB can", file: "mau-106.doc" },
+        { so: "107", n: 107, title: "Q\u0110 hu\u1EF7 b\u1ECF Q\u0110 t\u1EA1m \u0111\xECnh ch\u1EC9 \u0111i\u1EC1u tra VAHS", file: "mau-107.doc" },
+        { so: "108", n: 108, title: "Q\u0110 hu\u1EF7 b\u1ECF Q\u0110 t\u1EA1m \u0111\xECnh ch\u1EC9 \u0111i\u1EC1u tra b\u1ECB can", file: "mau-108.doc" },
+        { so: "109", n: 109, title: "Q\u0110 hu\u1EF7 b\u1ECF Q\u0110 t\u1EA1m \u0111\xECnh ch\u1EC9 \u0111i\u1EC1u tra VAHS \u0111\u1ED1i v\u1EDBi b\u1ECB can", file: "mau-109.doc" },
+        { so: "110", n: 110, title: "Q\u0110 hu\u1EF7 b\u1ECF Q\u0110 \u0111\xECnh ch\u1EC9 \u0111i\u1EC1u tra VAHS", file: "mau-110.doc" },
+        { so: "111", n: 111, title: "Q\u0110 hu\u1EF7 b\u1ECF Q\u0110 \u0111\xECnh ch\u1EC9 \u0111i\u1EC1u tra b\u1ECB can", file: "mau-111.doc" },
+        { so: "112", n: 112, title: "Q\u0110 hu\u1EF7 b\u1ECF Q\u0110 \u0111\xECnh ch\u1EC9 \u0111i\u1EC1u tra VAHS \u0111\u1ED1i v\u1EDBi b\u1ECB can", file: "mau-112.doc" },
+        { so: "113", n: 113, title: "Y\xEAu c\u1EA7u ph\u1EE5c h\u1ED3i \u0111i\u1EC1u tra VAHS", file: "mau-113.doc" },
+        { so: "114", n: 114, title: "Y\xEAu c\u1EA7u ph\u1EE5c h\u1ED3i \u0111i\u1EC1u tra b\u1ECB can", file: "mau-114.doc" },
+        { so: "115", n: 115, title: "Y\xEAu c\u1EA7u ph\u1EE5c h\u1ED3i \u0111i\u1EC1u tra VAHS \u0111\u1ED1i v\u1EDBi b\u1ECB can", file: "mau-115.doc" },
+        { so: "116", n: 116, title: "Q\u0110 ph\u1EE5c h\u1ED3i \u0111i\u1EC1u tra v\u1EE5 \xE1n h\xECnh s\u1EF1", file: "mau-116.doc" },
+        { so: "117", n: 117, title: "Q\u0110 ph\u1EE5c h\u1ED3i \u0111i\u1EC1u tra b\u1ECB can", file: "mau-117.doc" },
+        { so: "118", n: 118, title: "Q\u0110 ph\u1EE5c h\u1ED3i \u0111i\u1EC1u tra VA \u0111\u1ED1i v\u1EDBi b\u1ECB can", file: "mau-118.doc" },
+        { so: "119", n: 119, title: "Q\u0110 ph\xEA chu\u1EA9n L\u1EC7nh kh\xE1m x\xE9t", file: "mau-119.doc" },
+        { so: "120", n: 120, title: "Q\u0110 kh\xF4ng ph\xEA chu\u1EA9n L\u1EC7nh kh\xE1m x\xE9t", file: "mau-120.doc" },
+        { so: "121", n: 121, title: "Q\u0110 ph\xEA chu\u1EA9n L\u1EC7nh thu gi\u1EEF th\u01B0 t\xEDn, \u0111i\u1EC7n t\xEDn, b\u01B0u ki\u1EC7n, b\u01B0u ph\u1EA9m", file: "mau-121.doc" },
+        { so: "122", n: 122, title: "Q\u0110 kh\xF4ng ph\xEA chu\u1EA9n L\u1EC7nh thu gi\u1EEF th\u01B0 t\xEDn, \u0111i\u1EC7n t\xEDn, b\u01B0u ki\u1EC7n, b\u01B0u ph\u1EA9m", file: "mau-122.doc" },
+        { so: "123", n: 123, title: "Q\u0110 th\u1EF1c nghi\u1EC7m \u0111i\u1EC1u tra", file: "mau-123.doc" },
+        { so: "124", n: 124, title: "Bi\xEAn b\u1EA3n th\u1EF1c nghi\u1EC7m \u0111i\u1EC1u tra", file: "mau-124.doc" },
+        { so: "125", n: 125, title: "Th\xF4ng b\xE1o v\u1EC1 vi\u1EC7c kh\xF4ng ch\u1EA5p nh\u1EADn \u0111\u1EC1 ngh\u1ECB tr\u01B0ng c\u1EA7u gi\xE1m \u0111\u1ECBnh, \u0111\u1ECBnh gi\xE1 t\xE0i s\u1EA3n", file: "mau-125.doc" },
+        { so: "126", n: 126, title: "Q\u0110 tr\u01B0ng c\u1EA7u gi\xE1m \u0111\u1ECBnh", file: "mau-126.doc" },
+        { so: "127", n: 127, title: "Y\xEAu c\u1EA7u \u0111\u1ECBnh gi\xE1 t\xE0i s\u1EA3n", file: "mau-127.doc" },
+        { so: "128", n: 128, title: "Th\xF4ng b\xE1o n\u1ED9i dung k\u1EBFt lu\u1EADn gi\xE1m \u0111\u1ECBnh, \u0111\u1ECBnh gi\xE1 t\xE0i s\u1EA3n", file: "mau-128.doc" },
+        { so: "129", n: 129, title: "Q\u0110 tr\u01B0ng c\u1EA7u gi\xE1m \u0111\u1ECBnh b\u1ED5 sung", file: "mau-129.doc" },
+        { so: "130", n: 130, title: "Q\u0110 tr\u01B0ng c\u1EA7u gi\xE1m \u0111\u1ECBnh l\u1EA1i", file: "mau-130.doc" },
+        { so: "131", n: 131, title: "Y\xEAu c\u1EA7u \u0111\u1ECBnh gi\xE1 l\u1EA1i t\xE0i s\u1EA3n", file: "mau-131.doc" },
+        { so: "132", n: 132, title: "Q\u0110 \u0111\u1ECBnh gi\xE1 l\u1EA1i t\xE0i s\u1EA3n trong tr\u01B0\u1EDDng h\u1EE3p \u0111\u1EB7c bi\u1EC7t", file: "mau-132.doc" },
+        { so: "133", n: 133, title: "Q\u0110 gi\xE1m \u0111\u1ECBnh l\u1EA1i trong tr\u01B0\u1EDDng h\u1EE3p \u0111\u1EB7c bi\u1EC7t", file: "mau-133.doc" },
+        { so: "134", n: 134, title: "BB ghi l\u1EDDi khai", file: "mau-134.doc" },
+        { so: "135", n: 135, title: "BB h\u1ECFi cung b\u1ECB can", file: "mau-135.doc" },
+        { so: "136", n: 136, title: "BB \u0111\u1ED1i ch\u1EA5t", file: "mau-136.doc" },
+        { so: "137", n: 137, title: "Bi\xEAn b\u1EA3n x\xE1c minh-l\xE0m vi\u1EC7c", file: "mau-137.doc" },
+        { so: "138", n: 138, title: "Y\xEAu c\u1EA7u cung c\u1EA5p t\xE0i li\u1EC7u li\xEAn quan \u0111\u1EBFn h\xE0nh vi, Q\u0110 t\u1ED1 t\u1EE5ng c\xF3 vi ph\u1EA1m ph\xE1p lu\u1EADt trong \u0111i\u1EC1u tra", file: "mau-138.doc" },
+        { so: "139", n: 139, title: "Ki\u1EBFn ngh\u1ECB kh\u1EAFc ph\u1EE5c vi ph\u1EA1m trong ho\u1EA1t \u0111\u1ED9ng kh\u1EDFi t\u1ED1, \u0111i\u1EC1u tra", file: "mau-139.doc" },
+        { so: "140", n: 140, title: "Ki\u1EBFn ngh\u1ECB \xE1p d\u1EE5ng bi\u1EC7n ph\xE1p ph\xF2ng ng\u1EEBa t\u1ED9i ph\u1EA1m v\xE0 vi ph\u1EA1m ph\xE1p lu\u1EADt", file: "mau-140.doc" }
+      ]
+    },
+    {
+      id: "tt",
+      roman: "V",
+      title: "Giai \u0111o\u1EA1n truy t\u1ED1",
+      items: [
+        { so: "141", n: 141, title: "Q\u0110 chuy\u1EC3n v\u1EE5 \xE1n \u0111\u1EC3 truy t\u1ED1", file: "mau-141.doc" },
+        { so: "142", n: 142, title: "Quy\u1EBFt \u0111\u1ECBnh nh\u1EADp v\u1EE5 \xE1n h\xECnh s\u1EF1 trong giai \u0111o\u1EA1n truy t\u1ED1", file: "mau-142.doc" },
+        { so: "143", n: 143, title: "Quy\u1EBFt \u0111\u1ECBnh t\xE1ch v\u1EE5 \xE1n h\xECnh s\u1EF1 trong giai \u0111o\u1EA1n truy t\u1ED1", file: "mau-143.doc" },
+        { so: "144", n: 144, title: "Q\u0110 gia h\u1EA1n th\u1EDDi h\u1EA1n Q\u0110 vi\u1EC7c truy t\u1ED1", file: "mau-144.doc" },
+        { so: "145", n: 145, title: "Q\u0110 tr\u1EA3 h\u1ED3 s\u01A1 v\u1EE5 \xE1n \u0111\u1EC3 \u0111i\u1EC1u tra b\u1ED5 sung", file: "mau-145.doc" },
+        { so: "146", n: 146, title: "Q\u0110 t\u1EA1m \u0111\xECnh ch\u1EC9 v\u1EE5 \xE1n", file: "mau-146.doc" },
+        { so: "147", n: 147, title: "Q\u0110 hu\u1EF7 b\u1ECF Q\u0110 t\u1EA1m \u0111\xECnh ch\u1EC9 v\u1EE5 \xE1n", file: "mau-147.doc" },
+        { so: "148", n: 148, title: "Q\u0110 t\u1EA1m \u0111\xECnh ch\u1EC9 v\u1EE5 \xE1n \u0111\u1ED1i v\u1EDBi b\u1ECB can", file: "mau-148.doc" },
+        { so: "149", n: 149, title: "Q\u0110 hu\u1EF7 b\u1ECF Q\u0110 t\u1EA1m \u0111\xECnh ch\u1EC9 v\u1EE5 \xE1n \u0111\u1ED1i v\u1EDBi b\u1ECB can", file: "mau-149.doc" },
+        { so: "150", n: 150, title: "Q\u0110 \u0111\xECnh ch\u1EC9 v\u1EE5 \xE1n", file: "mau-150.doc" },
+        { so: "151", n: 151, title: "Q\u0110 hu\u1EF7 b\u1ECF Q\u0110 \u0111\xECnh ch\u1EC9 v\u1EE5 \xE1n", file: "mau-151.doc" },
+        { so: "152", n: 152, title: "Q\u0110 \u0111\xECnh ch\u1EC9 v\u1EE5 \xE1n \u0111\u1ED1i v\u1EDBi b\u1ECB can", file: "mau-152.doc" },
+        { so: "153", n: 153, title: "Q\u0110 hu\u1EF7 b\u1ECF Q\u0110 \u0111\xECnh ch\u1EC9 v\u1EE5 \xE1n \u0111\u1ED1i v\u1EDBi b\u1ECB can", file: "mau-153.doc" },
+        { so: "154", n: 154, title: "Q\u0110 ph\u1EE5c h\u1ED3i v\u1EE5 \xE1n", file: "mau-154.doc" },
+        { so: "155", n: 155, title: "Q\u0110 ph\u1EE5c h\u1ED3i v\u1EE5 \xE1n \u0111\u1ED1i v\u1EDBi b\u1ECB can", file: "mau-155.doc" },
+        { so: "156", n: 156, title: "C\xE1o tr\u1EA1ng", file: "mau-156.doc" },
+        { so: "157", n: 157, title: "B\u1EA3n k\xEA v\u1EADt ch\u1EE9ng k\xE8m theo C\xE1o tr\u1EA1ng", file: "mau-157.doc" },
+        { so: "158", n: 158, title: "Danh s\xE1ch \u0111\u1EC1 ngh\u1ECB tri\u1EC7u t\u1EADp \u0111\u1EBFn phi\xEAn t\xF2a", file: "mau-158.docx" },
+        { so: "159", n: 159, title: "Q\u0110 ph\xE2n c\xF4ng VKS c\u1EA5p d\u01B0\u1EDBi THQCT, KS x\xE9t x\u1EED VAHS", file: "mau-159.doc" },
+        { so: "160", n: 160, title: "Bi\xEAn b\u1EA3n ni\xEAm y\u1EBFt c\xF4ng khai v\u0103n b\u1EA3n t\u1ED1 t\u1EE5ng", file: "mau-160.doc" },
+        { so: "161", n: 161, title: "Phi\u1EBFu y\xEAu c\u1EA7u tr\xEDch xu\u1EA5t", file: "mau-161.doc" },
+        { so: "162", n: 162, title: "Gi\u1EA5y m\u1EDDi", file: "mau-162.doc" },
+        { so: "163", n: 163, title: "Gi\u1EA5y tri\u1EC7u t\u1EADp", file: "mau-163.doc" },
+        { so: "164", n: 164, title: "BB giao nh\u1EADn C\xE1o tr\u1EA1ng, Q\u0110 truy t\u1ED1 theo th\u1EE7 t\u1EE5c r\xFAt g\u1ECDn, Q\u0110 t\u1EA1m \u0111\xECnh ch\u1EC9 v\u1EE5 \xE1n, \u0111\xECnh ch\u1EC9 v\u1EE5 \xE1n", file: "mau-164.doc" },
+        { so: "165", n: 165, title: "Th\xF4ng b\xE1o v\u1EC1 vi\u1EC7c v\u1EE5 \xE1n c\xF3 b\u1ECB can b\u1ECB t\u1EA1m giam", file: "mau-165.doc" },
+        { so: "166", n: 166, title: "Q\u0110 tr\u1EA3 h\u1ED3 s\u01A1 v\u1EE5 \xE1n \u0111\u1EC3 \u0111i\u1EC1u tra l\u1EA1i", file: "mau-166.doc" },
+        { so: "167", n: 167, title: "Th\xF4ng b\xE1o v\u1EC1 vi\u1EC7c tr\u1EA3 h\u1ED3 s\u01A1, ban h\xE0nh c\xE1o tr\u1EA1ng", file: "mau-167.docx" },
+        { so: "168", n: 168, title: "BB giao nh\u1EADn h\u1ED3 s\u01A1 v\u1EE5 \xE1n, v\u1EE5 vi\u1EC7c", file: "mau-168.doc" }
+      ]
+    },
+    {
+      id: "vc",
+      roman: "VI",
+      title: "X\u1EED l\xFD v\u1EADt ch\u1EE9ng",
+      items: [
+        { so: "169", n: 169, title: "Q\u0110 x\u1EED l\xFD v\u1EADt ch\u1EE9ng", file: "mau-169.doc" },
+        { so: "170", n: 170, title: "Q\u0110 hu\u1EF7 b\u1ECF Q\u0110 x\u1EED l\xFD v\u1EADt ch\u1EE9ng", file: "mau-170.doc" },
+        { so: "171", n: 171, title: "Q\u0110 tr\u1EA3 l\u1EA1i t\xE0i s\u1EA3n", file: "mau-171.doc" },
+        { so: "172", n: 172, title: "Q\u0110 hu\u1EF7 b\u1ECF Q\u0110 tr\u1EA3 l\u1EA1i t\xE0i s\u1EA3n", file: "mau-172.doc" },
+        { so: "173", n: 173, title: "Q\u0110 chuy\u1EC3n v\u1EADt ch\u1EE9ng", file: "mau-173.doc" }
+      ]
+    },
+    {
+      id: "db",
+      roman: "VII",
+      title: "Bi\u1EC7n ph\xE1p \u0111i\u1EC1u tra t\u1ED1 t\u1EE5ng \u0111\u1EB7c bi\u1EC7t",
+      items: [
+        { so: "174", n: 174, title: "Y\xEAu c\u1EA7u \xE1p d\u1EE5ng bi\u1EC7n ph\xE1p \u0111i\u1EC1u tra t\u1ED1 t\u1EE5ng \u0111\u1EB7c bi\u1EC7t", file: "mau-174.doc" },
+        { so: "175", n: 175, title: "Q\u0110 ph\xEA chu\u1EA9n Q\u0110 \xE1p d\u1EE5ng bi\u1EC7n ph\xE1p \u0111i\u1EC1u tra t\u1ED1 t\u1EE5ng \u0111\u1EB7c bi\u1EC7t", file: "mau-175.doc" },
+        { so: "176", n: 176, title: "Q\u0110 kh\xF4ng ph\xEA chu\u1EA9n Q\u0110 \xE1p d\u1EE5ng bi\u1EC7n ph\xE1p \u0111i\u1EC1u tra t\u1ED1 t\u1EE5ng \u0111\u1EB7c bi\u1EC7t", file: "mau-176.doc" },
+        { so: "177", n: 177, title: "Q\u0110 gia h\u1EA1n th\u1EDDi h\u1EA1n \xE1p d\u1EE5ng bi\u1EC7n ph\xE1p \u0111i\u1EC1u tra t\u1ED1 t\u1EE5ng \u0111\u1EB7c bi\u1EC7t", file: "mau-177.doc" },
+        { so: "178", n: 178, title: "Q\u0110 hu\u1EF7 b\u1ECF Q\u0110 \xE1p d\u1EE5ng bi\u1EC7n ph\xE1p \u0111i\u1EC1u tra t\u1ED1 t\u1EE5ng \u0111\u1EB7c bi\u1EC7t", file: "mau-178.doc" }
+      ]
+    },
+    {
+      id: "td",
+      roman: "VIII",
+      title: "Th\u1EE7 t\u1EE5c \u0111\u1EB7c bi\u1EC7t",
+      items: [
+        { so: "179", n: 179, title: "Q\u0110 \xE1p d\u1EE5ng bi\u1EC7n ph\xE1p ch\u1EEFa b\u1EC7nh", file: "mau-179.doc" },
+        { so: "180", n: 180, title: "Q\u0110 \u0111\xECnh ch\u1EC9 thi h\xE0nh bi\u1EC7n ph\xE1p b\u1EAFt bu\u1ED9c ch\u1EEFa b\u1EC7nh", file: "mau-180.doc" },
+        { so: "181", n: 181, title: "Q\u0110 \xE1p d\u1EE5ng th\u1EE7 t\u1EE5c r\xFAt g\u1ECDn", file: "mau-181.doc" },
+        { so: "182", n: 182, title: "Q\u0110 hu\u1EF7 b\u1ECF Q\u0110 \xE1p d\u1EE5ng th\u1EE7 t\u1EE5c r\xFAt g\u1ECDn 1", file: "mau-182.doc" },
+        { so: "183", n: 183, title: "Q\u0110 truy t\u1ED1 theo th\u1EE7 t\u1EE5c r\xFAt g\u1ECDn", file: "mau-183.doc" },
+        { so: "184", n: 184, title: "\u0110\u1EC1 ngh\u1ECB \xE1p d\u1EE5ng bi\u1EC7n ph\xE1p b\u1EA3o v\u1EC7", file: "mau-184.doc" }
+      ]
+    },
+    {
+      id: "nctn",
+      roman: "IX",
+      title: "Ng\u01B0\u1EDDi ch\u01B0a th\xE0nh ni\xEAn",
+      items: [
+        { so: "185", n: 185, title: "Y\xEAu c\u1EA7u l\u1EADp B\xE1o c\xE1o \u0111i\u1EC1u tra x\xE3 h\u1ED9i b\u1ED5 sung", file: "mau-185.doc" },
+        { so: "186", n: 186, title: "Th\xF4ng b\xE1o \xE1p d\u1EE5ng th\u1EE7 t\u1EE5c x\u1EED l\xFD chuy\u1EC3n h\u01B0\u1EDBng", file: "mau-186.doc" },
+        { so: "187", n: 187, title: "Y\xEAu c\u1EA7u NLCTXH x\xE2y d\u1EF1ng k\u1EBF ho\u1EA1ch XLCH ho\u1EB7c k\u1EBF ho\u1EA1ch XLCH b\u1ED5 sung", file: "mau-187.doc" },
+        { so: "188", n: 188, title: "\u0110\u1EC1 ngh\u1ECB T\xF2a \xE1n gi\u1EA3i quy\u1EBFt v\u1EA5n \u0111\u1EC1 b\u1ED3i th\u01B0\u1EDDng thi\u1EC7t h\u1EA1i", file: "mau-188.doc" },
+        { so: "189", n: 189, title: "Y\xEAu c\u1EA7u CQ\u0110T \u0111\u1EC1 ngh\u1ECB TA xem x\xE9t \xE1p d\u1EE5ng bi\u1EC7n ph\xE1p gi\xE1o d\u1EE5c t\u1EA1i tr\u01B0\u1EDDng gi\xE1o d\u01B0\u1EE1ng", file: "mau-189.doc" },
+        { so: "190", n: 190, title: "\u0110\u1EC1 ngh\u1ECB T\xF2a \xE1n xem x\xE9t, quy\u1EBFt \u0111\u1ECBnh \xE1p d\u1EE5ng bi\u1EC7n ph\xE1p gi\xE1o d\u1EE5c t\u1EA1i tr\u01B0\u1EDDng gi\xE1o d\u01B0\u1EE1ng", file: "mau-190.doc" },
+        { so: "191", n: 191, title: "Quy\u1EBFt \u0111\u1ECBnh \xE1p d\u1EE5ng bi\u1EC7n ph\xE1p x\u1EED l\xFD chuy\u1EC3n h\u01B0\u1EDBng t\u1EA1i c\u1ED9ng \u0111\u1ED3ng", file: "mau-191.doc" },
+        { so: "192", n: 192, title: "Quy\u1EBFt \u0111\u1ECBnh kh\xF4ng \xE1p d\u1EE5ng bi\u1EC7n ph\xE1p x\u1EED l\xFD chuy\u1EC3n h\u01B0\u1EDBng t\u1EA1i c\u1ED9ng \u0111\u1ED3ng", file: "mau-192.doc" },
+        { so: "193", n: 193, title: "Quy\u1EBFt \u0111\u1ECBnh thay \u0111\u1ED5i bi\u1EC7n ph\xE1p x\u1EED l\xFD chuy\u1EC3n h\u01B0\u1EDBng t\u1EA1i c\u1ED9ng \u0111\u1ED3ng", file: "mau-193.doc" },
+        { so: "194", n: 194, title: "Quy\u1EBFt \u0111\u1ECBnh h\u1EE7y b\u1ECF quy\u1EBFt \u0111\u1ECBnh \xE1p d\u1EE5ng bi\u1EC7n ph\xE1p x\u1EED l\xFD chuy\u1EC3n h\u01B0\u1EDBng", file: "mau-194.doc" },
+        { so: "195", n: 195, title: "Quy\u1EBFt \u0111\u1ECBnh h\u1EE7y b\u1ECF quy\u1EBFt \u0111\u1ECBnh kh\xF4ng \xE1p d\u1EE5ng bi\u1EC7n ph\xE1p x\u1EED l\xFD chuy\u1EC3n h\u01B0\u1EDBng", file: "mau-195.doc" },
+        { so: "196", n: 196, title: "Quy\u1EBFt \u0111\u1ECBnh m\u1EDF phi\xEAn h\u1ECDp xem x\xE9t, \xE1p d\u1EE5ng bi\u1EC7n ph\xE1p x\u1EED l\xFD chuy\u1EC3n h\u01B0\u1EDBng t\u1EA1i c\u1ED9ng \u0111\u1ED3ng", file: "mau-196.doc" },
+        { so: "197", n: 197, title: "BB phi\xEAn h\u1ECDp xem x\xE9t, quy\u1EBFt \u0111\u1ECBnh \xE1p d\u1EE5ng BPXLCH t\u1EA1i c\u1ED9ng \u0111\u1ED3ng", file: "mau-197.doc" },
+        { so: "198", n: 198, title: "Quy\u1EBFt \u0111\u1ECBnh ho\xE3n phi\xEAn h\u1ECDp xem x\xE9t, quy\u1EBFt \u0111\u1ECBnh \xE1p d\u1EE5ng BPXLCH t\u1EA1i c\u1ED9ng \u0111\u1ED3ng", file: "mau-198.doc" },
+        { so: "199", n: 199, title: "Ki\u1EBFn ngh\u1ECB v\u1EC1 quy\u1EBFt \u0111\u1ECBnh \xE1p d\u1EE5ng BPXLCH c\u1EE7a T\xF2a \xE1n", file: "mau-199.doc" },
+        { so: "200", n: 200, title: "Th\xF4ng b\xE1o ti\u1EBFp nh\u1EADn khi\u1EBFu n\u1EA1i, ki\u1EBFn ngh\u1ECB c\xE2n nh\u1EAFc t\xEDnh c\u1EA7n thi\u1EBFt", file: "mau-200.doc" },
+        { so: "201", n: 201, title: "Quy\u1EBFt \u0111\u1ECBnh gi\u1EA3i quy\u1EBFt khi\u1EBFu n\u1EA1i, ki\u1EBFn ngh\u1ECB", file: "mau-201.doc" },
+        { so: "202", n: 202, title: "Quy\u1EBFt \u0111\u1ECBnh \u0111\xECnh ch\u1EC9 vi\u1EC7c gi\u1EA3i quy\u1EBFt khi\u1EBFu n\u1EA1i, ki\u1EBFn ngh\u1ECB", file: "mau-202.doc" },
+        { so: "203", n: 203, title: "Th\xF4ng b\xE1o v\u1EC1 ho\u1EA1t \u0111\u1ED9ng t\u1ED1 t\u1EE5ng", file: "mau-203.doc" },
+        { so: "204", n: 204, title: "Q\u0110 vi\u1EC7c tham gia t\u1ED1 t\u1EE5ng c\u1EE7a ng\u01B0\u1EDDi \u0111\u1EA1i di\u1EC7n, t\u1ED5 ch\u1EE9c", file: "mau-204.doc" },
+        { so: "205", n: 205, title: "Th\xF4ng b\xE1o \xE1p d\u1EE5ng bi\u1EC7n ph\xE1p ng\u0103n ch\u1EB7n \u0111\u1ED1i v\u1EDBi NCTN", file: "mau-205.doc" },
+        { so: "206", n: 206, title: "Quy\u1EBFt \u0111\u1ECBnh \xE1p d\u1EE5ng bi\u1EC7n ph\xE1p gi\xE1m s\xE1t \u0111i\u1EC7n t\u1EED \u0111\u1ED1i v\u1EDBi NCTN", file: "mau-206.doc" },
+        { so: "207", n: 207, title: "Quy\u1EBFt \u0111\u1ECBnh ph\xEA chu\u1EA9n quy\u1EBFt \u0111\u1ECBnh \xE1p d\u1EE5ng bi\u1EC7n ph\xE1p gi\xE1m s\xE1t \u0111i\u1EC7n t\u1EED \u0111\u1ED1i v\u1EDBi NCTN", file: "mau-207.doc" },
+        { so: "208", n: 208, title: "Quy\u1EBFt \u0111\u1ECBnh kh\xF4ng ph\xEA chu\u1EA9n quy\u1EBFt \u0111\u1ECBnh \xE1p d\u1EE5ng bi\u1EC7n ph\xE1p gi\xE1m s\xE1t \u0111i\u1EC7n t\u1EED \u0111\u1ED1i v\u1EDBi NCTN", file: "mau-208.doc" },
+        { so: "209", n: 209, title: "Quy\u1EBFt \u0111\u1ECBnh \xE1p d\u1EE5ng bi\u1EC7n ph\xE1p gi\xE1m s\xE1t b\u1EDFi ng\u01B0\u1EDDi \u0111\u1EA1i di\u1EC7n", file: "mau-209.doc" },
+        { so: "210", n: 210, title: "Quy\u1EBFt \u0111\u1ECBnh thay \u0111\u1ED5i ng\u01B0\u1EDDi \u0111\u1EA1i di\u1EC7n", file: "mau-210.doc" },
+        { so: "211", n: 211, title: "Th\xF4ng b\xE1o v\u1EC1 vi\u1EC7c th\u1EE5 l\xFD v\u1EE5 \xE1n", file: "mau-211.doc" },
+        { so: "212", n: 212, title: "\u0110\u1EC1 ngh\u1ECB tham gia t\u1ED1 t\u1EE5ng \u0111\u1EC3 h\u01B0\u1EDBng d\u1EABn, h\u1ED7 tr\u1EE3 cho ng\u01B0\u1EDDi ch\u01B0a th\xE0nh ni\xEAn", file: "mau-212.doc" },
+        { so: "213", n: 213, title: "Y\xEAu c\u1EA7u \xE1p d\u1EE5ng c\xE1c bi\u1EC7n ph\xE1p k\u1EF9 thu\u1EADt \u0111\u1EC3 b\u1EA3o v\u1EC7 NCTN", file: "mau-213.doc" }
+      ]
+    }
+  ];
+
+  // src/lib/ks-ds/bieu-410.ts
+  var QD410_NOTE = "Ph\xF3 Vi\u1EC7n tr\u01B0\u1EDFng Nguy\u1EC5n Duy Gi\u1EA3ng k\xFD thay Vi\u1EC7n tr\u01B0\u1EDFng, ng\xE0y 25/11/2021. C\xF3 hi\u1EC7u l\u1EF1c k\u1EC3 t\u1EEB ng\xE0y k\xFD. Thay h\u1EC7 th\u1ED1ng bi\u1EC3u m\u1EABu t\u1EA1m th\u1EDDi k\xE8m Quy\u1EBFt \u0111\u1ECBnh s\u1ED1 204/Q\u0110-VKSTC ng\xE0y 01/6/2017. \u0110i\u1EC1u 1: 65 m\u1EABu 01/DS\u201365/DS, 65 m\u1EABu 01/HC\u201365/HC, 21 m\u1EABu 01/PL09\u201321/PL09. T\xEAn l\u1EA5y t\u1EEB danh m\u1EE5c Word trong g\xF3i Quy\u1EBFt \u0111\u1ECBnh s\u1ED1 410 V10. T\u1EC7p t\u1EEBng m\u1EABu d\xE2n s\u1EF1 v\xE0 h\xE0nh ch\xEDnh \u0111\u01B0\u1EE3c t\xE1ch t\u1EEB t\u1EC7p Word g\u1ED1c; 21 m\u1EABu Ph\xE1p l\u1EC7nh 09 n\u1EB1m chung m\u1ED9t t\u1EC7p .doc. Danh m\u1EE5c d\xE2n s\u1EF1 in l\u1EC7ch hai k\xFD hi\u1EC7u (d\xF2ng 22 ghi 23/DS, d\xF2ng 50 ghi 50DS) \u2014 \u0111\u1ED1i chi\u1EBFu t\u1EC7p Word tr\u01B0\u1EDBc khi tr\xECnh k\xFD.";
+  var BIEU_410 = [
+    {
+      id: "ds-1",
+      label: "M\u1EABu \xE1p d\u1EE5ng cho 3 c\u1EA5p (s\u01A1 th\u1EA9m, ph\xFAc th\u1EA9m, gi\xE1m \u0111\u1ED1c th\u1EA9m (t\xE1i th\u1EA9m)",
+      items: [
+        { so: "01/DS", n: 1, title: "Quy\u1EBFt \u0111\u1ECBnh ph\xE2n c\xF4ng Ki\u1EC3m s\xE1t vi\xEAn (Ki\u1EC3m tra vi\xEAn) ki\u1EC3m s\xE1t vi\u1EC7c tu\xE2n theo ph\xE1p lu\u1EADt trong t\u1ED1 t\u1EE5ng d\xE2n s\u1EF1", file: "mau-ds-01.docx" },
+        { so: "02/DS", n: 2, title: "Quy\u1EBFt \u0111\u1ECBnh thay \u0111\u1ED5i Ki\u1EC3m s\xE1t vi\xEAn (Ki\u1EC3m tra vi\xEAn) ki\u1EC3m s\xE1t vi\u1EC7c tu\xE2n theo ph\xE1p lu\u1EADt trong t\u1ED1 t\u1EE5ng d\xE2n s\u1EF1", file: "mau-ds-02.docx" },
+        { so: "03/DS", n: 3, title: "Quy\u1EBFt \u0111\u1ECBnh ph\xE2n c\xF4ng Ki\u1EC3m s\xE1t vi\xEAn tham gia phi\xEAn t\xF2a (phi\xEAn h\u1ECDp)", file: "mau-ds-03.docx" },
+        { so: "04/DS", n: 4, title: "Quy\u1EBFt \u0111\u1ECBnh thay \u0111\u1ED5i Ki\u1EC3m s\xE1t vi\xEAn tham gia phi\xEAn t\xF2a (phi\xEAn h\u1ECDp)", file: "mau-ds-04.docx" },
+        { so: "05/DS", n: 5, title: "Ki\u1EBFn ngh\u1ECB kh\u1EAFc ph\u1EE5c vi ph\u1EA1m ph\xE1p lu\u1EADt trong vi\u1EC7c gi\u1EA3i quy\u1EBFt v\u1EE5 \xE1n (vi\u1EC7c) d\xE2n s\u1EF1 (ki\u1EBFn ngh\u1ECB \u0111\u1ED1i v\u1EDBi v\u1EE5 \xE1n (vi\u1EC7c) d\xE2n s\u1EF1 c\u1EE5 th\u1EC3)", file: "mau-ds-05.docx" },
+        { so: "06/DS", n: 6, title: "Ki\u1EBFn ngh\u1ECB t\u1ED5ng h\u1EE3p vi ph\u1EA1m", file: "mau-ds-06.docx" },
+        { so: "07/DS", n: 7, title: "Ki\u1EBFn ngh\u1ECB kh\u1EAFc ph\u1EE5c, ph\xF2ng ng\u1EEBa vi ph\u1EA1m ph\xE1p lu\u1EADt", file: "mau-ds-07.docx" },
+        { so: "08/DS", n: 8, title: "B\xE1o c\xE1o th\u1EC9nh th\u1ECB \u0111\u01B0\u1EDDng l\u1ED1i gi\u1EA3i quy\u1EBFt v\u1EE5 \xE1n (vi\u1EC7c) d\xE2n s\u1EF1", file: "mau-ds-08.docx" },
+        { so: "09/DS", n: 9, title: "C\xF4ng v\u0103n tr\u1EA3 l\u1EDDi b\xE1o c\xE1o th\u1EC9nh th\u1ECB \u0111\u01B0\u1EDDng l\u1ED1i gi\u1EA3i quy\u1EBFt v\u1EE5 \xE1n (vi\u1EC7c) d\xE2n s\u1EF1", file: "mau-ds-09.docx" },
+        { so: "10/DS", n: 10, title: "Th\xF4ng b\xE1o r\xFAt kinh nghi\u1EC7m v\u1EC1 ki\u1EC3m s\xE1t vi\u1EC7c gi\u1EA3i quy\u1EBFt v\u1EE5 \xE1n (vi\u1EC7c) d\xE2n s\u1EF1", file: "mau-ds-10.docx" },
+        { so: "11/DS", n: 11, title: "Th\xF4ng b\xE1o \u0111\u1EC1 ngh\u1ECB kh\xE1ng ngh\u1ECB theo th\u1EE7 t\u1EE5c gi\xE1m \u0111\u1ED1c th\u1EA9m (t\xE1i th\u1EA9m) \u0111\u1ED1i v\u1EDBi B\u1EA3n \xE1n (Quy\u1EBFt \u0111\u1ECBnh) c\u1EE7a T\xF2a \xE1n", file: "mau-ds-11.docx" },
+        { so: "12/DS", n: 12, title: "B\xE1o c\xE1o (th\xF4ng b\xE1o) k\u1EBFt qu\u1EA3 phi\xEAn t\xF2a (phi\xEAn h\u1ECDp)", file: "mau-ds-12.docx" },
+        { so: "13/DS", n: 13, title: "Bi\xEAn b\u1EA3n ki\u1EC3m s\xE1t Bi\xEAn b\u1EA3n phi\xEAn t\xF2a (phi\xEAn h\u1ECDp)", file: "mau-ds-13.docx" },
+        { so: "14/DS", n: 14, title: "Quy\u1EBFt \u0111\u1ECBnh gi\xE1m \u0111\u1ECBnh l\u1EA1i", file: "mau-ds-14.docx" },
+        { so: "15/DS", n: 15, title: "Y\xEAu c\u1EA7u cung c\u1EA5p t\xE0i li\u1EC7u, ch\u1EE9ng c\u1EE9", file: "mau-ds-15.docx" },
+        { so: "16/DS", n: 16, title: "Y\xEAu c\u1EA7u chuy\u1EC3n h\u1ED3 s\u01A1 v\u1EE5 \xE1n (vi\u1EC7c) d\xE2n s\u1EF1", file: "mau-ds-16.docx" },
+        { so: "17/DS", n: 17, title: "Y\xEAu c\u1EA7u chuy\u1EC3n h\u1ED3 s\u01A1 v\u1EE5 \xE1n (vi\u1EC7c) d\xE2n s\u1EF1 (L\u1EA7n 2)", file: "mau-ds-17.docx" },
+        { so: "18/DS", n: 18, title: "Phi\u1EBFu chuy\u1EC3n tr\u1EA3 h\u1ED3 s\u01A1 v\u1EE5 \xE1n (vi\u1EC7c) d\xE2n s\u1EF1", file: "mau-ds-18.docx" },
+        { so: "19/DS", n: 19, title: "Bi\xEAn b\u1EA3n b\xE0n giao h\u1ED3 s\u01A1 v\u1EE5 \xE1n (vi\u1EC7c) d\xE2n s\u1EF1", file: "mau-ds-19.docx" }
+      ]
+    },
+    {
+      id: "ds-2",
+      label: "M\u1EABu \xE1p d\u1EE5ng cho 2 c\u1EA5p (s\u01A1 th\u1EA9m, ph\xFAc th\u1EA9m)",
+      items: [
+        { so: "20/DS", n: 20, title: "Quy\u1EBFt \u0111\u1ECBnh kh\xE1ng ngh\u1ECB ph\xFAc th\u1EA9m \u0111\u1ED1i v\u1EDBi B\u1EA3n \xE1n (Quy\u1EBFt \u0111\u1ECBnh) gi\u1EA3i quy\u1EBFt s\u01A1 th\u1EA9m v\u1EE5 \xE1n d\xE2n s\u1EF1", file: "mau-ds-20.docx" },
+        { so: "21/DS", n: 21, title: "Quy\u1EBFt \u0111\u1ECBnh kh\xE1ng ngh\u1ECB ph\xFAc th\u1EA9m \u0111\u1ED1i v\u1EDBi Quy\u1EBFt \u0111\u1ECBnh gi\u1EA3i quy\u1EBFt vi\u1EC7c d\xE2n s\u1EF1", file: "mau-ds-21.docx" },
+        { so: "22/DS", n: 22, title: "Quy\u1EBFt \u0111\u1ECBnh kh\xE1ng ngh\u1ECB ph\xFAc th\u1EA9m \u0111\u1ED1i v\u1EDBi Quy\u1EBFt \u0111\u1ECBnh gi\u1EA3i quy\u1EBFt vi\u1EC7c x\xE9t \u0111\u01A1n y\xEAu c\u1EA7u c\u1EE7a T\xF2a \xE1n", file: "mau-ds-22.docx", note: "Danh m\u1EE5c g\u1ED1c in k\xFD hi\u1EC7u \xABM\u1EABu s\u1ED1 23/DS\xBB." },
+        { so: "23/DS", n: 23, title: "Quy\u1EBFt \u0111\u1ECBnh thay \u0111\u1ED5i (b\u1ED5 sung) Quy\u1EBFt \u0111\u1ECBnh kh\xE1ng ngh\u1ECB ph\xFAc th\u1EA9m", file: "mau-ds-23.docx" },
+        { so: "24/DS", n: 24, title: "Quy\u1EBFt \u0111\u1ECBnh r\xFAt to\xE0n b\u1ED9 (m\u1ED9t ph\u1EA7n) Quy\u1EBFt \u0111\u1ECBnh kh\xE1ng ngh\u1ECB ph\xFAc th\u1EA9m", file: "mau-ds-24.docx" },
+        { so: "25/DS", n: 25, title: "Ki\u1EBFn ngh\u1ECB Quy\u1EBFt \u0111\u1ECBnh (Th\xF4ng b\xE1o v\u1EC1 vi\u1EC7c kh\xF4ng ra quy\u1EBFt \u0111\u1ECBnh) \xE1p d\u1EE5ng (thay \u0111\u1ED5i, h\u1EE7y b\u1ECF) bi\u1EC7n ph\xE1p kh\u1EA9n c\u1EA5p t\u1EA1m th\u1EDDi", file: "mau-ds-25.docx" },
+        { so: "26/DS", n: 26, title: "Y\xEAu c\u1EA7u x\xE1c minh, thu th\u1EADp t\xE0i li\u1EC7u, ch\u1EE9ng c\u1EE9", file: "mau-ds-26.docx" }
+      ]
+    },
+    {
+      id: "ds-3",
+      label: "M\u1EABu \xE1p d\u1EE5ng cho c\u1EA5p s\u01A1 th\u1EA9m",
+      items: [
+        { so: "27/DS", n: 27, title: "Phi\u1EBFu ki\u1EC3m s\xE1t Th\xF4ng b\xE1o tr\u1EA3 l\u1EA1i \u0111\u01A1n kh\u1EDFi ki\u1EC7n (\u0111\u01A1n y\xEAu c\u1EA7u)", file: "mau-ds-27.docx" },
+        { so: "28/DS", n: 28, title: "Y\xEAu c\u1EA7u sao ch\u1EE5p b\u1EA3n sao \u0111\u01A1n kh\u1EDFi ki\u1EC7n (\u0111\u01A1n y\xEAu c\u1EA7u) v\xE0 t\xE0i li\u1EC7u, ch\u1EE9ng c\u1EE9", file: "mau-ds-28.docx" },
+        { so: "29/DS", n: 29, title: "Ki\u1EBFn ngh\u1ECB v\u1EC1 vi\u1EC7c tr\u1EA3 l\u1EA1i \u0111\u01A1n kh\u1EDFi ki\u1EC7n (\u0111\u01A1n y\xEAu c\u1EA7u)", file: "mau-ds-29.docx" },
+        { so: "30/DS", n: 30, title: "Ph\xE1t bi\u1EC3u c\u1EE7a Ki\u1EC3m s\xE1t vi\xEAn t\u1EA1i phi\xEAn h\u1ECDp xem x\xE9t, gi\u1EA3i quy\u1EBFt khi\u1EBFu n\u1EA1i (ki\u1EBFn ngh\u1ECB) v\u1EC1 vi\u1EC7c tr\u1EA3 l\u1EA1i \u0111\u01A1n kh\u1EDFi ki\u1EC7n (\u0111\u01A1n y\xEAu c\u1EA7u)", file: "mau-ds-30.docx" },
+        { so: "31/DS", n: 31, title: "Ki\u1EBFn ngh\u1ECB Quy\u1EBFt \u0111\u1ECBnh gi\u1EA3i quy\u1EBFt khi\u1EBFu n\u1EA1i (ki\u1EBFn ngh\u1ECB) v\u1EC1 vi\u1EC7c tr\u1EA3 l\u1EA1i \u0111\u01A1n kh\u1EDFi ki\u1EC7n (\u0111\u01A1n y\xEAu c\u1EA7u)", file: "mau-ds-31.docx" },
+        { so: "32/DS", n: 32, title: "Phi\u1EBFu ki\u1EC3m s\xE1t Th\xF4ng b\xE1o v\u1EC1 vi\u1EC7c th\u1EE5 l\xFD v\u1EE5 \xE1n (Th\xF4ng b\xE1o th\u1EE5 l\xFD vi\u1EC7c d\xE2n s\u1EF1)", file: "mau-ds-32.docx" },
+        { so: "33/DS", n: 33, title: "Ki\u1EBFn ngh\u1ECB v\u1EC1 vi\u1EC7c chuy\u1EC3n (kh\xF4ng chuy\u1EC3n) h\u1ED3 s\u01A1 v\u1EE5 \xE1n (vi\u1EC7c) d\xE2n s\u1EF1", file: "mau-ds-33.docx" },
+        { so: "34/DS", n: 34, title: "Ki\u1EBFn ngh\u1ECB Quy\u1EBFt \u0111\u1ECBnh \u0111\u01B0a v\u1EE5 \xE1n ra x\xE9t x\u1EED s\u01A1 th\u1EA9m theo th\u1EE7 t\u1EE5c r\xFAt g\u1ECDn", file: "mau-ds-34.docx" },
+        { so: "35/DS", n: 35, title: "B\xE1o c\xE1o \u0111\u1EC1 xu\u1EA5t vi\u1EC7c gi\u1EA3i quy\u1EBFt v\u1EE5 \xE1n (vi\u1EC7c) d\xE2n s\u1EF1 theo th\u1EE7 t\u1EE5c s\u01A1 th\u1EA9m", file: "mau-ds-35.docx" },
+        { so: "36/DS", n: 36, title: "Ph\xE1t bi\u1EC3u c\u1EE7a Ki\u1EC3m s\xE1t vi\xEAn t\u1EA1i phi\xEAn t\xF2a (phi\xEAn h\u1ECDp) s\u01A1 th\u1EA9m", file: "mau-ds-36.docx" },
+        { so: "37/DS", n: 37, title: "Phi\u1EBFu ki\u1EC3m s\xE1t B\u1EA3n \xE1n (Quy\u1EBFt \u0111\u1ECBnh) c\u1EE7a T\xF2a \xE1n c\u1EA5p s\u01A1 th\u1EA9m", file: "mau-ds-37.docx" },
+        { so: "38/DS", n: 38, title: "B\xE1o c\xE1o \u0111\u1EC1 ngh\u1ECB kh\xE1ng ngh\u1ECB ph\xFAc th\u1EA9m \u0111\u1ED1i v\u1EDBi B\u1EA3n \xE1n (Quy\u1EBFt \u0111\u1ECBnh) gi\u1EA3i quy\u1EBFt v\u1EE5 \xE1n (vi\u1EC7c) d\xE2n s\u1EF1", file: "mau-ds-38.docx" }
+      ]
+    },
+    {
+      id: "ds-4",
+      label: "M\u1EABu \xE1p d\u1EE5ng cho c\u1EA5p ph\xFAc th\u1EA9m",
+      items: [
+        { so: "39/DS", n: 39, title: "Ph\xE1t bi\u1EC3u c\u1EE7a Ki\u1EC3m s\xE1t vi\xEAn t\u1EA1i phi\xEAn h\u1ECDp x\xE9t kh\xE1ng c\xE1o qu\xE1 h\u1EA1n", file: "mau-ds-39.docx" },
+        { so: "40/DS", n: 40, title: "Phi\u1EBFu ki\u1EC3m s\xE1t Quy\u1EBFt \u0111\u1ECBnh ch\u1EA5p nh\u1EADn (kh\xF4ng ch\u1EA5p nh\u1EADn) vi\u1EC7c kh\xE1ng c\xE1o qu\xE1 h\u1EA1n", file: "mau-ds-40.docx" },
+        { so: "41/DS", n: 41, title: "Ph\xE1t bi\u1EC3u c\u1EE7a Ki\u1EC3m s\xE1t vi\xEAn t\u1EA1i phi\xEAn h\u1ECDp x\xE9t ch\u1EADm n\u1ED9p bi\xEAn lai thu ti\u1EC1n t\u1EA1m \u1EE9ng \xE1n ph\xED ph\xFAc th\u1EA9m", file: "mau-ds-41.docx" },
+        { so: "42/DS", n: 42, title: "Phi\u1EBFu ki\u1EC3m s\xE1t Quy\u1EBFt \u0111\u1ECBnh ch\u1EA5p nh\u1EADn (kh\xF4ng ch\u1EA5p nh\u1EADn) vi\u1EC7c ch\u1EADm n\u1ED9p bi\xEAn lai t\u1EA1m \u1EE9ng \xE1n ph\xED ph\xFAc th\u1EA9m", file: "mau-ds-42.docx" },
+        { so: "43/DS", n: 43, title: "Phi\u1EBFu ki\u1EC3m s\xE1t Th\xF4ng b\xE1o v\u1EC1 vi\u1EC7c th\u1EE5 l\xFD v\u1EE5 \xE1n (v\u1EE5 vi\u1EC7c) \u0111\u1EC3 x\xE9t x\u1EED (gi\u1EA3i quy\u1EBFt) ph\xFAc th\u1EA9m", file: "mau-ds-43.docx" },
+        { so: "44/DS", n: 44, title: "B\xE1o c\xE1o \u0111\u1EC1 xu\u1EA5t vi\u1EC7c gi\u1EA3i quy\u1EBFt v\u1EE5 \xE1n (vi\u1EC7c) d\xE2n s\u1EF1 theo th\u1EE7 t\u1EE5c ph\xFAc th\u1EA9m", file: "mau-ds-44.docx" },
+        { so: "45/DS", n: 45, title: "Ph\xE1t bi\u1EC3u c\u1EE7a Ki\u1EC3m s\xE1t vi\xEAn t\u1EA1i phi\xEAn t\xF2a (phi\xEAn h\u1ECDp) ph\xFAc th\u1EA9m", file: "mau-ds-45.docx" },
+        { so: "46/DS", n: 46, title: "Phi\u1EBFu ki\u1EC3m s\xE1t B\u1EA3n \xE1n (Quy\u1EBFt \u0111\u1ECBnh) c\u1EE7a T\xF2a \xE1n c\u1EA5p ph\xFAc th\u1EA9m", file: "mau-ds-46.docx" }
+      ]
+    },
+    {
+      id: "ds-5",
+      label: "M\u1EABu \xE1p d\u1EE5ng cho c\u1EA5p gi\xE1m \u0111\u1ED1c th\u1EA9m (t\xE1i th\u1EA9m)",
+      items: [
+        { so: "47/DS", n: 47, title: "Y\xEAu c\u1EA7u ho\xE3n thi h\xE0nh \xE1n", file: "mau-ds-47.docx" },
+        { so: "48/DS", n: 48, title: "Th\xF4ng b\xE1o v\u1EC1 x\u1EED l\xFD \u0111\u01A1n (th\xF4ng b\xE1o, ki\u1EBFn ngh\u1ECB) \u0111\u1EC1 ngh\u1ECB kh\xE1ng ngh\u1ECB theo th\u1EE7 t\u1EE5c gi\xE1m \u0111\u1ED1c th\u1EA9m (t\xE1i th\u1EA9m)", file: "mau-ds-48.docx" },
+        { so: "49/DS", n: 49, title: "B\xE1o c\xE1o \u0111\u1EC1 xu\u1EA5t vi\u1EC7c gi\u1EA3i quy\u1EBFt \u0111\u01A1n (th\xF4ng b\xE1o, ki\u1EBFn ngh\u1ECB) \u0111\u1EC1 ngh\u1ECB kh\xE1ng ngh\u1ECB theo th\u1EE7 t\u1EE5c gi\xE1m \u0111\u1ED1c th\u1EA9m (t\xE1i th\u1EA9m)", file: "mau-ds-49.docx" },
+        { so: "50/DS", n: 50, title: "B\xE1o c\xE1o \u0111\u1EC1 xu\u1EA5t quan \u0111i\u1EC3m c\u1EE7a Vi\u1EC7n ki\u1EC3m s\xE1t \u0111\u1ED1i v\u1EDBi Quy\u1EBFt \u0111\u1ECBnh kh\xE1ng ngh\u1ECB gi\xE1m \u0111\u1ED1c th\u1EA9m (t\xE1i th\u1EA9m) c\u1EE7a Ch\xE1nh \xE1n T\xF2a \xE1n nh\xE2n d\xE2n c\u1EA5p cao (t\u1ED1i cao)", file: "mau-ds-50.docx", note: "Danh m\u1EE5c g\u1ED1c in k\xFD hi\u1EC7u \xABM\u1EABu s\u1ED1 50DS\xBB." },
+        { so: "51/DS", n: 51, title: "Th\xF4ng b\xE1o v\u1EC1 vi\u1EC7c kh\xF4ng kh\xE1ng ngh\u1ECB gi\xE1m \u0111\u1ED1c th\u1EA9m (t\xE1i th\u1EA9m)", file: "mau-ds-51.docx" },
+        { so: "52/DS", n: 52, title: "Quy\u1EBFt \u0111\u1ECBnh kh\xE1ng ngh\u1ECB gi\xE1m \u0111\u1ED1c th\u1EA9m (t\xE1i th\u1EA9m)", file: "mau-ds-52.docx" },
+        { so: "53/DS", n: 53, title: "Quy\u1EBFt \u0111\u1ECBnh thay \u0111\u1ED5i (b\u1ED5 sung) Quy\u1EBFt \u0111\u1ECBnh kh\xE1ng ngh\u1ECB gi\xE1m \u0111\u1ED1c th\u1EA9m (t\xE1i th\u1EA9m)", file: "mau-ds-53.docx" },
+        { so: "54/DS", n: 54, title: "Quy\u1EBFt \u0111\u1ECBnh r\xFAt to\xE0n b\u1ED9 (m\u1ED9t ph\u1EA7n) Quy\u1EBFt \u0111\u1ECBnh kh\xE1ng ngh\u1ECB gi\xE1m \u0111\u1ED1c th\u1EA9m (t\xE1i th\u1EA9m)", file: "mau-ds-54.docx" },
+        { so: "55/DS", n: 55, title: "Ph\xE1t bi\u1EC3u c\u1EE7a Ki\u1EC3m s\xE1t vi\xEAn t\u1EA1i phi\xEAn t\xF2a gi\xE1m \u0111\u1ED1c th\u1EA9m (t\xE1i th\u1EA9m) (Tr\u01B0\u1EDDng h\u1EE3p Ch\xE1nh \xE1n T\xF2a \xE1n nh\xE2n d\xE2n c\u1EA5p cao (t\u1ED1i cao) kh\xE1ng ngh\u1ECB)", file: "mau-ds-55.docx" },
+        { so: "56/DS", n: 56, title: "Ph\xE1t bi\u1EC3u c\u1EE7a Ki\u1EC3m s\xE1t vi\xEAn t\u1EA1i phi\xEAn t\xF2a gi\xE1m \u0111\u1ED1c th\u1EA9m (t\xE1i th\u1EA9m) (Tr\u01B0\u1EDDng h\u1EE3p Vi\u1EC7n tr\u01B0\u1EDFng Vi\u1EC7n ki\u1EC3m s\xE1t nh\xE2n d\xE2n c\u1EA5p cao (t\u1ED1i cao) kh\xE1ng ngh\u1ECB)", file: "mau-ds-56.docx" },
+        { so: "57/DS", n: 57, title: "Phi\u1EBFu ki\u1EC3m s\xE1t Quy\u1EBFt \u0111\u1ECBnh gi\xE1m \u0111\u1ED1c th\u1EA9m (t\xE1i th\u1EA9m)", file: "mau-ds-57.docx" }
+      ]
+    },
+    {
+      id: "ds-6",
+      label: "M\u1EABu \xE1p d\u1EE5ng cho c\u1EA5p gi\xE1m \u0111\u1ED1c th\u1EA9m (t\xE1i th\u1EA9m) \u1EDF Vi\u1EC7n ki\u1EC3m s\xE1t nh\xE2n d\xE2n t\u1ED1i cao",
+      items: [
+        { so: "58/DS", n: 58, title: "B\xE1o c\xE1o \u0111\u1EC1 xu\u1EA5t vi\u1EC7c xem x\xE9t ki\u1EBFn ngh\u1ECB theo th\u1EE7 t\u1EE5c \u0111\u1EB7c bi\u1EC7t \u0111\u1ED1i v\u1EDBi Quy\u1EBFt \u0111\u1ECBnh gi\xE1m \u0111\u1ED1c th\u1EA9m (t\xE1i th\u1EA9m) c\u1EE7a H\u1ED9i \u0111\u1ED3ng Th\u1EA9m ph\xE1n T\xF2a \xE1n nh\xE2n d\xE2n t\u1ED1i cao", file: "mau-ds-58.docx" },
+        { so: "59/DS", n: 59, title: "T\u1EDD tr\xECnh \u0111\u1EC1 ngh\u1ECB ban h\xE0nh ki\u1EBFn ngh\u1ECB xem x\xE9t l\u1EA1i Quy\u1EBFt \u0111\u1ECBnh gi\xE1m \u0111\u1ED1c th\u1EA9m (t\xE1i th\u1EA9m) c\u1EE7a H\u1ED9i \u0111\u1ED3ng Th\u1EA9m ph\xE1n T\xF2a \xE1n nh\xE2n d\xE2n t\u1ED1i cao", file: "mau-ds-59.docx" },
+        { so: "60/DS", n: 60, title: "B\xE1o c\xE1o \u0111\u1EC1 xu\u1EA5t v\u1EC1 quan \u0111i\u1EC3m c\u1EE7a Vi\u1EC7n ki\u1EC3m s\xE1t nh\xE2n d\xE2n t\u1ED1i cao \u0111\u1ED1i v\u1EDBi ki\u1EBFn ngh\u1ECB c\u1EE7a \u1EE6y ban T\u01B0 ph\xE1p c\u1EE7a Qu\u1ED1c h\u1ED9i (\u0111\u1EC1 ngh\u1ECB c\u1EE7a Ch\xE1nh \xE1n T\xF2a \xE1n nh\xE2n d\xE2n t\u1ED1i cao)", file: "mau-ds-60.docx" },
+        { so: "61/DS", n: 61, title: "Th\xF4ng b\xE1o v\u1EC1 vi\u1EC7c kh\xF4ng ki\u1EBFn ngh\u1ECB theo th\u1EE7 t\u1EE5c \u0111\u1EB7c bi\u1EC7t", file: "mau-ds-61.docx" },
+        { so: "62/DS", n: 62, title: "Ki\u1EBFn ngh\u1ECB v\u1EC1 vi\u1EC7c xem x\xE9t l\u1EA1i Quy\u1EBFt \u0111\u1ECBnh gi\xE1m \u0111\u1ED1c th\u1EA9m (t\xE1i th\u1EA9m) c\u1EE7a H\u1ED9i \u0111\u1ED3ng Th\u1EA9m ph\xE1n T\xF2a \xE1n nh\xE2n d\xE2n t\u1ED1i cao", file: "mau-ds-62.docx" },
+        { so: "63/DS", n: 63, title: "Ph\xE1t bi\u1EC3u c\u1EE7a Vi\u1EC7n tr\u01B0\u1EDFng Vi\u1EC7n ki\u1EC3m s\xE1t nh\xE2n d\xE2n t\u1ED1i cao t\u1EA1i phi\xEAn h\u1ECDp xem x\xE9t ki\u1EBFn ngh\u1ECB c\u1EE7a Vi\u1EC7n tr\u01B0\u1EDFng Vi\u1EC7n ki\u1EC3m s\xE1t nh\xE2n d\xE2n t\u1ED1i cao theo th\u1EE7 t\u1EE5c \u0111\u1EB7c bi\u1EC7t", file: "mau-ds-63.docx" },
+        { so: "64/DS", n: 64, title: "Ph\xE1t bi\u1EC3u c\u1EE7a Vi\u1EC7n tr\u01B0\u1EDFng Vi\u1EC7n ki\u1EC3m s\xE1t nh\xE2n d\xE2n t\u1ED1i cao t\u1EA1i phi\xEAn h\u1ECDp xem x\xE9t ki\u1EBFn ngh\u1ECB c\u1EE7a \u1EE6y ban T\u01B0 ph\xE1p c\u1EE7a Qu\u1ED1c h\u1ED9i (\u0111\u1EC1 ngh\u1ECB c\u1EE7a Ch\xE1nh \xE1n T\xF2a \xE1n nh\xE2n d\xE2n t\u1ED1i cao) theo th\u1EE7 t\u1EE5c \u0111\u1EB7c bi\u1EC7t", file: "mau-ds-64.docx" },
+        { so: "65/DS", n: 65, title: "Ph\xE1t bi\u1EC3u c\u1EE7a Vi\u1EC7n tr\u01B0\u1EDFng Vi\u1EC7n ki\u1EC3m s\xE1t nh\xE2n d\xE2n t\u1ED1i cao t\u1EA1i phi\xEAn h\u1ECDp xem x\xE9t l\u1EA1i Quy\u1EBFt \u0111\u1ECBnh gi\xE1m \u0111\u1ED1c th\u1EA9m (t\xE1i th\u1EA9m) c\u1EE7a H\u1ED9i \u0111\u1ED3ng Th\u1EA9m ph\xE1n T\xF2a \xE1n nh\xE2n d\xE2n t\u1ED1i cao", file: "mau-ds-65.docx" }
+      ]
+    },
+    {
+      id: "hc-1",
+      label: "M\u1EABu \xE1p d\u1EE5ng cho 3 c\u1EA5p (s\u01A1 th\u1EA9m, ph\xFAc th\u1EA9m, gi\xE1m \u0111\u1ED1c th\u1EA9m (t\xE1i th\u1EA9m)",
+      items: [
+        { so: "01/HC", n: 1, title: "Quy\u1EBFt \u0111\u1ECBnh ph\xE2n Ki\u1EC3m s\xE1t vi\xEAn (Ki\u1EC3m tra vi\xEAn) ki\u1EC3m s\xE1t vi\u1EC7c tu\xE2n theo ph\xE1p lu\u1EADt trong t\u1ED1 t\u1EE5ng h\xE0nh ch\xEDnh", file: "mau-hc-01.docx" },
+        { so: "02/HC", n: 2, title: "Quy\u1EBFt \u0111\u1ECBnh thay \u0111\u1ED5i Ki\u1EC3m s\xE1t vi\xEAn (Ki\u1EC3m tra vi\xEAn) ki\u1EC3m s\xE1t vi\u1EC7c tu\xE2n theo ph\xE1p lu\u1EADt trong t\u1ED1 t\u1EE5ng h\xE0nh ch\xEDnh", file: "mau-hc-02.docx" },
+        { so: "03/HC", n: 3, title: "Quy\u1EBFt \u0111\u1ECBnh ph\xE2n c\xF4ng Ki\u1EC3m s\xE1t vi\xEAn tham gia phi\xEAn t\xF2a (phi\xEAn h\u1ECDp)", file: "mau-hc-03.docx" },
+        { so: "04/HC", n: 4, title: "Quy\u1EBFt \u0111\u1ECBnh thay \u0111\u1ED5i Ki\u1EC3m s\xE1t vi\xEAn tham gia phi\xEAn t\xF2a (phi\xEAn h\u1ECDp)", file: "mau-hc-04.docx" },
+        { so: "05/HC", n: 5, title: "Ki\u1EBFn ngh\u1ECB kh\u1EAFc ph\u1EE5c vi ph\u1EA1m ph\xE1p lu\u1EADt trong vi\u1EC7c gi\u1EA3i quy\u1EBFt v\u1EE5 \xE1n h\xE0nh ch\xEDnh (ki\u1EBFn ngh\u1ECB \u0111\u1ED1i v\u1EDBi v\u1EE5 \xE1n h\xE0nh ch\xEDnh c\u1EE5 th\u1EC3)", file: "mau-hc-05.docx" },
+        { so: "06/HC", n: 6, title: "Ki\u1EBFn ngh\u1ECB t\u1ED5ng h\u1EE3p vi ph\u1EA1m", file: "mau-hc-06.docx" },
+        { so: "07/HC", n: 7, title: "Ki\u1EBFn ngh\u1ECB kh\u1EAFc ph\u1EE5c, ph\xF2ng ng\u1EEBa vi ph\u1EA1m ph\xE1p lu\u1EADt", file: "mau-hc-07.docx" },
+        { so: "08/HC", n: 8, title: "B\xE1o c\xE1o th\u1EC9nh th\u1ECB \u0111\u01B0\u1EDDng l\u1ED1i gi\u1EA3i quy\u1EBFt v\u1EE5 \xE1n h\xE0nh ch\xEDnh", file: "mau-hc-08.docx" },
+        { so: "09/HC", n: 9, title: "C\xF4ng v\u0103n tr\u1EA3 l\u1EDDi b\xE1o c\xE1o th\u1EC9nh th\u1ECB \u0111\u01B0\u1EDDng l\u1ED1i gi\u1EA3i quy\u1EBFt v\u1EE5 \xE1n h\xE0nh ch\xEDnh", file: "mau-hc-09.docx" },
+        { so: "10/HC", n: 10, title: "Th\xF4ng b\xE1o r\xFAt kinh nghi\u1EC7m v\u1EC1 ki\u1EC3m s\xE1t vi\u1EC7c gi\u1EA3i quy\u1EBFt v\u1EE5 \xE1n h\xE0nh ch\xEDnh", file: "mau-hc-10.docx" },
+        { so: "11/HC", n: 11, title: "Th\xF4ng b\xE1o \u0111\u1EC1 ngh\u1ECB kh\xE1ng ngh\u1ECB theo th\u1EE7 t\u1EE5c gi\xE1m \u0111\u1ED1c th\u1EA9m (t\xE1i th\u1EA9m) \u0111\u1ED1i v\u1EDBi B\u1EA3n \xE1n (Quy\u1EBFt \u0111\u1ECBnh) c\u1EE7a T\xF2a \xE1n", file: "mau-hc-11.docx" },
+        { so: "12/HC", n: 12, title: "B\xE1o c\xE1o (th\xF4ng b\xE1o) k\u1EBFt qu\u1EA3 phi\xEAn t\xF2a (phi\xEAn h\u1ECDp)", file: "mau-hc-12.docx" },
+        { so: "13/HC", n: 13, title: "Bi\xEAn b\u1EA3n ki\u1EC3m s\xE1t Bi\xEAn b\u1EA3n phi\xEAn t\xF2a (phi\xEAn h\u1ECDp)", file: "mau-hc-13.docx" },
+        { so: "14/HC", n: 14, title: "Quy\u1EBFt \u0111\u1ECBnh gi\xE1m \u0111\u1ECBnh l\u1EA1i", file: "mau-hc-14.docx" },
+        { so: "15/HC", n: 15, title: "Y\xEAu c\u1EA7u cung c\u1EA5p t\xE0i li\u1EC7u, ch\u1EE9ng c\u1EE9", file: "mau-hc-15.docx" },
+        { so: "16/HC", n: 16, title: "Y\xEAu c\u1EA7u chuy\u1EC3n h\u1ED3 s\u01A1 v\u1EE5 \xE1n h\xE0nh ch\xEDnh", file: "mau-hc-16.docx" },
+        { so: "17/HC", n: 17, title: "Y\xEAu c\u1EA7u chuy\u1EC3n h\u1ED3 s\u01A1 v\u1EE5 \xE1n h\xE0nh ch\xEDnh (L\u1EA7n 2)", file: "mau-hc-17.docx" },
+        { so: "18/HC", n: 18, title: "Phi\u1EBFu chuy\u1EC3n tr\u1EA3 h\u1ED3 s\u01A1 v\u1EE5 \xE1n h\xE0nh ch\xEDnh", file: "mau-hc-18.docx" },
+        { so: "19/HC", n: 19, title: "Bi\xEAn b\u1EA3n b\xE0n giao h\u1ED3 s\u01A1 v\u1EE5 \xE1n h\xE0nh ch\xEDnh", file: "mau-hc-19.docx" }
+      ]
+    },
+    {
+      id: "hc-2",
+      label: "M\u1EABu \xE1p d\u1EE5ng cho 2 c\u1EA5p (s\u01A1 th\u1EA9m, ph\xFAc th\u1EA9m)",
+      items: [
+        { so: "20/HC", n: 20, title: "Quy\u1EBFt \u0111\u1ECBnh kh\xE1ng ngh\u1ECB ph\xFAc th\u1EA9m \u0111\u1ED1i v\u1EDBi B\u1EA3n \xE1n (Quy\u1EBFt \u0111\u1ECBnh) c\u1EE7a T\xF2a \xE1n c\u1EA5p s\u01A1 th\u1EA9m", file: "mau-hc-20.docx" },
+        { so: "21/HC", n: 21, title: "Quy\u1EBFt \u0111\u1ECBnh thay \u0111\u1ED5i (b\u1ED5 sung) Quy\u1EBFt \u0111\u1ECBnh kh\xE1ng ngh\u1ECB ph\xFAc th\u1EA9m", file: "mau-hc-21.docx" },
+        { so: "22/HC", n: 22, title: "Quy\u1EBFt \u0111\u1ECBnh r\xFAt to\xE0n b\u1ED9 (m\u1ED9t ph\u1EA7n) Quy\u1EBFt \u0111\u1ECBnh kh\xE1ng ngh\u1ECB ph\xFAc th\u1EA9m", file: "mau-hc-22.docx" },
+        { so: "23/HC", n: 23, title: "Ki\u1EBFn ngh\u1ECB Quy\u1EBFt \u0111\u1ECBnh (Th\xF4ng b\xE1o v\u1EC1 vi\u1EC7c kh\xF4ng ra quy\u1EBFt \u0111\u1ECBnh) \xE1p d\u1EE5ng (thay \u0111\u1ED5i, h\u1EE7y b\u1ECF) bi\u1EC7n ph\xE1p kh\u1EA9n c\u1EA5p t\u1EA1m th\u1EDDi", file: "mau-hc-23.docx" },
+        { so: "24/HC", n: 24, title: "Y\xEAu c\u1EA7u x\xE1c minh, thu th\u1EADp t\xE0i li\u1EC7u, ch\u1EE9ng c\u1EE9", file: "mau-hc-24.docx" }
+      ]
+    },
+    {
+      id: "hc-3",
+      label: "M\u1EABu \xE1p d\u1EE5ng cho c\u1EA5p s\u01A1 th\u1EA9m",
+      items: [
+        { so: "25/HC", n: 25, title: "Ki\u1EBFn ngh\u1ECB v\u1EC1 vi\u1EC7c c\u1EED ng\u01B0\u1EDDi gi\xE1m h\u1ED9 kh\u1EDFi ki\u1EC7n v\u1EE5 \xE1n h\xE0nh ch\xEDnh", file: "mau-hc-25.docx" },
+        { so: "26/HC", n: 26, title: "Phi\u1EBFu ki\u1EC3m s\xE1t Th\xF4ng b\xE1o tr\u1EA3 l\u1EA1i \u0111\u01A1n kh\u1EDFi ki\u1EC7n", file: "mau-hc-26.docx" },
+        { so: "27/HC", n: 27, title: "Y\xEAu c\u1EA7u sao ch\u1EE5p b\u1EA3n sao \u0111\u01A1n kh\u1EDFi ki\u1EC7n v\xE0 t\xE0i li\u1EC7u, ch\u1EE9ng c\u1EE9", file: "mau-hc-27.docx" },
+        { so: "28/HC", n: 28, title: "Ki\u1EBFn ngh\u1ECB vi\u1EC7c tr\u1EA3 l\u1EA1i \u0111\u01A1n kh\u1EDFi ki\u1EC7n", file: "mau-hc-28.docx" },
+        { so: "29/HC", n: 29, title: "Ph\xE1t bi\u1EC3u c\u1EE7a Ki\u1EC3m s\xE1t vi\xEAn t\u1EA1i phi\xEAn h\u1ECDp xem x\xE9t, gi\u1EA3i quy\u1EBFt ki\u1EBFn ngh\u1ECB (khi\u1EBFu n\u1EA1i) v\u1EC1 vi\u1EC7c tr\u1EA3 l\u1EA1i \u0111\u01A1n kh\u1EDFi ki\u1EC7n", file: "mau-hc-29.docx" },
+        { so: "30/HC", n: 30, title: "Ki\u1EBFn ngh\u1ECB \u0111\u1ED1i v\u1EDBi Quy\u1EBFt \u0111\u1ECBnh gi\u1EA3i quy\u1EBFt khi\u1EBFu n\u1EA1i (ki\u1EBFn ngh\u1ECB) v\u1EC1 vi\u1EC7c tr\u1EA3 l\u1EA1i \u0111\u01A1n kh\u1EDFi ki\u1EC7n", file: "mau-hc-30.docx" },
+        { so: "31/HC", n: 31, title: "Phi\u1EBFu ki\u1EC3m s\xE1t Th\xF4ng b\xE1o v\u1EC1 vi\u1EC7c th\u1EE5 l\xFD v\u1EE5 \xE1n", file: "mau-hc-31.docx" },
+        { so: "32/HC", n: 32, title: "Ki\u1EBFn ngh\u1ECB v\u1EC1 vi\u1EC7c chuy\u1EC3n (kh\xF4ng chuy\u1EC3n) h\u1ED3 s\u01A1 v\u1EE5 \xE1n h\xE0nh ch\xEDnh", file: "mau-hc-32.docx" },
+        { so: "33/HC", n: 33, title: "Ki\u1EBFn ngh\u1ECB Quy\u1EBFt \u0111\u1ECBnh \u0111\u01B0a v\u1EE5 \xE1n ra gi\u1EA3i quy\u1EBFt s\u01A1 th\u1EA9m theo th\u1EE7 t\u1EE5c r\xFAt g\u1ECDn", file: "mau-hc-33.docx" },
+        { so: "34/HC", n: 34, title: "B\xE1o c\xE1o \u0111\u1EC1 xu\u1EA5t vi\u1EC7c gi\u1EA3i quy\u1EBFt v\u1EE5 \xE1n h\xE0nh ch\xEDnh theo th\u1EE7 t\u1EE5c s\u01A1 th\u1EA9m", file: "mau-hc-34.docx" },
+        { so: "35/HC", n: 35, title: "Ph\xE1t bi\u1EC3u c\u1EE7a Ki\u1EC3m s\xE1t vi\xEAn t\u1EA1i phi\xEAn t\xF2a h\xE0nh ch\xEDnh s\u01A1 th\u1EA9m", file: "mau-hc-35.docx" },
+        { so: "36/HC", n: 36, title: "Phi\u1EBFu ki\u1EC3m s\xE1t B\u1EA3n \xE1n (Quy\u1EBFt \u0111\u1ECBnh) c\u1EE7a T\xF2a \xE1n c\u1EA5p s\u01A1 th\u1EA9m", file: "mau-hc-36.docx" },
+        { so: "37/HC", n: 37, title: "B\xE1o c\xE1o \u0111\u1EC1 ngh\u1ECB kh\xE1ng ngh\u1ECB ph\xFAc th\u1EA9m \u0111\u1ED1i v\u1EDBi B\u1EA3n \xE1n (Quy\u1EBFt \u0111\u1ECBnh) c\u1EE7a T\xF2a \xE1n c\u1EA5p s\u01A1 th\u1EA9m", file: "mau-hc-37.docx" }
+      ]
+    },
+    {
+      id: "hc-4",
+      label: "M\u1EABu \xE1p d\u1EE5ng cho c\u1EA5p ph\xFAc th\u1EA9m",
+      items: [
+        { so: "38/HC", n: 38, title: "Ph\xE1t bi\u1EC3u c\u1EE7a Ki\u1EC3m s\xE1t vi\xEAn t\u1EA1i phi\xEAn h\u1ECDp x\xE9t kh\xE1ng c\xE1o qu\xE1 h\u1EA1n", file: "mau-hc-38.docx" },
+        { so: "39/HC", n: 39, title: "Phi\u1EBFu ki\u1EC3m s\xE1t Quy\u1EBFt \u0111\u1ECBnh ch\u1EA5p nh\u1EADn (kh\xF4ng ch\u1EA5p nh\u1EADn) vi\u1EC7c kh\xE1ng c\xE1o qu\xE1 h\u1EA1n", file: "mau-hc-39.docx" },
+        { so: "40/HC", n: 40, title: "Ph\xE1t bi\u1EC3u c\u1EE7a Ki\u1EC3m s\xE1t vi\xEAn t\u1EA1i phi\xEAn h\u1ECDp x\xE9t ch\u1EADm n\u1ED9p bi\xEAn lai thu ti\u1EC1n t\u1EA1m \u1EE9ng \xE1n ph\xED ph\xFAc th\u1EA9m", file: "mau-hc-40.docx" },
+        { so: "41/HC", n: 41, title: "Phi\u1EBFu ki\u1EC3m s\xE1t Quy\u1EBFt \u0111\u1ECBnh ch\u1EA5p nh\u1EADn (kh\xF4ng ch\u1EA5p nh\u1EADn) vi\u1EC7c ch\u1EADm n\u1ED9p bi\xEAn lai thu ti\u1EC1n t\u1EA1m \u1EE9ng \xE1n ph\xED ph\xFAc th\u1EA9m", file: "mau-hc-41.docx" },
+        { so: "42/HC", n: 42, title: "Phi\u1EBFu ki\u1EC3m s\xE1t Th\xF4ng b\xE1o v\u1EC1 vi\u1EC7c th\u1EE5 l\xFD v\u1EE5 \xE1n \u0111\u1EC3 x\xE9t x\u1EED ph\xFAc th\u1EA9m", file: "mau-hc-42.docx" },
+        { so: "43/HC", n: 43, title: "B\xE1o c\xE1o \u0111\u1EC1 xu\u1EA5t vi\u1EC7c gi\u1EA3i quy\u1EBFt v\u1EE5 \xE1n h\xE0nh ch\xEDnh theo th\u1EE7 t\u1EE5c ph\xFAc th\u1EA9m", file: "mau-hc-43.docx" },
+        { so: "44/HC", n: 44, title: "Ph\xE1t bi\u1EC3u c\u1EE7a Ki\u1EC3m s\xE1t vi\xEAn t\u1EA1i phi\xEAn t\xF2a (phi\xEAn h\u1ECDp) ph\xFAc th\u1EA9m", file: "mau-hc-44.docx" },
+        { so: "45/HC", n: 45, title: "Phi\u1EBFu ki\u1EC3m s\xE1t B\u1EA3n \xE1n (Quy\u1EBFt \u0111\u1ECBnh) c\u1EE7a T\xF2a \xE1n c\u1EA5p ph\xFAc th\u1EA9m", file: "mau-hc-45.docx" }
+      ]
+    },
+    {
+      id: "hc-5",
+      label: "M\u1EABu \xE1p d\u1EE5ng cho c\u1EA5p gi\xE1m \u0111\u1ED1c th\u1EA9m (t\xE1i th\u1EA9m)",
+      items: [
+        { so: "46/HC", n: 46, title: "Quy\u1EBFt \u0111\u1ECBnh ho\xE3n thi h\xE0nh \xE1n", file: "mau-hc-46.docx" },
+        { so: "47/HC", n: 47, title: "Y\xEAu c\u1EA7u ho\xE3n thi h\xE0nh \xE1n", file: "mau-hc-47.docx" },
+        { so: "48/HC", n: 48, title: "Th\xF4ng b\xE1o v\u1EC1 x\u1EED l\xFD \u0111\u01A1n (th\xF4ng b\xE1o, ki\u1EBFn ngh\u1ECB) \u0111\u1EC1 ngh\u1ECB kh\xE1ng ngh\u1ECB theo th\u1EE7 t\u1EE5c gi\xE1m \u0111\u1ED1c th\u1EA9m (t\xE1i th\u1EA9m)", file: "mau-hc-48.docx" },
+        { so: "49/HC", n: 49, title: "B\xE1o c\xE1o \u0111\u1EC1 xu\u1EA5t vi\u1EC7c gi\u1EA3i quy\u1EBFt \u0111\u01A1n (th\xF4ng b\xE1o, ki\u1EBFn ngh\u1ECB) \u0111\u1EC1 ngh\u1ECB xem x\xE9t theo th\u1EE7 t\u1EE5c gi\xE1m \u0111\u1ED1c th\u1EA9m (t\xE1i th\u1EA9m)", file: "mau-hc-49.docx" },
+        { so: "50/HC", n: 50, title: "B\xE1o c\xE1o \u0111\u1EC1 xu\u1EA5t quan \u0111i\u1EC3m c\u1EE7a Vi\u1EC7n ki\u1EC3m s\xE1t \u0111\u1ED1i v\u1EDBi Quy\u1EBFt \u0111\u1ECBnh kh\xE1ng ngh\u1ECB gi\xE1m \u0111\u1ED1c th\u1EA9m (t\xE1i th\u1EA9m) c\u1EE7a Ch\xE1nh \xE1n T\xF2a \xE1n nh\xE2n d\xE2n", file: "mau-hc-50.docx" },
+        { so: "51/HC", n: 51, title: "Th\xF4ng b\xE1o v\u1EC1 vi\u1EC7c kh\xF4ng kh\xE1ng ngh\u1ECB gi\xE1m \u0111\u1ED1c th\u1EA9m (t\xE1i th\u1EA9m)", file: "mau-hc-51.docx" },
+        { so: "52/HC", n: 52, title: "Quy\u1EBFt \u0111\u1ECBnh kh\xE1ng ngh\u1ECB gi\xE1m \u0111\u1ED1c th\u1EA9m (t\xE1i th\u1EA9m)", file: "mau-hc-52.docx" },
+        { so: "53/HC", n: 53, title: "Quy\u1EBFt \u0111\u1ECBnh thay \u0111\u1ED5i (b\u1ED5 sung) Quy\u1EBFt \u0111\u1ECBnh kh\xE1ng ngh\u1ECB gi\xE1m \u0111\u1ED1c th\u1EA9m (t\xE1i th\u1EA9m)", file: "mau-hc-53.docx" },
+        { so: "54/HC", n: 54, title: "Quy\u1EBFt \u0111\u1ECBnh r\xFAt to\xE0n b\u1ED9 (m\u1ED9t ph\u1EA7n) Quy\u1EBFt \u0111\u1ECBnh kh\xE1ng ngh\u1ECB gi\xE1m \u0111\u1ED1c th\u1EA9m (t\xE1i th\u1EA9m)", file: "mau-hc-54.docx" },
+        { so: "55/HC", n: 55, title: "Ph\xE1t bi\u1EC3u c\u1EE7a Ki\u1EC3m s\xE1t vi\xEAn t\u1EA1i phi\xEAn t\xF2a gi\xE1m \u0111\u1ED1c th\u1EA9m (t\xE1i th\u1EA9m) (Tr\u01B0\u1EDDng h\u1EE3p Ch\xE1nh \xE1n T\xF2a \xE1n nh\xE2n d\xE2n c\u1EA5p cao (t\u1ED1i cao) kh\xE1ng ngh\u1ECB)", file: "mau-hc-55.docx" },
+        { so: "56/HC", n: 56, title: "Ph\xE1t bi\u1EC3u c\u1EE7a Ki\u1EC3m s\xE1t vi\xEAn t\u1EA1i phi\xEAn t\xF2a gi\xE1m \u0111\u1ED1c th\u1EA9m (t\xE1i th\u1EA9m) (Tr\u01B0\u1EDDng h\u1EE3p Vi\u1EC7n tr\u01B0\u1EDFng Vi\u1EC7n ki\u1EC3m s\xE1t nh\xE2n d\xE2n c\u1EA5p cao (t\u1ED1i cao) kh\xE1ng ngh\u1ECB)", file: "mau-hc-56.docx" },
+        { so: "57/HC", n: 57, title: "Phi\u1EBFu ki\u1EC3m s\xE1t Quy\u1EBFt \u0111\u1ECBnh gi\xE1m \u0111\u1ED1c th\u1EA9m (t\xE1i th\u1EA9m)", file: "mau-hc-57.docx" }
+      ]
+    },
+    {
+      id: "hc-6",
+      label: "M\u1EABu d\xF9ng cho c\u1EA5p gi\xE1m \u0111\u1ED1c th\u1EA9m (t\xE1i th\u1EA9m) \u1EDF Vi\u1EC7n ki\u1EC3m s\xE1t nh\xE2n d\xE2n t\u1ED1i cao",
+      items: [
+        { so: "58/HC", n: 58, title: "B\xE1o c\xE1o \u0111\u1EC1 xu\u1EA5t vi\u1EC7c xem x\xE9t ki\u1EBFn ngh\u1ECB theo th\u1EE7 t\u1EE5c \u0111\u1EB7c bi\u1EC7t \u0111\u1ED1i v\u1EDBi Quy\u1EBFt \u0111\u1ECBnh gi\xE1m \u0111\u1ED1c th\u1EA9m (t\xE1i th\u1EA9m) c\u1EE7a H\u1ED9i \u0111\u1ED3ng Th\u1EA9m ph\xE1n T\xF2a \xE1n nh\xE2n d\xE2n t\u1ED1i cao", file: "mau-hc-58.docx" },
+        { so: "59/HC", n: 59, title: "T\u1EDD tr\xECnh \u0111\u1EC1 ngh\u1ECB ban h\xE0nh ki\u1EBFn ngh\u1ECB xem x\xE9t l\u1EA1i Quy\u1EBFt \u0111\u1ECBnh gi\xE1m \u0111\u1ED1c th\u1EA9m (t\xE1i th\u1EA9m) c\u1EE7a H\u1ED9i \u0111\u1ED3ng Th\u1EA9m ph\xE1n T\xF2a \xE1n nh\xE2n d\xE2n t\u1ED1i cao theo th\u1EE7 t\u1EE5c \u0111\u1EB7c bi\u1EC7t", file: "mau-hc-59.docx" },
+        { so: "60/HC", n: 60, title: "B\xE1o c\xE1o \u0111\u1EC1 xu\u1EA5t v\u1EC1 quan \u0111i\u1EC3m c\u1EE7a Vi\u1EC7n ki\u1EC3m s\xE1t nh\xE2n d\xE2n t\u1ED1i cao \u0111\u1ED1i v\u1EDBi ki\u1EBFn ngh\u1ECB c\u1EE7a \u1EE6y ban T\u01B0 ph\xE1p c\u1EE7a Qu\u1ED1c h\u1ED9i (\u0111\u1EC1 ngh\u1ECB c\u1EE7a Ch\xE1nh \xE1n T\xF2a \xE1n nh\xE2n d\xE2n t\u1ED1i cao)", file: "mau-hc-60.docx" },
+        { so: "61/HC", n: 61, title: "Th\xF4ng b\xE1o v\u1EC1 vi\u1EC7c kh\xF4ng ki\u1EBFn ngh\u1ECB theo th\u1EE7 t\u1EE5c \u0111\u1EB7c bi\u1EC7t", file: "mau-hc-61.docx" },
+        { so: "62/HC", n: 62, title: "Ki\u1EBFn ngh\u1ECB v\u1EC1 vi\u1EC7c xem x\xE9t l\u1EA1i Quy\u1EBFt \u0111\u1ECBnh gi\xE1m \u0111\u1ED1c th\u1EA9m (t\xE1i th\u1EA9m) c\u1EE7a H\u1ED9i \u0111\u1ED3ng Th\u1EA9m ph\xE1n T\xF2a \xE1n nh\xE2n d\xE2n t\u1ED1i cao", file: "mau-hc-62.docx" },
+        { so: "63/HC", n: 63, title: "Ph\xE1t bi\u1EC3u c\u1EE7a Vi\u1EC7n tr\u01B0\u1EDFng Vi\u1EC7n ki\u1EC3m s\xE1t nh\xE2n d\xE2n t\u1ED1i cao t\u1EA1i phi\xEAn h\u1ECDp xem x\xE9t ki\u1EBFn ngh\u1ECB c\u1EE7a Vi\u1EC7n tr\u01B0\u1EDFng Vi\u1EC7n ki\u1EC3m s\xE1t nh\xE2n d\xE2n t\u1ED1i cao theo th\u1EE7 t\u1EE5c \u0111\u1EB7c bi\u1EC7t", file: "mau-hc-63.docx" },
+        { so: "64/HC", n: 64, title: "Ph\xE1t bi\u1EC3u c\u1EE7a Vi\u1EC7n tr\u01B0\u1EDFng Vi\u1EC7n ki\u1EC3m s\xE1t nh\xE2n d\xE2n t\u1ED1i cao t\u1EA1i phi\xEAn h\u1ECDp xem x\xE9t ki\u1EBFn ngh\u1ECB c\u1EE7a \u1EE6y ban T\u01B0 ph\xE1p c\u1EE7a Qu\u1ED1c h\u1ED9i (\u0111\u1EC1 ngh\u1ECB c\u1EE7a Ch\xE1nh \xE1n T\xF2a \xE1n nh\xE2n d\xE2n t\u1ED1i cao)", file: "mau-hc-64.docx" },
+        { so: "65/HC", n: 65, title: "Ph\xE1t bi\u1EC3u c\u1EE7a Vi\u1EC7n tr\u01B0\u1EDFng Vi\u1EC7n ki\u1EC3m s\xE1t nh\xE2n d\xE2n t\u1ED1i cao t\u1EA1i phi\xEAn h\u1ECDp xem x\xE9t l\u1EA1i Quy\u1EBFt \u0111\u1ECBnh gi\xE1m \u0111\u1ED1c th\u1EA9m (t\xE1i th\u1EA9m) c\u1EE7a H\u1ED9i \u0111\u1ED3ng Th\u1EA9m ph\xE1n T\xF2a \xE1n nh\xE2n d\xE2n t\u1ED1i cao", file: "mau-hc-65.docx" }
+      ]
+    },
+    {
+      id: "pl09-1",
+      label: "M\u1EABu \xE1p d\u1EE5ng chung cho Vi\u1EC7n ki\u1EC3m s\xE1t hai c\u1EA5p (c\u1EA5p huy\u1EC7n, c\u1EA5p t\u1EC9nh)",
+      items: [
+        { so: "01/PL09", n: 1, title: "Quy\u1EBFt \u0111\u1ECBnh ph\xE2n c\xF4ng Ki\u1EC3m s\xE1t vi\xEAn ki\u1EC3m s\xE1t vi\u1EC7c tu\xE2n theo ph\xE1p lu\u1EADt v\xE0 tham gia phi\xEAn h\u1ECDp", file: "bieu-pl09.doc" },
+        { so: "02/PL09", n: 2, title: "Quy\u1EBFt \u0111\u1ECBnh thay \u0111\u1ED5i Ki\u1EC3m s\xE1t vi\xEAn ki\u1EC3m s\xE1t vi\u1EC7c tu\xE2n theo ph\xE1p lu\u1EADt v\xE0 tham gia phi\xEAn h\u1ECDp", file: "bieu-pl09.doc" },
+        { so: "03/PL09", n: 3, title: "Quy\u1EBFt \u0111\u1ECBnh ph\xE2n c\xF4ng Ki\u1EC3m tra vi\xEAn nghi\xEAn c\u1EE9u, l\u1EADp h\u1ED3 s\u01A1 ki\u1EC3m s\xE1t", file: "bieu-pl09.doc" },
+        { so: "04/PL09", n: 4, title: "Quy\u1EBFt \u0111\u1ECBnh thay \u0111\u1ED5i Ki\u1EC3m tra vi\xEAn nghi\xEAn c\u1EE9u, l\u1EADp h\u1ED3 s\u01A1 ki\u1EC3m s\xE1t", file: "bieu-pl09.doc" },
+        { so: "05/PL09", n: 5, title: "B\xE1o c\xE1o th\u1EC9nh th\u1ECB \u0111\u01B0\u1EDDng l\u1ED1i gi\u1EA3i quy\u1EBFt vi\u1EC7c xem x\xE9t, quy\u1EBFt \u0111\u1ECBnh \xE1p d\u1EE5ng bi\u1EC7n ph\xE1p x\u1EED l\xFD h\xE0nh ch\xEDnh", file: "bieu-pl09.doc" },
+        { so: "06/PL09", n: 6, title: "C\xF4ng v\u0103n tr\u1EA3 l\u1EDDi b\xE1o c\xE1o th\u1EC9nh th\u1ECB \u0111\u01B0\u1EDDng l\u1ED1i gi\u1EA3i quy\u1EBFt vi\u1EC7c xem x\xE9t, quy\u1EBFt \u0111\u1ECBnh \xE1p d\u1EE5ng bi\u1EC7n ph\xE1p x\u1EED l\xFD h\xE0nh ch\xEDnh", file: "bieu-pl09.doc" },
+        { so: "07/PL09", n: 7, title: "Ki\u1EBFn ngh\u1ECB kh\u1EAFc ph\u1EE5c vi ph\u1EA1m ph\xE1p lu\u1EADt trong vi\u1EC7c xem x\xE9t, quy\u1EBFt \u0111\u1ECBnh \xE1p d\u1EE5ng bi\u1EC7n ph\xE1p x\u1EED l\xFD h\xE0nh ch\xEDnh t\u1EA1i T\xF2a \xE1n nh\xE2n d\xE2n", file: "bieu-pl09.doc" },
+        { so: "08/PL09", n: 8, title: "Ki\u1EBFn ngh\u1ECB t\u1ED5ng h\u1EE3p vi ph\u1EA1m", file: "bieu-pl09.doc" },
+        { so: "09/PL09", n: 9, title: "Ki\u1EBFn ngh\u1ECB kh\u1EAFc ph\u1EE5c, ph\xF2ng ng\u1EEBa vi ph\u1EA1m ph\xE1p lu\u1EADt", file: "bieu-pl09.doc" },
+        { so: "10/PL09", n: 10, title: "B\xE1o c\xE1o (th\xF4ng b\xE1o) k\u1EBFt qu\u1EA3 phi\xEAn h\u1ECDp", file: "bieu-pl09.doc" }
+      ]
+    },
+    {
+      id: "pl09-2",
+      label: "M\u1EABu \xE1p d\u1EE5ng cho Vi\u1EC7n ki\u1EC3m s\xE1t c\u1EA5p huy\u1EC7n",
+      items: [
+        { so: "11/PL09", n: 11, title: "Phi\u1EBFu ki\u1EC3m s\xE1t Th\xF4ng b\xE1o th\u1EE5 l\xFD h\u1ED3 s\u01A1 \u0111\u1EC1 ngh\u1ECB xem x\xE9t, quy\u1EBFt \u0111\u1ECBnh \xE1p d\u1EE5ng bi\u1EC7n ph\xE1p x\u1EED l\xFD h\xE0nh ch\xEDnh", file: "bieu-pl09.doc" },
+        { so: "12/PL09", n: 12, title: "Phi\u1EBFu ki\u1EC3m s\xE1t Quy\u1EBFt \u0111\u1ECBnh t\u1EA1m \u0111\xECnh ch\u1EC9 vi\u1EC7c xem x\xE9t, quy\u1EBFt \u0111\u1ECBnh \xE1p d\u1EE5ng bi\u1EC7n ph\xE1p x\u1EED l\xFD h\xE0nh ch\xEDnh", file: "bieu-pl09.doc" },
+        { so: "13/PL09", n: 13, title: "B\xE1o c\xE1o \u0111\u1EC1 xu\u1EA5t vi\u1EC7c xem x\xE9t, quy\u1EBFt \u0111\u1ECBnh \xE1p d\u1EE5ng bi\u1EC7n ph\xE1p x\u1EED l\xFD h\xE0nh ch\xEDnh", file: "bieu-pl09.doc" },
+        { so: "14/PL09", n: 14, title: "Ph\xE1t bi\u1EC3u c\u1EE7a Ki\u1EC3m s\xE1t vi\xEAn t\u1EA1i phi\xEAn h\u1ECDp xem x\xE9t, quy\u1EBFt \u0111\u1ECBnh \xE1p d\u1EE5ng bi\u1EC7n ph\xE1p x\u1EED l\xFD h\xE0nh ch\xEDnh", file: "bieu-pl09.doc" },
+        { so: "15/PL09", n: 15, title: "Phi\u1EBFu ki\u1EC3m s\xE1t Quy\u1EBFt \u0111\u1ECBnh gi\u1EA3i quy\u1EBFt c\u1EE7a T\xF2a \xE1n trong vi\u1EC7c \xE1p d\u1EE5ng bi\u1EC7n ph\xE1p x\u1EED l\xFD h\xE0nh ch\xEDnh", file: "bieu-pl09.doc" },
+        { so: "16/PL09", n: 16, title: "Quy\u1EBFt \u0111\u1ECBnh kh\xE1ng ngh\u1ECB", file: "bieu-pl09.doc" },
+        { so: "17/PL09", n: 17, title: "Quy\u1EBFt \u0111\u1ECBnh r\xFAt to\xE0n b\u1ED9 (m\u1ED9t ph\u1EA7n) Quy\u1EBFt \u0111\u1ECBnh kh\xE1ng ngh\u1ECB", file: "bieu-pl09.doc" }
+      ]
+    },
+    {
+      id: "pl09-3",
+      label: "M\u1EABu \xE1p d\u1EE5ng cho Vi\u1EC7n ki\u1EC3m s\xE1t c\u1EA5p t\u1EC9nh",
+      items: [
+        { so: "18/PL09", n: 18, title: "Phi\u1EBFu ki\u1EC3m s\xE1t Th\xF4ng b\xE1o th\u1EE5 l\xFD \u0111\u01A1n khi\u1EBFu n\u1EA1i (v\u0103n b\u1EA3n ki\u1EBFn ngh\u1ECB, kh\xE1ng ngh\u1ECB)", file: "bieu-pl09.doc" },
+        { so: "19/PL09", n: 19, title: "B\xE1o c\xE1o \u0111\u1EC1 xu\u1EA5t vi\u1EC7c xem x\xE9t, gi\u1EA3i quy\u1EBFt khi\u1EBFu n\u1EA1i (ki\u1EBFn ngh\u1ECB, kh\xE1ng ngh\u1ECB)", file: "bieu-pl09.doc" },
+        { so: "20/PL09", n: 20, title: "Ph\xE1t bi\u1EC3u c\u1EE7a Ki\u1EC3m s\xE1t vi\xEAn t\u1EA1i phi\xEAn h\u1ECDp xem x\xE9t, gi\u1EA3i quy\u1EBFt khi\u1EBFu n\u1EA1i (ki\u1EBFn ngh\u1ECB, kh\xE1ng ngh\u1ECB)", file: "bieu-pl09.doc" },
+        { so: "21/PL09", n: 21, title: "Phi\u1EBFu ki\u1EC3m s\xE1t Quy\u1EBFt \u0111\u1ECBnh gi\u1EA3i quy\u1EBFt khi\u1EBFu n\u1EA1i (ki\u1EBFn ngh\u1ECB, kh\xE1ng ngh\u1ECB)", file: "bieu-pl09.doc" }
+      ]
+    }
+  ];
+
+  // src/lib/thahs/bieu-39.ts
+  var QD39_NOTE = "Vi\u1EC7n tr\u01B0\u1EDFng L\xEA Minh Tr\xED k\xFD Quy\u1EBFt \u0111\u1ECBnh s\u1ED1 39/Q\u0110-VKSTC ng\xE0y 26/01/2018, ban h\xE0nh bi\u1EC3u m\u1EABu nghi\u1EC7p v\u1EE5 v\u1EC1 c\xF4ng t\xE1c ki\u1EC3m s\xE1t vi\u1EC7c t\u1EA1m gi\u1EEF, t\u1EA1m giam, thi h\xE0nh \xE1n h\xECnh s\u1EF1. \u0110i\u1EC1u 1: 80 bi\u1EC3u m\u1EABu theo danh m\u1EE5c k\xE8m theo. C\xF3 hi\u1EC7u l\u1EF1c k\u1EC3 t\u1EEB ng\xE0y k\xFD. Bi\u1EC3u m\u1EABu \u0111\xE3 th\u1EF1c hi\u1EC7n tr\u01B0\u1EDBc ng\xE0y quy\u1EBFt \u0111\u1ECBnh c\xF3 hi\u1EC7u l\u1EF1c v\u1EABn c\xF3 gi\xE1 tr\u1ECB theo quy \u0111\u1ECBnh c\u1EE7a ph\xE1p lu\u1EADt. T\u1EC7p \u0111\xEDnh k\xE8m kh\xF4ng c\xF3 danh m\u1EE5c v\xE0 m\u1EABu tr\u1ED1ng c\u1EE7a 80 bi\u1EC3u n\xE0y \u2014 kh\xF4ng ghi t\xEAn t\u1EEBng m\u1EABu khi ch\u01B0a c\xF3 b\u1EA3n danh m\u1EE5c.";
+
+  // src/lib/van-phong/bmtknv.ts
+  var BMTKNV_FILES = [
+    {
+      id: "hs",
+      file: "bieu-hinh-su.xls",
+      title: "Bi\u1EC3u m\u1EABu h\xECnh s\u1EF1",
+      kind: "xls",
+      sheets: [
+        "01/2013 \u2014 Ki\u1EC3m s\xE1t gi\u1EA3i quy\u1EBFt t\u1ED1 gi\xE1c, tin b\xE1o v\u1EC1 t\u1ED9i ph\u1EA1m v\xE0 ki\u1EBFn ngh\u1ECB kh\u1EDFi t\u1ED1",
+        "02/2013 \u2014 Th\u1EF1c h\xE0nh quy\u1EC1n c\xF4ng t\u1ED1, ki\u1EC3m s\xE1t \u0111i\u1EC1u tra, ki\u1EC3m s\xE1t x\xE9t x\u1EED s\u01A1 th\u1EA9m",
+        "03/2013 \u2014 K\u1EBFt qu\u1EA3 kh\u1EDFi t\u1ED1, truy t\u1ED1, x\xE9t x\u1EED s\u01A1 th\u1EA9m",
+        "04/2013 \u2014 Th\u1EF1c h\xE0nh quy\u1EC1n c\xF4ng t\u1ED1 v\xE0 ki\u1EC3m s\xE1t x\xE9t x\u1EED ph\xFAc th\u1EA9m",
+        "05/2013 \u2014 Th\u1EF1c h\xE0nh quy\u1EC1n c\xF4ng t\u1ED1 v\xE0 ki\u1EC3m s\xE1t x\xE9t x\u1EED gi\xE1m \u0111\u1ED1c th\u1EA9m, t\xE1i th\u1EA9m",
+        "06/2013 \u2014 Ki\u1EC3m s\xE1t t\u1EA1m gi\u1EEF, t\u1EA1m giam v\xE0 thi h\xE0nh \xE1n h\xECnh s\u1EF1",
+        "07/2013 \u2014 Gi\u1EA3i quy\u1EBFt t\u1ED1 gi\xE1c, tin b\xE1o, ki\u1EBFn ngh\u1ECB kh\u1EDFi t\u1ED1 c\u1EE7a c\u01A1 quan \u0111i\u1EC1u tra VKSND",
+        "08/2013 \u2014 \u0110i\u1EC1u tra v\u1EE5 \xE1n h\xECnh s\u1EF1 c\u1EE7a c\u01A1 quan \u0111i\u1EC1u tra VKSND",
+        "K\u1EBFt qu\u1EA3 \u0111i\u1EC1u tra, truy t\u1ED1, x\xE9t x\u1EED s\u01A1 th\u1EA9m theo t\u1ED9i danh (k\u1EF3 6 th\xE1ng, 12 th\xE1ng; t\u1EDD kh\xF4ng in s\u1ED1 bi\u1EC3u)"
+      ]
+    },
+    {
+      id: "ds",
+      file: "bieu-dan-su.xls",
+      title: "Bi\u1EC3u m\u1EABu d\xE2n s\u1EF1, h\xF4n nh\xE2n gia \u0111\xECnh, kinh doanh th\u01B0\u01A1ng m\u1EA1i, lao \u0111\u1ED9ng",
+      kind: "xls",
+      sheets: [
+        "10/2013 \u2014 Ki\u1EC3m s\xE1t gi\u1EA3i quy\u1EBFt s\u01A1 th\u1EA9m",
+        "11/2013 \u2014 Ki\u1EC3m s\xE1t gi\u1EA3i quy\u1EBFt ph\xFAc th\u1EA9m",
+        "12/2013 \u2014 Ki\u1EC3m s\xE1t gi\u1EA3i quy\u1EBFt gi\xE1m \u0111\u1ED1c th\u1EA9m, t\xE1i th\u1EA9m"
+      ]
+    },
+    {
+      id: "hc",
+      file: "bieu-hanh-chinh.xls",
+      title: "Bi\u1EC3u m\u1EABu \xE1n h\xE0nh ch\xEDnh",
+      kind: "xls",
+      sheets: [
+        "13/2012 \u2014 Ki\u1EC3m s\xE1t gi\u1EA3i quy\u1EBFt s\u01A1 th\u1EA9m",
+        "14/2012 \u2014 Ki\u1EC3m s\xE1t gi\u1EA3i quy\u1EBFt ph\xFAc th\u1EA9m",
+        "15/2012 \u2014 Ki\u1EC3m s\xE1t gi\u1EA3i quy\u1EBFt gi\xE1m \u0111\u1ED1c th\u1EA9m, t\xE1i th\u1EA9m"
+      ]
+    },
+    {
+      id: "ps",
+      file: "bieu-pha-san.xls",
+      title: "Bi\u1EC3u m\u1EABu ph\xE1 s\u1EA3n",
+      kind: "xls",
+      sheets: ["19/2013 \u2014 Ki\u1EC3m s\xE1t gi\u1EA3i quy\u1EBFt y\xEAu c\u1EA7u tuy\xEAn b\u1ED1 ph\xE1 s\u1EA3n doanh nghi\u1EC7p"]
+    },
+    {
+      id: "kntc",
+      file: "bieu-khieu-nai-to-cao.xls",
+      title: "Bi\u1EC3u m\u1EABu khi\u1EBFu n\u1EA1i, t\u1ED1 c\xE1o",
+      kind: "xls",
+      sheets: [
+        "16/2013 \u2014 Ti\u1EBFp nh\u1EADn, ph\xE2n lo\u1EA1i v\xE0 x\u1EED l\xFD \u0111\u01A1n",
+        "17/2013 \u2014 Ki\u1EC3m s\xE1t gi\u1EA3i quy\u1EBFt khi\u1EBFu n\u1EA1i, t\u1ED1 c\xE1o thu\u1ED9c th\u1EA9m quy\u1EC1n c\u1EE7a Vi\u1EC7n ki\u1EC3m s\xE1t",
+        "18/2013 \u2014 Ki\u1EC3m s\xE1t vi\u1EC7c gi\u1EA3i quy\u1EBFt khi\u1EBFu n\u1EA1i, t\u1ED1 c\xE1o c\u1EE7a c\xE1c c\u01A1 quan t\u01B0 ph\xE1p"
+      ]
+    },
+    {
+      id: "thads",
+      file: "bieu-thi-hanh-an-dan-su.xls",
+      title: "Bi\u1EC3u m\u1EABu thi h\xE0nh \xE1n d\xE2n s\u1EF1",
+      kind: "xls",
+      sheets: ["20/2013 \u2014 Ki\u1EC3m s\xE1t thi h\xE0nh \xE1n d\xE2n s\u1EF1"]
+    },
+    {
+      id: "vp",
+      file: "bieu-vi-pham-tu-phap.xls",
+      title: "Bi\u1EC3u th\u1ED1ng k\xEA vi ph\u1EA1m ph\xE1p lu\u1EADt trong ho\u1EA1t \u0111\u1ED9ng t\u01B0 ph\xE1p",
+      kind: "xls",
+      sheets: ["Th\u1ED1ng k\xEA vi ph\u1EA1m ph\xE1p lu\u1EADt trong ho\u1EA1t \u0111\u1ED9ng t\u01B0 ph\xE1p (t\u1EDD kh\xF4ng in s\u1ED1 bi\u1EC3u)"]
+    },
+    {
+      id: "th",
+      file: "phu-luc-tu-hinh.xls",
+      title: "Ph\u1EE5 l\u1EE5c \xE1n t\u1EED h\xECnh",
+      kind: "xls",
+      sheets: [
+        "01/2013 \u2014 Ng\u01B0\u1EDDi b\u1ECB T\xF2a \xE1n s\u01A1 th\u1EA9m tuy\xEAn ph\u1EA1t t\u1EED h\xECnh",
+        "02/2013 \u2014 Ng\u01B0\u1EDDi b\u1ECB tuy\xEAn t\u1EED h\xECnh \u0111\xE3 thi h\xE0nh \xE1n, tr\u1ED1n, ch\u1EBFt",
+        "03/2013 \u2014 Ng\u01B0\u1EDDi b\u1ECB T\xF2a \xE1n ph\xFAc th\u1EA9m tuy\xEAn ph\u1EA1t t\u1EED h\xECnh",
+        "04/2013 \u2014 Ng\u01B0\u1EDDi b\u1ECB s\u01A1 th\u1EA9m tuy\xEAn t\u1EED h\xECnh \u0111\xE3 \u0111\u01B0\u1EE3c x\xE9t x\u1EED ph\xFAc th\u1EA9m",
+        "05/2013 \u2014 Gi\xE1m \u0111\u1ED1c th\u1EA9m, t\xE1i th\u1EA9m \u0111\xECnh ch\u1EC9 ho\u1EB7c h\u1EE7y \xE1n",
+        "06/2013 \u2014 Ng\u01B0\u1EDDi b\u1ECB tuy\xEAn t\u1EED h\xECnh \u0111\xE3 c\xF3 quy\u1EBFt \u0111\u1ECBnh c\u1EE7a Ch\u1EE7 t\u1ECBch n\u01B0\u1EDBc"
+      ]
+    },
+    {
+      id: "qd",
+      file: "quyet-dinh-ban-hanh.doc",
+      title: "Quy\u1EBFt \u0111\u1ECBnh ban h\xE0nh ch\u1EBF \u0111\u1ED9 b\xE1o c\xE1o th\u1ED1ng k\xEA",
+      kind: "doc",
+      sheets: []
+    },
+    {
+      id: "cd",
+      file: "che-do-bao-cao.doc",
+      title: "Ch\u1EBF \u0111\u1ED9 b\xE1o c\xE1o th\u1ED1ng k\xEA",
+      kind: "doc",
+      sheets: []
+    },
+    {
+      id: "hd",
+      file: "huong-dan-bieu-mau.doc",
+      title: "H\u01B0\u1EDBng d\u1EABn bi\u1EC3u m\u1EABu th\u1ED1ng k\xEA",
+      kind: "doc",
+      sheets: []
+    },
+    {
+      id: "hdvp",
+      file: "huong-dan-vi-pham.doc",
+      title: "H\u01B0\u1EDBng d\u1EABn th\u1ED1ng k\xEA vi ph\u1EA1m ph\xE1p lu\u1EADt trong ho\u1EA1t \u0111\u1ED9ng t\u01B0 ph\xE1p",
+      kind: "doc",
+      sheets: []
+    },
+    {
+      id: "tt",
+      file: "to-trinh.doc",
+      title: "T\u1EDD tr\xECnh",
+      kind: "doc",
+      sheets: []
+    }
+  ];
+
+  // src/lib/van-ban-pl/bieu-nganh.ts
+  var LV = {
+    hs: "H\xECnh s\u1EF1",
+    ds: "D\xE2n s\u1EF1",
+    hc: "H\xE0nh ch\xEDnh",
+    kdtm: "Kinh doanh th\u01B0\u01A1ng m\u1EA1i, lao \u0111\u1ED9ng",
+    thads: "Thi h\xE0nh \xE1n d\xE2n s\u1EF1",
+    thahs: "Thi h\xE0nh \xE1n h\xECnh s\u1EF1",
+    xlhc: "X\u1EED l\xFD h\xE0nh ch\xEDnh",
+    ps: "Ph\xE1 s\u1EA3n",
+    kntc: "Khi\u1EBFu n\u1EA1i, t\u1ED1 c\xE1o"
+  };
+  var CO = "VKSND t\u1ED1i cao";
+  var TK_HS = "nghiep-vu-van-phong/bieu-mau/bieu-hinh-su-358.xlsx";
+  var TK_DS = "nghiep-vu-van-phong/bieu-mau/bieu-dan-su-358.xlsx";
+  var HD_HS = "nghiep-vu-van-phong/bieu-mau/hd-bieu-hinh-su.docx";
+  var HD_DS = "nghiep-vu-van-phong/bieu-mau/hd-bieu-dan-su.docx";
+  var TK_HS_ROWS = [
+    { id: "01", so: "01", title: "C\xF4ng t\u1ED1, ki\u1EC3m s\xE1t ti\u1EBFp nh\u1EADn, gi\u1EA3i quy\u1EBFt t\u1ED1 gi\xE1c, tin b\xE1o v\u1EC1 t\u1ED9i ph\u1EA1m, ki\u1EBFn ngh\u1ECB kh\u1EDFi t\u1ED1", lv: LV.hs },
+    { id: "02", so: "02", title: "C\xF4ng t\u1ED1 v\xE0 ki\u1EC3m s\xE1t kh\u1EDFi t\u1ED1, \u0111i\u1EC1u tra, truy t\u1ED1 v\u1EE5 \xE1n h\xECnh s\u1EF1", lv: LV.hs },
+    { id: "03", so: "03", title: "C\xF4ng t\u1ED1 v\xE0 ki\u1EC3m s\xE1t x\xE9t x\u1EED s\u01A1 th\u1EA9m v\u1EE5 \xE1n h\xECnh s\u1EF1", lv: LV.hs },
+    { id: "04", so: "04", title: "K\u1EBFt qu\u1EA3 x\xE9t x\u1EED s\u01A1 th\u1EA9m h\xECnh s\u1EF1 \u0111\u1ED1i v\u1EDBi b\u1ECB c\xE1o", lv: LV.hs },
+    { id: "05", so: "05", title: "C\xF4ng t\u1ED1 v\xE0 ki\u1EC3m s\xE1t x\xE9t x\u1EED ph\xFAc th\u1EA9m v\u1EE5 \xE1n h\xECnh s\u1EF1", lv: LV.hs },
+    { id: "06", so: "06", title: "C\xF4ng t\u1ED1 v\xE0 ki\u1EC3m s\xE1t x\xE9t x\u1EED gi\xE1m \u0111\u1ED1c th\u1EA9m, t\xE1i th\u1EA9m v\u1EE5 \xE1n h\xECnh s\u1EF1", lv: LV.hs },
+    { id: "07", so: "07", title: "Ki\u1EC3m s\xE1t t\u1EA1m gi\u1EEF, t\u1EA1m giam v\xE0 thi h\xE0nh \xE1n h\xECnh s\u1EF1", lv: LV.thahs },
+    { id: "08", so: "08", title: "Gi\u1EA3i quy\u1EBFt t\u1ED1 gi\xE1c, tin b\xE1o, KNKT c\u1EE7a CQ\u0110T VKSND", lv: LV.hs },
+    { id: "09", so: "09", title: "K\u1EBFt qu\u1EA3 \u0111i\u1EC1u tra v\u1EE5 \xE1n h\xECnh s\u1EF1 c\u1EE7a CQ\u0110T VKSND", lv: LV.hs },
+    { id: "10", so: "10", title: "\u0110i\u1EC1u tra, truy t\u1ED1, x\xE9t x\u1EED s\u01A1 th\u1EA9m v\u1EE5 \xE1n h\xECnh s\u1EF1 (t\u1ED5ng h\u1EE3p)", lv: LV.hs },
+    { id: "11", so: "11", title: "Ki\u1EC3m s\xE1t \xE1p d\u1EE5ng, thi h\xE0nh bi\u1EC7n ph\xE1p b\u1EAFt bu\u1ED9c ch\u1EEFa b\u1EC7nh", lv: LV.hs },
+    { id: "12", so: "12", title: "Gi\xE1m \u0111\u1ECBnh t\u01B0 ph\xE1p trong ho\u1EA1t \u0111\u1ED9ng t\u1ED1 t\u1EE5ng", lv: LV.hs },
+    { id: "13", so: "13", title: "Ng\u01B0\u1EDDi d\u01B0\u1EDBi 18 tu\u1ED5i ph\u1EA1m t\u1ED9i", lv: LV.hs },
+    { id: "14", so: "14", title: "Ng\u01B0\u1EDDi d\u01B0\u1EDBi 18 tu\u1ED5i l\xE0 b\u1ECB h\u1EA1i trong v\u1EE5 \xE1n h\xECnh s\u1EF1", lv: LV.hs },
+    { id: "15", so: "15", title: "Ki\u1EC3m s\xE1t ch\u1EA5p h\xE0nh ph\u1EA7n th\u1EDDi gian \xE1p d\u1EE5ng BP XLHC c\xF2n l\u1EA1i", lv: LV.xlhc },
+    { id: "16", so: "16", title: "Ki\u1EC3m s\xE1t ch\u1EA5p h\xE0nh th\u1EDDi gian c\xF2n l\u1EA1i trong Q\u0110 \u0111\u01B0a v\xE0o c\u01A1 s\u1EDF cai nghi\u1EC7n b\u1EAFt bu\u1ED9c", lv: LV.xlhc },
+    { id: "17", so: "17", title: "Vi ph\u1EA1m trong ho\u1EA1t \u0111\u1ED9ng t\u01B0 ph\xE1p", lv: LV.hs }
+  ];
+  var TK_DS_ROWS = [
+    { id: "181", so: "18.1", title: "KS gi\u1EA3i quy\u1EBFt v\u1EE5 vi\u1EC7c DS, HNG\u0110 \u2014 s\u01A1 th\u1EA9m", lv: LV.ds },
+    { id: "182", so: "18.2", title: "KS gi\u1EA3i quy\u1EBFt v\u1EE5 vi\u1EC7c DS, HNG\u0110 \u2014 ph\xFAc th\u1EA9m", lv: LV.ds },
+    { id: "183", so: "18.3", title: "KS gi\u1EA3i quy\u1EBFt \xE1n DS, HNG\u0110 \u2014 G\u0110T, TT v\xE0 xem x\xE9t l\u1EA1i Q\u0110 H\u0110TP TANDTC", lv: LV.ds },
+    { id: "191", so: "19.1", title: "KS gi\u1EA3i quy\u1EBFt v\u1EE5 vi\u1EC7c KDTM, L\u0110 \u2014 s\u01A1 th\u1EA9m", lv: LV.kdtm },
+    { id: "192", so: "19.2", title: "KS gi\u1EA3i quy\u1EBFt v\u1EE5 vi\u1EC7c KDTM, L\u0110 \u2014 ph\xFAc th\u1EA9m", lv: LV.kdtm },
+    { id: "193", so: "19.3", title: "KS gi\u1EA3i quy\u1EBFt \xE1n KDTM, L\u0110 \u2014 G\u0110T, TT", lv: LV.kdtm },
+    { id: "201", so: "20.1", title: "KS gi\u1EA3i quy\u1EBFt v\u1EE5 \xE1n h\xE0nh ch\xEDnh \u2014 s\u01A1 th\u1EA9m", lv: LV.hc },
+    { id: "202", so: "20.2", title: "KS gi\u1EA3i quy\u1EBFt v\u1EE5 \xE1n h\xE0nh ch\xEDnh \u2014 ph\xFAc th\u1EA9m", lv: LV.hc },
+    { id: "203", so: "20.3", title: "KS gi\u1EA3i quy\u1EBFt v\u1EE5 \xE1n h\xE0nh ch\xEDnh \u2014 G\u0110T, TT", lv: LV.hc },
+    { id: "211", so: "21.1", title: "KS gi\u1EA3i quy\u1EBFt y\xEAu c\u1EA7u tuy\xEAn b\u1ED1 ph\xE1 s\u1EA3n DN, HTX", lv: LV.ps },
+    { id: "212", so: "21.2", title: "KS gi\u1EA3i quy\u1EBFt ph\xE1 s\u1EA3n theo th\u1EE7 t\u1EE5c xem x\xE9t l\u1EA1i kh\xE1ng ngh\u1ECB VKS", lv: LV.ps },
+    { id: "221", so: "22.1", title: "KS tr\xECnh t\u1EF1 xem x\xE9t, Q\u0110 \xE1p d\u1EE5ng BP XLHC t\u1EA1i T\xF2a \xE1n", lv: LV.xlhc },
+    { id: "222", so: "22.2", title: "KS gi\u1EA3i quy\u1EBFt KN, ki\u1EBFn ngh\u1ECB, kh\xE1ng ngh\u1ECB Q\u0110 BP XLHC", lv: LV.xlhc },
+    { id: "231", so: "23.1", title: "KS tr\xECnh t\u1EF1 \u0111\u01B0a v\xE0o CSSC b\u1EAFt bu\u1ED9c ng\u01B0\u1EDDi 12 \u0111\u1EBFn d\u01B0\u1EDBi 18 tu\u1ED5i", lv: LV.xlhc },
+    { id: "232", so: "23.2", title: "KS gi\u1EA3i quy\u1EBFt KN, ki\u1EBFn ngh\u1ECB, kh\xE1ng ngh\u1ECB Q\u0110 \u0111\u01B0a v\xE0o CSSC (12\u2013d\u01B0\u1EDBi 18)", lv: LV.xlhc },
+    { id: "241", so: "24.1", title: "K\u1EBFt qu\u1EA3 thi h\xE0nh \xE1n d\xE2n s\u1EF1, h\xE0nh ch\xEDnh", lv: LV.thads },
+    { id: "242", so: "24.2", title: "Ki\u1EC3m s\xE1t thi h\xE0nh \xE1n d\xE2n s\u1EF1, h\xE0nh ch\xEDnh", lv: LV.thads },
+    { id: "251", so: "25.1", title: "Ti\u1EBFp nh\u1EADn, ph\xE2n lo\u1EA1i v\xE0 x\u1EED l\xFD \u0111\u01A1n trong ho\u1EA1t \u0111\u1ED9ng t\u01B0 ph\xE1p", lv: LV.kntc },
+    { id: "252", so: "25.2", title: "Gi\u1EA3i quy\u1EBFt KN-TC thu\u1ED9c th\u1EA9m quy\u1EC1n VKS", lv: LV.kntc },
+    { id: "253", so: "25.3", title: "Ki\u1EC3m s\xE1t gi\u1EA3i quy\u1EBFt KN-TC trong ho\u1EA1t \u0111\u1ED9ng t\u01B0 ph\xE1p", lv: LV.kntc },
+    { id: "254", so: "25.4", title: "Gi\u1EA3i quy\u1EBFt \u0111\u01A1n \u0111\u1EC1 ngh\u1ECB kh\xE1ng ngh\u1ECB G\u0110T, TT thu\u1ED9c th\u1EA9m quy\u1EC1n VKS", lv: LV.kntc }
+  ];
+  var PL_ROWS = [
+    { id: "PL01", title: "Danh s\xE1ch CQ\u0110T \u0111\xECnh ch\u1EC9 \u0111i\u1EC1u tra do kh\xF4ng ph\u1EA1m t\u1ED9i", lv: LV.hs },
+    { id: "PL02", title: "Danh s\xE1ch VKS \u0111\xECnh ch\u1EC9 v\u1EE5 \xE1n do b\u1ECB can kh\xF4ng ph\u1EA1m t\u1ED9i", lv: LV.hs },
+    { id: "PL03", title: "Danh s\xE1ch b\u1ECB c\xE1o T\xF2a s\u01A1 th\u1EA9m tuy\xEAn kh\xF4ng ph\u1EA1m t\u1ED9i", lv: LV.hs },
+    { id: "PL04", title: "Danh s\xE1ch b\u1ECB c\xE1o T\xF2a ph\xFAc th\u1EA9m tuy\xEAn kh\xF4ng ph\u1EA1m t\u1ED9i", lv: LV.hs },
+    { id: "PL05", title: "Danh s\xE1ch b\u1ECB c\xE1o G\u0110T/TT tuy\xEAn kh\xF4ng ph\u1EA1m t\u1ED9i", lv: LV.hs },
+    { id: "PL06", title: "Ng\u01B0\u1EDDi b\u1ECB T\xF2a s\u01A1 th\u1EA9m tuy\xEAn ph\u1EA1t t\u1EED h\xECnh", lv: LV.thahs },
+    { id: "PL07", title: "Ng\u01B0\u1EDDi b\u1ECB tuy\xEAn t\u1EED h\xECnh \u0111\xE3 THA, tr\u1ED1n, ch\u1EBFt", lv: LV.thahs },
+    { id: "PL08", title: "Ng\u01B0\u1EDDi b\u1ECB T\xF2a ph\xFAc th\u1EA9m tuy\xEAn ph\u1EA1t t\u1EED h\xECnh", lv: LV.thahs },
+    { id: "PL09", title: "Ng\u01B0\u1EDDi b\u1ECB T\xF2a s\u01A1 th\u1EA9m tuy\xEAn t\u1EED h\xECnh \u0111\xE3 \u0111\u01B0\u1EE3c XX ph\xFAc th\u1EA9m", lv: LV.thahs },
+    { id: "PL10", title: "Ng\u01B0\u1EDDi b\u1ECB tuy\xEAn t\u1EED h\xECnh m\xE0 G\u0110T/TT \u0111\xECnh ch\u1EC9 ho\u1EB7c h\u1EE7y \xE1n \u0110T/XX l\u1EA1i", lv: LV.thahs },
+    { id: "PL11", title: "Ng\u01B0\u1EDDi b\u1ECB tuy\xEAn t\u1EED h\xECnh \u0111\xE3 c\xF3 quy\u1EBFt \u0111\u1ECBnh c\u1EE7a Ch\u1EE7 t\u1ECBch n\u01B0\u1EDBc", lv: LV.thahs },
+    { id: "PL12", title: "Ng\u01B0\u1EDDi b\u1ECB tuy\xEAn t\u1EED h\xECnh \u0111ang t\u1EA1m giam", lv: LV.thahs }
+  ];
+  var OLD_LV = {
+    hs: LV.hs,
+    ds: LV.ds,
+    hc: LV.hc,
+    ps: LV.ps,
+    kntc: LV.kntc,
+    thads: LV.thads,
+    vp: LV.hs,
+    th: LV.thahs
+  };
+  function tkItem(row, file) {
+    return {
+      id: `bm-tk-${row.id}`,
+      tenBieuMau: `Bi\u1EC3u ${row.so} \u2014 ${row.title}`,
+      soHieu: "358/Q\u0110-VKSTC",
+      ngayBanHanh: "23/9/2025",
+      coQuan: CO,
+      loai: "Th\u1ED1ng k\xEA",
+      linhVuc: row.lv,
+      hieu: "C\xF2n hi\u1EC7u l\u1EF1c",
+      file,
+      tomTat: "Bi\u1EC3u th\u1ED1ng k\xEA k\xE8m Quy\u1EBFt \u0111\u1ECBnh 358/Q\u0110-VKSTC ng\xE0y 23/9/2025, th\u1EF1c hi\u1EC7n t\u1EEB k\u1EF3 th\xE1ng 10/2025. T\u1EC7p Excel g\u1ED3m nhi\u1EC1u bi\u1EC3u \u2014 \u0111\xE2y l\xE0 bi\u1EC3u k\xEA s\u1ED1 li\u1EC7u, kh\xF4ng ph\u1EA3i m\u1EABu quy\u1EBFt \u0111\u1ECBnh t\u1ED1 t\u1EE5ng.",
+      tags: ["th\u1ED1ng k\xEA", "358", row.so]
+    };
+  }
+  function hdItem(id, lv, file, title, tomTat) {
+    return {
+      id,
+      tenBieuMau: title,
+      soHieu: "358/Q\u0110-VKSTC",
+      ngayBanHanh: "23/9/2025",
+      coQuan: CO,
+      loai: "H\u01B0\u1EDBng d\u1EABn",
+      linhVuc: lv,
+      hieu: "C\xF2n hi\u1EC7u l\u1EF1c",
+      file,
+      tomTat
+    };
+  }
+  var HD_DS_NOTE = "H\u01B0\u1EDBng d\u1EABn bi\u1EC3u 18 \u0111\u1EBFn 25 k\xE8m Quy\u1EBFt \u0111\u1ECBnh 358: d\xE2n s\u1EF1, h\xF4n nh\xE2n gia \u0111\xECnh, kinh doanh th\u01B0\u01A1ng m\u1EA1i, lao \u0111\u1ED9ng, h\xE0nh ch\xEDnh, ph\xE1 s\u1EA3n, x\u1EED l\xFD h\xE0nh ch\xEDnh, thi h\xE0nh \xE1n d\xE2n s\u1EF1 v\xE0 khi\u1EBFu n\u1EA1i, t\u1ED1 c\xE1o.";
+  function byLv(items, lv) {
+    return items.filter((it) => it.linhVuc === lv);
+  }
+  var legacy = DB_BIEU_MAU.map((b) => ({
+    ...b,
+    linhVuc: LV.hs,
+    loai: "M\u1EABu so\u1EA1n th\u1EA3o",
+    coQuan: CO,
+    tomTat: "M\u1EABu HTML \u0111\u1EC3 xem v\xE0 in. D\xF2ng c\u0103n c\u1EE9 tr\xEAn m\u1EABu ghi \xABTheo Q\u0110 s\u1ED1 \u2026/Q\u0110-VKSTC\xBB \u2014 s\u1ED1 quy\u1EBFt \u0111\u1ECBnh ch\u01B0a \u0111i\u1EC1n, kh\xF4ng g\u1EAFn m\u1EABu n\xE0y v\xE0o Th\xF4ng t\u01B0 03/2026. \u0110\u1ED1i chi\u1EBFu t\u1EC7p Word c\u1EE7a th\xF4ng t\u01B0 tr\u01B0\u1EDBc khi tr\xECnh k\xFD."
+  }));
+  var tt03 = [
+    {
+      id: "bm-tt03-qd",
+      tenBieuMau: "Th\xF4ng t\u01B0 03/2026/TT-VKSTC \u2014 bi\u1EC3u m\u1EABu t\u1ED1 t\u1EE5ng h\xECnh s\u1EF1",
+      soHieu: "03/2026/TT-VKSTC",
+      ngayBanHanh: "09/02/2026",
+      ngayHieuLuc: TT03_HL,
+      coQuan: CO,
+      loai: "V\u0103n b\u1EA3n ban h\xE0nh",
+      linhVuc: LV.hs,
+      hieu: "C\xF2n hi\u1EC7u l\u1EF1c",
+      file: "kiem-sat-an-hs/bieu-mau/thong-tu-03-2026.pdf",
+      tomTat: TT03_NOTE
+    },
+    {
+      id: "bm-tt03-dm",
+      tenBieuMau: "Danh m\u1EE5c bi\u1EC3u m\u1EABu k\xE8m Th\xF4ng t\u01B0 03/2026/TT-VKSTC",
+      soHieu: "03/2026/TT-VKSTC",
+      ngayBanHanh: "09/02/2026",
+      ngayHieuLuc: TT03_HL,
+      coQuan: CO,
+      loai: "Danh m\u1EE5c",
+      linhVuc: LV.hs,
+      hieu: "C\xF2n hi\u1EC7u l\u1EF1c",
+      file: "kiem-sat-an-hs/bieu-mau/danh-muc-tt03.doc",
+      tomTat: "Danh m\u1EE5c k\xE8m th\xF4ng t\u01B0. T\xEAn 213 m\u1EABu ph\xEDa d\u01B0\u1EDBi l\u1EA5y t\u1EEB t\xEAn t\u1EC7p Word, gi\u1EEF nguy\xEAn ch\u1EEF vi\u1EBFt t\u1EAFt."
+    },
+    ...BIEU_TT03.flatMap(
+      (g) => g.items.map(
+        (it) => ({
+          id: `bm-tt03-${String(it.n).padStart(3, "0")}`,
+          tenBieuMau: `M\u1EABu ${it.so} \u2014 ${it.title}`,
+          soHieu: "03/2026/TT-VKSTC",
+          ngayBanHanh: "09/02/2026",
+          ngayHieuLuc: TT03_HL,
+          coQuan: CO,
+          loai: "T\u1ED1 t\u1EE5ng",
+          linhVuc: LV.hs,
+          hieu: "C\xF2n hi\u1EC7u l\u1EF1c",
+          file: `kiem-sat-an-hs/bieu-mau/${it.file}`,
+          tomTat: `Nh\xF3m ${g.roman}. ${g.title}. T\u1EC7p Word k\xE8m Th\xF4ng t\u01B0 03/2026. \u0110\u1ED1i chi\u1EBFu th\xF4ng t\u01B0 g\u1ED1c tr\u01B0\u1EDBc khi tr\xECnh k\xFD.`,
+          tags: ["h\xECnh s\u1EF1", "th\xF4ng t\u01B0 03", it.so]
+        })
+      )
+    )
+  ];
+  function qd410Items(prefix, lv) {
+    const groups = BIEU_410.filter((g) => g.id.startsWith(prefix === "pl09" ? "pl09" : prefix));
+    return groups.flatMap(
+      (g) => g.items.map(
+        (it) => ({
+          id: `bm-410-${prefix}-${String(it.n).padStart(2, "0")}`,
+          tenBieuMau: `M\u1EABu ${it.so} \u2014 ${it.title}`,
+          soHieu: "410/Q\u0110-VKSTC",
+          ngayBanHanh: "25/11/2021",
+          coQuan: CO,
+          loai: "T\u1ED1 t\u1EE5ng",
+          linhVuc: lv,
+          hieu: "C\xF2n hi\u1EC7u l\u1EF1c",
+          file: `kiem-sat-an-ds/bieu-mau/${it.file}`,
+          tomTat: [g.label, it.note, prefix === "pl09" ? "21 m\u1EABu Ph\xE1p l\u1EC7nh 09 n\u1EB1m chung m\u1ED9t t\u1EC7p .doc." : "T\u1EC7p t\xE1ch t\u1EEB b\u1ED9 Word k\xE8m Quy\u1EBFt \u0111\u1ECBnh 410. \u0110\u1ED1i chi\u1EBFu danh m\u1EE5c g\u1ED1c tr\u01B0\u1EDBc khi tr\xECnh k\xFD."].filter(Boolean).join(" "),
+          tags: [lv, it.so]
+        })
+      )
+    );
+  }
+  var dsPack = [
+    {
+      id: "bm-410-pdf",
+      tenBieuMau: "Quy\u1EBFt \u0111\u1ECBnh 410/Q\u0110-VKSTC ng\xE0y 25/11/2021",
+      soHieu: "410/Q\u0110-VKSTC",
+      ngayBanHanh: "25/11/2021",
+      coQuan: CO,
+      loai: "V\u0103n b\u1EA3n ban h\xE0nh",
+      linhVuc: LV.ds,
+      hieu: "C\xF2n hi\u1EC7u l\u1EF1c",
+      file: "kiem-sat-an-ds/bieu-mau/qd-410.pdf",
+      tomTat: QD410_NOTE
+    },
+    {
+      id: "bm-410-dm-ds",
+      tenBieuMau: "Danh m\u1EE5c 65 m\u1EABu d\xE2n s\u1EF1 k\xE8m Quy\u1EBFt \u0111\u1ECBnh 410",
+      soHieu: "410/Q\u0110-VKSTC",
+      ngayBanHanh: "25/11/2021",
+      coQuan: CO,
+      loai: "Danh m\u1EE5c",
+      linhVuc: LV.ds,
+      hieu: "C\xF2n hi\u1EC7u l\u1EF1c",
+      file: "kiem-sat-an-ds/bieu-mau/danh-muc-ds.docx",
+      tomTat: "Danh m\u1EE5c Word. Hai d\xF2ng in l\u1EC7ch k\xFD hi\u1EC7u (d\xF2ng 22 ghi 23/DS, d\xF2ng 50 ghi 50DS)."
+    },
+    {
+      id: "bm-410-bo-ds",
+      tenBieuMau: "C\u1EA3 b\u1ED9 65 m\u1EABu d\xE2n s\u1EF1 (m\u1ED9t t\u1EC7p Word)",
+      soHieu: "410/Q\u0110-VKSTC",
+      ngayBanHanh: "25/11/2021",
+      coQuan: CO,
+      loai: "C\u1EA3 b\u1ED9",
+      linhVuc: LV.ds,
+      hieu: "C\xF2n hi\u1EC7u l\u1EF1c",
+      file: "kiem-sat-an-ds/bieu-mau/bo-65-ds.docx",
+      tomTat: "T\u1EC7p g\u1ED1c tr\u01B0\u1EDBc khi t\xE1ch t\u1EEBng m\u1EABu. D\xF9ng n\u1EBFu m\u1EABu l\u1EBB m\u1EA5t \u0111\u1ECBnh d\u1EA1ng."
+    }
+  ];
+  var hcPack = [
+    {
+      id: "bm-410-dm-hc",
+      tenBieuMau: "Danh m\u1EE5c 65 m\u1EABu h\xE0nh ch\xEDnh k\xE8m Quy\u1EBFt \u0111\u1ECBnh 410",
+      soHieu: "410/Q\u0110-VKSTC",
+      ngayBanHanh: "25/11/2021",
+      coQuan: CO,
+      loai: "Danh m\u1EE5c",
+      linhVuc: LV.hc,
+      hieu: "C\xF2n hi\u1EC7u l\u1EF1c",
+      file: "kiem-sat-an-ds/bieu-mau/danh-muc-hc.docx",
+      tomTat: QD410_NOTE
+    },
+    {
+      id: "bm-410-bo-hc",
+      tenBieuMau: "C\u1EA3 b\u1ED9 65 m\u1EABu h\xE0nh ch\xEDnh (m\u1ED9t t\u1EC7p Word)",
+      soHieu: "410/Q\u0110-VKSTC",
+      ngayBanHanh: "25/11/2021",
+      coQuan: CO,
+      loai: "C\u1EA3 b\u1ED9",
+      linhVuc: LV.hc,
+      hieu: "C\xF2n hi\u1EC7u l\u1EF1c",
+      file: "kiem-sat-an-ds/bieu-mau/bo-65-hc.docx",
+      tomTat: "T\u1EC7p g\u1ED1c tr\u01B0\u1EDBc khi t\xE1ch t\u1EEBng m\u1EABu. M\u1EABu 01/HC gi\u1EEF \u0111\xFAng t\xEAn danh m\u1EE5c \xABQuy\u1EBFt \u0111\u1ECBnh ph\xE2n Ki\u1EC3m s\xE1t vi\xEAn\u2026\xBB."
+    }
+  ];
+  var plPack = [
+    {
+      id: "bm-410-dm-pl",
+      tenBieuMau: "Danh m\u1EE5c 21 m\u1EABu Ph\xE1p l\u1EC7nh 09 k\xE8m Quy\u1EBFt \u0111\u1ECBnh 410",
+      soHieu: "410/Q\u0110-VKSTC",
+      ngayBanHanh: "25/11/2021",
+      coQuan: CO,
+      loai: "Danh m\u1EE5c",
+      linhVuc: LV.xlhc,
+      hieu: "C\xF2n hi\u1EC7u l\u1EF1c",
+      file: "kiem-sat-an-ds/bieu-mau/danh-muc-pl09.docx",
+      tomTat: "Bi\u1EC7n ph\xE1p x\u1EED l\xFD h\xE0nh ch\xEDnh t\u1EA1i T\xF2a \xE1n. Kh\xF4ng ph\u1EA3i m\u1EABu v\u1EE5 \xE1n h\xE0nh ch\xEDnh 01/HC\u201365/HC."
+    }
+  ];
+  var notes = [
+    {
+      id: "bm-kdtm-note",
+      tenBieuMau: "T\u1ED1 t\u1EE5ng kinh doanh th\u01B0\u01A1ng m\u1EA1i \u2014 kh\xF4ng c\xF3 b\u1ED9 k\xFD hi\u1EC7u ri\xEAng",
+      soHieu: "410/Q\u0110-VKSTC",
+      ngayBanHanh: "25/11/2021",
+      coQuan: CO,
+      loai: "Ghi ch\xFA ph\u1EA1m vi",
+      linhVuc: LV.kdtm,
+      tomTat: "Quy\u1EBFt \u0111\u1ECBnh 410/Q\u0110-VKSTC ng\xE0y 25/11/2021 ban h\xE0nh m\u1EABu 01/DS\u201365/DS, m\u1EABu 01/HC\u201365/HC v\xE0 m\u1EABu PL09. Kh\xF4ng c\xF3 chu\u1ED7i m\u1EABu mang k\xFD hi\u1EC7u KDTM. V\u1EE5 \xE1n kinh doanh, th\u01B0\u01A1ng m\u1EA1i gi\u1EA3i quy\u1EBFt theo B\u1ED9 lu\u1EADt T\u1ED1 t\u1EE5ng d\xE2n s\u1EF1 \u2014 \u0111\u1ED1i chi\u1EBFu m\u1EABu d\xE2n s\u1EF1, kh\xF4ng l\u1EA5y m\u1EABu h\xE0nh ch\xEDnh. Bi\u1EC3u 19.1\u201319.3 k\xE8m Quy\u1EBFt \u0111\u1ECBnh 358 ch\u1EC9 l\xE0 bi\u1EC3u k\xEA s\u1ED1 li\u1EC7u."
+    },
+    {
+      id: "bm-thads-note",
+      tenBieuMau: "M\u1EABu nghi\u1EC7p v\u1EE5 ki\u1EC3m s\xE1t thi h\xE0nh \xE1n d\xE2n s\u1EF1 \u2014 ch\u01B0a c\xF3 danh m\u1EE5c t\xEAn m\u1EABu",
+      loai: "Ghi ch\xFA ph\u1EA1m vi",
+      linhVuc: LV.thads,
+      coQuan: CO,
+      tomTat: "Kho n\xE0y ch\u01B0a c\xF3 quy\u1EBFt \u0111\u1ECBnh ban h\xE0nh m\u1EABu t\u1ED1 t\u1EE5ng, nghi\u1EC7p v\u1EE5 ki\u1EC3m s\xE1t thi h\xE0nh \xE1n d\xE2n s\u1EF1 k\xE8m danh m\u1EE5c t\xEAn m\u1EABu. Kh\xF4ng ghi t\xEAn m\u1EABu khi ch\u01B0a \u0111\u1ED1i chi\u1EBFu. Bi\u1EC3u 24.1 v\xE0 24.2 k\xE8m Quy\u1EBFt \u0111\u1ECBnh 358 l\xE0 bi\u1EC3u th\u1ED1ng k\xEA k\u1EBFt qu\u1EA3 v\xE0 ki\u1EC3m s\xE1t thi h\xE0nh \xE1n d\xE2n s\u1EF1, h\xE0nh ch\xEDnh."
+    },
+    {
+      id: "bm-qd39",
+      tenBieuMau: "Quy\u1EBFt \u0111\u1ECBnh 39/Q\u0110-VKSTC \u2014 bi\u1EC3u m\u1EABu ki\u1EC3m s\xE1t t\u1EA1m gi\u1EEF, t\u1EA1m giam, thi h\xE0nh \xE1n h\xECnh s\u1EF1",
+      soHieu: "39/Q\u0110-VKSTC",
+      ngayBanHanh: "26/01/2018",
+      coQuan: CO,
+      loai: "Ghi ch\xFA ph\u1EA1m vi",
+      linhVuc: LV.thahs,
+      tomTat: QD39_NOTE
+    },
+    {
+      id: "bm-ps-note",
+      tenBieuMau: "M\u1EABu t\u1ED1 t\u1EE5ng ph\xE1 s\u1EA3n \u2014 ch\u01B0a c\xF3 danh m\u1EE5c trong kho",
+      loai: "Ghi ch\xFA ph\u1EA1m vi",
+      linhVuc: LV.ps,
+      coQuan: CO,
+      tomTat: "Quy\u1EBFt \u0111\u1ECBnh 436/Q\u0110-VKSTC ng\xE0y 09/12/2020 v\u1EC1 ph\xE1 s\u1EA3n l\xE0 v\u0103n b\u1EA3n kh\xE1c Quy\u1EBFt \u0111\u1ECBnh 436/Q\u0110-VKSTC ng\xE0y 28/11/2025. Kho ch\u01B0a c\xF3 m\u1EABu t\u1ED1 t\u1EE5ng ph\xE1 s\u1EA3n \u2014 kh\xF4ng ghi t\xEAn m\u1EABu. Bi\u1EC3u 21.1 v\xE0 21.2 k\xE8m Quy\u1EBFt \u0111\u1ECBnh 358 l\xE0 bi\u1EC3u th\u1ED1ng k\xEA."
+    }
+  ];
+  var thongKe = [
+    ...TK_HS_ROWS.map((r) => tkItem(r, TK_HS)),
+    ...TK_DS_ROWS.map((r) => tkItem(r, TK_DS)),
+    ...PL_ROWS.map(
+      (p) => ({
+        id: `bm-tk-${p.id}`,
+        tenBieuMau: `Ph\u1EE5 l\u1EE5c ${p.id} \u2014 ${p.title}`,
+        soHieu: "358/Q\u0110-VKSTC",
+        ngayBanHanh: "23/9/2025",
+        coQuan: CO,
+        loai: "Th\u1ED1ng k\xEA",
+        linhVuc: p.lv,
+        hieu: "C\xF2n hi\u1EC7u l\u1EF1c",
+        file: TK_HS,
+        tomTat: "Ph\u1EE5 l\u1EE5c k\xE8m bi\u1EC3u h\xECnh s\u1EF1 c\u1EE7a Quy\u1EBFt \u0111\u1ECBnh 358, n\u1EB1m trong c\xF9ng t\u1EC7p Excel h\xECnh s\u1EF1. Bi\u1EC3u k\xEA s\u1ED1 li\u1EC7u, kh\xF4ng ph\u1EA3i m\u1EABu quy\u1EBFt \u0111\u1ECBnh.",
+        tags: ["th\u1ED1ng k\xEA", "ph\u1EE5 l\u1EE5c", p.id]
+      })
+    ),
+    hdItem("bm-hd-hs", LV.hs, HD_HS, "H\u01B0\u1EDBng d\u1EABn bi\u1EC3u m\u1EABu h\xECnh s\u1EF1 (Quy\u1EBFt \u0111\u1ECBnh 358)", "Danh m\u1EE5c bi\u1EC3u, k\u1EF3 th\u1ED1ng k\xEA v\xE0 c\xE1ch ghi d\xF2ng bi\u1EC3u 01\u201317, ph\u1EE5 l\u1EE5c 01\u201312."),
+    hdItem("bm-hd-hs-thahs", LV.thahs, HD_HS, "H\u01B0\u1EDBng d\u1EABn bi\u1EC3u m\u1EABu h\xECnh s\u1EF1 (Quy\u1EBFt \u0111\u1ECBnh 358)", "C\xF9ng t\u1EC7p h\u01B0\u1EDBng d\u1EABn bi\u1EC3u h\xECnh s\u1EF1. Bi\u1EC3u 07 v\xE0 ph\u1EE5 l\u1EE5c t\u1EED h\xECnh l\xE0 bi\u1EC3u th\u1ED1ng k\xEA, kh\xF4ng ph\u1EA3i 80 m\u1EABu Quy\u1EBFt \u0111\u1ECBnh 39."),
+    hdItem("bm-hd-hs-xlhc", LV.xlhc, HD_HS, "H\u01B0\u1EDBng d\u1EABn bi\u1EC3u m\u1EABu h\xECnh s\u1EF1 (Quy\u1EBFt \u0111\u1ECBnh 358)", "C\xF9ng t\u1EC7p h\u01B0\u1EDBng d\u1EABn. Bi\u1EC3u 15 v\xE0 16 k\xEA vi\u1EC7c ch\u1EA5p h\xE0nh bi\u1EC7n ph\xE1p x\u1EED l\xFD h\xE0nh ch\xEDnh, \u0111\u01B0a v\xE0o c\u01A1 s\u1EDF cai nghi\u1EC7n."),
+    ...[LV.ds, LV.kdtm, LV.hc, LV.ps, LV.xlhc, LV.thads, LV.kntc].map(
+      (lv, i) => hdItem(`bm-hd-ds-${i}`, lv, HD_DS, "H\u01B0\u1EDBng d\u1EABn bi\u1EC3u m\u1EABu d\xE2n s\u1EF1 (Quy\u1EBFt \u0111\u1ECBnh 358)", HD_DS_NOTE)
+    )
+  ];
+  var doiChieu = BMTKNV_FILES.filter((f) => OLD_LV[f.id]).map((f) => ({
+    id: `bm-2013-${f.id}`,
+    tenBieuMau: `${f.title} (\u0111\u1ED1i chi\u1EBFu 2013)`,
+    soHieu: "452/Q\u0110-VKSTC",
+    ngayBanHanh: "04/10/2013",
+    coQuan: CO,
+    loai: "\u0110\u1ED1i chi\u1EBFu 2013",
+    linhVuc: OLD_LV[f.id],
+    hieu: "\u0110\u1ED1i chi\u1EBFu",
+    file: `nghiep-vu-van-phong/bieu-mau/${f.file}`,
+    tomTat: `\u0110\u1ED1i chi\u1EBFu Quy\u1EBFt \u0111\u1ECBnh 452/Q\u0110-VKSTC ng\xE0y 04/10/2013. Kh\xF4ng d\xF9ng \u0111\u1EC3 ghi s\u1ED1 li\u1EC7u t\u1EEB k\u1EF3 th\u1ED1ng k\xEA th\xE1ng 10/2025. ${f.sheets.join("; ")}`,
+    tags: ["\u0111\u1ED1i chi\u1EBFu", "2013", "452"]
+  }));
+  var orderedLv = [LV.hs, LV.ds, LV.hc, LV.kdtm, LV.thads, LV.thahs, LV.xlhc, LV.ps, LV.kntc];
+  var pool = [
+    ...tt03,
+    ...legacy,
+    ...dsPack,
+    ...qd410Items("ds", LV.ds),
+    ...hcPack,
+    ...qd410Items("hc", LV.hc),
+    ...plPack,
+    ...qd410Items("pl09", LV.xlhc),
+    ...notes,
+    ...thongKe,
+    ...doiChieu
+  ];
+  var DB_BIEU_PHAN_LOAI = orderedLv.flatMap((lv) => byLv(pool, lv));
+
   // src/lib/van-ban-pl/knowledge.ts
   function dedup(arr, keyFn) {
     const seen = /* @__PURE__ */ new Set();
@@ -3631,7 +4645,7 @@ var VanBanPl = (() => {
     (a) => String(a.soAnLe || a.id)
   );
   var CONGVAN = dedup(DB_CONG_VAN, (c) => String(c.soHieu || c.id));
-  var BIEUMAU = dedup(DB_BIEU_MAU, (b) => String(b.id));
+  var BIEUMAU = dedup(DB_BIEU_PHAN_LOAI, (b) => String(b.id));
   var KNOWLEDGE = { DOCS, QUYTRINH, RKN, ANLE, CONGVAN, BIEUMAU };
   var COUNTS = {
     docs: DOCS.length,
@@ -3644,6 +4658,15 @@ var VanBanPl = (() => {
   };
 
   // src/lib/van-ban-pl/menu.ts
+  function bm(id, label, lv) {
+    return {
+      id,
+      label,
+      type: "bm",
+      data: BIEUMAU,
+      filter: lv ? (b) => b.linhVuc === lv : () => true
+    };
+  }
   var MENU = [
     {
       id: "vb",
@@ -3704,9 +4727,18 @@ var VanBanPl = (() => {
     {
       id: "bm",
       num: "VI",
-      title: "BI\u1EC2U M\u1EAAU T\u1ED0 T\u1EE4NG",
+      title: "BI\u1EC2U M\u1EAAU",
       children: [
-        { id: "bm-al", label: "T\u1EA5t c\u1EA3 bi\u1EC3u m\u1EABu", type: "bm", data: BIEUMAU, filter: () => true }
+        bm("bm-hs", "H\xECnh s\u1EF1", LV.hs),
+        bm("bm-ds", "D\xE2n s\u1EF1", LV.ds),
+        bm("bm-hc", "H\xE0nh ch\xEDnh", LV.hc),
+        bm("bm-kdtm", "Kinh doanh th\u01B0\u01A1ng m\u1EA1i, lao \u0111\u1ED9ng", LV.kdtm),
+        bm("bm-thads", "Thi h\xE0nh \xE1n d\xE2n s\u1EF1", LV.thads),
+        bm("bm-thahs", "Thi h\xE0nh \xE1n h\xECnh s\u1EF1", LV.thahs),
+        bm("bm-xlhc", "X\u1EED l\xFD h\xE0nh ch\xEDnh", LV.xlhc),
+        bm("bm-ps", "Ph\xE1 s\u1EA3n", LV.ps),
+        bm("bm-kntc", "Khi\u1EBFu n\u1EA1i, t\u1ED1 c\xE1o", LV.kntc),
+        bm("bm-al", "T\u1EA5t c\u1EA3 bi\u1EC3u m\u1EABu")
       ]
     }
   ];
@@ -3743,7 +4775,7 @@ var VanBanPl = (() => {
     rkn: "R\xFAt kinh nghi\u1EC7m",
     al: "\xC1n l\u1EC7",
     cv: "C\xF4ng v\u0103n & h\u01B0\u1EDBng d\u1EABn",
-    bm: "Bi\u1EC3u m\u1EABu t\u1ED1 t\u1EE5ng"
+    bm: "Bi\u1EC3u m\u1EABu"
   };
   function itemColor(item, type) {
     if (type === "vb") return LOAI_COLORS[item.loai || ""] || KIND_COLORS.vb;
@@ -3814,7 +4846,7 @@ var VanBanPl = (() => {
   }
   function findItemByKey(knowledge, key) {
     const [type, idStr] = key.split(":");
-    const pool = {
+    const pool2 = {
       vb: knowledge.DOCS,
       qt: knowledge.QUYTRINH,
       rkn: knowledge.RKN,
@@ -3822,9 +4854,9 @@ var VanBanPl = (() => {
       cv: knowledge.CONGVAN,
       bm: knowledge.BIEUMAU
     }[type];
-    if (!pool) return null;
+    if (!pool2) return null;
     const numId = Number(idStr);
-    return pool.find((item) => {
+    return pool2.find((item) => {
       if (!Number.isNaN(numId) && item.id === numId) return true;
       return String(item.id) === idStr;
     }) || null;
@@ -3960,7 +4992,7 @@ var VanBanPl = (() => {
   var KNOWLEDGE = V.KNOWLEDGE;
   var COUNTS = V.COUNTS;
   var prefs = V.loadPrefs();
-  var openGroups = { vb: true, saved: true };
+  var openGroups = { vb: true, bm: true, saved: true };
   var activeChild = null;
   var activeGroup = "";
   var selected = null;
@@ -4147,7 +5179,7 @@ var VanBanPl = (() => {
       [COUNTS.anle, "Án lệ"],
       [COUNTS.rkn, "Rút kinh nghiệm"],
       [COUNTS.congvan, "Công văn & hướng dẫn"],
-      [COUNTS.bieumau, "Biểu mẫu tố tụng"],
+      [COUNTS.bieumau, "Biểu mẫu"],
     ]
       .map(function (s) {
         return '<div class="vb-stat"><b>' + s[0] + "</b><span>" + esc(s[1]) + "</span></div>";
@@ -4223,6 +5255,19 @@ var VanBanPl = (() => {
     );
   }
 
+  function fileHref(file) {
+    if (!file) return "";
+    var map = [
+      ["kiem-sat-an-hs/bieu-mau/", "../KiemSatAnHs/bieu-mau/"],
+      ["kiem-sat-an-ds/bieu-mau/", "../KiemSatAnDs/bieu-mau/"],
+      ["nghiep-vu-van-phong/bieu-mau/", "../NghiepVuVanPhong/bieu-mau/"],
+    ];
+    for (var i = 0; i < map.length; i++) {
+      if (file.indexOf(map[i][0]) === 0) return map[i][1] + file.slice(map[i][0].length);
+    }
+    return "../" + file;
+  }
+
   function detailHtml() {
     var item = selected;
     var type = activeChild ? activeChild.type : "vb";
@@ -4279,7 +5324,12 @@ var VanBanPl = (() => {
         sec("Bài học kinh nghiệm", esc(item.baiHoc)) +
         sec("Biện pháp khắc phục", esc(item.bienPhap));
     } else if (type === "bm") {
-      body = '<div class="vb-form">' + (item.htmlContent || "") + "</div>";
+      var href = fileHref(item.file);
+      body =
+        (item.soHieu ? sec("Số hiệu ban hành", "<b>" + esc(item.soHieu) + "</b>") : "") +
+        (item.ngayHieuLuc ? sec("Ngày có hiệu lực", esc(item.ngayHieuLuc)) : "") +
+        (item.tomTat ? sec("Ghi chú", esc(item.tomTat)) : "") +
+        (item.htmlContent ? '<div class="vb-form">' + item.htmlContent + "</div>" : "");
     } else {
       body = sec("Nội dung", esc(item.moTa || item.tomTat || item.noiDung || item.noiDungViPham || ""));
     }
@@ -4313,6 +5363,7 @@ var VanBanPl = (() => {
       '" data-bm-toggle="1">' +
       (book ? "★ Đã lưu" : "☆ Lưu văn bản") +
       "</button>" +
+      (href ? '<a class="btn on" href="' + esc(href) + '" download>Tải tệp</a>' : "") +
       (item.link ? '<a class="btn on" href="' + esc(item.link) + '" target="_blank" rel="noopener">🔗 Xem toàn văn</a>' : "") +
       '<button type="button" class="btn" data-print="1">📄 In / Xuất PDF</button></div></div>'
     );
