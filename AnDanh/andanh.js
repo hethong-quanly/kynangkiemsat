@@ -1,4 +1,4 @@
-/* Thiên Phúc — nhận diện PII tieng Viet (chay tren may, khong gui tep). */
+/* Nhận diện PII tieng Viet (chay tren may, khong gui tep). */
 (function (global) {
   var SURNAMES = [
     "Tôn Thất","Nguyễn","Trương","Hoàng","Huỳnh","Phùng","Giàng","Quách","Nghiêm","Trịnh",

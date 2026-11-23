@@ -246,7 +246,7 @@
      LINH_VUC[*].canCu, AI_LUAT (căn cứ/mốc cho AI), rồi tăng PHIEN_BAN và CACHE trong sw.js. */
   var PHIEN_BAN = "2026-11-23.2";
 
-  /* AI tuỳ chọn. PROXY_URL = Cloudflare Worker của Viện (mã nguồn: ai-proxy/worker.js), giữ GROQ_API_KEY
+  /* AI tuỳ chọn. PROXY_URL = Cloudflare Worker của tác giả (mã nguồn: ai-proxy/worker.js), giữ GROQ_API_KEY
      trong Worker Secrets, giới hạn 8 lượt/phút, 40 lượt/ngày mỗi IP. Để trống = chỉ dùng key riêng (BYOK).
      KHÔNG đặt API key ở đây. */
   var AI = { PROXY_URL: "https://morning-night-5d0eknks-ai-proxy.mrphuc2009.workers.dev/api/chat" };

@@ -64,14 +64,13 @@
   } catch (e) {}
 
   /* Chân trang bản quyền dùng chung (trang chủ có chân trang riêng: #knks-ban-quyen). */
-  var BAN_QUYEN = { ten: "Thiên Phúc", sdt: "0939103666", nam: 2026 };
+  var BAN_QUYEN = { ten: "THIÊN PHÚC – VIỆN KIỂM SÁT NHÂN DÂN THÀNH PHỐ CẦN THƠ", sdt: "0939103666", nam: 2026 };
   function chanTrang() {
     if (!document.body || document.getElementById("knks-ban-quyen") || document.documentElement.hasAttribute("data-no-ban-quyen")) return;
     var f = document.createElement("footer");
     f.id = "knks-ban-quyen";
     f.setAttribute("style", "text-align:center;font:12px/1.6 'Be Vietnam Pro',Arial,sans-serif;color:inherit;opacity:.75;padding:14px 12px 22px;margin-top:8px;clear:both");
-    f.innerHTML = "\u00a9 " + BAN_QUYEN.nam + " Ph\u1ea7n m\u1ec1m c\u1ee7a " + BAN_QUYEN.ten + " \u00b7 Li\u00ean h\u1ec7: <a href=\"tel:" + BAN_QUYEN.sdt + "\" style=\"color:inherit;font-weight:700\">" + BAN_QUYEN.sdt + "</a>" +
-      "<br><small style=\"font-size:11px\">\u1ee8ng d\u1ee5ng c\u00e1 nh\u00e2n h\u1ed7 tr\u1ee3 nghi\u1ec7p v\u1ee5, kh\u00f4ng ph\u1ea3i \u1ee9ng d\u1ee5ng ch\u00ednh th\u1ee9c c\u1ee7a Vi\u1ec7n ki\u1ec3m s\u00e1t nh\u00e2n d\u00e2n.</small>";
+    f.innerHTML = "T\u00e1c gi\u1ea3: <strong>" + BAN_QUYEN.ten + "</strong> \u00a9 " + BAN_QUYEN.nam + " \u00b7 Li\u00ean h\u1ec7: <a href=\"tel:" + BAN_QUYEN.sdt + "\" style=\"color:inherit;font-weight:700\">" + BAN_QUYEN.sdt + "</a>";
     document.body.appendChild(f);
   }
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", chanTrang); else chanTrang();

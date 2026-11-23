@@ -10,16 +10,15 @@
   ╚══════════════════════════════════════════════════════════════╝
 -->
 
-# BỘ CÔNG CỤ NGHIỆP VỤ – VIỆN KIỂM SÁT NHÂN DÂN
+# KỸ NĂNG KIỂM SÁT — BỘ CÔNG CỤ HỖ TRỢ NGHIỆP VỤ
 
 > **Mục đích file này:** Giúp AI nắm tổng quan dự án nhanh, tiết kiệm token.
-> **Tác giả:** Nguyễn Khắc Tú – Viện KSND KV5 Bắc Ninh
 
 ---
 
 ## 1. TỔNG QUAN
 
-> **Cập nhật 23/11/2026 — bản chạy trên trình duyệt (mặc định):** `AnDanh/index.html`, `Tool/FileRenamer/index.html` (+`doi-ten.js`), `Tool/DocxToMd/index.html` (+`docx-md.js`), `Tool/PdfToMd/index.html` (+`pdf-md.js`, OCR tesseract.js) chạy thuần JS trên máy người dùng, dùng `static/css/cong-cu.css`, `static/js/cong-cu.js` và thư viện tự lưu trong `static/vendor/` (không dùng CDN). Bản Python/exe cũ chuyển sang `ban-may-tinh.html` của từng thư mục (DocxToMd.zip chỉ có mã nguồn Python; PdfToMd.zip không có trong repo). Chân trang bản quyền dùng chung chèn từ `theme.js`.
+> **Cập nhật 23/11/2026 — bản chạy trên trình duyệt (mặc định):** `AnDanh/index.html`, `Tool/FileRenamer/index.html` (+`doi-ten.js`), `Tool/DocxToMd/index.html` (+`docx-md.js`), `Tool/PdfToMd/index.html` (+`pdf-md.js`, OCR tesseract.js) chạy thuần JS trên máy người dùng, dùng `static/css/cong-cu.css`, `static/js/cong-cu.js` và thư viện tự lưu trong `static/vendor/` (không dùng CDN). Bản Python/exe cũ chuyển sang `ban-may-tinh.html` của từng thư mục (DocxToMd và PdfToMd chỉ còn bản online; trang ban-may-tinh.html của DocxToMd chuyển hướng về bản online). Chân trang bản quyền dùng chung chèn từ `theme.js`.
 
 - **Loại dự án:** Web dashboard tập hợp các công cụ nghiệp vụ kiểm sát
 - **Frontend:** HTML/CSS/JS (thuần, không framework), file chính `index.html`
@@ -41,7 +40,7 @@ Bo_cong_cu_Kiem_sat/
 ├── .gitignore
 │
 ├── static/                       ← Ảnh, tài nguyên tĩnh
-│   ├── logo_moi.png
+│   ├── logo-app.svg
 │   └── Nen.jpg
 │
 ├── Data/                         ← Công cụ tĩnh (HTML) + tài liệu
@@ -74,7 +73,7 @@ Bo_cong_cu_Kiem_sat/
     │   ├── pdf_to_md_gui.py      ← Flask GUI (port tự động 5100+)
     │   ├── PdfToMdGUI.spec       ← PyInstaller spec
     │   ├── PdfToMdGUI.exe        ← GUI standalone (trong dist/)
-    │   ├── PdfToMd.zip           ← File phân phối (~50MB, tải về từ index.html)
+    │   ├── index.html + pdf-md.js ← bản online (pdf.js + OCR tesseract.js)
     │   ├── index.html            ← Trang giới thiệu + nút tải .zip
     │   ├── API keys.txt          ← Hướng dẫn lấy Gemini API Key
     │   └── HuongDanSuDung.txt
@@ -131,7 +130,7 @@ Bo_cong_cu_Kiem_sat/
 | **Loại** | Web app external (iframe) |
 | **URL** | `https://udify.app/chat/Ho3TdpoYQ9OjTbIq` |
 | **Accent** | `accent-plum` |
-| **Ghi chú** | Dành riêng Viện KSND KV5 Bắc Ninh |
+| **Ghi chú** | Dành cho KSV |
 
 ### 3.5. Hỏi đáp AI – Hình sự & Tố tụng hình sự
 | Thuộc tính | Giá trị |
@@ -208,7 +207,7 @@ Bo_cong_cu_Kiem_sat/
 | **Engine** | Gemini 2.5 Flash API (OCR) + pypdf (PDF có text) |
 | **Yêu cầu** | Gemini API Key (người dùng tự lấy tại Google AI Studio) |
 | **Đặc điểm** | Hỗ trợ `.pdf`, `.jpg`, `.png`, `.tiff`, `.bmp`, `.gif`, `.webp`; anti-hallucination (fuzzy check); async concurrent với asyncio |
-| **File phân phối** | `PdfToMd.zip` (~50MB, chứa `PdfToMdGUI.exe`) |
+| **File phân phối** | Không còn bản Windows — dùng bản online `Tool/PdfToMd/index.html` |
 
 ---
 
