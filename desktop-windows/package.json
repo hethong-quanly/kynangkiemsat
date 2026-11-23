@@ -1,0 +1,13 @@
+{
+  "name": "kynangkiemsat-desktop",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Bộ cài Windows cho Kỹ năng Kiểm sát (Tauri v2, Edge WebView2)",
+  "scripts": {
+    "tauri": "tauri",
+    "build": "tauri build"
+  },
+  "devDependencies": {
+    "@tauri-apps/cli": "^2"
+  }
+}

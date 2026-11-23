@@ -158,7 +158,7 @@
   /* Cài đặt / quyền riêng tư / offline — khóa ngắn; đoạn dài ở khối HTML phía dưới */
   add("install.title", "Cài ứng dụng — Kỹ năng Kiểm sát", "Install the app — Prosecutorial Skills");
   add("install.h1", "Cài ứng dụng Kỹ năng Kiểm sát", "Install Prosecutorial Skills");
-  add("install.sub", "Miễn phí · Android và iPhone", "Free · Android and iPhone");
+  add("install.sub", "Miễn phí · Android, iPhone và máy tính", "Free · Android, iPhone and computers");
   add("privacy.title", "Chính sách dữ liệu — Kỹ năng Kiểm sát", "Privacy policy — Prosecutorial Skills");
   add("privacy.h1", "Chính sách dữ liệu và quyền riêng tư", "Data and privacy policy");
   add("privacy.kicker", "Kỹ năng Kiểm sát", "Prosecutorial Skills");
@@ -509,8 +509,26 @@
   add("install.ios3.html", "Kéo xuống, chọn <strong>Thêm vào MH chính</strong> (Thêm vào Màn hình chính) → <strong>Thêm</strong>.", "Scroll down, choose <strong>Add to Home Screen</strong> → <strong>Add</strong>.");
   add("install.ios4.html", "Mở biểu tượng <strong>KN Kiểm sát</strong> trên màn hình chính.", "Open the <strong>KN Kiểm sát</strong> icon on the Home Screen.");
   add("install.openApp", "Mở trang ứng dụng", "Open the app page");
-  add("install.pc", "Máy tính", "Computer");
-  add("install.pc.html", "Mở <a href=\"./\">trang ứng dụng</a> bằng Chrome hoặc Edge → bấm biểu tượng <strong>Cài đặt</strong> trên thanh địa chỉ (hoặc nút «Cài đặt» trên trang).", "Open the <a href=\"./\">app page</a> in Chrome or Edge → click the <strong>Install</strong> icon in the address bar (or the “Install” button on the page).");
+  add("install.pc", "Máy tính (Windows / Mac)", "Computer (Windows / Mac)");
+  add("install.pcIntro", "Ứng dụng chạy trong cửa sổ riêng, có biểu tượng ngoài Desktop / Start Menu / Dock, không có thanh địa chỉ và tự cập nhật theo bản mới nhất.", "The app runs in its own window with an icon on the Desktop / Start Menu / Dock, no address bar, and updates itself to the latest version.");
+  add("install.pwaH", "Cách 1: Cài nhanh 1 chạm", "Option 1: One-click install");
+  add("install.recommended", "Khuyên dùng", "Recommended");
+  add("install.pwaSub", "Dùng cho Windows và Mac, không hiện cảnh báo bảo mật.", "Works on Windows and Mac, with no security warnings.");
+  add("install.pwaBtn", "🖥 Cài vào máy tính ngay", "🖥 Install on this computer");
+  add("install.pwaDone.html", "✓ Ứng dụng đã được cài trên máy này. Mở biểu tượng <strong>KN Kiểm sát</strong> ngoài màn hình (hoặc Start Menu / Launchpad).", "✓ The app is installed on this computer. Open the <strong>KN Kiểm sát</strong> icon on the desktop (or Start Menu / Launchpad).");
+  add("install.pwaHelpH", "Trình duyệt chưa hiện hộp cài tự động, anh/chị làm 2 bước:", "Your browser has not offered automatic install yet. Two quick steps:");
+  add("install.pwaChrome.html", "<strong>Chrome / Edge</strong> (Windows, Mac): mở <a href=\"./\">trang ứng dụng</a>, bấm biểu tượng <strong>Cài đặt</strong> (màn hình có mũi tên ⤓) ở cuối thanh địa chỉ → <strong>Cài đặt</strong>. Không thấy biểu tượng thì bấm menu <strong>⋮</strong> / <strong>…</strong> → <strong>Ứng dụng</strong> → <strong>Cài đặt trang web này dưới dạng ứng dụng</strong>.", "<strong>Chrome / Edge</strong> (Windows, Mac): open the <a href=\"./\">app page</a>, click the <strong>Install</strong> icon (a screen with a ⤓ arrow) at the end of the address bar → <strong>Install</strong>. If you don't see it, open the <strong>⋮</strong> / <strong>…</strong> menu → <strong>Apps</strong> → <strong>Install this site as an app</strong>.");
+  add("install.pwaSafari.html", "<strong>Safari trên Mac</strong> (macOS Sonoma trở lên): mở <a href=\"./\">trang ứng dụng</a>, bấm <strong>Tệp</strong> (File) → <strong>Thêm vào Dock</strong> (Add to Dock) → <strong>Thêm</strong>.", "<strong>Safari on Mac</strong> (macOS Sonoma or later): open the <a href=\"./\">app page</a>, choose <strong>File</strong> → <strong>Add to Dock</strong> → <strong>Add</strong>.");
+  add("install.pwaFirefox", "Firefox chưa hỗ trợ cài ứng dụng web: hãy mở trang bằng Chrome hoặc Edge, hoặc dùng bộ cài Windows ở Cách 2.", "Firefox cannot install web apps yet: open this page in Chrome or Edge, or use the Windows installer in Option 2.");
+  add("install.exeH", "Cách 2: Tải bộ cài Windows (.exe)", "Option 2: Download the Windows installer (.exe)");
+  add("install.exeSub", "Cài như phần mềm bình thường, dùng cho Windows 10 / 11 (64-bit).", "Installs like regular software, for Windows 10 / 11 (64-bit).");
+  add("install.exeBtn", "⬇ Tải bộ cài Windows (.exe)", "⬇ Download the Windows installer (.exe)");
+  add("install.exeWait", "Bộ cài Windows đang được chuẩn bị, anh/chị dùng Cách 1 trong lúc chờ.", "The Windows installer is being prepared; please use Option 1 meanwhile.");
+  add("install.exe1.html", "Tải xong, bấm đúp tệp <strong>KyNangKiemSat-Windows-Setup-1.0.0.exe</strong> → <strong>Cài đặt</strong> (không cần quyền quản trị).", "When the download finishes, double-click <strong>KyNangKiemSat-Windows-Setup-1.0.0.exe</strong> → <strong>Install</strong> (no administrator rights needed).");
+  add("install.exe2.html", "Mở <strong>Kỹ năng Kiểm sát</strong> từ biểu tượng ngoài Desktop hoặc Start Menu.", "Open <strong>Kỹ năng Kiểm sát</strong> from the Desktop or Start Menu icon.");
+  add("install.exeNote.html", "Nếu Windows hiện bảng xanh bảo vệ, bấm <strong>Thông tin thêm</strong> (More info) → <strong>Vẫn chạy</strong> (Run anyway). Gỡ cài đặt: <strong>Cài đặt</strong> → <strong>Ứng dụng</strong> → <strong>Kỹ năng Kiểm sát</strong> → <strong>Gỡ cài đặt</strong>.", "If Windows shows a blue protection screen, click <strong>More info</strong> → <strong>Run anyway</strong>. To uninstall: <strong>Settings</strong> → <strong>Apps</strong> → <strong>Kỹ năng Kiểm sát</strong> → <strong>Uninstall</strong>.");
+  add("install.exeIt.html", "Bộ cài NSIS dựng tự động trên GitHub Actions từ mã nguồn <code>desktop-windows/</code>, chạy Microsoft Edge WebView2. SHA-256: <a href=\"https://github.com/hethong-quanly/kynangkiemsat/releases/download/app-v1.0.0/SHA256SUMS-windows.txt\">SHA256SUMS-windows.txt</a> · <a href=\"https://github.com/hethong-quanly/kynangkiemsat/releases/tag/app-v1.0.0\">GitHub Release app-v1.0.0</a>", "NSIS installer built automatically on GitHub Actions from the <code>desktop-windows/</code> source, running on Microsoft Edge WebView2. SHA-256: <a href=\"https://github.com/hethong-quanly/kynangkiemsat/releases/download/app-v1.0.0/SHA256SUMS-windows.txt\">SHA256SUMS-windows.txt</a> · <a href=\"https://github.com/hethong-quanly/kynangkiemsat/releases/tag/app-v1.0.0\">GitHub Release app-v1.0.0</a>");
+  add("install.pcSheet.html", "Máy tính (Windows / Mac): bấm biểu tượng <strong>Cài đặt</strong> ở cuối thanh địa chỉ Chrome / Edge, hoặc <a href=\"cai-dat.html#c-desktop\"><strong>tải bộ cài Windows</strong></a>.", "Computer (Windows / Mac): click the <strong>Install</strong> icon at the end of the Chrome / Edge address bar, or <a href=\"cai-dat.html#c-desktop\"><strong>download the Windows installer</strong></a>.");
   add("install.share", "Gửi cho đồng nghiệp", "Share with colleagues");
   add("install.qrAlt", "Mã QR tới trang cài đặt", "QR code to the install page");
   add("install.shortHint", "Đường link ngắn (gửi qua Zalo):", "Short link (send via Zalo):");
@@ -521,9 +539,9 @@
   add("install.shareTitle", "Kỹ năng Kiểm sát", "Prosecutorial Skills");
   add("install.shareText", "Cài ứng dụng Kỹ năng Kiểm sát:", "Install the Prosecutorial Skills app:");
   add("install.notes", "Lưu ý", "Notes");
-  add("install.n1.html", "Ứng dụng mở bộ công cụ tại <code>hethong-quanly.github.io/kynangkiemsat</code> và <strong>tự cập nhật nội dung</strong>, không cần tải lại APK khi có công cụ mới.", "The app opens the toolkit at <code>hethong-quanly.github.io/kynangkiemsat</code> and <strong>updates its content automatically</strong>; you do not need to download the APK again when new tools are added.");
+  add("install.n1.html", "Ứng dụng mở bộ công cụ tại <code>hethong-quanly.github.io/kynangkiemsat</code> và <strong>tự cập nhật nội dung</strong>, không cần tải lại APK hay bộ cài khi có công cụ mới.", "The app opens the toolkit at <code>hethong-quanly.github.io/kynangkiemsat</code> and <strong>updates its content automatically</strong>; you do not need to download the APK or installer again when new tools are added.");
   add("install.n2.html", "Lần đầu mở, ứng dụng hỏi <strong>đơn vị công tác</strong> để điền sẵn tên cơ quan trong mẫu văn bản; thông tin chỉ lưu trên máy. Xem <a href=\"privacy.html\">Chính sách dữ liệu</a>.", "On first launch, the app asks for your <strong>work unit</strong> so it can pre-fill the agency name in document templates; the information is stored only on the device. See the <a href=\"privacy.html\">Privacy policy</a>.");
-  add("install.n3", "Chỉ tải APK từ nút trên trang này hoặc trang GitHub Release ở trên.", "Only download the APK from the button on this page or from the GitHub Release page above.");
+  add("install.n3", "Chỉ tải APK / bộ cài Windows từ nút trên trang này hoặc trang GitHub Release ở trên.", "Only download the APK / Windows installer from the button on this page or from the GitHub Release page above.");
 
   /* Chính sách dữ liệu */
   add("privacy.ctrl", "Bên kiểm soát dữ liệu", "Data controller");

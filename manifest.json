@@ -2,7 +2,7 @@
   "id": "/kynangkiemsat/",
   "name": "Kỹ năng Kiểm sát — VKSND TP Cần Thơ",
   "short_name": "KN Kiểm sát",
-  "description": "Bộ công cụ hỗ trợ kỹ năng nghiệp vụ kiểm sát: tính hạn, THADS, THAHS, KN-TC, ẩn danh văn bản, chuyển Word/PDF sang Markdown. Thiên Phúc © 2026.",
+  "description": "Bộ công cụ hỗ trợ kỹ năng nghiệp vụ kiểm sát: tính hạn, THADS, THAHS, KN-TC, ẩn danh văn bản, hỏi đáp nghiệp vụ. Cài được trên điện thoại và máy tính.",
   "lang": "vi",
   "dir": "ltr",
   "start_url": "./?vao=1",
@@ -75,7 +75,14 @@
       "sizes": "1280x720",
       "type": "image/png",
       "form_factor": "wide",
-      "label": "Bảng kỹ năng nghiệp vụ kiểm sát"
+      "label": "Bảng kỹ năng nghiệp vụ kiểm sát trên máy tính"
+    },
+    {
+      "src": "static/anh-man-hinh/tinh-thoi-han-rong.png",
+      "sizes": "1280x720",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "Tính thời hạn tạm giữ kèm căn cứ pháp lý"
     },
     {
       "src": "static/anh-man-hinh/tro-ly-ao-hep.png",

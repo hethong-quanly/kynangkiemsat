@@ -1,0 +1,51 @@
+{
+  "$schema": "https://schema.tauri.app/config/2",
+  "productName": "Kỹ năng Kiểm sát",
+  "mainBinaryName": "KyNangKiemSat",
+  "version": "1.0.0",
+  "identifier": "io.github.hethongquanly.kynangkiemsat",
+  "build": {
+    "frontendDist": "../www"
+  },
+  "app": {
+    "windows": [],
+    "withGlobalTauri": false,
+    "security": {
+      "csp": null
+    }
+  },
+  "bundle": {
+    "active": true,
+    "targets": [
+      "nsis"
+    ],
+    "publisher": "Thiên Phúc",
+    "copyright": "Thiên Phúc © 2026",
+    "category": "Productivity",
+    "shortDescription": "Kỹ năng ứng dụng trong nghiệp vụ Kiểm sát",
+    "longDescription": "Bộ công cụ hỗ trợ kỹ năng nghiệp vụ kiểm sát: tính hạn, THADS, THAHS, KN-TC, ẩn danh văn bản. Ứng dụng mở bản web mới nhất trong cửa sổ riêng và tự cập nhật.",
+    "homepage": "https://hethong-quanly.github.io/app/",
+    "icon": [
+      "icons/32x32.png",
+      "icons/128x128.png",
+      "icons/128x128@2x.png",
+      "icons/icon.png",
+      "icons/icon.ico"
+    ],
+    "windows": {
+      "webviewInstallMode": {
+        "type": "downloadBootstrapper",
+        "silent": true
+      },
+      "nsis": {
+        "installMode": "currentUser",
+        "languages": [
+          "Vietnamese",
+          "English"
+        ],
+        "displayLanguageSelector": false,
+        "installerIcon": "icons/icon.ico"
+      }
+    }
+  }
+}
