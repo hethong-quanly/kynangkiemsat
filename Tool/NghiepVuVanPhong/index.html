@@ -72,7 +72,7 @@ td { padding:8px 10px; border-bottom:1px solid #f1f5f9; vertical-align:top; }
     </div>
   </header>
   <div class="wrap">
-    <p class="muted">Chín mảng công tác Văn phòng Viện kiểm sát: văn thư, lưu trữ, tài sản công, lịch trực bảo vệ, thống kê (156 chỉ tiêu, 17 biểu HS + 12 PL, Biểu DS 18–25), CNTT, tham mưu báo cáo, thi đua khen thưởng, xây dựng cơ bản. Mục chỉ tiêu gồm điểm KPI theo Quyết định 287/QĐ-VKSTC ngày 19/9/2026 (bản nâng cấp đánh giá nhiệm vụ) và biểu mẫu thống kê theo Quyết định số 358/QĐ-VKSTC ngày 23/9/2025. Tính hạn theo NĐ 30/2020, Luật Lưu trữ 2024, QĐ 274/2025, TT 05/2026. Đối chiếu văn bản gốc trước khi ban hành, gửi báo cáo.</p>
+    <p class="muted">Chín mảng công tác Văn phòng Viện kiểm sát: văn thư, lưu trữ, tài sản công, lịch trực bảo vệ, thống kê (156 chỉ tiêu, 17 biểu HS + 12 PL, Biểu DS 18–25), CNTT, tham mưu báo cáo, thi đua khen thưởng, xây dựng cơ bản. Mục chỉ tiêu gồm điểm KPI theo Quyết định 287/QĐ-VKSTC năm 2026 (Bảng danh mục nhiệm vụ KPI dùng chung) (bản nâng cấp đánh giá nhiệm vụ) và biểu mẫu thống kê theo Quyết định số 358/QĐ-VKSTC ngày 23/9/2025. Tính hạn theo NĐ 30/2020, Luật Lưu trữ 2024, QĐ 274/2025, TT 05/2026. Đối chiếu văn bản gốc trước khi ban hành, gửi báo cáo.</p>
     
     <div class="row no-print" id="tabs">
       <button class="tab on" data-tab="quytrinh" type="button">Quy trình 09 mảng</button>
@@ -4730,7 +4730,7 @@ var VanPhong = (() => {
     const subBtn = function (id, label) {
       return '<button class="chip' + (st.sub === id ? " on" : "") + '" type="button" data-sub="' + id + '">' + label + "</button>";
     };
-    let body = '<div class="card"><p class="kicker">Chỉ tiêu · đánh giá KPI</p><p class="muted">Điểm KPI theo Quyết định 287/QĐ-VKSTC ngày 19/9/2026 là bản nâng cấp để đánh giá nhiệm vụ trong mục này. 156 chỉ tiêu và biểu mẫu thống kê theo Quyết định số 358/QĐ-VKSTC ngày 23/9/2025 vẫn dùng để ghi số liệu, không thay bảng điểm.</p><div class="row" style="margin-top:10px">' +
+    let body = '<div class="card"><p class="kicker">Chỉ tiêu · đánh giá KPI</p><p class="muted">Điểm KPI theo Quyết định 287/QĐ-VKSTC năm 2026 (Bảng danh mục nhiệm vụ KPI dùng chung) là bản nâng cấp để đánh giá nhiệm vụ trong mục này. 156 chỉ tiêu và biểu mẫu thống kê theo Quyết định số 358/QĐ-VKSTC ngày 23/9/2025 vẫn dùng để ghi số liệu, không thay bảng điểm.</p><div class="row" style="margin-top:10px">' +
       subBtn("kpi", "Điểm KPI") + subBtn("tongquan", "Tổng quan thống kê") + subBtn("chitieu", "156 chỉ tiêu") + subBtn("bieu", "Biểu mẫu") + subBtn("nguyen", "Nguyên tắc ghi") + "</div></div>";
     if (st.sub !== "kpi") body += '<p class="muted">' + esc(S.TK_QD) + "</p>";
     if (st.sub === "kpi") {

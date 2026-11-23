@@ -24,26 +24,35 @@
       "https://baochinhphu.vn, https://xaydungchinhsach.chinhphu.vn, https://mps.gov.vn",
       "Kho nội bộ Tool/CoSoVanBanPhapLuat (trạng thái đã gắn trong mã nguồn, cần đối chiếu lại nguồn gốc)"
     ],
-    "file": "Data/van-ban-can-cu.json"
+    "file": "Data/van-ban-can-cu.json",
+    "xacMinh2026-11-23": "Đối chiếu từng mục với vanban.chinhphu.vn, congbao.chinhphu.vn, thuvienphapluat.vn. Trường xacMinh.ketQua: dung | sua | nguon_nganh (chỉ có nguồn báo/tạp chí ngành KSND) | nguon_phu (chỉ nguồn phụ) | chua_xac_minh | chua_co_so_hieu."
   },
   "thongKe": {
-    "tongSoMuc": 65,
+    "tongSoMuc": 71,
     "theoMucDo": {
       "ke_hoach_2027": 9,
-      "theo_doi": 41,
+      "theo_doi": 43,
       "sua_ngay": 3,
-      "da_cap_nhat": 9,
+      "da_cap_nhat": 13,
       "cap_nhat_csdl": 2,
       "dac_ta_loi_thoi": 1
     },
     "theoHieuLuc": {
       "con_hieu_luc_nhung_sap_thay_the": 3,
-      "con_hieu_luc": 43,
-      "da_sua_doi": 7,
-      "het_hieu_luc": 5,
+      "con_hieu_luc": 44,
+      "da_sua_doi": 10,
+      "het_hieu_luc": 7,
       "con_hieu_luc_nhung_sap_sua": 1,
       "con_hieu_luc_nhung_sap_ra_soat": 1,
       "da_thong_qua_chua_co_so_hieu": 5
+    },
+    "theoXacMinh": {
+      "dung": 44,
+      "sua": 18,
+      "nguon_phu": 2,
+      "nguon_nganh": 1,
+      "chua_xac_minh": 1,
+      "chua_co_so_hieu": 5
     }
   },
   "vanBan": [
@@ -76,8 +85,14 @@
       "ghiChu": "Tool tính hạn đang căn Điều 135, 117 BLTTHS 2015. Từ 01/3/2027 phải map lại số điều theo bộ luật mới (527 điều). CSDL nội bộ chưa ghi luật mới khóa XVI.",
       "nguon": [
         "https://vanban.chinhphu.vn/?docid=214557&pageid=27160 (Luật 99/2025, HL 01/7/2025)",
-        "https://baochinhphu.vn/bo-luat-to-tung-hinh-su-sua-doi-dot-pha-voi-to-tung-dien-tu-truc-tuyen-102261121130340761.htm (thông qua 21/11/2026, HL 01/3/2027)"
-      ]
+        "https://baochinhphu.vn/bo-luat-to-tung-hinh-su-sua-doi-dot-pha-voi-to-tung-dien-tu-truc-tuyen-102261121130340761.htm (thông qua 21/11/2026, HL 01/3/2027)",
+        "https://congbao.chinhphu.vn/van-ban/van-ban-hop-nhat-so-172-2026-vbhn-lq-vpqh-470669/69095.htm (VBHN 172/2026/VBHN-LQ-VPQH)"
+      ],
+      "xacMinh": {
+        "ketQua": "dung",
+        "ngay": "2026-11-23",
+        "ghiChu": "Đã xác minh ở đợt trước (nguồn trong mục nguon)."
+      }
     },
     {
       "id": "blhs-2015",
@@ -104,7 +119,12 @@
       "nguon": [
         "https://mps.gov.vn/chinh-sach-phap-luat/bai-viet/quoc-hoi-thong-qua-bo-luat-hinh-su-sua-doi-co-hieu-luc-thi-hanh-tu-ngay-01-3-2027-1795189759",
         "https://baochinhphu.vn/quoc-hoi-thong-qua-2-luat-trong-linh-vuc-hinh-su-102261120175834233.htm"
-      ]
+      ],
+      "xacMinh": {
+        "ketQua": "dung",
+        "ngay": "2026-11-23",
+        "ghiChu": "Đã xác minh ở đợt trước (nguồn trong mục nguon)."
+      }
     },
     {
       "id": "blds-2015",
@@ -122,19 +142,26 @@
       ],
       "mucDo": "theo_doi",
       "ghiChu": "Còn hiệu lực; lãi suất căn Điều 357, 468 và NQ 01/2019/NQ-HĐTP.",
-      "nguon": []
+      "nguon": [
+        "https://vanban.chinhphu.vn/?docid=183188&pageid=27160"
+      ],
+      "xacMinh": {
+        "ketQua": "dung",
+        "ngay": "2026-11-23"
+      }
     },
     {
       "id": "blttds-2015",
       "soHieu": "92/2015/QH13",
-      "ten": "Bộ luật Tố tụng dân sự 2015 (sửa 2025)",
+      "ten": "Bộ luật Tố tụng dân sự 2015 (sửa bởi Luật 85/2025/QH15, Luật 142/2025/QH15)",
       "loai": "Bộ luật",
       "coQuan": "Quốc hội",
       "ngayBanHanh": "2015-11-25",
       "ngayHieuLuc": "2016-07-01",
       "hieuLuc": "da_sua_doi",
       "duocSuaBoi": [
-        "85/2025/QH15 (HL 01/7/2025, thẩm quyền TAND khu vực)"
+        "85/2025/QH15",
+        "142/2025/QH15"
       ],
       "files": [
         "Tool/KiemSatAnDs/index.html",
@@ -142,7 +169,16 @@
       ],
       "mucDo": "theo_doi",
       "ghiChu": "Tool án dân sự đã dẫn Luật 85/2025. Tiếp tục theo dõi hướng dẫn HĐTP.",
-      "nguon": []
+      "nguon": [
+        "https://vanban.chinhphu.vn/?docid=183189&pageid=27160",
+        "https://vanban.chinhphu.vn/?docid=214582&pageid=27160 (Luật 85/2025)",
+        "https://congbao.chinhphu.vn/van-ban/luat-so-142-2025-qh15-468702.htm (Luật 142/2025 sửa điểm g khoản 1 Điều 214)"
+      ],
+      "xacMinh": {
+        "ketQua": "sua",
+        "ngay": "2026-11-23",
+        "ghiChu": "Bổ sung Luật 142/2025/QH15 (HL 01/3/2026) là văn bản sửa đổi."
+      }
     },
     {
       "id": "ltthc-2015",
@@ -162,7 +198,14 @@
       ],
       "mucDo": "theo_doi",
       "ghiChu": "",
-      "nguon": []
+      "nguon": [
+        "https://congbao.chinhphu.vn/van-ban/luat-so-93-2015-qh13-18405.htm",
+        "https://vanban.chinhphu.vn/?docid=214582&pageid=27160 (Luật 85/2025)"
+      ],
+      "xacMinh": {
+        "ketQua": "dung",
+        "ngay": "2026-11-23"
+      }
     },
     {
       "id": "ltc-vks-2014",
@@ -186,7 +229,12 @@
       "nguon": [
         "https://vanban.chinhphu.vn/?classid=1&docid=214608&orggroupid=1&pageid=27160",
         "https://congbao.chinhphu.vn/van-ban/luat-so-82-2025-qh15-45507.htm"
-      ]
+      ],
+      "xacMinh": {
+        "ketQua": "dung",
+        "ngay": "2026-11-23",
+        "ghiChu": "Đã xác minh ở đợt trước (nguồn trong mục nguon)."
+      }
     },
     {
       "id": "l82-2025",
@@ -205,7 +253,12 @@
       "ghiChu": "Đã có trong CSDL và kỹ năng án hình sự.",
       "nguon": [
         "https://vanban.chinhphu.vn/?classid=1&docid=214608&orggroupid=1&pageid=27160"
-      ]
+      ],
+      "xacMinh": {
+        "ketQua": "dung",
+        "ngay": "2026-11-23",
+        "ghiChu": "Đã xác minh ở đợt trước (nguồn trong mục nguon)."
+      }
     },
     {
       "id": "ltc-tand-2024",
@@ -217,14 +270,20 @@
       "ngayHieuLuc": "2025-01-01",
       "hieuLuc": "da_sua_doi",
       "duocSuaBoi": [
-        "81/2025/QH15 (TAND khu vực, Tòa Phúc thẩm TANDTC, HL 01/7/2025)"
+        "81/2025/QH15"
       ],
       "files": [
         "Tool/CoSoVanBanPhapLuat/index.html"
       ],
       "mucDo": "theo_doi",
       "ghiChu": "",
-      "nguon": []
+      "nguon": [
+        "https://vanban.chinhphu.vn/?docid=214577&pageid=27160 (Luật 81/2025/QH15 ngày 24/6/2025, HL 01/7/2025)"
+      ],
+      "xacMinh": {
+        "ketQua": "dung",
+        "ngay": "2026-11-23"
+      }
     },
     {
       "id": "thahs-2019",
@@ -246,7 +305,12 @@
       "nguon": [
         "https://congbao.chinhphu.vn/van-ban/luat-so-127-2025-qh15-468573.htm",
         "https://xaydungchinhsach.chinhphu.vn/noi-dung-co-ban-cua-luat-thi-hanh-an-hinh-su-so-127-2025-qh15-119260130151202311.htm (Điều hiệu lực: 01/7/2026; Luật 2019 hết hiệu lực cùng ngày)"
-      ]
+      ],
+      "xacMinh": {
+        "ketQua": "dung",
+        "ngay": "2026-11-23",
+        "ghiChu": "Đã xác minh ở đợt trước (nguồn trong mục nguon)."
+      }
     },
     {
       "id": "thahs-2025",
@@ -266,7 +330,12 @@
       "nguon": [
         "https://vanban.chinhphu.vn (tra 127/2025/QH15)",
         "https://xaydungchinhsach.chinhphu.vn/noi-dung-co-ban-cua-luat-thi-hanh-an-hinh-su-so-127-2025-qh15-119260130151202311.htm"
-      ]
+      ],
+      "xacMinh": {
+        "ketQua": "dung",
+        "ngay": "2026-11-23",
+        "ghiChu": "Đã xác minh ở đợt trước (nguồn trong mục nguon)."
+      }
     },
     {
       "id": "thads-2008",
@@ -288,7 +357,12 @@
       "nguon": [
         "https://vanban.chinhphu.vn/?docid=216552&pageid=27160",
         "https://xaydungchinhsach.chinhphu.vn/noi-dung-moi-co-ban-cua-luat-thi-hanh-an-dan-su-so-106-2025-qh15-119260114104054011.htm"
-      ]
+      ],
+      "xacMinh": {
+        "ketQua": "dung",
+        "ngay": "2026-11-23",
+        "ghiChu": "Đã xác minh ở đợt trước (nguồn trong mục nguon)."
+      }
     },
     {
       "id": "thads-2025",
@@ -307,7 +381,12 @@
       "ghiChu": "Đã dùng trong kỹ năng KS THADS. Cần đồng bộ căn cứ ở Soạn QĐ phân công.",
       "nguon": [
         "https://vanban.chinhphu.vn/?docid=216552&pageid=27160"
-      ]
+      ],
+      "xacMinh": {
+        "ketQua": "dung",
+        "ngay": "2026-11-23",
+        "ghiChu": "Đã xác minh ở đợt trước (nguồn trong mục nguon)."
+      }
     },
     {
       "id": "tgtg-2015",
@@ -327,7 +406,12 @@
       "ghiChu": "CSDL đã đánh dấu hết hiệu lực. Tool tính hạn tạm giam hiện căn TTLT 01/2026 (không còn dẫn Luật 94/2015 trong phần căn cứ chính).",
       "nguon": [
         "https://vanban.chinhphu.vn/?classid=1&docid=216508&pageid=27160&typegroupid=3"
-      ]
+      ],
+      "xacMinh": {
+        "ketQua": "dung",
+        "ngay": "2026-11-23",
+        "ghiChu": "Đã xác minh ở đợt trước (nguồn trong mục nguon)."
+      }
     },
     {
       "id": "tgtg-2025",
@@ -346,7 +430,12 @@
       "ghiChu": "Kỹ năng THAHS/tạm giam đã dẫn Luật 128. Nên rà tool tính hạn nếu có điều khoản mới về cách tính thời hạn.",
       "nguon": [
         "https://vanban.chinhphu.vn/?classid=1&docid=216508&pageid=27160&typegroupid=3"
-      ]
+      ],
+      "xacMinh": {
+        "ketQua": "dung",
+        "ngay": "2026-11-23",
+        "ghiChu": "Đã xác minh ở đợt trước (nguồn trong mục nguon)."
+      }
     },
     {
       "id": "lkn-2011",
@@ -367,8 +456,13 @@
       "mucDo": "theo_doi",
       "ghiChu": "Tool KN-TC đã nhắc Luật 136/2025. Nên rà checklist điều khoản đã đổi.",
       "nguon": [
-        "https://vanban.chinhphu.vn/?docid=216516&pageid=27160"
-      ]
+        "https://thuvienphapluat.vn/van-ban/Thu-tuc-To-tung/Luat-khieu-nai-2011-132446.aspx"
+      ],
+      "ngayHieuLuc": "2012-07-01",
+      "xacMinh": {
+        "ketQua": "dung",
+        "ngay": "2026-11-23"
+      }
     },
     {
       "id": "ltc-2018",
@@ -387,12 +481,19 @@
       "mucDo": "theo_doi",
       "ghiChu": "",
       "nguon": [
-        "https://vanban.chinhphu.vn/?docid=216516&pageid=27160"
-      ]
+        "https://congbao.chinhphu.vn/van-ban/luat-so-25-2018-qh14-26892.htm",
+        "https://thuvienphapluat.vn/van-ban/Bo-may-hanh-chinh/Luat-To-cao-336713.aspx"
+      ],
+      "ngayBanHanh": "2018-06-12",
+      "ngayHieuLuc": "2019-01-01",
+      "xacMinh": {
+        "ketQua": "dung",
+        "ngay": "2026-11-23"
+      }
     },
     {
       "id": "ltcd-2013",
-      "soHieu": "55/2013/QH13",
+      "soHieu": "42/2013/QH13",
       "ten": "Luật Tiếp công dân 2013 (sửa 2025)",
       "loai": "Luật",
       "coQuan": "Quốc hội",
@@ -407,8 +508,15 @@
       "mucDo": "theo_doi",
       "ghiChu": "",
       "nguon": [
-        "https://vanban.chinhphu.vn/?docid=216516&pageid=27160"
-      ]
+        "https://vanban.chinhphu.vn/?docid=171414&pageid=27160"
+      ],
+      "ngayBanHanh": "2013-11-25",
+      "ngayHieuLuc": "2014-07-01",
+      "xacMinh": {
+        "ketQua": "sua",
+        "ngay": "2026-11-23",
+        "ghiChu": "Số hiệu cũ ghi sai 55/2013/QH13; đúng là 42/2013/QH13."
+      }
     },
     {
       "id": "l136-2025",
@@ -425,7 +533,12 @@
       "ghiChu": "Đã có hiệu lực từ 01/7/2026. Tool đã dẫn số hiệu; cần đối chiếu nội dung điều đã sửa.",
       "nguon": [
         "https://vanban.chinhphu.vn/?docid=216516&pageid=27160"
-      ]
+      ],
+      "ngayBanHanh": "2025-12-10",
+      "xacMinh": {
+        "ketQua": "dung",
+        "ngay": "2026-11-23"
+      }
     },
     {
       "id": "lluutru-2024",
@@ -445,7 +558,14 @@
       "ghiChu": "Kỹ năng văn phòng đang tính hạn theo Luật Lưu trữ 2024 và NĐ 30/2020. Luật sửa đổi vừa thông qua ngày 21/11/2026 — bổ sung vào CSDL khi có số hiệu/ngày HL.",
       "nguon": [
         "https://luatvietnam.vn/tin-van-ban-moi/danh-sach-cac-luat-duoc-thong-qua-tai-ky-hop-thu-2-quoc-hoi-xvi-186-115980-article.html"
-      ]
+      ],
+      "ngayBanHanh": "2024-06-21",
+      "ngayHieuLuc": "2025-07-01",
+      "xacMinh": {
+        "ketQua": "nguon_phu",
+        "ngay": "2026-11-23",
+        "ghiChu": "Ngày ban hành/hiệu lực theo caa.gov.vn; chưa mở được trang chinhphu.vn/TVPL của văn bản."
+      }
     },
     {
       "id": "lcqdt-2015",
@@ -461,9 +581,14 @@
       "mucDo": "ke_hoach_2027",
       "ghiChu": "Phân biệt: 99/2025/QH15 là luật sửa BLTTHS, không phải luật tổ chức CQĐT. Tool án HS dẫn cả hai số.",
       "nguon": [
-        "https://baochinhphu.vn/quoc-hoi-thong-qua-2-luat-trong-linh-vuc-hinh-su-102261120175834233.htm",
-        "https://vov.gov.vn/tu-132027-se-khong-to-chuc-co-quan-dieu-tra-cua-vien-kiem-sat-nhan-dan-toi-cao-dtnew-1175431"
-      ]
+        "https://vanban.chinhphu.vn/default.aspx?docid=183221&pageid=27160"
+      ],
+      "ngayBanHanh": "2015-11-26",
+      "ngayHieuLuc": "2016-07-01",
+      "xacMinh": {
+        "ketQua": "dung",
+        "ngay": "2026-11-23"
+      }
     },
     {
       "id": "l99-2025-bltths",
@@ -482,7 +607,12 @@
       "ghiChu": "Đang áp dụng đến trước 01/3/2027. Bộ luật TTHS mới (thông qua 21/11/2026) sẽ thay khung 2015 từ ngày đó.",
       "nguon": [
         "https://vanban.chinhphu.vn/?docid=214557&pageid=27160"
-      ]
+      ],
+      "xacMinh": {
+        "ketQua": "dung",
+        "ngay": "2026-11-23",
+        "ghiChu": "Đã xác minh ở đợt trước (nguồn trong mục nguon)."
+      }
     },
     {
       "id": "ltdkt-2022",
@@ -496,7 +626,15 @@
       ],
       "mucDo": "theo_doi",
       "ghiChu": "Dẫn cùng NĐ 152/2025 và TT 05/2026/TT-VKSTC.",
-      "nguon": []
+      "nguon": [
+        "https://vanban.chinhphu.vn/?docid=206170&pageid=27160"
+      ],
+      "ngayBanHanh": "2022-06-15",
+      "ngayHieuLuc": "2024-01-01",
+      "xacMinh": {
+        "ketQua": "dung",
+        "ngay": "2026-11-23"
+      }
     },
     {
       "id": "nq-326",
@@ -515,7 +653,12 @@
       "ghiChu": "Tool tính án phí đang áp dụng NQ này. Đến 23/11/2026 chưa thấy văn bản thay thế/bãi bỏ trên các nguồn đã kiểm (Cổng/Công báo/thuvienphapluat). Vẫn phải theo dõi vì Kỳ họp 2 QH16 vừa thông qua nhiều luật tố tụng mới.",
       "nguon": [
         "https://congbao.chinhphu.vn/van-ban/nghi-quyet-so-326-2016-ubtvqh14-22191.htm"
-      ]
+      ],
+      "xacMinh": {
+        "ketQua": "dung",
+        "ngay": "2026-11-23",
+        "ghiChu": "Đã xác minh ở đợt trước (nguồn trong mục nguon)."
+      }
     },
     {
       "id": "ttlt-04-2018",
@@ -533,7 +676,11 @@
       "ghiChu": "Chỉ còn trong TASK.md và issue #1 (tính hạn tạm giam Điều 17). Code thật Data/TinhTuoiThoiHan.html đã chuyển sang TTLT 01/2026. Cần sửa TASK.md / đóng hoặc đổi nội dung issue #1, không triển khai lại theo bản 2018.",
       "nguon": [
         "https://vanban.chinhphu.vn/?classid=1&docid=216989&orggroupid=4&pageid=27160"
-      ]
+      ],
+      "xacMinh": {
+        "ketQua": "dung",
+        "ngay": "2026-11-23"
+      }
     },
     {
       "id": "ttlt-01-2026",
@@ -553,12 +700,17 @@
       "nguon": [
         "https://vanban.chinhphu.vn/?classid=1&docid=216989&orggroupid=4&pageid=27160",
         "https://congbao.chinhphu.vn/van-ban/thong-tu-lien-tich-so-01-2026-ttlt-vksndtc-bca-bqp-469001/62972.htm"
-      ]
+      ],
+      "xacMinh": {
+        "ketQua": "dung",
+        "ngay": "2026-11-23",
+        "ghiChu": "Đã xác minh ở đợt trước (nguồn trong mục nguon)."
+      }
     },
     {
       "id": "tt-03-2026",
       "soHieu": "03/2026/TT-VKSTC",
-      "ten": "Thông tư ban hành biểu mẫu tố tụng (ngày 09/02/2026; mẫu 71/HS dùng khi soạn QĐ phân công)",
+      "ten": "Thông tư 03/2026/TT-VKSTC ban hành 213 biểu mẫu trong THQCT, kiểm sát việc khởi tố, điều tra, truy tố (Mẫu số 71/HS: QĐ phân công KSV)",
       "loai": "Thông tư",
       "coQuan": "VKSNDTC",
       "ngayBanHanh": "2026-02-09",
@@ -571,7 +723,15 @@
       ],
       "mucDo": "theo_doi",
       "ghiChu": "Sẽ phải rà lại mẫu khi BLTTHS 2026 có hiệu lực 01/3/2027.",
-      "nguon": []
+      "nguon": [
+        "https://vanban.chinhphu.vn/?docid=216930&pageid=27160",
+        "https://thuvienphapluat.vn/van-ban/Thu-tuc-To-tung/Thong-tu-03-2026-TT-VKSTC-694747.aspx"
+      ],
+      "ngayHieuLuc": "2026-02-15",
+      "xacMinh": {
+        "ketQua": "dung",
+        "ngay": "2026-11-23"
+      }
     },
     {
       "id": "tt-05-2026",
@@ -587,7 +747,14 @@
       ],
       "mucDo": "da_cap_nhat",
       "ghiChu": "Tool văn phòng đã ghi rõ thay TT 02/2024.",
-      "nguon": []
+      "nguon": [
+        "https://congbao.chinhphu.vn/van-ban/thong-tu-so-05-2026-tt-vkstc-469105.htm"
+      ],
+      "ngayHieuLuc": "2026-03-09",
+      "xacMinh": {
+        "ketQua": "dung",
+        "ngay": "2026-11-23"
+      }
     },
     {
       "id": "tt-02-2024",
@@ -601,7 +768,13 @@
       ],
       "mucDo": "da_cap_nhat",
       "ghiChu": "Chỉ còn nêu như văn bản bị thay.",
-      "nguon": []
+      "nguon": [],
+      "ngayBanHanh": "2024-08-12",
+      "xacMinh": {
+        "ketQua": "dung",
+        "ngay": "2026-11-23",
+        "ghiChu": "Đã được thay bằng TT 05/2026/TT-VKSTC."
+      }
     },
     {
       "id": "tt-72-2026",
@@ -618,7 +791,14 @@
       ],
       "mucDo": "da_cap_nhat",
       "ghiChu": "Kỹ năng THADS đã chuyển phí sang TT 72/2026.",
-      "nguon": []
+      "nguon": [
+        "https://vanban.chinhphu.vn/?docid=218623&pageid=27160"
+      ],
+      "ngayBanHanh": "2026-06-23",
+      "xacMinh": {
+        "ketQua": "dung",
+        "ngay": "2026-11-23"
+      }
     },
     {
       "id": "nd-30-2020",
@@ -637,12 +817,17 @@
       "nguon": [
         "https://congbao.chinhphu.vn/van-ban/nghi-dinh-so-30-2020-nd-cp-30858.htm",
         "https://xaydungchinhsach.chinhphu.vn/quoc-hoi-thong-qua-luat-van-ban-quy-pham-phap-luat-119261120092232114.htm"
-      ]
+      ],
+      "xacMinh": {
+        "ketQua": "dung",
+        "ngay": "2026-11-23",
+        "ghiChu": "Đã xác minh ở đợt trước (nguồn trong mục nguon)."
+      }
     },
     {
       "id": "ttlt-05-2026",
       "soHieu": "05/2026/TTLT-BCA-BQP-VKSNDTC-TANDTC",
-      "ten": "TTLT liên quan tạm giữ/tạm giam / THAHS (dẫn cùng Luật 128, NĐ 213/2026)",
+      "ten": "TTLT quy định phối hợp trong quản lý, thi hành tạm giữ, tạm giam và kiểm sát",
       "loai": "Văn bản dưới luật",
       "hieuLuc": "con_hieu_luc",
       "files": [
@@ -650,12 +835,21 @@
       ],
       "mucDo": "theo_doi",
       "ghiChu": "Đã được tool dẫn; lần quét định kỳ cần xác nhận còn hiệu lực trên nguồn gốc.",
-      "nguon": []
+      "nguon": [
+        "https://congbao.chinhphu.vn/van-ban/thong-tu-lien-tich-so-05-2026-ttlt-bca-bqp-vksndtc-tandtc-469869.htm"
+      ],
+      "ngayBanHanh": "2026-06-15",
+      "ngayHieuLuc": "2026-07-01",
+      "xacMinh": {
+        "ketQua": "sua",
+        "ngay": "2026-11-23",
+        "ghiChu": "Bổ sung tên, ngày đúng."
+      }
     },
     {
       "id": "ttlt-08-2026",
       "soHieu": "08/2026/TTLT-BCA-BQP-TANDTC-VKSNDTC",
-      "ten": "TTLT (Điều 4.2) — rà soát, lập hồ sơ xét, đề nghị THAHS",
+      "ten": "TTLT quy định phối hợp thực hiện tha tù trước thời hạn có điều kiện",
       "loai": "Văn bản dưới luật",
       "hieuLuc": "con_hieu_luc",
       "files": [
@@ -663,12 +857,22 @@
       ],
       "mucDo": "theo_doi",
       "ghiChu": "Đã được tool dẫn; lần quét định kỳ cần xác nhận còn hiệu lực trên nguồn gốc.",
-      "nguon": []
+      "nguon": [
+        "https://vanban.chinhphu.vn/?docid=218788&pageid=27160",
+        "https://congbao.chinhphu.vn/van-ban/thong-tu-lien-tich-so-08-2026-ttlt-bca-bqp-tandtc-vksndtc-470073.htm"
+      ],
+      "ngayBanHanh": "2026-06-22",
+      "ngayHieuLuc": "2026-07-01",
+      "xacMinh": {
+        "ketQua": "sua",
+        "ngay": "2026-11-23",
+        "ghiChu": "Tên cũ ghi chung chung; sửa đúng nội dung tha tù trước thời hạn có điều kiện."
+      }
     },
     {
       "id": "tt-57-2026",
       "soHieu": "57/2026/TT-BCA",
-      "ten": "Thông tư BCA 2026 — kỹ năng KS THAHS",
+      "ten": "Thông tư quy định chế độ quản lý giam giữ người bị tạm giữ, tạm giam",
       "loai": "Văn bản dưới luật",
       "hieuLuc": "con_hieu_luc",
       "files": [
@@ -676,12 +880,21 @@
       ],
       "mucDo": "theo_doi",
       "ghiChu": "Đã được tool dẫn; lần quét định kỳ cần xác nhận còn hiệu lực trên nguồn gốc.",
-      "nguon": []
+      "nguon": [
+        "https://congbao.chinhphu.vn/van-ban/thong-tu-so-57-2026-tt-bca-469656.htm"
+      ],
+      "ngayBanHanh": "2026-05-15",
+      "ngayHieuLuc": "2026-07-01",
+      "xacMinh": {
+        "ketQua": "sua",
+        "ngay": "2026-11-23",
+        "ghiChu": "Bổ sung tên, ngày."
+      }
     },
     {
       "id": "tt-88-2026",
       "soHieu": "88/2026/TT-BCA",
-      "ten": "Thông tư BCA 2026 — kỹ năng KS THAHS",
+      "ten": "Thông tư quy định việc gặp, nhận quà, liên lạc của phạm nhân",
       "loai": "Văn bản dưới luật",
       "hieuLuc": "con_hieu_luc",
       "files": [
@@ -689,12 +902,21 @@
       ],
       "mucDo": "theo_doi",
       "ghiChu": "Đã được tool dẫn; lần quét định kỳ cần xác nhận còn hiệu lực trên nguồn gốc.",
-      "nguon": []
+      "nguon": [
+        "https://congbao.chinhphu.vn/van-ban/thong-tu-so-88-2026-tt-bca-469868.htm"
+      ],
+      "ngayBanHanh": "2026-06-10",
+      "ngayHieuLuc": "2026-07-01",
+      "xacMinh": {
+        "ketQua": "sua",
+        "ngay": "2026-11-23",
+        "ghiChu": "Bổ sung tên, ngày."
+      }
     },
     {
       "id": "tt-96-2026",
       "soHieu": "96/2026/TT-BCA",
-      "ten": "Thông tư BCA 2026 — kỹ năng KS THAHS",
+      "ten": "Thông tư ban hành Nội quy cơ sở giam giữ phạm nhân",
       "loai": "Văn bản dưới luật",
       "hieuLuc": "con_hieu_luc",
       "files": [
@@ -702,12 +924,21 @@
       ],
       "mucDo": "theo_doi",
       "ghiChu": "Đã được tool dẫn; lần quét định kỳ cần xác nhận còn hiệu lực trên nguồn gốc.",
-      "nguon": []
+      "nguon": [
+        "https://congbao.chinhphu.vn/van-ban/thong-tu-so-96-2026-tt-bca-469919.htm"
+      ],
+      "ngayBanHanh": "2026-06-19",
+      "ngayHieuLuc": "2026-07-01",
+      "xacMinh": {
+        "ketQua": "sua",
+        "ngay": "2026-11-23",
+        "ghiChu": "Bổ sung tên, ngày."
+      }
     },
     {
       "id": "nd-170-2026",
       "soHieu": "170/2026/NĐ-CP",
-      "ten": "Nghị định hướng dẫn/liên quan THAHS 2025",
+      "ten": "Nghị định quy định chi tiết Luật Thi hành án hình sự",
       "loai": "Văn bản dưới luật",
       "hieuLuc": "con_hieu_luc",
       "files": [
@@ -715,12 +946,20 @@
       ],
       "mucDo": "theo_doi",
       "ghiChu": "Đã được tool dẫn; lần quét định kỳ cần xác nhận còn hiệu lực trên nguồn gốc.",
-      "nguon": []
+      "nguon": [
+        "https://vanban.chinhphu.vn/?docid=218166&pageid=27160"
+      ],
+      "ngayBanHanh": "2026-05-15",
+      "ngayHieuLuc": "2026-07-01",
+      "xacMinh": {
+        "ketQua": "dung",
+        "ngay": "2026-11-23"
+      }
     },
     {
       "id": "nd-213-2026",
       "soHieu": "213/2026/NĐ-CP",
-      "ten": "Nghị định liên quan thi hành tạm giữ, tạm giam (cùng Luật 128, TTLT 05/2026)",
+      "ten": "Nghị định quy định chi tiết Luật Thi hành tạm giữ, tạm giam và cấm đi khỏi nơi cư trú",
       "loai": "Văn bản dưới luật",
       "hieuLuc": "con_hieu_luc",
       "files": [
@@ -728,12 +967,20 @@
       ],
       "mucDo": "theo_doi",
       "ghiChu": "Đã được tool dẫn; lần quét định kỳ cần xác nhận còn hiệu lực trên nguồn gốc.",
-      "nguon": []
+      "nguon": [
+        "https://vanban.chinhphu.vn/?docid=218508&pageid=27160"
+      ],
+      "ngayBanHanh": "2026-06-18",
+      "ngayHieuLuc": "2026-07-01",
+      "xacMinh": {
+        "ketQua": "dung",
+        "ngay": "2026-11-23"
+      }
     },
     {
       "id": "nd-151-2026",
       "soHieu": "151/2026/NĐ-CP",
-      "ten": "Nghị định liên quan THADS 2025",
+      "ten": "Nghị định quy định tổ chức, hoạt động của văn phòng thi hành án dân sự và Thừa hành viên",
       "loai": "Văn bản dưới luật",
       "hieuLuc": "con_hieu_luc",
       "files": [
@@ -741,12 +988,21 @@
       ],
       "mucDo": "theo_doi",
       "ghiChu": "Đã được tool dẫn; lần quét định kỳ cần xác nhận còn hiệu lực trên nguồn gốc.",
-      "nguon": []
+      "nguon": [
+        "https://vanban.chinhphu.vn/?docid=218078&pageid=27160"
+      ],
+      "ngayBanHanh": "2026-05-13",
+      "ngayHieuLuc": "2026-07-01",
+      "xacMinh": {
+        "ketQua": "sua",
+        "ngay": "2026-11-23",
+        "ghiChu": "Tên cũ \"liên quan THADS\" quá chung; sửa đúng nội dung."
+      }
     },
     {
       "id": "nd-152-2026",
       "soHieu": "152/2026/NĐ-CP",
-      "ten": "Nghị định liên quan THADS 2025",
+      "ten": "Nghị định quy định chi tiết một số điều và biện pháp thi hành Luật Thi hành án dân sự (thay NĐ 62/2015/NĐ-CP)",
       "loai": "Văn bản dưới luật",
       "hieuLuc": "con_hieu_luc",
       "files": [
@@ -754,12 +1010,20 @@
       ],
       "mucDo": "theo_doi",
       "ghiChu": "Đã được tool dẫn; lần quét định kỳ cần xác nhận còn hiệu lực trên nguồn gốc.",
-      "nguon": []
+      "nguon": [
+        "https://vanban.chinhphu.vn/?docid=218079&pageid=27160"
+      ],
+      "ngayBanHanh": "2026-05-13",
+      "ngayHieuLuc": "2026-07-01",
+      "xacMinh": {
+        "ketQua": "dung",
+        "ngay": "2026-11-23"
+      }
     },
     {
       "id": "nd-152-2025",
       "soHieu": "152/2025/NĐ-CP",
-      "ten": "Nghị định thi đua khen thưởng (14/6/2025)",
+      "ten": "Nghị định quy định phân cấp, phân quyền trong lĩnh vực thi đua, khen thưởng",
       "loai": "Văn bản dưới luật",
       "hieuLuc": "con_hieu_luc",
       "files": [
@@ -767,12 +1031,21 @@
       ],
       "mucDo": "theo_doi",
       "ghiChu": "Đã được tool dẫn; lần quét định kỳ cần xác nhận còn hiệu lực trên nguồn gốc.",
-      "nguon": []
+      "nguon": [
+        "https://vanban.chinhphu.vn/?docid=213955&pageid=27160"
+      ],
+      "ngayBanHanh": "2025-06-14",
+      "ngayHieuLuc": "2025-07-01",
+      "xacMinh": {
+        "ketQua": "dung",
+        "ngay": "2026-11-23",
+        "ghiChu": "Áp dụng đến 01/3/2027."
+      }
     },
     {
       "id": "nd-161-2026",
       "soHieu": "161/2026/NĐ-CP",
-      "ten": "Nghị định 15/5/2026 — quỹ tiền thưởng biên chế (văn phòng/thi đua)",
+      "ten": "Nghị định quy định mức lương cơ sở và chế độ tiền thưởng",
       "loai": "Văn bản dưới luật",
       "hieuLuc": "con_hieu_luc",
       "files": [
@@ -780,38 +1053,71 @@
       ],
       "mucDo": "theo_doi",
       "ghiChu": "Đã được tool dẫn; lần quét định kỳ cần xác nhận còn hiệu lực trên nguồn gốc.",
-      "nguon": []
+      "nguon": [
+        "https://congbao.chinhphu.vn/van-ban/nghi-dinh-so-161-2026-nd-cp-469550.htm"
+      ],
+      "ngayBanHanh": "2026-05-15",
+      "ngayHieuLuc": "2026-07-01",
+      "xacMinh": {
+        "ketQua": "sua",
+        "ngay": "2026-11-23",
+        "ghiChu": "Tên cũ sai nội dung; đúng là mức lương cơ sở và chế độ tiền thưởng."
+      }
     },
     {
       "id": "nd-124-2020",
       "soHieu": "124/2020/NĐ-CP",
-      "ten": "Nghị định hướng dẫn Luật Tố cáo",
+      "ten": "Nghị định quy định chi tiết một số điều và biện pháp thi hành Luật Khiếu nại",
       "loai": "Văn bản dưới luật",
-      "hieuLuc": "con_hieu_luc",
+      "hieuLuc": "da_sua_doi",
       "files": [
         "Tool/GiaiQuyetKnTc/index.html"
       ],
       "mucDo": "theo_doi",
       "ghiChu": "Đã được tool dẫn; lần quét định kỳ cần xác nhận còn hiệu lực trên nguồn gốc.",
-      "nguon": []
+      "nguon": [
+        "https://congbao.chinhphu.vn/van-ban/nghi-dinh-so-155-2026-nd-cp-469547.htm",
+        "https://vanban.chinhphu.vn/?docid=218183&pageid=27160"
+      ],
+      "ngayBanHanh": "2020-10-19",
+      "duocSuaBoi": [
+        "155/2026/NĐ-CP hoặc 156/2026/NĐ-CP (15/5/2026, HL 01/7/2026)"
+      ],
+      "xacMinh": {
+        "ketQua": "sua",
+        "ngay": "2026-11-23",
+        "ghiChu": "Repo cũ ghi nhầm \"hướng dẫn Luật Tố cáo\"; NĐ 124/2020 là hướng dẫn Luật Khiếu nại."
+      }
     },
     {
       "id": "nd-31-2019",
       "soHieu": "31/2019/NĐ-CP",
-      "ten": "Nghị định hướng dẫn Luật Khiếu nại",
+      "ten": "Nghị định quy định chi tiết một số điều và biện pháp tổ chức thi hành Luật Tố cáo",
       "loai": "Văn bản dưới luật",
-      "hieuLuc": "con_hieu_luc",
+      "hieuLuc": "da_sua_doi",
       "files": [
         "Tool/GiaiQuyetKnTc/index.html"
       ],
       "mucDo": "theo_doi",
       "ghiChu": "Đã được tool dẫn; lần quét định kỳ cần xác nhận còn hiệu lực trên nguồn gốc.",
-      "nguon": []
+      "nguon": [
+        "https://congbao.chinhphu.vn/van-ban/nghi-dinh-so-155-2026-nd-cp-469547.htm",
+        "https://vanban.chinhphu.vn/?docid=218183&pageid=27160"
+      ],
+      "ngayBanHanh": "2019-04-10",
+      "duocSuaBoi": [
+        "155/2026/NĐ-CP hoặc 156/2026/NĐ-CP (15/5/2026, HL 01/7/2026)"
+      ],
+      "xacMinh": {
+        "ketQua": "sua",
+        "ngay": "2026-11-23",
+        "ghiChu": "Repo cũ ghi nhầm \"hướng dẫn Luật Khiếu nại\"; NĐ 31/2019 là hướng dẫn Luật Tố cáo."
+      }
     },
     {
       "id": "ttlt-02-2018",
-      "soHieu": "02/2018/TTLT-VKSTC-TATC-BCA-BQP-BTC-BNN",
-      "ten": "TTLT phối hợp tiếp nhận, giải quyết tố giác, tin báo tội phạm, kiến nghị khởi tố",
+      "soHieu": "02/2018/TTLT-VKSTC-TATC-BCA-BQP-BTC-BNN&PTNT",
+      "ten": "TTLT quy định việc phối hợp thi hành một số quy định của BLTTHS về khiếu nại, tố cáo",
       "loai": "Văn bản dưới luật",
       "hieuLuc": "con_hieu_luc",
       "files": [
@@ -819,12 +1125,22 @@
       ],
       "mucDo": "theo_doi",
       "ghiChu": "Đã được tool dẫn; lần quét định kỳ cần xác nhận còn hiệu lực trên nguồn gốc.",
-      "nguon": []
+      "nguon": [
+        "https://vanban.chinhphu.vn/?classid=1&docid=195161&orggroupid=5&pageid=27160",
+        "https://thuvienphapluat.vn/van-ban/Trach-nhiem-hinh-su/Thong-tu-lien-tich-02-2018-TTLT-VKSTC-TATC-BCA-BQP-BTC-BNN-PTNT-giai-quyet-khieu-nai-to-cao-394337.aspx"
+      ],
+      "ngayBanHanh": "2018-09-05",
+      "ngayHieuLuc": "2018-10-19",
+      "xacMinh": {
+        "ketQua": "sua",
+        "ngay": "2026-11-23",
+        "ghiChu": "Tên cũ ghi sai \"tố giác, tin báo về tội phạm\" (đó là TTLT 01/2017). TTLT 02/2018 là về khiếu nại, tố cáo trong TTHS — dùng đúng ở Tool/GiaiQuyetKnTc."
+      }
     },
     {
       "id": "tt-02-2025",
       "soHieu": "02/2025/TT-VKSTC",
-      "ten": "Thông tư VKSTC 2025 — chuyên đề KS THAHS/án HS",
+      "ten": "Thông tư quy định thẩm quyền của VKS các cấp trong THQCT, kiểm sát vụ việc, vụ án hình sự",
       "loai": "Văn bản dưới luật",
       "hieuLuc": "con_hieu_luc",
       "files": [
@@ -833,12 +1149,21 @@
       ],
       "mucDo": "theo_doi",
       "ghiChu": "Đã được tool dẫn; lần quét định kỳ cần xác nhận còn hiệu lực trên nguồn gốc.",
-      "nguon": []
+      "nguon": [
+        "https://congbao.chinhphu.vn/van-ban/thong-tu-so-02-2025-tt-vkstc-45450.htm"
+      ],
+      "ngayBanHanh": "2025-06-30",
+      "ngayHieuLuc": "2025-07-01",
+      "xacMinh": {
+        "ketQua": "sua",
+        "ngay": "2026-11-23",
+        "ghiChu": "Tên cũ sai."
+      }
     },
     {
       "id": "nq-03-2024",
       "soHieu": "03/2024/NQ-HĐTP",
-      "ten": "Nghị quyết HĐTP — trừ thời gian tạm giữ/tạm giam (cùng BLHS Điều 63, Luật 127 Điều 36)",
+      "ten": "Nghị quyết hướng dẫn áp dụng BLHS về thời hiệu thi hành bản án, miễn chấp hành hình phạt, giảm mức hình phạt, hoãn chấp hành hình phạt tù",
       "loai": "Văn bản dưới luật",
       "hieuLuc": "con_hieu_luc",
       "files": [
@@ -846,12 +1171,21 @@
       ],
       "mucDo": "theo_doi",
       "ghiChu": "Đã được tool dẫn; lần quét định kỳ cần xác nhận còn hiệu lực trên nguồn gốc.",
-      "nguon": []
+      "nguon": [
+        "https://thuvienphapluat.vn/van-ban/Trach-nhiem-hinh-su/Nghi-quyet-03-2024-NQ-HDTP-huong-dan-Bo-luat-Hinh-su-thoi-hieu-thi-hanh-ban-an-483755.aspx"
+      ],
+      "ngayBanHanh": "2024-06-10",
+      "ngayHieuLuc": "2024-07-15",
+      "xacMinh": {
+        "ketQua": "sua",
+        "ngay": "2026-11-23",
+        "ghiChu": "Tên cũ sai (\"trừ thời gian tạm giữ, tạm giam\")."
+      }
     },
     {
       "id": "nq-01-2019",
       "soHieu": "01/2019/NQ-HĐTP",
-      "ten": "Nghị quyết HĐTP — lãi suất, hợp đồng vay",
+      "ten": "Nghị quyết hướng dẫn áp dụng một số quy định của pháp luật về lãi, lãi suất, phạt vi phạm",
       "loai": "Văn bản dưới luật",
       "hieuLuc": "con_hieu_luc",
       "files": [
@@ -859,7 +1193,13 @@
       ],
       "mucDo": "theo_doi",
       "ghiChu": "Đã được tool dẫn; lần quét định kỳ cần xác nhận còn hiệu lực trên nguồn gốc.",
-      "nguon": []
+      "nguon": [],
+      "ngayBanHanh": "2019-01-11",
+      "ngayHieuLuc": "2019-03-15",
+      "xacMinh": {
+        "ketQua": "dung",
+        "ngay": "2026-11-23"
+      }
     },
     {
       "id": "qd-06-2026",
@@ -874,12 +1214,19 @@
       ],
       "mucDo": "theo_doi",
       "ghiChu": "Văn bản nội ngành: ưu tiên đối chiếu trên vksndtc.gov.vn/vanban hoặc văn bản giấy/PDF gốc của Viện.",
-      "nguon": []
+      "nguon": [
+        "https://thuvienphapluat.vn/van-ban/Thu-tuc-To-tung/Quyet-dinh-06-QD-VKSTC-2026-700285.aspx"
+      ],
+      "ngayBanHanh": "2026-03-23",
+      "xacMinh": {
+        "ketQua": "dung",
+        "ngay": "2026-11-23"
+      }
     },
     {
       "id": "qd-09-2026",
       "soHieu": "09/QĐ-VKSTC",
-      "ten": "Quy chế 05/5/2026 — kỹ năng án HS",
+      "ten": "Quy chế công tác thực hành quyền công tố, kiểm sát xét xử vụ án hình sự (thay QĐ 505/QĐ-VKSTC 2017)",
       "loai": "Quyết định/Quy chế/Chỉ thị ngành",
       "coQuan": "VKSNDTC",
       "hieuLuc": "con_hieu_luc",
@@ -888,12 +1235,20 @@
       ],
       "mucDo": "theo_doi",
       "ghiChu": "Văn bản nội ngành: ưu tiên đối chiếu trên vksndtc.gov.vn/vanban hoặc văn bản giấy/PDF gốc của Viện.",
-      "nguon": []
+      "nguon": [
+        "https://thuvienphapluat.vn/van-ban/Thu-tuc-To-tung/Quyet-dinh-09-QD-VKSTC-2026-quy-che-cong-tac-kiem-sat-xet-xu-vu-an-hinh-su-728838.aspx"
+      ],
+      "ngayBanHanh": "2026-05-05",
+      "xacMinh": {
+        "ketQua": "sua",
+        "ngay": "2026-11-23",
+        "ghiChu": "Bổ sung tên đúng."
+      }
     },
     {
       "id": "qd-50-2026",
       "soHieu": "50/QĐ-VKSTC",
-      "ten": "Quyết định 50/QĐ-VKSTC 2026 — KN-TC / trợ lý ảo",
+      "ten": "Quyết định ban hành Quy định quy trình giải quyết khiếu nại, tố cáo; kiểm tra QĐ giải quyết khiếu nại có hiệu lực; kiểm sát việc giải quyết KN-TC trong hoạt động tư pháp (thay QĐ 546/QĐ-VKSTC 2018)",
       "loai": "Quyết định/Quy chế/Chỉ thị ngành",
       "coQuan": "VKSNDTC",
       "hieuLuc": "con_hieu_luc",
@@ -904,27 +1259,41 @@
       ],
       "mucDo": "theo_doi",
       "ghiChu": "Văn bản nội ngành: ưu tiên đối chiếu trên vksndtc.gov.vn/vanban hoặc văn bản giấy/PDF gốc của Viện.",
-      "nguon": []
+      "nguon": [
+        "https://thuvienphapluat.vn/van-ban/Thu-tuc-To-tung/Quyet-dinh-50-QD-VKSTC-2026-698562.aspx"
+      ],
+      "ngayBanHanh": "2026-03-20",
+      "xacMinh": {
+        "ketQua": "dung",
+        "ngay": "2026-11-23"
+      }
     },
     {
       "id": "qd-39",
       "soHieu": "39/QĐ-VKSTC",
-      "ten": "Quyết định 39/QĐ-VKSTC — kỹ năng KS THAHS",
+      "ten": "Quyết định ban hành 80 biểu mẫu kiểm sát tạm giữ, tạm giam, thi hành án hình sự (2018)",
       "loai": "Quyết định/Quy chế/Chỉ thị ngành",
       "coQuan": "VKSNDTC",
-      "hieuLuc": "con_hieu_luc",
+      "hieuLuc": "het_hieu_luc",
       "files": [
         "Tool/KiemSatThahs/index.html",
         "index.html"
       ],
-      "mucDo": "theo_doi",
+      "mucDo": "da_cap_nhat",
       "ghiChu": "Văn bản nội ngành: ưu tiên đối chiếu trên vksndtc.gov.vn/vanban hoặc văn bản giấy/PDF gốc của Viện.",
-      "nguon": []
+      "nguon": [],
+      "ngayBanHanh": "2018-01-26",
+      "thayTheBoi": "259/QĐ-VKSTC (20/7/2023)",
+      "xacMinh": {
+        "ketQua": "sua",
+        "ngay": "2026-11-23",
+        "ghiChu": "Đã hết hiệu lực từ 20/7/2023 (biểu mẫu nay kèm Quy chế 259/QĐ-VKSTC). Đã gỡ khỏi căn cứ AI và trang kỹ năng. Nguồn: luatvietnam.vn/luatminhkhue.vn (không có trên chinhphu/TVPL)."
+      }
     },
     {
       "id": "qd-259",
       "soHieu": "259/QĐ-VKSTC",
-      "ten": "Quy chế kiểm sát THAHS",
+      "ten": "Quy chế công tác kiểm sát việc tạm giữ, tạm giam, thi hành án hình sự (kèm hệ thống biểu mẫu; thay QĐ 501/QĐ-VKSTC 2017)",
       "loai": "Quyết định/Quy chế/Chỉ thị ngành",
       "coQuan": "VKSNDTC",
       "hieuLuc": "con_hieu_luc",
@@ -933,7 +1302,14 @@
       ],
       "mucDo": "theo_doi",
       "ghiChu": "Văn bản nội ngành: ưu tiên đối chiếu trên vksndtc.gov.vn/vanban hoặc văn bản giấy/PDF gốc của Viện.",
-      "nguon": []
+      "nguon": [
+        "https://thuvienphapluat.vn/van-ban/Trach-nhiem-hinh-su/Quyet-dinh-259-QD-VKSTC-2023-583402.aspx"
+      ],
+      "ngayBanHanh": "2023-07-20",
+      "xacMinh": {
+        "ketQua": "dung",
+        "ngay": "2026-11-23"
+      }
     },
     {
       "id": "qd-810",
@@ -949,12 +1325,19 @@
       ],
       "mucDo": "theo_doi",
       "ghiChu": "Văn bản nội ngành: ưu tiên đối chiếu trên vksndtc.gov.vn/vanban hoặc văn bản giấy/PDF gốc của Viện.",
-      "nguon": []
+      "nguon": [
+        "https://thuvienphapluat.vn/van-ban/Thu-tuc-To-tung/Quyet-dinh-810-QD-VKSTC-2016-334702.aspx"
+      ],
+      "ngayBanHanh": "2016-12-20",
+      "xacMinh": {
+        "ketQua": "dung",
+        "ngay": "2026-11-23"
+      }
     },
     {
       "id": "qd-94",
       "soHieu": "94/QĐ-VKSTC",
-      "ten": "Quy trình, kỹ năng trực tiếp kiểm sát tại cơ quan THADS",
+      "ten": "Quy trình, kỹ năng trực tiếp kiểm sát tại cơ quan THADS và kiểm sát giải quyết KN-TC về THADS, THAHC",
       "loai": "Quyết định/Quy chế/Chỉ thị ngành",
       "coQuan": "VKSNDTC",
       "hieuLuc": "con_hieu_luc",
@@ -964,26 +1347,40 @@
       ],
       "mucDo": "theo_doi",
       "ghiChu": "Văn bản nội ngành: ưu tiên đối chiếu trên vksndtc.gov.vn/vanban hoặc văn bản giấy/PDF gốc của Viện.",
-      "nguon": []
+      "nguon": [
+        "https://thuvienphapluat.vn/van-ban/Thu-tuc-To-tung/Quyet-dinh-94-QD-VKSTC-2021-468315.aspx"
+      ],
+      "ngayBanHanh": "2021-03-22",
+      "xacMinh": {
+        "ketQua": "dung",
+        "ngay": "2026-11-23"
+      }
     },
     {
       "id": "qd-204",
       "soHieu": "204/QĐ-VKSTC",
-      "ten": "Quyết định liên quan kỹ năng án dân sự",
+      "ten": "Quyết định ban hành biểu mẫu tạm thời (2017)",
       "loai": "Quyết định/Quy chế/Chỉ thị ngành",
       "coQuan": "VKSNDTC",
-      "hieuLuc": "con_hieu_luc",
+      "hieuLuc": "het_hieu_luc",
       "files": [
         "Tool/KiemSatAnDs/index.html"
       ],
-      "mucDo": "theo_doi",
+      "mucDo": "da_cap_nhat",
       "ghiChu": "Văn bản nội ngành: ưu tiên đối chiếu trên vksndtc.gov.vn/vanban hoặc văn bản giấy/PDF gốc của Viện.",
-      "nguon": []
+      "nguon": [],
+      "ngayBanHanh": "2017-06-01",
+      "thayTheBoi": "410/QĐ-VKSTC (25/11/2021) đối với biểu mẫu DS, HC",
+      "xacMinh": {
+        "ketQua": "sua",
+        "ngay": "2026-11-23",
+        "ghiChu": "Đã được thay bằng QĐ 410/QĐ-VKSTC; gỡ khỏi căn cứ AI."
+      }
     },
     {
       "id": "qd-410",
       "soHieu": "410/QĐ-VKSTC",
-      "ten": "Quyết định liên quan kỹ năng án dân sự",
+      "ten": "Quyết định ban hành biểu mẫu kiểm sát việc giải quyết vụ việc dân sự, vụ án hành chính (01/DS–65/DS, 01/HC–65/HC)",
       "loai": "Quyết định/Quy chế/Chỉ thị ngành",
       "coQuan": "VKSNDTC",
       "hieuLuc": "con_hieu_luc",
@@ -993,12 +1390,19 @@
       ],
       "mucDo": "theo_doi",
       "ghiChu": "Văn bản nội ngành: ưu tiên đối chiếu trên vksndtc.gov.vn/vanban hoặc văn bản giấy/PDF gốc của Viện.",
-      "nguon": []
+      "nguon": [
+        "https://thuvienphapluat.vn/van-ban/Thu-tuc-To-tung/Quyet-dinh-410-QD-VKSTC-2021-496065.aspx"
+      ],
+      "ngayBanHanh": "2021-11-25",
+      "xacMinh": {
+        "ketQua": "dung",
+        "ngay": "2026-11-23"
+      }
     },
     {
       "id": "qd-436",
       "soHieu": "436/QĐ-VKSTC",
-      "ten": "Quy chế kiểm sát giải quyết vụ việc dân sự (28/11/2025) — CSDL ghi 'đã có số, chưa có toàn văn'",
+      "ten": "Quy chế công tác kiểm sát việc giải quyết các vụ việc dân sự (thay QĐ 364/QĐ-VKSTC 2017)",
       "loai": "Quyết định/Quy chế/Chỉ thị ngành",
       "coQuan": "VKSNDTC",
       "hieuLuc": "con_hieu_luc",
@@ -1008,7 +1412,16 @@
       ],
       "mucDo": "theo_doi",
       "ghiChu": "Văn bản nội ngành: ưu tiên đối chiếu trên vksndtc.gov.vn/vanban hoặc văn bản giấy/PDF gốc của Viện.",
-      "nguon": []
+      "nguon": [
+        "https://kiemsat.vn/vksnd-toi-cao-ban-hanh-quy-che-cong-tac-kiem-sat-viec-giai-quyet-cac-vu-viec-dan-su-73654.html",
+        "https://baovephapluat.vn/vien-truong-vksndtc-nguyen-huy-tien/vien-truong-vksnd-toi-cao-ban-hanh-quy-che-cong-tac-kiem-sat-viec-giai-quyet-cac-vu-viec-dan-su-189717.html"
+      ],
+      "ngayBanHanh": "2025-11-28",
+      "xacMinh": {
+        "ketQua": "nguon_nganh",
+        "ngay": "2026-11-23",
+        "ghiChu": "Chưa có trên chinhphu.vn/TVPL; xác nhận qua Tạp chí Kiểm sát và Báo Bảo vệ pháp luật (cơ quan của VKSNDTC). Lưu ý: TVPL có QĐ 436/QĐ-VKSTC 2020 khác (phá sản)."
+      }
     },
     {
       "id": "qd-358",
@@ -1023,12 +1436,18 @@
       ],
       "mucDo": "theo_doi",
       "ghiChu": "Văn bản nội ngành: ưu tiên đối chiếu trên vksndtc.gov.vn/vanban hoặc văn bản giấy/PDF gốc của Viện.",
-      "nguon": []
+      "nguon": [],
+      "ngayBanHanh": "2025-09-23",
+      "xacMinh": {
+        "ketQua": "nguon_phu",
+        "ngay": "2026-11-23",
+        "ghiChu": "Chỉ thấy bản sao (nhansu.vn) của trang TVPL; chưa mở được bản chính trên chinhphu/TVPL."
+      }
     },
     {
       "id": "qd-287",
       "soHieu": "287/QĐ-VKSTC",
-      "ten": "QĐ 19/9/2026 — KPI/đánh giá nhiệm vụ",
+      "ten": "Quyết định ban hành Bảng danh mục nhiệm vụ KPI dùng chung trong ngành KSND (phiên bản 1.0)",
       "loai": "Quyết định/Quy chế/Chỉ thị ngành",
       "coQuan": "VKSNDTC",
       "hieuLuc": "con_hieu_luc",
@@ -1038,11 +1457,16 @@
       ],
       "mucDo": "theo_doi",
       "ghiChu": "Văn bản nội ngành: ưu tiên đối chiếu trên vksndtc.gov.vn/vanban hoặc văn bản giấy/PDF gốc của Viện.",
-      "nguon": []
+      "nguon": [],
+      "xacMinh": {
+        "ketQua": "chua_xac_minh",
+        "ngay": "2026-11-23",
+        "ghiChu": "Không tìm thấy trên chinhphu.vn/TVPL. Báo Bảo vệ pháp luật ghi ngày 14/9/2026, code trang Văn phòng ghi 19/9/2026 — cần đối chiếu bản gốc. Không đưa vào căn cứ AI; đã bỏ ngày khỏi mô tả trang."
+      }
     },
     {
       "id": "ct-06-2019",
-      "soHieu": "06/2019/CT-VKSTC",
+      "soHieu": "06/CT-VKSTC",
       "ten": "Chỉ thị 06/2019/CT-VKSTC — KS THAHS (tool ghi còn hiệu lực)",
       "loai": "Quyết định/Quy chế/Chỉ thị ngành",
       "coQuan": "VKSNDTC",
@@ -1052,7 +1476,15 @@
       ],
       "mucDo": "theo_doi",
       "ghiChu": "Văn bản nội ngành: ưu tiên đối chiếu trên vksndtc.gov.vn/vanban hoặc văn bản giấy/PDF gốc của Viện.",
-      "nguon": []
+      "nguon": [
+        "https://thuvienphapluat.vn/van-ban/Bo-may-hanh-chinh/Chi-thi-06-CT-VKSTC-2019-417601.aspx"
+      ],
+      "ngayBanHanh": "2019-06-18",
+      "xacMinh": {
+        "ketQua": "sua",
+        "ngay": "2026-11-23",
+        "ghiChu": "Số hiệu đúng là 06/CT-VKSTC (không có \"/2019\")."
+      }
     },
     {
       "id": "bltths-2026-moi",
@@ -1069,7 +1501,12 @@
       "ghiChu": "Cùng ngày Quốc hội thông qua Nghị quyết thi hành BLTTHS (HL 03/12/2026) và Nghị quyết thí điểm thu hồi tài sản liên quan tội phạm không qua kết tội (HL 01/3/2027). Ảnh hưởnghầu hết mọi kỹ năng hình sự, tool tính hạn, mẫu TT 03/2026, trợ lý ảo.",
       "nguon": [
         "https://baochinhphu.vn/bo-luat-to-tung-hinh-su-sua-doi-dot-pha-voi-to-tung-dien-tu-truc-tuyen-102261121130340761.htm"
-      ]
+      ],
+      "xacMinh": {
+        "ketQua": "chua_co_so_hieu",
+        "ngay": "2026-11-23",
+        "ghiChu": "Đã thông qua, chưa công bố số hiệu trên chinhphu.vn/TVPL tại ngày đối chiếu; chưa áp dụng."
+      }
     },
     {
       "id": "blhs-2026-moi",
@@ -1086,7 +1523,12 @@
       "ghiChu": "Cần bổ sung vào CSDL ngay khi có số hiệu; lập bảng đối chiếu điều/tội danh trước 01/3/2027.",
       "nguon": [
         "https://mps.gov.vn/chinh-sach-phap-luat/bai-viet/quoc-hoi-thong-qua-bo-luat-hinh-su-sua-doi-co-hieu-luc-thi-hanh-tu-ngay-01-3-2027-1795189759"
-      ]
+      ],
+      "xacMinh": {
+        "ketQua": "chua_co_so_hieu",
+        "ngay": "2026-11-23",
+        "ghiChu": "Đã thông qua, chưa công bố số hiệu trên chinhphu.vn/TVPL tại ngày đối chiếu; chưa áp dụng."
+      }
     },
     {
       "id": "lcqdt-2026-moi",
@@ -1103,7 +1545,12 @@
       "ghiChu": "Ảnh hưởng mô tả thẩm quyền CQĐT, quan hệ với VKS. Tin chính thức: từ 01/3/2027 không tổ chức CQĐT của VKSNDTC.",
       "nguon": [
         "https://baochinhphu.vn/quoc-hoi-thong-qua-2-luat-trong-linh-vuc-hinh-su-102261120175834233.htm"
-      ]
+      ],
+      "xacMinh": {
+        "ketQua": "chua_co_so_hieu",
+        "ngay": "2026-11-23",
+        "ghiChu": "Đã thông qua, chưa công bố số hiệu trên chinhphu.vn/TVPL tại ngày đối chiếu; chưa áp dụng."
+      }
     },
     {
       "id": "lvbqppl-2026-moi",
@@ -1122,7 +1569,12 @@
       "ghiChu": "Liên quan module văn phòng/văn thư và cách phần mềm trích dẫn căn cứ.",
       "nguon": [
         "https://xaydungchinhsach.chinhphu.vn/quoc-hoi-thong-qua-luat-van-ban-quy-pham-phap-luat-119261120092232114.htm"
-      ]
+      ],
+      "xacMinh": {
+        "ketQua": "chua_co_so_hieu",
+        "ngay": "2026-11-23",
+        "ghiChu": "Đã thông qua, chưa công bố số hiệu trên chinhphu.vn/TVPL tại ngày đối chiếu; chưa áp dụng."
+      }
     },
     {
       "id": "cac-luat-qh16-k2-lien-quan",
@@ -1142,7 +1594,146 @@
       "ghiChu": "Chưa có số hiệu trên Công báo lúc rà (23/11/2026, 2 ngày sau bế mạc). Ưu tiên bổ sung vào CSDL và lịch rà kỹ năng đất đai, đấu giá THADS, lưu trữ.",
       "nguon": [
         "https://luatvietnam.vn/tin-van-ban-moi/danh-sach-cac-luat-duoc-thong-qua-tai-ky-hop-thu-2-quoc-hoi-xvi-186-115980-article.html"
-      ]
+      ],
+      "xacMinh": {
+        "ketQua": "chua_co_so_hieu",
+        "ngay": "2026-11-23",
+        "ghiChu": "Đã thông qua, chưa công bố số hiệu trên chinhphu.vn/TVPL tại ngày đối chiếu; chưa áp dụng."
+      }
+    },
+    {
+      "id": "l85-2025",
+      "soHieu": "85/2025/QH15",
+      "ten": "Luật sửa đổi, bổ sung một số điều của BLTTDS, Luật TTHC, Luật Tư pháp người chưa thành niên, Luật Phá sản và Luật Hòa giải, đối thoại tại Tòa án",
+      "loai": "Luật",
+      "coQuan": "Quốc hội",
+      "ngayBanHanh": "2025-06-25",
+      "ngayHieuLuc": "2025-07-01",
+      "hieuLuc": "con_hieu_luc",
+      "duocSuaBoi": null,
+      "thayTheBoi": null,
+      "files": [],
+      "mucDo": "da_cap_nhat",
+      "ghiChu": "",
+      "nguon": [
+        "https://vanban.chinhphu.vn/?docid=214582&pageid=27160"
+      ],
+      "xacMinh": {
+        "ketQua": "dung",
+        "ngay": "2026-11-23"
+      }
+    },
+    {
+      "id": "l142-2025",
+      "soHieu": "142/2025/QH15",
+      "ten": "Luật Phục hồi, phá sản (sửa điểm g khoản 1 Điều 214 BLTTDS)",
+      "loai": "Luật",
+      "coQuan": "Quốc hội",
+      "ngayBanHanh": null,
+      "ngayHieuLuc": "2026-03-01",
+      "hieuLuc": "con_hieu_luc",
+      "duocSuaBoi": null,
+      "thayTheBoi": null,
+      "files": [],
+      "mucDo": "da_cap_nhat",
+      "ghiChu": "",
+      "nguon": [
+        "https://congbao.chinhphu.vn/van-ban/luat-so-142-2025-qh15-468702.htm"
+      ],
+      "xacMinh": {
+        "ketQua": "dung",
+        "ngay": "2026-11-23"
+      }
+    },
+    {
+      "id": "l81-2025",
+      "soHieu": "81/2025/QH15",
+      "ten": "Luật sửa đổi, bổ sung một số điều của Luật Tổ chức Tòa án nhân dân",
+      "loai": "Luật",
+      "coQuan": "Quốc hội",
+      "ngayBanHanh": "2025-06-24",
+      "ngayHieuLuc": "2025-07-01",
+      "hieuLuc": "con_hieu_luc",
+      "duocSuaBoi": null,
+      "thayTheBoi": null,
+      "files": [],
+      "mucDo": "theo_doi",
+      "ghiChu": "",
+      "nguon": [
+        "https://vanban.chinhphu.vn/?docid=214577&pageid=27160"
+      ],
+      "xacMinh": {
+        "ketQua": "dung",
+        "ngay": "2026-11-23"
+      }
+    },
+    {
+      "id": "nd-155-2026",
+      "soHieu": "155/2026/NĐ-CP",
+      "ten": "Nghị định sửa đổi nghị định hướng dẫn Luật Khiếu nại/Luật Tố cáo (cặp với NĐ 156/2026)",
+      "loai": "Nghị định",
+      "coQuan": "Chính phủ",
+      "ngayBanHanh": "2026-05-15",
+      "ngayHieuLuc": "2026-07-01",
+      "hieuLuc": "con_hieu_luc",
+      "duocSuaBoi": null,
+      "thayTheBoi": null,
+      "files": [],
+      "mucDo": "theo_doi",
+      "ghiChu": "Cặp NĐ 155/156/2026 sửa NĐ 124/2020 và NĐ 31/2019 (theo Luật 136/2025). Cần đọc toàn văn để ghép đúng từng NĐ.",
+      "nguon": [
+        "https://congbao.chinhphu.vn/van-ban/nghi-dinh-so-155-2026-nd-cp-469547.htm"
+      ],
+      "xacMinh": {
+        "ketQua": "dung",
+        "ngay": "2026-11-23"
+      }
+    },
+    {
+      "id": "nd-156-2026",
+      "soHieu": "156/2026/NĐ-CP",
+      "ten": "Nghị định sửa đổi nghị định hướng dẫn Luật Khiếu nại/Luật Tố cáo (cặp với NĐ 155/2026)",
+      "loai": "Nghị định",
+      "coQuan": "Chính phủ",
+      "ngayBanHanh": "2026-05-15",
+      "ngayHieuLuc": "2026-07-01",
+      "hieuLuc": "con_hieu_luc",
+      "duocSuaBoi": null,
+      "thayTheBoi": null,
+      "files": [],
+      "mucDo": "theo_doi",
+      "ghiChu": "Xem NĐ 155/2026.",
+      "nguon": [
+        "https://vanban.chinhphu.vn/?docid=218183&pageid=27160"
+      ],
+      "xacMinh": {
+        "ketQua": "dung",
+        "ngay": "2026-11-23"
+      }
+    },
+    {
+      "id": "ttlt-01-2017",
+      "soHieu": "01/2017/TTLT-BCA-BQP-BTC-BNN&PTNT-VKSNDTC",
+      "ten": "TTLT quy định việc phối hợp tiếp nhận, giải quyết nguồn tin về tội phạm (tố giác, tin báo, kiến nghị khởi tố); sửa bởi TTLT 01/2021",
+      "loai": "TTLT",
+      "coQuan": "BCA-BQP-BTC-BNN&PTNT-VKSNDTC",
+      "ngayBanHanh": null,
+      "ngayHieuLuc": null,
+      "hieuLuc": "da_sua_doi",
+      "duocSuaBoi": [
+        "01/2021/TTLT"
+      ],
+      "thayTheBoi": null,
+      "files": [],
+      "mucDo": "theo_doi",
+      "ghiChu": "Thay cho trích dẫn sai \"TTLT 02/2018 (tố giác…)\" trong căn cứ AI án hình sự.",
+      "nguon": [
+        "https://thuvienphapluat.vn/van-ban/Thu-tuc-To-tung/Thong-tu-lien-tich-01-2017-TTLT-BCA-BQP-BTC-BNN-PTNT-VKSNDTC-368583.aspx"
+      ],
+      "xacMinh": {
+        "ketQua": "dung",
+        "ngay": "2026-11-23"
+      }
     }
   ]
 }
