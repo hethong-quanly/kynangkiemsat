@@ -147,6 +147,15 @@
     AS.forEach(function (k) { $(k).addEventListener("input", refresh); $(k).addEventListener("change", refresh); });
     $("parse").onclick = function () { apply($("src").value); };
     $("btnFile").onclick = function () { $("file").click(); };
+    // Kéo thả file vào ô văn bản nguồn (như trang cũ)
+    (function (z) {
+      z.addEventListener("dragover", function (e) { e.preventDefault(); z.classList.add("knai-drop"); });
+      z.addEventListener("dragleave", function () { z.classList.remove("knai-drop"); });
+      z.addEventListener("drop", function (e) {
+        var f = e.dataTransfer && e.dataTransfer.files && e.dataTransfer.files[0]; z.classList.remove("knai-drop");
+        if (!f) return; e.preventDefault(); K.util.readFileText(f).then(function (t) { apply(t); }).catch(function () { alert("Không đọc được file."); });
+      });
+    })($("src"));
     $("file").onchange = function (e) { var f = e.target.files && e.target.files[0]; e.target.value = ""; if (f) K.util.readFileText(f).then(function (t) { apply(t); }).catch(function () { alert("Không đọc được file."); }); };
     $("copy").onclick = function () { navigator.clipboard && navigator.clipboard.writeText(cur.draft); };
     $("tsv").onclick = function () { navigator.clipboard && navigator.clipboard.writeText(cur.tsv); };

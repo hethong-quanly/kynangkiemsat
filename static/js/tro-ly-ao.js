@@ -66,6 +66,7 @@
       ".knai-msg.bot{background:#f8fafc;border:1px solid #e2e8f0}",
       ".knai-msg.md{white-space:normal}.knai-msg.md p{margin:0 0 6px}.knai-msg.md ul,.knai-msg.md ol{margin:4px 0 8px;padding-left:22px}.knai-msg.md li{margin:2px 0}",
       ".knai-msg.md .knai-h{font-weight:700;margin:10px 0 4px}.knai-msg.md code{background:rgba(127,127,127,.15);padding:0 4px;border-radius:4px}.knai-msg.md hr{border:0;border-top:1px solid #e2e8f0;margin:8px 0}",
+      ".knai textarea.knai-drop{border-color:var(--teal,#0d9488);background:#f0fdfa}",
       ".knai-src{font-size:11px;opacity:.7;margin-bottom:6px}.knai-cp{margin-top:6px;min-height:32px;font-size:12px;padding:4px 10px}",
       ".knai-msg.me{background:var(--navy,#0c2340);color:#fff;margin-left:28px}",
       ".knai .chip.on{background:var(--navy,#0c2340);color:#fff;border-color:var(--navy,#0c2340)}",
