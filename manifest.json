@@ -2,7 +2,7 @@
   "id": "/kynangkiemsat/",
   "name": "Kỹ năng Kiểm sát — VKSND TP Cần Thơ",
   "short_name": "KN Kiểm sát",
-  "description": "Bộ công cụ hỗ trợ kỹ năng nghiệp vụ kiểm sát: tính hạn, THADS, THAHS, KN-TC, ẩn danh văn bản, chuyển Word/PDF sang Markdown — dùng được khi không có mạng. Phần mềm cá nhân của Thiên Phúc, không phải ứng dụng chính thức của Viện kiểm sát nhân dân.",
+  "description": "Bộ công cụ hỗ trợ kỹ năng nghiệp vụ kiểm sát: tính hạn, THADS, THAHS, KN-TC, ẩn danh văn bản, chuyển Word/PDF sang Markdown — dùng được khi không có mạng. Tác giả: Thiên Phúc – Viện kiểm sát nhân dân thành phố Cần Thơ.",
   "lang": "vi",
   "dir": "ltr",
   "start_url": "./?vao=1",
@@ -84,8 +84,8 @@
       "label": "Trợ lý ảo kiểm sát văn bản trong kỹ năng THAHS"
     }
   ],
-  "author": "Thiên Phúc",
+  "author": "Thiên Phúc – Viện kiểm sát nhân dân thành phố Cần Thơ",
   "developer": {
-    "name": "Thiên Phúc"
+    "name": "Thiên Phúc – Viện kiểm sát nhân dân thành phố Cần Thơ"
   }
 }

@@ -1281,13 +1281,15 @@
       ],
       "mucDo": "da_cap_nhat",
       "ghiChu": "Văn bản nội ngành: ưu tiên đối chiếu trên vksndtc.gov.vn/vanban hoặc văn bản giấy/PDF gốc của Viện.",
-      "nguon": [],
+      "nguon": [
+        "https://thuvienphapluat.vn/van-ban/Trach-nhiem-hinh-su/Quyet-dinh-259-QD-VKSTC-2023-583402.aspx"
+      ],
       "ngayBanHanh": "2018-01-26",
       "thayTheBoi": "259/QĐ-VKSTC (20/7/2023)",
       "xacMinh": {
         "ketQua": "sua",
         "ngay": "2026-11-23",
-        "ghiChu": "Đã hết hiệu lực từ 20/7/2023 (biểu mẫu nay kèm Quy chế 259/QĐ-VKSTC). Đã gỡ khỏi căn cứ AI và trang kỹ năng. Nguồn: luatvietnam.vn/luatminhkhue.vn (không có trên chinhphu/TVPL)."
+        "ghiChu": "Đã hết hiệu lực từ 20/7/2023: Điều 2 Quyết định 259/QĐ-VKSTC thay thế QĐ 501/QĐ-VKSTC và QĐ 39/QĐ-VKSTC. Ngày 23/11/2026 đã thay trên trang THAHS (tab Biểu mẫu QĐ 259) và thẻ trang chủ. Nguồn: thuvienphapluat.vn (Quyết định 259/QĐ-VKSTC)."
       }
     },
     {

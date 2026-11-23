@@ -224,7 +224,7 @@
         if (r.status === 502 && JSON.stringify(d.details || "").indexOf("429") >= 0) throw aiErr("AI dùng chung đang bận", 429.1);
         if (!r.ok) throw aiErr(d.error || "HTTP " + r.status, r.status);
         if (!d.content) throw aiErr("AI không trả lời", 502);
-        return { content: clean(d.content), via: d.source === "byok" ? "key riêng qua máy chủ trung gian" : "lượt dùng chung của Viện", model: d.model || "" };
+        return { content: clean(d.content), via: d.source === "byok" ? "key riêng qua máy chủ trung gian" : "lượt dùng chung", model: d.model || "" };
       });
     });
   }
@@ -293,7 +293,33 @@
       d.className = "knai-msg bot md"; d._plain = plain;
       d.innerHTML = "<div class=\"knai-src\">" + esc(head) + "</div>" + mdToHtml(md);
       var b = document.createElement("button"); b.type = "button"; b.className = "btn knai-cp"; b.textContent = "Sao chép";
-      b.onclick = function () { copyText(plain, b); }; d.appendChild(b); $("chat").scrollTop = 1e9;
+      b.onclick = function () { copyText(plain, b); }; d.appendChild(b);
+      var rp = document.createElement("button"); rp.type = "button"; rp.className = "btn knai-cp knai-rp"; rp.textContent = "Báo cáo câu trả lời";
+      rp.onclick = function () { baoCao(d, head, plain); }; d.appendChild(rp); $("chat").scrollTop = 1e9;
+    }
+    // Báo cáo câu trả lời AI sai/không phù hợp: người dùng tự gửi qua Zalo/SMS tới số liên hệ (không qua máy chủ, không kèm văn bản gốc).
+    var SDT = "0939103666";
+    function baoCao(d, head, plain) {
+      if (d.querySelector(".knai-bc")) return;
+      var f = document.createElement("div"); f.className = "knai-bc";
+      f.setAttribute("style", "margin-top:8px;padding:10px;border:1px dashed #b45309;border-radius:10px;background:rgba(251,191,36,.08);font-size:13px");
+      f.innerHTML = '<strong>Báo cáo câu trả lời AI</strong><label style="display:block;margin-top:6px">Lý do</label>' +
+        '<select data-r="ly"><option>Sai hoặc bịa điều luật, văn bản</option><option>Kết luận sai, gây hiểu nhầm</option><option>Nội dung không phù hợp, xúc phạm</option><option>Lộ thông tin cá nhân</option><option>Khác</option></select>' +
+        '<label style="display:block;margin-top:6px">Ghi chú (không dán thông tin cá nhân)</label><textarea data-r="gc" rows="2" style="min-height:0"></textarea>' +
+        '<p class="muted" style="margin:6px 0">Báo cáo chỉ gồm lý do, ghi chú và đoạn trích câu trả lời AI (không kèm văn bản bạn đã dán), do bạn tự gửi tới số liên hệ ' + SDT + '.</p>' +
+        '<div class="row"><button type="button" class="btn" data-r="zalo">Gửi qua Zalo</button><a class="btn" data-r="sms">Gửi SMS</a><a class="btn" href="tel:' + SDT + '">Gọi</a><button type="button" class="btn" data-r="huy">Đóng</button></div><p class="muted" data-r="tb" style="margin:6px 0 0"></p>';
+      d.appendChild(f);
+      function q(k) { return f.querySelector('[data-r="' + k + '"]'); }
+      function noiDung() {
+        return "BÁO CÁO CÂU TRẢ LỜI AI — Kỹ năng Kiểm sát\nLĩnh vực: " + lv.ten + "\nLý do: " + q("ly").value +
+          (q("gc").value.trim() ? "\nGhi chú: " + q("gc").value.trim() : "") + "\nThời điểm: " + new Date().toLocaleString("vi-VN") +
+          "\nNguồn: " + head + "\nTrích câu trả lời:\n" + plain.slice(head.length + 1, head.length + 1 + 600);
+      }
+      function capNhatSms() { q("sms").href = "sms:" + SDT + "?body=" + encodeURIComponent(noiDung()); }
+      q("ly").onchange = capNhatSms; q("gc").oninput = capNhatSms; capNhatSms();
+      q("zalo").onclick = function () { copyText(noiDung(), null); q("tb").textContent = "Đã chép nội dung báo cáo. Zalo sẽ mở cuộc trò chuyện với " + SDT + ": dán (giữ ô nhập → Dán) rồi gửi."; g.open("https://zalo.me/" + SDT, "_blank", "noopener"); };
+      q("huy").onclick = function () { f.remove(); };
+      $("chat").scrollTop = 1e9;
     }
     function copyText(s, b) {
       var ok = function () { if (b) { b.textContent = "Đã chép ✓"; setTimeout(function () { b.textContent = "Sao chép"; }, 1500); } };
@@ -321,7 +347,7 @@
     }
     var c0 = aiCfg();
     $("aiProv").value = c0.provider; $("aiKey").value = c0.key || ""; $("aiModel").value = c0.model || ""; showProv();
-    $("aiProxy").textContent = proxyUrl() ? "Không cần key: dùng lượt miễn phí chung của Viện qua máy chủ trung gian (8 lượt/phút, 40 lượt/ngày mỗi mạng). Nếu nhập key riêng thì ưu tiên dùng key của bạn, không tốn lượt chung." : "Chưa có máy chủ trung gian: cần nhập API key riêng của bạn.";
+    $("aiProxy").textContent = proxyUrl() ? "Không cần key: dùng lượt miễn phí dùng chung qua máy chủ trung gian (8 lượt/phút, 40 lượt/ngày mỗi mạng). Nếu nhập key riêng thì ưu tiên dùng key của bạn, không tốn lượt chung." : "Chưa có máy chủ trung gian: cần nhập API key riêng của bạn.";
     $("aiProv").onchange = showProv;
     $("useAi").onchange = function () { $("aiPanel").hidden = !$("useAi").checked; };
     $("vanban").addEventListener("input", function () { $("aiOk").checked = false; });
@@ -345,7 +371,7 @@
       callAI(cfg, systemPrompt(lv, !!text), user).then(function (r) { setAi(wait, "[AI — chỉ để tham khảo, cần đối chiếu văn bản gốc · " + r.via + (r.model ? " · " + r.model : "") + "]", r.content); })
         .catch(function (e) {
           if (e.code === 429) { setMsg(wait, "Đã hết lượt AI miễn phí dùng chung (giới hạn 8 lượt/phút, 40 lượt/ngày). Bạn thử lại sau ít phút, hoặc nhập API key riêng (Groq miễn phí, không dùng dữ liệu để huấn luyện) trong «Cài đặt AI» để dùng tiếp. Kết quả kiểm tra trên máy ở trên vẫn dùng được."); $("aiBox").open = true; return; }
-          if (e.code === 429.1) { setMsg(wait, "AI dùng chung đang bận (Groq miễn phí giới hạn số chữ trả lời mỗi phút cho cả Viện). Bạn đợi khoảng 1 phút rồi hỏi lại, hoặc nhập API key riêng trong «Cài đặt AI»."); return; }
+          if (e.code === 429.1) { setMsg(wait, "AI dùng chung đang bận (Groq miễn phí giới hạn số chữ trả lời mỗi phút cho tất cả người dùng). Bạn đợi khoảng 1 phút rồi hỏi lại, hoặc nhập API key riêng trong «Cài đặt AI»."); return; }
           if (e.code === 413) { setMsg(wait, "Văn bản quá dài cho AI. Hãy rút gọn (chỉ dán phần cần hỏi) rồi thử lại."); return; }
           setMsg(wait, "Không gọi được AI (" + e.message + "). Dùng kết quả kiểm tra trên máy ở trên.");
         });
