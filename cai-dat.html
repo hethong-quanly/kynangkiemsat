@@ -7,7 +7,8 @@
   <link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32.png" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <meta name="theme-color" content="#1e5a8a" />
-  <meta name="description" content="Tải và cài ứng dụng Kỹ năng Kiểm sát cho Android (APK) hoặc thêm vào màn hình chính iPhone." />
+  <meta name="description" content="Tải và cài ứng dụng Kỹ năng Kiểm sát cho Android (APK), iPhone và máy tính Windows / Mac." />
+  <link rel="manifest" href="manifest.json" />
   <title>Cài ứng dụng — Kỹ năng Kiểm sát</title>
   <style>
     :root { --sky-dark:#1e5a8a; --plum-dark:#5a1f30; --bronze:#c9952e; --bg:#eef7f9; --ink:#1e293b; --muted:#5e6772; }
@@ -34,11 +35,22 @@
     summary { font-weight:700; cursor:pointer; }
     code { background:#f1f5f9; padding:1px 5px; border-radius:6px; font-size:12px; word-break:break-all; }
     .warn { background:#fff8e1; border-color:#ffe082; }
+    .opt { border:1px solid #e2e8f0; border-radius:14px; padding:12px 14px; margin:10px 0; }
+    .opt h3 { margin:0 0 2px; color:var(--sky-dark); }
+    .tag { display:inline-block; font-size:11px; font-weight:800; letter-spacing:.02em; color:#0f766e; background:#ccfbf1; border-radius:999px; padding:1px 8px; margin-left:6px; vertical-align:middle; }
+    .note { background:#eff6ff; border:1px solid #bfdbfe; border-radius:10px; padding:8px 10px; font-size:13px; margin:8px 0 0; }
+    .ok { color:#0f766e; font-weight:700; }
+    .btn[hidden], .opt[hidden], p[hidden], div[hidden] { display:none; }
+    .btn:disabled { opacity:.6; cursor:default; }
     html[data-theme="dark"] body { background:#0b141c; color:#e2e8f0; }
     html[data-theme="dark"] .card { background:#132230; border-color:#24384a; }
     html[data-theme="dark"] .card.warn { background:#2a2410; border-color:#5c4b14; }
     html[data-theme="dark"] h2, html[data-theme="dark"] a { color:#7cc4ff; }
     html[data-theme="dark"] code { background:#1e3242; }
+    html[data-theme="dark"] .opt { border-color:#24384a; }
+    html[data-theme="dark"] .opt h3 { color:#7cc4ff; }
+    html[data-theme="dark"] .note { background:#10263a; border-color:#24384a; }
+    html[data-theme="dark"] .tag { background:#134e4a; color:#99f6e4; }
     html[data-theme="dark"] .btn.sec { background:#132230; color:#7cc4ff; border-color:#24384a; }
     @media (max-width:520px) { .share { grid-template-columns:1fr; justify-items:center; text-align:center; } }
   </style>
@@ -46,9 +58,44 @@
 <body>
   <header class="hdr">
     <img src="icons/icon-192.png" alt="" />
-    <div><h1>Cài ứng dụng Kỹ năng Kiểm sát</h1><p>Miễn phí · Android và iPhone</p></div>
+    <div><h1>Cài ứng dụng Kỹ năng Kiểm sát</h1><p>Miễn phí · Android, iPhone và máy tính</p></div>
   </header>
   <div class="wrap">
+
+    <div class="card" id="c-desktop">
+      <h2>Máy tính (Windows / Mac)</h2>
+      <p class="muted" style="margin:0">Ứng dụng chạy trong cửa sổ riêng, có biểu tượng ngoài Desktop / Start Menu / Dock, không có thanh địa chỉ và tự cập nhật theo bản mới nhất.</p>
+
+      <div class="opt" id="opt-pwa">
+        <h3>Cách 1: Cài nhanh 1 chạm <span class="tag">Khuyên dùng</span></h3>
+        <p class="muted" style="margin:0">Dùng cho Windows và Mac, không hiện cảnh báo bảo mật.</p>
+        <button type="button" class="btn" id="btn-pwa">🖥 Cài vào máy tính ngay</button>
+        <p class="ok" id="pwa-done" hidden>✓ Ứng dụng đã được cài trên máy này. Mở biểu tượng <strong>KN Kiểm sát</strong> ngoài màn hình (hoặc Start Menu / Launchpad).</p>
+        <div id="pwa-help" hidden>
+          <p style="margin:8px 0 2px"><strong>Trình duyệt chưa hiện hộp cài tự động, anh/chị làm 2 bước:</strong></p>
+          <ol>
+            <li><strong>Chrome / Edge</strong> (Windows, Mac): mở <a href="./">trang ứng dụng</a>, bấm biểu tượng <strong>Cài đặt</strong> (màn hình có mũi tên ⤓) ở cuối thanh địa chỉ → <strong>Cài đặt</strong>. Không thấy biểu tượng thì bấm menu <strong>⋮</strong> / <strong>…</strong> → <strong>Ứng dụng</strong> → <strong>Cài đặt trang web này dưới dạng ứng dụng</strong>.</li>
+            <li><strong>Safari trên Mac</strong> (macOS Sonoma trở lên): mở <a href="./">trang ứng dụng</a>, bấm <strong>Tệp</strong> (File) → <strong>Thêm vào Dock</strong> (Add to Dock) → <strong>Thêm</strong>.</li>
+          </ol>
+          <p class="muted" id="ff-note" hidden>Firefox chưa hỗ trợ cài ứng dụng web: hãy mở trang bằng Chrome hoặc Edge, hoặc dùng bộ cài Windows ở Cách 2.</p>
+        </div>
+      </div>
+
+      <div class="opt" id="opt-exe">
+        <h3>Cách 2: Tải bộ cài Windows (.exe)</h3>
+        <p class="muted" style="margin:0">Cài như phần mềm bình thường, dùng cho Windows 10 / 11 (64-bit).</p>
+        <a class="btn sec" id="dl-exe" hidden href="https://github.com/hethong-quanly/kynangkiemsat/releases/download/app-v1.0.0/KyNangKiemSat-Windows-Setup-1.0.0.exe">⬇ Tải bộ cài Windows (.exe<span id="exe-size"></span>)</a>
+        <p class="muted" id="exe-wait">Bộ cài Windows đang được chuẩn bị, anh/chị dùng Cách 1 trong lúc chờ.</p>
+        <ol>
+          <li>Tải xong, bấm đúp tệp <strong>KyNangKiemSat-Windows-Setup-1.0.0.exe</strong> → <strong>Cài đặt</strong> (không cần quyền quản trị).</li>
+          <li>Mở <strong>Kỹ năng Kiểm sát</strong> từ biểu tượng ngoài Desktop hoặc Start Menu.</li>
+        </ol>
+        <p class="note">Nếu Windows hiện bảng xanh bảo vệ, bấm <strong>Thông tin thêm</strong> (More info) → <strong>Vẫn chạy</strong> (Run anyway). Gỡ cài đặt: <strong>Cài đặt</strong> → <strong>Ứng dụng</strong> → <strong>Kỹ năng Kiểm sát</strong> → <strong>Gỡ cài đặt</strong>.</p>
+        <details><summary>Kiểm tra tệp (dành cho cán bộ CNTT)</summary>
+          <p class="muted">Bộ cài NSIS dựng tự động trên GitHub Actions từ mã nguồn <code>desktop-windows/</code>, chạy Microsoft Edge WebView2. SHA-256: <a href="https://github.com/hethong-quanly/kynangkiemsat/releases/download/app-v1.0.0/SHA256SUMS-windows.txt">SHA256SUMS-windows.txt</a> · <a href="https://github.com/hethong-quanly/kynangkiemsat/releases/tag/app-v1.0.0">GitHub Release app-v1.0.0</a></p>
+        </details>
+      </div>
+    </div>
 
     <div class="card" id="c-android">
       <h2>Điện thoại Android</h2>
@@ -90,10 +137,6 @@
       <a class="btn sec" href="./">Mở trang ứng dụng</a>
     </div>
 
-    <div class="card">
-      <h2>Máy tính</h2>
-      <p>Mở <a href="./">trang ứng dụng</a> bằng Chrome hoặc Edge → bấm biểu tượng <strong>Cài đặt</strong> trên thanh địa chỉ (hoặc nút «Cài đặt» trên trang).</p>
-    </div>
 
     <div class="card">
       <h2>Gửi cho đồng nghiệp</h2>
@@ -111,9 +154,9 @@
     <div class="card warn">
       <h2>Lưu ý</h2>
       <ul>
-        <li>Ứng dụng mở bộ công cụ tại <code>hethong-quanly.github.io/kynangkiemsat</code> và <strong>tự cập nhật nội dung</strong>, không cần tải lại APK khi có công cụ mới.</li>
+        <li>Ứng dụng mở bộ công cụ tại <code>hethong-quanly.github.io/kynangkiemsat</code> và <strong>tự cập nhật nội dung</strong>, không cần tải lại APK hay bộ cài khi có công cụ mới.</li>
         <li>Lần đầu mở, ứng dụng hỏi <strong>đơn vị công tác</strong> để điền sẵn tên cơ quan trong mẫu văn bản; thông tin chỉ lưu trên máy. Xem <a href="privacy.html">Chính sách dữ liệu</a>.</li>
-        <li>Chỉ tải APK từ nút trên trang này hoặc trang GitHub Release ở trên.</li>
+        <li>Chỉ tải APK / bộ cài Windows từ nút trên trang này hoặc trang GitHub Release ở trên.</li>
       </ul>
     </div>
   </div>
@@ -122,9 +165,42 @@
       var ua = navigator.userAgent || "";
       var ios = /iPhone|iPad|iPod/.test(ua) || (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
       var and = /Android/i.test(ua);
-      var a = document.getElementById("c-android"), i = document.getElementById("c-ios");
-      if (ios) { i.classList.add("hl"); a.parentNode.insertBefore(i, a); }
-      else if (and) a.classList.add("hl");
+      var a = document.getElementById("c-android"), i = document.getElementById("c-ios"), d = document.getElementById("c-desktop");
+      var mobile = ios || and || /Mobi|Tablet/i.test(ua);
+      if (ios) { i.classList.add("hl"); d.parentNode.insertBefore(i, d); }
+      else if (and) { a.classList.add("hl"); d.parentNode.insertBefore(a, d); }
+      else if (!mobile) d.classList.add("hl");
+      else d.parentNode.insertBefore(d, i.nextSibling);
+
+      // Cách 1: cài PWA 1 chạm (Chrome / Edge bắn sự kiện beforeinstallprompt).
+      var bp = document.getElementById("btn-pwa"), help = document.getElementById("pwa-help"), done = document.getElementById("pwa-done"), deferred = null;
+      var standalone = (window.matchMedia && window.matchMedia("(display-mode: standalone)").matches) || navigator.standalone === true;
+      function installed() { bp.hidden = true; help.hidden = true; done.hidden = false; }
+      if (standalone) installed();
+      if (/Firefox\//.test(ua)) document.getElementById("ff-note").hidden = false;
+      window.addEventListener("beforeinstallprompt", function (e) { e.preventDefault(); deferred = e; bp.hidden = false; help.hidden = true; });
+      window.addEventListener("appinstalled", function () { deferred = null; installed(); });
+      bp.onclick = function () {
+        if (!deferred) { help.hidden = false; help.scrollIntoView({ behavior: "smooth", block: "nearest" }); return; }
+        deferred.prompt();
+        deferred.userChoice.then(function (c) { deferred = null; if (c && c.outcome === "accepted") installed(); }).catch(function () {});
+      };
+      if (navigator.getInstalledRelatedApps) navigator.getInstalledRelatedApps().then(function (l) { if (l && l.length) installed(); }).catch(function () {});
+      if ("serviceWorker" in navigator) navigator.serviceWorker.register(new URL("sw.js", location.href).href, { scope: new URL("./", location.href).href }).catch(function () {});
+
+      // Cách 2: chỉ hiện nút tải .exe khi tệp đã có trên GitHub Release.
+      var de = document.getElementById("dl-exe"), wait = document.getElementById("exe-wait");
+      function showExe(bytes) {
+        if (bytes) document.getElementById("exe-size").textContent = " · " + (bytes / 1048576).toFixed(1).replace(".", ",") + " MB";
+        de.hidden = false; wait.hidden = true;
+      }
+      fetch("https://api.github.com/repos/hethong-quanly/kynangkiemsat/releases/tags/app-v1.0.0", { headers: { Accept: "application/vnd.github+json" } })
+        .then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
+        .then(function (rel) {
+          var f = (rel.assets || []).filter(function (x) { return x.name === "KyNangKiemSat-Windows-Setup-1.0.0.exe" && x.state === "uploaded"; })[0];
+          if (f) showExe(f.size);
+        })
+        .catch(function () { if (de.getAttribute("data-co-san") === "1") showExe(0); });
       var u = "https://hethong-quanly.github.io/app/", b = document.getElementById("copy");
       b.onclick = function () {
         var ok = function () { b.textContent = "Đã sao chép ✓"; setTimeout(function () { b.textContent = "Sao chép link"; }, 1600); };
