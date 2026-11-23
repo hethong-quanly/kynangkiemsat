@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<script src="./theme.js" data-knks-theme></script>
+<link rel="stylesheet" href="./theme-tool.css" />
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32.png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#1e5a8a" />
+  <title>Hỏi đáp nghiệp vụ — Kỹ năng Kiểm sát</title>
+  <style>
+    :root { --sky:#1e5a8a; --plum:#5a1f30; --bronze:#c9952e; --bg:#eef7f9; --paper:#fff; --ink:#1e293b; --muted:#5e6772; --line:#d9e1e8; --chip:#f1f5f9; --warn-bg:#fff4e5; --warn-line:#f5c16c; --warn-ink:#7a4a00; --ok:#0f766e; --bad:#b91c1c; }
+    html[data-theme="dark"] { --bg:#0b141c; --paper:#15202b; --ink:#e8eef4; --muted:#93a4b3; --line:#2c3d4e; --chip:#1b2a38; --warn-bg:#3a2a0a; --warn-line:#8a6a1f; --warn-ink:#fcd34d; --ok:#5eead4; --bad:#f87171; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Be Vietnam Pro",Arial,sans-serif; background:var(--bg); color:var(--ink); line-height:1.55; -webkit-text-size-adjust:100%; }
+    .hdr { position:sticky; top:0; z-index:5; background:linear-gradient(135deg,var(--sky),var(--plum)); border-bottom:3px solid var(--bronze); color:#fff; padding:10px 12px; display:flex; align-items:center; gap:10px; }
+    .hdr h1 { margin:0; font-size:clamp(16px,4.4vw,22px); font-weight:800; flex:1; line-height:1.25; }
+    .hdr small { display:block; font-size:11px; font-weight:600; letter-spacing:.08em; text-transform:uppercase; opacity:.75; }
+    .ib { appearance:none; border:1px solid rgba(255,255,255,.35); background:rgba(255,255,255,.12); color:#fff; border-radius:10px; padding:7px 10px; font:600 13px/1 inherit; cursor:pointer; text-decoration:none; white-space:nowrap; }
+    .ib svg { width:16px; height:16px; vertical-align:-3px; }
+    .theme-mini { display:flex; gap:4px; }
+    .theme-mini button[aria-pressed="true"] { background:rgba(255,255,255,.32); }
+    .wrap { max-width:860px; margin:0 auto; padding:12px 12px 60px; }
+    .card { background:var(--paper); border:1px solid var(--line); border-radius:14px; padding:14px; margin-top:12px; }
+    .bar { display:flex; flex-wrap:wrap; gap:8px; align-items:center; }
+    .bar input[type=search] { flex:1 1 200px; min-width:0; }
+    input, select, textarea { font:inherit; font-size:16px; color:var(--ink); background:var(--paper); border:1px solid var(--line); border-radius:10px; padding:9px 10px; width:100%; }
+    textarea { min-height:120px; resize:vertical; }
+    label { display:block; font-weight:600; font-size:14px; margin:10px 0 4px; }
+    .btn { appearance:none; border:1px solid var(--line); background:var(--chip); color:var(--ink); border-radius:10px; padding:9px 12px; font:600 14px/1.2 inherit; cursor:pointer; }
+    .btn:disabled { opacity:.55; cursor:not-allowed; }
+    .btn-primary { background:var(--sky); border-color:var(--sky); color:#fff; }
+    .btn-sm { padding:6px 9px; font-size:13px; border-radius:8px; }
+    .btn-link { background:none; border:none; color:var(--sky); padding:4px 2px; font-weight:600; cursor:pointer; font-size:13px; }
+    html[data-theme="dark"] .btn-link { color:#7cc4f5; }
+    .chips { display:flex; gap:6px; overflow-x:auto; padding:2px 0 4px; scrollbar-width:none; }
+    .chip { flex:0 0 auto; border:1px solid var(--line); background:var(--paper); color:var(--ink); border-radius:999px; padding:6px 11px; font:600 13px/1.2 inherit; cursor:pointer; }
+    .chip.on { background:var(--sky); border-color:var(--sky); color:#fff; }
+    .q { cursor:pointer; }
+    .q h3, .det h2 { margin:4px 0 6px; font-size:16px; line-height:1.35; }
+    .det h2 { font-size:19px; }
+    .meta { font-size:12.5px; color:var(--muted); display:flex; flex-wrap:wrap; gap:4px 10px; align-items:center; }
+    .tag { display:inline-block; font-size:11.5px; font-weight:700; border-radius:6px; padding:2px 7px; background:var(--chip); color:var(--sky); }
+    html[data-theme="dark"] .tag { color:#7cc4f5; }
+    .ex { color:var(--muted); font-size:14px; margin:4px 0 0; display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden; }
+    .body { white-space:pre-wrap; word-wrap:break-word; overflow-wrap:anywhere; font-size:15px; }
+    .acts { display:flex; flex-wrap:wrap; gap:6px; margin-top:10px; }
+    .ans { border-left:3px solid var(--bronze); }
+    .warn { background:var(--warn-bg); border:1px solid var(--warn-line); color:var(--warn-ink); border-radius:12px; padding:10px 12px; font-size:14px; font-weight:600; }
+    .warn b { font-weight:800; }
+    .note { font-size:13px; color:var(--muted); }
+    .row2 { display:grid; grid-template-columns:1fr 1fr; gap:10px; }
+    @media (max-width:560px) { .row2 { grid-template-columns:1fr; } }
+    .cnt { font-size:12px; color:var(--muted); text-align:right; }
+    .msg { margin-top:10px; font-size:14px; font-weight:600; }
+    .msg.ok { color:var(--ok); } .msg.err { color:var(--bad); }
+    .empty { text-align:center; padding:28px 12px; color:var(--muted); }
+    .empty strong { display:block; color:var(--ink); font-size:16px; margin-bottom:6px; }
+    details.rules summary { cursor:pointer; font-weight:700; }
+    details.rules ul { margin:8px 0 0; padding-left:20px; font-size:14px; }
+    .fab { position:fixed; right:16px; bottom:calc(18px + env(safe-area-inset-bottom)); z-index:6; box-shadow:0 6px 18px rgba(0,0,0,.25); border-radius:999px; padding:12px 18px; font-size:15px; }
+    dialog { border:none; border-radius:16px; padding:0; width:min(520px,94vw); background:var(--paper); color:var(--ink); }
+    dialog::backdrop { background:rgba(0,0,0,.45); }
+    dialog .dlg { padding:16px; }
+    dialog h3 { margin:0 0 8px; font-size:17px; }
+    .radio { display:flex; gap:8px; align-items:flex-start; font-weight:500; margin:6px 0; }
+    .radio input { width:auto; margin-top:4px; }
+    .chk { display:flex; gap:8px; align-items:center; font-weight:500; }
+    .chk input { width:auto; }
+    .hidden { display:none !important; }
+    .spin { display:inline-block; width:14px; height:14px; border:2px solid currentColor; border-right-color:transparent; border-radius:50%; animation:sp .8s linear infinite; vertical-align:-2px; }
+    @keyframes sp { to { transform:rotate(360deg); } }
+    #hidden-note { background:none !important; border:none !important; }
+    @media (max-width:480px) { #btn-home span { display:none; } .hdr small { letter-spacing:.03em; font-size:10px; } .hdr h1 { font-size:17px; } .theme-mini .ib { padding:7px 8px; } }
+    .toast { position:fixed; left:50%; bottom:80px; transform:translateX(-50%); background:#1e293b; color:#fff; padding:9px 14px; border-radius:10px; font-size:14px; z-index:20; opacity:0; transition:opacity .2s; pointer-events:none; max-width:90vw; }
+    .toast.show { opacity:1; }
+  </style>
+</head>
+<body data-no-ban-quyen>
+  <header class="hdr">
+    <a class="ib" id="btn-home" href="./" target="_top" aria-label="Trang chủ"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M15 18l-6-6 6-6"/></svg> <span data-i="home">Trang chủ</span></a>
+    <h1><span data-i="title">Hỏi đáp nghiệp vụ</span><small data-i="sub">Trao đổi giữa cán bộ ngành Kiểm sát</small></h1>
+    <div class="theme-mini" role="group" aria-label="Giao diện">
+      <button type="button" class="ib" data-theme-set="light" aria-pressed="true" title="Sáng"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg></button>
+      <button type="button" class="ib" data-theme-set="dark" aria-pressed="false" title="Tối"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 14.5A8.5 8.5 0 1 1 9.5 3 7 7 0 0 0 21 14.5z"/></svg></button>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <!-- DANH SÁCH -->
+    <section id="v-list">
+      <div class="card">
+        <div class="bar">
+          <input type="search" id="kw" data-ph="search" placeholder="Tìm theo từ khóa…" enterkeyhint="search" />
+          <select id="sort" style="width:auto">
+            <option value="new" data-i="sortNew">Mới nhất</option>
+            <option value="ans" data-i="sortAns">Nhiều trả lời</option>
+            <option value="help" data-i="sortHelp">Hữu ích nhất</option>
+          </select>
+          <button type="button" class="btn" id="btn-refresh" data-i="refresh">Làm mới</button>
+        </div>
+        <div class="chips" id="topics" style="margin-top:10px"></div>
+      </div>
+      <details class="card rules">
+        <summary data-i="rulesTitle">Quy ước cộng đồng</summary>
+        <ul>
+          <li data-i="r1">Chỉ trao đổi chuyên môn nghiệp vụ kiểm sát; lịch sự, tôn trọng đồng nghiệp.</li>
+          <li data-i="r2">Không đăng họ tên thật đương sự, số hồ sơ, bản án chưa công bố, tài liệu mật hoặc thông tin cá nhân chưa ẩn danh.</li>
+          <li data-i="r3">Không quảng cáo, spam, nội dung thô tục, chính trị nhạy cảm hoặc trái pháp luật.</li>
+          <li data-i="r4">Câu trả lời chỉ mang tính tham khảo, không thay thế văn bản chỉ đạo, hướng dẫn chính thức.</li>
+          <li data-i="r5">Bài bị 3 người báo cáo sẽ tự động ẩn. Cần gỡ bài gấp: gọi 0939103666.</li>
+        </ul>
+      </details>
+      <div id="list"></div>
+      <div id="hidden-note" class="note hidden" style="text-align:center;margin-top:10px"></div>
+    </section>
+
+    <!-- CHI TIẾT -->
+    <section id="v-detail" class="hidden">
+      <button type="button" class="btn btn-sm" id="btn-back" style="margin-top:12px">← <span data-i="back">Danh sách câu hỏi</span></button>
+      <div id="detail"></div>
+      <div id="answers"></div>
+      <div class="card" id="ans-form-card">
+        <h3 style="margin:0 0 8px;font-size:16px" data-i="yourAnswer">Câu trả lời của bạn</h3>
+        <div class="warn" data-i="warn">⚠ Không đăng họ tên thật đương sự, số hồ sơ/bản án mật hoặc thông tin cá nhân chưa ẩn danh.</div>
+        <form id="f-ans" novalidate>
+          <label for="a-body" data-i="content">Nội dung</label>
+          <textarea id="a-body" maxlength="4000" required></textarea>
+          <div class="cnt"><span id="a-cnt">0</span>/4000</div>
+          <div class="row2">
+            <div><label for="a-name" data-i="name">Tên hiển thị</label><input id="a-name" maxlength="80" autocomplete="off" /></div>
+            <div><label for="a-unit" data-i="unit">Đơn vị (không bắt buộc)</label><input id="a-unit" maxlength="120" autocomplete="off" /></div>
+          </div>
+          <label class="chk"><input type="checkbox" id="a-anon" /> <span data-i="anon">Gửi ẩn danh</span></label>
+          <div class="acts"><button type="submit" class="btn btn-primary" data-i="sendAnswer">Gửi câu trả lời</button></div>
+          <div class="msg" id="a-msg"></div>
+        </form>
+      </div>
+    </section>
+
+    <!-- ĐẶT CÂU HỎI -->
+    <section id="v-ask" class="hidden">
+      <button type="button" class="btn btn-sm" id="btn-cancel-ask" style="margin-top:12px">← <span data-i="back">Danh sách câu hỏi</span></button>
+      <div class="card">
+        <h2 style="margin:0 0 8px;font-size:18px" data-i="askTitle">Đặt câu hỏi mới</h2>
+        <div class="warn" data-i="warn">⚠ Không đăng họ tên thật đương sự, số hồ sơ/bản án mật hoặc thông tin cá nhân chưa ẩn danh.</div>
+        <form id="f-ask" novalidate>
+          <label for="q-topic" data-i="topic">Lĩnh vực</label>
+          <select id="q-topic" required></select>
+          <label for="q-title" data-i="qtitle">Tiêu đề câu hỏi</label>
+          <input id="q-title" maxlength="200" required data-ph="qtitlePh" placeholder="Ví dụ: Thời hạn kháng nghị phúc thẩm khi…" />
+          <div class="cnt"><span id="q-tcnt">0</span>/200</div>
+          <label for="q-body" data-i="qbody">Nội dung chi tiết</label>
+          <textarea id="q-body" maxlength="4000" required data-ph="qbodyPh" placeholder="Mô tả tình huống đã ẩn danh, căn cứ pháp lý đã tham khảo, điều bạn cần hỏi…"></textarea>
+          <div class="cnt"><span id="q-cnt">0</span>/4000</div>
+          <div class="row2">
+            <div><label for="q-name" data-i="name">Tên hiển thị</label><input id="q-name" maxlength="80" autocomplete="off" /></div>
+            <div><label for="q-unit" data-i="unit">Đơn vị (không bắt buộc)</label><input id="q-unit" maxlength="120" autocomplete="off" /></div>
+          </div>
+          <label class="chk"><input type="checkbox" id="q-anon" /> <span data-i="anon">Gửi ẩn danh</span></label>
+          <p class="note" data-i="pubNote">Câu hỏi sẽ hiển thị công khai cho người dùng ứng dụng. Xem <a href="privacy.html#hoi-dap">Chính sách dữ liệu</a>.</p>
+          <div class="acts"><button type="submit" class="btn btn-primary" data-i="sendQ">Đăng câu hỏi</button></div>
+          <div class="msg" id="q-msg"></div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <button type="button" class="btn btn-primary fab" id="btn-ask">＋ <span data-i="ask">Đặt câu hỏi</span></button>
+
+  <dialog id="dlg-report">
+    <form method="dialog" class="dlg" id="f-report">
+      <h3 data-i="reportTitle">Báo cáo vi phạm</h3>
+      <p class="note" data-i="reportNote">Chọn lý do. Bài sẽ ẩn ngay trên máy bạn; khi có 3 báo cáo, bài tự ẩn với mọi người.</p>
+      <div id="rp-reasons"></div>
+      <label for="rp-note" data-i="reportExtra">Ghi chú thêm (không bắt buộc)</label>
+      <input id="rp-note" maxlength="200" />
+      <div class="acts" style="justify-content:flex-end">
+        <button type="button" class="btn" id="rp-cancel" data-i="cancel">Hủy</button>
+        <button type="submit" class="btn btn-primary" id="rp-send" data-i="send">Gửi báo cáo</button>
+      </div>
+      <div class="msg" id="rp-msg"></div>
+    </form>
+  </dialog>
+  <div class="toast" id="toast" role="status"></div>
+
+<script>
+(function () {
+  "use strict";
+  /* Máy chủ dữ liệu: Supabase (Postgres + RLS). Khóa dưới đây là khóa CÔNG KHAI (publishable),
+     chỉ được đọc bài chưa ẩn, thêm bài mới, báo cáo và bấm «Hữu ích» — không sửa/xóa được gì. */
+  var SB_URL = "https://fddqexibxaefxacrakep.supabase.co";
+  var SB_KEY = "sb_publishable_EYNasfu1lzopOlyZJPS2DA_AnVnHV3C";
+  var COOLDOWN = 15000, POLL = 30000;
+
+  var T = {
+    vi: { home:"Trang chủ", title:"Hỏi đáp nghiệp vụ", sub:"Trao đổi giữa cán bộ ngành Kiểm sát", search:"Tìm theo từ khóa…", sortNew:"Mới nhất", sortAns:"Nhiều trả lời", sortHelp:"Hữu ích nhất", refresh:"Làm mới",
+      rulesTitle:"Quy ước cộng đồng", r1:"Chỉ trao đổi chuyên môn nghiệp vụ kiểm sát; lịch sự, tôn trọng đồng nghiệp.", r2:"Không đăng họ tên thật đương sự, số hồ sơ, bản án chưa công bố, tài liệu mật hoặc thông tin cá nhân chưa ẩn danh.", r3:"Không quảng cáo, spam, nội dung thô tục, chính trị nhạy cảm hoặc trái pháp luật.", r4:"Câu trả lời chỉ mang tính tham khảo, không thay thế văn bản chỉ đạo, hướng dẫn chính thức.", r5:"Bài bị 3 người báo cáo sẽ tự động ẩn. Cần gỡ bài gấp: gọi 0939103666.",
+      back:"Danh sách câu hỏi", yourAnswer:"Câu trả lời của bạn", warn:"⚠ Không đăng họ tên thật đương sự, số hồ sơ/bản án mật hoặc thông tin cá nhân chưa ẩn danh.", content:"Nội dung", name:"Tên hiển thị", unit:"Đơn vị (không bắt buộc)", anon:"Gửi ẩn danh", sendAnswer:"Gửi câu trả lời",
+      askTitle:"Đặt câu hỏi mới", topic:"Lĩnh vực", qtitle:"Tiêu đề câu hỏi", qtitlePh:"Ví dụ: Thời hạn kháng nghị phúc thẩm khi…", qbody:"Nội dung chi tiết", qbodyPh:"Mô tả tình huống đã ẩn danh, căn cứ pháp lý đã tham khảo, điều bạn cần hỏi…",
+      pubNote:'Câu hỏi sẽ hiển thị công khai cho người dùng ứng dụng. Xem <a href="privacy.html#hoi-dap">Chính sách dữ liệu</a>.', sendQ:"Đăng câu hỏi", ask:"Đặt câu hỏi",
+      reportTitle:"Báo cáo vi phạm", reportNote:"Chọn lý do. Bài sẽ ẩn ngay trên máy bạn; khi có 3 báo cáo, bài tự ẩn với mọi người.", reportExtra:"Ghi chú thêm (không bắt buộc)", cancel:"Hủy", send:"Gửi báo cáo",
+      all:"Tất cả", anonName:"Ẩn danh", answers:"trả lời", helpful:"Hữu ích", voted:"Đã bấm hữu ích", report:"Báo cáo vi phạm", hide:"Ẩn bài này",
+      loading:"Đang tải…", emptyT:"Chưa có câu hỏi nào", emptyD:"Hãy là người đặt câu hỏi đầu tiên: bấm «＋ Đặt câu hỏi», chọn lĩnh vực, viết tiêu đề ngắn gọn và mô tả tình huống đã ẩn danh.", noMatch:"Không tìm thấy câu hỏi phù hợp.",
+      noAns:"Chưa có câu trả lời. Hãy chia sẻ kinh nghiệm của bạn bên dưới.", err:"Không tải được dữ liệu. Kiểm tra kết nối mạng rồi bấm «Làm mới».", offline:"Bạn đang ngoại tuyến — phòng hỏi đáp cần kết nối mạng.",
+      hiddenN:"Bạn đã ẩn {n} bài trên máy này.", showHidden:"Hiện lại", notFound:"Câu hỏi không còn hoặc đã bị ẩn.",
+      eTitle:"Tiêu đề cần từ 5 đến 200 ký tự.", eBody:"Nội dung câu hỏi cần từ 10 đến 4000 ký tự.", eABody:"Câu trả lời cần từ 5 đến 4000 ký tự.", eName:"Nhập tên hiển thị (tối đa 80 ký tự) hoặc chọn «Gửi ẩn danh».", eTopic:"Chọn lĩnh vực.",
+      eBad:"Nội dung có từ ngữ không phù hợp. Vui lòng sửa lại.", eSpam:"Nội dung giống quảng cáo/spam (quá nhiều đường link hoặc ký tự lặp).", eWait:"Bạn gửi quá nhanh. Vui lòng chờ {s} giây.", eSend:"Gửi không thành công. Thử lại sau.",
+      sensitive:"Nội dung có vẻ chứa số CCCD/CMND, số điện thoại hoặc số tài khoản. Bạn đã chắc chắn đã ẩn danh và vẫn muốn gửi?",
+      okQ:"Đã đăng câu hỏi.", okA:"Đã gửi câu trả lời.", okR:"Đã gửi báo cáo. Bài đã được ẩn trên máy bạn.", okHide:"Đã ẩn bài trên máy bạn.", chooseReason:"Chọn một lý do.",
+      reasons:["Thông tin vụ án/cá nhân nhạy cảm","Spam/Quảng cáo","Nội dung không phù hợp","Khác"], ago:{ now:"vừa xong", m:"{n} phút trước", h:"{n} giờ trước", d:"{n} ngày trước" } },
+    en: { home:"Home", title:"Professional Q&A", sub:"Discussion among procuracy officers", search:"Search keywords…", sortNew:"Newest", sortAns:"Most answers", sortHelp:"Most helpful", refresh:"Refresh",
+      rulesTitle:"Community guidelines", r1:"Discuss procuracy work only; be polite and respectful to colleagues.", r2:"Do not post real names of parties, case file numbers, unpublished judgments, classified documents or non-anonymised personal data.", r3:"No advertising, spam, profanity, sensitive political or unlawful content.", r4:"Answers are for reference only and do not replace official instructions or guidance.", r5:"Posts reported by 3 people are hidden automatically. Urgent removal: call 0939103666.",
+      back:"Question list", yourAnswer:"Your answer", warn:"⚠ Do not post real names of parties, classified case/judgment numbers or non-anonymised personal data.", content:"Content", name:"Display name", unit:"Unit (optional)", anon:"Post anonymously", sendAnswer:"Send answer",
+      askTitle:"Ask a new question", topic:"Field", qtitle:"Question title", qtitlePh:"E.g.: Deadline for an appellate protest when…", qbody:"Details", qbodyPh:"Describe the anonymised situation, the legal bases you checked and what you need to know…",
+      pubNote:'Questions are shown publicly to app users. See the <a href="privacy.html#hoi-dap">data policy</a>.', sendQ:"Post question", ask:"Ask a question",
+      reportTitle:"Report a violation", reportNote:"Choose a reason. The post is hidden on your device right away; after 3 reports it is hidden for everyone.", reportExtra:"Extra note (optional)", cancel:"Cancel", send:"Send report",
+      all:"All", anonName:"Anonymous", answers:"answers", helpful:"Helpful", voted:"Marked helpful", report:"Report", hide:"Hide this post",
+      loading:"Loading…", emptyT:"No questions yet", emptyD:"Be the first: tap «＋ Ask a question», pick a field, write a short title and describe the anonymised situation.", noMatch:"No matching questions.",
+      noAns:"No answers yet. Share your experience below.", err:"Could not load data. Check your connection and tap «Refresh».", offline:"You are offline — the Q&A room needs an internet connection.",
+      hiddenN:"You have hidden {n} post(s) on this device.", showHidden:"Show again", notFound:"This question no longer exists or has been hidden.",
+      eTitle:"Title must be 5–200 characters.", eBody:"Question must be 10–4000 characters.", eABody:"Answer must be 5–4000 characters.", eName:"Enter a display name (max 80 characters) or choose «Post anonymously».", eTopic:"Choose a field.",
+      eBad:"The text contains inappropriate words. Please edit it.", eSpam:"The text looks like spam (too many links or repeated characters).", eWait:"You are posting too fast. Please wait {s} seconds.", eSend:"Could not send. Please try again later.",
+      sensitive:"The text seems to contain an ID number, phone number or bank account. Are you sure it is anonymised and want to send it?",
+      okQ:"Question posted.", okA:"Answer sent.", okR:"Report sent. The post is hidden on your device.", okHide:"Post hidden on your device.", chooseReason:"Choose a reason.",
+      reasons:["Sensitive case/personal information","Spam/Advertising","Inappropriate content","Other"], ago:{ now:"just now", m:"{n} min ago", h:"{n} h ago", d:"{n} days ago" } }
+  };
+  var REASONS_VI = T.vi.reasons;
+  var TOPICS = [
+    ["hinh-su","Hình sự","Criminal"], ["dan-su","Dân sự","Civil"], ["hanh-chinh","Hành chính","Administrative"],
+    ["thahs","Thi hành án hình sự","Criminal judgment enforcement"], ["thads","Thi hành án dân sự","Civil judgment enforcement"],
+    ["kntc","Khiếu nại, tố cáo","Complaints & denunciations"], ["khac","Khác","Other"]
+  ];
+
+  var $ = function (id) { return document.getElementById(id); };
+  function ls(k, d) { try { var v = localStorage.getItem(k); return v == null ? d : JSON.parse(v); } catch (e) { return d; } }
+  function lsSet(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) {} }
+  function lang() { try { return localStorage.getItem("knks_lang") === "en" ? "en" : "vi"; } catch (e) { return "vi"; } }
+  function t(k) { return (T[lang()] || T.vi)[k]; }
+  function nAns(n) { return n + " " + (lang() === "en" && n === 1 ? "answer" : t("answers")); }
+  function topicName(id) { for (var i = 0; i < TOPICS.length; i++) if (TOPICS[i][0] === id) return lang() === "en" ? TOPICS[i][2] : TOPICS[i][1]; return id; }
+  function esc(s) { return String(s == null ? "" : s).replace(/[&<>"']/g, function (c) { return { "&":"&amp;", "<":"&lt;", ">":"&gt;", '"':"&quot;", "'":"&#39;" }[c]; }); }
+  function who(n, u) { var nm = n === "Ẩn danh" ? t("anonName") : n; return esc(nm) + (u ? " · " + esc(u) : ""); }
+  function ago(iso) {
+    var s = (Date.now() - new Date(iso).getTime()) / 1000, a = t("ago");
+    if (s < 60) return a.now; if (s < 3600) return a.m.replace("{n}", Math.floor(s / 60));
+    if (s < 86400) return a.h.replace("{n}", Math.floor(s / 3600)); if (s < 86400 * 30) return a.d.replace("{n}", Math.floor(s / 86400));
+    return new Date(iso).toLocaleDateString(lang() === "en" ? "en-GB" : "vi-VN");
+  }
+  var toastT;
+  function toast(m) { var el = $("toast"); el.textContent = m; el.classList.add("show"); clearTimeout(toastT); toastT = setTimeout(function () { el.classList.remove("show"); }, 3200); }
+
+  /* ---------- API (PostgREST) ---------- */
+  function api(path, opt) {
+    opt = opt || {};
+    var h = { apikey: SB_KEY, "Content-Type": "application/json" };
+    if (opt.prefer) h.Prefer = opt.prefer;
+    return fetch(SB_URL + path, { method: opt.method || "GET", headers: h, body: opt.body ? JSON.stringify(opt.body) : undefined, cache: "no-store" })
+      .then(function (r) {
+        if (!r.ok) return r.text().then(function (x) { var e = new Error("HTTP " + r.status); e.detail = x; throw e; });
+        return r.status === 204 ? null : r.text().then(function (x) { return x ? JSON.parse(x) : null; });
+      });
+  }
+  var QCOLS = "id,topic,title,body,author_name,author_unit,helpful_count,answer_count,created_at";
+  var ACOLS = "id,question_id,body,author_name,author_unit,helpful_count,created_at";
+
+  /* ---------- bộ nhớ trên máy ---------- */
+  var K_HIDE = "knks_qa_hidden", K_VOTE = "knks_qa_voted", K_LAST = "knks_qa_last_post", K_ME = "knks_qa_me";
+  function hiddenSet() { return ls(K_HIDE, []); }
+  function isHidden(id) { return hiddenSet().indexOf(id) >= 0; }
+  function hideLocal(id) { var h = hiddenSet(); if (h.indexOf(id) < 0) { h.push(id); if (h.length > 500) h = h.slice(-500); lsSet(K_HIDE, h); } }
+  function voted(id) { return ls(K_VOTE, []).indexOf(id) >= 0; }
+
+  /* ---------- kiểm tra nội dung ---------- */
+  var BAD = ["địt","đjt","đụ","đéo","đếch","dcm","dmm","đmm","đcm","vcl","vkl","vcc","clgt","cặc","lồn","buồi","đĩ","óc chó","fuck","shit","bitch"];
+  function norm(s) { return (" " + String(s).toLowerCase().replace(/[^0-9a-zà-ỹđ ]+/gi, " ").replace(/\s+/g, " ") + " "); }
+  function hasBad(s) { var n = norm(s); for (var i = 0; i < BAD.length; i++) if (n.indexOf(" " + BAD[i] + " ") >= 0) return true; return false; }
+  function isSpam(s) { var links = (String(s).match(/(https?:\/\/|www\.)/gi) || []).length; return links > 2 || /(.)\1{14,}/.test(s) || /(zalo|telegram)\s*[:.]?\s*\+?\d{9,}/i.test(s); }
+  function sensitive(s) { return /(^|\D)\d{12}(\D|$)/.test(s) || /(^|\D)\d{9}(\D|$)/.test(s) || /(^|\D)(0|\+84)\d{9}(\D|$)/.test(s.replace(/[ .-]/g, "")) || /(stk|số tài khoản)\s*[:.]?\s*\d{6,}/i.test(s); }
+  function cooldownLeft() { var l = ls(K_LAST, 0); return Math.max(0, COOLDOWN - (Date.now() - l)); }
+
+  /* ---------- tên & đơn vị ---------- */
+  function prefill(pfx) {
+    var me = ls(K_ME, null), dv = null;
+    try { dv = window.KNKS_DONVI && window.KNKS_DONVI.info(); } catch (e) {}
+    var name = (me && me.name) || (dv && dv.hoTen) || "";
+    var unit = (me && typeof me.unit === "string") ? me.unit : (dv && dv.daChon ? dv.ngan : "");
+    if (!$(pfx + "-name").value) $(pfx + "-name").value = name;
+    if (!$(pfx + "-unit").value) $(pfx + "-unit").value = unit;
+    $(pfx + "-anon").checked = !!(me && me.anon);
+    syncAnon(pfx);
+  }
+  function syncAnon(pfx) { var a = $(pfx + "-anon").checked; $(pfx + "-name").disabled = a; $(pfx + "-unit").disabled = a; }
+  function author(pfx) {
+    var a = $(pfx + "-anon").checked, n = $(pfx + "-name").value.trim(), u = $(pfx + "-unit").value.trim();
+    lsSet(K_ME, { name: n, unit: u, anon: a });
+    return a ? { author_name: "Ẩn danh", author_unit: "" } : { author_name: n, author_unit: u };
+  }
+  function checkCommon(texts, msgEl) {
+    var all = texts.join("\n");
+    var w = cooldownLeft(); if (w > 0) { showMsg(msgEl, t("eWait").replace("{s}", Math.ceil(w / 1000)), 1); return false; }
+    if (hasBad(all)) { showMsg(msgEl, t("eBad"), 1); return false; }
+    if (isSpam(all)) { showMsg(msgEl, t("eSpam"), 1); return false; }
+    if (sensitive(all) && !window.confirm(t("sensitive"))) return false;
+    return true;
+  }
+  function showMsg(el, m, bad) { el.textContent = m; el.className = "msg " + (bad ? "err" : "ok"); }
+
+  /* ---------- trạng thái ---------- */
+  var st = { topic: "", sort: "new", kw: "", items: [], cur: null, loading: false };
+
+  function renderTopics() {
+    var h = '<button type="button" class="chip' + (st.topic ? "" : " on") + '" data-topic="">' + esc(t("all")) + "</button>";
+    TOPICS.forEach(function (x) { h += '<button type="button" class="chip' + (st.topic === x[0] ? " on" : "") + '" data-topic="' + x[0] + '">' + esc(topicName(x[0])) + "</button>"; });
+    $("topics").innerHTML = h;
+    var sel = '<option value="">—</option>';
+    TOPICS.forEach(function (x) { sel += '<option value="' + x[0] + '">' + esc(topicName(x[0])) + "</option>"; });
+    var cur = $("q-topic").value; $("q-topic").innerHTML = sel; $("q-topic").value = cur;
+  }
+
+  function loadList(silent) {
+    if (!navigator.onLine) { $("list").innerHTML = '<div class="card empty">' + esc(t("offline")) + "</div>"; return Promise.resolve(); }
+    if (!silent) $("list").innerHTML = '<div class="card empty"><span class="spin"></span> ' + esc(t("loading")) + "</div>";
+    var q = "/rest/v1/knks_qa_questions?select=" + QCOLS + "&limit=100";
+    q += "&order=" + (st.sort === "ans" ? "answer_count.desc,created_at.desc" : st.sort === "help" ? "helpful_count.desc,created_at.desc" : "created_at.desc");
+    if (st.topic) q += "&topic=eq." + encodeURIComponent(st.topic);
+    var kw = st.kw.replace(/[,()*%\\:"']/g, " ").trim();
+    if (kw) { var p = "*" + kw.replace(/\s+/g, "*") + "*"; q += "&or=" + encodeURIComponent("(title.ilike." + p + ",body.ilike." + p + ")"); }
+    return api(q).then(function (rows) { st.items = rows || []; renderList(); })
+      .catch(function () { if (!silent) $("list").innerHTML = '<div class="card empty">' + esc(t("err")) + "</div>"; });
+  }
+  function renderList() {
+    var rows = st.items.filter(function (r) { return !isHidden(r.id); });
+    if (!rows.length) {
+      $("list").innerHTML = st.items.length || st.kw || st.topic
+        ? '<div class="card empty">' + esc(t("noMatch")) + "</div>"
+        : '<div class="card empty"><strong>' + esc(t("emptyT")) + "</strong>" + esc(t("emptyD")) + "</div>";
+    } else {
+      $("list").innerHTML = rows.map(function (r) {
+        return '<article class="card q" data-open="' + r.id + '" tabindex="0">' +
+          '<div class="meta"><span class="tag">' + esc(topicName(r.topic)) + "</span><span>" + esc(ago(r.created_at)) + "</span></div>" +
+          "<h3>" + esc(r.title) + '</h3><p class="ex">' + esc(r.body) + "</p>" +
+          '<div class="meta" style="margin-top:6px"><span>' + who(r.author_name, r.author_unit) + "</span>" +
+          "<span>💬 " + esc(nAns(r.answer_count)) + "</span><span>👍 " + r.helpful_count + "</span></div></article>";
+      }).join("");
+    }
+    var n = hiddenSet().length;
+    $("hidden-note").classList.toggle("hidden", !n);
+    if (n) $("hidden-note").innerHTML = esc(t("hiddenN").replace("{n}", n)) + ' <button type="button" class="btn-link" id="btn-unhide">' + esc(t("showHidden")) + "</button>";
+  }
+
+  function actions(type, row) {
+    var v = voted(row.id);
+    return '<div class="acts">' +
+      '<button type="button" class="btn btn-sm" data-vote="' + type + '" data-id="' + row.id + '"' + (v ? " disabled" : "") + ">👍 " + esc(v ? t("voted") : t("helpful")) + " · <span>" + row.helpful_count + "</span></button>" +
+      '<button type="button" class="btn btn-sm" data-report="' + type + '" data-id="' + row.id + '">⚑ ' + esc(t("report")) + "</button>" +
+      '<button type="button" class="btn btn-sm" data-hide="' + type + '" data-id="' + row.id + '">🙈 ' + esc(t("hide")) + "</button></div>";
+  }
+  function openDetail(id) {
+    show("detail"); st.cur = id;
+    $("detail").innerHTML = '<div class="card empty"><span class="spin"></span> ' + esc(t("loading")) + "</div>"; $("answers").innerHTML = "";
+    prefill("a");
+    return Promise.all([
+      api("/rest/v1/knks_qa_questions?select=" + QCOLS + "&id=eq." + encodeURIComponent(id)),
+      api("/rest/v1/knks_qa_answers?select=" + ACOLS + "&question_id=eq." + encodeURIComponent(id) + "&order=created_at.asc&limit=300")
+    ]).then(function (res) {
+      if (st.cur !== id) return;
+      var q = res[0] && res[0][0];
+      if (!q || isHidden(q.id)) { $("detail").innerHTML = '<div class="card empty">' + esc(t("notFound")) + "</div>"; $("ans-form-card").classList.add("hidden"); return; }
+      $("ans-form-card").classList.remove("hidden");
+      $("detail").innerHTML = '<article class="card det"><div class="meta"><span class="tag">' + esc(topicName(q.topic)) + "</span><span>" + esc(ago(q.created_at)) + "</span></div>" +
+        "<h2>" + esc(q.title) + '</h2><div class="body">' + esc(q.body) + '</div><div class="meta" style="margin-top:8px"><span>' + who(q.author_name, q.author_unit) + "</span></div>" + actions("question", q) + "</article>";
+      var ans = (res[1] || []).filter(function (a) { return !isHidden(a.id); });
+      $("answers").innerHTML = '<h3 style="margin:16px 2px 0;font-size:15px">💬 ' + esc(nAns(ans.length)) + "</h3>" +
+        (ans.length ? ans.map(function (a) {
+          return '<article class="card ans"><div class="body">' + esc(a.body) + '</div><div class="meta" style="margin-top:8px"><span>' + who(a.author_name, a.author_unit) + "</span><span>" + esc(ago(a.created_at)) + "</span></div>" + actions("answer", a) + "</article>";
+        }).join("") : '<div class="card empty">' + esc(t("noAns")) + "</div>");
+    }).catch(function () { $("detail").innerHTML = '<div class="card empty">' + esc(t("err")) + "</div>"; });
+  }
+
+  function show(v) {
+    ["list", "detail", "ask"].forEach(function (x) { $("v-" + x).classList.toggle("hidden", x !== v); });
+    $("btn-ask").classList.toggle("hidden", v !== "list");
+    window.scrollTo(0, 0);
+  }
+  function route() {
+    var m = /^#q=([0-9a-f-]{36})$/i.exec(location.hash);
+    if (m) return openDetail(m[1]);
+    if (location.hash === "#hoi") { show("ask"); prefill("q"); return; }
+    show("list"); st.cur = null; loadList();
+  }
+
+  /* ---------- sự kiện ---------- */
+  document.addEventListener("click", function (e) {
+    var b = e.target.closest ? e.target.closest("[data-topic],[data-open],[data-vote],[data-report],[data-hide],#btn-unhide") : null;
+    if (!b) return;
+    if (b.hasAttribute("data-topic")) { st.topic = b.getAttribute("data-topic"); renderTopics(); loadList(); return; }
+    if (b.id === "btn-unhide") { lsSet(K_HIDE, []); renderList(); return; }
+    if (b.hasAttribute("data-open")) { location.hash = "q=" + b.getAttribute("data-open"); return; }
+    var id = b.getAttribute("data-id");
+    if (b.hasAttribute("data-vote")) {
+      if (voted(id)) return; b.disabled = true;
+      api("/rest/v1/rpc/knks_vote_helpful", { method: "POST", body: { p_target_type: b.getAttribute("data-vote"), p_target_id: id } })
+        .then(function (n) { var vs = ls(K_VOTE, []); vs.push(id); if (vs.length > 2000) vs = vs.slice(-2000); lsSet(K_VOTE, vs);
+          b.innerHTML = "👍 " + esc(t("voted")) + " · <span>" + (n == null ? "" : n) + "</span>"; })
+        .catch(function () { b.disabled = false; toast(t("eSend")); });
+      return;
+    }
+    if (b.hasAttribute("data-report")) { openReport(b.getAttribute("data-report"), id); return; }
+    if (b.hasAttribute("data-hide")) { hideLocal(id); toast(t("okHide")); afterHide(b.getAttribute("data-hide"), id); }
+  });
+  document.addEventListener("keydown", function (e) { if (e.key === "Enter" && e.target.hasAttribute && e.target.hasAttribute("data-open")) location.hash = "q=" + e.target.getAttribute("data-open"); });
+  function afterHide(type, id) {
+    if (type === "question" && st.cur === id) { location.hash = ""; return; }
+    if (st.cur) openDetail(st.cur); else renderList();
+  }
+
+  var rp = { type: null, id: null };
+  function openReport(type, id) {
+    rp = { type: type, id: id };
+    $("rp-reasons").innerHTML = t("reasons").map(function (r, i) { return '<label class="radio"><input type="radio" name="rp" value="' + i + '"> <span>' + esc(r) + "</span></label>"; }).join("");
+    $("rp-note").value = ""; $("rp-msg").textContent = ""; $("rp-send").disabled = false;
+    var d = $("dlg-report"); if (d.showModal) d.showModal(); else d.setAttribute("open", "");
+  }
+  function closeReport() { var d = $("dlg-report"); if (d.close) d.close(); else d.removeAttribute("open"); }
+  $("rp-cancel").onclick = closeReport;
+  $("f-report").addEventListener("submit", function (e) {
+    e.preventDefault();
+    var c = document.querySelector('input[name="rp"]:checked');
+    if (!c) { showMsg($("rp-msg"), t("chooseReason"), 1); return; }
+    var reason = REASONS_VI[+c.value], note = $("rp-note").value.trim().slice(0, 200);
+    if (note) reason = (reason + ": " + note).slice(0, 300);
+    $("rp-send").disabled = true;
+    api("/rest/v1/knks_qa_reports", { method: "POST", prefer: "return=minimal", body: { target_type: rp.type, target_id: rp.id, reason: reason } })
+      .catch(function () { /* vẫn ẩn trên máy dù gửi lỗi */ })
+      .then(function () { hideLocal(rp.id); closeReport(); toast(t("okR")); afterHide(rp.type, rp.id); });
+  });
+
+  $("f-ask").addEventListener("submit", function (e) {
+    e.preventDefault();
+    var m = $("q-msg"), topic = $("q-topic").value, title = $("q-title").value.trim(), body = $("q-body").value.trim();
+    if (!topic) return showMsg(m, t("eTopic"), 1);
+    if (title.length < 5 || title.length > 200) return showMsg(m, t("eTitle"), 1);
+    if (body.length < 10 || body.length > 4000) return showMsg(m, t("eBody"), 1);
+    var au = author("q");
+    if (!au.author_name || au.author_name.length > 80) return showMsg(m, t("eName"), 1);
+    if (!checkCommon([title, body, au.author_name, au.author_unit], m)) return;
+    var btn = e.target.querySelector("button[type=submit]"); btn.disabled = true;
+    api("/rest/v1/knks_qa_questions?select=id", { method: "POST", prefer: "return=representation", body: { topic: topic, title: title, body: body, author_name: au.author_name, author_unit: au.author_unit } })
+      .then(function (r) { lsSet(K_LAST, Date.now()); $("q-title").value = ""; $("q-body").value = ""; showMsg(m, t("okQ")); toast(t("okQ"));
+        location.hash = r && r[0] ? "q=" + r[0].id : ""; })
+      .catch(function () { showMsg(m, t("eSend"), 1); })
+      .then(function () { btn.disabled = false; });
+  });
+  $("f-ans").addEventListener("submit", function (e) {
+    e.preventDefault();
+    var m = $("a-msg"), body = $("a-body").value.trim();
+    if (body.length < 5 || body.length > 4000) return showMsg(m, t("eABody"), 1);
+    var au = author("a");
+    if (!au.author_name || au.author_name.length > 80) return showMsg(m, t("eName"), 1);
+    if (!checkCommon([body, au.author_name, au.author_unit], m)) return;
+    var btn = e.target.querySelector("button[type=submit]"); btn.disabled = true;
+    api("/rest/v1/knks_qa_answers", { method: "POST", prefer: "return=minimal", body: { question_id: st.cur, body: body, author_name: au.author_name, author_unit: au.author_unit } })
+      .then(function () { lsSet(K_LAST, Date.now()); $("a-body").value = ""; $("a-cnt").textContent = "0"; showMsg(m, t("okA")); return openDetail(st.cur); })
+      .catch(function () { showMsg(m, t("eSend"), 1); })
+      .then(function () { btn.disabled = false; });
+  });
+  ["q", "a"].forEach(function (p) { $(p + "-anon").addEventListener("change", function () { syncAnon(p); }); });
+  function counter(inp, out) { $(inp).addEventListener("input", function () { $(out).textContent = $(inp).value.length; }); }
+  counter("q-title", "q-tcnt"); counter("q-body", "q-cnt"); counter("a-body", "a-cnt");
+
+  $("btn-ask").onclick = function () { location.hash = "hoi"; };
+  $("btn-back").onclick = $("btn-cancel-ask").onclick = function () { location.hash = ""; };
+  $("btn-refresh").onclick = function () { st.cur ? openDetail(st.cur) : loadList(); };
+  $("sort").onchange = function () { st.sort = this.value; loadList(); };
+  var kwT; $("kw").addEventListener("input", function () { clearTimeout(kwT); var v = this.value; kwT = setTimeout(function () { st.kw = v; loadList(); }, 350); });
+  $("btn-home").addEventListener("click", function (e) {
+    try { if (window.parent !== window && typeof window.parent.closeTool === "function") { e.preventDefault(); window.parent.closeTool(); } } catch (x) {}
+  });
+  window.addEventListener("hashchange", route);
+  window.addEventListener("online", function () { if (!st.cur) loadList(); });
+
+  /* Cập nhật nhẹ: tải lại danh sách mỗi 30 giây khi trang đang mở */
+  setInterval(function () {
+    if (document.visibilityState !== "visible" || !navigator.onLine) return;
+    if (!$("v-list").classList.contains("hidden")) loadList(true);
+  }, POLL);
+  document.addEventListener("visibilitychange", function () { if (document.visibilityState === "visible" && !$("v-list").classList.contains("hidden")) loadList(true); });
+
+  /* ---------- ngôn ngữ ---------- */
+  function applyLang() {
+    var L = lang();
+    document.documentElement.lang = L;
+    document.title = t("title") + (L === "en" ? " — Procuracy Skills" : " — Kỹ năng Kiểm sát");
+    var els = document.querySelectorAll("[data-i]");
+    for (var i = 0; i < els.length; i++) { var k = els[i].getAttribute("data-i"), v = t(k); if (typeof v === "string") { if (k === "pubNote") els[i].innerHTML = v; else els[i].textContent = v; } }
+    var ph = document.querySelectorAll("[data-ph]");
+    for (var j = 0; j < ph.length; j++) ph[j].placeholder = t(ph[j].getAttribute("data-ph"));
+    renderTopics();
+    if (st.cur) openDetail(st.cur); else if (st.items.length) renderList();
+  }
+  window.addEventListener("storage", function (e) { if (e.key === "knks_lang") applyLang(); });
+  window.addEventListener("knks-lang", applyLang);
+  window.addEventListener("knks-i18n", applyLang);
+  window.addEventListener("message", function (e) { var d = e && e.data; if (d && (d.knksLang === "vi" || d.knksLang === "en")) { try { localStorage.setItem("knks_lang", d.knksLang); } catch (x) {} applyLang(); } });
+
+  applyLang();
+  route();
+})();
+</script>
+</body>
+</html>
