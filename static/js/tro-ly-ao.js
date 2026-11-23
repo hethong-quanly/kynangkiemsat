@@ -64,6 +64,9 @@
       ".knai-chat{max-height:58vh;min-height:260px;overflow:auto}",
       ".knai-msg{white-space:pre-wrap;border-radius:12px;padding:10px 12px;margin:8px 0;font-size:13px;line-height:1.55}",
       ".knai-msg.bot{background:#f8fafc;border:1px solid #e2e8f0}",
+      ".knai-msg.md{white-space:normal}.knai-msg.md p{margin:0 0 6px}.knai-msg.md ul,.knai-msg.md ol{margin:4px 0 8px;padding-left:22px}.knai-msg.md li{margin:2px 0}",
+      ".knai-msg.md .knai-h{font-weight:700;margin:10px 0 4px}.knai-msg.md code{background:rgba(127,127,127,.15);padding:0 4px;border-radius:4px}.knai-msg.md hr{border:0;border-top:1px solid #e2e8f0;margin:8px 0}",
+      ".knai-src{font-size:11px;opacity:.7;margin-bottom:6px}.knai-cp{margin-top:6px;min-height:32px;font-size:12px;padding:4px 10px}",
       ".knai-msg.me{background:var(--navy,#0c2340);color:#fff;margin-left:28px}",
       ".knai .chip.on{background:var(--navy,#0c2340);color:#fff;border-color:var(--navy,#0c2340)}",
       ".knai-preview{white-space:pre-wrap;font-family:'Times New Roman',serif;font-size:13.5px;line-height:1.5;max-height:480px;overflow:auto;background:var(--paper,#fbf8f1);padding:16px;border-radius:10px}",
@@ -135,19 +138,61 @@
     for (var i = 0; i < C.FAQ.length; i++) if (C.FAQ[i][0].test(q)) return C.FAQ[i][1];
     return "Với " + C.VAN_BAN[loai].label + ", bạn tải hoặc dán văn bản rồi bấm Kiểm sát để lập phiếu. Kết luận cuối cùng do Kiểm sát viên đối chiếu văn bản gốc.";
   }
-  function systemPrompt(lv) {
-    return "Bạn là trợ lý ảo kiểm sát văn bản tư pháp của " + C.ORG + ", lĩnh vực: " + lv.ten +
-      ". Căn cứ tham chiếu: " + lv.canCu + ". Xưng hô «bạn». Rà hình thức, chính tả tên người/số liệu, mâu thuẫn nhận định — quyết định, thiếu căn cứ, sai thẩm quyền, sai thời hạn. " +
-      "Trả lời bằng Phiếu kiểm sát: I. Tóm tắt; II. Vi phạm / thiếu sót; III. Căn cứ pháp luật; IV. Hướng xử lý (ghi nhận / kiến nghị / kháng nghị); V. Lưu ý. " +
-      "Không bịa điều luật; không chắc thì ghi «cần đối chiếu văn bản gốc». Tiếng Việt, giọng nghiệp vụ, ngắn.";
+  // System prompt theo lĩnh vực: vai trò + căn cứ hiện hành + văn bản hết HL + mốc thời hạn đã xác minh + quy tắc.
+  function luatCho(id) {
+    var L = C.AI_LUAT || {}, out = { canCu: [], het: [], moc: [] };
+    var ids = id === "tong-hop" || !L[id] ? Object.keys(L) : ["chung", id];
+    ids.forEach(function (k) { var x = L[k]; if (!x) return; ["canCu", "het", "moc"].forEach(function (f) { (x[f] || []).forEach(function (s) { if (out[f].indexOf(s) < 0) out[f].push(s); }); }); });
+    return out;
   }
-  K.core = { extractMeta: extractMeta, runChecks: runChecks, draftPhieu: draftPhieu, answerLocal: answerLocal, systemPrompt: systemPrompt };
+  function systemPrompt(lv, coVanBan) {
+    var l = luatCho(lv.id), d = new Date(), li = function (a) { return a.map(function (s) { return "- " + s; }).join("\n"); };
+    var hom = ("0" + d.getDate()).slice(-2) + "/" + ("0" + (d.getMonth() + 1)).slice(-2) + "/" + d.getFullYear();
+    return "Bạn là trợ lý ảo hỗ trợ Kiểm sát viên " + C.ORG + " (Viện kiểm sát nhân dân), lĩnh vực: " + lv.ten + ". Hôm nay: " + hom + ".\n" +
+      "CĂN CỨ PHÁP LÝ HIỆN HÀNH (chỉ được viện dẫn các văn bản này):\n" + li(l.canCu) + "\n" +
+      (l.het.length ? "VĂN BẢN ĐÃ HẾT HIỆU LỰC (không dùng làm căn cứ; chỉ nêu khi so sánh trước/sau):\n" + li(l.het) + "\n" : "") +
+      (l.moc.length ? "MỐC THỜI HẠN ĐÃ XÁC MINH (ưu tiên dùng nguyên văn):\n" + li(l.moc) + "\n" : "") +
+      "QUY TẮC: 1) Chỉ viện dẫn văn bản trong danh sách trên, ghi rõ điều, khoản khi chắc chắn; không tự mô tả phạm vi, nội dung văn bản ngoài phần ghi trong danh sách. 2) Nếu mục «MỐC THỜI HẠN ĐÃ XÁC MINH» trả lời được câu hỏi thì dùng đúng nội dung, đúng chủ thể và trích đúng điều khoản ghi trong ngoặc của mốc đó. Không bịa số hiệu, điều luật, thời hạn; nếu không chắc thì viết «không chắc, cần đối chiếu văn bản gốc». " +
+      "3) Không dùng văn bản đã hết hiệu lực làm căn cứ hiện hành. 4) Vấn đề ngoài danh sách: nói rõ phần mềm chưa có căn cứ đã xác minh. 5) Trả lời tiếng Việt, giọng nghiệp vụ, xưng «bạn», không chào hỏi; NGẮN GỌN (tối đa khoảng 250 từ, kiểm sát văn bản tối đa 400 từ), dùng markdown đơn giản (đậm, danh sách)." +
+      (coVanBan ? "\nKhi kiểm sát văn bản: rà hình thức, chính tả tên người/số liệu, mâu thuẫn nhận định — quyết định, thiếu căn cứ, sai thẩm quyền, sai thời hạn; trả lời theo Phiếu: I. Tóm tắt; II. Vi phạm / thiếu sót; III. Căn cứ pháp luật; IV. Hướng xử lý (ghi nhận / kiến nghị / kháng nghị); V. Lưu ý." : "");
+  }
+
+  /* ---- Markdown an toàn: escape HTML trước, chỉ hỗ trợ đậm/nghiêng/code/tiêu đề/danh sách/bảng đơn giản ---- */
+  function esc(s) { return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#39;"); }
+  function inl(s) {
+    return s.replace(/`([^`]+)`/g, "<code>$1</code>").replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>").replace(/__([^_]+)__/g, "<strong>$1</strong>")
+      .replace(/(^|[^*\w])\*(?!\s)([^*]+?)\*(?!\*)/g, "$1<em>$2</em>").replace(/(^|[^_\w])_(?!\s)([^_]+?)_(?![_\w])/g, "$1<em>$2</em>");
+  }
+  function mdToHtml(src) {
+    var lines = esc(src).split(/\r?\n/), out = [], list = null;
+    function close() { if (list) { out.push("</" + list + ">"); list = null; } }
+    for (var i = 0; i < lines.length; i++) {
+      var ln = lines[i], m;
+      if ((m = ln.match(/^\s*(#{1,6})\s+(.*)$/))) { close(); out.push("<div class=\"knai-h\">" + inl(m[2]) + "</div>"); continue; }
+      if ((m = ln.match(/^\s*[-*+•]\s+(.*)$/))) { if (list !== "ul") { close(); out.push("<ul>"); list = "ul"; } out.push("<li>" + inl(m[1]) + "</li>"); continue; }
+      if ((m = ln.match(/^\s*(\d+)[.)]\s+(.*)$/))) { if (list !== "ol") { close(); out.push("<ol start=\"" + m[1] + "\">"); list = "ol"; } out.push("<li>" + inl(m[2]) + "</li>"); continue; }
+      if (/^\s*\|.*\|\s*$/.test(ln)) {
+        close(); var rows = [];
+        while (i < lines.length && /^\s*\|.*\|\s*$/.test(lines[i])) { if (!/^\s*\|[\s:|-]+\|\s*$/.test(lines[i])) rows.push(lines[i].trim().slice(1, -1).split("|")); i++; }
+        i--; out.push("<table>" + rows.map(function (r, k) { return "<tr>" + r.map(function (c) { return (k ? "<td>" : "<th>") + inl(c.trim()) + (k ? "</td>" : "</th>"); }).join("") + "</tr>"; }).join("") + "</table>"); continue;
+      }
+      if (/^\s*(-{3,}|\*{3,})\s*$/.test(ln)) { close(); out.push("<hr>"); continue; }
+      close(); out.push(ln.trim() ? "<p>" + inl(ln) + "</p>" : "");
+    }
+    close(); return out.join("");
+  }
+  function mdToText(src) {
+    return String(src).replace(/^\s*#{1,6}\s+/gm, "").replace(/\*\*([^*]+)\*\*/g, "$1").replace(/__([^_]+)__/g, "$1")
+      .replace(/(^|[^*\w])\*(?!\s)([^*]+?)\*(?!\*)/g, "$1$2").replace(/`([^`]+)`/g, "$1").replace(/^\s*[*+]\s+/gm, "- ").replace(/^\s*\|[\s:|-]+\|\s*$/gm, "");
+  }
+  K.md = { toHtml: mdToHtml, toText: mdToText, esc: esc };
+  K.core = { extractMeta: extractMeta, runChecks: runChecks, draftPhieu: draftPhieu, answerLocal: answerLocal, systemPrompt: systemPrompt, luatCho: luatCho };
 
   /* ---------------- AI tuỳ chọn (mặc định TẮT; key của người dùng lưu trên máy) ---------------- */
   var AI_LS = "knks.ai.v2";
   var PROVIDERS = {
     groq: { ten: "Groq — khuyến nghị (không dùng dữ liệu để huấn luyện)", url: "https://api.groq.com/openai/v1/chat/completions",
-      model: "qwen/qwen3.8-27b", keyUrl: "https://console.groq.com/keys", maxChars: 9000, canhBao: "" },
+      model: "qwen/qwen3.8-27b", keyUrl: "https://console.groq.com/keys", maxChars: 7000, canhBao: "" },
     gemini: { ten: "Google Gemini — tuỳ chọn", url: "https://generativelanguage.googleapis.com/v1beta/openai/chat/completions",
       model: "gemini-3.5-flash-lite", keyUrl: "https://aistudio.google.com/apikey", maxChars: 30000,
       canhBao: "⚠ Bản miễn phí của Google Gemini dùng dữ liệu bạn gửi (văn bản, câu hỏi, câu trả lời) để huấn luyện và cải thiện sản phẩm; nhân viên Google có thể đọc. Tuyệt đối không gửi văn bản chưa ẩn danh hoặc tài liệu mật." }
@@ -165,11 +210,12 @@
   // Gọi máy chủ trung gian (Cloudflare Worker). Định dạng: POST {system, messages, max_tokens, temperature}
   // → {provider, source, model, content}. Lỗi: {error}, 429 = hết lượt dùng chung.
   function callProxy(cfg, sys, user) {
-    var key = (cfg.key || "").trim(), h = { "Content-Type": "application/json" }, body = { system: sys, messages: [{ role: "user", content: user }], max_tokens: 2048, temperature: 0.2 };
+    var key = (cfg.key || "").trim(), h = { "Content-Type": "application/json" }, body = { system: sys, messages: [{ role: "user", content: user }], max_tokens: key && cfg.provider === "gemini" ? 2048 : 1000, temperature: 0.2 };
     if (key) { h["X-User-Provider"] = cfg.provider; h["X-User-Api-Key"] = key; if ((cfg.model || "").trim()) body.model = cfg.model.trim(); }
     return fetch(proxyUrl(), { method: "POST", headers: h, body: JSON.stringify(body) }).then(function (r) {
       return readJson(r).then(function (d) {
         if (r.status === 429) throw aiErr(d.error || "Hết lượt dùng chung", 429);
+        if (r.status === 502 && JSON.stringify(d.details || "").indexOf("429") >= 0) throw aiErr("AI dùng chung đang bận", 429.1);
         if (!r.ok) throw aiErr(d.error || "HTTP " + r.status, r.status);
         if (!d.content) throw aiErr("AI không trả lời", 502);
         return { content: clean(d.content), via: d.source === "byok" ? "key riêng qua máy chủ trung gian" : "lượt dùng chung của Viện", model: d.model || "" };
@@ -180,7 +226,7 @@
   function callDirect(cfg, sys, user) {
     var pv = PROVIDERS[cfg.provider] || PROVIDERS.groq, model = (cfg.model || "").trim() || pv.model;
     return fetch(pv.url, { method: "POST", headers: { "Content-Type": "application/json", "Authorization": "Bearer " + cfg.key.trim() },
-      body: JSON.stringify({ model: model, temperature: 0.2, max_tokens: 2048, messages: [{ role: "system", content: sys }, { role: "user", content: user }] })
+      body: JSON.stringify({ model: model, temperature: 0.2, max_tokens: cfg.provider === "gemini" ? 2048 : 1000, messages: [{ role: "system", content: sys }, { role: "user", content: user }] })
     }).then(function (r) { return readJson(r).then(function (d) {
       if (!r.ok) throw aiErr((d.error && (d.error.message || d.error)) || "HTTP " + r.status, r.status);
       var t = d.choices && d.choices[0] && d.choices[0].message && d.choices[0].message.content;
@@ -209,7 +255,7 @@
   /* ---------------- giao diện Trợ lý ảo ---------------- */
   K.mountTroLy = function (host, linhVucId) {
     injectCss();
-    var lv = C.LINH_VUC[linhVucId] || C.LINH_VUC["tong-hop"];
+    var lvId = C.LINH_VUC[linhVucId] ? linhVucId : "tong-hop", lv = C.LINH_VUC[lvId]; lv.id = lvId;
     var loai = lv.vanBan[0], fileName = "", uid = "knai" + Math.random().toString(36).slice(2, 7);
     host.classList.add("knai");
     host.innerHTML =
@@ -231,9 +277,24 @@
       '<div class="row"><button class="btn" type="button" data-k="aiSave">Lưu cài đặt</button><button class="btn" type="button" data-k="aiDel">Xoá key</button></div></details></div>' +
       '</div><div class="card" style="display:flex;flex-direction:column"><p class="kicker">Phiếu kiểm sát · xưng hô «bạn»</p>' +
       '<div class="knai-chat" data-k="chat"></div><div class="row no-print"><input data-k="q" placeholder="Câu hỏi thêm…" style="flex:1" />' +
-      '<button class="btn" type="button" data-k="send">Gửi</button><button class="btn" type="button" data-k="copy">Chép</button></div></div></div>';
+      '<button class="btn" type="button" data-k="send">Gửi</button><button class="btn" type="button" data-k="copy" title="Chép câu trả lời cuối (văn bản thuần)">Sao chép</button></div></div></div>';
     function $(k) { return host.querySelector('[data-k="' + k + '"]'); }
-    function add(role, t) { var d = document.createElement("div"); d.className = "knai-msg " + role; d.textContent = t; $("chat").appendChild(d); $("chat").scrollTop = 1e9; return d; }
+    function add(role, t) { var d = document.createElement("div"); d.className = "knai-msg " + role; d.textContent = t; d._plain = t; $("chat").appendChild(d); $("chat").scrollTop = 1e9; return d; }
+    function setMsg(d, t) { d.textContent = t; d._plain = t; }
+    // Trả lời AI: render markdown an toàn + nút «Sao chép» (văn bản thuần).
+    function setAi(d, head, md) {
+      var plain = head + "\n" + mdToText(md);
+      d.className = "knai-msg bot md"; d._plain = plain;
+      d.innerHTML = "<div class=\"knai-src\">" + esc(head) + "</div>" + mdToHtml(md);
+      var b = document.createElement("button"); b.type = "button"; b.className = "btn knai-cp"; b.textContent = "Sao chép";
+      b.onclick = function () { copyText(plain, b); }; d.appendChild(b); $("chat").scrollTop = 1e9;
+    }
+    function copyText(s, b) {
+      var ok = function () { if (b) { b.textContent = "Đã chép ✓"; setTimeout(function () { b.textContent = "Sao chép"; }, 1500); } };
+      if (navigator.clipboard && g.isSecureContext !== false) return navigator.clipboard.writeText(s).then(ok, function () { fb(); });
+      fb();
+      function fb() { var ta = document.createElement("textarea"); ta.value = s; ta.style.position = "fixed"; ta.style.opacity = "0"; document.body.appendChild(ta); ta.select(); try { document.execCommand("copy"); ok(); } catch (e) {} ta.remove(); }
+    }
     function renderLoai() {
       $("loai").innerHTML = lv.vanBan.map(function (id) { return '<button type="button" class="chip' + (id === loai ? " on" : "") + '" data-loai="' + id + '">' + esc(C.VAN_BAN[id].short) + "</button>"; }).join("");
       $("hint").textContent = C.VAN_BAN[loai].label + ": " + C.VAN_BAN[loai].hint;
@@ -275,17 +336,18 @@
       var pv = PROVIDERS[cfg.key ? cfg.provider : "groq"];
       var wait = add("bot", "AI đang phân tích…");
       var user = (text ? "Loại văn bản: " + C.VAN_BAN[loai].label + "\nPhiếu kiểm tra tự động:\n" + local + "\n\nNỘI DUNG VĂN BẢN (đã ẩn danh):\n" + text.slice(0, pv.maxChars) : "") + (q ? "\n\nCÂU HỎI: " + q : "");
-      callAI(cfg, systemPrompt(lv), user).then(function (r) { wait.textContent = "[AI — chỉ để tham khảo, cần đối chiếu văn bản gốc · " + r.via + (r.model ? " · " + r.model : "") + "]\n" + r.content; })
+      callAI(cfg, systemPrompt(lv, !!text), user).then(function (r) { setAi(wait, "[AI — chỉ để tham khảo, cần đối chiếu văn bản gốc · " + r.via + (r.model ? " · " + r.model : "") + "]", r.content); })
         .catch(function (e) {
-          if (e.code === 429) { wait.textContent = "Đã hết lượt AI miễn phí dùng chung (giới hạn 8 lượt/phút, 40 lượt/ngày). Bạn thử lại sau ít phút, hoặc nhập API key riêng (Groq miễn phí, không dùng dữ liệu để huấn luyện) trong «Cài đặt AI» để dùng tiếp. Kết quả kiểm tra trên máy ở trên vẫn dùng được."; $("aiBox").open = true; return; }
-          if (e.code === 413) { wait.textContent = "Văn bản quá dài cho AI. Hãy rút gọn (chỉ dán phần cần hỏi) rồi thử lại."; return; }
-          wait.textContent = "Không gọi được AI (" + e.message + "). Dùng kết quả kiểm tra trên máy ở trên.";
+          if (e.code === 429) { setMsg(wait, "Đã hết lượt AI miễn phí dùng chung (giới hạn 8 lượt/phút, 40 lượt/ngày). Bạn thử lại sau ít phút, hoặc nhập API key riêng (Groq miễn phí, không dùng dữ liệu để huấn luyện) trong «Cài đặt AI» để dùng tiếp. Kết quả kiểm tra trên máy ở trên vẫn dùng được."); $("aiBox").open = true; return; }
+          if (e.code === 429.1) { setMsg(wait, "AI dùng chung đang bận (Groq miễn phí giới hạn số chữ trả lời mỗi phút cho cả Viện). Bạn đợi khoảng 1 phút rồi hỏi lại, hoặc nhập API key riêng trong «Cài đặt AI»."); return; }
+          if (e.code === 413) { setMsg(wait, "Văn bản quá dài cho AI. Hãy rút gọn (chỉ dán phần cần hỏi) rồi thử lại."); return; }
+          setMsg(wait, "Không gọi được AI (" + e.message + "). Dùng kết quả kiểm tra trên máy ở trên.");
         });
     }
     $("btnKs").onclick = function () { run(""); };
     $("send").onclick = function () { run($("q").value); };
     $("q").addEventListener("keydown", function (e) { if (e.key === "Enter") { e.preventDefault(); run($("q").value); } });
-    $("copy").onclick = function () { var all = host.querySelectorAll(".knai-msg.bot"); if (all.length && navigator.clipboard) navigator.clipboard.writeText(all[all.length - 1].textContent); };
+    $("copy").onclick = function () { var all = host.querySelectorAll(".knai-msg.bot"); if (all.length) copyText(all[all.length - 1]._plain || all[all.length - 1].textContent, $("copy")); };
     add("bot", "Trợ lý ảo Kiểm sát văn bản tư pháp — " + lv.ten + ".\n1. Chọn loại văn bản.\n2. Tải file hoặc dán nội dung.\n3. Nhập ngày nhận rồi bấm Kiểm sát.");
     renderLoai();
   };
