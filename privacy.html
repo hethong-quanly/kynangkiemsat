@@ -39,7 +39,7 @@
     <div class="card">
       <h2>1. Dữ liệu được lưu trên chính máy của bạn</h2>
       <ul>
-        <li>Phần mềm là trang web tĩnh (GitHub Pages), <strong>không có máy chủ riêng thu thập dữ liệu</strong>, không yêu cầu đăng nhập.</li>
+        <li>Phần mềm là trang web tĩnh (GitHub Pages), không yêu cầu đăng nhập. <strong>Không có máy chủ riêng thu thập dữ liệu</strong>, trừ nội dung bạn tự đăng ở <a href="#hoi-dap">Phòng hỏi đáp nghiệp vụ</a> (mục 3).</li>
         <li>Văn bản bạn dán hoặc tải lên để kiểm sát, trích xuất, soạn quyết định được <strong>xử lý ngay trong trình duyệt</strong> và không gửi đi đâu ở chế độ mặc định (dò từ khoá).</li>
         <li>Một số thông tin được lưu trong bộ nhớ trình duyệt (localStorage) để tiện dùng lại: sổ việc, tên Kiểm sát viên/người ký, giao diện sáng/tối, cài đặt AI (nếu bạn tự nhập). Bạn xoá bằng cách xoá dữ liệu trang web trong cài đặt trình duyệt.</li>
         <li><strong>Đơn vị công tác</strong> (cấp Viện kiểm sát, tỉnh/thành, Viện khu vực) và họ tên, chức danh nếu bạn tự nhập ở màn hình chào: <strong>chỉ lưu trên máy này</strong> (localStorage <code>knks-don-vi</code>) để điền sẵn tên cơ quan trong mẫu văn bản; không gửi đi đâu, không gửi cho AI trừ khi nằm trong văn bản bạn tự gửi. Sửa hoặc xoá bằng nút «Đơn vị công tác» ở trang chủ.</li>
@@ -61,8 +61,19 @@
         <li>Các mục «Kiểm sát Bản án hình sự, dân sự» (chatbot udify.app) và «Hình sự & Tố tụng hình sự» (Google NotebookLM) là <strong>dịch vụ bên ngoài</strong>: mọi nội dung bạn nhập ở đó được gửi lên máy chủ của bên thứ ba.</li>
       </ul>
     </div>
+    <div class="card warn" id="hoi-dap">
+      <h2>3. Phòng hỏi đáp nghiệp vụ (nội dung công khai)</h2>
+      <ul>
+        <li>Khi bạn đăng ở mục «Hỏi đáp nghiệp vụ», các dữ liệu sau được <strong>lưu trên máy chủ</strong> (cơ sở dữ liệu Supabase, đặt tại Singapore) để <strong>hiển thị công khai cho cộng đồng người dùng ứng dụng</strong>: lĩnh vực, tiêu đề và nội dung câu hỏi; nội dung câu trả lời; <strong>tên hiển thị và đơn vị do bạn tự nguyện nhập</strong> (có thể chọn «Gửi ẩn danh»); thời điểm đăng; số lượt «Hữu ích».</li>
+        <li><strong>Báo cáo vi phạm</strong>: lý do bạn chọn, ghi chú (nếu có), bài bị báo cáo và thời điểm được lưu trên máy chủ để kiểm duyệt; báo cáo không hiển thị công khai. Bài có từ 3 báo cáo từ các máy khác nhau sẽ tự động ẩn.</li>
+        <li>Để chống gửi trùng (một máy chỉ báo cáo và bấm «Hữu ích» một lần cho mỗi bài), máy chủ lưu <strong>mã băm một chiều</strong> của địa chỉ IP kèm lượt báo cáo/bình chọn; không lưu IP gốc, không gắn với tên hay thiết bị của bạn.</li>
+        <li>Không cần tài khoản, không thu thập email, số điện thoại hay danh bạ. Danh sách bài bạn đã ẩn, đã bấm hữu ích và tên hiển thị gần nhất chỉ lưu trên máy bạn (localStorage).</li>
+        <li><strong>Không đăng</strong> họ tên thật đương sự, số hồ sơ/bản án mật, tài liệu mật hoặc thông tin cá nhân chưa ẩn danh. Nội dung trao đổi chỉ mang tính tham khảo.</li>
+        <li><strong>Gỡ bài</strong>: bấm «Báo cáo vi phạm» trên bài, hoặc gọi/nhắn <a href="tel:0939103666">0939103666</a> kèm tiêu đề bài để được gỡ (kể cả bài do chính bạn đăng). Bạn cũng có thể bấm «Ẩn bài này» để không thấy bài trên máy mình.</li>
+      </ul>
+    </div>
     <div class="card">
-      <h2>3. Khuyến nghị bắt buộc trước khi gửi văn bản cho AI hoặc dịch vụ ngoài</h2>
+      <h2>4. Khuyến nghị bắt buộc trước khi gửi văn bản cho AI hoặc dịch vụ ngoài</h2>
       <ul>
         <li><strong>Ẩn danh</strong> văn bản: che họ tên, ngày sinh, số CCCD/hộ chiếu, địa chỉ, số điện thoại, số tài khoản… (dùng công cụ «Tự động che thông tin», chạy trên máy).</li>
         <li><strong>Không</strong> gửi tài liệu thuộc bí mật nhà nước, tài liệu mật, hồ sơ vụ án chưa công khai.</li>
@@ -70,11 +81,11 @@
       </ul>
     </div>
     <div class="card">
-      <h2>4. Liên hệ</h2>
+      <h2>5. Liên hệ</h2>
       <p>Thiên Phúc © 2026 · Liên hệ: <a href="tel:0939103666">0939103666</a>. Mã nguồn: <a href="https://github.com/hethong-quanly/kynangkiemsat" target="_blank" rel="noopener">github.com/hethong-quanly/kynangkiemsat</a>.</p>
       <p><a href="./">← Về trang chính</a></p>
     </div>
-    <p class="foot">Cập nhật ngày 23/11/2026 (bổ sung đơn vị công tác lưu trên máy, ứng dụng Android).</p>
+    <p class="foot">Cập nhật ngày 24/11/2026 (bổ sung Phòng hỏi đáp nghiệp vụ).</p>
   </div>
 </body>
 </html>
