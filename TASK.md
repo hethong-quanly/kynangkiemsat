@@ -3,6 +3,12 @@
 **File cần sửa:** `Data/TinhTuoiThoiHan.html`
 **Ngày:** 27/07/2026
 
+> **Cập nhật 23/11/2026 — căn cứ pháp lý:** TTLT số 04/2018/TTLT-VKSNDTC-BCA-BQP **hết hiệu lực từ 15/3/2026**, được thay bằng
+> **TTLT số 01/2026/TTLT-VKSNDTC-BCA-BQP** (ban hành 28/01/2026, hiệu lực 15/3/2026 —
+> [vanban.chinhphu.vn](https://vanban.chinhphu.vn/?classid=1&docid=216989&orggroupid=4&pageid=27160)). Mọi chỗ "TT 04/2018" trong tài liệu này đã đổi thành "TTLT 01/2026".
+> Code `Data/TinhTuoiThoiHan.html` **đã dùng bản 2026** (Điều 17 TTLT 01/2026) và đã có đủ các mục A1, A3 (C), B1–B3;
+> kết quả chạy 6 test case: xem comment trên issue #1.
+
 ---
 
 ## MỤC TIÊU
@@ -12,14 +18,14 @@ Tool sau khi sửa sẽ có **3 phần riêng biệt**:
 | # | Phần | Đơn vị | Rules ngày nghỉ | Căn cứ pháp lý |
 |---|------|--------|-----------------|----------------|
 | 1 | Tạm giữ | Giờ | N/A | Điều 117, 118 BLTTHS |
-| 2 | **Tạm giam (MỚI)** | Tháng + Ngày | Không dời (tính liên tục cả ngày nghỉ) | Điều 17 TT 04/2018 |
+| 2 | **Tạm giam (MỚI)** | Tháng + Ngày | Không dời (tính liên tục cả ngày nghỉ) | Điều 17 TTLT 01/2026 |
 | 3 | Thời hạn tố tụng | Năm+Tháng+Ngày | **Có dời** sang ngày làm việc | Điều 134, 135 BLTTHS |
 
 ---
 
 ## CĂN CỨ PHÁP LÝ PHẦN TẠM GIAM (trích nguyên văn)
 
-**Điều 17 Thông tư liên tịch số 04/2018/TTLT-VKSNDTC-BCA-BQP** ngày 19 tháng 10 năm 2018
+**Điều 17 Thông tư liên tịch số 01/2026/TTLT-VKSNDTC-BCA-BQP** ngày 28 tháng 01 năm 2026 (thay TTLT 04/2018/TTLT-VKSNDTC-BCA-BQP)
 quy định về phối hợp giữa Cơ quan điều tra và Viện kiểm sát trong việc thực hiện
 một số quy định của Bộ luật Tố tụng hình sự:
 
@@ -194,7 +200,7 @@ Chèn toàn bộ đoạn HTML sau vào vị trí giữa fieldset Tạm giữ và
 
 ```html
 <!-- ============================================================ -->
-<!-- PHẦN 2: TÍNH THỜI HẠN TẠM GIAM (Điều 17 TT 04/2018) -->
+<!-- PHẦN 2: TÍNH THỜI HẠN TẠM GIAM (Điều 17 TTLT 01/2026) -->
 <!-- ============================================================ -->
 <div class="fieldset-section">
     <fieldset class="fieldset-tamgiam">
@@ -286,13 +292,13 @@ Chèn toàn bộ đoạn HTML sau vào vị trí giữa fieldset Tạm giữ và
             </div>
         </div>
 
-        <!-- Ghi chú pháp lý Điều 17 TT 04/2018 -->
+        <!-- Ghi chú pháp lý Điều 17 TTLT 01/2026 -->
         <div class="legal-note legal-note-tamgiam" style="max-height: 450px; overflow-y: auto; font-size: 13px; line-height: 1.7;">
             <i class="fa-solid fa-scale-balanced" style="margin-top: 2px;"></i>
             <div>
                 <strong style="font-size: 15px; display: block; margin-bottom: 8px;">Căn cứ pháp lý</strong>
 
-                <p><strong>Điều 17 Thông tư liên tịch số 04/2018/TTLT-VKSNDTC-BCA-BQP</strong> ngày 19 tháng 10 năm 2018 quy định về phối hợp giữa Cơ quan điều tra và Viện kiểm sát trong việc thực hiện một số quy định của Bộ luật Tố tụng hình sự:</p>
+                <p><strong>Điều 17 Thông tư liên tịch số 01/2026/TTLT-VKSNDTC-BCA-BQP</strong> ngày 28 tháng 01 năm 2026 quy định về phối hợp giữa Cơ quan điều tra và Viện kiểm sát trong việc thực hiện một số quy định của Bộ luật Tố tụng hình sự:</p>
 
                 <p><strong>Tính thời hạn tạm giam trong trường hợp bị can đã bị tạm giữ và cách ghi thời hạn trong lệnh tạm giam, lệnh bắt bị can để tạm giam đối với bị can đã bị tạm giữ</strong></p>
 
@@ -319,7 +325,7 @@ Chèn vào cuối block `<script>`, ngay trước `</script>` (dòng ~1652):
 
 ```javascript
 // ============================================================
-// CHỨC NĂNG TÍNH TẠM GIAM (Điều 17 TT 04/2018)
+// CHỨC NĂNG TÍNH TẠM GIAM (Điều 17 TTLT 01/2026)
 // ============================================================
 
 function toggleTamGiamContinuous() {
@@ -363,7 +369,7 @@ function calculateTamGiam() {
         return;
     }
 
-    // === LOGIC THEO ĐIỀU 17 TT 04/2018 ===
+    // === LOGIC THEO ĐIỀU 17 TTLT 01/2026 ===
     // 1. 1 tháng = 30 ngày (cố định)
     var tongNgayGoc = thangGoc * 30 + ngayGoc;
 
@@ -523,8 +529,8 @@ function displayTamGiamResult(startDate, endDate, thangGoc, ngayGoc, daTamGiu, t
 
 | # | Test case | Phần | Input | Kết quả mong đợi |
 |---|-----------|------|-------|------------------|
-| 1 | Ví dụ 1 (TT 04/2018) | Tạm giam | Start: 04/3/2025, TG: 2th0ng, Tạm giữ: 3 ngày | Hết hạn: **29/4/2025** |
-| 2 | Ví dụ 2 (TT 04/2018) | Tạm giam | Start: 11/4/2025, TG: 2th0ng, Tạm giữ: 6 ngày | Hết hạn: **03/6/2025** |
+| 1 | Ví dụ 1 (TTLT 01/2026) | Tạm giam | Start: 04/3/2025, TG: 2th0ng, Tạm giữ: 3 ngày | Hết hạn: **29/4/2025** |
+| 2 | Ví dụ 2 (TTLT 01/2026) | Tạm giam | Start: 11/4/2025, TG: 2th0ng, Tạm giữ: 6 ngày | Hết hạn: **03/6/2025** |
 | 3 | Không có tạm giữ | Tạm giam | Start: 01/7/2026, TG: 2th0ng, Tạm giữ: 0 | Hết hạn: **30/8/2026** (60 ngày) |
 | 4 | Ngày nghỉ (không dời) | Tạm giam | Start: 01/7/2026 (T4), TG: 0th5ng | Hết hạn: **05/7/2026 (CN)** → không dời |
 | 5 | +1 ngày (đã sửa) | Thời hạn | Start: 01/7/2026, +1 ngày | **02/7/2026** (không +1 ngày) |

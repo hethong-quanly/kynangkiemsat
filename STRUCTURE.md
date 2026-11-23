@@ -295,3 +295,20 @@ Khi một AI agent được giao nhiệm vụ làm việc với mã nguồn này
 3. Không commit file `.exe`, `.zip`, `build/`, `dist/`, `__pycache__/` (đã `.gitignore`)
 4. Khi thêm tool mới: theo đúng pattern ở mục 4
 5. Cập nhật file này sau khi thay đổi cấu trúc dự án
+---
+
+## 9. MODULE DÙNG CHUNG: TRỢ LÝ ẢO + SOẠN QĐ PHÂN CÔNG KSV (11/2026)
+
+```
+static/js/
+├── knks-linh-vuc.js       ← DỮ LIỆU: loại văn bản, tiêu chí kiểm sát, khâu phân công, căn cứ, văn bản mẫu, PROXY_URL AI
+├── tro-ly-ao.js           ← KNKS.mountTroLy() + KNKS.attach() (gắn 2 tab vào trang kỹ năng) + AI tuỳ chọn (Groq/Gemini, BYOK)
+└── soan-qd-phan-cong.js   ← KNKS.mountSoanQd(): trích trường, soạn QĐ, xuất .docx, dòng sổ
+```
+
+- Trang kỹ năng gắn module bằng 5 dòng trước `</body>`: nạp 3 file trên rồi `KNKS.attach({ linhVuc: "thahs" })`.
+  Lĩnh vực: `thahs` (KiemSatThahs), `thads` (KiemSatThads), `anhs` (KiemSatAnHs), `ands` (KiemSatAnDs), `kntc` (GiaiQuyetKnTc), `tong-hop`.
+- Module tự thêm tab `troly`, `soanqd` vào `#tabs` và pane `#pane-troly`, `#pane-soanqd`; mở thẳng bằng `#troly` / `#soanqd` trên URL.
+- Mặc định chạy offline (dò từ khoá). AI chỉ chạy khi người dùng tự bật, nhập key riêng (lưu localStorage) và tích xác nhận đã ẩn danh. Không commit API key.
+- Cập nhật văn bản mới: sửa `knks-linh-vuc.js` và `Data/van-ban-can-cu.json`, rồi nâng `CACHE` trong `sw.js`.
+- Trang độc lập cũ `Tool/TroLyAoKiemSat`, `Tool/SoanQdPhanCong` vẫn giữ (dự kiến chuyển sang module chung sau).
