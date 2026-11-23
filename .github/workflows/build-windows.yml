@@ -1,0 +1,82 @@
+name: Build Windows installer
+
+# Bộ cài Windows (.exe, NSIS) cho «Kỹ năng Kiểm sát», dựng bằng Tauri v2 + Edge WebView2.
+# - Chạy tay (workflow_dispatch) trên main: build rồi đính kèm vào GitHub Release.
+# - Pull request đụng tới desktop-windows/: chỉ build để kiểm tra, không đăng file.
+
+on:
+  workflow_dispatch:
+    inputs:
+      release_tag:
+        description: "Release để đính kèm bộ cài (để trống = không đăng)"
+        required: false
+        default: "app-v1.0.0"
+  pull_request:
+    paths:
+      - "desktop-windows/**"
+      - ".github/workflows/build-windows.yml"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: build-windows-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: windows-latest
+    timeout-minutes: 40
+    defaults:
+      run:
+        shell: bash
+        working-directory: desktop-windows
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: desktop-windows/package-lock.json
+
+      - uses: dtolnay/rust-toolchain@stable
+
+      - uses: Swatinem/rust-cache@v2
+        with:
+          workspaces: desktop-windows/src-tauri -> target
+
+      - name: Cài Tauri CLI
+        run: npm ci
+
+      - name: Build bộ cài NSIS
+        run: npx tauri build --bundles nsis
+
+      - name: Đặt tên chuẩn, tạo SHA-256
+        id: pack
+        run: |
+          VERSION=$(node -p "require('./src-tauri/tauri.conf.json').version")
+          SRC=$(ls src-tauri/target/release/bundle/nsis/*-setup.exe | head -n1)
+          mkdir -p ../phat-hanh
+          OUT="KyNangKiemSat-Windows-Setup-${VERSION}.exe"
+          cp "$SRC" "../phat-hanh/$OUT"
+          cd ../phat-hanh
+          sha256sum "$OUT" > SHA256SUMS-windows.txt
+          cat SHA256SUMS-windows.txt
+          ls -l
+          echo "file=$OUT" >> "$GITHUB_OUTPUT"
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: KyNangKiemSat-Windows-Setup
+          path: phat-hanh/*
+          if-no-files-found: error
+
+      - name: Đính kèm vào GitHub Release
+        if: github.event_name == 'workflow_dispatch' && github.ref == 'refs/heads/main' && inputs.release_tag != ''
+        working-directory: phat-hanh
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release upload "${{ inputs.release_tag }}" "${{ steps.pack.outputs.file }}" SHA256SUMS-windows.txt \
+            --repo "${{ github.repository }}" --clobber
