@@ -59,9 +59,11 @@
   function draft(k, F, a) {
     var nguon = [F.soVanBan, F.ngayVanBan, F.coQuanGui].filter(Boolean).join(" — ");
     var cd = a.chucDanh.toUpperCase();
-    return "VIỆN KIỂM SÁT NHÂN DÂN\nTHÀNH PHỐ CẦN THƠ\nSố: " + (a.soQd || "…") + "/QĐ-VKS-" + k.so +
-      "\n\nCỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM\nĐộc lập - Tự do - Hạnh phúc\n\nCần Thơ, " + isoLong(a.ngayQd) +
-      "\n\nQUYẾT ĐỊNH\nPhân công Kiểm sát viên " + k.nv + "\n\n" + cd + " VIỆN KIỂM SÁT NHÂN DÂN THÀNH PHỐ CẦN THƠ\n\nCăn cứ:\n" +
+    // Tên cơ quan theo «Đơn vị công tác» người dùng chọn (mặc định VKSND thành phố Cần Thơ).
+    var dv = (g.KNKS_DONVI && g.KNKS_DONVI.info()) || { tieuDe: ["VIỆN KIỂM SÁT NHÂN DÂN", "THÀNH PHỐ CẦN THƠ"], diaDanh: "Cần Thơ" };
+    return dv.tieuDe.join("\n") + "\nSố: " + (a.soQd || "…") + "/QĐ-VKS-" + k.so +
+      "\n\nCỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM\nĐộc lập - Tự do - Hạnh phúc\n\n" + dv.diaDanh + ", " + isoLong(a.ngayQd) +
+      "\n\nQUYẾT ĐỊNH\nPhân công Kiểm sát viên " + k.nv + "\n\n" + cd + " " + dv.tieuDe.join(" ") + "\n\nCăn cứ:\n" +
       k.cc.map(function (c) { return "- " + c + ";"; }).join("\n") + "\n\nXét đề nghị phân công và văn bản nguồn" + (nguon ? ": " + nguon : "") + ";\n\nQUYẾT ĐỊNH:\n\n" +
       "Điều 1. Phân công đồng chí " + (a.ksv || "…") + ", " + a.chucVu + ", " + k.nv + " " + vuViec(k, F).replace(/[.\s]+$/, "") + "." +
       (a.ksvPhu ? "\nPhân công đồng chí " + a.ksvPhu + " phối hợp, hỗ trợ Kiểm sát viên thụ lý chính." : "") +
@@ -138,6 +140,8 @@
       $("parsed").textContent = n ? "Đã nhận " + n + " trường — sửa trực tiếp nếu OCR lệch." : "Chưa nhận được trường nào — kiểm tra lại văn bản.";
     }
     try { var o = JSON.parse(localStorage.getItem(LS) || "{}"); Object.keys(o).forEach(function (x) { if (o[x] && $(x)) $(x).value = o[x]; }); } catch (e) {}
+    // Điền sẵn họ tên/chức danh từ «Đơn vị công tác» nếu chưa có.
+    try { var dvi = g.KNKS_DONVI && g.KNKS_DONVI.get(); if (dvi) { if (dvi.hoTen && !$("ksv").value) $("ksv").value = dvi.hoTen; if (dvi.chucDanh && (!$("chucVu").value || $("chucVu").value === "Kiểm sát viên")) $("chucVu").value = dvi.chucDanh; } } catch (e) {}
     $("ngayQd").value = K.util.today();
     host.addEventListener("click", function (e) {
       var b = e.target.closest("[data-khau]"); if (b) { khau = b.getAttribute("data-khau"); renderKhau(); refresh(); return; }

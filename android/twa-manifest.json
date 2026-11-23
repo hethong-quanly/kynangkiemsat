@@ -1,0 +1,65 @@
+{
+  "packageId": "io.github.hethongquanly.kynangkiemsat",
+  "host": "hethong-quanly.github.io",
+  "name": "Kỹ năng Kiểm sát — VKSND TP Cần Thơ",
+  "launcherName": "KN Kiểm sát",
+  "display": "standalone",
+  "themeColor": "#1E5A8A",
+  "themeColorDark": "#0B141C",
+  "navigationColor": "#1E5A8A",
+  "navigationColorDark": "#0B141C",
+  "navigationDividerColor": "#1E5A8A",
+  "navigationDividerColorDark": "#0B141C",
+  "backgroundColor": "#EEF7F9",
+  "enableNotifications": false,
+  "startUrl": "/kynangkiemsat/",
+  "iconUrl": "https://hethong-quanly.github.io/kynangkiemsat/icons/icon-512.png",
+  "maskableIconUrl": "https://hethong-quanly.github.io/kynangkiemsat/icons/icon-512-maskable.png",
+  "splashScreenFadeOutDuration": 300,
+  "signingKey": {
+    "path": "/home/box/kynangkiemsat-signing/kynangkiemsat.keystore",
+    "alias": "kynangkiemsat"
+  },
+  "appVersionName": "1.0.0",
+  "appVersionCode": 1,
+  "shortcuts": [
+    {
+      "name": "Kỹ năng kiểm sát thi hành án hình sự",
+      "shortName": "KS THAHS",
+      "url": "https://hethong-quanly.github.io/kynangkiemsat/Tool/KiemSatThahs/index.html",
+      "chosenIconUrl": "https://hethong-quanly.github.io/kynangkiemsat/icons/icon-192.png"
+    },
+    {
+      "name": "Tính tuổi — Tính thời hạn",
+      "shortName": "Tính thời hạn",
+      "url": "https://hethong-quanly.github.io/kynangkiemsat/Data/TinhTuoiThoiHan.html",
+      "chosenIconUrl": "https://hethong-quanly.github.io/kynangkiemsat/icons/icon-192.png"
+    }
+  ],
+  "generatorApp": "bubblewrap-cli",
+  "webManifestUrl": "https://hethong-quanly.github.io/kynangkiemsat/manifest.json",
+  "fallbackType": "customtabs",
+  "features": {},
+  "alphaDependencies": {
+    "enabled": false
+  },
+  "enableSiteSettingsShortcut": true,
+  "isChromeOSOnly": false,
+  "isMetaQuest": false,
+  "fullScopeUrl": "https://hethong-quanly.github.io/kynangkiemsat/",
+  "minSdkVersion": 24,
+  "orientation": "any",
+  "fingerprints": [
+    {
+      "name": "upload-key",
+      "value": "DB:89:DE:BF:BE:A4:BA:31:1B:66:B7:C3:96:8B:BE:C3:35:8C:4C:7C:27:77:BD:61:2F:B8:3F:87:02:FC:CA:ED"
+    }
+  ],
+  "additionalTrustedOrigins": [],
+  "retainedBundles": [],
+  "protocolHandlers": [],
+  "fileHandlers": [],
+  "launchHandlerClientMode": "",
+  "displayOverride": [],
+  "appVersion": "1.0.0"
+}

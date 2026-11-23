@@ -71,6 +71,7 @@
         #landing-page {
             font-family: 'Inter', sans-serif;
             background-color: #0a2a58;
+            overflow: hidden;
         }
         #landing-page .hq-photo {
             position: absolute; inset: 0; width: 100%; height: 100%;
@@ -371,7 +372,11 @@
             white-space: nowrap;
         }
         .btn-install:active { transform: scale(0.98); }
+        .btn-dv { min-height: 44px; padding: 0 14px; border-radius: 12px; border: 1px solid var(--slate-200, #e2e8f0); background: rgba(255,255,255,.75); color: var(--slate-700, #334155); font: inherit; font-weight: 700; font-size: 13px; cursor: pointer; white-space: nowrap; }
+        html[data-theme="dark"] .btn-dv { background: rgba(255,255,255,.06); color: #e2e8f0; border-color: rgba(255,255,255,.15); }
+        .header-dv { margin: 8px 0 0; font-size: 13px; font-weight: 600; color: var(--teal-600); }
         body.is-standalone .btn-install { display: none; }
+        body.is-standalone .footer-privacy .lnk-app { display: none; }
         .pwa-banner {
             display: none; align-items: flex-start; gap: 12px; margin: 0 0 16px;
             padding: 14px 16px; background: #fff; border: 1px solid rgba(30,90,138,0.18);
@@ -580,7 +585,7 @@
 
             <!-- THÔNG TIN VĂN BẢN -->
             <div class="text-center mt-2 space-y-2">
-                <h2 class="vks-gold-3d">Dành cho Kiểm sát viên<br>Viện kiểm sát nhân dân thành phố Cần Thơ</h2>
+                <h2 class="vks-gold-3d">Dành cho Kiểm sát viên<br><span data-don-vi="ten">Viện kiểm sát nhân dân thành phố Cần Thơ</span></h2>
                 <h1 class="text-[29px] md:text-[34px] font-extrabold tracking-wide text-white">
                     KỸ NĂNG <span class="bg-gradient-to-r from-proc-blue to-proc-neon bg-clip-text text-transparent">NGHIỆP VỤ</span>
                 </h1>
@@ -597,6 +602,7 @@
             <div class="header-left">
                 <h1>KỸ NĂNG ỨNG DỤNG TRONG NGHIỆP VỤ KIỂM SÁT</h1>
                 <div class="header-underline"></div>
+                <p class="header-dv">Dành cho KSV · VKSND TP Cần Thơ</p>
             </div>
             <div class="header-right">
                 <div class="theme-switch" role="group" aria-label="Chọn giao diện">
@@ -609,6 +615,7 @@
                         <span>Tối</span>
                     </button>
                 </div>
+                <button type="button" class="btn-dv" data-mo-don-vi title="Chọn đơn vị công tác">Đơn vị công tác</button>
                 <button type="button" class="btn-install" id="btn-install" onclick="promptInstall()">Cài đặt</button>
             </div>
         </div>
@@ -625,7 +632,7 @@
         <div class="bento-grid" id="tools-grid"></div>
         <footer class="site-footer" id="knks-ban-quyen">
             <p class="footer-author">Tác giả: <span>THIÊN PHÚC – VIỆN KIỂM SÁT NHÂN DÂN THÀNH PHỐ CẦN THƠ</span> &copy; 2026 · Liên hệ: <a href="tel:0939103666">0939103666</a></p>
-            <p class="footer-unit footer-privacy"><a href="privacy.html">Chính sách dữ liệu và quyền riêng tư</a></p>
+            <p class="footer-unit footer-privacy"><span class="lnk-app"><a href="cai-dat.html">Tải ứng dụng (Android, iPhone)</a> · </span><a href="privacy.html">Chính sách dữ liệu và quyền riêng tư</a></p>
         </footer>
     </div>
 
@@ -667,7 +674,7 @@
             <ol>
                 <li>Mở trang này bằng <strong>Safari</strong> (iPhone / iPad) hoặc <strong>Chrome</strong> (Android).</li>
                 <li>iPhone: bấm nút Chia sẻ (hình vuông có mũi tên lên) rồi chọn <strong>Thêm vào Màn hình chính</strong>.</li>
-                <li>Android: bấm <strong>Cài app</strong> trên banner, hoặc menu Chrome → Cài đặt ứng dụng.</li>
+                <li>Android: <a href="cai-dat.html"><strong>tải ứng dụng Android (APK)</strong></a>, hoặc bấm <strong>Cài app</strong> trên banner / menu Chrome → Cài đặt ứng dụng.</li>
                 <li>Mở icon <strong>KN Kiểm sát</strong> trên màn hình. Tính hạn, THADS, THAHS, án hình sự, KN-TC chạy khi mất mạng.</li>
             </ol>
             <button type="button" class="btn-go" onclick="closeInstallSheet()">Đã hiểu</button>
@@ -910,5 +917,6 @@
 
         init();
     </script>
+    <script src="static/js/don-vi.js"></script>
 </body>
 </html>

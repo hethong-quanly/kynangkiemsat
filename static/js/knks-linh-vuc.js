@@ -5,7 +5,8 @@
    phải đối chiếu văn bản gốc và cập nhật khi có văn bản mới (xem mục "CAP_NHAT" cuối file). */
 (function (g) {
   "use strict";
-  var ORG = "Viện Kiểm sát nhân dân thành phố Cần Thơ";
+  // Tên cơ quan theo «Đơn vị công tác» đã chọn (theme.js), mặc định VKSND thành phố Cần Thơ.
+  var ORG = (g.KNKS_DONVI && g.KNKS_DONVI.get()) ? g.KNKS_DONVI.info().ten : "Viện Kiểm sát nhân dân thành phố Cần Thơ";
   var LTC = "Luật Tổ chức Viện kiểm sát nhân dân năm 2014, được sửa đổi, bổ sung bởi Luật số 82/2025/QH15";
 
   /* ---------- 1. LOẠI VĂN BẢN mà Trợ lý ảo kiểm sát ---------- */
