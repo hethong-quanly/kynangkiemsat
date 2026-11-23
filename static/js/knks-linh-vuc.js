@@ -183,8 +183,58 @@
       vanBan: Object.keys(VAN_BAN), khau: Object.keys(KHAU), canCu: "Theo từng loại văn bản" }
   };
 
+  /* ---------- 6. CĂN CỨ CHO AI (system prompt) — chỉ ghi văn bản/mốc đã có nguồn trong repo
+     (Data/van-ban-can-cu.json, các trang kỹ năng) hoặc đã đối chiếu toàn văn. Giữ gọn (Groq free ~8K TPM). */
+  var AI_LUAT = {
+    chung: {
+      canCu: ["Luật Tổ chức VKSND 63/2014/QH13, sửa bởi Luật 82/2025/QH15 (HL 01/7/2025)",
+        "BLTTHS 101/2015/QH13, sửa đến Luật 99/2025/QH15 (HL 01/7/2025) — BLTTHS (sửa đổi) thông qua 21/11/2026, HL 01/3/2027, CHƯA áp dụng",
+        "BLHS 100/2015/QH13 (sửa 2017, 2024, 2025) — BLHS (sửa đổi) thông qua 20/11/2026, HL 01/3/2027, CHƯA áp dụng"],
+      het: [], moc: [] },
+    thahs: {
+      canCu: ["Luật Thi hành án hình sự 127/2025/QH15 (ban hành 10/12/2025, HL 01/7/2026)",
+        "Luật Thi hành tạm giữ, tạm giam và cấm đi khỏi nơi cư trú 128/2025/QH15 (HL 01/7/2026)",
+        "NĐ 170/2026/NĐ-CP, NĐ 213/2026/NĐ-CP; TTLT 05/2026, TTLT 08/2026; TT 57, 88, 96/2026/TT-BCA",
+        "TTLT 01/2026/TTLT-VKSNDTC-BCA-BQP (phối hợp CQĐT–VKS thực hiện BLTTHS; ban hành 28/01/2026, HL 15/3/2026; Điều 17 cách tính thời hạn tạm giữ, tạm giam)",
+        "NQ 03/2024/NQ-HĐTP (trừ thời gian tạm giữ, tạm giam); Quy chế 259/QĐ-VKSTC (quy chế công tác kiểm sát THAHS); QĐ 39/QĐ-VKSTC (biểu mẫu kiểm sát THAHS)"],
+      het: ["Luật THAHS 41/2019/QH14 — hết HL 01/7/2026, thay bằng Luật 127/2025/QH15",
+        "Luật Thi hành tạm giữ, tạm giam 94/2015/QH13 — hết HL 01/7/2026, thay bằng Luật 128/2025/QH15",
+        "TTLT 04/2018/TTLT-VKSNDTC-BCA-BQP — hết HL 15/3/2026, thay bằng TTLT 01/2026"],
+      moc: ["Thời hạn tạm giữ không quá 03 ngày; trường hợp cần thiết NGƯỜI RA QUYẾT ĐỊNH TẠM GIỮ (không phải VKS) gia hạn không quá 03 ngày, trường hợp đặc biệt gia hạn lần hai không quá 03 ngày; mọi lần gia hạn phải được VKS cùng cấp/có thẩm quyền phê chuẩn; VKS ra quyết định phê chuẩn hoặc không phê chuẩn gia hạn trong 12 giờ kể từ khi nhận hồ sơ đề nghị gia hạn; 01 ngày tạm giữ = 01 ngày tạm giam (Điều 118 BLTTHS 2015)",
+        "Tính thời hạn tạm giữ, tạm giam: hết vào ngày ghi trong lệnh/quyết định; 01 tháng = 30 ngày, không lùi do ngày nghỉ (Điều 17 TTLT 01/2026)",
+        "Tòa gửi QĐ thi hành án phạt tù cho VKS trong 02 ngày làm việc; người bị kết án tại ngoại phải có mặt trong 07 ngày kể từ khi nhận QĐ (Điều 16 Luật 127/2025)",
+        "Xét giảm án: Chánh án phân công Thẩm phán trong 02 ngày làm việc từ khi nhận hồ sơ, Thẩm phán mở phiên họp trong 05 ngày làm việc; Tòa gửi QĐ trong 03 ngày làm việc (Điều 36 khoản 3, 4 Luật 127/2025)"] },
+    thads: {
+      canCu: ["Luật Thi hành án dân sự 106/2025/QH15 (ban hành 05/12/2025, HL 01/7/2026)",
+        "NĐ 151/2026/NĐ-CP, NĐ 152/2026/NĐ-CP (hướng dẫn Luật THADS 2025)",
+        "TT 72/2026/TT-BTC về phí THADS (HL 01/7/2026, thay TT 216/2016 và TT 74/2019)",
+        "Quy chế 810/QĐ-VKSTC (kiểm sát THADS, THAHC); QĐ 94/QĐ-VKSTC (quy trình trực tiếp kiểm sát)"],
+      het: ["Luật THADS 26/2008/QH12 (đã sửa nhiều lần) — hết HL 01/7/2026, thay bằng Luật 106/2025/QH15. Để so sánh: luật cũ cũng quy định tự nguyện 10 ngày kể từ ngày nhận được hoặc được thông báo hợp lệ QĐ THA (khoản 1 Điều 45); xác minh trong 10 ngày sau hết hạn tự nguyện (khoản 1 Điều 44) — theo VBHN 115/VBHN-VPQH ngày 27/8/2025"],
+      moc: ["Thời hạn tự nguyện thi hành án là 10 ngày kể từ ngày người phải thi hành án được thông báo hợp lệ quyết định thi hành án, trừ thi hành quyết định áp dụng biện pháp khẩn cấp tạm thời (khoản 1 Điều 36 Luật 106/2025/QH15)",
+        "Trong 09 ngày kể từ ngày hết thời hạn tự nguyện mà không tự nguyện thi hành thì Chấp hành viên xác minh; thi hành QĐ áp dụng BPKCTT thì xác minh ngay (khoản 1 Điều 37 Luật 106/2025/QH15)"] },
+    anhs: {
+      canCu: ["TTLT 01/2026/TTLT-VKSNDTC-BCA-BQP (HL 15/3/2026) — phối hợp CQĐT và VKS",
+        "TTLT 02/2018/TTLT (tố giác, tin báo về tội phạm, kiến nghị khởi tố)",
+        "Quy chế 06/QĐ-VKSTC ngày 23/3/2026 (THQCT, kiểm sát khởi tố, điều tra, truy tố; thay QĐ 111/QĐ-VKSTC 2020); Quy chế 09/QĐ-VKSTC; TT 03/2026/TT-VKSTC (biểu mẫu)",
+        "Luật Tổ chức cơ quan điều tra hình sự 99/2015/QH13 (luật sửa đổi thông qua 20/11/2026, HL 01/3/2027)"],
+      het: ["TTLT 04/2018/TTLT-VKSNDTC-BCA-BQP — hết HL 15/3/2026, thay bằng TTLT 01/2026",
+        "QĐ 111/QĐ-VKSTC 2020 — đã thay bằng Quy chế 06/QĐ-VKSTC 2026"],
+      moc: ["Thời hạn tạm giữ không quá 03 ngày; trường hợp cần thiết NGƯỜI RA QUYẾT ĐỊNH TẠM GIỮ (không phải VKS) gia hạn không quá 03 ngày, trường hợp đặc biệt gia hạn lần hai không quá 03 ngày; mọi lần gia hạn phải được VKS cùng cấp/có thẩm quyền phê chuẩn; VKS ra quyết định phê chuẩn hoặc không phê chuẩn gia hạn trong 12 giờ kể từ khi nhận hồ sơ đề nghị gia hạn; 01 ngày tạm giữ = 01 ngày tạm giam (Điều 118 BLTTHS 2015)",
+        "01 tháng tạm giam = 30 ngày, hết vào ngày ghi trong lệnh, không lùi do ngày nghỉ (Điều 17 TTLT 01/2026)"] },
+    ands: {
+      canCu: ["BLTTDS 92/2015/QH13 (sửa bởi Luật 85/2025/QH15); Luật TTHC 93/2015/QH13 (sửa 2025); BLDS 91/2015/QH13",
+        "NQ 326/2016/UBTVQH14 (án phí, lệ phí Tòa án); NQ 01/2019/NQ-HĐTP (lãi suất, hợp đồng vay)",
+        "QĐ 410/QĐ-VKSTC (biểu mẫu); Quy chế 436/QĐ-VKSTC ngày 28/11/2025 (kiểm sát giải quyết vụ việc dân sự); QĐ 204/QĐ-VKSTC"],
+      het: [], moc: [] },
+    kntc: {
+      canCu: ["Luật Khiếu nại 02/2011/QH13, Luật Tố cáo 25/2018/QH14, Luật Tiếp công dân 55/2013/QH13 — cùng sửa bởi Luật 136/2025/QH15 (HL 01/7/2026)",
+        "NĐ 31/2019/NĐ-CP (Luật Khiếu nại); NĐ 124/2020/NĐ-CP (Luật Tố cáo); BLTTHS, Luật THAHS 127/2025 (khiếu nại trong hoạt động tư pháp)",
+        "Quy định 50/QĐ-VKSTC (2026)"],
+      het: [], moc: [] }
+  };
+
   /* CAP_NHAT: khi có văn bản pháp luật mới → sửa VAN_BAN[*].checks, KHAU[*].cc / mau,
-     LINH_VUC[*].canCu, rồi tăng PHIEN_BAN và CACHE trong sw.js. */
+     LINH_VUC[*].canCu, AI_LUAT (căn cứ/mốc cho AI), rồi tăng PHIEN_BAN và CACHE trong sw.js. */
   var PHIEN_BAN = "2026-11-23";
 
   /* AI tuỳ chọn. PROXY_URL = Cloudflare Worker của Viện (mã nguồn: ai-proxy/worker.js), giữ GROQ_API_KEY
@@ -192,5 +242,5 @@
      KHÔNG đặt API key ở đây. */
   var AI = { PROXY_URL: "https://morning-night-5d0eknks-ai-proxy.mrphuc2009.workers.dev/api/chat" };
 
-  g.KNKS_LINH_VUC = { AI: AI, ORG: ORG, VAN_BAN: VAN_BAN, KHAU: KHAU, MAU: MAU, FAQ: FAQ, LINH_VUC: LINH_VUC, PHIEN_BAN: PHIEN_BAN };
+  g.KNKS_LINH_VUC = { AI: AI, ORG: ORG, VAN_BAN: VAN_BAN, KHAU: KHAU, MAU: MAU, FAQ: FAQ, LINH_VUC: LINH_VUC, AI_LUAT: AI_LUAT, PHIEN_BAN: PHIEN_BAN };
 })(window);
