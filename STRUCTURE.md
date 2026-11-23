@@ -320,8 +320,9 @@ Từ 23/11/2026, tệp nặng không để trong cây mã nguồn mà đặt ở
 
 | Tệp | Trước đây | Trang dùng |
 |---|---|---|
-| `OCR_PDF_Tool.zip` | thư mục build `Tool/OCR_PDF_Tool/OCR_PDF_Tool/` (72 MB) | `Tool/OCR_PDF_Tool/index.html` |
 | `Recording.mp4` | bản gốc 10,5 MB của `Data/Recording.mp4` (trang phát bản nén 2,4 MB cùng nguồn, vì trình duyệt chặn phát video Release từ github.io — lỗi ORB) | lưu trữ |
 
 Cập nhật bản mới: `gh release upload tai-nguyen-v1 <tệp> --clobber` (giữ nguyên tên để link không đổi).
 `AnDanh/khoi-chay.html` dùng chung `Tool/AnDanh/AnDanhTool.zip` (đã xoá bản zip trùng ở `AnDanh/`).
+
+> 23/11/2026: đã gỡ công cụ OCR PDF (`Tool/OCR_PDF_Tool`) vì không còn bản .exe; tệp TB rút kinh nghiệm bản án hành chính chuyển sang `Data/tai-lieu/`. `Tool/PdfToMd` là công cụ khác, giữ nguyên.
