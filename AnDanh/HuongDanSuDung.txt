@@ -1,7 +1,7 @@
 HƯỚNG DẪN SỬ DỤNG CÔNG CỤ ẨN DANH VĂN BẢN
 ================================================
 
-Tác giả: NHÓM IT — VIỆN KIỂM SÁT NHÂN DÂN THÀNH PHỐ CẦN THƠ
+Tác giả: Thiên Phúc (phần mềm cá nhân, liên hệ 0939103666)
 Phiên bản: 1.0
 Phạm vi: Dành riêng cho Viện KSND TP Cần Thơ
 
@@ -26,7 +26,7 @@ II. CÀI ĐẶT
 ================================================
 
 1. Tải AnDanhTool.zip từ trang khởi chạy (nút KHỞI CHẠY CÔNG CỤ)
-   hoặc nhận file nén do NHÓM IT cung cấp
+   hoặc nhận file nén do tác giả cung cấp
 2. Giải nén AnDanhTool.zip vào một thư mục trên máy
 3. Không cần cài đặt Python hay thư viện gì thêm
 4. File AnDanhTool.exe đã được đóng gói đầy đủ
@@ -54,6 +54,6 @@ IV. YÊU CẦU HỆ THỐNG
 V. LIÊN HỆ
 ================================================
 
-Phát triển bởi: NHÓM IT
+Phát triển bởi: Thiên Phúc
 Đơn vị: Viện Kiểm sát nhân dân thành phố Cần Thơ
 Phạm vi sử dụng: Dành riêng Viện KSND TP Cần Thơ

@@ -19,6 +19,8 @@
 
 ## 1. TỔNG QUAN
 
+> **Cập nhật 23/11/2026 — bản chạy trên trình duyệt (mặc định):** `AnDanh/index.html`, `Tool/FileRenamer/index.html` (+`doi-ten.js`), `Tool/DocxToMd/index.html` (+`docx-md.js`), `Tool/PdfToMd/index.html` (+`pdf-md.js`, OCR tesseract.js) chạy thuần JS trên máy người dùng, dùng `static/css/cong-cu.css`, `static/js/cong-cu.js` và thư viện tự lưu trong `static/vendor/` (không dùng CDN). Bản Python/exe cũ chuyển sang `ban-may-tinh.html` của từng thư mục (DocxToMd.zip chỉ có mã nguồn Python; PdfToMd.zip không có trong repo). Chân trang bản quyền dùng chung chèn từ `theme.js`.
+
 - **Loại dự án:** Web dashboard tập hợp các công cụ nghiệp vụ kiểm sát
 - **Frontend:** HTML/CSS/JS (thuần, không framework), file chính `index.html`
 - **Backend GUI tools:** Python Flask (HTML template inline trong file `.py`), đóng gói `.exe` bằng PyInstaller

@@ -1,7 +1,7 @@
 HƯỚNG DẪN SỬ DỤNG CÔNG CỤ ẨN DANH VĂN BẢN
 ================================================
 
-Tác giả: NHÓM IT - VIỆN KIỂM SÁT NHÂN DÂN THÀNH PHỐ CẦN THƠ
+Tác giả: Thiên Phúc (phần mềm cá nhân, liên hệ 0939103666)
 Phiên bản: TEST
 
 ================================================
@@ -50,4 +50,4 @@ IV. YÊU CẦU HỆ THỐNG
 V. LIÊN HỆ
 ================================================
 
-Tác giả: VIỆN KIỂM SÁT NHÂN DÂN THÀNH PHỐ CẦN THƠ
+Tác giả: Thiên Phúc
