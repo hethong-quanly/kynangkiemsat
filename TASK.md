@@ -527,11 +527,13 @@ function displayTamGiamResult(startDate, endDate, thangGoc, ngayGoc, daTamGiu, t
 
 ### D. KIỂM THỬ (Test cases)
 
+> **Đính chính test 3 (23/11/2026):** bản cũ ghi 30/8/2026 là sai. 02 tháng tạm giam = 60 ngày (khoản 1 Điều 134 BLTTHS 2015: "01 tháng được tính là 30 ngày"; thời hạn hết vào ngày ghi trong lệnh), tính liên tục và **tính cả ngày bắt đầu** như các ví dụ tại Điều 17 TTLT 01/2026 (VD1: 57 ngày từ 04/3/2025 → 29/4/2025; VD2: 54 ngày từ 11/4/2025 → 03/6/2025). Từ 01/7/2026: tháng 7 có 31 ngày (01–31/7) + 29 ngày tháng 8 = 60 ngày → **29/8/2026**. Đến 30/8 là 61 ngày. Code `Data/TinhTuoiThoiHan.html` đúng.
+
 | # | Test case | Phần | Input | Kết quả mong đợi |
 |---|-----------|------|-------|------------------|
 | 1 | Ví dụ 1 (TTLT 01/2026) | Tạm giam | Start: 04/3/2025, TG: 2th0ng, Tạm giữ: 3 ngày | Hết hạn: **29/4/2025** |
 | 2 | Ví dụ 2 (TTLT 01/2026) | Tạm giam | Start: 11/4/2025, TG: 2th0ng, Tạm giữ: 6 ngày | Hết hạn: **03/6/2025** |
-| 3 | Không có tạm giữ | Tạm giam | Start: 01/7/2026, TG: 2th0ng, Tạm giữ: 0 | Hết hạn: **30/8/2026** (60 ngày) |
+| 3 | Không có tạm giữ | Tạm giam | Start: 01/7/2026, TG: 2th0ng, Tạm giữ: 0 | Hết hạn: **29/8/2026** (60 ngày, tính cả ngày bắt đầu 01/7) |
 | 4 | Ngày nghỉ (không dời) | Tạm giam | Start: 01/7/2026 (T4), TG: 0th5ng | Hết hạn: **05/7/2026 (CN)** → không dời |
 | 5 | +1 ngày (đã sửa) | Thời hạn | Start: 01/7/2026, +1 ngày | **02/7/2026** (không +1 ngày) |
 | 6 | Ngày nghỉ (có dời) | Thời hạn | Start: 01/7/2026 (T4), +4 ngày → 05/7 (CN) | Cảnh báo dời sang **06/7 (T2)** |
@@ -545,4 +547,4 @@ function displayTamGiamResult(startDate, endDate, thangGoc, ngayGoc, daTamGiu, t
 3. [ ] **B1**: Thêm CSS cho phần Tạm giam vào cuối block `<style>`
 4. [ ] **B2**: Thêm HTML fieldset Tạm giam vào giữa fieldset Tạm giữ và fieldset Thời hạn
 5. [ ] **B3**: Thêm 5 hàm JavaScript (`toggleTamGiamContinuous`, `fillCurrentTimeTGIAM`, `quickExampleTGiam`, `calculateTamGiam`, `displayTamGiamResult`) vào cuối block `<script>`
-6. [ ] **D**: Kiểm thử 6 test case
+6. [x] **D**: Kiểm thử 6 test case (đạt 6/6 ngày 23/11/2026)
