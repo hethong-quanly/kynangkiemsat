@@ -8,6 +8,7 @@ const PRECACHE = [
   "./",
   "./index.html",
   "./offline.html",
+  "./privacy.html",
   "./manifest.json",
   "./theme.js",
   "./theme-tool.css",
@@ -205,9 +206,16 @@ self.addEventListener("fetch", (event) => {
   if (req.method !== "GET") return;
   const url = new URL(req.url);
   if (url.protocol !== "http:" && url.protocol !== "https:") return;
+  const sameOrigin = url.origin === new URL(SCOPE).origin;
+  // Biểu mẫu .docx/.xlsx đã precache: phục vụ từ cache khi có (dùng được offline), không thì tải mạng (không cache thêm).
+  if (sameOrigin && /\.(docx|xlsx)$/i.test(url.pathname)) {
+    event.respondWith(
+      caches.match(req, { ignoreSearch: true }).then((c) => c || fetch(req))
+    );
+    return;
+  }
   if (skipUrl(url)) return;
 
-  const sameOrigin = url.origin === new URL(SCOPE).origin;
   const isCdn = CDN_HOSTS.has(url.hostname);
   if (!sameOrigin && !isCdn) return;
 

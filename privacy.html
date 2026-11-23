@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<script src="./theme.js" data-knks-theme></script>
+<link rel="stylesheet" href="./theme-tool.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#1e5a8a" />
+  <title>Chính sách dữ liệu — Kỹ năng Kiểm sát</title>
+  <style>
+    :root { --sky-dark:#1e5a8a; --plum-dark:#5a1f30; --bronze:#c9952e; --bg:#eef7f9; --ink:#1e293b; --muted:#5e6772; --line:#d9d2c5; }
+    * { box-sizing: border-box; }
+    body { margin:0; font-family:"Be Vietnam Pro",Arial,sans-serif; background:var(--bg); color:var(--ink); line-height:1.6; }
+    .hdr { background:linear-gradient(135deg,var(--sky-dark),var(--plum-dark)); border-bottom:3px solid var(--bronze); color:#fff; padding:16px 20px; }
+    .hdr h1 { margin:0; font-size:clamp(18px,2.6vw,24px); font-weight:800; }
+    .hdr p { margin:2px 0 0; font-size:11px; letter-spacing:.14em; text-transform:uppercase; opacity:.75; font-weight:600; }
+    .wrap { max-width:860px; margin:0 auto; padding:20px 16px 56px; }
+    .card { background:#fff; border:1px solid rgba(203,213,225,.6); border-radius:16px; padding:18px 20px; margin-top:14px; }
+    h2 { font-size:16px; margin:0 0 8px; color:var(--sky-dark); }
+    li { margin:4px 0; }
+    .warn { background:#fff8e1; border-color:#ffe082; }
+    a { color:var(--sky-dark); }
+    .foot { text-align:center; margin-top:18px; font-size:12px; color:var(--muted); }
+  </style>
+</head>
+<body>
+  <header class="hdr">
+    <h1>Chính sách dữ liệu và quyền riêng tư</h1>
+    <p>Kỹ năng Kiểm sát · Nhóm IT · Viện KSND thành phố Cần Thơ</p>
+  </header>
+  <div class="wrap">
+    <div class="card">
+      <h2>1. Dữ liệu được lưu trên chính máy của bạn</h2>
+      <ul>
+        <li>Phần mềm là trang web tĩnh (GitHub Pages), <strong>không có máy chủ riêng thu thập dữ liệu</strong>, không yêu cầu đăng nhập.</li>
+        <li>Văn bản bạn dán hoặc tải lên để kiểm sát, trích xuất, soạn quyết định được <strong>xử lý ngay trong trình duyệt</strong> và không gửi đi đâu ở chế độ mặc định (dò từ khoá, không cần mạng).</li>
+        <li>Một số thông tin được lưu trong bộ nhớ trình duyệt (localStorage) để tiện dùng lại: sổ việc, tên Kiểm sát viên/người ký, giao diện sáng/tối, cài đặt AI (nếu bạn tự nhập). Bạn xoá bằng cách xoá dữ liệu trang web trong cài đặt trình duyệt.</li>
+        <li>Khi cài thành ứng dụng (PWA), các trang được lưu tạm (cache) trên máy để dùng khi không có mạng.</li>
+      </ul>
+    </div>
+    <div class="card warn">
+      <h2>2. AI là tuỳ chọn — dữ liệu sẽ được gửi ra nước ngoài</h2>
+      <ul>
+        <li>Mục «Trợ lý ảo kiểm sát văn bản» có thể dùng thêm AI <strong>chỉ khi bạn tự bật</strong>, tự nhập API key của mình và tích ô xác nhận đã ẩn danh.</li>
+        <li>Khi bật AI, nội dung văn bản và câu hỏi được gửi tới máy chủ của nhà cung cấp AI đặt <strong>ở nước ngoài</strong> (Groq — Hoa Kỳ; Google Gemini). Nhóm IT không kiểm soát việc lưu trữ của các nhà cung cấp này.</li>
+        <li><strong>Google Gemini bản miễn phí</strong>: Google dùng dữ liệu gửi lên (văn bản, câu hỏi, câu trả lời) để huấn luyện và cải thiện sản phẩm; nhân viên Google có thể đọc. Groq công bố không dùng dữ liệu để huấn luyện.</li>
+        <li>API key của bạn chỉ lưu trong trình duyệt của bạn, không được đưa lên GitHub. Không dùng chung máy khi đã lưu key.</li>
+        <li>Các mục «Kiểm sát Bản án hình sự, dân sự» (chatbot udify.app) và «Hình sự & Tố tụng hình sự» (Google NotebookLM) là <strong>dịch vụ bên ngoài</strong>: mọi nội dung bạn nhập ở đó được gửi lên máy chủ của bên thứ ba.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h2>3. Khuyến nghị bắt buộc trước khi gửi văn bản cho AI hoặc dịch vụ ngoài</h2>
+      <ul>
+        <li><strong>Ẩn danh</strong> văn bản: che họ tên, ngày sinh, số CCCD/hộ chiếu, địa chỉ, số điện thoại, số tài khoản… (dùng công cụ «Tự động che thông tin — không kết nối mạng»).</li>
+        <li><strong>Không</strong> gửi tài liệu thuộc bí mật nhà nước, tài liệu mật, hồ sơ vụ án chưa công khai.</li>
+        <li>Kết quả AI chỉ để tham khảo, có thể sai hoặc bịa điều luật. Kiểm sát viên phải đối chiếu văn bản gốc và chịu trách nhiệm về ý kiến, kiến nghị, kháng nghị.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h2>4. Liên hệ</h2>
+      <p>Nhóm IT — Viện Kiểm sát nhân dân thành phố Cần Thơ. Mã nguồn: <a href="https://github.com/hethong-quanly/kynangkiemsat" target="_blank" rel="noopener">github.com/hethong-quanly/kynangkiemsat</a>.</p>
+      <p><a href="./">← Về trang chính</a></p>
+    </div>
+    <p class="foot">Cập nhật ngày 23/11/2026.</p>
+  </div>
+</body>
+</html>
