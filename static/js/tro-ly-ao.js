@@ -112,7 +112,7 @@
     var fail = checks.filter(function (c) { return !c.ok; }), f = [];
     var len = o.text.trim().length;
     if (!len) f.push("Chưa có nội dung văn bản để đối chiếu.");
-    else if (len < 400) f.push("Văn bản quá ngắn — có thể là bản scan chưa có lớp chữ. Dùng mục «Nhận dạng chữ PDF» rồi dán lại.");
+    else if (len < 400) f.push("Văn bản quá ngắn — có thể là bản scan chưa có lớp chữ. Nhận dạng chữ (OCR) bằng công cụ khác rồi dán lại.");
     fail.forEach(function (c) { f.push(c.title + ": " + c.note); });
     if (!fail.length && len >= 400) f.push("Hình thức cơ bản đủ dấu hiệu. Vẫn cần đọc nhận định — quyết định để phát hiện mâu thuẫn, sai điều luật, sai số liệu.");
     return [
