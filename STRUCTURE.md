@@ -48,7 +48,7 @@ Bo_cong_cu_Kiem_sat/
 │   ├── Slide.html
 │   ├── slide.docx
 │   ├── slide.md
-│   └── Recording.mp4
+│   └── (video hướng dẫn Recording.mp4 → GitHub Release tai-nguyen-v1)
 │
 └── Tool/                         ← Các công cụ Python GUI (có thể build .exe)
     ├── auto_install.py           ← Module dùng chung: tự động kiểm tra & cài thư viện thiếu
@@ -312,3 +312,16 @@ static/js/
 - Mặc định chạy offline (dò từ khoá). AI chỉ chạy khi người dùng tự bật, nhập key riêng (lưu localStorage) và tích xác nhận đã ẩn danh. Không commit API key.
 - Cập nhật văn bản mới: sửa `knks-linh-vuc.js` và `Data/van-ban-can-cu.json`, rồi nâng `CACHE` trong `sw.js`.
 - Trang độc lập cũ `Tool/TroLyAoKiemSat`, `Tool/SoanQdPhanCong` vẫn giữ (dự kiến chuyển sang module chung sau).
+
+## Tệp lớn ngoài repo (GitHub Release `tai-nguyen-v1`)
+
+Từ 23/11/2026, tệp nặng không để trong cây mã nguồn mà đặt ở
+<https://github.com/hethong-quanly/kynangkiemsat/releases/tag/tai-nguyen-v1>:
+
+| Tệp | Trước đây | Trang dùng |
+|---|---|---|
+| `OCR_PDF_Tool.zip` | thư mục build `Tool/OCR_PDF_Tool/OCR_PDF_Tool/` (72 MB) | `Tool/OCR_PDF_Tool/index.html` |
+| `Recording.mp4` | `Data/Recording.mp4` (10 MB) | `Data/HuongDan.html` |
+
+Cập nhật bản mới: `gh release upload tai-nguyen-v1 <tệp> --clobber` (giữ nguyên tên để link không đổi).
+`AnDanh/khoi-chay.html` dùng chung `Tool/AnDanh/AnDanhTool.zip` (đã xoá bản zip trùng ở `AnDanh/`).
