@@ -187,10 +187,10 @@
      LINH_VUC[*].canCu, rồi tăng PHIEN_BAN và CACHE trong sw.js. */
   var PHIEN_BAN = "2026-11-23";
 
-  /* AI tuỳ chọn. PROXY_URL để trống = chỉ dùng key riêng của người dùng (BYOK).
-     Khi đã dựng proxy (Cloudflare Worker, xem ai-proxy) thì điền vd:
-     "https://kynangkiemsat-ai-proxy.<tai-khoan>.workers.dev/api/chat". KHÔNG đặt API key ở đây. */
-  var AI = { PROXY_URL: "" };
+  /* AI tuỳ chọn. PROXY_URL = Cloudflare Worker của Viện (mã nguồn: ai-proxy/worker.js), giữ GROQ_API_KEY
+     trong Worker Secrets, giới hạn 8 lượt/phút, 40 lượt/ngày mỗi IP. Để trống = chỉ dùng key riêng (BYOK).
+     KHÔNG đặt API key ở đây. */
+  var AI = { PROXY_URL: "https://morning-night-5d0eknks-ai-proxy.mrphuc2009.workers.dev/api/chat" };
 
   g.KNKS_LINH_VUC = { AI: AI, ORG: ORG, VAN_BAN: VAN_BAN, KHAU: KHAU, MAU: MAU, FAQ: FAQ, LINH_VUC: LINH_VUC, PHIEN_BAN: PHIEN_BAN };
 })(window);

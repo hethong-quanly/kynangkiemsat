@@ -147,7 +147,7 @@
   var AI_LS = "knks.ai.v2";
   var PROVIDERS = {
     groq: { ten: "Groq — khuyến nghị (không dùng dữ liệu để huấn luyện)", url: "https://api.groq.com/openai/v1/chat/completions",
-      model: "qwen/qwen3.8-27b", keyUrl: "https://console.groq.com/keys", maxChars: 12000, canhBao: "" },
+      model: "qwen/qwen3.8-27b", keyUrl: "https://console.groq.com/keys", maxChars: 9000, canhBao: "" },
     gemini: { ten: "Google Gemini — tuỳ chọn", url: "https://generativelanguage.googleapis.com/v1beta/openai/chat/completions",
       model: "gemini-3.5-flash-lite", keyUrl: "https://aistudio.google.com/apikey", maxChars: 30000,
       canhBao: "⚠ Bản miễn phí của Google Gemini dùng dữ liệu bạn gửi (văn bản, câu hỏi, câu trả lời) để huấn luyện và cải thiện sản phẩm; nhân viên Google có thể đọc. Tuyệt đối không gửi văn bản chưa ẩn danh hoặc tài liệu mật." }
@@ -159,26 +159,52 @@
     return c;
   }
   function saveAiCfg(c) { localStorage.setItem(AI_LS, JSON.stringify(c)); }
-  // Gửi tới PROXY_URL (nếu cấu hình) hoặc gọi thẳng nhà cung cấp OpenAI-compatible bằng key của người dùng.
-  function callAI(cfg, sys, user) {
-    var pv = PROVIDERS[cfg.provider] || PROVIDERS.groq, key = (cfg.key || "").trim(), model = (cfg.model || "").trim() || pv.model;
-    var proxy = proxyUrl();
-    if (proxy) {
-      var h = { "Content-Type": "application/json" };
-      if (key) { h["X-User-Provider"] = cfg.provider; h["X-User-Api-Key"] = key; }
-      return fetch(proxy, { method: "POST", headers: h, body: JSON.stringify({ system: sys, messages: [{ role: "user", content: user }], max_tokens: 2048, temperature: 0.2 }) })
-        .then(function (r) { return r.json().then(function (d) { if (!r.ok) throw new Error(d.error || "HTTP " + r.status); return d.content || ""; }); });
-    }
-    if (!key) return Promise.reject(new Error("chưa nhập API key"));
-    return fetch(pv.url, { method: "POST", headers: { "Content-Type": "application/json", "Authorization": "Bearer " + key },
+  function clean(s) { return String(s || "").replace(/<think>[\s\S]*?<\/think>\s*/g, "").trim(); }
+  function aiErr(msg, code) { var e = new Error(msg); e.code = code; return e; }
+  function readJson(r) { return r.text().then(function (s) { try { return JSON.parse(s); } catch (e) { return {}; } }); }
+  // Gọi máy chủ trung gian (Cloudflare Worker). Định dạng: POST {system, messages, max_tokens, temperature}
+  // → {provider, source, model, content}. Lỗi: {error}, 429 = hết lượt dùng chung.
+  function callProxy(cfg, sys, user) {
+    var key = (cfg.key || "").trim(), h = { "Content-Type": "application/json" }, body = { system: sys, messages: [{ role: "user", content: user }], max_tokens: 2048, temperature: 0.2 };
+    if (key) { h["X-User-Provider"] = cfg.provider; h["X-User-Api-Key"] = key; if ((cfg.model || "").trim()) body.model = cfg.model.trim(); }
+    return fetch(proxyUrl(), { method: "POST", headers: h, body: JSON.stringify(body) }).then(function (r) {
+      return readJson(r).then(function (d) {
+        if (r.status === 429) throw aiErr(d.error || "Hết lượt dùng chung", 429);
+        if (!r.ok) throw aiErr(d.error || "HTTP " + r.status, r.status);
+        if (!d.content) throw aiErr("AI không trả lời", 502);
+        return { content: clean(d.content), via: d.source === "byok" ? "key riêng qua máy chủ trung gian" : "lượt dùng chung của Viện", model: d.model || "" };
+      });
+    });
+  }
+  // Gọi thẳng nhà cung cấp OpenAI-compatible bằng key riêng của người dùng.
+  function callDirect(cfg, sys, user) {
+    var pv = PROVIDERS[cfg.provider] || PROVIDERS.groq, model = (cfg.model || "").trim() || pv.model;
+    return fetch(pv.url, { method: "POST", headers: { "Content-Type": "application/json", "Authorization": "Bearer " + cfg.key.trim() },
       body: JSON.stringify({ model: model, temperature: 0.2, max_tokens: 2048, messages: [{ role: "system", content: sys }, { role: "user", content: user }] })
-    }).then(function (r) { return r.json().then(function (d) {
-      if (!r.ok) throw new Error((d.error && (d.error.message || d.error)) || "HTTP " + r.status);
+    }).then(function (r) { return readJson(r).then(function (d) {
+      if (!r.ok) throw aiErr((d.error && (d.error.message || d.error)) || "HTTP " + r.status, r.status);
       var t = d.choices && d.choices[0] && d.choices[0].message && d.choices[0].message.content;
-      if (!t) throw new Error("AI không trả lời"); return t;
+      if (!t) throw aiErr("AI không trả lời", 502);
+      return { content: clean(t), via: "key riêng của bạn", model: d.model || model };
     }); });
   }
-  K.ai = { PROVIDERS: PROVIDERS, cfg: aiCfg, call: callAI, proxyUrl: proxyUrl };
+  // Thứ tự: key riêng (gọi thẳng; lỗi mạng/CORS thì thử qua proxy kèm key) → lượt dùng chung qua proxy.
+  function callAI(cfg, sys, user) {
+    var key = (cfg.key || "").trim(), proxy = proxyUrl();
+    if (key) {
+      return callDirect(cfg, sys, user).catch(function (e) {
+        if (e.code === 401 || e.code === 403) throw aiErr("Khoá API của bạn bị từ chối — kiểm tra lại key.", 401);
+        if (!proxy) throw e;
+        return callProxy(cfg, sys, user).catch(function (e2) {
+          if (e2.code === 401) throw aiErr("Khoá API của bạn bị từ chối — kiểm tra lại key.", 401);
+          return callProxy({ provider: cfg.provider }, sys, user);
+        });
+      });
+    }
+    if (!proxy) return Promise.reject(aiErr("chưa nhập API key", 0));
+    return callProxy(cfg, sys, user);
+  }
+  K.ai = { PROVIDERS: PROVIDERS, cfg: aiCfg, call: callAI, callProxy: callProxy, proxyUrl: proxyUrl };
 
   /* ---------------- giao diện Trợ lý ảo ---------------- */
   K.mountTroLy = function (host, linhVucId) {
@@ -228,7 +254,7 @@
     }
     var c0 = aiCfg();
     $("aiProv").value = c0.provider; $("aiKey").value = c0.key || ""; $("aiModel").value = c0.model || ""; showProv();
-    $("aiProxy").textContent = proxyUrl() ? "Đã cấu hình máy chủ trung gian của Viện: có thể dùng không cần key (giới hạn lượt/ngày); nếu nhập key riêng thì dùng key của bạn." : "Chưa có máy chủ trung gian: cần nhập API key riêng của bạn.";
+    $("aiProxy").textContent = proxyUrl() ? "Không cần key: dùng lượt miễn phí chung của Viện qua máy chủ trung gian (8 lượt/phút, 40 lượt/ngày mỗi mạng). Nếu nhập key riêng thì ưu tiên dùng key của bạn, không tốn lượt chung." : "Chưa có máy chủ trung gian: cần nhập API key riêng của bạn.";
     $("aiProv").onchange = showProv;
     $("useAi").onchange = function () { $("aiPanel").hidden = !$("useAi").checked; };
     $("vanban").addEventListener("input", function () { $("aiOk").checked = false; });
@@ -246,11 +272,15 @@
       var cfg = { provider: $("aiProv").value, model: $("aiModel").value.trim(), key: $("aiKey").value.trim() || aiCfg().key || "" };
       if (!cfg.key && !proxyUrl()) { add("bot", "Chưa gửi cho AI: hãy nhập API key trong «Cài đặt AI»."); $("aiBox").open = true; return; }
       if (g.navigator.onLine === false) { add("bot", "Máy đang mất mạng — chỉ dùng được kết quả kiểm tra trên máy."); return; }
-      var pv = PROVIDERS[cfg.provider];
+      var pv = PROVIDERS[cfg.key ? cfg.provider : "groq"];
       var wait = add("bot", "AI đang phân tích…");
       var user = (text ? "Loại văn bản: " + C.VAN_BAN[loai].label + "\nPhiếu kiểm tra tự động:\n" + local + "\n\nNỘI DUNG VĂN BẢN (đã ẩn danh):\n" + text.slice(0, pv.maxChars) : "") + (q ? "\n\nCÂU HỎI: " + q : "");
-      callAI(cfg, systemPrompt(lv), user).then(function (t) { wait.textContent = "[AI — chỉ để tham khảo, cần đối chiếu văn bản gốc]\n" + t; })
-        .catch(function (e) { wait.textContent = "Không gọi được AI (" + e.message + "). Dùng kết quả kiểm tra trên máy ở trên."; });
+      callAI(cfg, systemPrompt(lv), user).then(function (r) { wait.textContent = "[AI — chỉ để tham khảo, cần đối chiếu văn bản gốc · " + r.via + (r.model ? " · " + r.model : "") + "]\n" + r.content; })
+        .catch(function (e) {
+          if (e.code === 429) { wait.textContent = "Đã hết lượt AI miễn phí dùng chung (giới hạn 8 lượt/phút, 40 lượt/ngày). Bạn thử lại sau ít phút, hoặc nhập API key riêng (Groq miễn phí, không dùng dữ liệu để huấn luyện) trong «Cài đặt AI» để dùng tiếp. Kết quả kiểm tra trên máy ở trên vẫn dùng được."; $("aiBox").open = true; return; }
+          if (e.code === 413) { wait.textContent = "Văn bản quá dài cho AI. Hãy rút gọn (chỉ dán phần cần hỏi) rồi thử lại."; return; }
+          wait.textContent = "Không gọi được AI (" + e.message + "). Dùng kết quả kiểm tra trên máy ở trên.";
+        });
     }
     $("btnKs").onclick = function () { run(""); };
     $("send").onclick = function () { run($("q").value); };
