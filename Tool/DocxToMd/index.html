@@ -13,38 +13,38 @@
   <header class="hdr">
     <div class="hdr-icon">MD</div>
     <div>
-      <h1>Chuyển Word <span>sang Markdown</span></h1>
-      <p>Chạy trên trình duyệt, không gửi tệp đi</p>
+      <h1 data-i18n-html="docx.h1.html">Chuyển Word <span>sang Markdown</span></h1>
+      <p data-i18n="common.runsLocal">Chạy trên trình duyệt, không gửi tệp đi</p>
     </div>
   </header>
   <div class="wrap">
 
-    <p class="muted">Chuyển tệp <strong>.docx</strong> sang <strong>Markdown (.md)</strong> để đưa cho AI đọc: giữ tiêu đề, in đậm/nghiêng, danh sách, bảng. Mọi xử lý chạy trên máy của bạn, tệp không được gửi lên mạng.</p>
+    <p class="muted" data-i18n-html="docx.lead.html">Chuyển tệp <strong>.docx</strong> sang <strong>Markdown (.md)</strong> để đưa cho AI đọc: giữ tiêu đề, in đậm/nghiêng, danh sách, bảng. Mọi xử lý chạy trên máy của bạn, tệp không được gửi lên mạng.</p>
     <div class="card">
-      <p class="kicker">1. Chọn tệp</p>
+      <p class="kicker" data-i18n="renamer.step1">1. Chọn tệp</p>
       <div class="drop" id="drop">
-        <p style="font-weight:700">Kéo thả một hoặc nhiều tệp .docx vào đây</p>
-        <p class="muted">Tệp .doc (Word 97–2003): mở bằng Word → Lưu thành .docx rồi chọn lại.</p>
+        <p style="font-weight:700" data-i18n="docx.drop">Kéo thả một hoặc nhiều tệp .docx vào đây</p>
+        <p class="muted" data-i18n="docx.docHint">Tệp .doc (Word 97–2003): mở bằng Word → Lưu thành .docx rồi chọn lại.</p>
         <div class="row" style="justify-content:center">
-          <button class="btn btn-primary" type="button" id="btnPick">Chọn tệp .docx</button>
+          <button class="btn btn-primary" type="button" id="btnPick" data-i18n="docx.pick">Chọn tệp .docx</button>
         </div>
         <input type="file" id="file" accept=".docx,application/vnd.openxmlformats-officedocument.wordprocessingml.document" multiple hidden />
       </div>
-      <label class="chk"><input type="checkbox" id="optTable" checked /> Chuyển bảng thành bảng Markdown</label>
-      <label class="chk"><input type="checkbox" id="optFmt" checked /> Giữ in đậm, in nghiêng</label>
+      <label class="chk"><input type="checkbox" id="optTable" checked /> <span data-i18n="docx.optTable">Chuyển bảng thành bảng Markdown</span></label>
+      <label class="chk"><input type="checkbox" id="optFmt" checked /> <span data-i18n="docx.optFmt">Giữ in đậm, in nghiêng</span></label>
     </div>
     <div class="card" id="outCard" hidden>
       <div class="row" style="justify-content:space-between;align-items:center;margin-top:0">
-        <p class="kicker" style="margin:0">2. Kết quả</p>
+        <p class="kicker" style="margin:0" data-i18n="docx.step2">2. Kết quả</p>
         <div class="row" style="margin:0">
-          <button class="btn btn-ghost" type="button" id="btnCopy">Sao chép</button>
-          <button class="btn btn-ok" type="button" id="btnDl">Tải .md</button>
+          <button class="btn btn-ghost" type="button" id="btnCopy" data-i18n="common.copy">Sao chép</button>
+          <button class="btn btn-ok" type="button" id="btnDl" data-i18n="pdf.md">Tải .md</button>
         </div>
       </div>
-      <div class="list"><table><thead><tr><th>Tệp</th><th>Kết quả</th><th></th></tr></thead><tbody id="rows"></tbody></table></div>
+      <div class="list"><table><thead><tr><th data-i18n="common.file">Tệp</th><th data-i18n="common.results">Kết quả</th><th></th></tr></thead><tbody id="rows"></tbody></table></div>
       <pre class="preview" id="preview"></pre>
     </div>
-    <p class="foot">Công cụ hỗ trợ — kiểm tra lại nội dung trước khi sử dụng.</p>
+    <p class="foot" data-i18n="common.supportFoot">Công cụ hỗ trợ — kiểm tra lại nội dung trước khi sử dụng.</p>
   </div>
   <script src="../../static/js/cong-cu.js"></script>
   <script src="docx-md.js"></script>

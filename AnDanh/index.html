@@ -62,26 +62,26 @@
 <body>
   <div class="wrap">
     <div class="privacy">
-      <div>
+      <div data-i18n="andanh.privacy">
         <strong>Xử lý trên máy của bạn</strong> — không gửi tệp lên mạng.
       </div>
-      <button class="btn btn-ghost" type="button" id="btnHelp" style="color:#e8c675;background:transparent;border-color:rgba(232,198,117,.4)">Hướng dẫn</button>
+      <button class="btn btn-ghost" type="button" id="btnHelp" style="color:#e8c675;background:transparent;border-color:rgba(232,198,117,.4)" data-i18n="andanh.help">Hướng dẫn</button>
     </div>
-    <p class="kicker">Công cụ nghiệp vụ · chạy trên trình duyệt</p>
-    <h1>Tự động che thông tin trong văn bản</h1>
-    <p class="muted">Chọn file Word (.docx), .txt hoặc dán văn bản. Công cụ nhận diện họ tên, CCCD, SĐT, địa chỉ, ngày sinh, STK, email, biển số, MST.</p>
+    <p class="kicker" data-i18n="andanh.kicker">Công cụ nghiệp vụ · chạy trên trình duyệt</p>
+    <h1 data-i18n="andanh.h1">Tự động che thông tin trong văn bản</h1>
+    <p class="muted" data-i18n="andanh.lead">Chọn file Word (.docx), .txt hoặc dán văn bản. Công cụ nhận diện họ tên, CCCD, SĐT, địa chỉ, ngày sinh, STK, email, biển số, MST.</p>
     <div id="idle">
       <div class="drop" id="drop">
-        <p style="font-weight:800;margin:0 0 6px">Chọn văn bản cần che thông tin</p>
-        <p class="muted" style="margin:0">Kéo thả file .docx / .txt vào đây</p>
+        <p style="font-weight:800;margin:0 0 6px" data-i18n="andanh.dropTitle">Chọn văn bản cần che thông tin</p>
+        <p class="muted" style="margin:0" data-i18n="andanh.dropHint">Kéo thả file .docx / .txt vào đây</p>
         <div class="row">
-          <button class="btn btn-primary" type="button" id="btnBrowse">Chọn tệp .docx / .txt</button>
-          <button class="btn btn-ghost" type="button" id="btnSample">Dùng văn bản mẫu</button>
-          <button class="btn btn-ghost" type="button" id="btnPaste">Hoặc dán nội dung</button>
+          <button class="btn btn-primary" type="button" id="btnBrowse" data-i18n="andanh.browse">Chọn tệp .docx / .txt</button>
+          <button class="btn btn-ghost" type="button" id="btnSample" data-i18n="andanh.sample">Dùng văn bản mẫu</button>
+          <button class="btn btn-ghost" type="button" id="btnPaste" data-i18n="andanh.paste">Hoặc dán nội dung</button>
         </div>
         <div id="pasteBox" hidden>
-          <textarea id="pasteVal" placeholder="Dán cáo trạng, bản án, báo cáo…"></textarea>
-          <div class="row"><button class="btn btn-primary" type="button" id="btnPasteGo">Nhận diện văn bản đã dán</button></div>
+          <textarea id="pasteVal" placeholder="Dán cáo trạng, bản án, báo cáo…" data-i18n-placeholder="andanh.pastePh"></textarea>
+          <div class="row"><button class="btn btn-primary" type="button" id="btnPasteGo" data-i18n="andanh.pasteGo">Nhận diện văn bản đã dán</button></div>
         </div>
         <p class="err" id="idleErr" hidden></p>
       </div>
@@ -91,42 +91,42 @@
         <strong id="fileName"></strong>
         <span class="muted" id="countLine"></span>
         <span style="flex:1"></span>
-        <button class="btn btn-ghost" type="button" id="btnReplace">Đổi tệp</button>
-        <button class="btn btn-danger" type="button" id="btnClear">Xóa phiên</button>
+        <button class="btn btn-ghost" type="button" id="btnReplace" data-i18n="andanh.replace">Đổi tệp</button>
+        <button class="btn btn-danger" type="button" id="btnClear" data-i18n="andanh.clear">Xóa phiên</button>
       </div>
       <div class="grid">
         <div class="card">
-          <div class="kicker">Kiểu che</div>
+          <div class="kicker" data-i18n="andanh.style">Kiểu che</div>
           <div class="styles" id="styles"></div>
-          <div class="kicker" style="margin-top:12px">Nhóm phát hiện</div>
+          <div class="kicker" style="margin-top:12px" data-i18n="andanh.cats">Nhóm phát hiện</div>
           <div class="chips" id="cats"></div>
-          <label class="muted" style="display:block;margin:10px 0 4px">Thêm chuỗi cần ẩn (mỗi dòng một chuỗi)</label>
-          <textarea id="custom" style="min-height:70px" placeholder="Biệt danh, tên riêng…"></textarea>
+          <label class="muted" style="display:block;margin:10px 0 4px" data-i18n="andanh.custom">Thêm chuỗi cần ẩn (mỗi dòng một chuỗi)</label>
+          <textarea id="custom" style="min-height:70px" placeholder="Biệt danh, tên riêng…" data-i18n-placeholder="andanh.customPh"></textarea>
           <div class="toolbar" style="margin-top:10px">
-            <button class="btn btn-ok" type="button" id="btnDl">Tải văn bản đã ẩn</button>
-            <button class="btn btn-ghost" type="button" id="btnCopy">Sao chép</button>
+            <button class="btn btn-ok" type="button" id="btnDl" data-i18n="andanh.dl">Tải văn bản đã ẩn</button>
+            <button class="btn btn-ghost" type="button" id="btnCopy" data-i18n="common.copy">Sao chép</button>
           </div>
           <div class="find" id="findList"></div>
         </div>
         <div class="card">
           <div class="toolbar">
-            <div class="kicker" style="margin:0">Xem trước</div>
-            <button class="btn btn-ghost" type="button" id="modeSrc">Gốc đã đánh dấu</button>
-            <button class="btn btn-ghost" type="button" id="modeRed">Đã ẩn</button>
+            <div class="kicker" style="margin:0" data-i18n="andanh.preview">Xem trước</div>
+            <button class="btn btn-ghost" type="button" id="modeSrc" data-i18n="andanh.modeSrc">Gốc đã đánh dấu</button>
+            <button class="btn btn-ghost" type="button" id="modeRed" data-i18n="andanh.modeRed">Đã ẩn</button>
           </div>
           <div class="preview" id="preview"></div>
         </div>
       </div>
     </div>
-    <p class="win">Cần bản Windows độc lập? <a class="winlink" href="../Tool/AnDanh/AnDanhTool.zip">Tải AnDanhTool.zip</a> rồi chạy AnDanhTool.exe.</p>
+    <p class="win" data-i18n-html="andanh.win.html">Cần bản Windows độc lập? <a class="winlink" href="../Tool/AnDanh/AnDanhTool.zip">Tải AnDanhTool.zip</a> rồi chạy AnDanhTool.exe.</p>
   </div>
   <input id="file" type="file" accept=".docx,.txt,application/vnd.openxmlformats-officedocument.wordprocessingml.document,text/plain" hidden />
   <div id="help" hidden style="position:fixed;inset:0;background:rgba(12,35,64,.55);z-index:20;display:flex;align-items:center;justify-content:center;padding:16px">
     <div class="card" style="max-width:560px;max-height:80vh;overflow:auto">
-      <h2 style="margin-top:0">Hướng dẫn</h2>
-      <p class="muted">1. Chọn file .docx/.txt hoặc dán văn bản. 2. Rà soát danh sách. 3. Chọn kiểu che. 4. Tải file đã ẩn.</p>
-      <p class="muted">Mọi xử lý chạy trong trình duyệt. Không gửi tệp lên máy chủ.</p>
-      <button class="btn btn-primary" type="button" id="helpClose">Đóng</button>
+      <h2 style="margin-top:0" data-i18n="andanh.helpTitle">Hướng dẫn</h2>
+      <p class="muted" data-i18n="andanh.help1">1. Chọn file .docx/.txt hoặc dán văn bản. 2. Rà soát danh sách. 3. Chọn kiểu che. 4. Tải file đã ẩn.</p>
+      <p class="muted" data-i18n="andanh.help2">Mọi xử lý chạy trong trình duyệt. Không gửi tệp lên máy chủ.</p>
+      <button class="btn btn-primary" type="button" id="helpClose" data-i18n="common.close">Đóng</button>
     </div>
   </div>
 <script src="andanh.js"></script>

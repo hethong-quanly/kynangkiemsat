@@ -116,5 +116,18 @@
   global.addEventListener("storage", function (e) { if (e.key === DV_KEY) dvApply(document.body); });
   global.KNKS_DONVI = { KEY: DV_KEY, get: dvGet, set: dvSet, info: dvInfo, apply: dvApply };
 
+
+  /* Nạp knks-i18n.js (cùng thư mục với theme.js) nếu trang chưa gắn sẵn. */
+  (function loadI18n() {
+    if (global.KNKS_I18N) return;
+    if (document.querySelector('script[src*="knks-i18n.js"]')) return;
+    var ref = document.currentScript || document.querySelector('script[src*="theme.js"]');
+    var base = (ref && ref.src) ? ref.src : (global.location && location.href) || "theme.js";
+    var el = document.createElement("script");
+    el.src = new URL("knks-i18n.js", base).href;
+    el.async = false;
+    (ref && ref.parentNode ? ref.parentNode.insertBefore(el, ref.nextSibling) : document.head.appendChild(el));
+  })();
+
   global.KNKS_THEME = { BAN_QUYEN: BAN_QUYEN, KEY: KEY, resolve: resolve, apply: apply, set: set };
 })(window);
