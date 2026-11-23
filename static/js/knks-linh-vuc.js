@@ -108,12 +108,12 @@
       detect: /xét xử|cáo trạng|phiên tòa|truy tố|bị cáo/ },
     "kstha-hs": { short: "KSTHA HS", label: "Kiểm sát thi hành án hình sự", hint: "Quyết định thi hành án hình sự", so: "THAHS", vu: "thahs",
       nv: "kiểm sát việc thi hành án hình sự",
-      mau: "Biểu mẫu QĐ 39/QĐ-VKSTC (đối chiếu số mẫu)",
+      mau: "Biểu mẫu kèm Quy chế 259/QĐ-VKSTC ngày 20/7/2023 (đối chiếu số mẫu)",
       cc: [LTC, "Luật Thi hành án hình sự số 127/2025/QH15", "Quy chế 259/QĐ-VKSTC"],
       detect: /thi hành án hình sự|thahs|người chấp hành án|phạm nhân/ },
     "ks-tgtg": { short: "KS TG-TG", label: "Kiểm sát tạm giữ, tạm giam", hint: "Lệnh / QĐ tạm giữ, tạm giam, gia hạn", so: "TGTG", vu: "tgtg",
       nv: "kiểm sát việc quản lý, thi hành tạm giữ, tạm giam",
-      mau: "Biểu mẫu QĐ 39/QĐ-VKSTC (đối chiếu số mẫu)",
+      mau: "Biểu mẫu kèm Quy chế 259/QĐ-VKSTC ngày 20/7/2023 (đối chiếu số mẫu)",
       cc: [LTC, "Luật Thi hành tạm giữ, tạm giam và cấm đi khỏi nơi cư trú số 128/2025/QH15", "Bộ luật Tố tụng hình sự năm 2015 (sửa đổi, bổ sung)", "Quy chế 259/QĐ-VKSTC"],
       detect: /tạm giữ|tạm giam|nhà tạm giữ|trại tạm giam/ },
     "kstha-ds": { short: "KSTHA DS", label: "Kiểm sát thi hành án dân sự", hint: "Quyết định thi hành án dân sự", so: "THADS", vu: "thads",
@@ -165,19 +165,19 @@
   var LINH_VUC = {
     "thahs": { ten: "Kiểm sát thi hành án hình sự, tạm giữ, tạm giam",
       vanBan: ["qd-thahs", "lenh-tgtg", "qd-giam-an", "ba-hs"], khau: ["kstha-hs", "ks-tgtg"],
-      canCu: "Luật THAHS 127/2025/QH15, Luật 128/2025/QH15, NĐ 170–213/2026, Quy chế 259/QĐ-VKSTC, QĐ 39/QĐ-VKSTC (biểu mẫu)" },
+      canCu: "Luật THAHS 127/2025/QH15, Luật 128/2025/QH15, NĐ 170–213/2026, Quy chế 259/QĐ-VKSTC (kèm biểu mẫu)" },
     "thads": { ten: "Kiểm sát thi hành án dân sự",
       vanBan: ["qd-thads", "ba-ds", "ba-hc"], khau: ["kstha-ds"],
-      canCu: "Luật THADS 106/2025/QH15, NĐ 151–152/2026, TT 72/2026/TT-BTC (phí THA)" },
+      canCu: "Luật THADS 106/2025/QH15, NĐ 151–152/2026, TT 72/2026/TT-BTC (phí THA), Quy chế 810/QĐ-VKSTC" },
     "anhs": { ten: "Kiểm sát án hình sự (THQCT, điều tra, truy tố, xét xử)",
       vanBan: ["qd-cqdt", "cao-trang", "ba-hs"], khau: ["ksdt", "ksxx"],
       canCu: "BLTTHS, Quy chế 06/QĐ-VKSTC, Quy chế 09/QĐ-VKSTC, TT 03/2026/TT-VKSTC (biểu mẫu)" },
     "ands": { ten: "Kiểm sát án dân sự, hành chính",
       vanBan: ["ba-ds", "ba-hc"], khau: ["ks-ds", "ks-hc"],
-      canCu: "BLTTDS 2015 (sửa bởi Luật 85/2025/QH15), Luật TTHC, QĐ 410/QĐ-VKSTC (biểu mẫu), QĐ 436/QĐ-VKSTC" },
+      canCu: "BLTTDS 2015 (sửa bởi Luật 85/2025/QH15, Luật 142/2025/QH15), Luật TTHC 2015 (sửa bởi Luật 85/2025/QH15), QĐ 410/QĐ-VKSTC (biểu mẫu), Quy chế 436/QĐ-VKSTC" },
     "kntc": { ten: "Kiểm sát giải quyết khiếu nại, tố cáo trong hoạt động tư pháp",
       vanBan: ["qd-kntc"], khau: ["ks-kntc"],
-      canCu: "BLTTHS, Luật Khiếu nại (sửa 2025), Luật Tố cáo, Quy định 50/QĐ-VKSTC" },
+      canCu: "BLTTHS, TTLT 02/2018 (KN-TC trong TTHS), Luật Khiếu nại, Luật Tố cáo (sửa bởi Luật 136/2025/QH15), Quy định kèm QĐ 50/QĐ-VKSTC" },
     // Bản tổng hợp cho 2 trang độc lập hiện có (Tool/TroLyAoKiemSat, Tool/SoanQdPhanCong)
     "tong-hop": { ten: "Tổng hợp các lĩnh vực",
       vanBan: Object.keys(VAN_BAN), khau: Object.keys(KHAU), canCu: "Theo từng loại văn bản" }
@@ -194,19 +194,22 @@
     thahs: {
       canCu: ["Luật Thi hành án hình sự 127/2025/QH15 (ban hành 10/12/2025, HL 01/7/2026)",
         "Luật Thi hành tạm giữ, tạm giam và cấm đi khỏi nơi cư trú 128/2025/QH15 (HL 01/7/2026)",
-        "NĐ 170/2026/NĐ-CP, NĐ 213/2026/NĐ-CP; TTLT 05/2026, TTLT 08/2026; TT 57, 88, 96/2026/TT-BCA",
+        "NĐ 170/2026/NĐ-CP (chi tiết Luật THAHS), NĐ 213/2026/NĐ-CP (chi tiết Luật Thi hành tạm giữ, tạm giam và cấm đi khỏi nơi cư trú) — cùng HL 01/7/2026",
+        "TTLT 05/2026/TTLT-BCA-BQP-VKSNDTC-TANDTC (phối hợp quản lý, thi hành tạm giữ, tạm giam); TTLT 08/2026/TTLT-BCA-BQP-TANDTC-VKSNDTC (tha tù trước thời hạn có điều kiện); TT 57/2026/TT-BCA (chế độ quản lý giam giữ), TT 88/2026/TT-BCA (gặp, nhận quà, liên lạc của phạm nhân), TT 96/2026/TT-BCA (nội quy cơ sở giam giữ phạm nhân) — cùng HL 01/7/2026",
         "TTLT 01/2026/TTLT-VKSNDTC-BCA-BQP (phối hợp CQĐT–VKS thực hiện BLTTHS; ban hành 28/01/2026, HL 15/3/2026; Điều 17 cách tính thời hạn tạm giữ, tạm giam)",
-        "NQ 03/2024/NQ-HĐTP (trừ thời gian tạm giữ, tạm giam); Quy chế 259/QĐ-VKSTC (quy chế công tác kiểm sát THAHS); QĐ 39/QĐ-VKSTC (biểu mẫu kiểm sát THAHS)"],
+        "NQ 03/2024/NQ-HĐTP ngày 10/6/2024 (thời hiệu thi hành bản án, miễn chấp hành hình phạt, giảm mức hình phạt, hoãn chấp hành hình phạt tù)",
+        "Quy chế 259/QĐ-VKSTC ngày 20/7/2023 (kiểm sát tạm giữ, tạm giam, thi hành án hình sự, kèm hệ thống biểu mẫu)"],
       het: ["Luật THAHS 41/2019/QH14 — hết HL 01/7/2026, thay bằng Luật 127/2025/QH15",
         "Luật Thi hành tạm giữ, tạm giam 94/2015/QH13 — hết HL 01/7/2026, thay bằng Luật 128/2025/QH15",
-        "TTLT 04/2018/TTLT-VKSNDTC-BCA-BQP — hết HL 15/3/2026, thay bằng TTLT 01/2026"],
+        "TTLT 04/2018/TTLT-VKSNDTC-BCA-BQP — hết HL 15/3/2026, thay bằng TTLT 01/2026",
+        "QĐ 39/QĐ-VKSTC ngày 26/01/2018 (biểu mẫu kiểm sát THAHS) — hết HL từ 20/7/2023, thay bằng biểu mẫu kèm Quy chế 259/QĐ-VKSTC"],
       moc: ["Thời hạn tạm giữ không quá 03 ngày; trường hợp cần thiết NGƯỜI RA QUYẾT ĐỊNH TẠM GIỮ (không phải VKS) gia hạn không quá 03 ngày, trường hợp đặc biệt gia hạn lần hai không quá 03 ngày; mọi lần gia hạn phải được VKS cùng cấp/có thẩm quyền phê chuẩn; VKS ra quyết định phê chuẩn hoặc không phê chuẩn gia hạn trong 12 giờ kể từ khi nhận hồ sơ đề nghị gia hạn; 01 ngày tạm giữ = 01 ngày tạm giam (Điều 118 BLTTHS 2015)",
         "Tính thời hạn tạm giữ, tạm giam: hết vào ngày ghi trong lệnh/quyết định; 01 tháng = 30 ngày, không lùi do ngày nghỉ (Điều 17 TTLT 01/2026)",
         "Tòa gửi QĐ thi hành án phạt tù cho VKS trong 02 ngày làm việc; người bị kết án tại ngoại phải có mặt trong 07 ngày kể từ khi nhận QĐ (Điều 16 Luật 127/2025)",
         "Xét giảm án: Chánh án phân công Thẩm phán trong 02 ngày làm việc từ khi nhận hồ sơ, Thẩm phán mở phiên họp trong 05 ngày làm việc; Tòa gửi QĐ trong 03 ngày làm việc (Điều 36 khoản 3, 4 Luật 127/2025)"] },
     thads: {
       canCu: ["Luật Thi hành án dân sự 106/2025/QH15 (ban hành 05/12/2025, HL 01/7/2026)",
-        "NĐ 151/2026/NĐ-CP, NĐ 152/2026/NĐ-CP (hướng dẫn Luật THADS 2025)",
+        "NĐ 152/2026/NĐ-CP (quy định chi tiết, biện pháp thi hành Luật THADS; thay NĐ 62/2015) và NĐ 151/2026/NĐ-CP (văn phòng thi hành án dân sự, Thừa hành viên) — ban hành 13/5/2026, HL 01/7/2026",
         "TT 72/2026/TT-BTC về phí THADS (HL 01/7/2026, thay TT 216/2016 và TT 74/2019)",
         "Quy chế 810/QĐ-VKSTC (kiểm sát THADS, THAHC); QĐ 94/QĐ-VKSTC (quy trình trực tiếp kiểm sát)"],
       het: ["Luật THADS 26/2008/QH12 (đã sửa nhiều lần) — hết HL 01/7/2026, thay bằng Luật 106/2025/QH15. Để so sánh: luật cũ cũng quy định tự nguyện 10 ngày kể từ ngày nhận được hoặc được thông báo hợp lệ QĐ THA (khoản 1 Điều 45); xác minh trong 10 ngày sau hết hạn tự nguyện (khoản 1 Điều 44) — theo VBHN 115/VBHN-VPQH ngày 27/8/2025"],
@@ -214,28 +217,34 @@
         "Trong 09 ngày kể từ ngày hết thời hạn tự nguyện mà không tự nguyện thi hành thì Chấp hành viên xác minh; thi hành QĐ áp dụng BPKCTT thì xác minh ngay (khoản 1 Điều 37 Luật 106/2025/QH15)"] },
     anhs: {
       canCu: ["TTLT 01/2026/TTLT-VKSNDTC-BCA-BQP (HL 15/3/2026) — phối hợp CQĐT và VKS",
-        "TTLT 02/2018/TTLT (tố giác, tin báo về tội phạm, kiến nghị khởi tố)",
-        "Quy chế 06/QĐ-VKSTC ngày 23/3/2026 (THQCT, kiểm sát khởi tố, điều tra, truy tố; thay QĐ 111/QĐ-VKSTC 2020); Quy chế 09/QĐ-VKSTC; TT 03/2026/TT-VKSTC (biểu mẫu)",
+        "TTLT 01/2017/TTLT-BCA-BQP-BTC-BNN&PTNT-VKSNDTC (tiếp nhận, giải quyết nguồn tin về tội phạm; sửa bởi TTLT 01/2021)",
+        "Quy chế 06/QĐ-VKSTC ngày 23/3/2026 (THQCT, kiểm sát khởi tố, điều tra, truy tố; thay QĐ 111/QĐ-VKSTC 2020); Quy chế 09/QĐ-VKSTC ngày 05/5/2026 (THQCT, kiểm sát xét xử vụ án hình sự; thay QĐ 505/QĐ-VKSTC 2017); TT 03/2026/TT-VKSTC ngày 09/02/2026 (biểu mẫu, HL 15/02/2026); TT 02/2025/TT-VKSTC (thẩm quyền của VKS các cấp trong THQCT, kiểm sát vụ việc, vụ án hình sự)",
         "Luật Tổ chức cơ quan điều tra hình sự 99/2015/QH13 (luật sửa đổi thông qua 20/11/2026, HL 01/3/2027)"],
       het: ["TTLT 04/2018/TTLT-VKSNDTC-BCA-BQP — hết HL 15/3/2026, thay bằng TTLT 01/2026",
         "QĐ 111/QĐ-VKSTC 2020 — đã thay bằng Quy chế 06/QĐ-VKSTC 2026"],
       moc: ["Thời hạn tạm giữ không quá 03 ngày; trường hợp cần thiết NGƯỜI RA QUYẾT ĐỊNH TẠM GIỮ (không phải VKS) gia hạn không quá 03 ngày, trường hợp đặc biệt gia hạn lần hai không quá 03 ngày; mọi lần gia hạn phải được VKS cùng cấp/có thẩm quyền phê chuẩn; VKS ra quyết định phê chuẩn hoặc không phê chuẩn gia hạn trong 12 giờ kể từ khi nhận hồ sơ đề nghị gia hạn; 01 ngày tạm giữ = 01 ngày tạm giam (Điều 118 BLTTHS 2015)",
         "01 tháng tạm giam = 30 ngày, hết vào ngày ghi trong lệnh, không lùi do ngày nghỉ (Điều 17 TTLT 01/2026)"] },
     ands: {
-      canCu: ["BLTTDS 92/2015/QH13 (sửa bởi Luật 85/2025/QH15); Luật TTHC 93/2015/QH13 (sửa 2025); BLDS 91/2015/QH13",
+      canCu: ["BLTTDS 92/2015/QH13 (sửa bởi Luật 85/2025/QH15 HL 01/7/2025 và Luật Phục hồi, phá sản 142/2025/QH15 HL 01/3/2026); Luật TTHC 93/2015/QH13 (sửa bởi Luật 85/2025/QH15); BLDS 91/2015/QH13",
         "NQ 326/2016/UBTVQH14 (án phí, lệ phí Tòa án); NQ 01/2019/NQ-HĐTP (lãi suất, hợp đồng vay)",
-        "QĐ 410/QĐ-VKSTC (biểu mẫu); Quy chế 436/QĐ-VKSTC ngày 28/11/2025 (kiểm sát giải quyết vụ việc dân sự); QĐ 204/QĐ-VKSTC"],
-      het: [], moc: [] },
+        "QĐ 410/QĐ-VKSTC ngày 25/11/2021 (biểu mẫu kiểm sát DS, HC); Quy chế 436/QĐ-VKSTC ngày 28/11/2025 (kiểm sát giải quyết vụ việc dân sự; thay QĐ 364/QĐ-VKSTC 2017)"],
+      het: ["QĐ 204/QĐ-VKSTC ngày 01/6/2017 (biểu mẫu tạm thời) — phần dân sự đã thay bằng QĐ 410/QĐ-VKSTC 2021"],
+      moc: ["Kháng nghị phúc thẩm bản án sơ thẩm dân sự: VKS cùng cấp 15 ngày, VKS cấp trên trực tiếp 01 tháng kể từ ngày tuyên án (KSV không dự phiên tòa: tính từ ngày VKS cùng cấp nhận bản án); QĐ tạm đình chỉ, đình chỉ giải quyết vụ án: 07 ngày (cùng cấp) / 10 ngày (cấp trên trực tiếp) kể từ ngày VKS cùng cấp nhận QĐ (khoản 1, 2 Điều 280 BLTTDS 2015)",
+        "Kháng nghị phúc thẩm bản án sơ thẩm hành chính: VKS cùng cấp 15 ngày, VKS cấp trên trực tiếp 30 ngày kể từ ngày tuyên án; QĐ tạm đình chỉ, đình chỉ: 07 ngày / 10 ngày kể từ ngày VKS cùng cấp nhận QĐ (khoản 1, 2 Điều 213 Luật TTHC 2015)"] },
     kntc: {
-      canCu: ["Luật Khiếu nại 02/2011/QH13, Luật Tố cáo 25/2018/QH14, Luật Tiếp công dân 55/2013/QH13 — cùng sửa bởi Luật 136/2025/QH15 (HL 01/7/2026)",
-        "NĐ 31/2019/NĐ-CP (Luật Khiếu nại); NĐ 124/2020/NĐ-CP (Luật Tố cáo); BLTTHS, Luật THAHS 127/2025 (khiếu nại trong hoạt động tư pháp)",
-        "Quy định 50/QĐ-VKSTC (2026)"],
-      het: [], moc: [] }
+      canCu: ["Luật Khiếu nại 02/2011/QH13, Luật Tố cáo 25/2018/QH14, Luật Tiếp công dân 42/2013/QH13 — cùng sửa bởi Luật 136/2025/QH15 (HL 01/7/2026)",
+        "NĐ 124/2020/NĐ-CP (hướng dẫn Luật Khiếu nại); NĐ 31/2019/NĐ-CP (hướng dẫn Luật Tố cáo) — sửa bởi NĐ 155/2026 và NĐ 156/2026 (ban hành 15/5/2026, HL 01/7/2026)",
+        "BLTTHS (Chương XXXIII khiếu nại, tố cáo); TTLT 02/2018/TTLT-VKSTC-TATC-BCA-BQP-BTC-BNN&PTNT ngày 05/9/2018 (phối hợp giải quyết KN-TC trong TTHS); Luật THAHS 127/2025",
+        "QĐ 50/QĐ-VKSTC ngày 20/3/2026 ban hành Quy định quy trình giải quyết KN-TC, kiểm sát việc giải quyết KN-TC trong hoạt động tư pháp (thay QĐ 546/QĐ-VKSTC 2018)"],
+      het: ["QĐ 546/QĐ-VKSTC 2018 — đã thay bằng QĐ 50/QĐ-VKSTC ngày 20/3/2026"],
+      moc: ["Quyết định giải quyết khiếu nại gửi người khiếu nại, người bị khiếu nại và VKS cấp trên trực tiếp trong 03 ngày làm việc kể từ ngày ban hành (khoản 2 Điều 11 Quy định kèm QĐ 50/QĐ-VKSTC)",
+        "Kết luận nội dung tố cáo được công khai trong 07 ngày làm việc kể từ ngày ban hành (khoản 1 Điều 25 Quy định kèm QĐ 50/QĐ-VKSTC)",
+        "Kết luận kiểm sát, kiến nghị, kháng nghị gửi Thủ trưởng cơ quan được kiểm sát và VKS cấp trên trực tiếp trong 03 ngày làm việc (Điều 33 Quy định kèm QĐ 50/QĐ-VKSTC)"] }
   };
 
   /* CAP_NHAT: khi có văn bản pháp luật mới → sửa VAN_BAN[*].checks, KHAU[*].cc / mau,
      LINH_VUC[*].canCu, AI_LUAT (căn cứ/mốc cho AI), rồi tăng PHIEN_BAN và CACHE trong sw.js. */
-  var PHIEN_BAN = "2026-11-23";
+  var PHIEN_BAN = "2026-11-23.2";
 
   /* AI tuỳ chọn. PROXY_URL = Cloudflare Worker của Viện (mã nguồn: ai-proxy/worker.js), giữ GROQ_API_KEY
      trong Worker Secrets, giới hạn 8 lượt/phút, 40 lượt/ngày mỗi IP. Để trống = chỉ dùng key riêng (BYOK).
