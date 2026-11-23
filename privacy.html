@@ -43,6 +43,8 @@
       <ul>
         <li>Mục «Trợ lý ảo kiểm sát văn bản» có thể dùng thêm AI <strong>chỉ khi bạn tự bật</strong>, tự nhập API key của mình và tích ô xác nhận đã ẩn danh.</li>
         <li>Khi bật AI, nội dung văn bản và câu hỏi được gửi tới máy chủ của nhà cung cấp AI đặt <strong>ở nước ngoài</strong> (Groq — Hoa Kỳ; Google Gemini). Nhóm IT không kiểm soát việc lưu trữ của các nhà cung cấp này.</li>
+        <li><strong>Lượt AI miễn phí dùng chung</strong> (không cần key): yêu cầu đi qua máy chủ trung gian <strong>Cloudflare Worker</strong> của Nhóm IT, rồi được chuyển tới <strong>Groq (Hoa Kỳ)</strong>. Máy chủ trung gian <strong>không lưu và không ghi log nội dung</strong> văn bản, câu hỏi, câu trả lời; chỉ đếm số lượt theo địa chỉ IP (8 lượt/phút, 40 lượt/ngày) để chống lạm dụng. Mã nguồn công khai tại thư mục <code>ai-proxy/</code> của repo.</li>
+        <li>Nếu bạn nhập key riêng, trình duyệt gọi thẳng nhà cung cấp bằng key của bạn (khi không gọi được thì mới chuyển qua máy chủ trung gian, kèm key, không lưu key).</li>
         <li><strong>Google Gemini bản miễn phí</strong>: Google dùng dữ liệu gửi lên (văn bản, câu hỏi, câu trả lời) để huấn luyện và cải thiện sản phẩm; nhân viên Google có thể đọc. Groq công bố không dùng dữ liệu để huấn luyện.</li>
         <li>API key của bạn chỉ lưu trong trình duyệt của bạn, không được đưa lên GitHub. Không dùng chung máy khi đã lưu key.</li>
         <li>Các mục «Kiểm sát Bản án hình sự, dân sự» (chatbot udify.app) và «Hình sự & Tố tụng hình sự» (Google NotebookLM) là <strong>dịch vụ bên ngoài</strong>: mọi nội dung bạn nhập ở đó được gửi lên máy chủ của bên thứ ba.</li>
@@ -61,7 +63,7 @@
       <p>Nhóm IT — Viện Kiểm sát nhân dân thành phố Cần Thơ. Mã nguồn: <a href="https://github.com/hethong-quanly/kynangkiemsat" target="_blank" rel="noopener">github.com/hethong-quanly/kynangkiemsat</a>.</p>
       <p><a href="./">← Về trang chính</a></p>
     </div>
-    <p class="foot">Cập nhật ngày 23/11/2026.</p>
+    <p class="foot">Cập nhật ngày 23/11/2026 (bổ sung máy chủ trung gian AI).</p>
   </div>
 </body>
 </html>
