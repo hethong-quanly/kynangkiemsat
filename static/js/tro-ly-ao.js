@@ -14,10 +14,15 @@
   var K = g.KNKS = g.KNKS || {};
 
   /* ---------------- tiện ích chung ---------------- */
+  // Thư viện để trong repo (static/vendor) — không phụ thuộc CDN, chạy được offline sau lần đầu.
+  var VENDOR = (function () {
+    var s = document.currentScript && document.currentScript.src;
+    return s ? new URL("../vendor/", s).href : "static/vendor/";
+  })();
   var CDN = {
-    jszip: "https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js",
-    pdf: "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js",
-    pdfWorker: "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js"
+    jszip: VENDOR + "jszip.min.js",
+    pdf: VENDOR + "pdfjs/pdf.min.js",
+    pdfWorker: VENDOR + "pdfjs/pdf.worker.min.js"
   };
   var loaded = {};
   function loadScript(src) {
@@ -52,7 +57,7 @@
     });
     return Promise.reject(new Error("type"));
   }
-  K.util = { esc: esc, today: today, readFileText: readFileText, loadScript: loadScript, CDN: CDN, docxXmlToText: docxXmlToText };
+  K.util = { VENDOR: VENDOR, esc: esc, today: today, readFileText: readFileText, loadScript: loadScript, CDN: CDN, docxXmlToText: docxXmlToText };
 
   /* ---------------- CSS riêng của module (tiền tố knai-) ---------------- */
   function injectCss() {

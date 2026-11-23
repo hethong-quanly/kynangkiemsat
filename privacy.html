@@ -27,9 +27,16 @@
 <body>
   <header class="hdr">
     <h1>Chính sách dữ liệu và quyền riêng tư</h1>
-    <p>Kỹ năng Kiểm sát · Nhóm IT · Viện KSND thành phố Cần Thơ</p>
+    <p>Kỹ năng Kiểm sát · Phần mềm cá nhân của Thiên Phúc</p>
   </header>
   <div class="wrap">
+    <div class="card">
+      <h2>Bên kiểm soát dữ liệu</h2>
+      <ul>
+        <li>Ứng dụng do cá nhân <strong>Thiên Phúc</strong> xây dựng và chịu trách nhiệm (bên kiểm soát dữ liệu). Liên hệ: <a href="tel:0939103666">0939103666</a>.</li>
+        <li>Đây là <strong>ứng dụng cá nhân hỗ trợ nghiệp vụ</strong>, không phải ứng dụng chính thức của Viện kiểm sát nhân dân. Tên cơ quan xuất hiện trong ứng dụng chỉ để chỉ đối tượng sử dụng và mẫu văn bản.</li>
+      </ul>
+    </div>
     <div class="card">
       <h2>1. Dữ liệu được lưu trên chính máy của bạn</h2>
       <ul>
@@ -37,14 +44,15 @@
         <li>Văn bản bạn dán hoặc tải lên để kiểm sát, trích xuất, soạn quyết định được <strong>xử lý ngay trong trình duyệt</strong> và không gửi đi đâu ở chế độ mặc định (dò từ khoá, không cần mạng).</li>
         <li>Một số thông tin được lưu trong bộ nhớ trình duyệt (localStorage) để tiện dùng lại: sổ việc, tên Kiểm sát viên/người ký, giao diện sáng/tối, cài đặt AI (nếu bạn tự nhập). Bạn xoá bằng cách xoá dữ liệu trang web trong cài đặt trình duyệt.</li>
         <li>Khi cài thành ứng dụng (PWA), các trang được lưu tạm (cache) trên máy để dùng khi không có mạng.</li>
+        <li>Các công cụ ẩn danh văn bản, đổi tên file, chuyển Word/PDF/ảnh sang Markdown (kể cả nhận dạng chữ OCR) chạy hoàn toàn trên máy của bạn; tệp không được gửi lên mạng.</li>
       </ul>
     </div>
     <div class="card warn">
       <h2>2. AI là tuỳ chọn — dữ liệu sẽ được gửi ra nước ngoài</h2>
       <ul>
         <li>Mục «Trợ lý ảo kiểm sát văn bản» có thể dùng thêm AI <strong>chỉ khi bạn tự bật</strong>, tự nhập API key của mình và tích ô xác nhận đã ẩn danh.</li>
-        <li>Khi bật AI, nội dung văn bản và câu hỏi được gửi tới máy chủ của nhà cung cấp AI đặt <strong>ở nước ngoài</strong> (Groq — Hoa Kỳ; Google Gemini). Nhóm IT không kiểm soát việc lưu trữ của các nhà cung cấp này.</li>
-        <li><strong>Lượt AI miễn phí dùng chung</strong> (không cần key): yêu cầu đi qua máy chủ trung gian <strong>Cloudflare Worker</strong> của Nhóm IT, rồi được chuyển tới <strong>Groq (Hoa Kỳ)</strong>. Máy chủ trung gian <strong>không lưu và không ghi log nội dung</strong> văn bản, câu hỏi, câu trả lời; chỉ đếm số lượt theo địa chỉ IP (8 lượt/phút, 40 lượt/ngày) để chống lạm dụng. Mã nguồn công khai tại thư mục <code>ai-proxy/</code> của repo.</li>
+        <li>Khi bật AI, nội dung văn bản và câu hỏi được gửi tới máy chủ của nhà cung cấp AI đặt <strong>ở nước ngoài</strong> (Groq — Hoa Kỳ; Google Gemini). Tác giả ứng dụng không kiểm soát việc lưu trữ của các nhà cung cấp này.</li>
+        <li><strong>Lượt AI miễn phí dùng chung</strong> (không cần key): yêu cầu đi qua máy chủ trung gian <strong>Cloudflare Worker</strong> do tác giả ứng dụng quản lý, rồi được chuyển tới <strong>Groq (Hoa Kỳ)</strong>. Máy chủ trung gian <strong>không lưu và không ghi log nội dung</strong> văn bản, câu hỏi, câu trả lời; chỉ đếm số lượt theo địa chỉ IP (8 lượt/phút, 40 lượt/ngày) để chống lạm dụng. Mã nguồn công khai tại thư mục <code>ai-proxy/</code> của repo.</li>
         <li>Nếu bạn nhập key riêng, trình duyệt gọi thẳng nhà cung cấp bằng key của bạn (khi không gọi được thì mới chuyển qua máy chủ trung gian, kèm key, không lưu key).</li>
         <li><strong>Google Gemini bản miễn phí</strong>: Google dùng dữ liệu gửi lên (văn bản, câu hỏi, câu trả lời) để huấn luyện và cải thiện sản phẩm; nhân viên Google có thể đọc. Groq công bố không dùng dữ liệu để huấn luyện.</li>
         <li>API key của bạn chỉ lưu trong trình duyệt của bạn, không được đưa lên GitHub. Không dùng chung máy khi đã lưu key.</li>
@@ -54,17 +62,17 @@
     <div class="card">
       <h2>3. Khuyến nghị bắt buộc trước khi gửi văn bản cho AI hoặc dịch vụ ngoài</h2>
       <ul>
-        <li><strong>Ẩn danh</strong> văn bản: che họ tên, ngày sinh, số CCCD/hộ chiếu, địa chỉ, số điện thoại, số tài khoản… (dùng công cụ «Tự động che thông tin — không kết nối mạng»).</li>
+        <li><strong>Ẩn danh</strong> văn bản: che họ tên, ngày sinh, số CCCD/hộ chiếu, địa chỉ, số điện thoại, số tài khoản… (dùng công cụ «Tự động che thông tin», chạy trên máy).</li>
         <li><strong>Không</strong> gửi tài liệu thuộc bí mật nhà nước, tài liệu mật, hồ sơ vụ án chưa công khai.</li>
         <li>Kết quả AI chỉ để tham khảo, có thể sai hoặc bịa điều luật. Kiểm sát viên phải đối chiếu văn bản gốc và chịu trách nhiệm về ý kiến, kiến nghị, kháng nghị.</li>
       </ul>
     </div>
     <div class="card">
       <h2>4. Liên hệ</h2>
-      <p>Nhóm IT — Viện Kiểm sát nhân dân thành phố Cần Thơ. Mã nguồn: <a href="https://github.com/hethong-quanly/kynangkiemsat" target="_blank" rel="noopener">github.com/hethong-quanly/kynangkiemsat</a>.</p>
+      <p>Thiên Phúc — điện thoại <a href="tel:0939103666">0939103666</a>. Mã nguồn: <a href="https://github.com/hethong-quanly/kynangkiemsat" target="_blank" rel="noopener">github.com/hethong-quanly/kynangkiemsat</a>.</p>
       <p><a href="./">← Về trang chính</a></p>
     </div>
-    <p class="foot">Cập nhật ngày 23/11/2026 (bổ sung máy chủ trung gian AI).</p>
+    <p class="foot">Cập nhật ngày 23/11/2026 (bổ sung bên kiểm soát dữ liệu, các công cụ chạy trên máy).</p>
   </div>
 </body>
 </html>

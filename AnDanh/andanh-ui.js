@@ -21,7 +21,7 @@
     $("fileName").textContent = doc.fileName;
     const all = findingsOf();
     const active = activeFindings(all);
-    $("countLine").textContent = active.length + " / " + all.length + " cho duoc che";
+    $("countLine").textContent = active.length + " / " + all.length + " chỗ được che";
     $("styles").innerHTML = REDACT_STYLES.map(function(s){
       return '<button type="button" class="btn btn-ghost'+(style===s.id?' on':'')+'" data-style="'+s.id+'">'+s.label+' '+s.sample+'</button>';
     }).join("");
@@ -56,14 +56,14 @@
       if (lower.endsWith(".txt") || lower.endsWith(".text") || file.type==="text/plain") {
         loadText(name, await file.text()); return;
       }
-      if (!lower.endsWith(".docx")) { setErr("Chi ho tro tep .docx hoac .txt."); return; }
+      if (!lower.endsWith(".docx")) { setErr("Chỉ hỗ trợ tệp .docx hoặc .txt."); return; }
       const buffer = await file.arrayBuffer();
       const read = await readDocx(buffer);
       const body = read.parts.find(function(p){ return p.name.endsWith("document.xml"); });
-      if (!body || !(body.text||read.text).trim()) { setErr("Khong doc duoc noi dung trong tep .docx."); return; }
+      if (!body || !(body.text||read.text).trim()) { setErr("Không đọc được nội dung trong tệp .docx."); return; }
       doc = { kind:"docx", fileName:name, originalBuffer:buffer, parts:read.parts, text: body.text || read.text, bodyPart: body.name, zipReady:true };
       disabledIds = new Set(); previewMode="source"; setErr(""); render();
-    } catch (e) { setErr("Tep khong hop le hoac da hong."); }
+    } catch (e) { setErr("Tệp không hợp lệ hoặc đã hỏng."); }
   }
 
   $("btnBrowse").onclick = function(){ $("file").click(); };
@@ -71,7 +71,7 @@
   $("file").onchange = function(e){ const f=e.target.files&&e.target.files[0]; if (f) loadFile(f); };
   $("btnSample").onclick = function(){ loadText("Mau_an_danh_VKSND_Can_Tho.txt", SAMPLE); };
   $("btnPaste").onclick = function(){ $("pasteBox").hidden = !$("pasteBox").hidden; };
-  $("btnPasteGo").onclick = function(){ const v=$("pasteVal").value.trim(); if (!v) { setErr("Hay dan noi dung truoc."); return; } loadText("van-ban-dan.txt", v); };
+  $("btnPasteGo").onclick = function(){ const v=$("pasteVal").value.trim(); if (!v) { setErr("Hãy dán nội dung trước."); return; } loadText("van-ban-dan.txt", v); };
   $("btnClear").onclick = function(){ doc=null; $("file").value=""; render(); };
   $("btnHelp").onclick = function(){ $("help").hidden=false; $("help").style.display="flex"; };
   $("helpClose").onclick = function(){ $("help").hidden=true; $("help").style.display="none"; };
@@ -98,7 +98,7 @@
   $("btnCopy").onclick = async function(){
     if (!doc) return;
     const text = applyRedactions(doc.text, activeFindings(findingsOf()).filter(function(f){ return !doc.parts || f.part===doc.bodyPart; }), style);
-    try { await navigator.clipboard.writeText(text); alert("Da sao chep van ban da an."); } catch(e){ alert("Khong sao chep duoc. Hay tai tep."); }
+    try { await navigator.clipboard.writeText(text); alert("Đã sao chép văn bản đã ẩn."); } catch(e){ alert("Không sao chép được. Hãy tải tệp."); }
   };
   $("btnDl").onclick = async function(){
     if (!doc) return;

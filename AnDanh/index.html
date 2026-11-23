@@ -4,11 +4,11 @@
   <meta charset="UTF-8" />
   <link rel="icon" type="image/png" sizes="32x32" href="../icons/favicon-32.png" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>An danh van ban — NHOM IT · VKSND TP Can Tho</title>
+  <title>Ẩn danh văn bản — Kỹ năng Kiểm sát</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+  <script src="../static/vendor/jszip.min.js"></script>
   <style>
     :root {
       --sky-dark: #1e5a8a; --plum-dark: #5a1f30; --bronze: #c9952e; --bronze-light: #e8c675;
@@ -57,31 +57,32 @@
     .win { font-size: 11px; color: var(--muted); margin-top: 16px; text-align: center; }
     a.winlink { color: var(--sky-dark); font-weight: 700; }
   </style>
+  <script src="../theme.js" defer></script>
 </head>
 <body>
   <div class="wrap">
     <div class="privacy">
       <div>
-        <strong>Xu ly tren may cua ban</strong> — khong gui tep len mang.
-        <div><small>NHÓM IT · Viện Kiểm sát nhân dân thành phố Cần Thơ</small></div>
+        <strong>Xử lý trên máy của bạn</strong> — không gửi tệp lên mạng.
+        <div><small>Dành cho KSV VKSND TP Cần Thơ</small></div>
       </div>
-      <button class="btn btn-ghost" type="button" id="btnHelp" style="color:#e8c675;background:transparent;border-color:rgba(232,198,117,.4)">Huong dan</button>
+      <button class="btn btn-ghost" type="button" id="btnHelp" style="color:#e8c675;background:transparent;border-color:rgba(232,198,117,.4)">Hướng dẫn</button>
     </div>
-    <p class="kicker">Cong cu nghiep vu · khong ket noi mang</p>
-    <h1>Tu dong che thong tin trong van ban</h1>
-    <p class="muted">Chon file Word (.docx) hoac dan van ban. Cong cu nhan dien ho ten, CCCD, SDT, dia chi, ngay sinh, STK, email, bien so, MST.</p>
+    <p class="kicker">Công cụ nghiệp vụ · chạy trên trình duyệt, không cần mạng</p>
+    <h1>Tự động che thông tin trong văn bản</h1>
+    <p class="muted">Chọn file Word (.docx), .txt hoặc dán văn bản. Công cụ nhận diện họ tên, CCCD, SĐT, địa chỉ, ngày sinh, STK, email, biển số, MST.</p>
     <div id="idle">
       <div class="drop" id="drop">
-        <p style="font-weight:800;margin:0 0 6px">Chon van ban can che thong tin</p>
-        <p class="muted" style="margin:0">Keo tha file .docx / .txt vao day</p>
+        <p style="font-weight:800;margin:0 0 6px">Chọn văn bản cần che thông tin</p>
+        <p class="muted" style="margin:0">Kéo thả file .docx / .txt vào đây</p>
         <div class="row">
-          <button class="btn btn-primary" type="button" id="btnBrowse">Chon tep .docx</button>
-          <button class="btn btn-ghost" type="button" id="btnSample">Dung van ban mau</button>
-          <button class="btn btn-ghost" type="button" id="btnPaste">Hoac dan noi dung</button>
+          <button class="btn btn-primary" type="button" id="btnBrowse">Chọn tệp .docx / .txt</button>
+          <button class="btn btn-ghost" type="button" id="btnSample">Dùng văn bản mẫu</button>
+          <button class="btn btn-ghost" type="button" id="btnPaste">Hoặc dán nội dung</button>
         </div>
         <div id="pasteBox" hidden>
-          <textarea id="pasteVal" placeholder="Dan cao trang, ban an, bao cao…"></textarea>
-          <div class="row"><button class="btn btn-primary" type="button" id="btnPasteGo">Nhan dien van ban da dan</button></div>
+          <textarea id="pasteVal" placeholder="Dán cáo trạng, bản án, báo cáo…"></textarea>
+          <div class="row"><button class="btn btn-primary" type="button" id="btnPasteGo">Nhận diện văn bản đã dán</button></div>
         </div>
         <p class="err" id="idleErr" hidden></p>
       </div>
@@ -91,42 +92,42 @@
         <strong id="fileName"></strong>
         <span class="muted" id="countLine"></span>
         <span style="flex:1"></span>
-        <button class="btn btn-ghost" type="button" id="btnReplace">Doi tep</button>
-        <button class="btn btn-danger" type="button" id="btnClear">Xoa phien</button>
+        <button class="btn btn-ghost" type="button" id="btnReplace">Đổi tệp</button>
+        <button class="btn btn-danger" type="button" id="btnClear">Xóa phiên</button>
       </div>
       <div class="grid">
         <div class="card">
-          <div class="kicker">Kieu che</div>
+          <div class="kicker">Kiểu che</div>
           <div class="styles" id="styles"></div>
-          <div class="kicker" style="margin-top:12px">Nhom phat hien</div>
+          <div class="kicker" style="margin-top:12px">Nhóm phát hiện</div>
           <div class="chips" id="cats"></div>
-          <label class="muted" style="display:block;margin:10px 0 4px">Them chuoi can an (moi dong mot chuoi)</label>
-          <textarea id="custom" style="min-height:70px" placeholder="Biet danh, ten rieng…"></textarea>
+          <label class="muted" style="display:block;margin:10px 0 4px">Thêm chuỗi cần ẩn (mỗi dòng một chuỗi)</label>
+          <textarea id="custom" style="min-height:70px" placeholder="Biệt danh, tên riêng…"></textarea>
           <div class="toolbar" style="margin-top:10px">
-            <button class="btn btn-ok" type="button" id="btnDl">Tai van ban da an</button>
-            <button class="btn btn-ghost" type="button" id="btnCopy">Sao chep</button>
+            <button class="btn btn-ok" type="button" id="btnDl">Tải văn bản đã ẩn</button>
+            <button class="btn btn-ghost" type="button" id="btnCopy">Sao chép</button>
           </div>
           <div class="find" id="findList"></div>
         </div>
         <div class="card">
           <div class="toolbar">
-            <div class="kicker" style="margin:0">Xem truoc</div>
-            <button class="btn btn-ghost" type="button" id="modeSrc">Goc da danh dau</button>
-            <button class="btn btn-ghost" type="button" id="modeRed">Da an</button>
+            <div class="kicker" style="margin:0">Xem trước</div>
+            <button class="btn btn-ghost" type="button" id="modeSrc">Gốc đã đánh dấu</button>
+            <button class="btn btn-ghost" type="button" id="modeRed">Đã ẩn</button>
           </div>
           <div class="preview" id="preview"></div>
         </div>
       </div>
     </div>
-    <p class="win">Can ban Windows doc lap? <a class="winlink" href="AnDanhTool.zip">Tai AnDanhTool.zip</a> roi chay AnDanhTool.exe.</p>
+    <p class="win">Cần bản Windows độc lập? <a class="winlink" href="../Tool/AnDanh/AnDanhTool.zip">Tải AnDanhTool.zip</a> rồi chạy AnDanhTool.exe.</p>
   </div>
   <input id="file" type="file" accept=".docx,.txt,application/vnd.openxmlformats-officedocument.wordprocessingml.document,text/plain" hidden />
   <div id="help" hidden style="position:fixed;inset:0;background:rgba(12,35,64,.55);z-index:20;display:flex;align-items:center;justify-content:center;padding:16px">
     <div class="card" style="max-width:560px;max-height:80vh;overflow:auto">
-      <h2 style="margin-top:0">Huong dan</h2>
-      <p class="muted">1. Chon file .docx hoac dan van ban. 2. Ra soat danh sach. 3. Chon kieu che. 4. Tai file da an.</p>
-      <p class="muted">Moi xu ly chay trong trinh duyet. Khong gui tep len may chu.</p>
-      <button class="btn btn-primary" type="button" id="helpClose">Dong</button>
+      <h2 style="margin-top:0">Hướng dẫn</h2>
+      <p class="muted">1. Chọn file .docx/.txt hoặc dán văn bản. 2. Rà soát danh sách. 3. Chọn kiểu che. 4. Tải file đã ẩn.</p>
+      <p class="muted">Mọi xử lý chạy trong trình duyệt. Không gửi tệp lên máy chủ.</p>
+      <button class="btn btn-primary" type="button" id="helpClose">Đóng</button>
     </div>
   </div>
 <script src="andanh.js"></script>
