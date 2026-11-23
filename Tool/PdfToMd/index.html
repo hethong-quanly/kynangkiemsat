@@ -13,43 +13,43 @@
   <header class="hdr">
     <div class="hdr-icon">PDF</div>
     <div>
-      <h1>Chuyển PDF, ảnh <span>sang Markdown</span></h1>
-      <p>Chạy trên trình duyệt, không gửi tệp đi</p>
+      <h1 data-i18n-html="pdf.h1.html">Chuyển PDF, ảnh <span>sang Markdown</span></h1>
+      <p data-i18n="common.runsLocal">Chạy trên trình duyệt, không gửi tệp đi</p>
     </div>
   </header>
   <div class="wrap">
 
-    <p class="muted">Trích chữ từ <strong>PDF</strong> (có lớp chữ) và nhận dạng chữ (OCR tiếng Việt) cho <strong>PDF scan, ảnh chụp</strong> — rồi xuất <strong>Markdown/TXT</strong> để đưa cho AI. Toàn bộ xử lý trên máy của bạn, không gửi tệp lên mạng.</p>
+    <p class="muted" data-i18n-html="pdf.lead.html">Trích chữ từ <strong>PDF</strong> (có lớp chữ) và nhận dạng chữ (OCR tiếng Việt) cho <strong>PDF scan, ảnh chụp</strong> — rồi xuất <strong>Markdown/TXT</strong> để đưa cho AI. Toàn bộ xử lý trên máy của bạn, không gửi tệp lên mạng.</p>
     <div class="card">
-      <p class="kicker">1. Chọn tệp</p>
+      <p class="kicker" data-i18n="renamer.step1">1. Chọn tệp</p>
       <div class="drop" id="drop">
-        <p style="font-weight:700">Kéo thả tệp PDF, JPG, PNG vào đây</p>
+        <p style="font-weight:700" data-i18n="pdf.drop">Kéo thả tệp PDF, JPG, PNG vào đây</p>
         <div class="row" style="justify-content:center">
-          <button class="btn btn-primary" type="button" id="btnPick">Chọn tệp</button>
+          <button class="btn btn-primary" type="button" id="btnPick" data-i18n="common.selectFiles">Chọn tệp</button>
         </div>
         <input type="file" id="file" accept="application/pdf,.pdf,image/*" multiple hidden />
       </div>
-      <label class="chk"><input type="checkbox" id="optOcr" checked /> Tự nhận dạng chữ (OCR) cho trang scan / ảnh</label>
-      <label class="chk"><input type="checkbox" id="optForce" /> OCR cả trang đã có lớp chữ (khi chữ trích ra bị lỗi phông)</label>
-      <p class="muted">Lần OCR đầu tiên tải bộ nhận dạng tiếng Việt (~9,6 MB) từ chính ứng dụng. OCR mất khoảng 5–20 giây mỗi trang tùy máy.</p>
+      <label class="chk"><input type="checkbox" id="optOcr" checked /> <span data-i18n="pdf.optOcr">Tự nhận dạng chữ (OCR) cho trang scan / ảnh</span></label>
+      <label class="chk"><input type="checkbox" id="optForce" /> <span data-i18n="pdf.optForce">OCR cả trang đã có lớp chữ (khi chữ trích ra bị lỗi phông)</span></label>
+      <p class="muted" data-i18n="pdf.ocrHint">Lần OCR đầu tiên tải bộ nhận dạng tiếng Việt (~9,6 MB) từ chính ứng dụng. OCR mất khoảng 5–20 giây mỗi trang tùy máy.</p>
     </div>
     <div class="card" id="outCard" hidden>
       <div class="row" style="justify-content:space-between;align-items:center;margin-top:0">
-        <p class="kicker" style="margin:0">2. Kết quả</p>
+        <p class="kicker" style="margin:0" data-i18n="docx.step2">2. Kết quả</p>
         <div class="row" style="margin:0">
-          <button class="btn btn-ghost" type="button" id="btnStop">Dừng</button>
-          <button class="btn btn-ghost" type="button" id="btnCopy">Sao chép</button>
-          <button class="btn btn-ghost" type="button" id="btnTxt">Tải .txt</button>
-          <button class="btn btn-ok" type="button" id="btnDl">Tải .md</button>
+          <button class="btn btn-ghost" type="button" id="btnStop" data-i18n="common.stop">Dừng</button>
+          <button class="btn btn-ghost" type="button" id="btnCopy" data-i18n="common.copy">Sao chép</button>
+          <button class="btn btn-ghost" type="button" id="btnTxt" data-i18n="pdf.txt">Tải .txt</button>
+          <button class="btn btn-ok" type="button" id="btnDl" data-i18n="pdf.md">Tải .md</button>
         </div>
       </div>
       <p class="muted" id="status"></p>
       <div class="progress"><div id="bar"></div></div>
-      <div class="list"><table><thead><tr><th>Tệp</th><th>Trạng thái</th><th></th></tr></thead><tbody id="rows"></tbody></table></div>
+      <div class="list"><table><thead><tr><th data-i18n="common.file">Tệp</th><th data-i18n="common.status">Trạng thái</th><th></th></tr></thead><tbody id="rows"></tbody></table></div>
       <pre class="preview" id="preview"></pre>
     </div>
-    <p class="note">Kết quả OCR có thể sai dấu, sai số với bản scan mờ — luôn đối chiếu bản gốc trước khi sử dụng.</p>
-    <p class="foot">Công cụ hỗ trợ — kiểm tra lại nội dung trước khi sử dụng.</p>
+    <p class="note" data-i18n="pdf.note">Kết quả OCR có thể sai dấu, sai số với bản scan mờ — luôn đối chiếu bản gốc trước khi sử dụng.</p>
+    <p class="foot" data-i18n="common.supportFoot">Công cụ hỗ trợ — kiểm tra lại nội dung trước khi sử dụng.</p>
   </div>
   <script src="../../static/js/cong-cu.js"></script>
   <script src="pdf-md.js"></script>

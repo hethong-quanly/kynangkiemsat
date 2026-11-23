@@ -41,7 +41,6 @@
     .note { background:#eff6ff; border:1px solid #bfdbfe; border-radius:10px; padding:8px 10px; font-size:13px; margin:8px 0 0; }
     .ok { color:#0f766e; font-weight:700; }
     .btn[hidden], .opt[hidden], p[hidden], div[hidden] { display:none; }
-    .btn:disabled { opacity:.6; cursor:default; }
     html[data-theme="dark"] body { background:#0b141c; color:#e2e8f0; }
     html[data-theme="dark"] .card { background:#132230; border-color:#24384a; }
     html[data-theme="dark"] .card.warn { background:#2a2410; border-color:#5c4b14; }
@@ -58,105 +57,104 @@
 <body>
   <header class="hdr">
     <img src="icons/icon-192.png" alt="" />
-    <div><h1>Cài ứng dụng Kỹ năng Kiểm sát</h1><p>Miễn phí · Android, iPhone và máy tính</p></div>
+    <div><h1 data-i18n="install.h1">Cài ứng dụng Kỹ năng Kiểm sát</h1><p data-i18n="install.sub">Miễn phí · Android, iPhone và máy tính</p></div>
   </header>
   <div class="wrap">
 
     <div class="card" id="c-desktop">
-      <h2>Máy tính (Windows / Mac)</h2>
-      <p class="muted" style="margin:0">Ứng dụng chạy trong cửa sổ riêng, có biểu tượng ngoài Desktop / Start Menu / Dock, không có thanh địa chỉ và tự cập nhật theo bản mới nhất.</p>
+      <h2 data-i18n="install.pc">Máy tính (Windows / Mac)</h2>
+      <p class="muted" style="margin:0" data-i18n="install.pcIntro">Ứng dụng chạy trong cửa sổ riêng, có biểu tượng ngoài Desktop / Start Menu / Dock, không có thanh địa chỉ và tự cập nhật theo bản mới nhất.</p>
 
       <div class="opt" id="opt-pwa">
-        <h3>Cách 1: Cài nhanh 1 chạm <span class="tag">Khuyên dùng</span></h3>
-        <p class="muted" style="margin:0">Dùng cho Windows và Mac, không hiện cảnh báo bảo mật.</p>
-        <button type="button" class="btn" id="btn-pwa">🖥 Cài vào máy tính ngay</button>
-        <p class="ok" id="pwa-done" hidden>✓ Ứng dụng đã được cài trên máy này. Mở biểu tượng <strong>KN Kiểm sát</strong> ngoài màn hình (hoặc Start Menu / Launchpad).</p>
+        <h3><span data-i18n="install.pwaH">Cách 1: Cài nhanh 1 chạm</span> <span class="tag" data-i18n="install.recommended">Khuyên dùng</span></h3>
+        <p class="muted" style="margin:0" data-i18n="install.pwaSub">Dùng cho Windows và Mac, không hiện cảnh báo bảo mật.</p>
+        <button type="button" class="btn" id="btn-pwa" data-i18n="install.pwaBtn">🖥 Cài vào máy tính ngay</button>
+        <p class="ok" id="pwa-done" hidden data-i18n-html="install.pwaDone.html">✓ Ứng dụng đã được cài trên máy này. Mở biểu tượng <strong>KN Kiểm sát</strong> ngoài màn hình (hoặc Start Menu / Launchpad).</p>
         <div id="pwa-help" hidden>
-          <p style="margin:8px 0 2px"><strong>Trình duyệt chưa hiện hộp cài tự động, anh/chị làm 2 bước:</strong></p>
+          <p style="margin:8px 0 2px"><strong data-i18n="install.pwaHelpH">Trình duyệt chưa hiện hộp cài tự động, anh/chị làm 2 bước:</strong></p>
           <ol>
-            <li><strong>Chrome / Edge</strong> (Windows, Mac): mở <a href="./">trang ứng dụng</a>, bấm biểu tượng <strong>Cài đặt</strong> (màn hình có mũi tên ⤓) ở cuối thanh địa chỉ → <strong>Cài đặt</strong>. Không thấy biểu tượng thì bấm menu <strong>⋮</strong> / <strong>…</strong> → <strong>Ứng dụng</strong> → <strong>Cài đặt trang web này dưới dạng ứng dụng</strong>.</li>
-            <li><strong>Safari trên Mac</strong> (macOS Sonoma trở lên): mở <a href="./">trang ứng dụng</a>, bấm <strong>Tệp</strong> (File) → <strong>Thêm vào Dock</strong> (Add to Dock) → <strong>Thêm</strong>.</li>
+            <li data-i18n-html="install.pwaChrome.html"><strong>Chrome / Edge</strong> (Windows, Mac): mở <a href="./">trang ứng dụng</a>, bấm biểu tượng <strong>Cài đặt</strong> (màn hình có mũi tên ⤓) ở cuối thanh địa chỉ → <strong>Cài đặt</strong>. Không thấy biểu tượng thì bấm menu <strong>⋮</strong> / <strong>…</strong> → <strong>Ứng dụng</strong> → <strong>Cài đặt trang web này dưới dạng ứng dụng</strong>.</li>
+            <li data-i18n-html="install.pwaSafari.html"><strong>Safari trên Mac</strong> (macOS Sonoma trở lên): mở <a href="./">trang ứng dụng</a>, bấm <strong>Tệp</strong> (File) → <strong>Thêm vào Dock</strong> (Add to Dock) → <strong>Thêm</strong>.</li>
           </ol>
-          <p class="muted" id="ff-note" hidden>Firefox chưa hỗ trợ cài ứng dụng web: hãy mở trang bằng Chrome hoặc Edge, hoặc dùng bộ cài Windows ở Cách 2.</p>
+          <p class="muted" id="ff-note" hidden data-i18n="install.pwaFirefox">Firefox chưa hỗ trợ cài ứng dụng web: hãy mở trang bằng Chrome hoặc Edge, hoặc dùng bộ cài Windows ở Cách 2.</p>
         </div>
       </div>
 
       <div class="opt" id="opt-exe">
-        <h3>Cách 2: Tải bộ cài Windows (.exe)</h3>
-        <p class="muted" style="margin:0">Cài như phần mềm bình thường, dùng cho Windows 10 / 11 (64-bit).</p>
-        <a class="btn sec" id="dl-exe" hidden href="https://github.com/hethong-quanly/kynangkiemsat/releases/download/app-v1.0.0/KyNangKiemSat-Windows-Setup-1.0.0.exe">⬇ Tải bộ cài Windows (.exe<span id="exe-size"></span>)</a>
-        <p class="muted" id="exe-wait">Bộ cài Windows đang được chuẩn bị, anh/chị dùng Cách 1 trong lúc chờ.</p>
+        <h3 data-i18n="install.exeH">Cách 2: Tải bộ cài Windows (.exe)</h3>
+        <p class="muted" style="margin:0" data-i18n="install.exeSub">Cài như phần mềm bình thường, dùng cho Windows 10 / 11 (64-bit).</p>
+        <a class="btn sec" id="dl-exe" hidden href="https://github.com/hethong-quanly/kynangkiemsat/releases/download/app-v1.0.0/KyNangKiemSat-Windows-Setup-1.0.0.exe"><span data-i18n="install.exeBtn">⬇ Tải bộ cài Windows (.exe)</span><span id="exe-size"></span></a>
+        <p class="muted" id="exe-wait" data-i18n="install.exeWait">Bộ cài Windows đang được chuẩn bị, anh/chị dùng Cách 1 trong lúc chờ.</p>
         <ol>
-          <li>Tải xong, bấm đúp tệp <strong>KyNangKiemSat-Windows-Setup-1.0.0.exe</strong> → <strong>Cài đặt</strong> (không cần quyền quản trị).</li>
-          <li>Mở <strong>Kỹ năng Kiểm sát</strong> từ biểu tượng ngoài Desktop hoặc Start Menu.</li>
+          <li data-i18n-html="install.exe1.html">Tải xong, bấm đúp tệp <strong>KyNangKiemSat-Windows-Setup-1.0.0.exe</strong> → <strong>Cài đặt</strong> (không cần quyền quản trị).</li>
+          <li data-i18n-html="install.exe2.html">Mở <strong>Kỹ năng Kiểm sát</strong> từ biểu tượng ngoài Desktop hoặc Start Menu.</li>
         </ol>
-        <p class="note">Nếu Windows hiện bảng xanh bảo vệ, bấm <strong>Thông tin thêm</strong> (More info) → <strong>Vẫn chạy</strong> (Run anyway). Gỡ cài đặt: <strong>Cài đặt</strong> → <strong>Ứng dụng</strong> → <strong>Kỹ năng Kiểm sát</strong> → <strong>Gỡ cài đặt</strong>.</p>
-        <details><summary>Kiểm tra tệp (dành cho cán bộ CNTT)</summary>
-          <p class="muted">Bộ cài NSIS dựng tự động trên GitHub Actions từ mã nguồn <code>desktop-windows/</code>, chạy Microsoft Edge WebView2. SHA-256: <a href="https://github.com/hethong-quanly/kynangkiemsat/releases/download/app-v1.0.0/SHA256SUMS-windows.txt">SHA256SUMS-windows.txt</a> · <a href="https://github.com/hethong-quanly/kynangkiemsat/releases/tag/app-v1.0.0">GitHub Release app-v1.0.0</a></p>
+        <p class="note" data-i18n-html="install.exeNote.html">Nếu Windows hiện bảng xanh bảo vệ, bấm <strong>Thông tin thêm</strong> (More info) → <strong>Vẫn chạy</strong> (Run anyway). Gỡ cài đặt: <strong>Cài đặt</strong> → <strong>Ứng dụng</strong> → <strong>Kỹ năng Kiểm sát</strong> → <strong>Gỡ cài đặt</strong>.</p>
+        <details><summary data-i18n="install.itSum">Kiểm tra tệp (dành cho cán bộ CNTT)</summary>
+          <p class="muted" data-i18n-html="install.exeIt.html">Bộ cài NSIS dựng tự động trên GitHub Actions từ mã nguồn <code>desktop-windows/</code>, chạy Microsoft Edge WebView2. SHA-256: <a href="https://github.com/hethong-quanly/kynangkiemsat/releases/download/app-v1.0.0/SHA256SUMS-windows.txt">SHA256SUMS-windows.txt</a> · <a href="https://github.com/hethong-quanly/kynangkiemsat/releases/tag/app-v1.0.0">GitHub Release app-v1.0.0</a></p>
         </details>
       </div>
     </div>
 
     <div class="card" id="c-android">
       <h2>Điện thoại Android</h2>
-      <a class="btn" id="dl-apk" href="https://github.com/hethong-quanly/kynangkiemsat/releases/download/app-v1.0.0/KyNangKiemSat-1.0.0.apk">⬇ Tải ứng dụng Android (APK · 2,5 MB)</a>
-      <p class="muted" style="text-align:center;margin:0">Phiên bản 1.0.0 · Android 7.0 trở lên</p>
+      <a class="btn" id="dl-apk" href="https://github.com/hethong-quanly/kynangkiemsat/releases/download/app-v1.0.0/KyNangKiemSat-1.0.0.apk" data-i18n="install.dlBtn">⬇ Tải ứng dụng Android (APK · 2,5 MB)</a>
+      <p class="muted" style="text-align:center;margin:0" data-i18n="install.ver">Phiên bản 1.0.0 · Android 7.0 trở lên</p>
       <ol>
-        <li>Bấm nút <strong>Tải ứng dụng Android</strong> ở trên. Nếu đang mở trong <strong>Zalo</strong>, bấm dấu <strong>⋯</strong> (góc trên) → <strong>Mở bằng trình duyệt</strong> rồi bấm lại nút tải.</li>
-        <li>Tải xong, bấm vào thông báo <strong>KyNangKiemSat-1.0.0.apk</strong> (hoặc mở ứng dụng <strong>Tệp / Quản lý tệp → Tải xuống</strong>).</li>
-        <li>Nếu máy báo <em>«Vì lý do bảo mật, điện thoại không được phép cài ứng dụng không rõ nguồn»</em>: bấm <strong>Cài đặt</strong> → bật <strong>Cho phép từ nguồn này</strong> → quay lại.</li>
-        <li>Bấm <strong>Cài đặt</strong>. Nếu Google Play Protect cảnh báo «ứng dụng chưa được xác minh / không rõ»: bấm <strong>Thông tin chi tiết</strong> → <strong>Vẫn cài đặt</strong> (ứng dụng chưa phát hành qua cửa hàng nên Google chưa biết).</li>
-        <li>Bấm <strong>Mở</strong>. Biểu tượng <strong>KN Kiểm sát</strong> xuất hiện trên màn hình chính. Lần đầu mở cần có mạng để tải sẵn công cụ.</li>
+        <li data-i18n-html="install.a1.html">Bấm nút <strong>Tải ứng dụng Android</strong> ở trên. Nếu đang mở trong <strong>Zalo</strong>, bấm dấu <strong>⋯</strong> (góc trên) → <strong>Mở bằng trình duyệt</strong> rồi bấm lại nút tải.</li>
+        <li data-i18n-html="install.a2.html">Tải xong, bấm vào thông báo <strong>KyNangKiemSat-1.0.0.apk</strong> (hoặc mở ứng dụng <strong>Tệp / Quản lý tệp → Tải xuống</strong>).</li>
+        <li data-i18n-html="install.a3.html">Nếu máy báo <em>«Vì lý do bảo mật, điện thoại không được phép cài ứng dụng không rõ nguồn»</em>: bấm <strong>Cài đặt</strong> → bật <strong>Cho phép từ nguồn này</strong> → quay lại.</li>
+        <li data-i18n-html="install.a4.html">Bấm <strong>Cài đặt</strong>. Nếu Google Play Protect cảnh báo «ứng dụng chưa được xác minh / không rõ»: bấm <strong>Thông tin chi tiết</strong> → <strong>Vẫn cài đặt</strong> (ứng dụng chưa phát hành qua cửa hàng nên Google chưa biết).</li>
+        <li data-i18n-html="install.a5.html">Bấm <strong>Mở</strong>. Biểu tượng <strong>KN Kiểm sát</strong> xuất hiện trên màn hình chính. Lần đầu mở cần có mạng để tải sẵn công cụ.</li>
       </ol>
-      <details><summary>Không thấy mục «Cho phép từ nguồn này»? (theo hãng máy)</summary>
+      <details><summary data-i18n="install.unknownSum">Không thấy mục «Cho phép từ nguồn này»? (theo hãng máy)</summary>
         <ul>
-          <li><strong>Samsung</strong>: Cài đặt → Ứng dụng → (⋮) Quyền truy cập đặc biệt → Cài đặt ứng dụng không rõ nguồn → chọn Chrome (hoặc Tệp của tôi) → Cho phép.</li>
-          <li><strong>Xiaomi / Redmi / POCO</strong>: Cài đặt → Ứng dụng → Quyền đặc biệt (Quyền truy cập ứng dụng đặc biệt) → Cài đặt ứng dụng không rõ nguồn → chọn Chrome → Cho phép. Máy có thể yêu cầu chờ vài giây rồi bấm «Tôi hiểu rủi ro».</li>
-          <li><strong>OPPO / realme</strong>: Cài đặt → Mật khẩu & bảo mật (hoặc Quyền riêng tư) → Quyền hệ thống/Cài đặt ứng dụng không rõ nguồn → chọn Chrome → Cho phép.</li>
-          <li><strong>vivo</strong>: Cài đặt → Bảo mật (hoặc Ứng dụng) → Cài đặt ứng dụng không rõ nguồn → chọn Chrome → Cho phép.</li>
-          <li>Máy khác: vào <strong>Cài đặt</strong>, tìm «không rõ nguồn» hoặc «unknown apps», cấp quyền cho trình duyệt bạn dùng để tải.</li>
+          <li data-i18n-html="install.samsung.html"><strong>Samsung</strong>: Cài đặt → Ứng dụng → (⋮) Quyền truy cập đặc biệt → Cài đặt ứng dụng không rõ nguồn → chọn Chrome (hoặc Tệp của tôi) → Cho phép.</li>
+          <li data-i18n-html="install.xiaomi.html"><strong>Xiaomi / Redmi / POCO</strong>: Cài đặt → Ứng dụng → Quyền đặc biệt (Quyền truy cập ứng dụng đặc biệt) → Cài đặt ứng dụng không rõ nguồn → chọn Chrome → Cho phép. Máy có thể yêu cầu chờ vài giây rồi bấm «Tôi hiểu rủi ro».</li>
+          <li data-i18n-html="install.oppo.html"><strong>OPPO / realme</strong>: Cài đặt → Mật khẩu & bảo mật (hoặc Quyền riêng tư) → Quyền hệ thống/Cài đặt ứng dụng không rõ nguồn → chọn Chrome → Cho phép.</li>
+          <li data-i18n-html="install.vivo.html"><strong>vivo</strong>: Cài đặt → Bảo mật (hoặc Ứng dụng) → Cài đặt ứng dụng không rõ nguồn → chọn Chrome → Cho phép.</li>
+          <li data-i18n-html="install.other.html">Máy khác: vào <strong>Cài đặt</strong>, tìm «không rõ nguồn» hoặc «unknown apps», cấp quyền cho trình duyệt bạn dùng để tải.</li>
         </ul>
-        <p class="muted">Tên mục có thể khác đôi chút theo phiên bản Android. Cài xong có thể tắt lại quyền này.</p>
+        <p class="muted" data-i18n="install.unknownFoot">Tên mục có thể khác đôi chút theo phiên bản Android. Cài xong có thể tắt lại quyền này.</p>
       </details>
-      <details><summary>Cách khác không cần tải APK</summary>
-        <p>Mở <a href="./">trang ứng dụng</a> bằng <strong>Chrome</strong> → menu <strong>⋮</strong> → <strong>Cài đặt ứng dụng</strong> (hoặc «Thêm vào màn hình chính»).</p>
+      <details><summary data-i18n="install.altSum">Cách khác không cần tải APK</summary>
+        <p data-i18n-html="install.alt.html">Mở <a href="./">trang ứng dụng</a> bằng <strong>Chrome</strong> → menu <strong>⋮</strong> → <strong>Cài đặt ứng dụng</strong> (hoặc «Thêm vào màn hình chính»).</p>
       </details>
-      <details><summary>Kiểm tra tệp (dành cho cán bộ CNTT)</summary>
+      <details><summary data-i18n="install.itSum">Kiểm tra tệp (dành cho cán bộ CNTT)</summary>
         <p class="muted">Gói: <code>io.github.hethongquanly.kynangkiemsat</code><br>SHA-256 tệp APK: <code>b9d45a3ed018bf4fa3d922369374eb434e9a91d712219959735bf07bea7ac46c</code><br>Chứng chỉ ký SHA-256: <code>DB:89:DE:BF:BE:A4:BA:31:1B:66:B7:C3:96:8B:BE:C3:35:8C:4C:7C:27:77:BD:61:2F:B8:3F:87:02:FC:CA:ED</code><br>Các bản phát hành: <a href="https://github.com/hethong-quanly/kynangkiemsat/releases/tag/app-v1.0.0">GitHub Release app-v1.0.0</a></p>
       </details>
     </div>
 
     <div class="card" id="c-ios">
-      <h2>iPhone, iPad</h2>
+      <h2 data-i18n="install.ios">iPhone, iPad</h2>
       <ol>
-        <li>Mở trang này bằng <strong>Safari</strong> (nếu đang ở Zalo: bấm <strong>⋯</strong> → <strong>Mở bằng trình duyệt</strong>).</li>
-        <li>Bấm nút <strong>Chia sẻ</strong> (hình vuông có mũi tên đi lên, ở thanh dưới cùng).</li>
-        <li>Kéo xuống, chọn <strong>Thêm vào MH chính</strong> (Thêm vào Màn hình chính) → <strong>Thêm</strong>.</li>
-        <li>Mở biểu tượng <strong>KN Kiểm sát</strong> trên màn hình chính.</li>
+        <li data-i18n-html="install.ios1.html">Mở trang này bằng <strong>Safari</strong> (nếu đang ở Zalo: bấm <strong>⋯</strong> → <strong>Mở bằng trình duyệt</strong>).</li>
+        <li data-i18n-html="install.ios2.html">Bấm nút <strong>Chia sẻ</strong> (hình vuông có mũi tên đi lên, ở thanh dưới cùng).</li>
+        <li data-i18n-html="install.ios3.html">Kéo xuống, chọn <strong>Thêm vào MH chính</strong> (Thêm vào Màn hình chính) → <strong>Thêm</strong>.</li>
+        <li data-i18n-html="install.ios4.html">Mở biểu tượng <strong>KN Kiểm sát</strong> trên màn hình chính.</li>
       </ol>
-      <a class="btn sec" href="./">Mở trang ứng dụng</a>
+      <a class="btn sec" href="./" data-i18n="install.openApp">Mở trang ứng dụng</a>
     </div>
 
-
     <div class="card">
-      <h2>Gửi cho đồng nghiệp</h2>
+      <h2 data-i18n="install.share">Gửi cho đồng nghiệp</h2>
       <div class="share">
-        <img src="static/qr-cai-dat.png" alt="Mã QR tới trang cài đặt" width="150" height="150" />
+        <img src="static/qr-cai-dat.png" alt="Mã QR tới trang cài đặt" data-i18n-alt="install.qrAlt" width="150" height="150" />
         <div>
-          <p class="muted" style="margin:0">Đường link ngắn (gửi qua Zalo):</p>
+          <p class="muted" style="margin:0" data-i18n="install.shortHint">Đường link ngắn (gửi qua Zalo):</p>
           <p class="link" id="short">hethong-quanly.github.io/app</p>
-          <button type="button" class="btn sec" id="copy">Sao chép link</button>
-          <p class="muted" style="margin:4px 0 0">Hoặc quét mã QR bằng camera điện thoại.</p>
+          <button type="button" class="btn sec" id="copy" data-i18n="install.copy">Sao chép link</button>
+          <p class="muted" style="margin:4px 0 0" data-i18n="install.orQr">Hoặc quét mã QR bằng camera điện thoại.</p>
         </div>
       </div>
     </div>
 
     <div class="card warn">
-      <h2>Lưu ý</h2>
+      <h2 data-i18n="install.notes">Lưu ý</h2>
       <ul>
-        <li>Ứng dụng mở bộ công cụ tại <code>hethong-quanly.github.io/kynangkiemsat</code> và <strong>tự cập nhật nội dung</strong>, không cần tải lại APK hay bộ cài khi có công cụ mới.</li>
-        <li>Lần đầu mở, ứng dụng hỏi <strong>đơn vị công tác</strong> để điền sẵn tên cơ quan trong mẫu văn bản; thông tin chỉ lưu trên máy. Xem <a href="privacy.html">Chính sách dữ liệu</a>.</li>
-        <li>Chỉ tải APK / bộ cài Windows từ nút trên trang này hoặc trang GitHub Release ở trên.</li>
+        <li data-i18n-html="install.n1.html">Ứng dụng mở bộ công cụ tại <code>hethong-quanly.github.io/kynangkiemsat</code> và <strong>tự cập nhật nội dung</strong>, không cần tải lại APK hay bộ cài khi có công cụ mới.</li>
+        <li data-i18n-html="install.n2.html">Lần đầu mở, ứng dụng hỏi <strong>đơn vị công tác</strong> để điền sẵn tên cơ quan trong mẫu văn bản; thông tin chỉ lưu trên máy. Xem <a href="privacy.html">Chính sách dữ liệu</a>.</li>
+        <li data-i18n="install.n3">Chỉ tải APK / bộ cài Windows từ nút trên trang này hoặc trang GitHub Release ở trên.</li>
       </ul>
     </div>
   </div>
@@ -191,7 +189,7 @@
       // Cách 2: chỉ hiện nút tải .exe khi tệp đã có trên GitHub Release.
       var de = document.getElementById("dl-exe"), wait = document.getElementById("exe-wait");
       function showExe(bytes) {
-        if (bytes) document.getElementById("exe-size").textContent = " · " + (bytes / 1048576).toFixed(1).replace(".", ",") + " MB";
+        if (bytes) document.getElementById("exe-size").textContent = " · " + (bytes / 1048576).toFixed(1).replace(".", (window.KNKS_I18N && KNKS_I18N.isEn()) ? "." : ",") + " MB";
         de.hidden = false; wait.hidden = true;
       }
       fetch("https://api.github.com/repos/hethong-quanly/kynangkiemsat/releases/tags/app-v1.0.0", { headers: { Accept: "application/vnd.github+json" } })
@@ -203,11 +201,11 @@
         .catch(function () { if (de.getAttribute("data-co-san") === "1") showExe(0); });
       var u = "https://hethong-quanly.github.io/app/", b = document.getElementById("copy");
       b.onclick = function () {
-        var ok = function () { b.textContent = "Đã sao chép ✓"; setTimeout(function () { b.textContent = "Sao chép link"; }, 1600); };
+        var ok = function () { b.textContent = (window.KNKS_I18N?KNKS_I18N.t("install.copied"):"Đã sao chép ✓"); setTimeout(function () { b.textContent = (window.KNKS_I18N?KNKS_I18N.t("install.copy"):"Sao chép link"); }, 1600); };
         if (navigator.clipboard) navigator.clipboard.writeText(u).then(ok, function () { prompt("Sao chép link:", u); });
         else prompt("Sao chép link:", u);
       };
-      if (navigator.share) { var s = document.createElement("button"); s.type = "button"; s.className = "btn sec"; s.textContent = "Chia sẻ (Zalo, tin nhắn…)"; s.onclick = function () { navigator.share({ title: "Kỹ năng Kiểm sát", text: "Cài ứng dụng Kỹ năng Kiểm sát:", url: u }).catch(function () {}); }; b.parentNode.insertBefore(s, b.nextSibling); }
+      if (navigator.share) { var s = document.createElement("button"); s.type = "button"; s.className = "btn sec"; s.textContent = (window.KNKS_I18N?KNKS_I18N.t("install.shareBtn"):"Chia sẻ (Zalo, tin nhắn…)"); s.onclick = function () { navigator.share({ title: (window.KNKS_I18N?KNKS_I18N.t("install.shareTitle"):"Kỹ năng Kiểm sát"), text: (window.KNKS_I18N?KNKS_I18N.t("install.shareText"):"Cài ứng dụng Kỹ năng Kiểm sát:"), url: u }).catch(function () {}); }; b.parentNode.insertBefore(s, b.nextSibling); }
     })();
   </script>
 </body>

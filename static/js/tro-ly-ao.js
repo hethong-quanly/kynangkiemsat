@@ -159,7 +159,10 @@
       (l.het.length ? "VĂN BẢN ĐÃ HẾT HIỆU LỰC (không dùng làm căn cứ; chỉ nêu khi so sánh trước/sau):\n" + li(l.het) + "\n" : "") +
       (l.moc.length ? "MỐC THỜI HẠN ĐÃ XÁC MINH (ưu tiên dùng nguyên văn):\n" + li(l.moc) + "\n" : "") +
       "QUY TẮC: 1) Chỉ viện dẫn văn bản trong danh sách trên, ghi rõ điều, khoản khi chắc chắn; không tự mô tả phạm vi, nội dung văn bản ngoài phần ghi trong danh sách. 2) Nếu mục «MỐC THỜI HẠN ĐÃ XÁC MINH» trả lời được câu hỏi thì dùng đúng nội dung, đúng chủ thể và trích đúng điều khoản ghi trong ngoặc của mốc đó. Không bịa số hiệu, điều luật, thời hạn; nếu không chắc thì viết «không chắc, cần đối chiếu văn bản gốc». " +
-      "3) Không dùng văn bản đã hết hiệu lực làm căn cứ hiện hành. 4) Vấn đề ngoài danh sách: nói rõ phần mềm chưa có căn cứ đã xác minh. 5) Trả lời tiếng Việt, giọng nghiệp vụ, xưng «bạn», không chào hỏi; NGẮN GỌN (tối đa khoảng 250 từ, kiểm sát văn bản tối đa 400 từ), dùng markdown đơn giản (đậm, danh sách)." +
+      "3) Không dùng văn bản đã hết hiệu lực làm căn cứ hiện hành. 4) Vấn đề ngoài danh sách: nói rõ phần mềm chưa có căn cứ đã xác minh. 5) " +
+      ((g.KNKS_I18N && g.KNKS_I18N.isEn())
+        ? "Answer in clear professional English. Keep original Vietnamese titles of legal instruments (Luật, Bộ luật, Nghị định, Thông tư, Nghị quyết, Quyết định, Điều, khoản) and cite article/clause numbers accurately. Address the user as “you”, no greetings; BE CONCISE (max about 250 words, 400 when reviewing a document), use simple markdown (bold, lists)."
+        : "Trả lời tiếng Việt, giọng nghiệp vụ, xưng «bạn», không chào hỏi; NGẮN GỌN (tối đa khoảng 250 từ, kiểm sát văn bản tối đa 400 từ), dùng markdown đơn giản (đậm, danh sách).") +
       (coVanBan ? "\nKhi kiểm sát văn bản: rà hình thức, chính tả tên người/số liệu, mâu thuẫn nhận định — quyết định, thiếu căn cứ, sai thẩm quyền, sai thời hạn; trả lời theo Phiếu: I. Tóm tắt; II. Vi phạm / thiếu sót; III. Căn cứ pháp luật; IV. Hướng xử lý (ghi nhận / kiến nghị / kháng nghị); V. Lưu ý." : "");
   }
 

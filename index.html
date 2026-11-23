@@ -4,9 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <script>
-        (function(){try{var t=localStorage.getItem('knks-theme');if(t!=='dark'&&t!=='light')t=(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.setAttribute('data-theme',t);document.documentElement.style.colorScheme=t;}catch(e){}})();
+        (function(){try{var t=localStorage.getItem('knks-theme');if(t!=='dark'&&t!=='light')t=(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.setAttribute('data-theme',t);document.documentElement.style.colorScheme=t;var l=localStorage.getItem('knks_lang');if(l==='en'||l==='vi')document.documentElement.lang=l;}catch(e){}})();
     </script>
     <script src="theme.js"></script>
+    <script src="knks-i18n.js"></script>
     <meta name="theme-color" content="#1e5a8a">
     <meta name="description" content="Bộ kỹ năng nghiệp vụ Kiểm sát: tính thời hạn, tra cứu văn bản, mẫu văn bản, ẩn danh, OCR.">
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -540,21 +541,21 @@
     <!-- ===== LANDING PAGE - NEURAL MODE ===== -->
     <div id="landing-page" class="relative w-screen h-screen flex items-center justify-center select-none">
         <div class="theme-fab">
-            <div class="theme-switch" role="group" aria-label="Chọn giao diện">
-                <button type="button" class="theme-btn" data-theme-set="light" aria-pressed="true" title="Giao diện sáng">
+            <div class="theme-switch" role="group" aria-label="Chọn giao diện" data-i18n-aria="theme.group">
+                <button type="button" class="theme-btn" data-theme-set="light" aria-pressed="true" title="Giao diện sáng" data-i18n-title="theme.lightTitle">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
-                    <span>Sáng</span>
+                    <span data-i18n="theme.light">Sáng</span>
                 </button>
-                <button type="button" class="theme-btn" data-theme-set="dark" aria-pressed="false" title="Giao diện tối">
+                <button type="button" class="theme-btn" data-theme-set="dark" aria-pressed="false" title="Giao diện tối" data-i18n-title="theme.darkTitle">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 14.5A8.5 8.5 0 1 1 9.5 3 7 7 0 0 0 21 14.5z"/></svg>
-                    <span>Tối</span>
+                    <span data-i18n="theme.dark">Tối</span>
                 </button>
             </div>
         </div>
 
         <!-- LỚP NỀN TRỤ SỞ -->
         <div class="absolute inset-0 z-0 overflow-hidden">
-            <img class="hq-photo" src="static/tru-so-vksnd.jpg" alt="Trụ sở Viện kiểm sát nhân dân thành phố Cần Thơ">
+            <img class="hq-photo" src="static/tru-so-vksnd.jpg" alt="Trụ sở Viện kiểm sát nhân dân thành phố Cần Thơ" data-i18n-alt="landing.photoAlt">
             <div class="hq-veil"></div>
             <div class="absolute inset-0 tech-grid"></div>
         </div>
@@ -576,7 +577,7 @@
                     <!-- Logo chính -->
                     <img class="w-[220px] h-[220px] object-contain relative z-20 transition-transform duration-500 ease-out group-hover:scale-[1.05]" 
                          src="./static/logo_moi.png" 
-                         alt="Phù hiệu VKSND">
+                         alt="Phù hiệu VKSND" data-i18n-alt="landing.logoAlt">
 
                     <!-- Metallic Sweep - quét sáng khi hover -->
                     <div class="absolute inset-0 w-[200%] h-full bg-gradient-to-r from-transparent via-white/50 to-transparent -translate-x-full -rotate-45 transition-transform duration-1000 ease-out group-hover:translate-x-full z-30"></div>
@@ -585,10 +586,10 @@
 
             <!-- THÔNG TIN VĂN BẢN -->
             <div class="text-center mt-2 space-y-2">
-                                <h1 class="text-[29px] md:text-[34px] font-extrabold tracking-wide text-white">
+                                <h1 class="text-[29px] md:text-[34px] font-extrabold tracking-wide text-white" data-i18n-html="landing.h1.html">
                     KỸ NĂNG <span class="bg-gradient-to-r from-proc-blue to-proc-neon bg-clip-text text-transparent">NGHIỆP VỤ</span>
                 </h1>
-                <p class="text-[12px] font-bold text-proc-neon tracking-widest uppercase animate-pulse pt-1" onclick="showTools()" style="cursor:pointer;">
+                <p class="text-[12px] font-bold text-proc-neon tracking-widest uppercase animate-pulse pt-1" onclick="showTools()" style="cursor:pointer;" data-i18n="landing.tagline">
                    ♥ PHỤC VỤ CÔNG TÁC KIỂM SÁT ♥
                 </p>
             </div>
@@ -599,38 +600,38 @@
     <div id="dashboard-page">
         <div class="header">
             <div class="header-left">
-                <h1>KỸ NĂNG ỨNG DỤNG TRONG NGHIỆP VỤ KIỂM SÁT</h1>
+                <h1 data-i18n="home.h1">KỸ NĂNG ỨNG DỤNG TRONG NGHIỆP VỤ KIỂM SÁT</h1>
                 <div class="header-underline"></div>
             </div>
             <div class="header-right">
-                <div class="theme-switch" role="group" aria-label="Chọn giao diện">
-                    <button type="button" class="theme-btn" data-theme-set="light" aria-pressed="true" title="Giao diện sáng">
+                <div class="theme-switch" role="group" aria-label="Chọn giao diện" data-i18n-aria="theme.group">
+                    <button type="button" class="theme-btn" data-theme-set="light" aria-pressed="true" title="Giao diện sáng" data-i18n-title="theme.lightTitle">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
-                        <span>Sáng</span>
+                        <span data-i18n="theme.light">Sáng</span>
                     </button>
-                    <button type="button" class="theme-btn" data-theme-set="dark" aria-pressed="false" title="Giao diện tối">
+                    <button type="button" class="theme-btn" data-theme-set="dark" aria-pressed="false" title="Giao diện tối" data-i18n-title="theme.darkTitle">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 14.5A8.5 8.5 0 1 1 9.5 3 7 7 0 0 0 21 14.5z"/></svg>
-                        <span>Tối</span>
+                        <span data-i18n="theme.dark">Tối</span>
                     </button>
                 </div>
-                <button type="button" class="btn-dv" data-mo-don-vi title="Chọn đơn vị công tác">Đơn vị công tác</button>
-                <button type="button" class="btn-install" id="btn-install" onclick="promptInstall()">Cài đặt</button>
+                <button type="button" class="btn-dv" data-mo-don-vi title="Chọn đơn vị công tác" data-i18n="unit.btn" data-i18n-title="unit.btnTitle">Đơn vị công tác</button>
+                <button type="button" class="btn-install" id="btn-install" onclick="promptInstall()" data-i18n="install.btn">Cài đặt</button>
             </div>
         </div>
-        <div class="pwa-banner" id="pwa-banner" role="region" aria-label="Cài ứng dụng">
+        <div class="pwa-banner" id="pwa-banner" role="region" aria-label="Cài ứng dụng" data-i18n-aria="pwa.bannerAria">
             <div class="pwa-banner-text">
-                <strong>Cài đặt app điện thoại</strong>
-                <span>Sử dụng tiện lợi, nhanh chóng, chính xác.</span>
+                <strong data-i18n="pwa.bannerTitle">Cài đặt app điện thoại</strong>
+                <span data-i18n="pwa.bannerDesc">Sử dụng tiện lợi, nhanh chóng, chính xác.</span>
             </div>
             <div class="pwa-banner-actions">
-                <button type="button" class="btn-go" id="pwa-go" onclick="promptInstall()">Cài đặt</button>
-                <button type="button" class="btn-x" onclick="dismissPwaBanner()" aria-label="Đóng">✕</button>
+                <button type="button" class="btn-go" id="pwa-go" onclick="promptInstall()" data-i18n="install.btn">Cài đặt</button>
+                <button type="button" class="btn-x" onclick="dismissPwaBanner()" aria-label="Đóng" data-i18n-aria="pwa.close">✕</button>
             </div>
         </div>
         <div class="bento-grid" id="tools-grid"></div>
         <footer class="site-footer" id="knks-ban-quyen">
             <p class="footer-author">Thiên Phúc &copy; 2026</p>
-            <p class="footer-unit footer-privacy"><span class="lnk-app"><a href="cai-dat.html">Tải ứng dụng</a> · </span><a href="privacy.html">Quyền riêng tư</a></p>
+            <p class="footer-unit footer-privacy"><span class="lnk-app"><a href="cai-dat.html" data-i18n="footer.app">Tải ứng dụng</a> · </span><a href="privacy.html" data-i18n="footer.privacy">Quyền riêng tư</a></p>
         </footer>
     </div>
 
@@ -646,37 +647,37 @@
 
     <div class="os-taskbar" id="os-taskbar">
         <div class="os-taskbar-left">
-            <div class="os-taskbar-start" onclick="closeTool()">⬥ Danh mục chính</div>
+            <div class="os-taskbar-start" onclick="closeTool()" data-i18n="taskbar.menu">⬥ Danh mục chính</div>
             <div class="os-taskbar-breadcrumb" id="taskbar-breadcrumb"></div>
         </div>
         <div class="os-taskbar-right">
-            <div class="theme-switch compact" role="group" aria-label="Chọn giao diện">
-                <button type="button" class="theme-btn" data-theme-set="light" aria-pressed="true" title="Giao diện sáng">
+            <div class="theme-switch compact" role="group" aria-label="Chọn giao diện" data-i18n-aria="theme.group">
+                <button type="button" class="theme-btn" data-theme-set="light" aria-pressed="true" title="Giao diện sáng" data-i18n-title="theme.lightTitle">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
                 </button>
-                <button type="button" class="theme-btn" data-theme-set="dark" aria-pressed="false" title="Giao diện tối">
+                <button type="button" class="theme-btn" data-theme-set="dark" aria-pressed="false" title="Giao diện tối" data-i18n-title="theme.darkTitle">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 14.5A8.5 8.5 0 1 1 9.5 3 7 7 0 0 0 21 14.5z"/></svg>
                 </button>
             </div>
-            <span class="net-dot" id="net-status"><span class="net-pip"></span><span id="net-label">Trực tuyến</span></span>
+            <span class="net-dot" id="net-status"><span class="net-pip"></span><span id="net-label" data-i18n="net.online">Trực tuyến</span></span>
             <span class="os-clock" id="os-clock">00:00</span>
         </div>
     </div>
 
     <div class="pwa-toast" id="pwa-toast" role="status"></div>
-    <div class="pwa-update" id="pwa-update" role="alert" hidden><span>Có bản mới</span><button type="button" onclick="location.reload()">Tải lại</button><button type="button" class="x" aria-label="Đóng" onclick="this.parentNode.hidden=true">×</button></div>
+    <div class="pwa-update" id="pwa-update" role="alert" hidden><span data-i18n="pwa.update">Có bản mới</span><button type="button" onclick="location.reload()" data-i18n="pwa.reload">Tải lại</button><button type="button" class="x" aria-label="Đóng" data-i18n-aria="pwa.close" onclick="this.parentNode.hidden=true">×</button></div>
     <div class="pwa-sheet" id="pwa-sheet" onclick="if(event.target===this) closeInstallSheet()">
         <div class="pwa-sheet-card" role="dialog" aria-labelledby="pwa-sheet-title">
-            <h3 id="pwa-sheet-title">Cài ra màn hình chính</h3>
-            <p>Không cần cửa hàng ứng dụng. Lần đầu mở khi có mạng để tải sẵn công cụ HTML.</p>
+            <h3 id="pwa-sheet-title" data-i18n="pwa.sheetTitle">Cài ra màn hình chính</h3>
+            <p data-i18n="pwa.sheetLead">Không cần cửa hàng ứng dụng. Lần đầu mở khi có mạng để tải sẵn công cụ HTML.</p>
             <ol>
-                <li>Mở trang này bằng <strong>Safari</strong> (iPhone / iPad) hoặc <strong>Chrome</strong> (Android).</li>
-                <li>iPhone: bấm nút Chia sẻ (hình vuông có mũi tên lên) rồi chọn <strong>Thêm vào Màn hình chính</strong>.</li>
-                <li>Android: <a href="cai-dat.html"><strong>tải ứng dụng Android (APK)</strong></a>, hoặc bấm <strong>Cài app</strong> trên banner / menu Chrome → Cài đặt ứng dụng.</li>
-                <li>Máy tính (Windows / Mac): bấm biểu tượng <strong>Cài đặt</strong> ở cuối thanh địa chỉ Chrome / Edge, hoặc <a href="cai-dat.html#c-desktop"><strong>tải bộ cài Windows</strong></a>.</li>
-                <li>Mở icon <strong>KN Kiểm sát</strong> trên màn hình.</li>
+                <li data-i18n-html="pwa.sheet1.html">Mở trang này bằng <strong>Safari</strong> (iPhone / iPad) hoặc <strong>Chrome</strong> (Android).</li>
+                <li data-i18n-html="pwa.sheet2.html">iPhone: bấm nút Chia sẻ (hình vuông có mũi tên lên) rồi chọn <strong>Thêm vào Màn hình chính</strong>.</li>
+                <li data-i18n-html="pwa.sheet3.html">Android: <a href="cai-dat.html"><strong>tải ứng dụng Android (APK)</strong></a>, hoặc bấm <strong>Cài app</strong> trên banner / menu Chrome → Cài đặt ứng dụng.</li>
+                <li data-i18n-html="install.pcSheet.html">Máy tính (Windows / Mac): bấm biểu tượng <strong>Cài đặt</strong> ở cuối thanh địa chỉ Chrome / Edge, hoặc <a href="cai-dat.html#c-desktop"><strong>tải bộ cài Windows</strong></a>.</li>
+                <li data-i18n-html="pwa.sheet4.html">Mở icon <strong>KN Kiểm sát</strong> trên màn hình.</li>
             </ol>
-            <button type="button" class="btn-go" onclick="closeInstallSheet()">Đã hiểu</button>
+            <button type="button" class="btn-go" onclick="closeInstallSheet()" data-i18n="pwa.gotIt">Đã hiểu</button>
         </div>
     </div>
 
@@ -744,10 +745,24 @@
             return window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true;
         }
         function isIos(){ return /iphone|ipad|ipod/i.test(navigator.userAgent || ''); }
+        function tr(k, vars){ return (window.KNKS_I18N && KNKS_I18N.t) ? KNKS_I18N.t(k, vars) : k; }
         function kindMeta(mode){
-            if(mode==='online') return { label:'CẦN MẠNG', cls:'kind-online' };
-            if(mode==='desktop') return { label:'MÁY TÍNH · WINDOWS', cls:'kind-desktop' };
+            if(mode==='online') return { label:tr('kind.online'), cls:'kind-online' };
+            if(mode==='desktop') return { label:tr('kind.desktop'), cls:'kind-desktop' };
             return null;
+        }
+        function toolText(t, field){
+            var k='tool.'+t.id+'.'+field;
+            var v=tr(k);
+            return (v && v!==k) ? v : t[field];
+        }
+        function badgeText(badge){
+            if(badge==='KỸ NĂNG') return tr('badge.skill');
+            if(badge==='PHƯƠNG PHÁP') return tr('badge.method');
+            if(badge==='HƯỚNG DẪN') return tr('badge.guide');
+            if(badge==='TRỢ LÝ ẢO') return tr('badge.ai');
+            if(badge==='CỘNG ĐỒNG') return tr('badge.community');
+            return badge;
         }
         function showToast(msg){
             var el=document.getElementById('pwa-toast');
@@ -761,7 +776,7 @@
             var net=document.getElementById('net-status');
             var lab=document.getElementById('net-label');
             if(net) net.classList.toggle('off', !on);
-            if(lab) lab.textContent=on ? 'Trực tuyến' : 'Ngoại tuyến';
+            if(lab) lab.textContent=on ? tr('net.online') : tr('net.offline');
             var cards=document.querySelectorAll('.bento-card[data-mode="online"]');
             for(var i=0;i<cards.length;i++) cards[i].classList.toggle('needs-net', !on);
         }
@@ -820,6 +835,18 @@
             } catch (e) {}
         }
 
+        function refreshLang(){
+            renderToolCards();
+            updateOnlineUi();
+            if(currentToolId){
+                var tool=null;
+                for(var i=0;i<TOOLS.length;i++){ if(TOOLS[i].id===currentToolId){ tool=TOOLS[i]; break; } }
+                if(tool){ activeToolTitle=toolText(tool,'title'); if(winTitle) winTitle.textContent=activeToolTitle; }
+            }
+            updateBreadcrumb();
+            updateClock();
+        }
+        window.addEventListener('knks-lang', refreshLang);
         function init(){
             renderToolCards(); startClock(); registerPwa();
             var skip=isStandalone() || /(?:^|[?&])vao=1(?:&|$)/.test(location.search);
@@ -855,12 +882,12 @@
                 html+='<div class="bento-card '+t.span+' '+t.accent+netCls+'" data-tool-id="'+t.id+'" data-mode="'+(t.mode||'offline')+'" onclick="openTool(\''+t.id+'\')">';
                 html+='<div>';
                 html+='<div class="bento-card-top"><div>';
-                html+='<div class="bento-badges"><span class="bento-card-badge '+t.badgeClass+'">'+t.badge+'</span>';
+                html+='<div class="bento-badges"><span class="bento-card-badge '+t.badgeClass+'">'+badgeText(t.badge)+'</span>';
                 if(k) html+='<span class="kind-chip '+k.cls+'">'+k.label+'</span>';
                 html+='</div>';
-                html+='<h3 class="bento-card-title">'+t.title+'</h3></div>';
+                html+='<h3 class="bento-card-title">'+toolText(t,'title')+'</h3></div>';
                 html+='<div class="bento-illust">'+t.illust+'</div></div>';
-                html+='<p class="bento-card-desc">'+t.desc+'</p></div>';
+                html+='<p class="bento-card-desc">'+toolText(t,'desc')+'</p></div>';
                 if(t.footer) html+='<div class="bento-card-footer">'+t.footer+'</div>';
                 html+='</div>';
             }
@@ -870,7 +897,7 @@
         function confirmExternal(tool){
             var k='knks-ext-ok-'+tool.id;
             try { if(sessionStorage.getItem(k)==='1') return true; } catch(e){}
-            var ok=window.confirm('Lưu ý: «'+tool.extWarn+'» là dịch vụ bên ngoài. Mọi nội dung bạn nhập sẽ được gửi lên máy chủ của bên thứ ba (có thể ở nước ngoài).\n\nChỉ nhập văn bản đã ẩn danh (che họ tên, CCCD, địa chỉ…), không nhập tài liệu mật. Kết quả chỉ để tham khảo.\n\nXem Chính sách dữ liệu: privacy.html\n\nTiếp tục mở?');
+            var ok=window.confirm(tr('confirm.ext',{name:tool.extWarn}));
             if(ok){ try { sessionStorage.setItem(k,'1'); } catch(e){} }
             return ok;
         }
@@ -882,12 +909,12 @@
             for(var i=0;i<TOOLS.length;i++){ if(TOOLS[i].id===toolId){ tool=TOOLS[i]; break; } }
             if(!tool) return;
             if(tool.mode==='online' && !navigator.onLine){
-                showToast('Mục này cần kết nối mạng.');
+                showToast(tr('toast.needNet'));
                 return;
             }
             if(tool.extWarn && !confirmExternal(tool)) return;
             if(tool.newTab){ window.open(tool.url,'_blank'); return; }
-            currentToolId=toolId; activeToolTitle=tool.title; isInToolView=true;
+            currentToolId=toolId; activeToolTitle=toolText(tool,'title'); isInToolView=true;
             dashboard.style.opacity='0'; dashboard.style.display='none'; dashboard.classList.remove('visible-layout');
             osLoading.classList.add('visible'); osWorkspace.style.display='block'; osTaskbar.classList.add('visible');
             winTitle.textContent=tool.title; updateBreadcrumb(); toolIframe.src=tool.url;
@@ -902,13 +929,13 @@
         }
 
         function updateBreadcrumb(){
-            var h='<span class="breadcrumb-item" onclick="closeTool()">Kỹ năng</span><span class="breadcrumb-sep">›</span><span class="breadcrumb-item" onclick="closeTool()">Menu chính</span>';
+            var h='<span class="breadcrumb-item" onclick="closeTool()">'+tr('taskbar.home')+'</span><span class="breadcrumb-sep">›</span><span class="breadcrumb-item" onclick="closeTool()">'+tr('taskbar.main')+'</span>';
             if(currentToolId) h+='<span class="breadcrumb-sep">›</span><span class="breadcrumb-item active">'+activeToolTitle+'</span>';
             breadcrumb.innerHTML=h;
         }
         function startClock(){ updateClock(); setInterval(updateClock,1000); }
         function updateClock(){
-            var n=new Date(), days=['CN','T2','T3','T4','T5','T6','T7'];
+            var n=new Date(), days=[tr('day.0'),tr('day.1'),tr('day.2'),tr('day.3'),tr('day.4'),tr('day.5'),tr('day.6')];
             osClock.textContent=days[n.getDay()]+', '+String(n.getDate()).padStart(2,'0')+'/'+String(n.getMonth()+1).padStart(2,'0')+' '+String(n.getHours()).padStart(2,'0')+':'+String(n.getMinutes()).padStart(2,'0');
         }
 
