@@ -166,7 +166,6 @@ Bo_cong_cu_Kiem_sat/
 | **Loại** | HTML app (iframe) |
 | **URL** | `Tool/AnDanh/index.html` |
 | **Accent** | `accent-plum` |
-| **Ghi chú** | Phát triển bởi Trần Huy – Viện KSND KV11 Đắk Lắk |
 
 ### 3.9. File Renamer – Đổi tên file hàng loạt
 | Thuộc tính | Giá trị |
