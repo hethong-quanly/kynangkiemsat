@@ -65,7 +65,7 @@
 ## 5. Ứng dụng chính phủ / mạo danh — cần quyết định
 
 - Play hỏi ứng dụng có được **phát triển bởi hoặc thay mặt cơ quan nhà nước** không. Nếu chọn **Có**, phải nộp văn bản xác nhận của cơ quan (giấy uỷ quyền/công văn của VKSND TP Cần Thơ cho phép phát hành, email theo tên miền cơ quan…).
-- Tên app hiện có «VKSND TP Cần Thơ», biểu tượng dùng phù hiệu ngành Kiểm sát, tác giả ghi «Thiên Phúc – Viện kiểm sát nhân dân thành phố Cần Thơ». Với tài khoản cá nhân, Google thường coi đây là **mạo danh tổ chức** (chính sách Impersonation) nếu không có giấy xác nhận → dễ bị từ chối.
+- Tên app hiện có «VKSND TP Cần Thơ», biểu tượng dùng phù hiệu ngành Kiểm sát, chân trang chỉ ghi «Thiên Phúc © 2026» (đã bỏ tên Viện khỏi trang chủ và chân trang). Với tài khoản cá nhân, Google thường coi đây là **mạo danh tổ chức** (chính sách Impersonation) nếu không có giấy xác nhận → dễ bị từ chối.
 - Khuyến nghị: (a) xin **văn bản cho phép của lãnh đạo VKSND TP Cần Thơ** rồi khai báo «Có» và tải lên; hoặc (b) nếu không có, dùng tên trên Play «Kỹ năng Kiểm sát», biểu tượng không dùng phù hiệu, và khai báo «Không phải ứng dụng chính phủ». Phát hành APK nội bộ (bước 1) không bị ràng buộc này.
 
 ## 6. Thử nghiệm kín (Closed testing)

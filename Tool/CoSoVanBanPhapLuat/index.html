@@ -167,7 +167,6 @@ html[data-theme="dark"] .vb-item { color:#c5d0db; }
     <div class="hdr-icon">VB</div>
     <div>
       <h1>Cơ sở dữ liệu <span>văn bản pháp luật</span></h1>
-      <p>Dành cho KSV · VKSND TP Cần Thơ · Không kết nối mạng</p>
     </div>
     <button type="button" class="vb-menu btn" style="margin-left:auto;background:rgba(255,255,255,.12);color:#fff;border-color:rgba(255,255,255,.2)" data-menu="1">☰ Danh mục</button>
   </header>
@@ -182,7 +181,6 @@ html[data-theme="dark"] .vb-item { color:#c5d0db; }
         <div style="width:32px;height:32px;border-radius:8px;background:#1B3A7A;display:flex;align-items:center;justify-content:center">⚖️</div>
         <div style="flex:1">
           <b>Tra cứu trong kho</b>
-          <small>● Không cần mạng</small>
         </div>
         <button type="button" class="vb-menu btn" data-ai="1">✕</button>
       </div>
@@ -9479,7 +9477,7 @@ var VanBanPl = (() => {
     {
       id: 0,
       role: "ai",
-      text: "Xin chào bạn. Tôi tra cứu trong kho văn bản pháp luật, quy trình, án lệ, rút kinh nghiệm và công văn của Viện KSND thành phố Cần Thơ — không cần mạng.\n\nBạn hỏi số hiệu, tên luật, án lệ hoặc tình huống nghiệp vụ.",
+      text: "Xin chào bạn. Tôi tra cứu trong kho văn bản pháp luật, quy trình, án lệ, rút kinh nghiệm và công văn của Viện KSND thành phố Cần Thơ.\n\nBạn hỏi số hiệu, tên luật, án lệ hoặc tình huống nghiệp vụ.",
     },
   ];
 
@@ -9675,7 +9673,7 @@ var VanBanPl = (() => {
       );
     }).join("");
     return (
-      '<div class="vb-welcome"><div class="vb-ico">⚖️</div><h2>Kho văn bản pháp luật và nghiệp vụ kiểm sát</h2><p>Chọn nhóm danh mục bên trái hoặc gõ từ khóa để tra cứu. Dữ liệu nằm trong phần mềm — dùng được khi không có mạng.</p><div class="vb-stats">' +
+      '<div class="vb-welcome"><div class="vb-ico">⚖️</div><h2>Kho văn bản pháp luật và nghiệp vụ kiểm sát</h2><p>Chọn nhóm danh mục bên trái hoặc gõ từ khóa để tra cứu. Dữ liệu nằm trong phần mềm.</p><div class="vb-stats">' +
       stats +
       '</div><div class="vb-quick">' +
       btns +
