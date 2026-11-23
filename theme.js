@@ -63,18 +63,22 @@
     else if (mq.addListener) mq.addListener(onMq);
   } catch (e) {}
 
-  /* Chân trang bản quyền dùng chung (trang chủ có chân trang riêng: #knks-ban-quyen). */
-  var BAN_QUYEN = { ten: "THIÊN PHÚC – VIỆN KIỂM SÁT NHÂN DÂN THÀNH PHỐ CẦN THƠ", sdt: "0939103666", nam: 2026 };
+  /* Chân trang bản quyền: hiện chỉ dùng ở trang chủ (#knks-ban-quyen trong index.html); hàm chanTrang không còn được gọi. */
+  var BAN_QUYEN = { ten: "Thiên Phúc", sdt: "0939103666", nam: 2026 };
   function chanTrang() {
     if (!document.body || document.getElementById("knks-ban-quyen") || document.documentElement.hasAttribute("data-no-ban-quyen")) return;
     var f = document.createElement("footer");
     f.id = "knks-ban-quyen";
     f.setAttribute("style", "text-align:center;font:12px/1.6 'Be Vietnam Pro',Arial,sans-serif;color:inherit;opacity:.75;padding:14px 12px 22px;margin-top:8px;clear:both");
-    f.innerHTML = "T\u00e1c gi\u1ea3: <strong>" + BAN_QUYEN.ten + "</strong> \u00a9 " + BAN_QUYEN.nam + " \u00b7 Li\u00ean h\u1ec7: <a href=\"tel:" + BAN_QUYEN.sdt + "\" style=\"color:inherit;font-weight:700\">" + BAN_QUYEN.sdt + "</a>" +
-      (/\/cai-dat\.html$/.test(location.pathname) || (global.matchMedia && global.matchMedia("(display-mode: standalone)").matches) ? "" : "<br><a href=\"" + new URL("cai-dat.html", (document.querySelector('script[src$="theme.js"]') || {}).src || location.href).href + "\" style=\"color:inherit\">T\u1ea3i \u1ee9ng d\u1ee5ng (Android, iPhone)</a>");
+    var goc = (document.querySelector('script[src$="theme.js"]') || {}).src || location.href;
+    var lk = [];
+    if (!(/\/cai-dat\.html$/.test(location.pathname) || (global.matchMedia && global.matchMedia("(display-mode: standalone)").matches))) lk.push("<a href=\"" + new URL("cai-dat.html", goc).href + "\" style=\"color:inherit\">T\u1ea3i \u1ee9ng d\u1ee5ng</a>");
+    if (!/\/privacy\.html$/.test(location.pathname)) lk.push("<a href=\"" + new URL("privacy.html", goc).href + "\" style=\"color:inherit\">Quy\u1ec1n ri\u00eang t\u01b0</a>");
+    f.innerHTML = (lk.length ? "<div style=\"font-size:10.5px;opacity:.7;margin-bottom:4px\">" + lk.join(" \u00b7 ") + "</div>" : "") +
+      "<div class=\"knks-bq\">" + BAN_QUYEN.ten + " \u00a9 " + BAN_QUYEN.nam + "</div>";
     document.body.appendChild(f);
   }
-  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", chanTrang); else chanTrang();
+  // Theo yêu cầu: không hiện chân trang tác giả ở trang con (chỉ trang chủ index.html có dòng «Thiên Phúc © 2026»).
 
   /* Đơn vị công tác do người dùng chọn (chỉ lưu localStorage "knks-don-vi", không gửi đi đâu).
      Mặc định khi chưa chọn: VKSND thành phố Cần Thơ (giữ nguyên cách hiển thị cũ). */

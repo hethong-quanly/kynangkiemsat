@@ -65,7 +65,7 @@
       var c = $("dv-cap").value;
       $("dv-w-cc").hidden = c !== "cap-cao"; $("dv-w-t").hidden = !(c === "tinh" || c === "khu-vuc"); $("dv-w-kv").hidden = c !== "khu-vuc";
       var i = D.info(val());
-      $("dv-prev").innerHTML = "Hiển thị: <strong>Dành cho KSV · " + esc(i.ngan) + "</strong><br>Tiêu đề văn bản: " + esc(i.tieuDe.join(" ")) + " · " + esc(i.diaDanh) + ", ngày …";
+      $("dv-prev").innerHTML = "Đơn vị: <strong>" + esc(i.ngan) + "</strong><br>Tiêu đề văn bản: " + esc(i.tieuDe.join(" ")) + " · " + esc(i.diaDanh) + ", ngày …";
     }
     fillKv(); sync();
     $("dv-cap").onchange = sync; $("dv-cc").onchange = sync; $("dv-kv").onchange = sync;

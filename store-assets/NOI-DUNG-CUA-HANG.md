@@ -13,7 +13,7 @@ Hỗ trợ Kiểm sát viên: tính thời hạn, tra cứu, mẫu văn bản, �
 ## Mô tả đầy đủ (tối đa 4000 ký tự — bản này khoảng 1650 ký tự)
 
 ```
-Kỹ năng Kiểm sát là bộ công cụ hỗ trợ nghiệp vụ dành cho Kiểm sát viên, Kiểm tra viên và cán bộ ngành Kiểm sát. Ứng dụng chạy ngay trên điện thoại, phần lớn công cụ dùng được khi không có mạng.
+Kỹ năng Kiểm sát là bộ công cụ hỗ trợ nghiệp vụ dành cho Kiểm sát viên, Kiểm tra viên và cán bộ ngành Kiểm sát. Ứng dụng chạy ngay trên điện thoại.
 
 CÁC NHÓM CÔNG CỤ
 • Kỹ năng kiểm sát án hình sự, án dân sự, thi hành án hình sự, thi hành án dân sự, giải quyết khiếu nại tố cáo: tính thời hạn tố tụng, bảng tra cứu, quy trình, căn cứ pháp lý.
@@ -31,7 +31,7 @@ BẢO MẬT
 
 Lần đầu mở, ứng dụng hỏi đơn vị công tác (VKSND tối cao, cấp cao, tỉnh/thành phố hoặc khu vực) để điền sẵn tên cơ quan trong mẫu văn bản; có thể bỏ qua và sửa lại sau.
 
-Tác giả: Thiên Phúc – Viện kiểm sát nhân dân thành phố Cần Thơ. Liên hệ: 0939103666.
+Thiên Phúc © 2026 · Liên hệ: 0939103666
 Chính sách dữ liệu: https://hethong-quanly.github.io/kynangkiemsat/privacy.html
 ```
 
