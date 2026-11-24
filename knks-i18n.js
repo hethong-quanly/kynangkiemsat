@@ -27,8 +27,8 @@
   function add(key, vi, en) { VI[key] = vi; EN[key] = en; }
 
   /* ---------- Từ điển theo khóa (giao diện tĩnh + JS) ---------- */
-  add("app.name", "Kỹ năng Kiểm sát", "Prosecutorial Skills");
-  add("app.title", "Kỹ năng Kiểm sát - VKSND TPCT", "Prosecutorial Skills — People's Procuracy of Can Tho City");
+  add("app.name", "Kỹ năng Kiểm sát", "procuratorial Skills");
+  add("app.title", "Kỹ năng Kiểm sát - VKSND TPCT", "procuratorial Skills — People's Procuracy of Can Tho City");
   add("landing.h1", "KỸ NĂNG NGHIỆP VỤ", "PROFESSIONAL SKILLS");
   add("landing.h1.html", "KỸ NĂNG <span class=\"bg-gradient-to-r from-proc-blue to-proc-neon bg-clip-text text-transparent\">NGHIỆP VỤ</span>", "PROFESSIONAL <span class=\"bg-gradient-to-r from-proc-blue to-proc-neon bg-clip-text text-transparent\">SKILLS</span>");
   add("landing.tagline", "♥ PHỤC VỤ CÔNG TÁC KIỂM SÁT ♥", "♥ SERVING PROCURACY WORK ♥");
@@ -68,7 +68,7 @@
   add("pwa.sheet2", "iPhone: bấm nút Chia sẻ (hình vuông có mũi tên lên) rồi chọn Thêm vào Màn hình chính.", "iPhone: tap the Share button (square with an up arrow), then Add to Home Screen.");
   add("pwa.sheet2.html", "iPhone: bấm nút Chia sẻ (hình vuông có mũi tên lên) rồi chọn <strong>Thêm vào Màn hình chính</strong>.", "iPhone: tap the Share button (square with an up arrow), then <strong>Add to Home Screen</strong>.");
   add("pwa.sheet3.html", "Android: <a href=\"cai-dat.html\"><strong>tải ứng dụng Android (APK)</strong></a>, hoặc bấm <strong>Cài app</strong> trên banner / menu Chrome → Cài đặt ứng dụng.", "Android: <a href=\"cai-dat.html\"><strong>download the Android app (APK)</strong></a>, or tap <strong>Install</strong> on the banner / Chrome menu → Install app.");
-  add("pwa.sheet4.html", "Mở icon <strong>KN Kiểm sát</strong> trên màn hình.", "Open the <strong>Prosecutorial Skills</strong> app icon on your Home Screen.");
+  add("pwa.sheet4.html", "Mở icon <strong>KN Kiểm sát</strong> trên màn hình.", "Open the <strong>procuratorial Skills</strong> app icon on your Home Screen.");
   add("pwa.gotIt", "Đã hiểu", "Got it");
   add("toast.needNet", "Mục này cần kết nối mạng.", "This item requires a network connection.");
   add("confirm.ext", "Lưu ý: «{name}» là dịch vụ bên ngoài. Mọi nội dung bạn nhập sẽ được gửi lên máy chủ của bên thứ ba (có thể ở nước ngoài).\n\nChỉ nhập văn bản đã ẩn danh (che họ tên, CCCD, địa chỉ…), không nhập tài liệu mật. Kết quả chỉ để tham khảo.\n\nXem Chính sách dữ liệu: privacy.html\n\nTiếp tục mở?", "Note: “{name}” is an external service. Anything you enter will be sent to a third-party server (possibly abroad).\n\nOnly enter anonymized text (names, ID numbers, addresses masked). Do not enter classified documents. Results are for reference only.\n\nSee the Privacy policy: privacy.html\n\nContinue?");
@@ -81,25 +81,25 @@
   add("law.note", "Nguyên văn điều luật, tên văn bản pháp luật và mẫu quyết định được giữ tiếng Việt. Giao diện có chú thích tiếng Anh ngắn.", "The official wording of legal provisions, instrument titles and decision templates is kept in Vietnamese. Short English labels are provided on the interface.");
 
   /* Thẻ công cụ trang chủ */
-  add("tool.kiem-sat-ban-an-chung.title", "Trợ lý ảo Kiểm sát văn bản tư pháp", "AI Legal Assistant for judicial documents");
-  add("tool.kiem-sat-ban-an-chung.desc", "Kiểm sát bản án hình sự, dân sự; quyết định thi hành án dân sự, hình sự; quyết định giải quyết khiếu nại, tố cáo.", "Supervise criminal and civil judgments; decisions on execution of criminal and civil judgments; and decisions settling complaints and denunciations.");
+  add("tool.kiem-sat-ban-an-chung.title", "Trợ lý ảo Kiểm sát văn bản tư pháp", "Virtual Assistant for Supervising Judicial Documents");
+  add("tool.kiem-sat-ban-an-chung.desc", "Kiểm sát bản án hình sự, dân sự; quyết định thi hành án dân sự, hình sự; quyết định giải quyết khiếu nại, tố cáo.", "Supervise criminal and civil judgments; decisions on the enforcement of civil judgments and the execution of criminal judgments; and decisions settling complaints and denunciations.");
   add("tool.kiem-sat-ban-an-nang-cao.title", "Kiểm sát Bản án hình sự, dân sự", "Supervision of criminal and civil judgments");
   add("tool.kiem-sat-ban-an-nang-cao.desc", "Bản nâng cấp tối ưu đặc biệt.", "An enhanced, specialized version.");
-  add("tool.soan-qd-phan-cong.title", "Kỹ năng tự động soạn thảo Quyết định phân công KSV – từ Thông báo thụ lý, Quyết định thi hành án (scan)", "Auto-draft the Decision assigning a Prosecutor — from a Notice of acceptance or a judgment-execution decision (including scans)");
-  add("tool.soan-qd-phan-cong.desc", "Tự động đọc và trích xuất thông tin từ Thông báo thụ lý, QĐ thi hành án hình sự/ dân sự và soạn thảo QĐ phân công KSV, trích thông tin để nhập sổ quản lý của khâu công tác.", "Automatically read and extract information from a Notice of acceptance or a criminal/civil judgment-execution decision, draft the Decision assigning a Prosecutor, and pull fields for the section register.");
-  add("tool.giai-quyet-kn-tc.title", "Kỹ năng giải quyết khiếu nại, tố cáo — thời hạn thụ lý, xác minh, giải quyết đơn", "Complaints & Denunciations — time limits for acceptance, verification and settlement");
-  add("tool.giai-quyet-kn-tc.desc", "Tự động tính thời hạn thụ lý, xác minh, giải quyết đơn khiếu nại, tố cáo; kiểm sát hạn CQĐT/Tòa án; bảng tra cứu và quy trình kỹ năng theo BLTTHS, Luật Khiếu nại, Luật Tố cáo và QĐ 50/QĐ-VKSTC 2026. Có thêm Trợ lý ảo kiểm sát văn bản và Soạn QĐ phân công KSV.", "Automatically calculate time limits for accepting, verifying and settling complaints and denunciations; supervise Investigative Agency/Court deadlines; lookup tables and skill procedures under the Criminal Procedure Code, the Law on Complaints, the Law on Denunciations and Decision 50/QĐ-VKSTC 2026. Also includes the AI Legal Assistant and the Decision-assignment drafter.");
-  add("tool.kiem-sat-thads.title", "Kỹ năng kiểm sát thi hành án dân sự — thời hạn, hạ giá, phí THA", "Supervision of Execution of Civil Judgments — time limits, price reductions, enforcement fees");
-  add("tool.kiem-sat-thads.desc", "Tính hạn ra QĐ THA, xác minh, thẩm định giá, bán đấu giá, thu chi tiền; tính phí THA theo Thông tư 72/2026/TT-BTC; tính % hạ giá sau đấu giá không thành; phương pháp kiểm sát kê biên, giao tài sản theo Luật 106/2025, NĐ 151–152/2026. Có thêm Trợ lý ảo kiểm sát văn bản và Soạn QĐ phân công KSV.", "Calculate deadlines for enforcement decisions, verification, valuation, auction and receipts/disbursements; enforcement fees under Circular 72/2026/TT-BTC; price-reduction percentages after a failed auction; methods for supervising attachment and delivery of assets under Law 106/2025 and Decrees 151–152/2026. Also includes the AI Legal Assistant and the Decision-assignment drafter.");
-  add("tool.kiem-sat-thahs.title", "Kỹ năng kiểm sát thi hành án hình sự — hồ sơ, chế độ, giảm án", "Supervision of Execution of Criminal Judgments — files, regimes, sentence reduction");
-  add("tool.kiem-sat-thahs.desc", "Hồ sơ tạm giữ, tạm giam, phạm nhân; chế độ ăn, mặc, lễ Tết, căn tin, bếp ăn, lưu ký tiền; tính hạn QĐ THA, giảm án, tha tù theo Luật 127/2025, Luật 128/2025, NĐ 170–213/2026. Biểu mẫu nghiệp vụ theo Quyết định số 259/QĐ-VKSTC ngày 20/7/2023. Có thêm Trợ lý ảo kiểm sát văn bản và Soạn QĐ phân công KSV.", "Files on temporary detention, custody and inmates; food, clothing, Tet/holiday regimes, canteen, kitchen and cash deposits; deadlines for enforcement decisions, sentence reduction and release under Laws 127/2025 and 128/2025 and Decrees 170–213/2026. Professional forms under Decision No. 259/QĐ-VKSTC of 20/7/2023. Also includes the AI Legal Assistant and the Decision-assignment drafter.");
-  add("tool.kiem-sat-an-hs.title", "Kỹ năng kiểm sát án hình sự — nguồn tin, phê chuẩn, xét xử", "Criminal Prosecution supervision — reports of crime, approvals, trial");
-  add("tool.kiem-sat-an-hs.desc", "Toàn bộ quá trình THQCT, kiểm sát nguồn tin, phê chuẩn lệnh/QĐ CQĐT, điều tra, truy tố, xét xử theo Quy chế 06, Quy chế 09, BLTTHS, Luật Tổ chức VKSND và quy trình duyệt báo cáo đề xuất của VKSND hai cấp TP Cần Thơ. Biểu mẫu tố tụng theo Thông tư số 03/2026/TT-VKSTC ngày 09/02/2026. Có thêm Trợ lý ảo kiểm sát văn bản và Soạn QĐ phân công KSV.", "The full exercise of the right of public prosecution: supervising reports of crime, approving Investigative Agency warrants/decisions, investigation, prosecution and trial under Regulations 06 and 09, the Criminal Procedure Code, the Law on Organization of the People's Procuracy, and the two-level approval process of the People's Procuracy of Can Tho City. Procedural forms under Circular No. 03/2026/TT-VKSTC of 09/02/2026. Also includes the AI Legal Assistant and the Decision-assignment drafter.");
-  add("tool.kiem-sat-an-ds.title", "Kỹ năng kiểm sát án dân sự — quy chế, biểu mẫu", "Civil Supervision — regulations and forms");
-  add("tool.kiem-sat-an-ds.desc", "Phương pháp kiểm sát, tính hạn tố tụng dân sự và bảng tra cứu theo Bộ luật Tố tụng dân sự (sửa bởi Luật 85/2025). Biểu mẫu tải về theo Quyết định số 410/QĐ-VKSTC ngày 25/11/2021: 65 mẫu dân sự, 65 mẫu hành chính, 21 mẫu PL09. Quy chế Quyết định 436 ngày 28/11/2025 chưa có toàn văn. Có thêm Trợ lý ảo kiểm sát văn bản và Soạn QĐ phân công KSV.", "Supervision methods, civil-procedure time limits and lookup tables under the Civil Procedure Code (as amended by Law 85/2025). Downloadable forms under Decision No. 410/QĐ-VKSTC of 25/11/2021: 65 civil forms, 65 administrative forms, 21 PL09 forms. The full text of Regulation Decision 436 of 28/11/2025 is not yet available. Also includes the AI Legal Assistant and the Decision-assignment drafter.");
-  add("tool.nghiep-vu-van-phong.title", "Kỹ năng nghiệp vụ văn phòng — báo cáo, thống kê, văn thư lưu trữ, CNTT, thi đua, tài sản công", "Office Templates & skills — reports, statistics, records, IT, emulation, public assets");
-  add("tool.nghiep-vu-van-phong.desc", "Chín mảng công tác Văn phòng: văn thư, lưu trữ, tài sản công, lịch trực bảo vệ, thống kê (156 chỉ tiêu, biểu mẫu HS/DS), CNTT, tham mưu báo cáo, thi đua khen thưởng, xây dựng cơ bản. Mục chỉ tiêu gồm điểm KPI theo Quyết định 287/QĐ-VKSTC năm 2026 (Bảng danh mục nhiệm vụ KPI dùng chung) (bản nâng cấp đánh giá nhiệm vụ) và biểu mẫu thống kê theo Quyết định số 358/QĐ-VKSTC ngày 23/9/2025. Tính hạn theo NĐ 30/2020, Luật Lưu trữ 2024, QĐ 358/QĐ-VKSTC ngày 23/9/2025, QĐ 274/2025, TT 05/2026.", "Nine Office workstreams: records management, archives, public assets, security duty roster, statistics (156 indicators, criminal/civil forms), IT, advisory reporting, emulation and rewards, and capital construction. The indicators tab includes KPI scores under Decision 287/QĐ-VKSTC 2026 (common KPI task catalogue) and statistical forms under Decision No. 358/QĐ-VKSTC of 23/9/2025. Time limits follow Decree 30/2020, the 2024 Archives Law, Decision 358/QĐ-VKSTC of 23/9/2025, Decision 274/2025 and Circular 05/2026.");
-  add("tool.co-so-van-ban-pl.title", "Cơ sở dữ liệu văn bản pháp luật — luật, án lệ, quy trình, rút kinh nghiệm", "Legal Database — laws, case precedents, procedures, lessons learned");
+  add("tool.soan-qd-phan-cong.title", "Kỹ năng tự động soạn thảo Quyết định phân công KSV – từ Thông báo thụ lý, Quyết định thi hành án (scan)", "Auto-draft the Decision assigning a procurator — from a Notice of acceptance or a judgment enforcement/execution decision (including scans)");
+  add("tool.soan-qd-phan-cong.desc", "Tự động đọc và trích xuất thông tin từ Thông báo thụ lý, QĐ thi hành án hình sự/ dân sự và soạn thảo QĐ phân công KSV, trích thông tin để nhập sổ quản lý của khâu công tác.", "Automatically read and extract information from a Notice of acceptance or a decision on the execution of a criminal judgment / enforcement of a civil judgment, draft the Decision assigning a procurator, and pull fields for the section register.");
+  add("tool.giai-quyet-kn-tc.title", "Kỹ năng giải quyết khiếu nại, tố cáo — thời hạn thụ lý, xác minh, giải quyết đơn", "Settlement of complaints & denunciations — time limits for acceptance, verification and settlement");
+  add("tool.giai-quyet-kn-tc.desc", "Tự động tính thời hạn thụ lý, xác minh, giải quyết đơn khiếu nại, tố cáo; kiểm sát hạn CQĐT/Tòa án; bảng tra cứu và quy trình kỹ năng theo BLTTHS, Luật Khiếu nại, Luật Tố cáo và QĐ 50/QĐ-VKSTC 2026. Có thêm Trợ lý ảo kiểm sát văn bản và Soạn QĐ phân công KSV.", "Automatically calculate time limits for accepting, verifying and settling complaints and denunciations; supervise Investigating Agency/Court deadlines; lookup tables and procedural steps under the Criminal Procedure Code, the Law on Complaints, the Law on Denunciations and Decision 50/QD-VKSTC 2026. Also includes the Document Supervision Virtual Assistant and the Procurator Assignment Decision drafter.");
+  add("tool.kiem-sat-thads.title", "Kỹ năng kiểm sát thi hành án dân sự — thời hạn, hạ giá, phí THA", "Supervision of civil judgment enforcement — time limits, price reductions, enforcement fees");
+  add("tool.kiem-sat-thads.desc", "Tính hạn ra QĐ THA, xác minh, thẩm định giá, bán đấu giá, thu chi tiền; tính phí THA theo Thông tư 72/2026/TT-BTC; tính % hạ giá sau đấu giá không thành; phương pháp kiểm sát kê biên, giao tài sản theo Luật 106/2025, NĐ 151–152/2026. Có thêm Trợ lý ảo kiểm sát văn bản và Soạn QĐ phân công KSV.", "Calculate deadlines for enforcement decisions, verification, valuation, auction and receipts/disbursements; enforcement fees under Circular 72/2026/TT-BTC; price-reduction percentages after a failed auction; methods for supervising attachment and delivery of assets under Law 106/2025 and Decrees 151–152/2026. Also includes the Document Supervision Virtual Assistant and the Procurator Assignment Decision drafter.");
+  add("tool.kiem-sat-thahs.title", "Kỹ năng kiểm sát thi hành án hình sự — hồ sơ, chế độ, giảm án", "Supervision of criminal judgment execution — records, regimes, sentence reduction");
+  add("tool.kiem-sat-thahs.desc", "Hồ sơ tạm giữ, tạm giam, phạm nhân; chế độ ăn, mặc, lễ Tết, căn tin, bếp ăn, lưu ký tiền; tính hạn QĐ THA, giảm án, tha tù theo Luật 127/2025, Luật 128/2025, NĐ 170–213/2026. Biểu mẫu nghiệp vụ theo Quyết định số 259/QĐ-VKSTC ngày 20/7/2023. Có thêm Trợ lý ảo kiểm sát văn bản và Soạn QĐ phân công KSV.", "Records on custody, temporary detention and prisoners; food, clothing, Tet/holiday regimes, canteen, kitchen and cash deposits; deadlines for execution decisions, sentence reduction and early release under Laws 127/2025 and 128/2025 and Decrees 170–213/2026. Professional forms under Decision No. 259/QD-VKSTC of 20/7/2023. Also includes the Document Supervision Virtual Assistant and the Procurator Assignment Decision drafter.");
+  add("tool.kiem-sat-an-hs.title", "Kỹ năng kiểm sát án hình sự — nguồn tin, phê chuẩn, xét xử", "Supervision of criminal cases — sources of crime reports, approvals, trial");
+  add("tool.kiem-sat-an-hs.desc", "Toàn bộ quá trình THQCT, kiểm sát nguồn tin, phê chuẩn lệnh/QĐ CQĐT, điều tra, truy tố, xét xử theo Quy chế 06, Quy chế 09, BLTTHS, Luật Tổ chức VKSND và quy trình duyệt báo cáo đề xuất của VKSND hai cấp TP Cần Thơ. Biểu mẫu tố tụng theo Thông tư số 03/2026/TT-VKSTC ngày 09/02/2026. Có thêm Trợ lý ảo kiểm sát văn bản và Soạn QĐ phân công KSV.", "The full exercise of the right to prosecute: supervising the handling of sources of crime reports, approving Investigating Agency warrants/decisions, investigation, prosecution and trial under Regulations 06 and 09, the Criminal Procedure Code, the Law on Organization of People's Procuracies, and the two-level approval process of the People's Procuracy of Can Tho City. Procedural forms under Circular No. 03/2026/TT-VKSTC of 09/02/2026. Also includes the Document Supervision Virtual Assistant and the Procurator Assignment Decision drafter.");
+  add("tool.kiem-sat-an-ds.title", "Kỹ năng kiểm sát án dân sự — quy chế, biểu mẫu", "Supervision of civil cases — regulations and forms");
+  add("tool.kiem-sat-an-ds.desc", "Phương pháp kiểm sát, tính hạn tố tụng dân sự và bảng tra cứu theo Bộ luật Tố tụng dân sự (sửa bởi Luật 85/2025). Biểu mẫu tải về theo Quyết định số 410/QĐ-VKSTC ngày 25/11/2021: 65 mẫu dân sự, 65 mẫu hành chính, 21 mẫu PL09. Quy chế Quyết định 436 ngày 28/11/2025 chưa có toàn văn. Có thêm Trợ lý ảo kiểm sát văn bản và Soạn QĐ phân công KSV.", "Supervision methods, civil-procedure time limits and lookup tables under the Civil Procedure Code (as amended by Law 85/2025). Downloadable forms under Decision No. 410/QD-VKSTC of 25/11/2021: 65 civil forms, 65 administrative forms, 21 PL09 forms. The full text of Regulation Decision 436 of 28/11/2025 is not yet available. Also includes the Document Supervision Virtual Assistant and the Procurator Assignment Decision drafter.");
+  add("tool.nghiep-vu-van-phong.title", "Kỹ năng nghiệp vụ văn phòng — báo cáo, thống kê, văn thư lưu trữ, CNTT, thi đua, tài sản công", "Office professional skills — reports, statistics, records and archives, IT, emulation, public assets");
+  add("tool.nghiep-vu-van-phong.desc", "Chín mảng công tác Văn phòng: văn thư, lưu trữ, tài sản công, lịch trực bảo vệ, thống kê (156 chỉ tiêu, biểu mẫu HS/DS), CNTT, tham mưu báo cáo, thi đua khen thưởng, xây dựng cơ bản. Mục chỉ tiêu gồm điểm KPI theo Quyết định 287/QĐ-VKSTC năm 2026 (Bảng danh mục nhiệm vụ KPI dùng chung) (bản nâng cấp đánh giá nhiệm vụ) và biểu mẫu thống kê theo Quyết định số 358/QĐ-VKSTC ngày 23/9/2025. Tính hạn theo NĐ 30/2020, Luật Lưu trữ 2024, QĐ 358/QĐ-VKSTC ngày 23/9/2025, QĐ 274/2025, TT 05/2026.", "Nine Office workstreams: records management, archives, public assets, security duty roster, statistics (156 indicators, criminal/civil forms), IT, advisory reporting, emulation and rewards, and capital construction. The indicators tab includes KPI scores under Decision 287/QD-VKSTC 2026 (common KPI task catalogue) and statistical forms under Decision No. 358/QD-VKSTC of 23/9/2025. Time limits follow Decree 30/2020, the 2024 Archives Law, Decision 358/QD-VKSTC of 23/9/2025, Decision 274/2025 and Circular 05/2026.");
+  add("tool.co-so-van-ban-pl.title", "Cơ sở dữ liệu văn bản pháp luật — luật, án lệ, quy trình, rút kinh nghiệm", "Legal Database — laws, precedents, procedures, lessons learned");
   add("tool.co-so-van-ban-pl.desc", "Tra cứu Bộ luật, Luật, Nghị định, Thông tư, Nghị quyết, Quyết định; quy trình nghiệp vụ hình sự, dân sự, hành chính; án lệ TANDTC; thông báo rút kinh nghiệm; nghị định, thông tư, nghị quyết, quy trình và rút kinh nghiệm đã tách hình sự, dân sự, tố tụng hành chính, kinh doanh thương mại, thi hành án. Bộ luật và Luật lấy theo chỉ mục Cổng vbpl ngày 14/4/2026, cộng văn bản ngành đã rà.", "Look up Codes, Laws, Decrees, Circulars, Resolutions and Decisions; criminal, civil and administrative professional procedures; precedents of the Supreme People's Court; lessons-learned notices; and instruments already split by criminal, civil, administrative procedure, commercial and judgment-execution work. Codes and Laws follow the vbpl.gov.vn index as of 14/4/2026, plus instruments already reviewed in-sector.");
   add("tool.khoi-kien-cong-ich.title", "Kỹ năng khởi kiện công ích về Nghị quyết 205", "Public-interest litigation skills under Resolution 205");
   add("tool.khoi-kien-cong-ich.desc", "Hướng dẫn nghiệp vụ, 32 biểu mẫu và soạn thảo theo Nghị quyết 205 và Thông tư liên tịch 09/2025: tiếp nhận, thu thập chứng cứ, kiến nghị, khởi kiện vụ án dân sự bảo vệ quyền lợi công ích. Cần mạng.", "Professional guidance, 32 forms and drafting under Resolution 205 and Joint Circular 09/2025: intake, evidence gathering, recommendations and filing a civil case to protect the public interest. Requires a network connection.");
@@ -107,8 +107,8 @@
   add("tool.tinh-lai-suat.desc", "Tự động tính tiền lãi trong hạn, lãi quá hạn, lãi chậm trả trong giao dịch dân sự.", "Automatically calculate in-term interest, overdue interest and late-payment interest in civil transactions.");
   add("tool.tinh-an-phi.title", "Tính án phí", "Court Fee Calculator");
   add("tool.tinh-an-phi.desc", "Tra cứu và tự động tính nhanh số tiền án phí hình sự và dân sự.", "Look up and quickly calculate criminal and civil court fees.");
-  add("tool.tinh-tuoi-thoi-han.title", "Tính tuổi — Tính thời hạn", "Temporary Detention & Custody Calculator");
-  add("tool.tinh-tuoi-thoi-han.desc", "Tự động tính tuổi của đối tượng, tính chính xác ngày tháng năm, giờ phút, kiểm soát chặt chẽ thời hạn tạm giữ, tạm giam tố tụng.", "Automatically calculate a person's age and exact dates and times, and closely track temporary-detention and custody time limits in criminal procedure.");
+  add("tool.tinh-tuoi-thoi-han.title", "Tính tuổi — Tính thời hạn", "Age & Time-limit Calculator");
+  add("tool.tinh-tuoi-thoi-han.desc", "Tự động tính tuổi của đối tượng, tính chính xác ngày tháng năm, giờ phút, kiểm soát chặt chẽ thời hạn tạm giữ, tạm giam tố tụng.", "Automatically calculate a person's age and exact dates and times, and closely track custody and temporary detention time limits in criminal proceedings.");
   add("tool.notebook-lm.title", "Hình sự & Tố tụng hình sự", "Criminal law & criminal procedure");
   add("tool.notebook-lm.desc", "Tra cứu Điều luật, hỗ trợ lập luận tố tụng dựa trên kho tri thức hiện hành.", "Look up articles of law and support procedural reasoning from a current knowledge base.");
   add("tool.huong-dan-so-do-tu-duy.title", "Tạo sơ đồ tư duy", "Mind-map guide");
@@ -124,8 +124,8 @@
 
   /* Đơn vị công tác */
   add("dv.title", "Đơn vị công tác", "Work unit");
-  add("dv.welcome", "Chào bạn! Chọn nơi bạn công tác để ứng dụng điền sẵn tên cơ quan trong Quyết định phân công KSV và các mẫu văn bản. Thông tin chỉ lưu trên máy này, không gửi đi đâu; sửa lại bất cứ lúc nào bằng nút «Đơn vị công tác».", "Welcome! Choose your work unit so the app can pre-fill the agency name in the Decision assigning a Prosecutor and in document templates. This information is saved only on this device and is never sent anywhere. You can change it any time with the “Work unit” button.");
-  add("dv.lead", "Chọn nơi bạn công tác để ứng dụng điền sẵn tên cơ quan trong Quyết định phân công KSV và các mẫu văn bản. Thông tin chỉ lưu trên máy này, không gửi đi đâu; sửa lại bất cứ lúc nào bằng nút «Đơn vị công tác».", "Choose your work unit so the app can pre-fill the agency name in the Decision assigning a Prosecutor and in document templates. This information is saved only on this device and is never sent anywhere. You can change it any time with the “Work unit” button.");
+  add("dv.welcome", "Chào bạn! Chọn nơi bạn công tác để ứng dụng điền sẵn tên cơ quan trong Quyết định phân công KSV và các mẫu văn bản. Thông tin chỉ lưu trên máy này, không gửi đi đâu; sửa lại bất cứ lúc nào bằng nút «Đơn vị công tác».", "Welcome! Choose your work unit so the app can pre-fill the agency name in the Decision assigning a procurator and in document templates. This information is saved only on this device and is never sent anywhere. You can change it any time with the “Work unit” button.");
+  add("dv.lead", "Chọn nơi bạn công tác để ứng dụng điền sẵn tên cơ quan trong Quyết định phân công KSV và các mẫu văn bản. Thông tin chỉ lưu trên máy này, không gửi đi đâu; sửa lại bất cứ lúc nào bằng nút «Đơn vị công tác».", "Choose your work unit so the app can pre-fill the agency name in the Decision assigning a procurator and in document templates. This information is saved only on this device and is never sent anywhere. You can change it any time with the “Work unit” button.");
   add("dv.lang", "Ngôn ngữ / Language", "Language");
   add("dv.cap", "Cấp", "Level");
   add("dv.cap.toi-cao", "VKSND tối cao", "Supreme People's Procuracy");
@@ -140,9 +140,9 @@
   add("dv.chuc", "Chức danh (tuỳ chọn)", "Title (optional)");
   add("dv.chuc.vt", "Viện trưởng", "Chief Procurator");
   add("dv.chuc.pvt", "Phó Viện trưởng", "Deputy Chief Procurator");
-  add("dv.chuc.ksvcc", "Kiểm sát viên cao cấp", "Senior Prosecutor");
-  add("dv.chuc.ksvtc", "Kiểm sát viên trung cấp", "Intermediate Prosecutor");
-  add("dv.chuc.ksvsc", "Kiểm sát viên sơ cấp", "Junior Prosecutor");
+  add("dv.chuc.ksvcc", "Kiểm sát viên cao cấp", "Senior Procurator");
+  add("dv.chuc.ksvtc", "Kiểm sát viên trung cấp", "Intermediate Procurator");
+  add("dv.chuc.ksvsc", "Kiểm sát viên sơ cấp", "Junior Procurator");
   add("dv.chuc.ktv", "Kiểm tra viên", "Inspector");
   add("dv.chuc.cv", "Chuyên viên", "Specialist");
   add("dv.preview", "Đơn vị: {ngan}", "Unit: {ngan}");
@@ -156,13 +156,13 @@
   add("dv.hcm", "Thành phố Hồ Chí Minh", "Ho Chi Minh City");
 
   /* Cài đặt / quyền riêng tư / offline — khóa ngắn; đoạn dài ở khối HTML phía dưới */
-  add("install.title", "Cài ứng dụng — Kỹ năng Kiểm sát", "Install the app — Prosecutorial Skills");
-  add("install.h1", "Cài ứng dụng Kỹ năng Kiểm sát", "Install Prosecutorial Skills");
+  add("install.title", "Cài ứng dụng — Kỹ năng Kiểm sát", "Install the app — procuratorial Skills");
+  add("install.h1", "Cài ứng dụng Kỹ năng Kiểm sát", "Install procuratorial Skills");
   add("install.sub", "Miễn phí · Android, iPhone và máy tính", "Free · Android, iPhone and computers");
-  add("privacy.title", "Chính sách dữ liệu — Kỹ năng Kiểm sát", "Privacy policy — Prosecutorial Skills");
+  add("privacy.title", "Chính sách dữ liệu — Kỹ năng Kiểm sát", "Privacy policy — procuratorial Skills");
   add("privacy.h1", "Chính sách dữ liệu và quyền riêng tư", "Data and privacy policy");
-  add("privacy.kicker", "Kỹ năng Kiểm sát", "Prosecutorial Skills");
-  add("offline.title", "Ngoại tuyến — Kỹ năng Kiểm sát", "Offline — Prosecutorial Skills");
+  add("privacy.kicker", "Kỹ năng Kiểm sát", "procuratorial Skills");
+  add("offline.title", "Ngoại tuyến — Kỹ năng Kiểm sát", "Offline — procuratorial Skills");
   add("offline.h1", "Chưa có mạng", "You are offline");
   add("offline.body", "Trang này chưa được tải sẵn. Mở app một lần khi có mạng để lưu công cụ HTML (tính hạn, THADS, THAHS, KN-TC). Công cụ Udify và NotebookLM luôn cần mạng.", "This page has not been cached yet. Open the app once while online to store the HTML tools (time-limit calculators, civil/criminal execution, complaints). The Udify and NotebookLM tools always need a network connection.");
   add("offline.back", "Về danh mục", "Back to the menu");
@@ -183,7 +183,7 @@
   add("common.supportFoot", "Công cụ hỗ trợ — kiểm tra lại nội dung trước khi sử dụng.", "Support tool — review the content before use.");
 
   /* Trang công cụ — tiêu đề */
-  add("andanh.title", "Ẩn danh văn bản — Kỹ năng Kiểm sát", "Anonymizer — Prosecutorial Skills");
+  add("andanh.title", "Ẩn danh văn bản — Kỹ năng Kiểm sát", "Anonymizer — procuratorial Skills");
   add("andanh.h1", "Tự động che thông tin trong văn bản", "Automatically mask personal data in documents");
   add("andanh.privacy", "Xử lý trên máy của bạn — không gửi tệp lên mạng.", "Processed on your device — files are not uploaded.");
   add("andanh.kicker", "Công cụ nghiệp vụ · chạy trên trình duyệt", "Professional tool · runs in the browser");
@@ -211,7 +211,7 @@
   add("andanh.win", "Cần bản Windows độc lập? Tải AnDanhTool.zip rồi chạy AnDanhTool.exe.", "Need a standalone Windows copy? Download AnDanhTool.zip and run AnDanhTool.exe.");
   add("andanh.win.html", "Cần bản Windows độc lập? <a class=\"winlink\" href=\"../Tool/AnDanh/AnDanhTool.zip\">Tải AnDanhTool.zip</a> rồi chạy AnDanhTool.exe.", "Need a standalone Windows copy? <a class=\"winlink\" href=\"../Tool/AnDanh/AnDanhTool.zip\">Download AnDanhTool.zip</a> and run AnDanhTool.exe.");
 
-  add("renamer.title", "Đổi tên file hàng loạt — Kỹ năng Kiểm sát", "Batch File Renamer — Prosecutorial Skills");
+  add("renamer.title", "Đổi tên file hàng loạt — Kỹ năng Kiểm sát", "Batch File Renamer — procuratorial Skills");
   add("renamer.h1.html", "Đổi tên file <span>hàng loạt</span>", "Batch <span>file renamer</span>");
   add("renamer.lead", "Chuẩn hóa tên file cho AI dễ đọc (bỏ dấu tiếng Việt, ký tự đặc biệt, rút gọn tên dài) hoặc đánh số hàng loạt (ví dụ đánh số bút lục). Tệp không rời khỏi máy của bạn.", "Normalize file names so AI can read them more easily (strip Vietnamese diacritics and special characters, shorten long names) or batch-number files (for example case-file folio numbers). Files never leave your device.");
   add("renamer.step1", "1. Chọn tệp", "1. Choose files");
@@ -240,7 +240,7 @@
   add("renamer.deskLink", "Trang tải FileRenamer.zip", "FileRenamer.zip download page");
   add("renamer.foot", "Công cụ hỗ trợ — kiểm tra bảng đối chiếu trước khi dùng.", "Support tool — check the comparison table before use.");
 
-  add("docx.title", "Chuyển Word (.docx) sang Markdown — Kỹ năng Kiểm sát", "Word to Markdown — Prosecutorial Skills");
+  add("docx.title", "Chuyển Word (.docx) sang Markdown — Kỹ năng Kiểm sát", "Word to Markdown — procuratorial Skills");
   add("docx.h1.html", "Chuyển Word <span>sang Markdown</span>", "Convert Word <span>to Markdown</span>");
   add("docx.lead.html", "Chuyển tệp <strong>.docx</strong> sang <strong>Markdown (.md)</strong> để đưa cho AI đọc: giữ tiêu đề, in đậm/nghiêng, danh sách, bảng. Mọi xử lý chạy trên máy của bạn, tệp không được gửi lên mạng.", "Convert a <strong>.docx</strong> file to <strong>Markdown (.md)</strong> for AI: headings, bold/italic, lists and tables are kept. All processing runs on your device; files are not uploaded.");
   add("docx.drop", "Kéo thả một hoặc nhiều tệp .docx vào đây", "Drop one or more .docx files here");
@@ -250,7 +250,7 @@
   add("docx.optFmt", "Giữ in đậm, in nghiêng", "Keep bold and italic");
   add("docx.step2", "2. Kết quả", "2. Results");
 
-  add("pdf.title", "Chuyển PDF, ảnh sang Markdown — Kỹ năng Kiểm sát", "PDF/image to Markdown — Prosecutorial Skills");
+  add("pdf.title", "Chuyển PDF, ảnh sang Markdown — Kỹ năng Kiểm sát", "PDF/image to Markdown — procuratorial Skills");
   add("pdf.h1.html", "Chuyển PDF, ảnh <span>sang Markdown</span>", "Convert PDF and images <span>to Markdown</span>");
   add("pdf.lead.html", "Trích chữ từ <strong>PDF</strong> (có lớp chữ) và nhận dạng chữ (OCR tiếng Việt) cho <strong>PDF scan, ảnh chụp</strong> — rồi xuất <strong>Markdown/TXT</strong> để đưa cho AI. Toàn bộ xử lý trên máy của bạn, không gửi tệp lên mạng.", "Extract text from a <strong>PDF</strong> (with a text layer) and run Vietnamese OCR on <strong>scanned PDFs and photos</strong> — then export <strong>Markdown/TXT</strong> for AI. All processing runs on your device; files are not uploaded.");
   add("pdf.drop", "Kéo thả tệp PDF, JPG, PNG vào đây", "Drop PDF, JPG or PNG files here");
@@ -262,18 +262,18 @@
   add("pdf.note", "Kết quả OCR có thể sai dấu, sai số với bản scan mờ — luôn đối chiếu bản gốc trước khi sử dụng.", "OCR may misread diacritics or numbers on a blurry scan — always check the original before use.");
   add("pdf.pages", "Trang", "Pages");
 
-  add("troly.title", "Trợ lý ảo Kiểm sát văn bản tư pháp — Kỹ năng Kiểm sát", "AI Legal Assistant — Prosecutorial Skills");
-  add("troly.h1.html", "Trợ lý ảo <span>Kiểm sát văn bản tư pháp</span>", "AI Legal Assistant <span>for judicial documents</span>");
-  add("troly.lead", "Kiểm sát bản án hình sự, dân sự; quyết định thi hành án dân sự, hình sự; quyết định giải quyết khiếu nại, tố cáo của cơ quan tư pháp. Xưng hô «bạn». Công cụ hỗ trợ — đối chiếu văn bản gốc trước khi kiến nghị, kháng nghị.", "Supervise criminal and civil judgments; decisions on execution of criminal and civil judgments; and decisions of judicial bodies settling complaints and denunciations. The assistant addresses you as “you”. This is a support tool — check the original document before making a recommendation or protest.");
+  add("troly.title", "Trợ lý ảo Kiểm sát văn bản tư pháp — Kỹ năng Kiểm sát", "Virtual Assistant for Supervising Judicial Documents — Prosecutorial Skills");
+  add("troly.h1.html", "Trợ lý ảo <span>Kiểm sát văn bản tư pháp</span>", "Virtual Assistant <span>for Supervising Judicial Documents</span>");
+  add("troly.lead", "Kiểm sát bản án hình sự, dân sự; quyết định thi hành án dân sự, hình sự; quyết định giải quyết khiếu nại, tố cáo của cơ quan tư pháp. Xưng hô «bạn». Công cụ hỗ trợ — đối chiếu văn bản gốc trước khi kiến nghị, kháng nghị.", "Supervise criminal and civil judgments; decisions on the enforcement of civil judgments and the execution of criminal judgments; and decisions of judicial bodies settling complaints and denunciations. The assistant addresses you as “you”. This is a support tool — check the original document before making a recommendation or protest.");
   add("troly.foot", "Công cụ hỗ trợ nghiệp vụ — không thay thế đối chiếu văn bản gốc và ý kiến lãnh đạo Viện.", "A professional support tool — it does not replace checking the original document or the views of the Procuracy leadership.");
 
-  add("soanqd.title", "Soạn QĐ phân công KSV — Kỹ năng Kiểm sát", "Draft the Decision assigning a Prosecutor — Prosecutorial Skills");
-  add("soanqd.h1.html", "Soạn <span>Quyết định phân công KSV</span>", "Draft the <span>Decision assigning a Prosecutor</span>");
-  add("soanqd.lead", "Dán, kéo thả hoặc tải Thông báo thụ lý / Quyết định thi hành án (kể cả chữ đã OCR từ bản scan). Công cụ trích trường, soạn QĐ phân công KSV (Mẫu 71/HS — Thông tư 03/2026/TT-VKSTC) và dòng sổ quản lý. Kiểm sát viên rà soát trước khi trình Viện trưởng ký.", "Paste, drop or upload a Notice of acceptance or a judgment-execution decision (including text OCR’d from a scan). The tool extracts fields, drafts the Decision assigning a Prosecutor (Form 71/HS — Circular 03/2026/TT-VKSTC) and a register line. A Prosecutor should review it before submission to the Chief Procurator for signature.");
+  add("soanqd.title", "Soạn QĐ phân công KSV — Kỹ năng Kiểm sát", "Draft the Decision assigning a procurator — Prosecutorial Skills");
+  add("soanqd.h1.html", "Soạn <span>Quyết định phân công KSV</span>", "Draft the <span>Decision assigning a procurator</span>");
+  add("soanqd.lead", "Dán, kéo thả hoặc tải Thông báo thụ lý / Quyết định thi hành án (kể cả chữ đã OCR từ bản scan). Công cụ trích trường, soạn QĐ phân công KSV (Mẫu 71/HS — Thông tư 03/2026/TT-VKSTC) và dòng sổ quản lý. Kiểm sát viên rà soát trước khi trình Viện trưởng ký.", "Paste, drop or upload a Notice of acceptance or a judgment enforcement/execution decision (including text OCR’d from a scan). The tool extracts fields, drafts the Decision assigning a procurator (Form 71/HS — Circular 03/2026/TT-VKSTC) and a register line. A procurator should review it before submission to the Chief Procurator for signature.");
   add("soanqd.foot", "Mẫu 71/HS — Thông tư 03/2026/TT-VKSTC · Công cụ hỗ trợ soạn thảo, không thay thế việc kiểm tra của lãnh đạo Viện.", "Form 71/HS — Circular 03/2026/TT-VKSTC · A drafting aid, not a substitute for review by Procuracy leadership.");
 
-  add("tuoi.title", "Tính tuổi - Tính thời hạn - Đếm tạm giữ", "Age, time limits and temporary detention calculator");
-  add("tuoi.h1", "TÍNH TUỔI - TÍNH THỜI HẠN - TẠM GIỮ", "AGE — TIME LIMITS — TEMPORARY DETENTION");
+  add("tuoi.title", "Tính tuổi - Tính thời hạn - Đếm tạm giữ", "Age, time limits and custody calculator");
+  add("tuoi.h1", "TÍNH TUỔI - TÍNH THỜI HẠN - TẠM GIỮ", "AGE — TIME LIMITS — CUSTODY");
   add("tuoi.sub", "Công cụ tính toán thời gian tố tụng", "Criminal-procedure time calculator");
   add("hd.title", "Hướng dẫn - Tạo sơ đồ tư duy tự động", "Guide — Generate a mind map automatically");
   add("hd.h1", "HƯỚNG DẪN - Tạo sơ đồ tư duy tự động", "GUIDE — Generate a mind map automatically");
@@ -283,10 +283,10 @@
   add("anphi.h1", "Phần mềm Tính Án phí & Lệ phí", "Court fee & levy calculator");
 
 
-  add("ks.anhs.h1.html", "Kỹ năng kiểm sát <span>án hình sự</span>", "Criminal Prosecution <span>supervision skills</span>");
-  add("ks.ands.h1.html", "Kỹ năng kiểm sát <span>án dân sự</span>", "Civil <span>Supervision skills</span>");
-  add("ks.thads.h1.html", "Kỹ năng kiểm sát <span>thi hành án dân sự</span>", "Supervision of <span>Execution of Civil Judgments</span>");
-  add("ks.thahs.h1.html", "Kỹ năng kiểm sát <span>thi hành án hình sự</span>", "Supervision of <span>Execution of Criminal Judgments</span>");
+  add("ks.anhs.h1.html", "Kỹ năng kiểm sát <span>án hình sự</span>", "Skills for supervising <span>criminal cases</span>");
+  add("ks.ands.h1.html", "Kỹ năng kiểm sát <span>án dân sự</span>", "Skills for supervising <span>civil cases</span>");
+  add("ks.thads.h1.html", "Kỹ năng kiểm sát <span>thi hành án dân sự</span>", "Supervision of <span>civil judgment enforcement</span>");
+  add("ks.thahs.h1.html", "Kỹ năng kiểm sát <span>thi hành án hình sự</span>", "Supervision of <span>criminal judgment execution</span>");
   add("ks.kntc.h1.html", "Kỹ năng giải quyết <span>khiếu nại — tố cáo</span>", "Skills for settling <span>complaints & denunciations</span>");
   add("ks.vbpl.h1.html", "Cơ sở dữ liệu <span>văn bản pháp luật</span>", "Legal <span>Database</span>");
   add("ks.vp.h1.html", "Kỹ năng nghiệp vụ <span>văn phòng</span>", "Office <span>professional skills</span>");
@@ -307,13 +307,13 @@
     "Hạ giá": "Price reduction",
     "Phí THA": "Enforcement fees",
     "Chế độ · lưu ký": "Regimes · deposits",
-    "Quy trình kỹ năng": "Skills procedure",
+    "Quy trình kỹ năng": "Procedural steps",
     "Quy trình 09 mảng": "Nine workstreams",
     "Chỉ tiêu · KPI": "Indicators · KPI",
-    "Kỹ năng kiểm sát án hình sự": "Criminal Prosecution supervision skills",
-    "Kỹ năng kiểm sát án dân sự": "Civil Supervision skills",
-    "Kỹ năng kiểm sát thi hành án dân sự": "Supervision of Execution of Civil Judgments",
-    "Kỹ năng kiểm sát thi hành án hình sự": "Supervision of Execution of Criminal Judgments",
+    "Kỹ năng kiểm sát án hình sự": "Skills for supervising criminal cases",
+    "Kỹ năng kiểm sát án dân sự": "Skills for supervising civil cases",
+    "Kỹ năng kiểm sát thi hành án dân sự": "Supervision of civil judgment enforcement",
+    "Kỹ năng kiểm sát thi hành án hình sự": "Supervision of criminal judgment execution",
     "Kỹ năng giải quyết khiếu nại — tố cáo": "Skills for settling complaints and denunciations",
     "Kỹ năng giải quyết khiếu nại, tố cáo": "Skills for settling complaints and denunciations",
     "Cơ sở dữ liệu văn bản pháp luật": "Legal Database",
@@ -345,25 +345,25 @@
     "Bảng tra cứu thời hạn công tác văn phòng": "Office work time-limit lookup",
     "Ngày nhận đơn": "Date the petition was received",
     "Ngày thụ lý (nếu đã thụ lý)": "Date of acceptance (if already accepted)",
-    "Ngày biết QĐ / hành vi (thời hiệu)": "Date the decision / act became known (limitation)",
+    "Ngày biết QĐ / hành vi (thời hiệu)": "Date the decision / act became known (statute of limitations)",
     "Ngày ban hành QĐ / kết luận": "Date the decision / conclusion was issued",
     "Ngày VKS nhận QĐ (khâu kiểm sát)": "Date the Procuracy received the decision (supervision stage)",
-    "Mẫu tạm giam": "Custody template",
+    "Mẫu tạm giam": "Temporary detention template",
     "Mẫu KN hành chính": "Administrative complaint template",
     "Mẫu tố cáo": "Denunciation template",
-    "Mẫu kiểm sát CQĐT": "Investigative Agency supervision template",
+    "Mẫu kiểm sát CQĐT": "Investigating agency supervision template",
     "Tải Thông tư (PDF ký)": "Download the Circular (signed PDF)",
     "Tải danh mục kèm theo": "Download the accompanying list",
-    "ĐẾM THỜI GIAN TẠM GIỮ": "TEMPORARY DETENTION TIMER",
-    "TÍNH THỜI HẠN TẠM GIỮ": "CALCULATE TEMPORARY DETENTION",
-    "TÍNH THỜI HẠN TẠM GIAM": "CALCULATE TEMPORARY CUSTODY",
+    "ĐẾM THỜI GIAN TẠM GIỮ": "CUSTODY TIMER",
+    "TÍNH THỜI HẠN TẠM GIỮ": "CALCULATE THE CUSTODY PERIOD",
+    "TÍNH THỜI HẠN TẠM GIAM": "CALCULATE THE TEMPORARY DETENTION PERIOD",
     "TÍNH TUỔI & TÍNH THỜI HẠN": "CALCULATE AGE & TIME LIMITS",
     "TÍNH TOÁN": "CALCULATE",
-    "KẾT QUẢ THỜI HẠN TẠM GIỮ": "TEMPORARY DETENTION RESULT",
-    "KẾT QUẢ THỜI HẠN TẠM GIAM": "TEMPORARY CUSTODY RESULT",
+    "KẾT QUẢ THỜI HẠN TẠM GIỮ": "CUSTODY PERIOD RESULT",
+    "KẾT QUẢ THỜI HẠN TẠM GIAM": "TEMPORARY DETENTION PERIOD RESULT",
     "KẾT QUẢ TÍNH TOÁN": "CALCULATION RESULT",
-    "Thời điểm bắt đầu tạm giữ": "Start of temporary detention",
-    "Thời hạn tạm giữ": "Temporary detention period",
+    "Thời điểm bắt đầu tạm giữ": "Start of custody",
+    "Thời hạn tạm giữ": "Custody period",
     "Giờ - Phút": "Hour – minute",
     "Ngày - Tháng - Năm": "Day – month – year",
     "Lấy thời gian hiện tại": "Use the current time",
@@ -372,9 +372,9 @@
     "Nhập số giờ tùy chọn": "Enter a custom number of hours",
     "Số giờ": "Hours",
     "Tùy chọn": "Custom",
-    "Ngày bắt đầu tạm giam": "Start date of temporary custody",
-    "Thời hạn tạm giam (ghi trong lệnh)": "Temporary custody period (as stated in the warrant)",
-    "Số ngày đã tạm giữ (để trừ vào thời hạn tạm giam)": "Days already spent in temporary detention (to deduct from custody)",
+    "Ngày bắt đầu tạm giam": "Start date of temporary detention",
+    "Thời hạn tạm giam (ghi trong lệnh)": "Temporary detention period (as stated in the warrant)",
+    "Số ngày đã tạm giữ (để trừ vào thời hạn tạm giam)": "Days already held in custody (deducted from the temporary detention period)",
     "Tuổi / Thời hạn tố tụng": "Age / procedural time limit",
     "Thời gian gốc Mốc bắt đầu": "Original time — starting point",
     "Thời hạn gốc": "Original period",
@@ -683,6 +683,7 @@
     if ((m = n.match(/^0*(\d+) ngày làm việc$/))) return m[1] + (m[1] === "1" ? " working day" : " working days");
     if ((m = n.match(/^0*(\d+) ngày$/))) return m[1] + (m[1] === "1" ? " day" : " days");
     if ((m = n.match(/^0*(\d+) giờ$/))) return m[1] + (m[1] === "1" ? " hour" : " hours");
+    if ((m = n.match(/^0*(\d+) mốc$/))) return m[1] + (m[1] === "1" ? " milestone" : " milestones");
     if ((m = n.match(/^Còn 0*(\d+) (ngày làm việc|ngày|giờ)$/))) return m[1] + " " + ({ "ngày làm việc": "working day", "ngày": "day", "giờ": "hour" })[m[2]] + (m[1] === "1" ? "" : "s") + " left";
     if ((m = n.match(/^Quá hạn 0*(\d+) (ngày làm việc|ngày|giờ)$/))) return "Overdue by " + m[1] + " " + ({ "ngày làm việc": "working day", "ngày": "day", "giờ": "hour" })[m[2]] + (m[1] === "1" ? "" : "s");
     return null;
@@ -747,7 +748,7 @@
     "KN-TC-KN": "complaints, denunciations & protests",
     "TTHS": "criminal procedure", "TTDS": "civil procedure", "TTHC": "administrative procedure",
     "BLTTHS": "Criminal Procedure Code", "BLTTDS": "Civil Procedure Code", "BLHS": "Criminal Code", "BLDS": "Civil Code",
-    "BLLĐ": "Labour Code", "BLLD": "Labour Code", "LTTHC": "Law on Administrative Procedure",
+    "BLLĐ": "Labour Code", "BLLD": "Labour Code", "LTTHC": "Law on Administrative Procedures",
     "HNGĐ": "marriage & family", "HNGD": "marriage & family", "DS-HNGĐ": "civil, marriage & family", "DS-HNGD": "civil, marriage & family",
     "KDTM": "business & commercial", "HĐTM": "commercial contract", "HĐLĐ": "labour contract",
     "VKS": "procuracy", "VKSND": "People's Procuracy", "VKSNDTC": "Supreme People's Procuracy", "VKSTC": "Supreme People's Procuracy",
@@ -756,9 +757,9 @@
     "HĐXX": "trial panel", "HDXX": "trial panel", "HĐTP": "Council of Judges", "HDTP": "Council of Judges",
     "KSV": "procurator", "KTV": "procuracy inspector", "ĐTV": "investigator", "DTV": "investigator", "CHV": "enforcement officer",
     "VT": "Chief Procurator", "PVT": "Deputy Chief Procurator", "PTT": "deputy head", "LĐ": "leadership",
-    "CQĐT": "investigation agency", "CQDT": "investigation agency", "CQTHTT": "procedure-conducting agency",
-    "CQTHADS": "civil judgment enforcement agency", "CQTHAHS": "criminal judgment enforcement agency",
-    "THA": "judgment enforcement", "THADS": "civil judgment enforcement", "THAHS": "criminal judgment enforcement",
+    "CQĐT": "investigating agency", "CQDT": "investigating agency", "CQTHTT": "procedure-conducting agency",
+    "CQTHADS": "civil judgment enforcement agency", "CQTHAHS": "criminal judgment execution agency",
+    "THA": "judgment enforcement", "THADS": "civil judgment enforcement", "THAHS": "criminal judgment execution",
     "THAHC": "administrative judgment enforcement", "KSTHA": "supervision of judgment enforcement",
     "THQCT": "exercise of the right to prosecute", "VAHS": "criminal case", "HSVA": "case file", "HSKS": "supervision file",
     "KS": "supervision", "KSĐT": "investigation supervision", "KSDT": "investigation supervision", "KSXX": "trial supervision",
@@ -794,7 +795,7 @@
     "NLCTXH": "social worker", "CSSC": "compulsory rehabilitation facility",
     "ĐG": "auction", "TĐG": "price appraisal", "ĐGTS": "property auction", "XM": "verification", "CC": "coercive enforcement",
     "HĐ": "contract", "TS": "property", "TK": "bank account", "ĐK": "conditions", "VNĐ": "VND", "NT": "serious",
-    "TG": "custody", "TGTG": "custody & detention", "TG-TG": "custody & detention", "TGTGQ": "custody, detention & management",
+    "TG": "custody", "TGTG": "custody & temporary detention", "TG-TG": "custody & temporary detention", "TGTGQ": "custody, temporary detention & management",
     "VP": "office", "TP": "city", "TPCT": "Can Tho City", "TPHCM": "Ho Chi Minh City", "STT": "No.", "XHCN": "socialist",
     "VD": "e.g.", "MH": "screen", "THPT": "high school", "HSMT": "bidding documents", "HCST": "first-instance administrative",
     "CN": "Sun", "T7": "Sat", "TL": "by order", "VA": "case", "CHA": "sentence serving",
@@ -803,11 +804,11 @@
   /* Chữ trên ô biểu tượng đầu trang (2–3 ký tự) */
   var ICON_EN = { "KN": "CD", "HS": "CJ", "DS": "CE", "AD": "CIV", "AH": "CRM", "VP": "OF", "VB": "DB", "QĐ": "DC", "QD": "DC" };
   var LAW_EN = {
-    "KN": "Law on Complaints", "TC": "Law on Denunciations", "TCN": "Law on Denunciations", "TTHC": "Law on Administrative Procedure",
+    "KN": "Law on Complaints", "TC": "Law on Denunciations", "TCN": "Law on Denunciations", "TTHC": "Law on Administrative Procedures",
     "HNGĐ": "Law on Marriage and Family", "HNGD": "Law on Marriage and Family", "ĐGTS": "Law on Property Auction",
     "ATTT": "Law on Cyberinformation Security", "VPHC": "Law on Handling Administrative Violations", "XLVPHC": "Law on Handling Administrative Violations",
-    "THADS": "Law on Civil Judgment Enforcement", "THAHS": "Law on Criminal Judgment Enforcement", "TTHS": "Criminal Procedure Code",
-    "TTDS": "Civil Procedure Code", "TCCQĐTHS": "Law on Organisation of Criminal Investigation Bodies"
+    "THADS": "Law on Enforcement of Civil Judgments", "THAHS": "Law on Execution of Criminal Judgments", "TTHS": "Criminal Procedure Code",
+    "TTDS": "Civil Procedure Code", "TCCQĐTHS": "Law on Organization of Criminal Investigation Agencies"
   };
   var DOC_EN = { "QĐ": "Decision", "QD": "Decision", "NĐ": "Decree", "ND": "Decree", "TT": "Circular", "TTLT": "Joint Circular",
     "NQ": "Resolution", "HD": "Guidance", "CV": "Official Letter", "CT": "Directive", "QC": "Regulation", "KH": "Plan",
@@ -836,8 +837,8 @@
   ];
   /* \b của JS không nhận Đ/Í… là chữ: đổi \b đầu mẫu thành nhóm tiền tố, các \b khác thành lookahead (không dùng lookbehind cho Safari cũ) */
   /* Trang kiểm sát án / thống kê: «KN» là kháng nghị (protest); trang KN-TC: khiếu nại (complaint) */
-  var KN_PROTEST = false, SRC_HAS_KHANG_NGHI = false;
-  try { KN_PROTEST = /KiemSatAnHs|KiemSatAnDs|NghiepVuVanPhong/.test(location.pathname || ""); } catch (e) {}
+  var KN_PROTEST = false, SRC_HAS_KHANG_NGHI = false, THA_CRIM = false;
+  try { KN_PROTEST = /KiemSatAnHs|KiemSatAnDs|NghiepVuVanPhong/.test(location.pathname || ""); THA_CRIM = /KiemSatThahs/.test(location.pathname || ""); } catch (e) {}
   function abbrRule(src, fn) {
     var lead = src.indexOf("\\b") === 0;
     if (lead) src = AB_L + src.slice(2);
@@ -920,7 +921,7 @@
       });
     }
     str = str.replace(ABBR_TOKEN_RE, function (m, pre, tok, off, full) {
-      var rep = (tok === "KN" && KN_PROTEST && !SRC_HAS_KHANG_NGHI) ? "protest" : ABBR_EN[tok];
+      var rep = (tok === "KN" && KN_PROTEST && !SRC_HAS_KHANG_NGHI) ? "protest" : (tok === "THA" && THA_CRIM) ? "judgment execution" : ABBR_EN[tok];
       if (rep == null) return m;
       return pre + abbrCase(rep, full.slice(0, off + pre.length), whole);
     });
@@ -940,7 +941,7 @@
     if (s == null) return s;
     var raw = String(s);
     var na = norm(raw);
-    SRC_HAS_KHANG_NGHI = /kháng nghị/i.test(raw);
+    SRC_HAS_KHANG_NGHI = /kháng nghị|khiếu nại|tố cáo|(^|[^A-Za-zÀ-ỹĐđ])(TC|KN-TC|KNTC)([^A-Za-zÀ-ỹĐđ]|$)/i.test(raw);
     if (na && ABBR_PHRASE[na] != null) return raw.match(/^\s*/)[0] + abbrEn(ABBR_PHRASE[na]) + raw.match(/\s*$/)[0];
     /* Tên tệp (…/TB rut KN … DS.pdf) là định danh: chỉ bỏ dấu, không dịch */
     if (/^[^\n\/]{1,200}\.(?:pdf|htm|html|docx?|xlsx?|txt|zip)$/i.test(na)) return deaccent(raw);
@@ -1095,13 +1096,13 @@
     "Tool/CoSoVanBanPhapLuat/index.html": "ks.vbpl.title",
     "Tool/NghiepVuVanPhong/index.html": "ks.vp.title"
   };
-  add("ks.anhs.title", "Kỹ năng kiểm sát án hình sự — Kỹ năng Kiểm sát", "Criminal Prosecution supervision — Prosecutorial Skills");
-  add("ks.ands.title", "Kỹ năng kiểm sát án dân sự — Kỹ năng Kiểm sát", "Civil Supervision — Prosecutorial Skills");
-  add("ks.thads.title", "Kỹ năng kiểm sát thi hành án dân sự — Kỹ năng Kiểm sát", "Supervision of Execution of Civil Judgments — Prosecutorial Skills");
-  add("ks.thahs.title", "Kỹ năng kiểm sát thi hành án hình sự — Kỹ năng Kiểm sát", "Supervision of Execution of Criminal Judgments — Prosecutorial Skills");
-  add("ks.kntc.title", "Kỹ năng giải quyết khiếu nại, tố cáo — Kỹ năng Kiểm sát", "Complaints & Denunciations — Prosecutorial Skills");
-  add("ks.vbpl.title", "Cơ sở dữ liệu văn bản pháp luật — Kỹ năng Kiểm sát", "Legal Database — Prosecutorial Skills");
-  add("ks.vp.title", "Kỹ năng nghiệp vụ văn phòng — Kỹ năng Kiểm sát", "Office Templates & skills — Prosecutorial Skills");
+  add("ks.anhs.title", "Kỹ năng kiểm sát án hình sự — Kỹ năng Kiểm sát", "Supervision of criminal cases — Prosecutorial Skills");
+  add("ks.ands.title", "Kỹ năng kiểm sát án dân sự — Kỹ năng Kiểm sát", "Supervision of civil cases — Prosecutorial Skills");
+  add("ks.thads.title", "Kỹ năng kiểm sát thi hành án dân sự — Kỹ năng Kiểm sát", "Supervision of civil judgment enforcement — Prosecutorial Skills");
+  add("ks.thahs.title", "Kỹ năng kiểm sát thi hành án hình sự — Kỹ năng Kiểm sát", "Supervision of criminal judgment execution — Prosecutorial Skills");
+  add("ks.kntc.title", "Kỹ năng giải quyết khiếu nại, tố cáo — Kỹ năng Kiểm sát", "Settlement of complaints & denunciations — Prosecutorial Skills");
+  add("ks.vbpl.title", "Cơ sở dữ liệu văn bản pháp luật — Kỹ năng Kiểm sát", "Legal Database — procuratorial Skills");
+  add("ks.vp.title", "Kỹ năng nghiệp vụ văn phòng — Kỹ năng Kiểm sát", "Office professional skills — Prosecutorial Skills");
 
   var LAW_NOTE_RE = /(KiemSat|GiaiQuyetKnTc|CoSoVanBanPhapLuat|NghiepVuVanPhong|App_tinh_lai_suat|App_DS|TinhTuoiThoiHan)/i;
 
@@ -1113,7 +1114,7 @@
   add("install.a2.html", "Tải xong, bấm vào thông báo <strong>KyNangKiemSat-1.0.0.apk</strong> (hoặc mở ứng dụng <strong>Tệp / Quản lý tệp → Tải xuống</strong>).", "After the download, tap the <strong>KyNangKiemSat-1.0.0.apk</strong> notification (or open <strong>Files / File Manager → Downloads</strong>).");
   add("install.a3.html", "Nếu máy báo <em>«Vì lý do bảo mật, điện thoại không được phép cài ứng dụng không rõ nguồn»</em>: bấm <strong>Cài đặt</strong> → bật <strong>Cho phép từ nguồn này</strong> → quay lại.", "If the phone says <em>“For security reasons, your phone is not allowed to install unknown apps”</em>: tap <strong>Settings</strong> → turn on <strong>Allow from this source</strong> → go back.");
   add("install.a4.html", "Bấm <strong>Cài đặt</strong>. Nếu Google Play Protect cảnh báo «ứng dụng chưa được xác minh / không rõ»: bấm <strong>Thông tin chi tiết</strong> → <strong>Vẫn cài đặt</strong> (ứng dụng chưa phát hành qua cửa hàng nên Google chưa biết).", "Tap <strong>Install</strong>. If Google Play Protect warns that the app is “not verified / unknown”: tap <strong>More details</strong> → <strong>Install anyway</strong> (the app is not yet on the Play Store, so Google does not recognize it).");
-  add("install.a5.html", "Bấm <strong>Mở</strong>. Biểu tượng <strong>KN Kiểm sát</strong> xuất hiện trên màn hình chính. Lần đầu mở cần có mạng để tải sẵn công cụ.", "Tap <strong>Open</strong>. The <strong>Prosecutorial Skills</strong> app icon appears on the Home Screen. The first launch needs a network connection to cache the tools.");
+  add("install.a5.html", "Bấm <strong>Mở</strong>. Biểu tượng <strong>KN Kiểm sát</strong> xuất hiện trên màn hình chính. Lần đầu mở cần có mạng để tải sẵn công cụ.", "Tap <strong>Open</strong>. The <strong>procuratorial Skills</strong> app icon appears on the Home Screen. The first launch needs a network connection to cache the tools.");
   add("install.unknownSum", "Không thấy mục «Cho phép từ nguồn này»? (theo hãng máy)", "Don’t see “Allow from this source”? (by phone brand)");
   add("install.samsung.html", "<strong>Samsung</strong>: Cài đặt → Ứng dụng → (⋮) Quyền truy cập đặc biệt → Cài đặt ứng dụng không rõ nguồn → chọn Chrome (hoặc Tệp của tôi) → Cho phép.", "<strong>Samsung</strong>: Settings → Apps → (⋮) Special access → Install unknown apps → choose Chrome (or My Files) → Allow.");
   add("install.xiaomi.html", "<strong>Xiaomi / Redmi / POCO</strong>: Cài đặt → Ứng dụng → Quyền đặc biệt (Quyền truy cập ứng dụng đặc biệt) → Cài đặt ứng dụng không rõ nguồn → chọn Chrome → Cho phép. Máy có thể yêu cầu chờ vài giây rồi bấm «Tôi hiểu rủi ro».", "<strong>Xiaomi / Redmi / POCO</strong>: Settings → Apps → Special permissions → Install unknown apps → choose Chrome → Allow. The phone may ask you to wait a few seconds, then tap “I understand the risk”.");
@@ -1128,7 +1129,7 @@
   add("install.ios1.html", "Mở trang này bằng <strong>Safari</strong> (nếu đang ở Zalo: bấm <strong>⋯</strong> → <strong>Mở bằng trình duyệt</strong>).", "Open this page in <strong>Safari</strong> (if you are in Zalo: tap <strong>⋯</strong> → <strong>Open in browser</strong>).");
   add("install.ios2.html", "Bấm nút <strong>Chia sẻ</strong> (hình vuông có mũi tên đi lên, ở thanh dưới cùng).", "Tap the <strong>Share</strong> button (square with an up arrow, on the bottom bar).");
   add("install.ios3.html", "Kéo xuống, chọn <strong>Thêm vào MH chính</strong> (Thêm vào Màn hình chính) → <strong>Thêm</strong>.", "Scroll down, choose <strong>Add to Home Screen</strong> → <strong>Add</strong>.");
-  add("install.ios4.html", "Mở biểu tượng <strong>KN Kiểm sát</strong> trên màn hình chính.", "Open the <strong>Prosecutorial Skills</strong> app icon on the Home Screen.");
+  add("install.ios4.html", "Mở biểu tượng <strong>KN Kiểm sát</strong> trên màn hình chính.", "Open the <strong>procuratorial Skills</strong> app icon on the Home Screen.");
   add("install.openApp", "Mở trang ứng dụng", "Open the app page");
   add("install.pc", "Máy tính (Windows / Mac)", "Computer (Windows / Mac)");
   add("install.pcIntro", "Ứng dụng chạy trong cửa sổ riêng, có biểu tượng ngoài Desktop / Start Menu / Dock, không có thanh địa chỉ và tự cập nhật theo bản mới nhất.", "The app runs in its own window with an icon on the Desktop / Start Menu / Dock, no address bar, and updates itself to the latest version.");
@@ -1136,7 +1137,7 @@
   add("install.recommended", "Khuyên dùng", "Recommended");
   add("install.pwaSub", "Dùng cho Windows và Mac, không hiện cảnh báo bảo mật.", "Works on Windows and Mac, with no security warnings.");
   add("install.pwaBtn", "🖥 Cài vào máy tính ngay", "🖥 Install on this computer");
-  add("install.pwaDone.html", "✓ Ứng dụng đã được cài trên máy này. Mở biểu tượng <strong>KN Kiểm sát</strong> ngoài màn hình (hoặc Start Menu / Launchpad).", "✓ The app is installed on this computer. Open the <strong>Prosecutorial Skills</strong> app icon on the desktop (or Start Menu / Launchpad).");
+  add("install.pwaDone.html", "✓ Ứng dụng đã được cài trên máy này. Mở biểu tượng <strong>KN Kiểm sát</strong> ngoài màn hình (hoặc Start Menu / Launchpad).", "✓ The app is installed on this computer. Open the <strong>procuratorial Skills</strong> app icon on the desktop (or Start Menu / Launchpad).");
   add("install.pwaHelpH", "Trình duyệt chưa hiện hộp cài tự động, anh/chị làm 2 bước:", "Your browser has not offered automatic install yet. Two quick steps:");
   add("install.pwaChrome.html", "<strong>Chrome / Edge</strong> (Windows, Mac): mở <a href=\"./\">trang ứng dụng</a>, bấm biểu tượng <strong>Cài đặt</strong> (màn hình có mũi tên ⤓) ở cuối thanh địa chỉ → <strong>Cài đặt</strong>. Không thấy biểu tượng thì bấm menu <strong>⋮</strong> / <strong>…</strong> → <strong>Ứng dụng</strong> → <strong>Cài đặt trang web này dưới dạng ứng dụng</strong>.", "<strong>Chrome / Edge</strong> (Windows, Mac): open the <a href=\"./\">app page</a>, click the <strong>Install</strong> icon (a screen with a ⤓ arrow) at the end of the address bar → <strong>Install</strong>. If you don't see it, open the <strong>⋮</strong> / <strong>…</strong> menu → <strong>Apps</strong> → <strong>Install this site as an app</strong>.");
   add("install.pwaSafari.html", "<strong>Safari trên Mac</strong> (macOS Sonoma trở lên): mở <a href=\"./\">trang ứng dụng</a>, bấm <strong>Tệp</strong> (File) → <strong>Thêm vào Dock</strong> (Add to Dock) → <strong>Thêm</strong>.", "<strong>Safari on Mac</strong> (macOS Sonoma or later): open the <a href=\"./\">app page</a>, choose <strong>File</strong> → <strong>Add to Dock</strong> → <strong>Add</strong>.");
@@ -1157,8 +1158,8 @@
   add("install.copied", "Đã sao chép ✓", "Copied ✓");
   add("install.orQr", "Hoặc quét mã QR bằng camera điện thoại.", "Or scan the QR code with your phone camera.");
   add("install.shareBtn", "Chia sẻ (Zalo, tin nhắn…)", "Share (Zalo, messages…)");
-  add("install.shareTitle", "Kỹ năng Kiểm sát", "Prosecutorial Skills");
-  add("install.shareText", "Cài ứng dụng Kỹ năng Kiểm sát:", "Install the Prosecutorial Skills app:");
+  add("install.shareTitle", "Kỹ năng Kiểm sát", "procuratorial Skills");
+  add("install.shareText", "Cài ứng dụng Kỹ năng Kiểm sát:", "Install the procuratorial Skills app:");
   add("install.notes", "Lưu ý", "Notes");
   add("install.n1.html", "Ứng dụng mở bộ công cụ tại <code>hethong-quanly.github.io/kynangkiemsat</code> và <strong>tự cập nhật nội dung</strong>, không cần tải lại APK hay bộ cài khi có công cụ mới.", "The app opens the toolkit at <code>hethong-quanly.github.io/kynangkiemsat</code> and <strong>updates its content automatically</strong>; you do not need to download the APK or installer again when new tools are added.");
   add("install.n2.html", "Lần đầu mở, ứng dụng hỏi <strong>đơn vị công tác</strong> để điền sẵn tên cơ quan trong mẫu văn bản; thông tin chỉ lưu trên máy. Xem <a href=\"privacy.html\">Chính sách dữ liệu</a>.", "On first launch, the app asks for your <strong>work unit</strong> so it can pre-fill the agency name in document templates; the information is stored only on the device. See the <a href=\"privacy.html\">Privacy policy</a>.");
@@ -1170,13 +1171,13 @@
   add("privacy.s1", "1. Dữ liệu được lưu trên chính máy của bạn", "1. Data stored on your own device");
   add("privacy.s1a.html", "Phần mềm là trang web tĩnh (GitHub Pages), không yêu cầu đăng nhập. <strong>Không có máy chủ riêng thu thập dữ liệu</strong>, trừ nội dung bạn tự đăng ở <a href=\"#hoi-dap\">Phòng hỏi đáp nghiệp vụ</a> (mục 3).", "The software is a static website (GitHub Pages) and no sign-in is required. There is <strong>no separate server that collects data</strong>, except content you yourself post in the <a href=\"#hoi-dap\">Professional Q&A room</a> (section 3).");
   add("privacy.s1b.html", "Văn bản bạn dán hoặc tải lên để kiểm sát, trích xuất, soạn quyết định được <strong>xử lý ngay trong trình duyệt</strong> và không gửi đi đâu ở chế độ mặc định (dò từ khoá).", "Documents you paste or upload for supervision, extraction or decision drafting are <strong>processed in the browser</strong> and are not sent anywhere in the default mode (keyword checks).");
-  add("privacy.s1c.html", "Một số thông tin được lưu trong bộ nhớ trình duyệt (localStorage) để tiện dùng lại: sổ việc, tên Kiểm sát viên/người ký, giao diện sáng/tối, cài đặt AI (nếu bạn tự nhập). Bạn xoá bằng cách xoá dữ liệu trang web trong cài đặt trình duyệt.", "Some information is stored in the browser (localStorage) for convenience: the work register, the Prosecutor/signatory name, light/dark theme, and AI settings (if you enter them). You can delete this by clearing the site’s data in your browser settings.");
+  add("privacy.s1c.html", "Một số thông tin được lưu trong bộ nhớ trình duyệt (localStorage) để tiện dùng lại: sổ việc, tên Kiểm sát viên/người ký, giao diện sáng/tối, cài đặt AI (nếu bạn tự nhập). Bạn xoá bằng cách xoá dữ liệu trang web trong cài đặt trình duyệt.", "Some information is stored in the browser (localStorage) for convenience: the work register, the procurator/signatory name, light/dark theme, and AI settings (if you enter them). You can delete this by clearing the site’s data in your browser settings.");
   add("privacy.s1d.html", "<strong>Đơn vị công tác</strong> (cấp Viện kiểm sát, tỉnh/thành, Viện khu vực) và họ tên, chức danh nếu bạn tự nhập ở màn hình chào: <strong>chỉ lưu trên máy này</strong> (localStorage <code>knks-don-vi</code>) để điền sẵn tên cơ quan trong mẫu văn bản; không gửi đi đâu, không gửi cho AI trừ khi nằm trong văn bản bạn tự gửi. Sửa hoặc xoá bằng nút «Đơn vị công tác» ở trang chủ.", "Your <strong>work unit</strong> (Procuracy level, province/city, regional Procuracy) and the name and title you optionally enter on the welcome screen are <strong>stored only on this device</strong> (localStorage <code>knks-don-vi</code>) so the agency name can be pre-filled in templates; they are not sent anywhere, and are not sent to AI unless they appear in text you yourself submit. Edit or delete them with the “Work unit” button on the home page.");
   add("privacy.s1e", "Khi cài thành ứng dụng (PWA), các trang được lưu tạm (cache) trên máy để mở nhanh hơn.", "When installed as an app (PWA), pages are cached on the device so they open faster.");
   add("privacy.s1f.html", "Ứng dụng Android (tải APK tại trang <a href=\"cai-dat.html\">Cài ứng dụng</a>) chỉ mở trang web này toàn màn hình; không xin quyền danh bạ, vị trí, máy ảnh hay bộ nhớ, không có quảng cáo, không thu thập dữ liệu.", "The Android app (APK from the <a href=\"cai-dat.html\">Install</a> page) only opens this website full screen; it does not request contacts, location, camera or storage permissions, has no ads, and collects no data.");
   add("privacy.s1g", "Các công cụ ẩn danh văn bản, đổi tên file, chuyển Word/PDF/ảnh sang Markdown (kể cả nhận dạng chữ OCR) chạy hoàn toàn trên máy của bạn; tệp không được gửi lên mạng.", "The anonymizer, file renamer and Word/PDF/image-to-Markdown tools (including OCR) run entirely on your device; files are not uploaded.");
   add("privacy.s2", "2. AI là tuỳ chọn — dữ liệu sẽ được gửi ra nước ngoài", "2. AI is optional — data will be sent abroad");
-  add("privacy.s2a.html", "Mục «Trợ lý ảo kiểm sát văn bản» có thể dùng thêm AI <strong>chỉ khi bạn tự bật</strong>, tự nhập API key của mình và tích ô xác nhận đã ẩn danh.", "The “AI Legal Assistant” can use AI <strong>only when you turn it on yourself</strong>, enter your own API key and tick the box confirming that the text has been anonymized.");
+  add("privacy.s2a.html", "Mục «Trợ lý ảo kiểm sát văn bản» có thể dùng thêm AI <strong>chỉ khi bạn tự bật</strong>, tự nhập API key của mình và tích ô xác nhận đã ẩn danh.", "The “Document Supervision Virtual Assistant” can use AI <strong>only when you turn it on yourself</strong>, enter your own API key and tick the box confirming that the text has been anonymized.");
   add("privacy.s2b.html", "Khi bật AI, nội dung văn bản và câu hỏi được gửi tới máy chủ của nhà cung cấp AI đặt <strong>ở nước ngoài</strong> (Groq — Hoa Kỳ; Google Gemini). Tác giả ứng dụng không kiểm soát việc lưu trữ của các nhà cung cấp này.", "When AI is on, the document text and your questions are sent to the AI provider’s servers <strong>abroad</strong> (Groq — United States; Google Gemini). The app author does not control how those providers store data.");
   add("privacy.s2c.html", "<strong>Lượt AI miễn phí dùng chung</strong> (không cần key): yêu cầu đi qua máy chủ trung gian <strong>Cloudflare Worker</strong> do tác giả ứng dụng quản lý, rồi được chuyển tới <strong>Groq (Hoa Kỳ)</strong>. Máy chủ trung gian <strong>không lưu và không ghi log nội dung</strong> văn bản, câu hỏi, câu trả lời; chỉ đếm số lượt theo địa chỉ IP (8 lượt/phút, 40 lượt/ngày) để chống lạm dụng. Mã nguồn công khai tại thư mục <code>ai-proxy/</code> của repo.", "<strong>Shared free AI turns</strong> (no key needed): requests go through a <strong>Cloudflare Worker</strong> intermediary managed by the app author, then on to <strong>Groq (United States)</strong>. The intermediary <strong>does not store or log the content</strong> of documents, questions or answers; it only counts requests by IP address (8 per minute, 40 per day) to prevent abuse. The source code is public in the repo’s <code>ai-proxy/</code> folder.");
   add("privacy.s2d", "Nếu bạn nhập key riêng, trình duyệt gọi thẳng nhà cung cấp bằng key của bạn (khi không gọi được thì mới chuyển qua máy chủ trung gian, kèm key, không lưu key).", "If you enter your own key, the browser calls the provider directly with your key (only if that fails does it go through the intermediary, with the key, which is not stored).");
@@ -1187,7 +1188,7 @@
   add("privacy.s3", "4. Khuyến nghị bắt buộc trước khi gửi văn bản cho AI hoặc dịch vụ ngoài", "4. Mandatory recommendations before sending a document to AI or an external service");
   add("privacy.s3a.html", "<strong>Ẩn danh</strong> văn bản: che họ tên, ngày sinh, số CCCD/hộ chiếu, địa chỉ, số điện thoại, số tài khoản… (dùng công cụ «Tự động che thông tin», chạy trên máy).", "<strong>Anonymize</strong> the document: mask full names, dates of birth, ID/passport numbers, addresses, phone numbers, account numbers, and so on (use the “Anonymizer” tool, which runs on the device).");
   add("privacy.s3b.html", "<strong>Không</strong> gửi tài liệu thuộc bí mật nhà nước, tài liệu mật, hồ sơ vụ án chưa công khai.", "<strong>Do not</strong> send state-secret documents, classified documents, or case files that have not been made public.");
-  add("privacy.s3c", "Kết quả AI chỉ để tham khảo, có thể sai hoặc bịa điều luật. Kiểm sát viên phải đối chiếu văn bản gốc và chịu trách nhiệm về ý kiến, kiến nghị, kháng nghị.", "AI results are for reference only and may be wrong or may invent legal provisions. The Prosecutor must check the original instruments and remains responsible for opinions, recommendations and protests.");
+  add("privacy.s3c", "Kết quả AI chỉ để tham khảo, có thể sai hoặc bịa điều luật. Kiểm sát viên phải đối chiếu văn bản gốc và chịu trách nhiệm về ý kiến, kiến nghị, kháng nghị.", "AI results are for reference only and may be wrong or may invent legal provisions. The procurator must check the original instruments and remains responsible for opinions, recommendations and protests.");
   add("privacy.s4", "5. Liên hệ", "5. Contact");
   add("privacy.s4p.html", "Thiên Phúc © 2026 · Liên hệ: <a href=\"tel:0939103666\">0939103666</a>. Mã nguồn: <a href=\"https://github.com/hethong-quanly/kynangkiemsat\" target=\"_blank\" rel=\"noopener\">github.com/hethong-quanly/kynangkiemsat</a>.", "Thiên Phúc © 2026 · Contact: <a href=\"tel:0939103666\">0939103666</a>. Source code: <a href=\"https://github.com/hethong-quanly/kynangkiemsat\" target=\"_blank\" rel=\"noopener\">github.com/hethong-quanly/kynangkiemsat</a>.");
   add("privacy.foot", "Cập nhật ngày 24/11/2026 (bổ sung Phòng hỏi đáp nghiệp vụ).", "Updated 24/11/2026 (Professional Q&A room added).");
@@ -1202,8 +1203,8 @@
   add("privacy.hd.f.html", "<strong>Gỡ bài</strong>: bấm «Báo cáo vi phạm» trên bài, hoặc gọi/nhắn <a href=\"tel:0939103666\">0939103666</a> kèm tiêu đề bài để được gỡ (kể cả bài do chính bạn đăng). Bạn cũng có thể bấm «Ẩn bài này» để không thấy bài trên máy mình.", "<strong>Removing a post</strong>: tap “Report a violation” on the post, or call/message <a href=\"tel:0939103666\">0939103666</a> with the post title to have it taken down (including a post you wrote yourself). You can also tap “Hide this post” so you no longer see it on your device.");
   add("badge.community", "CỘNG ĐỒNG", "COMMUNITY");
   add("tool.hoi-dap-nghiep-vu.title", "Hỏi đáp nghiệp vụ", "Professional Q&A");
-  add("tool.hoi-dap-nghiep-vu.desc", "Phòng trao đổi nghiệp vụ: đặt câu hỏi, chia sẻ kinh nghiệm và trả lời đồng nghiệp trong ngành theo từng lĩnh vực hình sự, dân sự, hành chính, thi hành án, khiếu nại tố cáo.", "A professional discussion room: ask questions, share experience and answer colleagues in the sector, by field — criminal, civil, administrative, judgment execution, and complaints & denunciations.");
-  add("hdqa.title", "Hỏi đáp nghiệp vụ — Kỹ năng Kiểm sát", "Professional Q&A — Prosecutorial Skills");
+  add("tool.hoi-dap-nghiep-vu.desc", "Phòng trao đổi nghiệp vụ: đặt câu hỏi, chia sẻ kinh nghiệm và trả lời đồng nghiệp trong ngành theo từng lĩnh vực hình sự, dân sự, hành chính, thi hành án, khiếu nại tố cáo.", "A professional discussion room: ask questions, share experience and answer colleagues in the sector, by field — criminal, civil, administrative, judgment enforcement and execution, and complaints & denunciations.");
+  add("hdqa.title", "Hỏi đáp nghiệp vụ — Kỹ năng Kiểm sát", "Professional Q&A — procuratorial Skills");
 
   add("ai.langRule", "LANGUAGE: Answer in clear, professional English. Keep the original Vietnamese titles of legal instruments (Luật, Bộ luật, Nghị định, Thông tư, Nghị quyết, Quyết định, Điều, khoản) and cite article and clause numbers accurately. Do not invent citations. Address the user as “you”. Be concise.", "LANGUAGE: Answer in clear, professional English. Keep the original Vietnamese titles of legal instruments (Luật, Bộ luật, Nghị định, Thông tư, Nghị quyết, Quyết định, Điều, khoản) and cite article and clause numbers accurately. Do not invent citations. Address the user as “you”. Be concise.");
 
@@ -1590,6 +1591,8 @@
     onChange: onChange, PHRASE: PHRASE, VI: VI, EN: EN,
     addPhrases: addPhrases, addWords: addWords, translate: translate,
     loadPacks: loadPacks, placeName: function (n) { return PLACE_EN[n] || n; },
-    WORDS: WORDS, abbrEn: abbrEn, ABBR_EN: ABBR_EN, ABBR_KEYS: ABBR_KEYS, addAbbrPhrases: addAbbrPhrases
+    WORDS: WORDS, abbrEn: abbrEn, ABBR_EN: ABBR_EN, ABBR_KEYS: ABBR_KEYS, addAbbrPhrases: addAbbrPhrases,
+    /* kiểm tra bản dịch (scripts): chuỗi có dịch được theo cụm không, hay rơi xuống dịch từng từ */
+    isPhraseCovered: function (s) { var n = norm(s); return exactPhrase(n) != null || smartTranslate(n, 0) != null; }
   };
 })(window);
