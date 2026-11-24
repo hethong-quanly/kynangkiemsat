@@ -83,7 +83,7 @@
   /* Đơn vị công tác do người dùng chọn (chỉ lưu localStorage "knks-don-vi", không gửi đi đâu).
      Mặc định khi chưa chọn: VKSND thành phố Cần Thơ (giữ nguyên cách hiển thị cũ). */
   var DV_KEY = "knks-don-vi";
-  var TP6 = { "Hà Nội": 1, "Hải Phòng": 1, "Huế": 1, "Đà Nẵng": 1, "Hồ Chí Minh": 1, "Cần Thơ": 1 };
+  var TP6 = { "Hà Nội": 1, "Hải Phòng": 1, "Huế": 1, "Đà Nẵng": 1, "Hồ Chí Minh": 1, "Cần Thơ": 1, "Đồng Nai": 1 };
   function dvGet() { try { var o = JSON.parse(localStorage.getItem(DV_KEY) || "null"); return o && o.cap ? o : null; } catch (e) { return null; } }
   function dvSet(o) { try { if (o) localStorage.setItem(DV_KEY, JSON.stringify(o)); else localStorage.removeItem(DV_KEY); } catch (e) {} dvApply(document.body); }
   function tinhDay(t) { return t === "Hồ Chí Minh" ? "Thành phố Hồ Chí Minh" : (TP6[t] ? "thành phố " : "tỉnh ") + t; }

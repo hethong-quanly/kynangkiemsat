@@ -1385,20 +1385,46 @@
       "ten": "Quyết định ban hành biểu mẫu kiểm sát việc giải quyết vụ việc dân sự, vụ án hành chính (01/DS–65/DS, 01/HC–65/HC)",
       "loai": "Quyết định/Quy chế/Chỉ thị ngành",
       "coQuan": "VKSNDTC",
-      "hieuLuc": "con_hieu_luc",
+      "hieuLuc": "het_hieu_luc",
       "files": [
         "Tool/KiemSatAnDs/index.html",
         "index.html"
       ],
-      "mucDo": "theo_doi",
+      "mucDo": "da_cap_nhat",
       "ghiChu": "Văn bản nội ngành: ưu tiên đối chiếu trên vksndtc.gov.vn/vanban hoặc văn bản giấy/PDF gốc của Viện.",
       "nguon": [
         "https://thuvienphapluat.vn/van-ban/Thu-tuc-To-tung/Quyet-dinh-410-QD-VKSTC-2021-496065.aspx"
       ],
       "ngayBanHanh": "2021-11-25",
       "xacMinh": {
-        "ketQua": "dung",
-        "ngay": "2026-11-23"
+        "ketQua": "sua",
+        "ngay": "2026-11-24",
+        "ghiChu": "Hết hiệu lực theo xác nhận của cán bộ VKSND TP Cần Thơ (24/11/2026): thay thế bởi QĐ 195/QĐ-VKSTC; gỡ khỏi căn cứ AI."
+      },
+      "thayTheBoi": "195/QĐ-VKSTC"
+    },
+    {
+      "id": "qd-195",
+      "soHieu": "195/QĐ-VKSTC",
+      "ten": "Quyết định ban hành hệ thống biểu mẫu tố tụng, nghiệp vụ kiểm sát việc giải quyết vụ việc dân sự, vụ án hành chính (thay thế QĐ 410/QĐ-VKSTC)",
+      "loai": "Quyết định/Quy chế/Chỉ thị ngành",
+      "coQuan": "VKSNDTC",
+      "hieuLuc": "con_hieu_luc",
+      "files": [
+        "Tool/KiemSatAnDs/index.html",
+        "Tool/CoSoVanBanPhapLuat/index.html",
+        "static/js/knks-linh-vuc.js",
+        "index.html"
+      ],
+      "mucDo": "theo_doi",
+      "ghiChu": "Văn bản nội ngành: ưu tiên đối chiếu trên vksndtc.gov.vn/vanban hoặc văn bản giấy/PDF gốc của Viện.",
+      "nguon": [],
+      "ngayBanHanh": null,
+      "thayThe": "410/QĐ-VKSTC (25/11/2021)",
+      "xacMinh": {
+        "ketQua": "chua_xac_minh",
+        "ngay": "2026-11-24",
+        "ghiChu": "Số hiệu do cán bộ VKSND TP Cần Thơ cung cấp (24/11/2026). Chưa tìm thấy trên thuvienphapluat.vn, luatvietnam.vn, caselaw.vn, kiemsat.vn, baovephapluat.vn; vksndtc.gov.vn chặn truy cập từ máy kiểm tra. Ngày ký, ngày hiệu lực, tên đầy đủ chờ đối chiếu bản gốc; không viện dẫn ngày/điều khoản."
       }
     },
     {

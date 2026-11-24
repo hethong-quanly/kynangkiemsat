@@ -3,6 +3,7 @@
    Nguồn danh sách:
    - 34 đơn vị hành chính cấp tỉnh: Quyết định 19/2025/QĐ-TTg (Bảng danh mục và mã số các ĐVHC Việt Nam, từ 01/7/2025), Nghị quyết 202/2025/QH15.
    - Số VKSND khu vực từng tỉnh: Phụ lục Quyết định 115/QĐ-VKSTC ngày 30/6/2025 (thành lập theo Nghị quyết 84/2025/UBTVQH15); tên dạng «Viện kiểm sát nhân dân khu vực N - <Tỉnh>».
+   - Đồng Nai là thành phố trực thuộc Trung ương từ 30/4/2026 (Nghị quyết 30/2026/QH16): hiển thị «thành phố Đồng Nai»; lựa chọn đã lưu («tinh»: "Đồng Nai") giữ nguyên.
    - VKSND cấp cao: tại Hà Nội, Đà Nẵng, Thành phố Hồ Chí Minh.
    Màn hình chào lần đầu có thêm bước chọn ngôn ngữ (Tiếng Việt / English), lưu localStorage "knks_lang". */
 (function (g) {
@@ -11,7 +12,7 @@
   function lang() { return (g.KNKS_I18N && g.KNKS_I18N.lang) ? g.KNKS_I18N.lang() : "vi"; }
   // [mã, tên ngắn, số VKSND khu vực]
   var TINH = [["01","Hà Nội",12],["04","Cao Bằng",5],["08","Tuyên Quang",8],["11","Điện Biên",5],["12","Lai Châu",4],["14","Sơn La",6],["15","Lào Cai",9],["19","Thái Nguyên",9],["20","Lạng Sơn",5],["22","Quảng Ninh",6],["24","Bắc Ninh",9],["25","Phú Thọ",17],["31","Hải Phòng",13],["33","Hưng Yên",8],["37","Ninh Bình",11],["38","Thanh Hóa",13],["40","Nghệ An",12],["42","Hà Tĩnh",5],["44","Quảng Trị",8],["46","Huế",4],["48","Đà Nẵng",12],["51","Quảng Ngãi",11],["52","Gia Lai",14],["56","Khánh Hòa",8],["66","Đắk Lắk",15],["68","Lâm Đồng",17],["75","Đồng Nai",14],["79","Hồ Chí Minh",19],["80","Tây Ninh",12],["82","Đồng Tháp",12],["86","Vĩnh Long",14],["91","An Giang",15],["92","Cần Thơ",14],["96","Cà Mau",9]];
-  var TP = { "Hà Nội":1, "Hải Phòng":1, "Huế":1, "Đà Nẵng":1, "Hồ Chí Minh":1, "Cần Thơ":1 };
+  var TP = { "Hà Nội":1, "Hải Phòng":1, "Huế":1, "Đà Nẵng":1, "Hồ Chí Minh":1, "Cần Thơ":1, "Đồng Nai":1 };
   function tenTinh(t) {
     var display = t;
     if (lang() === "en" && g.KNKS_I18N && typeof g.KNKS_I18N.placeName === "function") {

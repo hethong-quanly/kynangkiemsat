@@ -72,17 +72,18 @@ td { padding:8px 10px; border-bottom:1px solid #f1f5f9; vertical-align:top; }
     </div>
   </header>
   <div class="wrap">
-    <p class="muted">Phương pháp kiểm sát, tính hạn và bảng tra cứu theo Bộ luật Tố tụng dân sự năm 2015, sửa bởi Luật 85/2025/QH15. Biểu mẫu tải về theo Quyết định số 410/QĐ-VKSTC ngày 25/11/2021 (65 mẫu dân sự, 65 mẫu hành chính, 21 mẫu PL09). Quy chế Quyết định 436/QĐ-VKSTC ngày 28/11/2025 chưa có toàn văn nên không trích điều của quy chế. Đối chiếu văn bản gốc trước khi phân công, kiến nghị, kháng nghị.</p>
+    <p class="muted">Phương pháp kiểm sát, tính hạn và bảng tra cứu theo Bộ luật Tố tụng dân sự năm 2015, sửa bởi Luật 85/2025/QH15. Biểu mẫu theo Quyết định số 195/QĐ-VKSTC (thay thế Quyết định số 410/QĐ-VKSTC ngày 25/11/2021); tệp mẫu tải về hiện là bộ mẫu kèm Quyết định 410 (65 mẫu dân sự, 65 mẫu hành chính, 21 mẫu PL09), đối chiếu Quyết định 195 trước khi dùng. Quy chế Quyết định 436/QĐ-VKSTC ngày 28/11/2025 chưa có toàn văn nên không trích điều của quy chế. Đối chiếu văn bản gốc trước khi phân công, kiến nghị, kháng nghị.</p>
     
     <div class="row no-print" id="tabs">
       <button class="tab on" data-tab="phuongphap" type="button">Phương pháp kiểm sát</button>
-      <button class="tab" data-tab="bieu" type="button">Biểu mẫu QĐ 410</button>
+      <button class="tab" data-tab="bieu" type="button">Biểu mẫu QĐ 195</button>
       <button class="tab" data-tab="tinh" type="button">Tính hạn</button>
       <button class="tab" data-tab="tra" type="button">Bảng tra cứu</button>
     </div>
     <div id="pane-phuongphap"></div>
     <div id="pane-bieu" class="hide">
       <div class="card">
+        <p class="muted" id="qd195-note"><b>Quyết định số 410/QĐ-VKSTC ngày 25/11/2021 đã hết hiệu lực, được thay thế bởi Quyết định số 195/QĐ-VKSTC. Danh sách và tệp mẫu dưới đây là bộ mẫu kèm Quyết định 410, chỉ dùng tham khảo — đối chiếu số mẫu, nội dung với Quyết định 195 trước khi trình ký.</b></p>
         <p class="muted" id="qd410-note"></p>
         <div class="row" id="packs"></div>
         <input id="bq" placeholder="Tìm số mẫu hoặc tên văn bản…" />
@@ -392,7 +393,7 @@ var KsDs = (() => {
     }
   ];
   var BIEU_410_PACKS = [
-    { href: "qd-410.pdf", label: "T\u1EA3i quy\u1EBFt \u0111\u1ECBnh (PDF)" },
+    { href: "qd-410.pdf", label: "T\u1EA3i Quy\u1EBFt \u0111\u1ECBnh 410 (PDF, \u0111\xE3 h\u1EBFt hi\u1EC7u l\u1EF1c)" },
     { href: "danh-muc-ds.docx", label: "Danh m\u1EE5c d\xE2n s\u1EF1" },
     { href: "bo-65-ds.docx", label: "C\u1EA3 b\u1ED9 65 m\u1EABu DS" },
     { href: "danh-muc-hc.docx", label: "Danh m\u1EE5c h\xE0nh ch\xEDnh" },
@@ -846,7 +847,7 @@ var KsDs = (() => {
     },
     {
       title: "H\xE0nh ch\xEDnh, kinh doanh, lao \u0111\u1ED9ng, vi\u1EC7c kh\xE1c",
-      body: "Quy\u1EBFt \u0111\u1ECBnh 410 c\xF3 65 m\u1EABu 01/HC\u201365/HC v\xE0 21 m\u1EABu 01/PL09\u201321/PL09. Th\u1EDDi h\u1EA1n v\u1EE5 \xE1n h\xE0nh ch\xEDnh theo Lu\u1EADt T\u1ED1 t\u1EE5ng h\xE0nh ch\xEDnh, kh\xF4ng l\u1EA5y h\u1EA1n B\u1ED9 lu\u1EADt T\u1ED1 t\u1EE5ng d\xE2n s\u1EF1 \u0111\u1EC3 \xE1p cho \xE1n h\xE0nh ch\xEDnh. H\u01B0\u1EDBng d\u1EABn s\u1ED1 28/HD-VKSTC ng\xE0y 24/10/2025 c\u1EE7a V\u1EE5 10 l\xE0 v\u0103n b\u1EA3n kh\xE1c. Kh\xF4ng tr\u1ED9n v\u1EDBi Quy\u1EBFt \u0111\u1ECBnh 436/Q\u0110-VKSTC ng\xE0y 09/12/2020 v\u1EC1 quy tr\xECnh ph\xE1 s\u1EA3n."
+      body: "Quy\u1EBFt \u0111\u1ECBnh 195/Q\u0110-VKSTC thay th\u1EBF Quy\u1EBFt \u0111\u1ECBnh 410; b\u1ED9 m\u1EABu k\xE8m Quy\u1EBFt \u0111\u1ECBnh 410 c\xF3 65 m\u1EABu 01/HC\u201365/HC v\xE0 21 m\u1EABu 01/PL09\u201321/PL09 (\u0111\u1ED1i chi\u1EBFu Quy\u1EBFt \u0111\u1ECBnh 195). Th\u1EDDi h\u1EA1n v\u1EE5 \xE1n h\xE0nh ch\xEDnh theo Lu\u1EADt T\u1ED1 t\u1EE5ng h\xE0nh ch\xEDnh, kh\xF4ng l\u1EA5y h\u1EA1n B\u1ED9 lu\u1EADt T\u1ED1 t\u1EE5ng d\xE2n s\u1EF1 \u0111\u1EC3 \xE1p cho \xE1n h\xE0nh ch\xEDnh. H\u01B0\u1EDBng d\u1EABn s\u1ED1 28/HD-VKSTC ng\xE0y 24/10/2025 c\u1EE7a V\u1EE5 10 l\xE0 v\u0103n b\u1EA3n kh\xE1c. Kh\xF4ng tr\u1ED9n v\u1EDBi Quy\u1EBFt \u0111\u1ECBnh 436/Q\u0110-VKSTC ng\xE0y 09/12/2020 v\u1EC1 quy tr\xECnh ph\xE1 s\u1EA3n."
     }
   ];
   return __toCommonJS(standalone_exports);
