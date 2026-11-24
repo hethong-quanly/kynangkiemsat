@@ -13,8 +13,12 @@
   var TINH = [["01","Hà Nội",12],["04","Cao Bằng",5],["08","Tuyên Quang",8],["11","Điện Biên",5],["12","Lai Châu",4],["14","Sơn La",6],["15","Lào Cai",9],["19","Thái Nguyên",9],["20","Lạng Sơn",5],["22","Quảng Ninh",6],["24","Bắc Ninh",9],["25","Phú Thọ",17],["31","Hải Phòng",13],["33","Hưng Yên",8],["37","Ninh Bình",11],["38","Thanh Hóa",13],["40","Nghệ An",12],["42","Hà Tĩnh",5],["44","Quảng Trị",8],["46","Huế",4],["48","Đà Nẵng",12],["51","Quảng Ngãi",11],["52","Gia Lai",14],["56","Khánh Hòa",8],["66","Đắk Lắk",15],["68","Lâm Đồng",17],["75","Đồng Nai",14],["79","Hồ Chí Minh",19],["80","Tây Ninh",12],["82","Đồng Tháp",12],["86","Vĩnh Long",14],["91","An Giang",15],["92","Cần Thơ",14],["96","Cà Mau",9]];
   var TP = { "Hà Nội":1, "Hải Phòng":1, "Huế":1, "Đà Nẵng":1, "Hồ Chí Minh":1, "Cần Thơ":1 };
   function tenTinh(t) {
-    if (t === "Hồ Chí Minh") return T("dv.hcm");
-    return T(TP[t] ? "dv.tp" : "dv.tinhPref", { t: t });
+    var display = t;
+    if (lang() === "en" && g.KNKS_I18N && typeof g.KNKS_I18N.placeName === "function") {
+      display = g.KNKS_I18N.placeName(t) || t;
+    }
+    if (t === "Hồ Chí Minh") return lang() === "en" ? "Ho Chi Minh City" : T("dv.hcm");
+    return T(TP[t] ? "dv.tp" : "dv.tinhPref", { t: display });
   }
   var CAP = [["toi-cao","dv.cap.toi-cao"],["cap-cao","dv.cap.cap-cao"],["tinh","dv.cap.tinh"],["khu-vuc","dv.cap.khu-vuc"]];
   var CHUC = [
