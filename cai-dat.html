@@ -83,7 +83,7 @@
       <div class="opt" id="opt-exe">
         <h3 data-i18n="install.exeH">Cách 2: Tải bộ cài Windows (.exe)</h3>
         <p class="muted" style="margin:0" data-i18n="install.exeSub">Cài như phần mềm bình thường, dùng cho Windows 10 / 11 (64-bit).</p>
-        <a class="btn sec" id="dl-exe" hidden href="https://github.com/hethong-quanly/kynangkiemsat/releases/download/app-v1.0.0/KyNangKiemSat-Windows-Setup-1.0.0.exe"><span data-i18n="install.exeBtn">⬇ Tải bộ cài Windows (.exe)</span><span id="exe-size"></span></a>
+        <a class="btn sec" id="dl-exe" hidden data-co-san="1" href="https://github.com/hethong-quanly/kynangkiemsat/releases/download/app-v1.0.0/KyNangKiemSat-Windows-Setup-1.0.0.exe"><span data-i18n="install.exeBtn">⬇ Tải bộ cài Windows (.exe)</span><span id="exe-size"></span></a>
         <p class="muted" id="exe-wait" data-i18n="install.exeWait">Bộ cài Windows đang được chuẩn bị, anh/chị dùng Cách 1 trong lúc chờ.</p>
         <ol>
           <li data-i18n-html="install.exe1.html">Tải xong, bấm đúp tệp <strong>KyNangKiemSat-Windows-Setup-1.0.0.exe</strong> → <strong>Cài đặt</strong> (không cần quyền quản trị).</li>
@@ -198,7 +198,7 @@
           var f = (rel.assets || []).filter(function (x) { return x.name === "KyNangKiemSat-Windows-Setup-1.0.0.exe" && x.state === "uploaded"; })[0];
           if (f) showExe(f.size);
         })
-        .catch(function () { if (de.getAttribute("data-co-san") === "1") showExe(0); });
+        .catch(function () { if (de.getAttribute("data-co-san") === "1") showExe(1301860); });
       var u = "https://hethong-quanly.github.io/app/", b = document.getElementById("copy");
       b.onclick = function () {
         var ok = function () { b.textContent = (window.KNKS_I18N?KNKS_I18N.t("install.copied"):"Đã sao chép ✓"); setTimeout(function () { b.textContent = (window.KNKS_I18N?KNKS_I18N.t("install.copy"):"Sao chép link"); }, 1600); };
