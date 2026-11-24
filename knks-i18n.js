@@ -1,7 +1,7 @@
 /* Kỹ năng Kiểm sát — đa ngôn ngữ Việt / Anh.
    Lưu lựa chọn trong localStorage "knks_lang" ('vi' | 'en').
-   Nguyên văn điều luật, tên văn bản và mẫu quyết định tiếng Việt được giữ nguyên;
-   chế độ EN chỉ dịch giao diện và thêm chú thích tiếng Anh ngắn. */
+   Khi knks_lang === 'en', toàn bộ nội dung hiển thị (giao diện, bảng, kết quả JS,
+   mẫu quyết định, căn cứ pháp lý) được dịch sang tiếng Anh. Chuyển lại VI khôi phục nguyên văn. */
 (function (global) {
   "use strict";
   var KEY = "knks_lang";
@@ -40,7 +40,7 @@
   add("theme.dark", "Tối", "Dark");
   add("theme.lightTitle", "Giao diện sáng", "Light theme");
   add("theme.darkTitle", "Giao diện tối", "Dark theme");
-  add("lang.group", "Ngôn ngữ / Language", "Language / Ngôn ngữ");
+  add("lang.group", "Ngôn ngữ / Language", "Language");
   add("unit.btn", "Đơn vị công tác", "Work unit");
   add("unit.btnTitle", "Chọn đơn vị công tác", "Choose your work unit");
   add("install.btn", "Cài đặt", "Install");
@@ -126,7 +126,7 @@
   add("dv.title", "Đơn vị công tác", "Work unit");
   add("dv.welcome", "Chào bạn! Chọn nơi bạn công tác để ứng dụng điền sẵn tên cơ quan trong Quyết định phân công KSV và các mẫu văn bản. Thông tin chỉ lưu trên máy này, không gửi đi đâu; sửa lại bất cứ lúc nào bằng nút «Đơn vị công tác».", "Welcome! Choose your work unit so the app can pre-fill the agency name in the Decision assigning a Prosecutor and in document templates. This information is saved only on this device and is never sent anywhere. You can change it any time with the “Work unit” button.");
   add("dv.lead", "Chọn nơi bạn công tác để ứng dụng điền sẵn tên cơ quan trong Quyết định phân công KSV và các mẫu văn bản. Thông tin chỉ lưu trên máy này, không gửi đi đâu; sửa lại bất cứ lúc nào bằng nút «Đơn vị công tác».", "Choose your work unit so the app can pre-fill the agency name in the Decision assigning a Prosecutor and in document templates. This information is saved only on this device and is never sent anywhere. You can change it any time with the “Work unit” button.");
-  add("dv.lang", "Ngôn ngữ / Language", "Language / Ngôn ngữ");
+  add("dv.lang", "Ngôn ngữ / Language", "Language");
   add("dv.cap", "Cấp", "Level");
   add("dv.cap.toi-cao", "VKSND tối cao", "Supreme People's Procuracy");
   add("dv.cap.cap-cao", "VKSND cấp cao", "High-level People's Procuracy");
@@ -448,6 +448,315 @@
     "Chạy trên trình duyệt, không gửi tệp đi": "Runs in the browser; files are not uploaded"
   };
 
+  /* ---------- Dịch toàn bộ nội dung hiển thị (EN 100%) ---------- */
+  var VN_RE = /[àáảãạăằắẳẵặâầấẩẫậèéẻẽẹêềếểễệìíỉĩịòóỏõọôồốổỗộơờớởỡợùúủũụưừứửữựỳýỷỹỵđÀÁẢÃẠĂẰẮẲẴẶÂẦẤẨẪẬÈÉẺẼẸÊỀẾỂỄỆÌÍỈĨỊÒÓỎÕỌÔỒỐỔỖỘƠỜỚỞỠỢÙÚỦŨỤƯỪỨỬỮỰỲÝỶỸỴĐ]/;
+  var PLACE_EN = {
+    "Hà Nội": "Hanoi", "Cao Bằng": "Cao Bang", "Tuyên Quang": "Tuyen Quang",
+    "Điện Biên": "Dien Bien", "Lai Châu": "Lai Chau", "Sơn La": "Son La",
+    "Lào Cai": "Lao Cai", "Thái Nguyên": "Thai Nguyen", "Lạng Sơn": "Lang Son",
+    "Quảng Ninh": "Quang Ninh", "Bắc Ninh": "Bac Ninh", "Phú Thọ": "Phu Tho",
+    "Hải Phòng": "Hai Phong", "Hưng Yên": "Hung Yen", "Ninh Bình": "Ninh Binh",
+    "Thanh Hóa": "Thanh Hoa", "Nghệ An": "Nghe An", "Hà Tĩnh": "Ha Tinh",
+    "Quảng Trị": "Quang Tri", "Huế": "Hue", "Đà Nẵng": "Da Nang",
+    "Quảng Ngãi": "Quang Ngai", "Gia Lai": "Gia Lai", "Khánh Hòa": "Khanh Hoa",
+    "Đắk Lắk": "Dak Lak", "Đăk Lăk": "Dak Lak", "Lâm Đồng": "Lam Dong",
+    "Đồng Nai": "Dong Nai", "Hồ Chí Minh": "Ho Chi Minh City",
+    "Tây Ninh": "Tay Ninh", "Đồng Tháp": "Dong Thap", "Vĩnh Long": "Vinh Long",
+    "An Giang": "An Giang", "Cần Thơ": "Can Tho", "Cà Mau": "Ca Mau"
+  };
+  var WORDS = {};
+  var PHRASE_KEYS = [];
+  var PHRASE_IDX = {};
+  var applying = false;
+  var packsLoaded = {};
+
+  function addPhrases(map) {
+    if (!map) return;
+    var k, keys = Object.keys(map);
+    for (var i = 0; i < keys.length; i++) {
+      k = keys[i];
+      if (!k) continue;
+      PHRASE[k] = map[k];
+    }
+    rebuildPhraseIndex();
+  }
+
+  function addWords(map) {
+    if (!map) return;
+    var k, keys = Object.keys(map);
+    for (var i = 0; i < keys.length; i++) {
+      k = keys[i];
+      WORDS[k] = map[k];
+      WORDS[k.toLowerCase()] = map[k];
+    }
+  }
+
+  function rebuildPhraseIndex() {
+    var dk = Object.keys(VI);
+    for (var si = 0; si < dk.length; si++) {
+      var vk = dk[si];
+      if (VI[vk] && EN[vk] && EN[vk] !== VI[vk]) {
+        if (!PHRASE[VI[vk]]) PHRASE[VI[vk]] = EN[vk];
+        var nv = norm(VI[vk]);
+        if (nv && !PHRASE[nv]) PHRASE[nv] = EN[vk];
+      }
+    }
+    var pk = Object.keys(PLACE_EN);
+    for (var pi = 0; pi < pk.length; pi++) {
+      if (!PHRASE[pk[pi]]) PHRASE[pk[pi]] = PLACE_EN[pk[pi]];
+    }
+    PHRASE_KEYS = Object.keys(PHRASE).sort(function (a, b) { return b.length - a.length; });
+    PHRASE_IDX = {};
+    for (var i = 0; i < PHRASE_KEYS.length; i++) {
+      var k = PHRASE_KEYS[i];
+      var c = k.charAt(0);
+      if (!PHRASE_IDX[c]) PHRASE_IDX[c] = [];
+      PHRASE_IDX[c].push(k);
+    }
+  }
+
+  function i18nBase() {
+    var scripts = document.getElementsByTagName("script");
+    for (var i = 0; i < scripts.length; i++) {
+      var src = scripts[i].src || "";
+      if (src.indexOf("knks-i18n.js") !== -1) {
+        return src.replace(/knks-i18n\.js(\?.*)?$/, "");
+      }
+    }
+    try {
+      var t = document.querySelector('script[src*="theme.js"]');
+      if (t && t.src) return t.src.replace(/theme\.js(\?.*)?$/, "");
+    } catch (e) {}
+    return "";
+  }
+
+  function loadScript(src) {
+    return new Promise(function (resolve) {
+      if (packsLoaded[src]) { resolve(); return; }
+      var el = document.createElement("script");
+      el.src = src;
+      el.async = false;
+      el.onload = function () { packsLoaded[src] = 1; resolve(); };
+      el.onerror = function () { resolve(); };
+      (document.head || document.documentElement).appendChild(el);
+    });
+  }
+
+  function packsForPath(path) {
+    var list = ["i18n/pack-core.js"];
+    if (/CoSoVanBanPhapLuat/.test(path)) list.push("i18n/pack-vbpl.js");
+    else if (/NghiepVuVanPhong/.test(path)) list.push("i18n/pack-vanphong.js");
+    else if (/KiemSat|GiaiQuyetKnTc/.test(path)) list.push("i18n/pack-kiemsat.js");
+    else if (/\/Tool\/|\/Data\/|\/AnDanh\//.test(path) || /TinhTuoiThoiHan|HuongDan|Slide|SoanQd|TroLyAo|App_DS|App_tinh|FileRenamer|DocxToMd|PdfToMd|AnDanh/.test(path)) {
+      list.push("i18n/pack-tools.js");
+    }
+    return list;
+  }
+
+  function loadPacks() {
+    var base = i18nBase();
+    var packs = packsForPath(location.pathname || "");
+    var chain = Promise.resolve();
+    packs.forEach(function (p) {
+      chain = chain.then(function () { return loadScript(base + p); });
+    });
+    return chain.then(function () {
+      if (global.__KNKS_PHRASE_QUEUE) {
+        var q = global.__KNKS_PHRASE_QUEUE;
+        global.__KNKS_PHRASE_QUEUE = [];
+        for (var i = 0; i < q.length; i++) {
+          if (q[i].phrases) addPhrases(q[i].phrases);
+          else if (q[i].words) addWords(q[i].words);
+          else addPhrases(q[i]);
+        }
+      }
+      rebuildPhraseIndex();
+    });
+  }
+
+  function preserve(s) {
+    var hold = [];
+    function keep(m) {
+      hold.push(m);
+      return "\u0000" + (hold.length - 1) + "\u0000";
+    }
+    s = s.replace(/Thiên Phúc © 2026/g, keep);
+    s = s.replace(/Thiên Phúc/g, keep);
+    s = s.replace(/Tiếng Việt/g, keep);
+    return { s: s, hold: hold };
+  }
+  function restore(s, hold) {
+    return s.replace(/\u0000(\d+)\u0000/g, function (_, n) { return hold[+n]; });
+  }
+
+  function applyCase(src, en) {
+    if (!en) return en;
+    if (src === src.toUpperCase() && src !== src.toLowerCase()) return en.toUpperCase();
+    if (src.charAt(0) === src.charAt(0).toUpperCase() && src.slice(1) === src.slice(1).toLowerCase()) {
+      return en.charAt(0).toUpperCase() + en.slice(1);
+    }
+    return en;
+  }
+
+  function replaceByIndex(s, map, idx) {
+    var out = "", i = 0, n = s.length;
+    while (i < n) {
+      var list = idx[s.charAt(i)];
+      var hit = null;
+      if (list) {
+        for (var j = 0; j < list.length; j++) {
+          var k = list[j];
+          if (k.length <= n - i && s.substr(i, k.length) === k) { hit = k; break; }
+        }
+      }
+      if (hit) {
+        out += map[hit];
+        i += hit.length;
+      } else {
+        out += s.charAt(i);
+        i++;
+      }
+    }
+    return out;
+  }
+
+  function replaceWords(s) {
+    return s.replace(/[A-Za-zÀ-ỹĐđ]+/g, function (w) {
+      if (!VN_RE.test(w)) return w;
+      var low = w.toLowerCase();
+      var en = WORDS[w] || WORDS[low];
+      if (en == null) return w;
+      return applyCase(w, en);
+    });
+  }
+
+  function patternDates(s) {
+    s = s.replace(/ngày\s+(\d{1,2})\s+tháng\s+(\d{1,2})\s+năm\s+(\d{4})/gi, "$1/$2/$3");
+    s = s.replace(/Ngày\s+(\d{1,2})\s+tháng\s+(\d{1,2})\s+năm\s+(\d{4})/g, "$1/$2/$3");
+    s = s.replace(/ngày\s+(\d{1,2})\/(\d{1,2})\/(\d{4})/gi, "$1/$2/$3");
+    s = s.replace(/(\d{1,2})\s*giờ\s*(\d{1,2})\s*phút/gi, "$1:$2");
+    s = s.replace(/(\d{1,2})\s*giờ/gi, "$1:00");
+    s = s.replace(/\bThứ\s*hai\b/gi, "Monday");
+    s = s.replace(/\bThứ\s*ba\b/gi, "Tuesday");
+    s = s.replace(/\bThứ\s*tư\b/gi, "Wednesday");
+    s = s.replace(/\bThứ\s*năm\b/gi, "Thursday");
+    s = s.replace(/\bThứ\s*sáu\b/gi, "Friday");
+    s = s.replace(/\bThứ\s*bảy\b/gi, "Saturday");
+    s = s.replace(/\bChủ\s*nhật\b/gi, "Sunday");
+    s = s.replace(/\bCN\b(?=\s*[,)])/g, "Sun");
+    return s;
+  }
+
+
+  var DEACCENT_MAP = {"à":"a","á":"a","ả":"a","ã":"a","ạ":"a","ă":"a","ằ":"a","ắ":"a","ẳ":"a","ẵ":"a","ặ":"a","â":"a","ầ":"a","ấ":"a","ẩ":"a","ẫ":"a","ậ":"a","è":"e","é":"e","ẻ":"e","ẽ":"e","ẹ":"e","ê":"e","ề":"e","ế":"e","ể":"e","ễ":"e","ệ":"e","ì":"i","í":"i","ỉ":"i","ĩ":"i","ị":"i","ò":"o","ó":"o","ỏ":"o","õ":"o","ọ":"o","ô":"o","ồ":"o","ố":"o","ổ":"o","ỗ":"o","ộ":"o","ơ":"o","ờ":"o","ớ":"o","ở":"o","ỡ":"o","ợ":"o","ù":"u","ú":"u","ủ":"u","ũ":"u","ụ":"u","ư":"u","ừ":"u","ứ":"u","ử":"u","ữ":"u","ự":"u","ỳ":"y","ý":"y","ỷ":"y","ỹ":"y","ỵ":"y","đ":"d","À":"A","Á":"A","Ả":"A","Ã":"A","Ạ":"A","Ă":"A","Ằ":"A","Ắ":"A","Ẳ":"A","Ẵ":"A","Ặ":"A","Â":"A","Ầ":"A","Ấ":"A","Ẩ":"A","Ẫ":"A","Ậ":"A","È":"E","É":"E","Ẻ":"E","Ẽ":"E","Ẹ":"E","Ê":"E","Ề":"E","Ế":"E","Ể":"E","Ễ":"E","Ệ":"E","Ì":"I","Í":"I","Ỉ":"I","Ĩ":"I","Ị":"I","Ò":"O","Ó":"O","Ỏ":"O","Õ":"O","Ọ":"O","Ô":"O","Ồ":"O","Ố":"O","Ổ":"O","Ỗ":"O","Ộ":"O","Ơ":"O","Ờ":"O","Ớ":"O","Ở":"O","Ỡ":"O","Ợ":"O","Ù":"U","Ú":"U","Ủ":"U","Ũ":"U","Ụ":"U","Ư":"U","Ừ":"U","Ứ":"U","Ử":"U","Ữ":"U","Ự":"U","Ỳ":"Y","Ý":"Y","Ỷ":"Y","Ỹ":"Y","Ỵ":"Y","Đ":"D"};
+  function deaccent(s) {
+    return String(s).replace(/[àáảãạăằắẳẵặâầấẩẫậèéẻẽẹêềếểễệìíỉĩịòóỏõọôồốổỗộơờớởỡợùúủũụưừứửữựỳýỷỹỵđÀÁẢÃẠĂẰẮẲẴẶÂẦẤẨẪẬÈÉẺẼẸÊỀẾỂỄỆÌÍỈĨỊÒÓỎÕỌÔỒỐỔỖỘƠỜỚỞỠỢÙÚỦŨỤƯỪỨỬỮỰỲÝỶỸỴĐ]/g, function (c) { return DEACCENT_MAP[c] || c; });
+  }
+
+  function translate(s) {
+    if (s == null) return s;
+    var raw = String(s);
+    if (!VN_RE.test(raw)) return raw;
+    var pr = preserve(raw);
+    var text = pr.s;
+    if (!VN_RE.test(text)) return restore(text, pr.hold);
+    var n = norm(text);
+    if (PHRASE[n]) return restore(PHRASE[n], pr.hold);
+    if (PHRASE[text]) return restore(PHRASE[text], pr.hold);
+    var pl = PLACE_EN[text] || PLACE_EN[n];
+    if (pl) return restore(pl, pr.hold);
+    text = patternDates(text);
+    text = replaceByIndex(text, PLACE_EN, (function () {
+      var idx = {}, keys = Object.keys(PLACE_EN).sort(function (a, b) { return b.length - a.length; });
+      for (var i = 0; i < keys.length; i++) {
+        var c = keys[i].charAt(0);
+        (idx[c] = idx[c] || []).push(keys[i]);
+      }
+      return idx;
+    })());
+    if (PHRASE_KEYS.length) text = replaceByIndex(text, PHRASE, PHRASE_IDX);
+    text = replaceWords(text);
+    if (VN_RE.test(text)) text = deaccent(text);
+    return restore(text, pr.hold);
+  }
+
+  function skipTranslate(node) {
+    var el = node.nodeType === 1 ? node : node.parentElement;
+    if (!el || !el.closest) return true;
+    if (el.closest("script,style,noscript,textarea,input,svg,[data-no-i18n],[data-knks-lang]")) return true;
+    return false;
+  }
+
+  function translateNode(node) {
+    if (!node) return;
+    if (node.nodeType === 3) {
+      if (skipTranslate(node)) return;
+      if (node._knksOrig == null) node._knksOrig = node.nodeValue;
+      var orig = node._knksOrig;
+      if (!isEn()) {
+        if (node.nodeValue !== orig) node.nodeValue = orig;
+        return;
+      }
+      var next = translate(orig);
+      node._knksTranslated = next;
+      if (node.nodeValue !== next) node.nodeValue = next;
+      return;
+    }
+    if (node.nodeType !== 1) return;
+    if (skipTranslate(node) && node.tagName !== "INPUT" && node.tagName !== "TEXTAREA") return;
+    var attrs = ["placeholder", "title", "aria-label", "alt", "content"];
+    if (node.tagName === "META" && (node.getAttribute("name") === "description" || node.getAttribute("property") === "og:description")) {
+      attrs.push("content");
+    }
+    for (var i = 0; i < attrs.length; i++) {
+      var a = attrs[i];
+      if (!node.getAttribute) continue;
+      if (node.hasAttribute("data-i18n-" + (a === "placeholder" ? "placeholder" : a === "title" ? "title" : a === "aria-label" ? "aria" : a === "alt" ? "alt" : "x"))) continue;
+      var cur = node.getAttribute(a);
+      if (cur == null) continue;
+      var flag = "data-knks-orig-" + a;
+      if (!node.hasAttribute(flag)) node.setAttribute(flag, cur);
+      var o = node.getAttribute(flag);
+      node.setAttribute(a, isEn() ? translate(o) : o);
+    }
+    if (node.tagName === "OPTION") {
+      /* value often equals label; keep value, translate text via text nodes */
+    }
+  }
+
+  function translateTree(root) {
+    var box = root || document;
+    if (!box) return;
+    if (box.nodeType === 3) { translateNode(box); return; }
+    if (box.querySelectorAll) {
+      var withAttr = box.querySelectorAll("[placeholder],[title],[aria-label],[alt]");
+      for (var i = 0; i < withAttr.length; i++) translateNode(withAttr[i]);
+      var md = box.querySelectorAll ? box.querySelectorAll('meta[name="description"]') : [];
+      for (var m = 0; m < md.length; m++) translateNode(md[m]);
+    }
+    if (!box.createTreeWalker && !document.createTreeWalker) return;
+    var walker = document.createTreeWalker(box === document ? document.body || box : box, NodeFilter.SHOW_TEXT, null, false);
+    var n;
+    while ((n = walker.nextNode())) translateNode(n);
+  }
+
+  function wrapDialogs() {
+    if (wrapDialogs._done) return;
+    wrapDialogs._done = 1;
+    ["alert", "confirm", "prompt"].forEach(function (name) {
+      var orig = global[name];
+      if (typeof orig !== "function") return;
+      global[name] = function (msg, def) {
+        var m = isEn() ? translate(String(msg == null ? "" : msg)) : msg;
+        if (name === "prompt") return orig.call(global, m, def);
+        return orig.call(global, m);
+      };
+    });
+  }
+
+  rebuildPhraseIndex();
+
+
   var PAGE_TITLE = {
     "index.html": "app.title",
     "": "app.title",
@@ -723,35 +1032,35 @@
   }
 
   function lawNote() {
-    var id = "knks-law-note";
-    var old = document.getElementById(id);
-    var path = location.pathname || "";
-    if (!isEn() || !LAW_NOTE_RE.test(path)) {
-      if (old) old.remove();
-      return;
-    }
-    if (old) { old.textContent = t("law.note"); return; }
-    var n = document.createElement("div");
-    n.id = id;
-    n.className = "knks-law-note";
-    n.setAttribute("role", "note");
-    n.textContent = t("law.note");
-    var host = document.querySelector(".wrap, .main-content, .container, body");
-    if (host === document.body) host.insertBefore(n, host.firstChild);
-    else host.insertBefore(n, host.firstChild);
+    var old = document.getElementById("knks-law-note");
+    if (old) old.remove();
   }
 
   function apply(root) {
-    var box = root || document;
-    if (!box.querySelectorAll) return;
-    var nodes = box.querySelectorAll("[data-i18n], [data-i18n-html], [data-i18n-placeholder], [data-i18n-title], [data-i18n-aria], [data-i18n-alt]");
-    for (var i = 0; i < nodes.length; i++) applyEl(nodes[i]);
-    if (box.hasAttribute && (box.hasAttribute("data-i18n") || box.hasAttribute("data-i18n-html"))) applyEl(box);
-    applyPhrases(box);
-    if (!root || root === document || root === document.body) {
-      applyTitle();
-      lawNote();
-      syncSwitcher();
+    if (applying) return;
+    applying = true;
+    try {
+      var box = root || document;
+      if (!box.querySelectorAll) return;
+      var nodes = box.querySelectorAll("[data-i18n], [data-i18n-html], [data-i18n-placeholder], [data-i18n-title], [data-i18n-aria], [data-i18n-alt]");
+      for (var i = 0; i < nodes.length; i++) applyEl(nodes[i]);
+      if (box.hasAttribute && (box.hasAttribute("data-i18n") || box.hasAttribute("data-i18n-html"))) applyEl(box);
+      applyPhrases(box);
+      translateTree(box === document ? (document.body || box) : box);
+      if (!root || root === document || root === document.body) {
+        applyTitle();
+        lawNote();
+        if (isEn() && document.title && VN_RE.test(document.title)) {
+          if (!document._knksTitleOrig) document._knksTitleOrig = document.title;
+          document.title = translate(document._knksTitleOrig);
+        } else if (!isEn() && document._knksTitleOrig) {
+          var key = titleKey();
+          document.title = key ? t(key) : document._knksTitleOrig;
+        }
+        syncSwitcher();
+      }
+    } finally {
+      applying = false;
     }
   }
 
@@ -882,25 +1191,64 @@
     document.documentElement.setAttribute("data-lang", stored());
   } catch (e) {}
 
+  function watchMutations() {
+    if (!document.body || document.documentElement.hasAttribute("data-i18n-watch")) return;
+    document.documentElement.setAttribute("data-i18n-watch", "1");
+    var tmr = null;
+    try {
+      new MutationObserver(function (ms) {
+        if (applying) return;
+        var need = false;
+        for (var i = 0; i < ms.length; i++) {
+          var rec = ms[i];
+          if (rec.addedNodes && rec.addedNodes.length) { need = true; break; }
+          if (rec.type === "characterData" && rec.target && rec.target.nodeType === 3) {
+            var val = rec.target.nodeValue || "";
+            if (VN_RE.test(val) && val !== rec.target._knksTranslated) {
+              rec.target._knksOrig = val;
+              need = true;
+              break;
+            }
+          }
+        }
+        if (!need) return;
+        clearTimeout(tmr);
+        tmr = setTimeout(function () { apply(document.body); }, 40);
+      }).observe(document.body, { childList: true, subtree: true, characterData: true });
+    } catch (e) {}
+  }
   function boot() {
     css();
+    wrapDialogs();
+  addPhrases({
+    "Quyết định phân công Kiểm sát viên": "Decision on assignment of the Prosecutor",
+    "Quyết định phân công KSV": "Decision on assignment of the Prosecutor",
+    "Quyết định phân công": "Assignment decision",
+    "Viện kiểm sát nhân dân thành phố Cần Thơ": "People's Procuracy of Can Tho City",
+    "Viện kiểm sát nhân dân thành phố": "Municipal People's Procuracy",
+    "Soạn Quyết định phân công KSV": "Draft a prosecutor assignment decision",
+    "Thời hạn tạm giam": "Temporary detention time limit",
+    "Thời hạn tạm giữ": "Custody time limit",
+    "Kỹ năng ứng dụng trong nghiệp vụ Kiểm sát": "Applied skills in procuratorial work"
+  });
+
+    if (global.__KNKS_PHRASE_QUEUE) {
+      var q0 = global.__KNKS_PHRASE_QUEUE;
+      global.__KNKS_PHRASE_QUEUE = [];
+      for (var qi = 0; qi < q0.length; qi++) {
+        if (q0[qi].phrases) addPhrases(q0[qi].phrases);
+        else if (q0[qi].words) addWords(q0[qi].words);
+        else addPhrases(q0[qi]);
+      }
+    }
+    rebuildPhraseIndex();
     apply(document);
     mountSwitcher();
-    if (document.body && !document.documentElement.hasAttribute("data-i18n-watch")) {
-      document.documentElement.setAttribute("data-i18n-watch", "1");
-      var tmr = null;
-      try {
-        new MutationObserver(function (ms) {
-          var need = false;
-          for (var i = 0; i < ms.length; i++) {
-            if (ms[i].addedNodes && ms[i].addedNodes.length) { need = true; break; }
-          }
-          if (!need) return;
-          clearTimeout(tmr);
-          tmr = setTimeout(function () { apply(document.body); }, 40);
-        }).observe(document.body, { childList: true, subtree: true });
-      } catch (e) {}
-    }
+    watchMutations();
+    loadPacks().then(function () {
+      apply(document);
+      mountSwitcher();
+    });
   }
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", boot);
   else boot();
@@ -926,6 +1274,9 @@
 
   global.KNKS_I18N = {
     KEY: KEY, t: t, lang: lang, isEn: isEn, set: set, apply: apply,
-    onChange: onChange, PHRASE: PHRASE, VI: VI, EN: EN
+    onChange: onChange, PHRASE: PHRASE, VI: VI, EN: EN,
+    addPhrases: addPhrases, addWords: addWords, translate: translate,
+    loadPacks: loadPacks, placeName: function (n) { return PLACE_EN[n] || n; },
+    WORDS: WORDS
   };
 })(window);
