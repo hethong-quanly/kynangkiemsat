@@ -1080,6 +1080,32 @@ var VanBanPl = (() => {
       link: "https://vksndtc.gov.vn/vanban/Pages/qppl.aspx",
       tags: ["ki\u1EC3m tra", "quy ch\u1EBF", "ng\xE0nh ki\u1EC3m s\xE1t"]
     },
+    {
+      id: 62,
+      soHieu: "195/QĐ-VKSTC",
+      tenVanBan: "Quyết định 195/QĐ-VKSTC ban hành hệ thống biểu mẫu tố tụng, nghiệp vụ trong công tác kiểm sát việc giải quyết các vụ việc dân sự, các vụ án hành chính (thay thế Quyết định 410/QĐ-VKSTC)",
+      coQuan: "VKSND Tối cao",
+      hieu: "Còn hiệu lực",
+      loai: "Quyết định",
+      linhVuc: [2, 16],
+      tomTat: "Thay thế Quyết định số 410/QĐ-VKSTC ngày 25/11/2021. Ngày ký, ngày hiệu lực và toàn văn chờ đối chiếu bản gốc của Viện kiểm sát nhân dân tối cao.",
+      link: "https://vksndtc.gov.vn/vanban/Pages/qppl.aspx",
+      tags: ["biểu mẫu", "dân sự", "hành chính", "195/QĐ-VKSTC"]
+    },
+    {
+      id: 63,
+      soHieu: "410/QĐ-VKSTC",
+      tenVanBan: "Quyết định 410/QĐ-VKSTC ban hành hệ thống biểu mẫu tố tụng, nghiệp vụ trong công tác kiểm sát việc giải quyết các vụ việc dân sự, các vụ án hành chính, kiểm sát việc xem xét, quyết định áp dụng các biện pháp xử lý hành chính tại Tòa án nhân dân",
+      coQuan: "VKSND Tối cao",
+      ngayBanHanh: "25/11/2021",
+      ngayHieuLuc: "25/11/2021",
+      hieu: "Hết hiệu lực",
+      loai: "Quyết định",
+      linhVuc: [2, 16],
+      tomTat: "Hết hiệu lực — thay thế bởi Quyết định 195/QĐ-VKSTC. Từng ban hành 65 mẫu 01/DS–65/DS, 65 mẫu 01/HC–65/HC, 21 mẫu 01/PL09–21/PL09; thay hệ thống biểu mẫu tạm thời kèm Quyết định 204/QĐ-VKSTC ngày 01/6/2017.",
+      link: "https://thuvienphapluat.vn/van-ban/Thu-tuc-To-tung/Quyet-dinh-410-QD-VKSTC-2021-He-thong-bieu-mau-to-tung-nghiep-vu-tai-Toa-an-nhan-dan-496065.aspx",
+      tags: ["biểu mẫu", "dân sự", "hành chính", "410/QĐ-VKSTC"]
+    },
     // ── CHỈ THỊ VKSND TỐI CAO ───────────────────────────────────
     {
       id: 59,
@@ -8765,7 +8791,7 @@ var VanBanPl = (() => {
           coQuan: CO,
           loai: "T\u1ED1 t\u1EE5ng",
           linhVuc: lv,
-          hieu: "C\xF2n hi\u1EC7u l\u1EF1c",
+          hieu: "H\u1EBFt hi\u1EC7u l\u1EF1c",
           file: `kiem-sat-an-ds/bieu-mau/${it.file}`,
           tomTat: [g.label, it.note, prefix === "pl09" ? "21 m\u1EABu Ph\xE1p l\u1EC7nh 09 n\u1EB1m chung m\u1ED9t t\u1EC7p .doc." : "T\u1EC7p t\xE1ch t\u1EEB b\u1ED9 Word k\xE8m Quy\u1EBFt \u0111\u1ECBnh 410. \u0110\u1ED1i chi\u1EBFu danh m\u1EE5c g\u1ED1c tr\u01B0\u1EDBc khi tr\xECnh k\xFD."].filter(Boolean).join(" "),
           tags: [lv, it.so]
@@ -8775,6 +8801,17 @@ var VanBanPl = (() => {
   }
   var dsPack = [
     {
+      id: "bm-195-qd",
+      tenBieuMau: "Quyết định 195/QĐ-VKSTC — hệ thống biểu mẫu kiểm sát dân sự, hành chính (thay thế Quyết định 410)",
+      soHieu: "195/QĐ-VKSTC",
+      coQuan: CO,
+      loai: "Văn bản ban hành",
+      linhVuc: LV.ds,
+      hieu: "Còn hiệu lực",
+      tomTat: "Thay thế Quyết định số 410/QĐ-VKSTC ngày 25/11/2021. Kho chưa có toàn văn và bộ mẫu kèm Quyết định 195; ngày ký, ngày hiệu lực và danh mục mẫu chờ đối chiếu bản gốc. Các mẫu kèm Quyết định 410 dưới đây chỉ để tham khảo.",
+      tags: ["195/QĐ-VKSTC", "biểu mẫu", "dân sự", "hành chính"]
+    },
+    {
       id: "bm-410-pdf",
       tenBieuMau: "Quy\u1EBFt \u0111\u1ECBnh 410/Q\u0110-VKSTC ng\xE0y 25/11/2021",
       soHieu: "410/Q\u0110-VKSTC",
@@ -8782,7 +8819,7 @@ var VanBanPl = (() => {
       coQuan: CO,
       loai: "V\u0103n b\u1EA3n ban h\xE0nh",
       linhVuc: LV.ds,
-      hieu: "C\xF2n hi\u1EC7u l\u1EF1c",
+      hieu: "H\u1EBFt hi\u1EC7u l\u1EF1c",
       file: "kiem-sat-an-ds/bieu-mau/qd-410.pdf",
       tomTat: QD410_NOTE
     },
@@ -8794,7 +8831,7 @@ var VanBanPl = (() => {
       coQuan: CO,
       loai: "Danh m\u1EE5c",
       linhVuc: LV.ds,
-      hieu: "C\xF2n hi\u1EC7u l\u1EF1c",
+      hieu: "H\u1EBFt hi\u1EC7u l\u1EF1c",
       file: "kiem-sat-an-ds/bieu-mau/danh-muc-ds.docx",
       tomTat: "Danh m\u1EE5c Word. Hai d\xF2ng in l\u1EC7ch k\xFD hi\u1EC7u (d\xF2ng 22 ghi 23/DS, d\xF2ng 50 ghi 50DS)."
     },
@@ -8806,7 +8843,7 @@ var VanBanPl = (() => {
       coQuan: CO,
       loai: "C\u1EA3 b\u1ED9",
       linhVuc: LV.ds,
-      hieu: "C\xF2n hi\u1EC7u l\u1EF1c",
+      hieu: "H\u1EBFt hi\u1EC7u l\u1EF1c",
       file: "kiem-sat-an-ds/bieu-mau/bo-65-ds.docx",
       tomTat: "T\u1EC7p g\u1ED1c tr\u01B0\u1EDBc khi t\xE1ch t\u1EEBng m\u1EABu. D\xF9ng n\u1EBFu m\u1EABu l\u1EBB m\u1EA5t \u0111\u1ECBnh d\u1EA1ng."
     }
@@ -8820,7 +8857,7 @@ var VanBanPl = (() => {
       coQuan: CO,
       loai: "Danh m\u1EE5c",
       linhVuc: LV.hc,
-      hieu: "C\xF2n hi\u1EC7u l\u1EF1c",
+      hieu: "H\u1EBFt hi\u1EC7u l\u1EF1c",
       file: "kiem-sat-an-ds/bieu-mau/danh-muc-hc.docx",
       tomTat: QD410_NOTE
     },
@@ -8832,7 +8869,7 @@ var VanBanPl = (() => {
       coQuan: CO,
       loai: "C\u1EA3 b\u1ED9",
       linhVuc: LV.hc,
-      hieu: "C\xF2n hi\u1EC7u l\u1EF1c",
+      hieu: "H\u1EBFt hi\u1EC7u l\u1EF1c",
       file: "kiem-sat-an-ds/bieu-mau/bo-65-hc.docx",
       tomTat: "T\u1EC7p g\u1ED1c tr\u01B0\u1EDBc khi t\xE1ch t\u1EEBng m\u1EABu. M\u1EABu 01/HC gi\u1EEF \u0111\xFAng t\xEAn danh m\u1EE5c \xABQuy\u1EBFt \u0111\u1ECBnh ph\xE2n Ki\u1EC3m s\xE1t vi\xEAn\u2026\xBB."
     }
@@ -8846,7 +8883,7 @@ var VanBanPl = (() => {
       coQuan: CO,
       loai: "Danh m\u1EE5c",
       linhVuc: LV.xlhc,
-      hieu: "C\xF2n hi\u1EC7u l\u1EF1c",
+      hieu: "H\u1EBFt hi\u1EC7u l\u1EF1c",
       file: "kiem-sat-an-ds/bieu-mau/danh-muc-pl09.docx",
       tomTat: "Bi\u1EC7n ph\xE1p x\u1EED l\xFD h\xE0nh ch\xEDnh t\u1EA1i T\xF2a \xE1n. Kh\xF4ng ph\u1EA3i m\u1EABu v\u1EE5 \xE1n h\xE0nh ch\xEDnh 01/HC\u201365/HC."
     }
@@ -8860,7 +8897,7 @@ var VanBanPl = (() => {
       coQuan: CO,
       loai: "Ghi ch\xFA ph\u1EA1m vi",
       linhVuc: LV.kdtm,
-      tomTat: "Quy\u1EBFt \u0111\u1ECBnh 410/Q\u0110-VKSTC ng\xE0y 25/11/2021 ban h\xE0nh m\u1EABu 01/DS\u201365/DS, m\u1EABu 01/HC\u201365/HC v\xE0 m\u1EABu PL09. Kh\xF4ng c\xF3 chu\u1ED7i m\u1EABu mang k\xFD hi\u1EC7u KDTM. V\u1EE5 \xE1n kinh doanh, th\u01B0\u01A1ng m\u1EA1i gi\u1EA3i quy\u1EBFt theo B\u1ED9 lu\u1EADt T\u1ED1 t\u1EE5ng d\xE2n s\u1EF1 \u2014 \u0111\u1ED1i chi\u1EBFu m\u1EABu d\xE2n s\u1EF1, kh\xF4ng l\u1EA5y m\u1EABu h\xE0nh ch\xEDnh. Bi\u1EC3u 19.1\u201319.3 k\xE8m Quy\u1EBFt \u0111\u1ECBnh 358 ch\u1EC9 l\xE0 bi\u1EC3u k\xEA s\u1ED1 li\u1EC7u."
+      tomTat: "Quy\u1EBFt \u0111\u1ECBnh 410/Q\u0110-VKSTC ng\xE0y 25/11/2021 (\u0111\xE3 \u0111\u01B0\u1EE3c thay th\u1EBF b\u1EDFi Quy\u1EBFt \u0111\u1ECBnh 195/Q\u0110-VKSTC) ban h\xE0nh m\u1EABu 01/DS\u201365/DS, m\u1EABu 01/HC\u201365/HC v\xE0 m\u1EABu PL09. Kh\xF4ng c\xF3 chu\u1ED7i m\u1EABu mang k\xFD hi\u1EC7u KDTM. V\u1EE5 \xE1n kinh doanh, th\u01B0\u01A1ng m\u1EA1i gi\u1EA3i quy\u1EBFt theo B\u1ED9 lu\u1EADt T\u1ED1 t\u1EE5ng d\xE2n s\u1EF1 \u2014 \u0111\u1ED1i chi\u1EBFu m\u1EABu d\xE2n s\u1EF1, kh\xF4ng l\u1EA5y m\u1EABu h\xE0nh ch\xEDnh. Bi\u1EC3u 19.1\u201319.3 k\xE8m Quy\u1EBFt \u0111\u1ECBnh 358 ch\u1EC9 l\xE0 bi\u1EC3u k\xEA s\u1ED1 li\u1EC7u."
     },
     {
       id: "bm-thads-note",
