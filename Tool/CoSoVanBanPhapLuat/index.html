@@ -9068,8 +9068,1026 @@ var VanBanPl = (() => {
     if (item.mang) return item;
     return withAreas(item, areasFromRkn(String(item.linhVuc || "")));
   }
+  // Verified 11/2026: officially published documents (Official Gazette, Government portal, Supreme People's Court)
+  var VB_KIEM_CHUNG_2026 = [
+    {
+      "id": "kc26-nq-37-2026-qh16",
+      "soHieu": "37/2026/QH16",
+      "tenVanBan": "Ngh\u1ecb quy\u1ebft 37/2026/QH16 v\u1ec1 c\u01a1 ch\u1ebf, ch\u00ednh s\u00e1ch \u0111\u1eb7c th\u00f9 x\u1eed l\u00fd vi ph\u1ea1m ph\u00e1p lu\u1eadt li\u00ean quan \u0111\u1ebfn kinh t\u1ebf nh\u00e0 n\u01b0\u1edbc, kinh t\u1ebf t\u01b0 nh\u00e2n v\u00e0 \u1ee9ng d\u1ee5ng khoa h\u1ecdc, c\u00f4ng ngh\u1ec7, \u0111\u1ed5i m\u1edbi s\u00e1ng t\u1ea1o, chuy\u1ec3n \u0111\u1ed5i s\u1ed1",
+      "coQuan": "Qu\u1ed1c h\u1ed9i",
+      "ngayBanHanh": "24/08/2026",
+      "ngayHieuLuc": "01/09/2026",
+      "hieu": "C\u00f2n hi\u1ec7u l\u1ef1c",
+      "loai": "Ngh\u1ecb quy\u1ebft",
+      "mang": "H\u00ecnh s\u1ef1",
+      "tomTat": "Cho ph\u00e9p kh\u00f4ng truy c\u1ee9u ho\u1eb7c t\u1ea1m ho\u00e3n truy c\u1ee9u tr\u00e1ch nhi\u1ec7m h\u00ecnh s\u1ef1 v\u1edbi vi ph\u1ea1m v\u00ec l\u1ee3i \u00edch chung, kh\u00f4ng v\u1ee5 l\u1ee3i, \u0111\u00e3 ho\u1eb7c c\u00f3 kh\u1ea3 n\u0103ng kh\u1eafc ph\u1ee5c to\u00e0n b\u1ed9 thi\u1ec7t h\u1ea1i. Hi\u1ec7u l\u1ef1c t\u1eeb 01/9/2026, th\u1ef1c hi\u1ec7n trong 03 n\u0103m.",
+      "link": "https://vanban.chinhphu.vn/?docid=219326&pageid=27160",
+      "tags": [
+        "H\u00ecnh s\u1ef1",
+        "Kinh doanh th\u01b0\u01a1ng m\u1ea1i",
+        "c\u01a1 ch\u1ebf \u0111\u1eb7c th\u00f9"
+      ]
+    },
+    {
+      "id": "kc26-nq-29-2026-qh16",
+      "soHieu": "29/2026/QH16",
+      "tenVanBan": "Ngh\u1ecb quy\u1ebft 29/2026/QH16 v\u1ec1 c\u01a1 ch\u1ebf, ch\u00ednh s\u00e1ch \u0111\u1eb7c th\u00f9 x\u1eed l\u00fd vi ph\u1ea1m ph\u00e1p lu\u1eadt v\u1ec1 \u0111\u1ea5t \u0111ai x\u1ea3y ra tr\u01b0\u1edbc khi Lu\u1eadt \u0110\u1ea5t \u0111ai 2024 c\u00f3 hi\u1ec7u l\u1ef1c v\u00e0 th\u00e1o g\u1ee1 kh\u00f3 kh\u0103n cho d\u1ef1 \u00e1n t\u1ed3n \u0111\u1ecdng",
+      "coQuan": "Qu\u1ed1c h\u1ed9i",
+      "ngayBanHanh": "24/04/2026",
+      "ngayHieuLuc": "01/05/2026",
+      "hieu": "C\u00f2n hi\u1ec7u l\u1ef1c",
+      "loai": "Ngh\u1ecb quy\u1ebft",
+      "mang": "\u0110\u1ea5t \u0111ai, nh\u00e0 \u1edf",
+      "tomTat": "\u00c1p d\u1ee5ng cho vi ph\u1ea1m \u0111\u1ea5t \u0111ai x\u1ea3y ra tr\u01b0\u1edbc 01/8/2024, kh\u00f4ng tham nh\u0169ng, nh\u1eb1m ph\u00e1t tri\u1ec3n kinh t\u1ebf \u2013 x\u00e3 h\u1ed9i. H\u01b0\u1edbng d\u1eabn t\u1ed1 t\u1ee5ng: TTLT 14/2026/TTLT-BCA-BQP-VKSNDTC v\u00e0 Ngh\u1ecb quy\u1ebft 04/2026/NQ-H\u0110TP.",
+      "link": "https://vanban.chinhphu.vn/?classid=1&docid=218062&pageid=27160",
+      "tags": [
+        "\u0110\u1ea5t \u0111ai, nh\u00e0 \u1edf",
+        "H\u00ecnh s\u1ef1",
+        "c\u01a1 ch\u1ebf \u0111\u1eb7c th\u00f9"
+      ]
+    },
+    {
+      "id": "kc26-nq-164-2024-qh15",
+      "soHieu": "164/2024/QH15",
+      "tenVanBan": "Ngh\u1ecb quy\u1ebft 164/2024/QH15 th\u00ed \u0111i\u1ec3m x\u1eed l\u00fd v\u1eadt ch\u1ee9ng, t\u00e0i s\u1ea3n trong qu\u00e1 tr\u00ecnh \u0111i\u1ec1u tra, truy t\u1ed1, x\u00e9t x\u1eed m\u1ed9t s\u1ed1 v\u1ee5 vi\u1ec7c, v\u1ee5 \u00e1n h\u00ecnh s\u1ef1",
+      "coQuan": "Qu\u1ed1c h\u1ed9i",
+      "ngayBanHanh": "28/11/2024",
+      "ngayHieuLuc": "01/01/2025",
+      "hieu": "C\u00f2n hi\u1ec7u l\u1ef1c",
+      "loai": "Ngh\u1ecb quy\u1ebft",
+      "mang": "H\u00ecnh s\u1ef1",
+      "tomTat": "Th\u00ed \u0111i\u1ec3m 03 n\u0103m t\u1eeb 01/01/2025, ch\u1ec9 \u00e1p d\u1ee5ng cho v\u1ee5 vi\u1ec7c, v\u1ee5 \u00e1n thu\u1ed9c di\u1ec7n Ban Ch\u1ec9 \u0111\u1ea1o Trung \u01b0\u01a1ng v\u1ec1 ph\u00f2ng, ch\u1ed1ng tham nh\u0169ng, l\u00e3ng ph\u00ed, ti\u00eau c\u1ef1c theo d\u00f5i, ch\u1ec9 \u0111\u1ea1o.",
+      "link": "https://congbao.chinhphu.vn/van-ban/nghi-quyet-so-164-2024-qh15-43361.htm",
+      "tags": [
+        "H\u00ecnh s\u1ef1",
+        "v\u1eadt ch\u1ee9ng",
+        "th\u00ed \u0111i\u1ec3m"
+      ]
+    },
+    {
+      "id": "kc26-nq-326-2016-ubtvqh14",
+      "soHieu": "326/2016/UBTVQH14",
+      "tenVanBan": "Ngh\u1ecb quy\u1ebft 326/2016/UBTVQH14 quy \u0111\u1ecbnh v\u1ec1 m\u1ee9c thu, mi\u1ec5n, gi\u1ea3m, thu, n\u1ed9p, qu\u1ea3n l\u00fd v\u00e0 s\u1eed d\u1ee5ng \u00e1n ph\u00ed v\u00e0 l\u1ec7 ph\u00ed T\u00f2a \u00e1n",
+      "coQuan": "\u1ee6y ban Th\u01b0\u1eddng v\u1ee5 Qu\u1ed1c h\u1ed9i",
+      "ngayBanHanh": "30/12/2016",
+      "ngayHieuLuc": "01/01/2017",
+      "hieu": "C\u00f2n hi\u1ec7u l\u1ef1c",
+      "loai": "Ngh\u1ecb quy\u1ebft",
+      "mang": "D\u00e2n s\u1ef1",
+      "tomTat": "C\u0103n c\u1ee9 t\u00ednh \u00e1n ph\u00ed h\u00ecnh s\u1ef1, d\u00e2n s\u1ef1, h\u00e0nh ch\u00ednh v\u00e0 l\u1ec7 ph\u00ed T\u00f2a \u00e1n; c\u00e1c tr\u01b0\u1eddng h\u1ee3p mi\u1ec5n, gi\u1ea3m \u00e1n ph\u00ed. \u0110\u1ebfn 11/2026 ch\u01b0a c\u00f3 v\u0103n b\u1ea3n thay th\u1ebf.",
+      "link": "https://congbao.chinhphu.vn/van-ban/nghi-quyet-so-326-2016-ubtvqh14-22191.htm",
+      "tags": [
+        "D\u00e2n s\u1ef1",
+        "H\u00ecnh s\u1ef1",
+        "T\u1ed1 t\u1ee5ng h\u00e0nh ch\u00ednh",
+        "\u00e1n ph\u00ed"
+      ]
+    },
+    {
+      "id": "kc26-nd-250-2025",
+      "soHieu": "250/2025/N\u0110-CP",
+      "tenVanBan": "Ngh\u1ecb \u0111\u1ecbnh 250/2025/N\u0110-CP quy \u0111\u1ecbnh chi ti\u1ebft vi\u1ec7c th\u00e0nh l\u1eadp, ho\u1ea1t \u0111\u1ed9ng c\u1ee7a H\u1ed9i \u0111\u1ed3ng \u0111\u1ecbnh gi\u00e1 t\u00e0i s\u1ea3n; tr\u00ecnh t\u1ef1, th\u1ee7 t\u1ee5c \u0111\u1ecbnh gi\u00e1 t\u00e0i s\u1ea3n trong t\u1ed1 t\u1ee5ng h\u00ecnh s\u1ef1",
+      "coQuan": "Ch\u00ednh ph\u1ee7",
+      "ngayBanHanh": "22/09/2025",
+      "ngayHieuLuc": "22/09/2025",
+      "hieu": "C\u00f2n hi\u1ec7u l\u1ef1c",
+      "loai": "Ngh\u1ecb \u0111\u1ecbnh",
+      "mang": "H\u00ecnh s\u1ef1",
+      "tomTat": "Thay th\u1ebf Ngh\u1ecb \u0111\u1ecbnh 30/2018/N\u0110-CP v\u00e0 v\u0103n b\u1ea3n s\u1eeda \u0111\u1ed5i. C\u00e1c gi\u1ea3i \u0111\u00e1p c\u0169 vi\u1ec7n d\u1eabn Ngh\u1ecb \u0111\u1ecbnh 30/2018 c\u1ea7n \u0111\u1ed1i chi\u1ebfu l\u1ea1i theo Ngh\u1ecb \u0111\u1ecbnh n\u00e0y.",
+      "link": "https://congbao.chinhphu.vn/van-ban/nghi-dinh-so-250-2025-nd-cp-46291.htm",
+      "tags": [
+        "H\u00ecnh s\u1ef1",
+        "\u0111\u1ecbnh gi\u00e1 t\u00e0i s\u1ea3n"
+      ]
+    },
+    {
+      "id": "kc26-nd-28-2026",
+      "soHieu": "28/2026/N\u0110-CP",
+      "tenVanBan": "Ngh\u1ecb \u0111\u1ecbnh 28/2026/N\u0110-CP quy \u0111\u1ecbnh c\u00e1c danh m\u1ee5c ch\u1ea5t ma t\u00fay v\u00e0 ti\u1ec1n ch\u1ea5t",
+      "coQuan": "Ch\u00ednh ph\u1ee7",
+      "ngayBanHanh": "19/01/2026",
+      "ngayHieuLuc": "19/01/2026",
+      "hieu": "C\u00f2n hi\u1ec7u l\u1ef1c",
+      "loai": "Ngh\u1ecb \u0111\u1ecbnh",
+      "mang": "H\u00ecnh s\u1ef1",
+      "tomTat": "G\u1ed3m 04 danh m\u1ee5c: I, II, III v\u00e0 IV (ti\u1ec1n ch\u1ea5t). Khi \u0111\u1ecbnh t\u1ed9i ph\u1ea3i x\u00e1c \u0111\u1ecbnh danh m\u1ee5c c\u00f3 hi\u1ec7u l\u1ef1c t\u1ea1i th\u1eddi \u0111i\u1ec3m th\u1ef1c hi\u1ec7n h\u00e0nh vi.",
+      "link": "https://vanban.chinhphu.vn/?docid=216717&pageid=27160",
+      "tags": [
+        "H\u00ecnh s\u1ef1",
+        "ma t\u00fay"
+      ]
+    },
+    {
+      "id": "kc26-nd-168-2025",
+      "soHieu": "168/2025/N\u0110-CP",
+      "tenVanBan": "Ngh\u1ecb \u0111\u1ecbnh 168/2025/N\u0110-CP v\u1ec1 \u0111\u0103ng k\u00fd doanh nghi\u1ec7p",
+      "coQuan": "Ch\u00ednh ph\u1ee7",
+      "ngayBanHanh": "30/06/2025",
+      "ngayHieuLuc": "01/07/2025",
+      "hieu": "C\u00f2n hi\u1ec7u l\u1ef1c",
+      "loai": "Ngh\u1ecb \u0111\u1ecbnh",
+      "mang": "Kinh doanh th\u01b0\u01a1ng m\u1ea1i",
+      "tomTat": "Thay th\u1ebf Ngh\u1ecb \u0111\u1ecbnh 01/2021/N\u0110-CP; quy \u0111\u1ecbnh h\u1ed3 s\u01a1, tr\u00ecnh t\u1ef1 \u0111\u0103ng k\u00fd doanh nghi\u1ec7p, h\u1ed9 kinh doanh v\u00e0 c\u01a1 quan \u0111\u0103ng k\u00fd kinh doanh.",
+      "link": "https://thuvienphapluat.vn/van-ban/Doanh-nghiep/Nghi-dinh-168-2025-ND-CP-dang-ky-doanh-nghiep-623074.aspx",
+      "tags": [
+        "Kinh doanh th\u01b0\u01a1ng m\u1ea1i",
+        "doanh nghi\u1ec7p"
+      ]
+    },
+    {
+      "id": "kc26-tt-03-2025-vkstc",
+      "soHieu": "03/2025/TT-VKSTC",
+      "tenVanBan": "Th\u00f4ng t\u01b0 03/2025/TT-VKSTC quy \u0111\u1ecbnh v\u1ec1 ti\u1ebfp nh\u1eadn nhi\u1ec7m v\u1ee5, th\u1ef1c hi\u1ec7n th\u1ea9m quy\u1ec1n c\u1ee7a Vi\u1ec7n ki\u1ec3m s\u00e1t nh\u00e2n d\u00e2n c\u00e1c c\u1ea5p",
+      "coQuan": "VKSND t\u1ed1i cao",
+      "ngayBanHanh": "30/06/2025",
+      "ngayHieuLuc": "01/07/2025",
+      "hieu": "C\u00f2n hi\u1ec7u l\u1ef1c",
+      "loai": "Th\u00f4ng t\u01b0",
+      "mang": "T\u1ed5 ch\u1ee9c t\u01b0 ph\u00e1p",
+      "tomTat": "Chuy\u1ec3n giao nhi\u1ec7m v\u1ee5, v\u1ee5 vi\u1ec7c, h\u1ed3 s\u01a1 \u0111ang th\u1ee5 l\u00fd gi\u1eefa VKSND t\u1ed1i cao, VKSND c\u1ea5p t\u1ec9nh v\u00e0 VKSND khu v\u1ef1c khi t\u1ed5 ch\u1ee9c l\u1ea1i h\u1ec7 th\u1ed1ng t\u1eeb 01/7/2025.",
+      "link": "https://congbao.chinhphu.vn/van-ban/thong-tu-so-03-2025-tt-vkstc-45466.htm",
+      "tags": [
+        "T\u1ed5 ch\u1ee9c t\u01b0 ph\u00e1p",
+        "H\u00ecnh s\u1ef1",
+        "D\u00e2n s\u1ef1"
+      ]
+    },
+    {
+      "id": "kc26-tt-11-2025-bca",
+      "soHieu": "11/2025/TT-BCA",
+      "tenVanBan": "Th\u00f4ng t\u01b0 11/2025/TT-BCA quy \u0111\u1ecbnh v\u1ec1 t\u1ed5 ch\u1ee9c, nhi\u1ec7m v\u1ee5, quy\u1ec1n h\u1ea1n c\u1ee7a C\u01a1 quan \u0111i\u1ec1u tra v\u00e0 th\u1ea9m quy\u1ec1n \u0111i\u1ec1u tra h\u00ecnh s\u1ef1 trong C\u00f4ng an nh\u00e2n d\u00e2n",
+      "coQuan": "B\u1ed9 C\u00f4ng an",
+      "ngayBanHanh": "27/02/2025",
+      "ngayHieuLuc": "01/03/2025",
+      "hieu": "C\u00f2n hi\u1ec7u l\u1ef1c",
+      "loai": "Th\u00f4ng t\u01b0",
+      "mang": "H\u00ecnh s\u1ef1",
+      "tomTat": "\u00c1p d\u1ee5ng sau khi kh\u00f4ng t\u1ed5 ch\u1ee9c C\u00f4ng an c\u1ea5p huy\u1ec7n. D\u00f9ng \u0111\u1ec3 x\u00e1c \u0111\u1ecbnh th\u1ea9m quy\u1ec1n \u0111i\u1ec1u tra khi ki\u1ec3m s\u00e1t kh\u1edfi t\u1ed1, \u0111i\u1ec1u tra.",
+      "link": "https://congbao.chinhphu.vn/van-ban/thong-tu-so-11-2025-tt-bca-44365.htm",
+      "tags": [
+        "H\u00ecnh s\u1ef1",
+        "C\u01a1 quan \u0111i\u1ec1u tra"
+      ]
+    },
+    {
+      "id": "kc26-tt-14-2025-tandtc",
+      "soHieu": "14/2025/TT-TANDTC",
+      "tenVanBan": "Th\u00f4ng t\u01b0 14/2025/TT-TANDTC h\u01b0\u1edbng d\u1eabn vi\u1ec7c x\u00e9t x\u1eed v\u1ee5 \u00e1n h\u00ecnh s\u1ef1 c\u00f3 ng\u01b0\u1eddi ch\u01b0a th\u00e0nh ni\u00ean l\u00e0 b\u1ecb h\u1ea1i, ng\u01b0\u1eddi l\u00e0m ch\u1ee9ng",
+      "coQuan": "TAND t\u1ed1i cao",
+      "ngayBanHanh": "30/12/2025",
+      "ngayHieuLuc": "01/01/2026",
+      "hieu": "C\u00f2n hi\u1ec7u l\u1ef1c",
+      "loai": "Th\u00f4ng t\u01b0",
+      "mang": "H\u00ecnh s\u1ef1",
+      "tomTat": "B\u1ed1 tr\u00ed ph\u00f2ng c\u00e1ch ly ho\u1eb7c khu v\u1ef1c ng\u0103n c\u00e1ch b\u1ecb h\u1ea1i, ng\u01b0\u1eddi l\u00e0m ch\u1ee9ng ch\u01b0a th\u00e0nh ni\u00ean v\u1edbi b\u1ecb c\u00e1o; c\u00e1ch th\u1ee9c h\u1ecfi, l\u1ea5y l\u1eddi khai ph\u00f9 h\u1ee3p l\u1ee9a tu\u1ed5i.",
+      "link": "https://thuvienphapluat.vn/van-ban/Trach-nhiem-hinh-su/Thong-tu-14-2025-TT-TANDTC-huong-dan-xet-xu-vu-an-hinh-su-co-nguoi-chua-thanh-nien-la-bi-hai-688044.aspx",
+      "tags": [
+        "H\u00ecnh s\u1ef1",
+        "ng\u01b0\u1eddi ch\u01b0a th\u00e0nh ni\u00ean"
+      ]
+    },
+    {
+      "id": "kc26-tt-09-2026-tandtc",
+      "soHieu": "09/2026/TT-TANDTC",
+      "tenVanBan": "Th\u00f4ng t\u01b0 09/2026/TT-TANDTC quy \u0111\u1ecbnh quy ch\u1ebf l\u00e0m vi\u1ec7c c\u1ee7a t\u1ed5 Th\u1ea9m ph\u00e1n trong qu\u00e1 tr\u00ecnh gi\u1ea3i quy\u1ebft v\u1ee5 vi\u1ec7c ph\u1ee5c h\u1ed3i, ph\u00e1 s\u1ea3n",
+      "coQuan": "TAND t\u1ed1i cao",
+      "ngayBanHanh": "28/05/2026",
+      "ngayHieuLuc": "01/06/2026",
+      "hieu": "C\u00f2n hi\u1ec7u l\u1ef1c",
+      "loai": "Th\u00f4ng t\u01b0",
+      "mang": "Ph\u00e1 s\u1ea3n",
+      "tomTat": "Quy ch\u1ebf l\u00e0m vi\u1ec7c c\u1ee7a t\u1ed5 Th\u1ea9m ph\u00e1n khi gi\u1ea3i quy\u1ebft v\u1ee5 vi\u1ec7c ph\u1ee5c h\u1ed3i, ph\u00e1 s\u1ea3n theo Lu\u1eadt Ph\u1ee5c h\u1ed3i, ph\u00e1 s\u1ea3n.",
+      "link": "https://congbao.chinhphu.vn/van-ban/thong-tu-so-09-2026-tt-tandtc-469675.htm",
+      "tags": [
+        "Ph\u00e1 s\u1ea3n",
+        "Kinh doanh th\u01b0\u01a1ng m\u1ea1i"
+      ]
+    },
+    {
+      "id": "kc26-ttlt-03-2025",
+      "soHieu": "03/2025/TTLT-BCA-VKSNDTC-TANDTC",
+      "tenVanBan": "Th\u00f4ng t\u01b0 li\u00ean t\u1ecbch 03/2025/TTLT-BCA-VKSNDTC-TANDTC v\u1ec1 \u00e1p d\u1ee5ng bi\u1ec7n ph\u00e1p \u0111\u01b0a v\u00e0o tr\u01b0\u1eddng gi\u00e1o d\u01b0\u1ee1ng, c\u01a1 s\u1edf gi\u00e1o d\u1ee5c b\u1eaft bu\u1ed9c, c\u01a1 s\u1edf cai nghi\u1ec7n b\u1eaft bu\u1ed9c khi s\u1eafp x\u1ebfp t\u1ed5 ch\u1ee9c b\u1ed9 m\u00e1y",
+      "coQuan": "B\u1ed9 C\u00f4ng an \u2013 VKSND t\u1ed1i cao \u2013 TAND t\u1ed1i cao",
+      "ngayBanHanh": "01/03/2025",
+      "ngayHieuLuc": "01/03/2025",
+      "hieu": "C\u00f2n hi\u1ec7u l\u1ef1c",
+      "loai": "Th\u00f4ng t\u01b0",
+      "mang": "Kh\u00e1c",
+      "tomTat": "X\u00e1c \u0111\u1ecbnh c\u01a1 quan l\u1eadp h\u1ed3 s\u01a1 \u0111\u1ec1 ngh\u1ecb v\u00e0 T\u00f2a \u00e1n xem x\u00e9t \u00e1p d\u1ee5ng bi\u1ec7n ph\u00e1p x\u1eed l\u00fd h\u00e0nh ch\u00ednh sau khi kh\u00f4ng t\u1ed5 ch\u1ee9c C\u00f4ng an c\u1ea5p huy\u1ec7n.",
+      "link": "https://thuvienphapluat.vn/van-ban/Thu-tuc-To-tung/Thong-tu-lien-tich-03-2025-TTLT-BCA-VKSNDTC-TANDTC-dua-vao-truong-giao-duong-nguoi-tu-du-12-den-duoi-18-tuoi-645992.aspx",
+      "tags": [
+        "Kh\u00e1c",
+        "th\u00f4ng t\u01b0 li\u00ean t\u1ecbch",
+        "x\u1eed l\u00fd h\u00e0nh ch\u00ednh"
+      ]
+    },
+    {
+      "id": "kc26-ttlt-12-2025",
+      "soHieu": "12/2025/TTLT-VKSNDTC-TANDTC-BCA-BQP",
+      "tenVanBan": "Th\u00f4ng t\u01b0 li\u00ean t\u1ecbch 12/2025/TTLT-VKSNDTC-TANDTC-BCA-BQP quy \u0111\u1ecbnh chi ti\u1ebft vi\u1ec7c ph\u1ed1i h\u1ee3p trong th\u1ef1c hi\u1ec7n m\u1ed9t s\u1ed1 \u0111i\u1ec1u c\u1ee7a Lu\u1eadt T\u01b0 ph\u00e1p ng\u01b0\u1eddi ch\u01b0a th\u00e0nh ni\u00ean",
+      "coQuan": "VKSND t\u1ed1i cao \u2013 TAND t\u1ed1i cao \u2013 B\u1ed9 C\u00f4ng an \u2013 B\u1ed9 Qu\u1ed1c ph\u00f2ng",
+      "ngayBanHanh": "18/12/2025",
+      "ngayHieuLuc": "01/01/2026",
+      "hieu": "C\u00f2n hi\u1ec7u l\u1ef1c",
+      "loai": "Th\u00f4ng t\u01b0",
+      "mang": "H\u00ecnh s\u1ef1",
+      "tomTat": "Ph\u1ed1i h\u1ee3p \u00e1p d\u1ee5ng bi\u1ec7n ph\u00e1p x\u1eed l\u00fd chuy\u1ec3n h\u01b0\u1edbng, th\u1eddi h\u1ea1n t\u1ed1 t\u1ee5ng, t\u00e1ch v\u1ee5 \u00e1n c\u00f3 ng\u01b0\u1eddi ch\u01b0a th\u00e0nh ni\u00ean theo Lu\u1eadt T\u01b0 ph\u00e1p ng\u01b0\u1eddi ch\u01b0a th\u00e0nh ni\u00ean.",
+      "link": "https://congbao.chinhphu.vn/van-ban/thong-tu-lien-tich-so-12-2025-ttlt-vksndtc-tandtc-bca-bqp-468581.htm",
+      "tags": [
+        "H\u00ecnh s\u1ef1",
+        "th\u00f4ng t\u01b0 li\u00ean t\u1ecbch",
+        "ng\u01b0\u1eddi ch\u01b0a th\u00e0nh ni\u00ean"
+      ]
+    },
+    {
+      "id": "kc26-ttlt-04-2025",
+      "soHieu": "04/2025/TTLT-BCA-VKSNDTC-TANDTC",
+      "tenVanBan": "Th\u00f4ng t\u01b0 li\u00ean t\u1ecbch 04/2025/TTLT-BCA-VKSNDTC-TANDTC quy \u0111\u1ecbnh ph\u1ed1i h\u1ee3p trong t\u1ed1 t\u1ee5ng h\u00ecnh s\u1ef1, qu\u1ea3n l\u00fd, thi h\u00e0nh t\u1ea1m gi\u1eef, t\u1ea1m giam v\u00e0 thi h\u00e0nh \u00e1n h\u00ecnh s\u1ef1",
+      "coQuan": "B\u1ed9 C\u00f4ng an \u2013 VKSND t\u1ed1i cao \u2013 TAND t\u1ed1i cao",
+      "ngayBanHanh": "27/06/2025",
+      "ngayHieuLuc": "01/07/2025",
+      "hieu": "C\u00f2n hi\u1ec7u l\u1ef1c",
+      "loai": "Th\u00f4ng t\u01b0",
+      "mang": "H\u00ecnh s\u1ef1",
+      "tomTat": "Ph\u00e2n \u0111\u1ecbnh th\u1ea9m quy\u1ec1n \u0111i\u1ec1u tra c\u1ee7a C\u00f4ng an c\u1ea5p t\u1ec9nh v\u00e0 vi\u1ec7c giao Tr\u01b0\u1edfng, Ph\u00f3 Tr\u01b0\u1edfng C\u00f4ng an c\u1ea5p x\u00e3 l\u00e0 \u0110i\u1ec1u tra vi\u00ean th\u1ef1c hi\u1ec7n m\u1ed9t s\u1ed1 ho\u1ea1t \u0111\u1ed9ng t\u1ed1 t\u1ee5ng.",
+      "link": "https://congbao.chinhphu.vn/van-ban/thong-tu-lien-tich-so-04-2025-ttlt-bca-vksndtc-tandtc-45493.htm",
+      "tags": [
+        "H\u00ecnh s\u1ef1",
+        "T\u1ea1m gi\u1eef, t\u1ea1m giam",
+        "Thi h\u00e0nh \u00e1n h\u00ecnh s\u1ef1",
+        "th\u00f4ng t\u01b0 li\u00ean t\u1ecbch"
+      ]
+    },
+    {
+      "id": "kc26-ttlt-05-2025",
+      "soHieu": "05/2025/TTLT-BCA-BQP-VKSNDTC-TANDTC",
+      "tenVanBan": "Th\u00f4ng t\u01b0 li\u00ean t\u1ecbch 05/2025/TTLT-BCA-BQP-VKSNDTC-TANDTC quy \u0111\u1ecbnh ph\u1ed1i h\u1ee3p trong \u0111i\u1ec1u tra, truy t\u1ed1, x\u00e9t x\u1eed v\u1eafng m\u1eb7t b\u1ecb can, b\u1ecb c\u00e1o",
+      "coQuan": "B\u1ed9 C\u00f4ng an \u2013 B\u1ed9 Qu\u1ed1c ph\u00f2ng \u2013 VKSND t\u1ed1i cao \u2013 TAND t\u1ed1i cao",
+      "ngayBanHanh": "01/07/2025",
+      "ngayHieuLuc": "01/07/2025",
+      "hieu": "C\u00f2n hi\u1ec7u l\u1ef1c",
+      "loai": "Th\u00f4ng t\u01b0",
+      "mang": "H\u00ecnh s\u1ef1",
+      "tomTat": "\u00c1p d\u1ee5ng khi b\u1ecb can, b\u1ecb c\u00e1o b\u1ecf tr\u1ed1n, truy n\u00e3 kh\u00f4ng c\u00f3 k\u1ebft qu\u1ea3 ho\u1eb7c \u1edf n\u01b0\u1edbc ngo\u00e0i kh\u00f4ng th\u1ec3 tri\u1ec7u t\u1eadp; b\u1ea3o \u0111\u1ea3m quy\u1ec1n b\u00e0o ch\u1eefa.",
+      "link": "https://congbao.chinhphu.vn/van-ban/thong-tu-lien-tich-so-05-2025-ttlt-bca-bqp-vksndtc-tandtc-45603.htm",
+      "tags": [
+        "H\u00ecnh s\u1ef1",
+        "th\u00f4ng t\u01b0 li\u00ean t\u1ecbch",
+        "x\u00e9t x\u1eed v\u1eafng m\u1eb7t"
+      ]
+    },
+    {
+      "id": "kc26-ttlt-01-2025-gdtp",
+      "soHieu": "01/2025/TTLT-BCA-BQP-BTP-BNN&PTNT-BTC-VKSNDTC-TANDTC",
+      "tenVanBan": "Th\u00f4ng t\u01b0 li\u00ean t\u1ecbch 01/2025/TTLT-BCA-BQP-BTP-BNN&PTNT-BTC-VKSNDTC-TANDTC quy \u0111\u1ecbnh quan h\u1ec7 ph\u1ed1i h\u1ee3p trong ho\u1ea1t \u0111\u1ed9ng gi\u00e1m \u0111\u1ecbnh t\u01b0 ph\u00e1p trong t\u1ed1 t\u1ee5ng h\u00ecnh s\u1ef1",
+      "coQuan": "Li\u00ean ng\u00e0nh t\u01b0 ph\u00e1p trung \u01b0\u01a1ng",
+      "ngayBanHanh": "15/01/2025",
+      "ngayHieuLuc": "01/03/2025",
+      "hieu": "C\u00f2n hi\u1ec7u l\u1ef1c",
+      "loai": "Th\u00f4ng t\u01b0",
+      "mang": "H\u00ecnh s\u1ef1",
+      "tomTat": "Ph\u1ed1i h\u1ee3p tr\u01b0ng c\u1ea7u, th\u1ef1c hi\u1ec7n gi\u00e1m \u0111\u1ecbnh t\u01b0 ph\u00e1p trong t\u1ed1 t\u1ee5ng h\u00ecnh s\u1ef1. \u0110\u1ecdc c\u00f9ng TTLT 02/2026 v\u1ec1 \u0111\u00e1nh gi\u00e1, s\u1eed d\u1ee5ng k\u1ebft lu\u1eadn gi\u00e1m \u0111\u1ecbnh.",
+      "link": "https://congbao.chinhphu.vn/van-ban/thong-tu-lien-tich-so-01-2025-ttlt-bca-bqp-btp-bnn-ptnt-btc-vksndtc-tandtc-44351.htm",
+      "tags": [
+        "H\u00ecnh s\u1ef1",
+        "th\u00f4ng t\u01b0 li\u00ean t\u1ecbch",
+        "gi\u00e1m \u0111\u1ecbnh"
+      ]
+    },
+    {
+      "id": "kc26-ttlt-02-2026",
+      "soHieu": "02/2026/TTLT-BCA-BQP-BTP-VKSNDTC-TANDTC",
+      "tenVanBan": "Th\u00f4ng t\u01b0 li\u00ean t\u1ecbch 02/2026/TTLT-BCA-BQP-BTP-VKSNDTC-TANDTC quy \u0111\u1ecbnh v\u1ec1 tr\u01b0ng c\u1ea7u, y\u00eau c\u1ea7u gi\u00e1m \u0111\u1ecbnh v\u00e0 \u0111\u00e1nh gi\u00e1, s\u1eed d\u1ee5ng k\u1ebft lu\u1eadn gi\u00e1m \u0111\u1ecbnh t\u01b0 ph\u00e1p trong v\u1ee5 vi\u1ec7c, v\u1ee5 \u00e1n h\u00ecnh s\u1ef1",
+      "coQuan": "B\u1ed9 C\u00f4ng an \u2013 B\u1ed9 Qu\u1ed1c ph\u00f2ng \u2013 B\u1ed9 T\u01b0 ph\u00e1p \u2013 VKSND t\u1ed1i cao \u2013 TAND t\u1ed1i cao",
+      "ngayBanHanh": "01/05/2026",
+      "ngayHieuLuc": "01/05/2026",
+      "hieu": "C\u00f2n hi\u1ec7u l\u1ef1c",
+      "loai": "Th\u00f4ng t\u01b0",
+      "mang": "H\u00ecnh s\u1ef1",
+      "tomTat": "Tr\u00ecnh t\u1ef1 tr\u01b0ng c\u1ea7u, y\u00eau c\u1ea7u gi\u00e1m \u0111\u1ecbnh; ti\u00eau ch\u00ed \u0111\u00e1nh gi\u00e1, s\u1eed d\u1ee5ng k\u1ebft lu\u1eadn gi\u00e1m \u0111\u1ecbnh t\u01b0 ph\u00e1p l\u00e0m ch\u1ee9ng c\u1ee9.",
+      "link": "https://congbao.chinhphu.vn/van-ban/thong-tu-lien-tich-so-02-2026-ttlt-bca-bqp-btp-vksndtc-tandtc-469733.htm",
+      "tags": [
+        "H\u00ecnh s\u1ef1",
+        "th\u00f4ng t\u01b0 li\u00ean t\u1ecbch",
+        "gi\u00e1m \u0111\u1ecbnh"
+      ]
+    },
+    {
+      "id": "kc26-ttlt-07-2026",
+      "soHieu": "07/2026/TTLT-VKSNDTC-TANDTC",
+      "tenVanBan": "Th\u00f4ng t\u01b0 li\u00ean t\u1ecbch 07/2026/TTLT-VKSNDTC-TANDTC quy \u0111\u1ecbnh ph\u1ed1i h\u1ee3p gi\u1eefa Vi\u1ec7n ki\u1ec3m s\u00e1t nh\u00e2n d\u00e2n v\u00e0 T\u00f2a \u00e1n nh\u00e2n d\u00e2n trong thi h\u00e0nh m\u1ed9t s\u1ed1 quy \u0111\u1ecbnh c\u1ee7a B\u1ed9 lu\u1eadt T\u1ed1 t\u1ee5ng d\u00e2n s\u1ef1",
+      "coQuan": "VKSND t\u1ed1i cao \u2013 TAND t\u1ed1i cao",
+      "ngayBanHanh": "10/03/2026",
+      "ngayHieuLuc": "01/05/2026",
+      "hieu": "C\u00f2n hi\u1ec7u l\u1ef1c",
+      "loai": "Th\u00f4ng t\u01b0",
+      "mang": "D\u00e2n s\u1ef1",
+      "tomTat": "Chuy\u1ec3n h\u1ed3 s\u01a1 \u0111\u1ec3 Vi\u1ec7n ki\u1ec3m s\u00e1t tham gia phi\u00ean t\u00f2a, phi\u00ean h\u1ecdp; g\u1eedi, nh\u1eadn t\u00e0i li\u1ec7u, v\u0103n b\u1ea3n t\u1ed1 t\u1ee5ng; th\u1ef1c hi\u1ec7n quy\u1ec1n ki\u1ebfn ngh\u1ecb, kh\u00e1ng ngh\u1ecb.",
+      "link": "https://congbao.chinhphu.vn/van-ban/thong-tu-lien-tich-so-07-2026-ttlt-vksndtc-tandtc-469106.htm",
+      "tags": [
+        "D\u00e2n s\u1ef1",
+        "th\u00f4ng t\u01b0 li\u00ean t\u1ecbch",
+        "ki\u1ec3m s\u00e1t d\u00e2n s\u1ef1"
+      ]
+    },
+    {
+      "id": "kc26-ttlt-08-2026-tthc",
+      "soHieu": "08/2026/TTLT-VKSNDTC-TANDTC",
+      "tenVanBan": "Th\u00f4ng t\u01b0 li\u00ean t\u1ecbch 08/2026/TTLT-VKSNDTC-TANDTC quy \u0111\u1ecbnh ph\u1ed1i h\u1ee3p gi\u1eefa Vi\u1ec7n ki\u1ec3m s\u00e1t nh\u00e2n d\u00e2n v\u00e0 T\u00f2a \u00e1n nh\u00e2n d\u00e2n trong thi h\u00e0nh m\u1ed9t s\u1ed1 quy \u0111\u1ecbnh c\u1ee7a Lu\u1eadt T\u1ed1 t\u1ee5ng h\u00e0nh ch\u00ednh",
+      "coQuan": "VKSND t\u1ed1i cao \u2013 TAND t\u1ed1i cao",
+      "ngayBanHanh": "10/03/2026",
+      "ngayHieuLuc": "01/05/2026",
+      "hieu": "C\u00f2n hi\u1ec7u l\u1ef1c",
+      "loai": "Th\u00f4ng t\u01b0",
+      "mang": "T\u1ed1 t\u1ee5ng h\u00e0nh ch\u00ednh",
+      "tomTat": "Ph\u1ed1i h\u1ee3p chuy\u1ec3n h\u1ed3 s\u01a1, t\u00e0i li\u1ec7u, v\u0103n b\u1ea3n t\u1ed1 t\u1ee5ng v\u00e0 vi\u1ec7c Vi\u1ec7n ki\u1ec3m s\u00e1t tham gia phi\u00ean t\u00f2a, phi\u00ean h\u1ecdp, kh\u00e1ng ngh\u1ecb trong v\u1ee5 \u00e1n h\u00e0nh ch\u00ednh.",
+      "link": "https://congbao.chinhphu.vn/van-ban/thong-tu-lien-tich-so-08-2026-ttlt-vksndtc-tandtc-469107.htm",
+      "tags": [
+        "T\u1ed1 t\u1ee5ng h\u00e0nh ch\u00ednh",
+        "th\u00f4ng t\u01b0 li\u00ean t\u1ecbch"
+      ]
+    },
+    {
+      "id": "kc26-ttlt-08-2026-tha-tu",
+      "soHieu": "08/2026/TTLT-BCA-BQP-TANDTC-VKSNDTC",
+      "tenVanBan": "Th\u00f4ng t\u01b0 li\u00ean t\u1ecbch 08/2026/TTLT-BCA-BQP-TANDTC-VKSNDTC h\u01b0\u1edbng d\u1eabn tha t\u00f9 tr\u01b0\u1edbc th\u1eddi h\u1ea1n c\u00f3 \u0111i\u1ec1u ki\u1ec7n",
+      "coQuan": "B\u1ed9 C\u00f4ng an \u2013 B\u1ed9 Qu\u1ed1c ph\u00f2ng \u2013 TAND t\u1ed1i cao \u2013 VKSND t\u1ed1i cao",
+      "ngayBanHanh": "22/06/2026",
+      "ngayHieuLuc": "01/07/2026",
+      "hieu": "C\u00f2n hi\u1ec7u l\u1ef1c",
+      "loai": "Th\u00f4ng t\u01b0",
+      "mang": "Thi h\u00e0nh \u00e1n h\u00ecnh s\u1ef1",
+      "tomTat": "Tr\u00ecnh t\u1ef1, th\u1ee7 t\u1ee5c l\u1eadp h\u1ed3 s\u01a1, x\u00e9t, quy\u1ebft \u0111\u1ecbnh tha t\u00f9 tr\u01b0\u1edbc th\u1eddi h\u1ea1n c\u00f3 \u0111i\u1ec1u ki\u1ec7n theo Lu\u1eadt Thi h\u00e0nh \u00e1n h\u00ecnh s\u1ef1 2025.",
+      "link": "https://congbao.chinhphu.vn/van-ban/thong-tu-lien-tich-so-08-2026-ttlt-bca-bqp-tandtc-vksndtc-470073.htm",
+      "tags": [
+        "Thi h\u00e0nh \u00e1n h\u00ecnh s\u1ef1",
+        "th\u00f4ng t\u01b0 li\u00ean t\u1ecbch",
+        "tha t\u00f9 tr\u01b0\u1edbc th\u1eddi h\u1ea1n"
+      ]
+    },
+    {
+      "id": "kc26-ttlt-10-2026",
+      "soHieu": "10/2026/TTLT-BCA-BQP-VKSNDTC",
+      "tenVanBan": "Th\u00f4ng t\u01b0 li\u00ean t\u1ecbch 10/2026/TTLT-BCA-BQP-VKSNDTC h\u01b0\u1edbng d\u1eabn gi\u1ea3i quy\u1ebft khi\u1ebfu n\u1ea1i, t\u1ed1 c\u00e1o trong thi h\u00e0nh \u00e1n ph\u1ea1t t\u00f9",
+      "coQuan": "B\u1ed9 C\u00f4ng an \u2013 B\u1ed9 Qu\u1ed1c ph\u00f2ng \u2013 VKSND t\u1ed1i cao",
+      "ngayBanHanh": "24/06/2026",
+      "ngayHieuLuc": "01/07/2026",
+      "hieu": "C\u00f2n hi\u1ec7u l\u1ef1c",
+      "loai": "Th\u00f4ng t\u01b0",
+      "mang": "Thi h\u00e0nh \u00e1n h\u00ecnh s\u1ef1",
+      "tomTat": "Th\u1ea9m quy\u1ec1n, tr\u00ecnh t\u1ef1 gi\u1ea3i quy\u1ebft khi\u1ebfu n\u1ea1i, t\u1ed1 c\u00e1o trong thi h\u00e0nh \u00e1n ph\u1ea1t t\u00f9 v\u00e0 tr\u00e1ch nhi\u1ec7m ki\u1ec3m s\u00e1t c\u1ee7a Vi\u1ec7n ki\u1ec3m s\u00e1t.",
+      "link": "https://congbao.chinhphu.vn/van-ban/thong-tu-lien-tich-so-10-2026-ttlt-bca-bqp-vksndtc-470028.htm",
+      "tags": [
+        "Thi h\u00e0nh \u00e1n h\u00ecnh s\u1ef1",
+        "Khi\u1ebfu n\u1ea1i, t\u1ed1 c\u00e1o",
+        "th\u00f4ng t\u01b0 li\u00ean t\u1ecbch"
+      ]
+    },
+    {
+      "id": "kc26-ttlt-04-2026",
+      "soHieu": "04/2026/TTLT-BCA-BQP-VKSNDTC-TANDTC",
+      "tenVanBan": "Th\u00f4ng t\u01b0 li\u00ean t\u1ecbch 04/2026/TTLT-BCA-BQP-VKSNDTC-TANDTC quy \u0111\u1ecbnh chi ti\u1ebft thi h\u00e0nh kho\u1ea3n 5 \u0110i\u1ec1u 131, kho\u1ea3n 3 \u0110i\u1ec1u 132, \u0110i\u1ec1u 141 B\u1ed9 lu\u1eadt T\u1ed1 t\u1ee5ng h\u00ecnh s\u1ef1",
+      "coQuan": "B\u1ed9 C\u00f4ng an \u2013 B\u1ed9 Qu\u1ed1c ph\u00f2ng \u2013 VKSND t\u1ed1i cao \u2013 TAND t\u1ed1i cao",
+      "ngayBanHanh": "15/05/2026",
+      "ngayHieuLuc": "15/05/2026",
+      "hieu": "C\u00f2n hi\u1ec7u l\u1ef1c",
+      "loai": "Th\u00f4ng t\u01b0",
+      "mang": "H\u00ecnh s\u1ef1",
+      "tomTat": "H\u01b0\u1edbng d\u1eabn v\u0103n b\u1ea3n t\u1ed1 t\u1ee5ng, h\u1ed3 s\u01a1 v\u1ee5 \u00e1n d\u1ea1ng \u0111i\u1ec7n t\u1eed v\u00e0 vi\u1ec7c g\u1eedi, nh\u1eadn, s\u1eed d\u1ee5ng ch\u00fang trong t\u1ed1 t\u1ee5ng h\u00ecnh s\u1ef1.",
+      "link": "https://vanban.bocongan.gov.vn/co-so-du-lieu-van-ban/thong-tu-lien-tich-so-04-2026-ttlt-bca-bqp-vksndtc-tandtc-ngay-15-thang-5-nam-2026-quy-dinh-chi-tiet-thi-hanh-khoan-5-dieu-131-khoan-3-dieu-132-dieu-141-bo-luat-to-tung-hinh-su-1779783041",
+      "tags": [
+        "H\u00ecnh s\u1ef1",
+        "th\u00f4ng t\u01b0 li\u00ean t\u1ecbch",
+        "h\u1ed3 s\u01a1 \u0111i\u1ec7n t\u1eed"
+      ]
+    },
+    {
+      "id": "kc26-ttlt-12-2026",
+      "soHieu": "12/2026/TTLT-BCA-BQP-TANDTC-VKSNDTC",
+      "tenVanBan": "Th\u00f4ng t\u01b0 li\u00ean t\u1ecbch 12/2026/TTLT-BCA-BQP-TANDTC-VKSNDTC quy \u0111\u1ecbnh v\u1ec1 s\u1ed1 h\u00f3a h\u1ed3 s\u01a1, k\u00fd s\u1ed1 v\u00e0 chia s\u1ebb d\u1eef li\u1ec7u trong thi h\u00e0nh \u00e1n h\u00ecnh s\u1ef1",
+      "coQuan": "B\u1ed9 C\u00f4ng an \u2013 B\u1ed9 Qu\u1ed1c ph\u00f2ng \u2013 TAND t\u1ed1i cao \u2013 VKSND t\u1ed1i cao",
+      "ngayBanHanh": "30/06/2026",
+      "ngayHieuLuc": "01/07/2026",
+      "hieu": "C\u00f2n hi\u1ec7u l\u1ef1c",
+      "loai": "Th\u00f4ng t\u01b0",
+      "mang": "Thi h\u00e0nh \u00e1n h\u00ecnh s\u1ef1",
+      "tomTat": "S\u1ed1 h\u00f3a h\u1ed3 s\u01a1, k\u00fd s\u1ed1 v\u0103n b\u1ea3n v\u00e0 chia s\u1ebb d\u1eef li\u1ec7u gi\u1eefa c\u00e1c c\u01a1 quan trong thi h\u00e0nh \u00e1n h\u00ecnh s\u1ef1.",
+      "link": "https://congbao.chinhphu.vn/van-ban/thong-tu-lien-tich-so-12-2026-ttlt-bca-bqp-tandtc-vksndtc-470112.htm",
+      "tags": [
+        "Thi h\u00e0nh \u00e1n h\u00ecnh s\u1ef1",
+        "th\u00f4ng t\u01b0 li\u00ean t\u1ecbch",
+        "h\u1ed3 s\u01a1 \u0111i\u1ec7n t\u1eed"
+      ]
+    },
+    {
+      "id": "kc26-ttlt-09-2026",
+      "soHieu": "09/2026/TTLT-BCA-BQP-BNG-BYT-TANDTC-VKSNDTC",
+      "tenVanBan": "Th\u00f4ng t\u01b0 li\u00ean t\u1ecbch 09/2026/TTLT-BCA-BQP-BNG-BYT-TANDTC-VKSNDTC quy \u0111\u1ecbnh vi\u1ec7c th\u1ef1c hi\u1ec7n thi h\u00e0nh \u00e1n t\u1eed h\u00ecnh b\u1eb1ng h\u00ecnh th\u1ee9c ti\u00eam thu\u1ed1c \u0111\u1ed9c",
+      "coQuan": "Li\u00ean ng\u00e0nh t\u01b0 ph\u00e1p trung \u01b0\u01a1ng",
+      "ngayBanHanh": "23/06/2026",
+      "ngayHieuLuc": "01/07/2026",
+      "hieu": "C\u00f2n hi\u1ec7u l\u1ef1c",
+      "loai": "Th\u00f4ng t\u01b0",
+      "mang": "Thi h\u00e0nh \u00e1n h\u00ecnh s\u1ef1",
+      "tomTat": "Thay th\u1ebf TTLT 02/2020/TTLT-BCA-BQP-BYT-BNG-TANDTC-VKSNDTC t\u1eeb 01/7/2026.",
+      "link": "https://congbao.chinhphu.vn/van-ban/thong-tu-lien-tich-so-09-2026-ttlt-bca-bqp-bng-byt-tandtc-vksndtc-470074.htm",
+      "tags": [
+        "Thi h\u00e0nh \u00e1n h\u00ecnh s\u1ef1",
+        "th\u00f4ng t\u01b0 li\u00ean t\u1ecbch",
+        "t\u1eed h\u00ecnh"
+      ]
+    },
+    {
+      "id": "kc26-ttlt-08-2025",
+      "soHieu": "08/2025/TTLT-VKSNDTC-TANDTC-BCA-BTP-BYT",
+      "tenVanBan": "Th\u00f4ng t\u01b0 li\u00ean t\u1ecbch 08/2025/TTLT-VKSNDTC-TANDTC-BCA-BTP-BYT b\u00e3i b\u1ecf Th\u00f4ng t\u01b0 li\u00ean t\u1ecbch 06/2018/TTLT-VKSNDTC-TANDTC-BCA-BTP-BL\u0110TBXH",
+      "coQuan": "VKSND t\u1ed1i cao \u2013 TAND t\u1ed1i cao \u2013 B\u1ed9 C\u00f4ng an \u2013 B\u1ed9 T\u01b0 ph\u00e1p \u2013 B\u1ed9 Y t\u1ebf",
+      "ngayBanHanh": "28/10/2025",
+      "ngayHieuLuc": "01/01/2026",
+      "hieu": "C\u00f2n hi\u1ec7u l\u1ef1c",
+      "loai": "Th\u00f4ng t\u01b0",
+      "mang": "H\u00ecnh s\u1ef1",
+      "tomTat": "B\u00e3i b\u1ecf TTLT 06/2018 v\u1ec1 ph\u1ed1i h\u1ee3p t\u1ed1 t\u1ee5ng th\u00e2n thi\u1ec7n v\u1edbi ng\u01b0\u1eddi d\u01b0\u1edbi 18 tu\u1ed5i t\u1eeb 01/01/2026; nay \u00e1p d\u1ee5ng Lu\u1eadt T\u01b0 ph\u00e1p ng\u01b0\u1eddi ch\u01b0a th\u00e0nh ni\u00ean.",
+      "link": "https://congbao.chinhphu.vn/van-ban/thong-tu-lien-tich-so-08-2025-ttlt-vksndtc-tandtc-bca-btp-byt-467711.htm",
+      "tags": [
+        "H\u00ecnh s\u1ef1",
+        "th\u00f4ng t\u01b0 li\u00ean t\u1ecbch",
+        "ng\u01b0\u1eddi ch\u01b0a th\u00e0nh ni\u00ean"
+      ]
+    },
+    {
+      "id": "kc26-ttlt-11-2026",
+      "soHieu": "11/2026/TTLT-BTP-TANDTC-VKSNDTC",
+      "tenVanBan": "Th\u00f4ng t\u01b0 li\u00ean t\u1ecbch 11/2026/TTLT-BTP-TANDTC-VKSNDTC h\u01b0\u1edbng d\u1eabn tr\u00ecnh t\u1ef1, th\u1ee7 t\u1ee5c thi h\u00e0nh \u00e1n d\u00e2n s\u1ef1, mi\u1ec5n, gi\u1ea3m ngh\u0129a v\u1ee5 v\u00e0 ph\u1ed1i h\u1ee3p li\u00ean ng\u00e0nh",
+      "coQuan": "B\u1ed9 T\u01b0 ph\u00e1p \u2013 TAND t\u1ed1i cao \u2013 VKSND t\u1ed1i cao",
+      "ngayBanHanh": "24/08/2026",
+      "ngayHieuLuc": "01/11/2026",
+      "hieu": "C\u00f2n hi\u1ec7u l\u1ef1c",
+      "loai": "Th\u00f4ng t\u01b0",
+      "mang": "Thi h\u00e0nh \u00e1n d\u00e2n s\u1ef1",
+      "tomTat": "H\u01b0\u1edbng d\u1eabn thi h\u00e0nh \u00e1n d\u00e2n s\u1ef1, x\u00e9t mi\u1ec5n, gi\u1ea3m ngh\u0129a v\u1ee5 thi h\u00e0nh \u00e1n v\u00e0 ph\u1ed1i h\u1ee3p gi\u1eefa c\u01a1 quan thi h\u00e0nh \u00e1n, T\u00f2a \u00e1n, Vi\u1ec7n ki\u1ec3m s\u00e1t.",
+      "link": "https://congbao.chinhphu.vn/van-ban/thong-tu-lien-tich-so-11-2026-ttlt-btp-tandtc-vksndtc-470500.htm",
+      "tags": [
+        "Thi h\u00e0nh \u00e1n d\u00e2n s\u1ef1",
+        "th\u00f4ng t\u01b0 li\u00ean t\u1ecbch"
+      ]
+    },
+    {
+      "id": "kc26-ttlt-14-2026",
+      "soHieu": "14/2026/TTLT-BCA-BQP-VKSNDTC",
+      "tenVanBan": "Th\u00f4ng t\u01b0 li\u00ean t\u1ecbch 14/2026/TTLT-BCA-BQP-VKSNDTC h\u01b0\u1edbng d\u1eabn tr\u00ecnh t\u1ef1, th\u1ee7 t\u1ee5c gi\u1ea3i quy\u1ebft v\u1ee5 vi\u1ec7c, v\u1ee5 \u00e1n theo Ngh\u1ecb quy\u1ebft 29/2026/QH16",
+      "coQuan": "B\u1ed9 C\u00f4ng an \u2013 B\u1ed9 Qu\u1ed1c ph\u00f2ng \u2013 VKSND t\u1ed1i cao",
+      "ngayBanHanh": "08/10/2026",
+      "ngayHieuLuc": "08/10/2026",
+      "hieu": "C\u00f2n hi\u1ec7u l\u1ef1c",
+      "loai": "Th\u00f4ng t\u01b0",
+      "mang": "\u0110\u1ea5t \u0111ai, nh\u00e0 \u1edf",
+      "tomTat": "Tr\u00ecnh t\u1ef1, th\u1ee7 t\u1ee5c t\u1ed1 t\u1ee5ng h\u00ecnh s\u1ef1 khi \u00e1p d\u1ee5ng c\u01a1 ch\u1ebf \u0111\u1eb7c th\u00f9 x\u1eed l\u00fd vi ph\u1ea1m \u0111\u1ea5t \u0111ai theo Ngh\u1ecb quy\u1ebft 29/2026/QH16.",
+      "link": "https://congbao.chinhphu.vn/van-ban/thong-tu-lien-tich-so-14-2026-ttlt-bca-bqp-vksndtc-470824.htm",
+      "tags": [
+        "\u0110\u1ea5t \u0111ai, nh\u00e0 \u1edf",
+        "H\u00ecnh s\u1ef1",
+        "th\u00f4ng t\u01b0 li\u00ean t\u1ecbch"
+      ]
+    },
+    {
+      "id": "kc26-nqhdtp-04-2025",
+      "soHieu": "04/2025/NQ-H\u0110TP",
+      "tenVanBan": "Ngh\u1ecb quy\u1ebft 04/2025/NQ-H\u0110TP h\u01b0\u1edbng d\u1eabn \u00e1p d\u1ee5ng \u0110i\u1ec1u 51, \u0110i\u1ec1u 52 B\u1ed9 lu\u1eadt H\u00ecnh s\u1ef1 v\u1ec1 t\u00ecnh ti\u1ebft gi\u1ea3m nh\u1eb9, t\u0103ng n\u1eb7ng",
+      "coQuan": "H\u1ed9i \u0111\u1ed3ng Th\u1ea9m ph\u00e1n TAND t\u1ed1i cao",
+      "ngayBanHanh": "30/09/2025",
+      "ngayHieuLuc": "15/11/2025",
+      "hieu": "C\u00f2n hi\u1ec7u l\u1ef1c",
+      "loai": "Ngh\u1ecb quy\u1ebft",
+      "mang": "H\u00ecnh s\u1ef1",
+      "tomTat": "H\u01b0\u1edbng d\u1eabn t\u1eebng t\u00ecnh ti\u1ebft gi\u1ea3m nh\u1eb9, t\u0103ng n\u1eb7ng tr\u00e1ch nhi\u1ec7m h\u00ecnh s\u1ef1 khi quy\u1ebft \u0111\u1ecbnh h\u00ecnh ph\u1ea1t.",
+      "link": "https://thuvienphapluat.vn/van-ban/Trach-nhiem-hinh-su/Nghi-quyet-04-2025-NQ-HDTP-huong-dan-ap-dung-Dieu-51-Dieu-52-Bo-luat-Hinh-su-679023.aspx",
+      "tags": [
+        "H\u00ecnh s\u1ef1",
+        "quy\u1ebft \u0111\u1ecbnh h\u00ecnh ph\u1ea1t"
+      ]
+    },
+    {
+      "id": "kc26-nqhdtp-03-2025",
+      "soHieu": "03/2025/NQ-H\u0110TP",
+      "tenVanBan": "Ngh\u1ecb quy\u1ebft 03/2025/NQ-H\u0110TP h\u01b0\u1edbng d\u1eabn chuy\u1ec3n h\u00ecnh ph\u1ea1t t\u1eed h\u00ecnh th\u00e0nh t\u00f9 chung th\u00e2n",
+      "coQuan": "H\u1ed9i \u0111\u1ed3ng Th\u1ea9m ph\u00e1n TAND t\u1ed1i cao",
+      "ngayBanHanh": "30/09/2025",
+      "ngayHieuLuc": "01/11/2025",
+      "hieu": "C\u00f2n hi\u1ec7u l\u1ef1c",
+      "loai": "Ngh\u1ecb quy\u1ebft",
+      "mang": "H\u00ecnh s\u1ef1",
+      "tomTat": "H\u01b0\u1edbng d\u1eabn chuy\u1ec3n h\u00ecnh ph\u1ea1t t\u1eed h\u00ecnh th\u00e0nh t\u00f9 chung th\u00e2n theo B\u1ed9 lu\u1eadt H\u00ecnh s\u1ef1 s\u1eeda \u0111\u1ed5i n\u0103m 2025.",
+      "link": "https://thuvienphapluat.vn/van-ban/Trach-nhiem-hinh-su/Nghi-quyet-03-2025-NQ-HDTP-huong-dan-chuyen-hinh-phat-tu-hinh-thanh-tu-chung-than-679021.aspx",
+      "tags": [
+        "H\u00ecnh s\u1ef1",
+        "Thi h\u00e0nh \u00e1n h\u00ecnh s\u1ef1",
+        "t\u1eed h\u00ecnh"
+      ]
+    },
+    {
+      "id": "kc26-nqhdtp-02-2026",
+      "soHieu": "02/2026/NQ-H\u0110TP",
+      "tenVanBan": "Ngh\u1ecb quy\u1ebft 02/2026/NQ-H\u0110TP h\u01b0\u1edbng d\u1eabn \u00e1p d\u1ee5ng m\u1ed9t s\u1ed1 quy \u0111\u1ecbnh c\u1ee7a Lu\u1eadt Ph\u1ee5c h\u1ed3i, ph\u00e1 s\u1ea3n",
+      "coQuan": "H\u1ed9i \u0111\u1ed3ng Th\u1ea9m ph\u00e1n TAND t\u1ed1i cao",
+      "ngayBanHanh": "17/04/2026",
+      "ngayHieuLuc": "01/06/2026",
+      "hieu": "C\u00f2n hi\u1ec7u l\u1ef1c",
+      "loai": "Ngh\u1ecb quy\u1ebft",
+      "mang": "Ph\u00e1 s\u1ea3n",
+      "tomTat": "H\u01b0\u1edbng d\u1eabn th\u1ee7 t\u1ee5c ph\u1ee5c h\u1ed3i, ph\u00e1 s\u1ea3n t\u1ea1i T\u00f2a \u00e1n theo Lu\u1eadt Ph\u1ee5c h\u1ed3i, ph\u00e1 s\u1ea3n.",
+      "link": "https://congbao.chinhphu.vn/van-ban/nghi-quyet-so-02-2026-nq-hdtp-469676.htm",
+      "tags": [
+        "Ph\u00e1 s\u1ea3n",
+        "Kinh doanh th\u01b0\u01a1ng m\u1ea1i"
+      ]
+    },
+    {
+      "id": "kc26-nqhdtp-04-2026",
+      "soHieu": "04/2026/NQ-H\u0110TP",
+      "tenVanBan": "Ngh\u1ecb quy\u1ebft 04/2026/NQ-H\u0110TP h\u01b0\u1edbng d\u1eabn \u00e1p d\u1ee5ng c\u01a1 ch\u1ebf, ch\u00ednh s\u00e1ch \u0111\u1eb7c th\u00f9 v\u1ec1 \u0111\u1ea5t \u0111ai theo Ngh\u1ecb quy\u1ebft 29/2026/QH16",
+      "coQuan": "H\u1ed9i \u0111\u1ed3ng Th\u1ea9m ph\u00e1n TAND t\u1ed1i cao",
+      "ngayBanHanh": "18/08/2026",
+      "ngayHieuLuc": "15/10/2026",
+      "hieu": "C\u00f2n hi\u1ec7u l\u1ef1c",
+      "loai": "Ngh\u1ecb quy\u1ebft",
+      "mang": "\u0110\u1ea5t \u0111ai, nh\u00e0 \u1edf",
+      "tomTat": "H\u01b0\u1edbng d\u1eabn T\u00f2a \u00e1n \u00e1p d\u1ee5ng c\u01a1 ch\u1ebf \u0111\u1eb7c th\u00f9 x\u1eed l\u00fd vi ph\u1ea1m \u0111\u1ea5t \u0111ai theo Ngh\u1ecb quy\u1ebft 29/2026/QH16.",
+      "link": "https://luatvietnam.vn/dat-dai/nghi-quyet-04-2026-nq-hdtp-huong-dan-co-che-chinh-sach-dac-thu-ve-dat-dai-447891-d1.html",
+      "tags": [
+        "\u0110\u1ea5t \u0111ai, nh\u00e0 \u1edf",
+        "H\u00ecnh s\u1ef1"
+      ]
+    },
+    {
+      "id": "kc26-nqhdtp-03-2024",
+      "soHieu": "03/2024/NQ-H\u0110TP",
+      "tenVanBan": "Ngh\u1ecb quy\u1ebft 03/2024/NQ-H\u0110TP h\u01b0\u1edbng d\u1eabn \u00e1p d\u1ee5ng quy \u0111\u1ecbnh c\u1ee7a B\u1ed9 lu\u1eadt H\u00ecnh s\u1ef1 v\u1ec1 th\u1eddi hi\u1ec7u thi h\u00e0nh b\u1ea3n \u00e1n, mi\u1ec5n, gi\u1ea3m, ho\u00e3n, t\u1ea1m \u0111\u00ecnh ch\u1ec9 ch\u1ea5p h\u00e0nh h\u00ecnh ph\u1ea1t",
+      "coQuan": "H\u1ed9i \u0111\u1ed3ng Th\u1ea9m ph\u00e1n TAND t\u1ed1i cao",
+      "ngayBanHanh": "10/06/2024",
+      "ngayHieuLuc": "15/07/2024",
+      "hieu": "C\u00f2n hi\u1ec7u l\u1ef1c",
+      "loai": "Ngh\u1ecb quy\u1ebft",
+      "mang": "Thi h\u00e0nh \u00e1n h\u00ecnh s\u1ef1",
+      "tomTat": "H\u01b0\u1edbng d\u1eabn th\u1eddi hi\u1ec7u thi h\u00e0nh b\u1ea3n \u00e1n v\u00e0 c\u00e1c tr\u01b0\u1eddng h\u1ee3p mi\u1ec5n, gi\u1ea3m, ho\u00e3n, t\u1ea1m \u0111\u00ecnh ch\u1ec9 ch\u1ea5p h\u00e0nh h\u00ecnh ph\u1ea1t.",
+      "link": "https://thuvienphapluat.vn/van-ban/Trach-nhiem-hinh-su/Nghi-quyet-03-2024-NQ-HDTP-huong-dan-Bo-luat-Hinh-su-ve-thoi-hieu-thi-hanh-ban-an-483755.aspx",
+      "tags": [
+        "Thi h\u00e0nh \u00e1n h\u00ecnh s\u1ef1",
+        "H\u00ecnh s\u1ef1"
+      ]
+    },
+    {
+      "id": "kc26-nqhdtp-04-2024",
+      "soHieu": "04/2024/NQ-H\u0110TP",
+      "tenVanBan": "Ngh\u1ecb quy\u1ebft 04/2024/NQ-H\u0110TP h\u01b0\u1edbng d\u1eabn \u00e1p d\u1ee5ng quy \u0111\u1ecbnh c\u1ee7a B\u1ed9 lu\u1eadt H\u00ecnh s\u1ef1 v\u1ec1 t\u1ed9i ph\u1ea1m trong l\u0129nh v\u1ef1c th\u1ee7y s\u1ea3n",
+      "coQuan": "H\u1ed9i \u0111\u1ed3ng Th\u1ea9m ph\u00e1n TAND t\u1ed1i cao",
+      "ngayBanHanh": "12/06/2024",
+      "ngayHieuLuc": "01/08/2024",
+      "hieu": "C\u00f2n hi\u1ec7u l\u1ef1c",
+      "loai": "Ngh\u1ecb quy\u1ebft",
+      "mang": "H\u00ecnh s\u1ef1",
+      "tomTat": "H\u01b0\u1edbng d\u1eabn x\u00e9t x\u1eed t\u1ed9i vi ph\u1ea1m quy \u0111\u1ecbnh v\u1ec1 khai th\u00e1c, b\u1ea3o v\u1ec7 ngu\u1ed3n l\u1ee3i th\u1ee7y s\u1ea3n.",
+      "link": "https://luatvietnam.vn/tu-phap/nghi-quyet-04-2024-nq-hdtp-tandtc-huong-dan-ap-dung-bo-luat-hinh-su-ve-toi-pham-thuy-san-352553-d1.html",
+      "tags": [
+        "H\u00ecnh s\u1ef1",
+        "th\u1ee7y s\u1ea3n"
+      ]
+    },
+    {
+      "id": "kc26-nqhdtp-03-2022",
+      "soHieu": "03/2022/NQ-H\u0110TP",
+      "tenVanBan": "Ngh\u1ecb quy\u1ebft 03/2022/NQ-H\u0110TP h\u01b0\u1edbng d\u1eabn \u00e1p d\u1ee5ng \u0110i\u1ec1u 304, 305, 306, 307 v\u00e0 308 B\u1ed9 lu\u1eadt H\u00ecnh s\u1ef1",
+      "coQuan": "H\u1ed9i \u0111\u1ed3ng Th\u1ea9m ph\u00e1n TAND t\u1ed1i cao",
+      "ngayBanHanh": "09/09/2022",
+      "ngayHieuLuc": "01/11/2022",
+      "hieu": "C\u00f2n hi\u1ec7u l\u1ef1c",
+      "loai": "Ngh\u1ecb quy\u1ebft",
+      "mang": "H\u00ecnh s\u1ef1",
+      "tomTat": "H\u01b0\u1edbng d\u1eabn t\u1ed9i ph\u1ea1m v\u1ec1 v\u0169 kh\u00ed qu\u00e2n d\u1ee5ng, v\u1eadt li\u1ec7u n\u1ed5, c\u00f4ng c\u1ee5 h\u1ed7 tr\u1ee3, v\u0169 kh\u00ed th\u00f4 s\u01a1.",
+      "link": "https://thuvienphapluat.vn/van-ban/Trach-nhiem-hinh-su/Nghi-quyet-03-2022-NQ-HDTP-huong-dan-Dieu-304-305-306-307-308-Bo-luat-Hinh-su-471890.aspx",
+      "tags": [
+        "H\u00ecnh s\u1ef1",
+        "v\u0169 kh\u00ed qu\u00e2n d\u1ee5ng"
+      ]
+    },
+    {
+      "id": "kc26-nqhdtp-06-2019",
+      "soHieu": "06/2019/NQ-H\u0110TP",
+      "tenVanBan": "Ngh\u1ecb quy\u1ebft 06/2019/NQ-H\u0110TP h\u01b0\u1edbng d\u1eabn \u00e1p d\u1ee5ng \u0110i\u1ec1u 141, 142, 143, 144, 145, 146, 147 B\u1ed9 lu\u1eadt H\u00ecnh s\u1ef1 v\u00e0 vi\u1ec7c x\u00e9t x\u1eed v\u1ee5 \u00e1n x\u00e2m h\u1ea1i t\u00ecnh d\u1ee5c ng\u01b0\u1eddi d\u01b0\u1edbi 18 tu\u1ed5i",
+      "coQuan": "H\u1ed9i \u0111\u1ed3ng Th\u1ea9m ph\u00e1n TAND t\u1ed1i cao",
+      "ngayBanHanh": "01/10/2019",
+      "ngayHieuLuc": "05/11/2019",
+      "hieu": "C\u00f2n hi\u1ec7u l\u1ef1c",
+      "loai": "Ngh\u1ecb quy\u1ebft",
+      "mang": "H\u00ecnh s\u1ef1",
+      "tomTat": "H\u01b0\u1edbng d\u1eabn c\u00e1c t\u1ed9i x\u00e2m ph\u1ea1m t\u00ecnh d\u1ee5c v\u00e0 vi\u1ec7c x\u00e9t x\u1eed v\u1ee5 \u00e1n x\u00e2m h\u1ea1i t\u00ecnh d\u1ee5c ng\u01b0\u1eddi d\u01b0\u1edbi 18 tu\u1ed5i.",
+      "link": "https://thuvienphapluat.vn/van-ban/Trach-nhiem-hinh-su/Nghi-quyet-06-2019-NQ-HDTP-huong-dan-Dieu-141-142-143-144-145-146-147-Bo-luat-Hinh-su-414764.aspx",
+      "tags": [
+        "H\u00ecnh s\u1ef1",
+        "ng\u01b0\u1eddi ch\u01b0a th\u00e0nh ni\u00ean"
+      ]
+    },
+    {
+      "id": "kc26-nqhdtp-02-2019",
+      "soHieu": "02/2019/NQ-H\u0110TP",
+      "tenVanBan": "Ngh\u1ecb quy\u1ebft 02/2019/NQ-H\u0110TP h\u01b0\u1edbng d\u1eabn \u00e1p d\u1ee5ng \u0110i\u1ec1u 150 v\u1ec1 t\u1ed9i mua b\u00e1n ng\u01b0\u1eddi v\u00e0 \u0110i\u1ec1u 151 v\u1ec1 t\u1ed9i mua b\u00e1n ng\u01b0\u1eddi d\u01b0\u1edbi 16 tu\u1ed5i c\u1ee7a B\u1ed9 lu\u1eadt H\u00ecnh s\u1ef1",
+      "coQuan": "H\u1ed9i \u0111\u1ed3ng Th\u1ea9m ph\u00e1n TAND t\u1ed1i cao",
+      "ngayBanHanh": "11/01/2019",
+      "hieu": "C\u00f2n hi\u1ec7u l\u1ef1c",
+      "loai": "Ngh\u1ecb quy\u1ebft",
+      "mang": "H\u00ecnh s\u1ef1",
+      "tomTat": "H\u01b0\u1edbng d\u1eabn h\u00e0nh vi, m\u1ee5c \u0111\u00edch v\u00e0 t\u00ecnh ti\u1ebft \u0111\u1ecbnh khung c\u1ee7a t\u1ed9i mua b\u00e1n ng\u01b0\u1eddi, mua b\u00e1n ng\u01b0\u1eddi d\u01b0\u1edbi 16 tu\u1ed5i.",
+      "link": "https://congbao.chinhphu.vn/van-ban/nghi-quyet-so-02-2019-nq-hdtp-28509.htm",
+      "tags": [
+        "H\u00ecnh s\u1ef1",
+        "mua b\u00e1n ng\u01b0\u1eddi"
+      ]
+    },
+    {
+      "id": "kc26-nqhdtp-01-2021",
+      "soHieu": "01/2021/NQ-H\u0110TP",
+      "tenVanBan": "Ngh\u1ecb quy\u1ebft 01/2021/NQ-H\u0110TP h\u01b0\u1edbng d\u1eabn \u00e1p d\u1ee5ng \u0110i\u1ec1u 201 c\u1ee7a B\u1ed9 lu\u1eadt H\u00ecnh s\u1ef1 v\u00e0 vi\u1ec7c x\u00e9t x\u1eed v\u1ee5 \u00e1n h\u00ecnh s\u1ef1 v\u1ec1 t\u1ed9i cho vay l\u00e3i n\u1eb7ng trong giao d\u1ecbch d\u00e2n s\u1ef1",
+      "coQuan": "H\u1ed9i \u0111\u1ed3ng Th\u1ea9m ph\u00e1n TAND t\u1ed1i cao",
+      "ngayBanHanh": "20/12/2021",
+      "hieu": "C\u00f2n hi\u1ec7u l\u1ef1c",
+      "loai": "Ngh\u1ecb quy\u1ebft",
+      "mang": "H\u00ecnh s\u1ef1",
+      "tomTat": "H\u01b0\u1edbng d\u1eabn x\u00e1c \u0111\u1ecbnh l\u00e3i su\u1ea5t, thu l\u1ee3i b\u1ea5t ch\u00ednh v\u00e0 vi\u1ec7c x\u1eed l\u00fd ti\u1ec1n g\u1ed1c, ti\u1ec1n l\u00e3i trong v\u1ee5 \u00e1n cho vay l\u00e3i n\u1eb7ng.",
+      "link": "https://congbao.chinhphu.vn/van-ban/nghi-quyet-so-01-2021-nq-hdtp-36361.htm",
+      "tags": [
+        "H\u00ecnh s\u1ef1",
+        "cho vay l\u00e3i n\u1eb7ng"
+      ]
+    },
+    {
+      "id": "kc26-nqhdtp-02-2018",
+      "soHieu": "02/2018/NQ-H\u0110TP",
+      "tenVanBan": "Ngh\u1ecb quy\u1ebft 02/2018/NQ-H\u0110TP h\u01b0\u1edbng d\u1eabn \u00e1p d\u1ee5ng \u0110i\u1ec1u 65 c\u1ee7a B\u1ed9 lu\u1eadt H\u00ecnh s\u1ef1 v\u1ec1 \u00e1n treo",
+      "coQuan": "H\u1ed9i \u0111\u1ed3ng Th\u1ea9m ph\u00e1n TAND t\u1ed1i cao",
+      "ngayBanHanh": "15/05/2018",
+      "ngayHieuLuc": "01/07/2018",
+      "hieu": "C\u00f2n hi\u1ec7u l\u1ef1c",
+      "loai": "Ngh\u1ecb quy\u1ebft",
+      "mang": "H\u00ecnh s\u1ef1",
+      "tomTat": "\u0110i\u1ec1u ki\u1ec7n cho h\u01b0\u1edfng \u00e1n treo, th\u1eddi gian th\u1eed th\u00e1ch. \u0110\u00e3 \u0111\u01b0\u1ee3c s\u1eeda \u0111\u1ed5i, b\u1ed5 sung b\u1edfi Ngh\u1ecb quy\u1ebft 01/2022/NQ-H\u0110TP.",
+      "link": "https://thuvienphapluat.vn/van-ban/Trach-nhiem-hinh-su/Nghi-quyet-02-2018-NQ-HDTP-huong-dan-Dieu-65-Bo-luat-hinh-su-ve-an-treo-378454.aspx",
+      "tags": [
+        "H\u00ecnh s\u1ef1",
+        "\u00e1n treo"
+      ]
+    },
+    {
+      "id": "kc26-nqhdtp-01-2022",
+      "soHieu": "01/2022/NQ-H\u0110TP",
+      "tenVanBan": "Ngh\u1ecb quy\u1ebft 01/2022/NQ-H\u0110TP s\u1eeda \u0111\u1ed5i, b\u1ed5 sung m\u1ed9t s\u1ed1 \u0111i\u1ec1u c\u1ee7a Ngh\u1ecb quy\u1ebft 02/2018/NQ-H\u0110TP h\u01b0\u1edbng d\u1eabn \u00e1p d\u1ee5ng \u0110i\u1ec1u 65 B\u1ed9 lu\u1eadt H\u00ecnh s\u1ef1 v\u1ec1 \u00e1n treo",
+      "coQuan": "H\u1ed9i \u0111\u1ed3ng Th\u1ea9m ph\u00e1n TAND t\u1ed1i cao",
+      "ngayBanHanh": "15/04/2022",
+      "ngayHieuLuc": "10/05/2022",
+      "hieu": "C\u00f2n hi\u1ec7u l\u1ef1c",
+      "loai": "Ngh\u1ecb quy\u1ebft",
+      "mang": "H\u00ecnh s\u1ef1",
+      "tomTat": "S\u1eeda \u0111\u1ed5i \u0111i\u1ec1u ki\u1ec7n cho h\u01b0\u1edfng \u00e1n treo v\u00e0 c\u00e1c tr\u01b0\u1eddng h\u1ee3p kh\u00f4ng cho h\u01b0\u1edfng \u00e1n treo.",
+      "link": "https://congbao.chinhphu.vn/van-ban/nghi-quyet-so-01-2022-nq-hdtp-37115.htm",
+      "tags": [
+        "H\u00ecnh s\u1ef1",
+        "\u00e1n treo"
+      ]
+    },
+    {
+      "id": "kc26-nqhdtp-01-2018",
+      "soHieu": "01/2018/NQ-H\u0110TP",
+      "tenVanBan": "Ngh\u1ecb quy\u1ebft 01/2018/NQ-H\u0110TP h\u01b0\u1edbng d\u1eabn \u00e1p d\u1ee5ng \u0110i\u1ec1u 66 v\u00e0 \u0110i\u1ec1u 106 c\u1ee7a B\u1ed9 lu\u1eadt H\u00ecnh s\u1ef1 v\u1ec1 tha t\u00f9 tr\u01b0\u1edbc th\u1eddi h\u1ea1n c\u00f3 \u0111i\u1ec1u ki\u1ec7n",
+      "coQuan": "H\u1ed9i \u0111\u1ed3ng Th\u1ea9m ph\u00e1n TAND t\u1ed1i cao",
+      "ngayBanHanh": "24/04/2018",
+      "ngayHieuLuc": "09/06/2018",
+      "hieu": "C\u00f2n hi\u1ec7u l\u1ef1c",
+      "loai": "Ngh\u1ecb quy\u1ebft",
+      "mang": "Thi h\u00e0nh \u00e1n h\u00ecnh s\u1ef1",
+      "tomTat": "\u0110i\u1ec1u ki\u1ec7n, h\u1ed3 s\u01a1, th\u1ee7 t\u1ee5c x\u00e9t tha t\u00f9 tr\u01b0\u1edbc th\u1eddi h\u1ea1n c\u00f3 \u0111i\u1ec1u ki\u1ec7n. \u0110\u1ecdc c\u00f9ng TTLT 08/2026 v\u1ec1 tha t\u00f9 tr\u01b0\u1edbc th\u1eddi h\u1ea1n.",
+      "link": "https://congbao.chinhphu.vn/van-ban/nghi-quyet-so-01-2018-nq-hdtp-26449.htm",
+      "tags": [
+        "Thi h\u00e0nh \u00e1n h\u00ecnh s\u1ef1",
+        "H\u00ecnh s\u1ef1",
+        "tha t\u00f9 tr\u01b0\u1edbc th\u1eddi h\u1ea1n"
+      ]
+    },
+    {
+      "id": "kc26-nqhdtp-05-2018",
+      "soHieu": "05/2018/NQ-H\u0110TP",
+      "tenVanBan": "Ngh\u1ecb quy\u1ebft 05/2018/NQ-H\u0110TP h\u01b0\u1edbng d\u1eabn \u00e1p d\u1ee5ng \u0110i\u1ec1u 234 v\u1ec1 t\u1ed9i vi ph\u1ea1m quy \u0111\u1ecbnh v\u1ec1 b\u1ea3o v\u1ec7 \u0111\u1ed9ng v\u1eadt hoang d\u00e3 v\u00e0 \u0110i\u1ec1u 244 v\u1ec1 t\u1ed9i vi ph\u1ea1m quy \u0111\u1ecbnh v\u1ec1 qu\u1ea3n l\u00fd, b\u1ea3o v\u1ec7 \u0111\u1ed9ng v\u1eadt nguy c\u1ea5p, qu\u00fd, hi\u1ebfm c\u1ee7a B\u1ed9 lu\u1eadt H\u00ecnh s\u1ef1",
+      "coQuan": "H\u1ed9i \u0111\u1ed3ng Th\u1ea9m ph\u00e1n TAND t\u1ed1i cao",
+      "ngayBanHanh": "05/11/2018",
+      "ngayHieuLuc": "01/12/2018",
+      "hieu": "C\u00f2n hi\u1ec7u l\u1ef1c",
+      "loai": "Ngh\u1ecb quy\u1ebft",
+      "mang": "H\u00ecnh s\u1ef1",
+      "tomTat": "H\u01b0\u1edbng d\u1eabn x\u00e1c \u0111\u1ecbnh s\u1ed1 l\u01b0\u1ee3ng, gi\u00e1 tr\u1ecb \u0111\u1ed9ng v\u1eadt v\u00e0 s\u1ea3n ph\u1ea9m \u0111\u1ed9ng v\u1eadt khi \u0111\u1ecbnh t\u1ed9i, \u0111\u1ecbnh khung.",
+      "link": "https://congbao.chinhphu.vn/van-ban/nghi-quyet-so-05-2018-nq-hdtp-27616.htm",
+      "tags": [
+        "H\u00ecnh s\u1ef1",
+        "\u0111\u1ed9ng v\u1eadt hoang d\u00e3"
+      ]
+    },
+    {
+      "id": "kc26-nqhdtp-01-2020",
+      "soHieu": "01/2020/NQ-H\u0110TP",
+      "tenVanBan": "Ngh\u1ecb quy\u1ebft 01/2020/NQ-H\u0110TP h\u01b0\u1edbng d\u1eabn \u00e1p d\u1ee5ng ph\u00e1p lu\u1eadt trong gi\u1ea3i quy\u1ebft tranh ch\u1ea5p v\u1ec1 t\u00e0i s\u1ea3n chung c\u1ee7a d\u00f2ng h\u1ecd",
+      "coQuan": "H\u1ed9i \u0111\u1ed3ng Th\u1ea9m ph\u00e1n TAND t\u1ed1i cao",
+      "ngayBanHanh": "05/03/2020",
+      "ngayHieuLuc": "10/04/2020",
+      "hieu": "C\u00f2n hi\u1ec7u l\u1ef1c",
+      "loai": "Ngh\u1ecb quy\u1ebft",
+      "mang": "D\u00e2n s\u1ef1",
+      "tomTat": "X\u00e1c \u0111\u1ecbnh t\u00e0i s\u1ea3n chung c\u1ee7a d\u00f2ng h\u1ecd, ng\u01b0\u1eddi \u0111\u1ea1i di\u1ec7n v\u00e0 vi\u1ec7c gi\u1ea3i quy\u1ebft tranh ch\u1ea5p t\u1ea1i T\u00f2a \u00e1n.",
+      "link": "https://congbao.chinhphu.vn/van-ban/nghi-quyet-so-01-2020-nq-hdtp-30924.htm",
+      "tags": [
+        "D\u00e2n s\u1ef1",
+        "\u0110\u1ea5t \u0111ai, nh\u00e0 \u1edf"
+      ]
+    },
+    {
+      "id": "kc26-nqhdtp-03-2020",
+      "soHieu": "03/2020/NQ-H\u0110TP",
+      "tenVanBan": "Ngh\u1ecb quy\u1ebft 03/2020/NQ-H\u0110TP h\u01b0\u1edbng d\u1eabn \u00e1p d\u1ee5ng m\u1ed9t s\u1ed1 quy \u0111\u1ecbnh c\u1ee7a B\u1ed9 lu\u1eadt H\u00ecnh s\u1ef1 trong x\u00e9t x\u1eed t\u1ed9i ph\u1ea1m tham nh\u0169ng v\u00e0 t\u1ed9i ph\u1ea1m kh\u00e1c v\u1ec1 ch\u1ee9c v\u1ee5",
+      "coQuan": "H\u1ed9i \u0111\u1ed3ng Th\u1ea9m ph\u00e1n TAND t\u1ed1i cao",
+      "ngayBanHanh": "30/12/2020",
+      "ngayHieuLuc": "15/02/2021",
+      "hieu": "C\u00f2n hi\u1ec7u l\u1ef1c",
+      "loai": "Ngh\u1ecb quy\u1ebft",
+      "mang": "H\u00ecnh s\u1ef1",
+      "tomTat": "H\u01b0\u1edbng d\u1eabn t\u1ed9i ph\u1ea1m tham nh\u0169ng, t\u1ed9i ph\u1ea1m kh\u00e1c v\u1ec1 ch\u1ee9c v\u1ee5 v\u00e0 vi\u1ec7c x\u1eed l\u00fd t\u00e0i s\u1ea3n li\u00ean quan.",
+      "link": "https://congbao.chinhphu.vn/van-ban/nghi-quyet-so-03-2020-nq-hdtp-33305.htm",
+      "tags": [
+        "H\u00ecnh s\u1ef1",
+        "tham nh\u0169ng"
+      ]
+    },
+    {
+      "id": "kc26-nqhdtp-03-2019",
+      "soHieu": "03/2019/NQ-H\u0110TP",
+      "tenVanBan": "Ngh\u1ecb quy\u1ebft 03/2019/NQ-H\u0110TP h\u01b0\u1edbng d\u1eabn \u00e1p d\u1ee5ng \u0110i\u1ec1u 324 c\u1ee7a B\u1ed9 lu\u1eadt H\u00ecnh s\u1ef1 v\u1ec1 t\u1ed9i r\u1eeda ti\u1ec1n",
+      "coQuan": "H\u1ed9i \u0111\u1ed3ng Th\u1ea9m ph\u00e1n TAND t\u1ed1i cao",
+      "ngayBanHanh": "24/05/2019",
+      "ngayHieuLuc": "07/07/2019",
+      "hieu": "C\u00f2n hi\u1ec7u l\u1ef1c",
+      "loai": "Ngh\u1ecb quy\u1ebft",
+      "mang": "H\u00ecnh s\u1ef1",
+      "tomTat": "H\u01b0\u1edbng d\u1eabn ti\u1ec1n, t\u00e0i s\u1ea3n do ph\u1ea1m t\u1ed9i m\u00e0 c\u00f3 v\u00e0 c\u00e1c h\u00e0nh vi r\u1eeda ti\u1ec1n.",
+      "link": "https://congbao.chinhphu.vn/van-ban/nghi-quyet-so-03-2019-nq-hdtp-29051.htm",
+      "tags": [
+        "H\u00ecnh s\u1ef1",
+        "r\u1eeda ti\u1ec1n"
+      ]
+    },
+    {
+      "id": "kc26-nqhdtp-01-2019",
+      "soHieu": "01/2019/NQ-H\u0110TP",
+      "tenVanBan": "Ngh\u1ecb quy\u1ebft 01/2019/NQ-H\u0110TP h\u01b0\u1edbng d\u1eabn \u00e1p d\u1ee5ng m\u1ed9t s\u1ed1 quy \u0111\u1ecbnh c\u1ee7a ph\u00e1p lu\u1eadt v\u1ec1 l\u00e3i, l\u00e3i su\u1ea5t, ph\u1ea1t vi ph\u1ea1m",
+      "coQuan": "H\u1ed9i \u0111\u1ed3ng Th\u1ea9m ph\u00e1n TAND t\u1ed1i cao",
+      "ngayBanHanh": "11/01/2019",
+      "ngayHieuLuc": "15/03/2019",
+      "hieu": "C\u00f2n hi\u1ec7u l\u1ef1c",
+      "loai": "Ngh\u1ecb quy\u1ebft",
+      "mang": "D\u00e2n s\u1ef1",
+      "tomTat": "C\u00e1ch t\u00ednh l\u00e3i, l\u00e3i su\u1ea5t trong h\u1ee3p \u0111\u1ed3ng vay, h\u1ee3p \u0111\u1ed3ng t\u00edn d\u1ee5ng v\u00e0 l\u00e3i ch\u1eadm thi h\u00e0nh \u00e1n.",
+      "link": "https://congbao.chinhphu.vn/van-ban/nghi-quyet-so-01-2019-nq-hdtp-28517.htm",
+      "tags": [
+        "D\u00e2n s\u1ef1",
+        "Kinh doanh th\u01b0\u01a1ng m\u1ea1i",
+        "Thi h\u00e0nh \u00e1n d\u00e2n s\u1ef1"
+      ]
+    }
+  ];
+  var CV_TANDTC_BO_SUNG = [
+    {
+      "id": "cv-gd-01-2017",
+      "soHieu": "01/2017/G\u0110-TANDTC",
+      "tenVanBan": "C\u00f4ng v\u0103n 01/2017/G\u0110-TANDTC gi\u1ea3i \u0111\u00e1p m\u1ed9t s\u1ed1 v\u1ea5n \u0111\u1ec1 nghi\u1ec7p v\u1ee5",
+      "coQuan": "TAND T\u1ed1i cao",
+      "nam": 2017,
+      "linhVuc": "X\u00e9t x\u1eed",
+      "loai": "C\u00f4ng v\u0103n",
+      "tomTat": "Ng\u00e0y 07/4/2017. Gi\u1ea3i \u0111\u00e1p v\u01b0\u1edbng m\u1eafc v\u1ec1 h\u00ecnh s\u1ef1, d\u00e2n s\u1ef1, t\u1ed1 t\u1ee5ng c\u1ee7a T\u00f2a \u00e1n c\u00e1c c\u1ea5p.",
+      "file": "",
+      "link": "https://thuvienphapluat.vn/van-ban/Trach-nhiem-hinh-su/Van-ban-01-2017-GD-TANDTC-giai-dap-van-de-nghiep-vu-345378.aspx"
+    },
+    {
+      "id": "cv-gd-01-2021",
+      "soHieu": "01/2021/G\u0110-TANDTC",
+      "tenVanBan": "Gi\u1ea3i \u0111\u00e1p 01/2021/G\u0110-TANDTC v\u1ec1 m\u1ed9t s\u1ed1 v\u1ea5n \u0111\u1ec1 nghi\u1ec7p v\u1ee5 h\u00f2a gi\u1ea3i, \u0111\u1ed1i tho\u1ea1i t\u1ea1i T\u00f2a \u00e1n",
+      "coQuan": "TAND T\u1ed1i cao",
+      "nam": 2021,
+      "linhVuc": "D\u00e2n s\u1ef1",
+      "loai": "C\u00f4ng v\u0103n",
+      "tomTat": "Gi\u1ea3i \u0111\u00e1p 35 v\u01b0\u1edbng m\u1eafc khi thi h\u00e0nh Lu\u1eadt H\u00f2a gi\u1ea3i, \u0111\u1ed1i tho\u1ea1i t\u1ea1i T\u00f2a \u00e1n.",
+      "file": "",
+      "link": "https://luatvietnam.vn/tu-phap/cong-van-01-2021-gd-tandtc-giai-dap-mot-so-van-de-nghiep-vu-ve-hoa-giai-doi-ngoai-tai-toa-an-206045-d6.html"
+    },
+    {
+      "id": "cv-tandtc-250-2026",
+      "soHieu": "250/TANDTC-PC",
+      "tenVanBan": "C\u00f4ng v\u0103n 250/TANDTC-PC th\u00f4ng b\u00e1o k\u1ebft qu\u1ea3 gi\u1ea3i \u0111\u00e1p tr\u1ef1c tuy\u1ebfn v\u01b0\u1edbng m\u1eafc trong x\u00e9t x\u1eed",
+      "coQuan": "TAND T\u1ed1i cao",
+      "nam": 2026,
+      "linhVuc": "X\u00e9t x\u1eed",
+      "loai": "C\u00f4ng v\u0103n",
+      "tomTat": "Ng\u00e0y 28/4/2026. Gi\u1ea3i \u0111\u00e1p 51 v\u01b0\u1edbng m\u1eafc v\u1ec1 h\u00ecnh s\u1ef1, d\u00e2n s\u1ef1, h\u00e0nh ch\u00ednh ph\u00e1t sinh trong x\u00e9t x\u1eed.",
+      "file": "",
+      "link": "https://thuvienphapluat.vn/cong-van/Thu-tuc-To-tung/Cong-van-250-TANDTC-PC-2026-ket-qua-giai-dap-truc-tuyen-vuong-mac-trong-cong-tac-xet-xu-704490.aspx"
+    },
+    {
+      "id": "cv-tandtc-378-2026",
+      "soHieu": "378/TANDTC-PC",
+      "tenVanBan": "C\u00f4ng v\u0103n 378/TANDTC-PC qu\u00e1n tri\u1ec7t \u0111i\u1ec3m m\u1edbi c\u1ee7a Lu\u1eadt Thi h\u00e0nh \u00e1n h\u00ecnh s\u1ef1 2025",
+      "coQuan": "TAND T\u1ed1i cao",
+      "nam": 2026,
+      "linhVuc": "Thi h\u00e0nh \u00e1n h\u00ecnh s\u1ef1",
+      "loai": "C\u00f4ng v\u0103n",
+      "tomTat": "Ng\u00e0y 09/6/2026. Qu\u00e1n tri\u1ec7t \u0111i\u1ec3m m\u1edbi c\u1ee7a Lu\u1eadt Thi h\u00e0nh \u00e1n h\u00ecnh s\u1ef1 2025 (Lu\u1eadt s\u1ed1 127/2025/QH15) thu\u1ed9c th\u1ea9m quy\u1ec1n c\u1ee7a T\u00f2a \u00e1n.",
+      "file": "",
+      "link": "https://thuvienphapluat.vn/cong-van/Thu-tuc-To-tung/Cong-van-378-TANDTC-PC-2026-quan-triet-diem-moi-cua-Luat-Thi-hanh-an-hinh-su-2025-710994.aspx"
+    },
+    {
+      "id": "cv-tandtc-92-2026",
+      "soHieu": "92/TANDTC-PC",
+      "tenVanBan": "C\u00f4ng v\u0103n 92/TANDTC-PC h\u01b0\u1edbng d\u1eabn \u00e1p d\u1ee5ng th\u1ed1ng nh\u1ea5t Lu\u1eadt T\u01b0 ph\u00e1p ng\u01b0\u1eddi ch\u01b0a th\u00e0nh ni\u00ean",
+      "coQuan": "TAND T\u1ed1i cao",
+      "nam": 2026,
+      "linhVuc": "H\u00ecnh s\u1ef1",
+      "loai": "C\u00f4ng v\u0103n",
+      "tomTat": "Ng\u00e0y 12/02/2026. H\u01b0\u1edbng d\u1eabn t\u00e1ch v\u1ee5 \u00e1n, th\u1eddi h\u1ea1n chu\u1ea9n b\u1ecb x\u00e9t x\u1eed, t\u1ea1m giam v\u00e0 x\u1eed l\u00fd chuy\u1ec3n h\u01b0\u1edbng theo Lu\u1eadt T\u01b0 ph\u00e1p ng\u01b0\u1eddi ch\u01b0a th\u00e0nh ni\u00ean.",
+      "file": "",
+      "link": "https://thuvienphapluat.vn/cong-van/Bo-may-hanh-chinh/Cong-van-92-TANDTC-PC-2026-huong-dan-ap-dung-thong-nhat-Luat-Tu-phap-nguoi-chua-thanh-nien-695289.aspx"
+    },
+    {
+      "id": "cv-tandtc-01-2026",
+      "soHieu": "01/TANDTC-PC",
+      "tenVanBan": "C\u00f4ng v\u0103n 01/TANDTC-PC h\u01b0\u1edbng d\u1eabn \u00e1p d\u1ee5ng m\u1ed9t s\u1ed1 quy \u0111\u1ecbnh c\u1ee7a B\u1ed9 lu\u1eadt H\u00ecnh s\u1ef1",
+      "coQuan": "TAND T\u1ed1i cao",
+      "nam": 2026,
+      "linhVuc": "H\u00ecnh s\u1ef1",
+      "loai": "C\u00f4ng v\u0103n",
+      "tomTat": "Ng\u00e0y 05/01/2026. H\u01b0\u1edbng d\u1eabn \u0110i\u1ec1u 304, \u0110i\u1ec1u 134 v\u1edbi dao c\u00f3 t\u00ednh s\u00e1t th\u01b0\u01a1ng cao v\u00e0 x\u1eed l\u00fd thu\u1ed1c l\u00e1 \u0111i\u1ebfu nh\u1eadp l\u1eadu.",
+      "file": "",
+      "link": "https://thuvienphapluat.vn/cong-van/Thu-tuc-To-tung/Cong-van-01-TANDTC-PC-2026-huong-dan-quy-dinh-cua-Bo-luat-Hinh-su-688214.aspx"
+    },
+    {
+      "id": "cv-tandtc-196-2023",
+      "soHieu": "196/TANDTC-PC",
+      "tenVanBan": "C\u00f4ng v\u0103n 196/TANDTC-PC th\u00f4ng b\u00e1o k\u1ebft qu\u1ea3 gi\u1ea3i \u0111\u00e1p tr\u1ef1c tuy\u1ebfn m\u1ed9t s\u1ed1 v\u01b0\u1edbng m\u1eafc trong x\u00e9t x\u1eed",
+      "coQuan": "TAND T\u1ed1i cao",
+      "nam": 2023,
+      "linhVuc": "X\u00e9t x\u1eed",
+      "loai": "C\u00f4ng v\u0103n",
+      "tomTat": "Ng\u00e0y 03/10/2023. Gi\u1ea3i \u0111\u00e1p v\u01b0\u1edbng m\u1eafc v\u1ec1 h\u00ecnh s\u1ef1, d\u00e2n s\u1ef1, h\u00e0nh ch\u00ednh.",
+      "file": "",
+      "link": "https://thuvienphapluat.vn/cong-van/Thu-tuc-To-tung/Cong-van-196-TANDTC-PC-2023-ket-qua-giai-dap-truc-tuyen-vuong-mac-trong-cong-tac-xet-xu-581498.aspx"
+    },
+    {
+      "id": "cv-tandtc-206-2022",
+      "soHieu": "206/TANDTC-PC",
+      "tenVanBan": "C\u00f4ng v\u0103n 206/TANDTC-PC th\u00f4ng b\u00e1o k\u1ebft qu\u1ea3 gi\u1ea3i \u0111\u00e1p tr\u1ef1c tuy\u1ebfn m\u1ed9t s\u1ed1 v\u01b0\u1edbng m\u1eafc trong x\u00e9t x\u1eed",
+      "coQuan": "TAND T\u1ed1i cao",
+      "nam": 2022,
+      "linhVuc": "X\u00e9t x\u1eed",
+      "loai": "C\u00f4ng v\u0103n",
+      "tomTat": "Ng\u00e0y 27/12/2022. Gi\u1ea3i \u0111\u00e1p v\u01b0\u1edbng m\u1eafc v\u1ec1 h\u00ecnh s\u1ef1, d\u00e2n s\u1ef1, h\u00e0nh ch\u00ednh.",
+      "file": "",
+      "link": "https://thuvienphapluat.vn/cong-van/Thu-tuc-To-tung/Cong-van-206-TANDTC-PC-2022-ket-qua-giai-dap-truc-tuyen-vuong-mac-cong-tac-xet-xu-547884.aspx"
+    },
+    {
+      "id": "cv-tandtc-02-2021",
+      "soHieu": "02/TANDTC-PC",
+      "tenVanBan": "C\u00f4ng v\u0103n 02/TANDTC-PC gi\u1ea3i \u0111\u00e1p m\u1ed9t s\u1ed1 v\u01b0\u1edbng m\u1eafc trong x\u00e9t x\u1eed",
+      "coQuan": "TAND T\u1ed1i cao",
+      "nam": 2021,
+      "linhVuc": "X\u00e9t x\u1eed",
+      "loai": "C\u00f4ng v\u0103n",
+      "tomTat": "Ng\u00e0y 02/8/2021. Gi\u1ea3i \u0111\u00e1p v\u01b0\u1edbng m\u1eafc v\u1ec1 h\u00ecnh s\u1ef1, d\u00e2n s\u1ef1, h\u00e0nh ch\u00ednh.",
+      "file": "",
+      "link": "https://thuvienphapluat.vn/cong-van/Thu-tuc-To-tung/Cong-van-02-TANDTC-PC-2021-giai-dap-vuong-mac-trong-xet-xu-484241.aspx"
+    },
+    {
+      "id": "cv-tandtc-199-2020",
+      "soHieu": "199/TANDTC-PC",
+      "tenVanBan": "C\u00f4ng v\u0103n 199/TANDTC-PC gi\u1ea3i \u0111\u00e1p v\u01b0\u1edbng m\u1eafc trong gi\u1ea3i quy\u1ebft ph\u00e1 s\u1ea3n",
+      "coQuan": "TAND T\u1ed1i cao",
+      "nam": 2020,
+      "linhVuc": "Ph\u00e1 s\u1ea3n",
+      "loai": "C\u00f4ng v\u0103n",
+      "tomTat": "Ng\u00e0y 18/12/2020. Gi\u1ea3i \u0111\u00e1p 30 v\u01b0\u1edbng m\u1eafc khi gi\u1ea3i quy\u1ebft vi\u1ec7c ph\u00e1 s\u1ea3n.",
+      "file": "",
+      "link": "https://thuvienphapluat.vn/cong-van/Doanh-nghiep/Cong-van-199-TANDTC-PC-2020-ket-qua-giai-dap-truc-tuyen-vuong-mac-trong-giai-quyet-pha-san-460204.aspx"
+    },
+    {
+      "id": "cv-tandtc-89-2020",
+      "soHieu": "89/TANDTC-PC",
+      "tenVanBan": "C\u00f4ng v\u0103n 89/TANDTC-PC th\u00f4ng b\u00e1o k\u1ebft qu\u1ea3 gi\u1ea3i \u0111\u00e1p tr\u1ef1c tuy\u1ebfn m\u1ed9t s\u1ed1 v\u01b0\u1edbng m\u1eafc trong x\u00e9t x\u1eed",
+      "coQuan": "TAND T\u1ed1i cao",
+      "nam": 2020,
+      "linhVuc": "X\u00e9t x\u1eed",
+      "loai": "C\u00f4ng v\u0103n",
+      "tomTat": "Ng\u00e0y 30/6/2020. Gi\u1ea3i \u0111\u00e1p v\u01b0\u1edbng m\u1eafc v\u1ec1 h\u00ecnh s\u1ef1, d\u00e2n s\u1ef1, h\u00e0nh ch\u00ednh.",
+      "file": "",
+      "link": "https://thuvienphapluat.vn/cong-van/Thu-tuc-To-tung/Cong-van-89-TANDTC-PC-2020-thong-bao-ket-qua-giai-dap-truc-tuyen-vuong-mac-trong-xet-xu-447302.aspx"
+    },
+    {
+      "id": "cv-tandtc-212-2019",
+      "soHieu": "212/TANDTC-PC",
+      "tenVanBan": "C\u00f4ng v\u0103n 212/TANDTC-PC th\u00f4ng b\u00e1o k\u1ebft qu\u1ea3 gi\u1ea3i \u0111\u00e1p tr\u1ef1c tuy\u1ebfn m\u1ed9t s\u1ed1 v\u01b0\u1edbng m\u1eafc trong x\u00e9t x\u1eed",
+      "coQuan": "TAND T\u1ed1i cao",
+      "nam": 2019,
+      "linhVuc": "X\u00e9t x\u1eed",
+      "loai": "C\u00f4ng v\u0103n",
+      "tomTat": "Ng\u00e0y 13/9/2019. Gi\u1ea3i \u0111\u00e1p v\u01b0\u1edbng m\u1eafc v\u1ec1 h\u00ecnh s\u1ef1, d\u00e2n s\u1ef1, h\u00e0nh ch\u00ednh.",
+      "file": "",
+      "link": "https://thuvienphapluat.vn/cong-van/Thu-tuc-To-tung/Cong-van-212-TANDTC-PC-2019-thong-bao-ket-qua-giai-dap-truc-tuyen-vuong-mac-trong-xet-xu-424257.aspx"
+    },
+    {
+      "id": "cv-tandtc-64-2019",
+      "soHieu": "64/TANDTC-PC",
+      "tenVanBan": "C\u00f4ng v\u0103n 64/TANDTC-PC th\u00f4ng b\u00e1o k\u1ebft qu\u1ea3 gi\u1ea3i \u0111\u00e1p tr\u1ef1c tuy\u1ebfn m\u1ed9t s\u1ed1 v\u01b0\u1edbng m\u1eafc v\u1ec1 h\u00ecnh s\u1ef1, d\u00e2n s\u1ef1, t\u1ed1 t\u1ee5ng h\u00e0nh ch\u00ednh",
+      "coQuan": "TAND T\u1ed1i cao",
+      "nam": 2019,
+      "linhVuc": "X\u00e9t x\u1eed",
+      "loai": "C\u00f4ng v\u0103n",
+      "tomTat": "Ng\u00e0y 03/4/2019. Gi\u1ea3i \u0111\u00e1p v\u01b0\u1edbng m\u1eafc v\u1ec1 h\u00ecnh s\u1ef1, d\u00e2n s\u1ef1, t\u1ed1 t\u1ee5ng h\u00e0nh ch\u00ednh.",
+      "file": "",
+      "link": "https://thuvienphapluat.vn/cong-van/Thu-tuc-To-tung/Cong-van-64-TANDTC-PC-2019-ket-qua-giai-dap-truc-tuyen-mot-so-vuong-mac-ve-hinh-su-410624.aspx"
+    },
+    {
+      "id": "cv-tandtc-233-2019",
+      "soHieu": "233/TANDTC-PC",
+      "tenVanBan": "C\u00f4ng v\u0103n 233/TANDTC-PC trao \u0111\u1ed5i nghi\u1ec7p v\u1ee5",
+      "coQuan": "TAND T\u1ed1i cao",
+      "nam": 2019,
+      "linhVuc": "H\u00ecnh s\u1ef1",
+      "loai": "C\u00f4ng v\u0103n",
+      "tomTat": "Ng\u00e0y 01/10/2019. Trao \u0111\u1ed5i nghi\u1ec7p v\u1ee5 v\u1ec1 h\u00e0nh vi th\u1ecfa m\u00e3n c\u1ea5u th\u00e0nh nhi\u1ec1u t\u1ed9i v\u00e0 tr\u1ea3 l\u1ea1i t\u00e0i s\u1ea3n b\u1ecb chi\u1ebfm \u0111o\u1ea1t.",
+      "file": "",
+      "link": "https://thuvienphapluat.vn/cong-van/Trach-nhiem-hinh-su/Cong-van-233-TANDTC-PC-2019-trao-doi-nghiep-vu-462987.aspx"
+    },
+    {
+      "id": "cv-tandtc-156-2021",
+      "soHieu": "156/TANDTC-PC",
+      "tenVanBan": "C\u00f4ng v\u0103n 156/TANDTC-PC v\u1ec1 vi\u1ec7c ra quy\u1ebft \u0111\u1ecbnh thi h\u00e0nh \u00e1n h\u00ecnh s\u1ef1",
+      "coQuan": "TAND T\u1ed1i cao",
+      "nam": 2021,
+      "linhVuc": "Thi h\u00e0nh \u00e1n h\u00ecnh s\u1ef1",
+      "loai": "C\u00f4ng v\u0103n",
+      "tomTat": "Ng\u00e0y 13/9/2021. H\u01b0\u1edbng d\u1eabn vi\u1ec7c ra quy\u1ebft \u0111\u1ecbnh thi h\u00e0nh \u00e1n h\u00ecnh s\u1ef1.",
+      "file": "",
+      "link": "https://thuvienphapluat.vn/cong-van/Trach-nhiem-hinh-su/Cong-van-156-TANDTC-PC-2021-ra-quyet-dinh-thi-hanh-an-theo-doi-viec-thi-hanh-an-hinh-su-487845.aspx"
+    },
+    {
+      "id": "cv-tandtc-114-2021",
+      "soHieu": "114/TANDTC-HTQT",
+      "tenVanBan": "C\u00f4ng v\u0103n 114/TANDTC-HTQT v\u1ec1 vi\u1ec7c x\u00e1c minh \u0111\u1ecba ch\u1ec9 c\u1ee7a \u0111\u01b0\u01a1ng s\u1ef1 \u1edf n\u01b0\u1edbc ngo\u00e0i",
+      "coQuan": "TAND T\u1ed1i cao",
+      "nam": 2021,
+      "linhVuc": "D\u00e2n s\u1ef1",
+      "loai": "C\u00f4ng v\u0103n",
+      "tomTat": "Ng\u00e0y 17/9/2021. H\u01b0\u1edbng d\u1eabn x\u00e1c minh \u0111\u1ecba ch\u1ec9 \u0111\u01b0\u01a1ng s\u1ef1 \u1edf n\u01b0\u1edbc ngo\u00e0i trong v\u1ee5 vi\u1ec7c d\u00e2n s\u1ef1.",
+      "file": "",
+      "link": "https://thuvienphapluat.vn/cong-van/Thu-tuc-To-tung/Cong-van-114-TANDTC-HTQT-2021-xac-minh-dia-chi-cua-duong-su-o-nuoc-ngoai-488602.aspx"
+    }
+  ];
+  var CV_HIEU_CHINH = {
+    "CV 163/2024/TATC": {
+      "soHieu": "163/TANDTC-PC",
+      "tenVanBan": "C\u00f4ng v\u0103n 163/TANDTC-PC th\u00f4ng b\u00e1o k\u1ebft qu\u1ea3 gi\u1ea3i \u0111\u00e1p tr\u1ef1c tuy\u1ebfn m\u1ed9t s\u1ed1 v\u01b0\u1edbng m\u1eafc trong x\u00e9t x\u1eed",
+      "nam": 2024,
+      "linhVuc": "X\u00e9t x\u1eed",
+      "tomTat": "Ng\u00e0y 10/9/2024. Gi\u1ea3i \u0111\u00e1p v\u01b0\u1edbng m\u1eafc v\u1ec1 h\u00ecnh s\u1ef1, t\u1ed1 t\u1ee5ng h\u00ecnh s\u1ef1, d\u00e2n s\u1ef1, t\u1ed1 t\u1ee5ng d\u00e2n s\u1ef1, kinh doanh th\u01b0\u01a1ng m\u1ea1i.",
+      "link": "https://thuvienphapluat.vn/cong-van/Thu-tuc-To-tung/Cong-van-163-TANDTC-PC-2024-giai-dap-vuong-mac-trong-xet-xu-625374.aspx"
+    },
+    "CV 207/2024/TATC": {
+      "soHieu": "207/TANDTC-PC",
+      "tenVanBan": "C\u00f4ng v\u0103n 207/TANDTC-PC gi\u1ea3i \u0111\u00e1p v\u01b0\u1edbng m\u1eafc trong gi\u1ea3i quy\u1ebft v\u1ee5 \u00e1n h\u00e0nh ch\u00ednh",
+      "nam": 2024,
+      "linhVuc": "H\u00e0nh ch\u00ednh",
+      "tomTat": "Ng\u00e0y 30/10/2024. Gi\u1ea3i \u0111\u00e1p v\u01b0\u1edbng m\u1eafc trong gi\u1ea3i quy\u1ebft v\u1ee5 \u00e1n h\u00e0nh ch\u00ednh.",
+      "link": "https://www.toaan.gov.vn/webcenter/portal/tatc/chi-tiet-chi-dao-dieu-hanh?dDocName=TAND346884"
+    },
+    "CV 285/2025/TATC": {
+      "soHieu": "285/TANDTC-PC",
+      "tenVanBan": "C\u00f4ng v\u0103n 285/TANDTC-PC v\u1ec1 nhi\u1ec7m v\u1ee5, th\u1ea9m quy\u1ec1n c\u1ee7a T\u00f2a \u00e1n sau khi s\u1eafp x\u1ebfp t\u1ed5 ch\u1ee9c b\u1ed9 m\u00e1y",
+      "nam": 2025,
+      "linhVuc": "T\u1ed5 ch\u1ee9c b\u1ed9 m\u00e1y",
+      "tomTat": "Ng\u00e0y 31/7/2025. H\u01b0\u1edbng d\u1eabn nhi\u1ec7m v\u1ee5, th\u1ea9m quy\u1ec1n c\u1ee7a T\u00f2a \u00e1n sau s\u1eafp x\u1ebfp v\u00e0 k\u1ebf th\u1eeba quy\u1ec1n, ngh\u0129a v\u1ee5 t\u1ed1 t\u1ee5ng c\u1ee7a UBND c\u1ea5p huy\u1ec7n.",
+      "link": "https://luatvietnam.vn/co-cau-to-chuc/cong-van-285-tandtc-pc-cua-toa-an-nhan-dan-toi-cao-ve-viec-huong-dan-thuc-hien-nhiem-vu-tham-quyen-cua-cac-toa-an-nhan-dan-407251-d6.html"
+    },
+    "TTLT 13/2025 DS": {
+      "soHieu": "13/2025/TTLT-BTP-BNG-TANDTC",
+      "tenVanBan": "Th\u00f4ng t\u01b0 li\u00ean t\u1ecbch 13/2025/TTLT-BTP-BNG-TANDTC s\u1eeda \u0111\u1ed5i, b\u1ed5 sung Th\u00f4ng t\u01b0 li\u00ean t\u1ecbch 12/2016/TTLT-BTP-BNG-TANDTC v\u1ec1 t\u01b0\u01a1ng tr\u1ee3 t\u01b0 ph\u00e1p trong l\u0129nh v\u1ef1c d\u00e2n s\u1ef1",
+      "coQuan": "BTP \u2013 BNG \u2013 TAND TC",
+      "nam": 2025,
+      "tomTat": "Ng\u00e0y 29/8/2025, hi\u1ec7u l\u1ef1c 01/9/2025. S\u1eeda \u0111\u1ed5i th\u1ea9m quy\u1ec1n y\u00eau c\u1ea7u, th\u1ef1c hi\u1ec7n \u1ee7y th\u00e1c t\u01b0 ph\u00e1p d\u00e2n s\u1ef1 v\u00e0 c\u1eadp nh\u1eadt M\u1eabu 01, M\u1eabu 02A.",
+      "link": "https://congbao.chinhphu.vn/van-ban/thong-tu-lien-tich-so-13-2025-ttlt-btp-bng-tandtc-46209.htm"
+    }
+  };
   var DOCS = dedup(
-    [...DB_VAN_BAN_LUAT, ...VB_BO_SUNG, ...LUAT_CONG].map(stampDoc),
+    [...DB_VAN_BAN_LUAT, ...VB_BO_SUNG, ...LUAT_CONG, ...VB_KIEM_CHUNG_2026].map(stampDoc),
     (d) => String(d.soHieu || d.id)
   );
   var QUYTRINH = dedup(
@@ -9084,7 +10102,10 @@ var VanBanPl = (() => {
     [...DB_AN_LE, ...CHM_AN_LE],
     (a) => String(a.soAnLe || a.id)
   );
-  var CONGVAN = dedup(DB_CONG_VAN, (c) => String(c.soHieu || c.id));
+  var CONGVAN = dedup(
+    [...DB_CONG_VAN.map((c) => CV_HIEU_CHINH[c.soHieu] ? { ...c, ...CV_HIEU_CHINH[c.soHieu] } : c), ...CV_TANDTC_BO_SUNG],
+    (c) => String(c.soHieu || c.id)
+  );
   var BIEUMAU = dedup(DB_BIEU_PHAN_LOAI, (b) => String(b.id));
   var KNOWLEDGE = { DOCS, QUYTRINH, RKN, ANLE, CONGVAN, BIEUMAU };
   var COUNTS = {
@@ -9752,7 +10773,7 @@ var VanBanPl = (() => {
         sec("Số hiệu", "<b>" + esc(item.soHieu) + "</b>") +
         '<div class="vb-hr"></div>' +
         sec("Cơ quan ban hành", esc(item.coQuan)) +
-        sec("Ngày ban hành → Ngày có hiệu lực", esc(item.ngayBanHanh) + " → " + esc(item.ngayHieuLuc)) +
+        (item.ngayHieuLuc ? sec("Ngày ban hành → Ngày có hiệu lực", esc(item.ngayBanHanh) + " → " + esc(item.ngayHieuLuc)) : sec("Ngày ban hành", esc(item.ngayBanHanh))) +
         '<div class="vb-hr"></div>' +
         sec("Tóm tắt nội dung", esc(item.tomTat || "(Chưa có tóm tắt)")) +
         (item.tags && item.tags.length ? sec("Từ khóa", tags(item.tags)) : "");

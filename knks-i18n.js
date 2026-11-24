@@ -544,7 +544,7 @@
 
   function packsForPath(path) {
     var list = ["i18n/pack-core.js"];
-    if (/CoSoVanBanPhapLuat/.test(path)) list.push("i18n/pack-vbpl.js");
+    if (/CoSoVanBanPhapLuat/.test(path)) list.push("i18n/pack-vbpl.js", "i18n/pack-vbpl-2026.js");
     else if (/NghiepVuVanPhong/.test(path)) list.push("i18n/pack-vanphong.js");
     else if (/KiemSat|GiaiQuyetKnTc/.test(path)) list.push("i18n/pack-kiemsat.js");
     else if (/\/Tool\/|\/Data\/|\/AnDanh\//.test(path) || /TinhTuoiThoiHan|HuongDan|Slide|SoanQd|TroLyAo|App_DS|App_tinh|FileRenamer|DocxToMd|PdfToMd|AnDanh/.test(path)) {
