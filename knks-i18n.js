@@ -653,10 +653,75 @@
     return String(s).replace(/[àáảãạăằắẳẵặâầấẩẫậèéẻẽẹêềếểễệìíỉĩịòóỏõọôồốổỗộơờớởỡợùúủũụưừứửữựỳýỷỹỵđÀÁẢÃẠĂẰẮẲẴẶÂẦẤẨẪẬÈÉẺẼẸÊỀẾỂỄỆÌÍỈĨỊÒÓỎÕỌÔỒỐỔỖỘƠỜỚỞỠỢÙÚỦŨỤƯỪỨỬỮỰỲÝỶỸỴĐ]/g, function (c) { return DEACCENT_MAP[c] || c; });
   }
 
+
+  /* Số hiệu văn bản (NĐ-CP, NQ-HĐTP, QĐ-VKSTC…): giữ nguyên, chỉ bỏ dấu, không dịch từng chữ */
+  var CODE_RE = /[0-9A-Za-zĐđ]+(?:[\/\-][0-9A-Za-zĐđ&]+)*\/[0-9A-Za-zĐđ&]+(?:[\/\-][0-9A-Za-zĐđ&]+)*/g;
+  function protectCodes(s) {
+    return s.replace(CODE_RE, function (m) { return /[ĐđA-Z]/.test(m) && /\d/.test(m) ? deaccent(m) : m; });
+  }
+  function exactPhrase(t) {
+    var n = norm(t);
+    if (!n) return n;
+    if (!VN_RE.test(n)) return protectCodes(n);
+    return PHRASE[n] || PLACE_EN[n] || null;
+  }
+  var SEP_RE = /( · | — | – | › | → | \| )/;
+  /* Dịch theo mẫu và theo từng đoạn (nhóm · mảng, nhãn — giá trị…) trước khi rơi về dịch từng từ */
+  function smartTranslate(n, depth) {
+    if (depth > 3) return null;
+    var hit = exactPhrase(n);
+    if (hit != null) return hit;
+    var m;
+    if ((m = n.match(/^([^\s\wÀ-ỹĐđ“"(\[]+)\s*(.+)$/)) && VN_RE.test(m[2])) {
+      var r0 = smartTranslate(m[2], depth + 1);
+      if (r0 != null) return m[1] + " " + r0;
+    }
+    if ((m = n.match(/^\[([^\]]+)\] (.+)$/))) {
+      var k0 = exactPhrase(m[1]), t0 = smartTranslate(m[2], depth + 1);
+      if (k0 != null && t0 != null) return "[" + k0 + "] " + t0;
+    }
+    if ((m = n.match(/^(\d+) văn bản(.*)$/))) {
+      var rest = m[2] ? smartTranslate(m[2].trim(), depth + 1) : "";
+      if (rest == null) return null;
+      return m[1] + (m[1] === "1" ? " document" : " documents") + (m[2] ? (/^\s/.test(m[2]) ? " " : "") + rest : "");
+    }
+    if ((m = n.match(/^(\d+) kết quả$/))) return m[1] + (m[1] === "1" ? " result" : " results");
+    if ((m = n.match(/^Năm (\d{4})$/))) return "Year " + m[1];
+    if ((m = n.match(/^Lọc: (“.*”|".*")$/))) return "Filter: " + m[1];
+    if ((m = n.match(/^Không tìm thấy kết quả cho (“.*”|".*")\.?$/))) return "No results found for " + m[1] + ".";
+    if ((m = n.match(/^Mẫu số (\S+)$/))) return "Form No. " + deaccent(m[1]);
+    if ((m = n.match(/^Mẫu (\S+)$/))) return "Form " + deaccent(m[1]);
+    if ((m = n.match(/^Án lệ số (\d+\/\d{4}\/AL)$/))) return "Precedent No. " + m[1];
+    if ((m = n.match(/^Án lệ (\d+\/\d{4}\/AL)$/))) return "Precedent " + m[1];
+    if ((m = n.match(/^(.*\S)\s*:\s*(.+)$/)) && m[1].length < 40 && !/[“"]/.test(m[1])) {
+      var a = exactPhrase(m[1]);
+      if (a != null) {
+        var b = smartTranslate(m[2], depth + 1);
+        if (b != null) return a + ": " + b;
+      }
+    }
+    if (SEP_RE.test(n)) {
+      var parts = n.split(SEP_RE), out = "";
+      for (var i = 0; i < parts.length; i++) {
+        if (i % 2) { out += parts[i]; continue; }
+        var seg = parts[i].trim();
+        if (!seg) { out += parts[i]; continue; }
+        var tr = smartTranslate(seg, depth + 1);
+        if (tr == null) return null;
+        out += tr;
+      }
+      return out;
+    }
+    return null;
+  }
+
   function translate(s) {
     if (s == null) return s;
     var raw = String(s);
     if (!VN_RE.test(raw)) return raw;
+    if (/\S\s*\n\s*\S/.test(raw) && !PHRASE[norm(raw)] && smartTranslate(norm(raw), 0) == null) {
+      return raw.split(/(\n+)/).map(function (part, i) { return i % 2 ? part : translate(part); }).join("");
+    }
     var pr = preserve(raw);
     var text = pr.s;
     if (!VN_RE.test(text)) return restore(text, pr.hold);
@@ -665,6 +730,12 @@
     if (PHRASE[text]) return restore(PHRASE[text], pr.hold);
     var pl = PLACE_EN[text] || PLACE_EN[n];
     if (pl) return restore(pl, pr.hold);
+    var smart = smartTranslate(n, 0);
+    if (smart != null) {
+      var lead = text.match(/^\s*/)[0], trail = text.match(/\s*$/)[0];
+      return restore(lead + smart + trail, pr.hold);
+    }
+    text = protectCodes(text);
     text = patternDates(text);
     text = replaceByIndex(text, PLACE_EN, (function () {
       var idx = {}, keys = Object.keys(PLACE_EN).sort(function (a, b) { return b.length - a.length; });

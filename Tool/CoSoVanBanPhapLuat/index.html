@@ -10406,12 +10406,20 @@ var VanBanPl = (() => {
     if (!q) return items;
     const nq = normalizeText(q);
     const words = nq.split(/\s+/).filter((w) => w.length > 1);
-    return items.filter((item) => {
+    const hits = items.filter((item) => {
       const hay = itemHaystack(item);
       const nhay = normalizeText(hay);
       if (hay.includes(q) || nhay.includes(nq)) return true;
       return words.length > 0 && words.every((w) => nhay.includes(w));
     });
+    const rank = (item) => {
+      const so = normalizeText([item.soHieu, item.soAnLe, item.soThongBao, item.maQuyTrinh].filter(Boolean).join(" ").toLowerCase());
+      const title = normalizeText(String(itemTitle(item) || "").toLowerCase());
+      if (so && so.includes(nq)) return 3;
+      if (title.includes(nq)) return 2;
+      return 0;
+    };
+    return hits.map((item, i) => ({ item, i, r: rank(item) })).sort((a, b) => b.r - a.r || a.i - b.i).map((x) => x.item);
   }
   function itemExcerpt(item, max = 140) {
     const raw = item.tomTat || item.moTa || item.tomTatVuViec || item.noiDungViPham || item.nguyenTacApDung || item.noiDung || "";
@@ -10490,6 +10498,19 @@ var VanBanPl = (() => {
   var activeChild = null;
   var activeGroup = "";
   var selected = null;
+  var selectedType = "";
+  function typeOfItem(item) {
+    if (KNOWLEDGE.DOCS.indexOf(item) !== -1) return "vb";
+    if (KNOWLEDGE.QUYTRINH.indexOf(item) !== -1) return "qt";
+    if (KNOWLEDGE.RKN.indexOf(item) !== -1) return "rkn";
+    if (KNOWLEDGE.ANLE.indexOf(item) !== -1) return "al";
+    if (KNOWLEDGE.CONGVAN.indexOf(item) !== -1) return "cv";
+    if (KNOWLEDGE.BIEUMAU.indexOf(item) !== -1) return "bm";
+    return "vb";
+  }
+  function itemType(item) {
+    return activeChild ? activeChild.type : typeOfItem(item);
+  }
   var query = "";
   var sidebarOpen = false;
   var aiOpen = false;
@@ -10533,7 +10554,7 @@ var VanBanPl = (() => {
   function pillStatus(item) {
     var html = "";
     if (item.loai) {
-      var c = V.itemColor(item, activeChild ? activeChild.type : "vb");
+      var c = V.itemColor(item, itemType(item));
       html += '<span class="vb-pill" style="background:' + c + "1E;color:" + c + '">' + esc(item.loai) + "</span>";
     }
     if (item.hieu) {
@@ -10651,6 +10672,8 @@ var VanBanPl = (() => {
     if (inp) {
       inp.addEventListener("input", function () {
         query = inp.value;
+        selected = null;
+        selectedType = "";
         renderMain();
       });
     }
@@ -10706,10 +10729,9 @@ var VanBanPl = (() => {
     var items = visibleItems();
     var label = activeChild ? activeChild.label : "Kết quả tìm kiếm";
     var group = activeGroup || "TOÀN BỘ KHO";
-    var type = activeChild ? activeChild.type : "vb";
     var cards = items
       .map(function (item, idx) {
-        var c = V.itemColor(item, type);
+        var c = V.itemColor(item, itemType(item));
         var title = V.itemTitle(item);
         var excerpt = V.itemExcerpt(item, 115);
         var metas = V.itemMeta(item);
@@ -10764,7 +10786,7 @@ var VanBanPl = (() => {
 
   function detailHtml() {
     var item = selected;
-    var type = activeChild ? activeChild.type : "vb";
+    var type = selectedType || itemType(item);
     var c = V.itemColor(item, type);
     var title = V.itemTitle(item);
     var body = "";
@@ -10866,7 +10888,7 @@ var VanBanPl = (() => {
   function renderMain() {
     var root = el("vb-main");
     if (!activeChild && query.trim().length < 2) root.innerHTML = welcomeHtml();
-    else if (selected && activeChild) root.innerHTML = detailHtml();
+    else if (selected) root.innerHTML = detailHtml();
     else root.innerHTML = listHtml();
   }
 
@@ -10953,6 +10975,7 @@ var VanBanPl = (() => {
       activeChild = ctx.child;
       activeGroup = ctx.group.title;
       selected = item;
+      selectedType = ctx.child.type;
       query = "";
       sidebarOpen = false;
       renderChrome();
@@ -10966,6 +10989,7 @@ var VanBanPl = (() => {
       activeChild = found.child;
       activeGroup = found.group.title;
       selected = null;
+      selectedType = "";
       query = "";
       sidebarOpen = false;
       renderChrome();
@@ -10976,6 +11000,7 @@ var VanBanPl = (() => {
     if (t.getAttribute("data-idx") != null) {
       var list = visibleItems();
       selected = list[Number(t.getAttribute("data-idx"))] || null;
+      selectedType = selected ? itemType(selected) : "";
       if (activeChild && query.trim().length >= 2) {
         persist(V.addSearchHistory(prefs, { query: query, childId: activeChild.id, childLabel: activeChild.label, groupTitle: activeGroup }));
       }
@@ -10984,11 +11009,12 @@ var VanBanPl = (() => {
     }
     if (t.getAttribute("data-back")) {
       selected = null;
+      selectedType = "";
       renderMain();
       return;
     }
-    if (t.getAttribute("data-bm-toggle") && selected && activeChild) {
-      persist(V.toggleBookmark(prefs, selected, activeChild.type));
+    if (t.getAttribute("data-bm-toggle") && selected) {
+      persist(V.toggleBookmark(prefs, selected, selectedType || itemType(selected)));
       renderSidebar();
       renderMain();
       return;
