@@ -19,4 +19,6 @@ judgment enforcement…), document numbers kept as-is without diacritics
 (`Kind · Field`, `GROUP › Item`, `Label: value`) and common patterns
 (`N văn bản`, `Năm YYYY`, `Lọc: “…”`, `Mẫu …`) before falling back to words.
 
-Service worker cache: `knks-v43`. Audit: `scripts/scan-en-leftovers.mjs`.
+Service worker cache: `knks-v45`. Audit: `scripts/scan-en-leftovers.mjs`.
+
+Thuật ngữ pháp lý EN thống nhất: xem `i18n/GLOSSARY.md`.
