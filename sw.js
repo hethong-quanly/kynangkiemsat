@@ -1,7 +1,7 @@
 /* Kỹ năng Kiểm sát — service worker.
    Cache HTML tools + static assets so the installed app works offline.
    Skip large Windows zips, Tesseract, video. CDN fonts/css cached at runtime. */
-const CACHE = "knks-v43";
+const CACHE = "knks-v44";
 const SCOPE = self.registration.scope;
 
 const PRECACHE = [
@@ -22,6 +22,7 @@ const PRECACHE = [
   "./i18n/pack-vanphong.js",
   "./i18n/pack-kiemsat.js",
   "./i18n/pack-tools.js",
+  "./i18n/pack-abbr.js",
   "./theme-tool.css",
   "./static/js/knks-linh-vuc.js",
   "./static/js/tro-ly-ao.js",

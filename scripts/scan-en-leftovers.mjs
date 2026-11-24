@@ -1,7 +1,9 @@
 /**
  * Headless audit: open every HTML page with knks_lang=en, click main tabs,
  * run main calculators where possible, scan document.body.innerText for
- * Vietnamese-accented characters. Allowed leftovers: "Tiếng Việt", "Thiên Phúc © 2026", "Thiên Phúc".
+ * Vietnamese-accented characters and Vietnamese abbreviations (KN, TC, TTHS, BLTTHS, VKS, NĐ…).
+ * Allowed leftovers: "Tiếng Việt", "Thiên Phúc © 2026", "Thiên Phúc" and official document numbers.
+ * KNKS_DUMP_CAPS=/tmp/caps.json dumps every all-caps token seen, for review.
  */
 import puppeteer from "puppeteer-core";
 import fs from "fs";
@@ -29,6 +31,44 @@ function allowedStrip(s) {
     .replace(/Thiên Phúc © 2026/g, "")
     .replace(/Thiên Phúc/g, "")
     .replace(/Tiếng Việt/g, "");
+}
+
+/* Vietnamese abbreviations (no diacritics, so VN_RE misses them). Official document numbers
+   such as 02/2018/TTLT-VKSNDTC-... or 152/2026/ND-CP are identifiers and are stripped first. */
+const VN_ABBR = new Set((
+  "KN TC TTHS TTDS TTHC KN-TC KNTC BLTTHS BLTTDS BLHS BLDS BLLĐ BLLD LTTHC LTTHA LTHADS LTHAHS LXLVPHC XLVPHC VPHC CQĐT CQDT CQTHTT " +
+  "VKS VKSND VKSNDTC VKSTC VKSQS TAND TANDTC TANDCC TAQS TA KSV ĐTV DTV THA THADS THAHS CQTHADS CBCC GQ LV QĐ QD NĐ ND TT TTLT NQ HĐTP HDTP " +
+  "HĐXX HDXX HĐTP UBND UBTVQH CA CAND BCA CSĐT CSDT ANĐT ANDT KSĐT KSDT KSXX TGTG TGTGGQ TGTGQ TGTH KSTG KSTGTG TTG TG TGTH TĐC TDC GĐ GD " +
+  "BKS CTV PCT VT PVT KSVCC KSVTC KSVSC TP TX TPHCM HS DS HC KT LĐ LD HNGĐ HNGD PS PT GĐT GDT TT-GĐT TB NLHVDS NLPLDS QSDĐ QSDD GCNQSDĐ GCNQSDD " +
+  "BPNC BPTT BPCC CTTP HTTP TNHS TNDS TĐ TCN TNHH CTCP DNTN HTX QPPL VBQPPL VBPL CSDL BLTTHS2015 PL PLTTHS NĐ-CP QĐ-VKSTC TTr BC KL KLTT"
+).split(/\s+/).filter(Boolean));
+const ALLOWED_CAPS = new Set((process.env.KNKS_ALLOWED_CAPS || "").split(/[\s,]+/).filter(Boolean));
+const CODE_STRIP_RE = /[0-9A-Za-zĐđ.]+(?:[\/\-][0-9A-Za-zĐđ&.]+)*\/[0-9A-Za-zĐđ&.]+(?:[\/\-][0-9A-Za-zĐđ&.]+)*/g;
+const CAPS_RE = /(?<![A-Za-z0-9ĐđÀ-ỹ_])[A-ZĐ][A-ZĐ0-9]*(?:-[A-ZĐ][A-ZĐ0-9]*)*(?![A-Za-z0-9ĐđÀ-ỹ_])/g;
+function capsTokens(text) {
+  const out = [];
+  for (const line of String(text || "").split(/[\n\r]+/)) {
+    const t = line.replace(/\s+/g, " ").trim();
+    if (!t) continue;
+    const stripped = t.replace(CODE_STRIP_RE, (m) => (/\d/.test(m) ? " " : m));
+    let m;
+    CAPS_RE.lastIndex = 0;
+    while ((m = CAPS_RE.exec(stripped))) {
+      const tok = m[0];
+      if (tok.replace(/[^A-ZĐ]/g, "").length < 2) continue;
+      out.push({ tok, line: t.slice(0, 240) });
+    }
+  }
+  return out;
+}
+function abbrLeftovers(text) {
+  const hits = [];
+  for (const { tok, line } of capsTokens(text)) {
+    if (ALLOWED_CAPS.has(tok)) continue;
+    const parts = tok.split("-");
+    if (VN_ABBR.has(tok) || parts.some((p) => VN_ABBR.has(p))) hits.push(tok + "  ⟵  " + line);
+  }
+  return hits;
 }
 
 function leftovers(text) {
@@ -88,6 +128,8 @@ const browser = await puppeteer.launch({
 
 const results = [];
 let totalLeft = 0;
+let totalAbbr = 0;
+const capsDump = {};
 const consoleByPage = {};
 
 for (const rel of pages) {
@@ -123,11 +165,23 @@ for (const rel of pages) {
       });
       return { title, body, extras: extras.join("\n") };
     });
-    const left = leftovers(payload.title + "\n" + payload.body + "\n" + payload.extras);
+    const engineKeys = await page.evaluate(() => (window.KNKS_I18N && window.KNKS_I18N.ABBR_KEYS) || []);
+    engineKeys.forEach((k) => VN_ABBR.add(k));
+    const all = payload.title + "\n" + payload.body + "\n" + payload.extras;
+    const left = leftovers(all);
+    const abbr = [...new Set(abbrLeftovers(all))];
     totalLeft += left.length;
-    results.push({ rel, url, leftovers: left, errors: logs.slice() });
-    console.log((left.length === 0 ? "OK " : "VN!") + "  " + String(left.length).padStart(4) + "  " + rel);
+    totalAbbr += abbr.length;
+    if (process.env.KNKS_DUMP_CAPS) {
+      for (const { tok, line } of capsTokens(all)) {
+        const e = (capsDump[tok] = capsDump[tok] || { n: 0, pages: new Set(), samples: [] });
+        e.n++; e.pages.add(rel); if (e.samples.length < 3) e.samples.push(line);
+      }
+    }
+    results.push({ rel, url, leftovers: left, abbr, errors: logs.slice() });
+    console.log((left.length === 0 && abbr.length === 0 ? "OK " : "VN!") + "  " + String(left.length).padStart(4) + " " + String(abbr.length).padStart(4) + "  " + rel);
     if (left.length) left.slice(0, 8).forEach((s) => console.log("     ·", s));
+    if (abbr.length) abbr.slice(0, 8).forEach((s) => console.log("     ABBR", s));
   } catch (e) {
     results.push({ rel, url, leftovers: ["NAV_ERROR: " + e.message], errors: logs });
     totalLeft += 1;
@@ -164,11 +218,18 @@ for (const rel of viPages) {
 
 await browser.close();
 
-const out = { scanned: pages.length, leftoverStrings: totalLeft, results, viReport };
+if (process.env.KNKS_DUMP_CAPS) {
+  const rows = Object.entries(capsDump).sort((a, b) => b[1].n - a[1].n)
+    .map(([tok, e]) => ({ tok, n: e.n, pages: [...e.pages], samples: e.samples }));
+  fs.writeFileSync(process.env.KNKS_DUMP_CAPS, JSON.stringify(rows, null, 2));
+  console.log("Caps dump:", process.env.KNKS_DUMP_CAPS, rows.length, "tokens");
+}
+const out = { scanned: pages.length, leftoverStrings: totalLeft, leftoverAbbr: totalAbbr, results, viReport };
 const outPath = "/tmp/knks-en100/scan-report.json";
 fs.writeFileSync(outPath, JSON.stringify(out, null, 2));
 console.log("\n==== SUMMARY ====");
 console.log("Pages scanned:", pages.length);
 console.log("Leftover VN strings:", totalLeft);
+console.log("Leftover VN abbreviations:", totalAbbr);
 console.log("Report:", outPath);
-process.exit(totalLeft === 0 ? 0 : 2);
+process.exit(totalLeft === 0 && totalAbbr === 0 ? 0 : 2);

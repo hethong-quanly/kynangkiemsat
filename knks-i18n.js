@@ -68,7 +68,7 @@
   add("pwa.sheet2", "iPhone: bấm nút Chia sẻ (hình vuông có mũi tên lên) rồi chọn Thêm vào Màn hình chính.", "iPhone: tap the Share button (square with an up arrow), then Add to Home Screen.");
   add("pwa.sheet2.html", "iPhone: bấm nút Chia sẻ (hình vuông có mũi tên lên) rồi chọn <strong>Thêm vào Màn hình chính</strong>.", "iPhone: tap the Share button (square with an up arrow), then <strong>Add to Home Screen</strong>.");
   add("pwa.sheet3.html", "Android: <a href=\"cai-dat.html\"><strong>tải ứng dụng Android (APK)</strong></a>, hoặc bấm <strong>Cài app</strong> trên banner / menu Chrome → Cài đặt ứng dụng.", "Android: <a href=\"cai-dat.html\"><strong>download the Android app (APK)</strong></a>, or tap <strong>Install</strong> on the banner / Chrome menu → Install app.");
-  add("pwa.sheet4.html", "Mở icon <strong>KN Kiểm sát</strong> trên màn hình.", "Open the <strong>KN Kiểm sát</strong> icon on your Home Screen.");
+  add("pwa.sheet4.html", "Mở icon <strong>KN Kiểm sát</strong> trên màn hình.", "Open the <strong>Prosecutorial Skills</strong> app icon on your Home Screen.");
   add("pwa.gotIt", "Đã hiểu", "Got it");
   add("toast.needNet", "Mục này cần kết nối mạng.", "This item requires a network connection.");
   add("confirm.ext", "Lưu ý: «{name}» là dịch vụ bên ngoài. Mọi nội dung bạn nhập sẽ được gửi lên máy chủ của bên thứ ba (có thể ở nước ngoài).\n\nChỉ nhập văn bản đã ẩn danh (che họ tên, CCCD, địa chỉ…), không nhập tài liệu mật. Kết quả chỉ để tham khảo.\n\nXem Chính sách dữ liệu: privacy.html\n\nTiếp tục mở?", "Note: “{name}” is an external service. Anything you enter will be sent to a third-party server (possibly abroad).\n\nOnly enter anonymized text (names, ID numbers, addresses masked). Do not enter classified documents. Results are for reference only.\n\nSee the Privacy policy: privacy.html\n\nContinue?");
@@ -229,7 +229,7 @@
   add("renamer.start", "Bắt đầu từ", "Start from");
   add("renamer.digits", "Số chữ số", "Number of digits");
   add("renamer.onlyBad", "Chỉ đổi tên file có vấn đề (chế độ chuẩn hóa)", "Only rename files that have a problem (normalize mode)");
-  add("renamer.abbr", "Viết tắt cụm từ pháp lý khi tên dài (Quyết định → QD, Viện kiểm sát → VKS…)", "Abbreviate legal phrases when a name is long (Quyết định → QD, Viện kiểm sát → VKS…)");
+  add("renamer.abbr", "Viết tắt cụm từ pháp lý khi tên dài (Quyết định → QD, Viện kiểm sát → VKS…)", "Abbreviate long legal phrases in file names (standard Vietnamese legal abbreviations)");
   add("renamer.step3", "3. Xem trước", "3. Preview");
   add("renamer.csv", "Tải bảng đối chiếu (.csv)", "Download the comparison table (.csv)");
   add("renamer.zip", "Tải các tệp đã đổi tên (.zip)", "Download the renamed files (.zip)");
@@ -505,6 +505,14 @@
     for (var pi = 0; pi < pk.length; pi++) {
       if (!PHRASE[pk[pi]]) PHRASE[pk[pi]] = PLACE_EN[pk[pi]];
     }
+    /* Viết tắt đứng riêng để abbrEn xử lý (bản dịch máy cũ kiểu «QĐ» → «decision making» làm hỏng CQĐT…) */
+    var ak = Object.keys(ABBR_EN);
+    for (var ai = 0; ai < ak.length; ai++) if (ak[ai] !== "CN" && ak[ai] !== "T7" && PHRASE[ak[ai]] != null) delete PHRASE[ak[ai]];
+    var allk = Object.keys(PHRASE);
+    for (var aj = 0; aj < allk.length; aj++) {
+      var kk = allk[aj];
+      if (abbrOnly(kk)) delete PHRASE[kk];
+    }
     PHRASE_KEYS = Object.keys(PHRASE).sort(function (a, b) { return b.length - a.length; });
     PHRASE_IDX = {};
     for (var i = 0; i < PHRASE_KEYS.length; i++) {
@@ -550,6 +558,7 @@
     else if (/\/Tool\/|\/Data\/|\/AnDanh\//.test(path) || /TinhTuoiThoiHan|HuongDan|Slide|SoanQd|TroLyAo|App_DS|App_tinh|FileRenamer|DocxToMd|PdfToMd|AnDanh/.test(path)) {
       list.push("i18n/pack-tools.js");
     }
+    list.push("i18n/pack-abbr.js");
     return list;
   }
 
@@ -565,7 +574,8 @@
         var q = global.__KNKS_PHRASE_QUEUE;
         global.__KNKS_PHRASE_QUEUE = [];
         for (var i = 0; i < q.length; i++) {
-          if (q[i].phrases) addPhrases(q[i].phrases);
+          if (q[i].abbrPhrases) addAbbrPhrases(q[i].abbrPhrases);
+          else if (q[i].phrases) addPhrases(q[i].phrases);
           else if (q[i].words) addWords(q[i].words);
           else addPhrases(q[i]);
         }
@@ -623,6 +633,7 @@
   function replaceWords(s) {
     return s.replace(/[A-Za-zÀ-ỹĐđ]+/g, function (w) {
       if (!VN_RE.test(w)) return w;
+      if (ABBR_EN[w] != null || ICON_EN[w] != null) return w;
       var low = w.toLowerCase();
       var en = WORDS[w] || WORDS[low];
       if (en == null) return w;
@@ -662,8 +673,19 @@
   function exactPhrase(t) {
     var n = norm(t);
     if (!n) return n;
+    if (ABBR_PHRASE[n] != null) return ABBR_PHRASE[n];
     if (!VN_RE.test(n)) return protectCodes(n);
     return PHRASE[n] || PLACE_EN[n] || null;
+  }
+  /* «03 ngày», «Còn 3 ngày», «Quá hạn 2 giờ»… */
+  function countPhrase(n) {
+    var m;
+    if ((m = n.match(/^0*(\d+) ngày làm việc$/))) return m[1] + (m[1] === "1" ? " working day" : " working days");
+    if ((m = n.match(/^0*(\d+) ngày$/))) return m[1] + (m[1] === "1" ? " day" : " days");
+    if ((m = n.match(/^0*(\d+) giờ$/))) return m[1] + (m[1] === "1" ? " hour" : " hours");
+    if ((m = n.match(/^Còn 0*(\d+) (ngày làm việc|ngày|giờ)$/))) return m[1] + " " + ({ "ngày làm việc": "working day", "ngày": "day", "giờ": "hour" })[m[2]] + (m[1] === "1" ? "" : "s") + " left";
+    if ((m = n.match(/^Quá hạn 0*(\d+) (ngày làm việc|ngày|giờ)$/))) return "Overdue by " + m[1] + " " + ({ "ngày làm việc": "working day", "ngày": "day", "giờ": "hour" })[m[2]] + (m[1] === "1" ? "" : "s");
+    return null;
   }
   var SEP_RE = /( · | — | – | › | → | \| )/;
   /* Dịch theo mẫu và theo từng đoạn (nhóm · mảng, nhãn — giá trị…) trước khi rơi về dịch từng từ */
@@ -685,6 +707,7 @@
       if (rest == null) return null;
       return m[1] + (m[1] === "1" ? " document" : " documents") + (m[2] ? (/^\s/.test(m[2]) ? " " : "") + rest : "");
     }
+    if ((m = countPhrase(n)) != null) return m;
     if ((m = n.match(/^(\d+) kết quả$/))) return m[1] + (m[1] === "1" ? " result" : " results");
     if ((m = n.match(/^Năm (\d{4})$/))) return "Year " + m[1];
     if ((m = n.match(/^Lọc: (“.*”|".*")$/))) return "Filter: " + m[1];
@@ -715,10 +738,227 @@
     return null;
   }
 
+  /* ---------- Chữ viết tắt tiếng Việt → tiếng Anh (chỉ chế độ EN) ----------
+     Viết tắt không dấu (KN, TC, TTHS, BLTTHS, VKS, QĐ…) lọt qua VN_RE nên được xử lý riêng ở bước cuối.
+     Số hiệu văn bản chính thức (02/2018/TTLT-VKSNDTC-…, 152/2026/NĐ-CP, …/QĐ-VKSTC), mã quy trình (HS-PT-01),
+     URL, tên tệp được giữ nguyên (chỉ bỏ dấu Đ→D trong số hiệu như trước). */
+  var ABBR_EN = {
+    "KN": "complaint", "TC": "denunciation", "KN-TC": "complaints & denunciations", "KNTC": "complaints & denunciations",
+    "KN-TC-KN": "complaints, denunciations & protests",
+    "TTHS": "criminal procedure", "TTDS": "civil procedure", "TTHC": "administrative procedure",
+    "BLTTHS": "Criminal Procedure Code", "BLTTDS": "Civil Procedure Code", "BLHS": "Criminal Code", "BLDS": "Civil Code",
+    "BLLĐ": "Labour Code", "BLLD": "Labour Code", "LTTHC": "Law on Administrative Procedure",
+    "HNGĐ": "marriage & family", "HNGD": "marriage & family", "DS-HNGĐ": "civil, marriage & family", "DS-HNGD": "civil, marriage & family",
+    "KDTM": "business & commercial", "HĐTM": "commercial contract", "HĐLĐ": "labour contract",
+    "VKS": "procuracy", "VKSND": "People's Procuracy", "VKSNDTC": "Supreme People's Procuracy", "VKSTC": "Supreme People's Procuracy",
+    "VKSQS": "Military Procuracy", "KSND": "people's procuracy", "VKSCC": "High People's Procuracy",
+    "TAND": "People's Court", "TANDTC": "Supreme People's Court", "TANDCC": "High People's Court", "TA": "court", "TAQS": "Military Court",
+    "HĐXX": "trial panel", "HDXX": "trial panel", "HĐTP": "Council of Judges", "HDTP": "Council of Judges",
+    "KSV": "procurator", "KTV": "procuracy inspector", "ĐTV": "investigator", "DTV": "investigator", "CHV": "enforcement officer",
+    "VT": "Chief Procurator", "PVT": "Deputy Chief Procurator", "PTT": "deputy head", "LĐ": "leadership",
+    "CQĐT": "investigation agency", "CQDT": "investigation agency", "CQTHTT": "procedure-conducting agency",
+    "CQTHADS": "civil judgment enforcement agency", "CQTHAHS": "criminal judgment enforcement agency",
+    "THA": "judgment enforcement", "THADS": "civil judgment enforcement", "THAHS": "criminal judgment enforcement",
+    "THAHC": "administrative judgment enforcement", "KSTHA": "supervision of judgment enforcement",
+    "THQCT": "exercise of the right to prosecute", "VAHS": "criminal case", "HSVA": "case file", "HSKS": "supervision file",
+    "KS": "supervision", "KSĐT": "investigation supervision", "KSDT": "investigation supervision", "KSXX": "trial supervision",
+    "KSXXHS": "criminal trial supervision", "TTKS": "direct supervision",
+    "XX": "trial", "XXPT": "appellate trial", "XXGĐT": "cassation trial", "PT": "appeal", "ST": "first instance",
+    "GĐT": "cassation", "GDT": "cassation", "ĐT": "investigation", "DT": "investigation", "ĐTBS": "additional investigation",
+    "TĐC": "suspension", "KLĐT": "investigation conclusion", "KLDT": "investigation conclusion",
+    "KNKT": "recommendation for prosecution", "RKN": "lessons learned", "TBRKN": "lessons-learned notice",
+    "GQ": "resolution", "LV": "working days", "HL": "effective",
+    "QĐ": "decision", "QD": "decision", "NĐ": "decree", "TT": "circular", "TTLT": "joint circular", "NQ": "resolution",
+    "HD": "guidance", "CV": "official letter", "QC": "regulation", "KH": "plan", "KL": "conclusion", "BC": "report",
+    "BB": "record", "TB": "notice", "CT": "directive", "PL": "appendix", "VB": "document", "VBHN": "consolidated text",
+    "VBQPPL": "legal normative document", "QPPL": "legal normative", "VBPL": "legal document", "CSDL": "database",
+    "TVPL": "Thu Vien Phap Luat", "TTĐT": "e-information", "TTDT": "e-information",
+    "HS": "criminal", "DS": "civil", "HC": "administrative", "KT": "prosecution",
+    "QĐHC": "administrative decision", "HVHC": "administrative act",
+    "UBND": "People's Committee", "HĐND": "People's Council", "UBTVQH": "NA Standing Committee", "QH": "National Assembly",
+    "BCA": "Ministry of Public Security", "BTP": "Ministry of Justice", "BQP": "Ministry of National Defence", "BTC": "Ministry of Finance",
+    "BNG": "Ministry of Foreign Affairs", "CA": "police", "CAND": "People's Public Security", "CSGT": "traffic police",
+    "CSĐT": "criminal police investigation", "CSDT": "criminal police investigation", "ANĐT": "security investigation", "ANDT": "security investigation",
+    "CBCC": "civil servants", "TCCB": "personnel", "CNTT": "IT", "TĐKT": "emulation & commendation", "XDCB": "capital construction",
+    "TSC": "public assets", "TSCĐ": "fixed assets", "PCCC": "fire safety", "ATTT": "information security", "BMNN": "state secrets",
+    "PCTN": "anti-corruption", "PCTNLPTC": "anti-corruption, waste & negativity", "PBGDPL": "legal education & dissemination",
+    "LLCT": "political theory", "QP-AN": "defence & security", "CĐS": "digital transformation", "ĐHKS": "Procuracy University",
+    "KHKS": "Procuratorial Science", "BCĐ": "steering committee", "ĐVHC": "administrative unit", "TMCP": "joint-stock commercial",
+    "CCCD": "citizen ID", "CMND": "ID card", "SĐT": "phone number", "SDT": "phone number", "STK": "account number", "MST": "tax code",
+    "GCN": "certificate", "QSDĐ": "land use rights", "QSDD": "land use rights", "GCNQSDĐ": "land use right certificate",
+    "GCNQSDD": "land use right certificate", "BĐS": "real estate", "ĐKDN": "business registration", "HTX": "cooperative",
+    "DN": "enterprise", "BHXH": "social insurance", "NSNN": "state budget", "DTTS": "ethnic minority", "NCTN": "juvenile",
+    "BPNC": "preventive measures", "BPĐT": "investigative measures", "BPKCTT": "interim emergency measures",
+    "BPXLHC": "administrative handling measures", "XLHC": "administrative handling", "BP": "measure", "VPHC": "administrative violations",
+    "XLVPHC": "handling of administrative violations", "BPXLCH": "diversion measures", "XLCH": "diversion",
+    "NLCTXH": "social worker", "CSSC": "compulsory rehabilitation facility",
+    "ĐG": "auction", "TĐG": "price appraisal", "ĐGTS": "property auction", "XM": "verification", "CC": "coercive enforcement",
+    "HĐ": "contract", "TS": "property", "TK": "bank account", "ĐK": "conditions", "VNĐ": "VND", "NT": "serious",
+    "TG": "custody", "TGTG": "custody & detention", "TG-TG": "custody & detention", "TGTGQ": "custody, detention & management",
+    "VP": "office", "TP": "city", "TPCT": "Can Tho City", "TPHCM": "Ho Chi Minh City", "STT": "No.", "XHCN": "socialist",
+    "VD": "e.g.", "MH": "screen", "THPT": "high school", "HSMT": "bidding documents", "HCST": "first-instance administrative",
+    "CN": "Sun", "T7": "Sat", "TL": "by order", "VA": "case", "CHA": "sentence serving",
+    "BMTKNV": "professional statistics forms", "BMHS": "criminal statistics forms", "BA": "judgment", "PCT": "Vice Chairman", "AL": "precedent", "CĐ": "topic"
+  };
+  /* Chữ trên ô biểu tượng đầu trang (2–3 ký tự) */
+  var ICON_EN = { "KN": "CD", "HS": "CJ", "DS": "CE", "AD": "CIV", "AH": "CRM", "VP": "OF", "VB": "DB", "QĐ": "DC", "QD": "DC" };
+  var LAW_EN = {
+    "KN": "Law on Complaints", "TC": "Law on Denunciations", "TCN": "Law on Denunciations", "TTHC": "Law on Administrative Procedure",
+    "HNGĐ": "Law on Marriage and Family", "HNGD": "Law on Marriage and Family", "ĐGTS": "Law on Property Auction",
+    "ATTT": "Law on Cyberinformation Security", "VPHC": "Law on Handling Administrative Violations", "XLVPHC": "Law on Handling Administrative Violations",
+    "THADS": "Law on Civil Judgment Enforcement", "THAHS": "Law on Criminal Judgment Enforcement", "TTHS": "Criminal Procedure Code",
+    "TTDS": "Civil Procedure Code", "TCCQĐTHS": "Law on Organisation of Criminal Investigation Bodies"
+  };
+  var DOC_EN = { "QĐ": "Decision", "QD": "Decision", "NĐ": "Decree", "ND": "Decree", "TT": "Circular", "TTLT": "Joint Circular",
+    "NQ": "Resolution", "HD": "Guidance", "CV": "Official Letter", "CT": "Directive", "QC": "Regulation", "KH": "Plan",
+    "BC": "Report", "TB": "Notice", "QĐHC": "Administrative decision" };
+  var AB_L = "(^|[^A-Za-z0-9À-ỹĐđ_])", AB_R = "(?=$|[^A-Za-z0-9À-ỹĐđ_])";
+  /* Bản dịch tay cho chuỗi có viết tắt (i18n/pack-abbr.js) — ưu tiên trước PHRASE dịch máy */
+  var ABBR_PHRASE = {};
+  function addAbbrPhrases(map) {
+    if (!map) return;
+    var ks = Object.keys(map);
+    for (var i = 0; i < ks.length; i++) ABBR_PHRASE[norm(ks[i])] = map[ks[i]];
+  }
+  var ABBR_KEYS = Object.keys(ABBR_EN).sort(function (a, b) { return b.length - a.length; });
+  function reEsc(s) { return s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"); }
+  var ABBR_ALT = ABBR_KEYS.map(reEsc).join("|");
+  var ABBR_TEST = new RegExp(AB_L + "(" + ABBR_ALT + "|PL\\d{2})" + AB_R);
+  var ABBR_TOKEN_RE = new RegExp(AB_L + "(" + ABBR_ALT + ")" + AB_R, "g");
+  var HOLD_RES = [
+    /https?:\/\/[^\s)»"'<>]+/g,
+    /[\w.+-]+@[\w-]+\.[\w.]+/g,
+    /\b(?:[0-9A-F]{2}:){3,}[0-9A-F]{2}\b/g,
+    /[0-9A-Za-zĐđ.…]*\d[0-9A-Za-zĐđ.…]*(?:[\/\-][0-9A-Za-zĐđ&.…]+)*\/[0-9A-Za-zĐđ&.…]+(?:[\/\-][0-9A-Za-zĐđ&.…]+)*/g,
+    /\/[A-ZĐ][A-ZĐ0-9]*(?:-[A-ZĐ0-9…]+)+/g,
+    /\b[A-ZĐ]{1,6}(?:-[A-ZĐ]{1,6})*-\d{1,3}\b/g,
+    /[^\s"«»()]+\.(?:pdf|htm|html|docx?|xlsx?|txt|zip|apk|exe|md|json|png|jpe?g)\b/gi
+  ];
+  /* \b của JS không nhận Đ/Í… là chữ: đổi \b đầu mẫu thành nhóm tiền tố, các \b khác thành lookahead (không dùng lookbehind cho Safari cũ) */
+  /* Trang kiểm sát án / thống kê: «KN» là kháng nghị (protest); trang KN-TC: khiếu nại (complaint) */
+  var KN_PROTEST = false, SRC_HAS_KHANG_NGHI = false;
+  try { KN_PROTEST = /KiemSatAnHs|KiemSatAnDs|NghiepVuVanPhong/.test(location.pathname || ""); } catch (e) {}
+  function abbrRule(src, fn) {
+    var lead = src.indexOf("\\b") === 0;
+    if (lead) src = AB_L + src.slice(2);
+    src = src.split("\\b").join(AB_R);
+    return [new RegExp(src, "g"), fn, lead];
+  }
+  function lawName(k) { return LAW_EN[k] || null; }
+  var ABBR_RULES = [
+    abbrRule("\\bVKSND\\s+(?:TC|tối cao|Tối cao|Supreme)\\b", function () { return "Supreme People's Procuracy"; }),
+    abbrRule("\\bTAND\\s+(?:TC|tối cao|Tối cao|Supreme)\\b", function () { return "Supreme People's Court"; }),
+    abbrRule("\\bVKSND\\s+(?:TP\\.?\\s*(?:Cần Thơ|Can Tho)(?: City)?|TPCT)\\b", function () { return "Can Tho City People's Procuracy"; }),
+    abbrRule("\\bTP\\.?\\s*(?:Hồ Chí Minh|Ho Chi Minh)(?: City)?\\b", function () { return "Ho Chi Minh City"; }),
+    abbrRule("\\bTP\\.?\\s*(?:Cần Thơ|Can Tho)(?: City)?\\b", function () { return "Can Tho City"; }),
+    abbrRule("\\bTP\\.?\\s+([A-Z][a-z]+(?: [A-Z][a-z]+)?)\\b", function (m, a) { return a + " City"; }),
+    abbrRule("\\b(KN-TC|KN|TC)\\s+(TTHS|TTDS|TTHC)\\b", function (m, a, b) {
+      var p = { "TTHS": "criminal procedure", "TTDS": "civil procedure", "TTHC": "administrative procedure" }[b];
+      return p + " " + (a === "KN" ? "complaint" : a === "TC" ? "denunciation" : "complaints & denunciations");
+    }),
+    abbrRule("\\bKN(?=\\s+(?:phúc thẩm|giám đốc thẩm|tái thẩm|GĐT|GDT|PT|appeal|appellate|cassation|reopening)\\b)", function () { return "protest"; }),
+    abbrRule("\\b(?:KS|Kiểm sát|Supervision of|Control of|Supervising|Procuracy of)\\s+(KN-TC|KNTC)\\b", function () { return "supervision of complaints & denunciations"; }),
+    abbrRule("\\b(KN|TC)\\s+(?:hành chính|administrative|Administrative)\\b", function (m, a) { return "administrative " + (a === "KN" ? "complaint" : "denunciation"); }),
+    abbrRule("\\b(?:Administrative|administrative)\\s+(KN|TC)\\b", function (m, a) { return "administrative " + (a === "KN" ? "complaint" : "denunciation"); }),
+    abbrRule("\\bKN\\s+(?:kỷ luật|disciplinary)\\s+CBCC\\b", function () { return "disciplinary complaint by a civil servant"; }),
+    abbrRule("\\b(?:Bộ luật|Code of|Code)\\s+(TTHS|TTDS)\\b", function (m, a) { return lawName(a); }),
+    abbrRule("\\b(?:Luật|Law on|Law of|Law)\\s+(KN|TC|TTHC|HNGĐ|HNGD|ĐGTS|ATTT|VPHC|XLVPHC|THADS|THAHS)\\b", function (m, a) { return lawName(a); }),
+    abbrRule("\\b(KN|TC|TTHC|HNGĐ|HNGD|ĐGTS|ATTT|VPHC|XLVPHC|THADS|THAHS)\\s+(?:Law|law)\\b", function (m, a) { return lawName(a); }),
+    abbrRule("\\b(?:KS|Supervision|supervision)\\s+(THAHS|THADS|THAHC|THA|DS|HS|HC|TG-TG|TGTG|GQ|KN|TC)\\b", function (m, a) {
+      var x = { "DS": "civil cases", "HS": "criminal cases", "HC": "administrative cases", "KN": "complaints", "TC": "denunciations", "GQ": "resolution" }[a] || ABBR_EN[a];
+      return "supervision of " + x;
+    }),
+    abbrRule("\\b(?:BA|Judgment|judgment)\\s+(DS|HS|HC)\\b", function (m, a) { return ({ "DS": "civil", "HS": "criminal", "HC": "administrative" })[a] + " judgment"; }),
+    abbrRule("\\bLệnh\\s+(TG-TG)\\b", function () { return "custody/detention order"; }),
+    abbrRule("\\b(VT)\\s*\\/\\s*PVT\\b", function () { return "Chief/Deputy Chief Procurator"; }),
+    abbrRule("(Lưu|Archived?|Saved?|Storage|Keep|Kept)\\s*:\\s*VT\\b", function (m, a) { return a + ": Archives"; }),
+    abbrRule("\\bKT\\.\\s*", function () { return "P.P. "; }),
+    abbrRule("\\b(?:mới|newly|new)\\s+KT\\b", function () { return "newly prosecuted"; }),
+    abbrRule("\\b(Ít|ít|Less|less|Little|little|Minor|minor)\\s+NT\\b", function (m, a) { return (/^[A-ZÍ]/.test(a) ? "Less" : "less") + " serious"; }),
+    abbrRule("\\b(rất|Rất|very|Very)\\s+NT\\b", function (m, a) { return (/^[A-ZR]/.test(a) ? "Very" : "very") + " serious"; }),
+    abbrRule("(đặc biệt|Đặc biệt|especially|Especially|particularly|Particularly|special|Special|exceptionally|Exceptionally)\\s+NT\\b", function (m, a) { return (/^[A-ZĐ]/.test(a) ? "Particularly" : "particularly") + " serious"; }),
+    abbrRule("\\bKH\\s*&\\s*CN\\b", function () { return "science & technology"; }),
+    abbrRule("\\b(?:XX)?(GĐT|GDT)\\s*([\\/,])\\s*TT\\b", function (m, a, sep) { return (/^XX/.test(m) ? "cassation/reopening trial" : "cassation" + (sep === "," ? ", " : "/") + "reopening"); }),
+    abbrRule("\\bĐT\\s*\\/\\s*XX\\b", function () { return "investigation/trial"; }),
+    abbrRule("\\bPL(\\d{2})\\b", function (m, a) { return "Appendix " + a; }),
+    abbrRule("\\b(\\d+)\\s+PL\\b", function (m, a) { return a + " appendices"; }),
+    abbrRule("\\b(?:ngày|Ngày|days?|Days?|dates?|Dates?|day|Day)\\s+LV\\b", function (m) { return (/^[NDA-Z]/.test(m) ? "Working days" : "working days"); }),
+    abbrRule("\\b(?:hạn|Hạn|deadline|Deadline|time limit|Time limit|limit|Limit|term|Term)\\s+(?:for\\s+|of\\s+)?GQ\\b", function (m) { return (/^[A-ZH]/.test(m) ? "Resolution deadline" : "resolution deadline"); }),
+    abbrRule("\\bGQ\\s+(?:deadline|time limit|term)\\b", function () { return "resolution deadline"; }),
+    abbrRule("\\b(?:hết|out of|expired?|expiry of|no longer)\\s+HL\\b", function () { return "expired"; }),
+    abbrRule("\\b(QĐHC|QĐ|QD|NĐ|ND|TTLT|TT|NQ|HD|CV|CT|QC|KH|BC|TB)\\s+(số\\s+|No\\.\\s*)?(?=\\d|\\u0001)", function (m, a, no) { return DOC_EN[a] + " " + (no ? "No. " : ""); }),
+    abbrRule("\\b(QĐ|QD)\\s+(?=KS|[A-Z]{2,}\\b)", function () { return "Decision "; })
+  ];
+  function abbrCase(rep, before, upper) {
+    if (!rep) return rep;
+    if (upper) return rep.toUpperCase();
+    if (/(^\s*|[.!?•·—–|:;\n]\s+|^\s*[\-–•·(\[«“"]\s*)$/.test(before) && /^[a-z]/.test(rep)) return rep.charAt(0).toUpperCase() + rep.slice(1);
+    return rep;
+  }
+  function abbrEn(s) {
+    if (s == null) return s;
+    var str = String(s);
+    if (!ABBR_TEST.test(str)) return str;
+    var hold = [];
+    function keep(m) { hold.push(/[ĐđA-Z]/.test(m) && /\d/.test(m) ? deaccent(m) : m); return "\u0001" + (hold.length - 1) + "\u0002"; }
+    for (var h = 0; h < HOLD_RES.length; h++) str = str.replace(HOLD_RES[h], keep);
+    var rest = str.replace(ABBR_TOKEN_RE, "$1").replace(/\u0001\d+\u0002/g, "").replace(/[^A-Za-zÀ-ỹĐđ]/g, "");
+    var whole = rest.length > 6 && rest === rest.toUpperCase() && rest !== rest.toLowerCase();
+    for (var r = 0; r < ABBR_RULES.length; r++) {
+      var rule = ABBR_RULES[r];
+      str = str.replace(rule[0], function () {
+        var args = Array.prototype.slice.call(arguments);
+        var full = args[args.length - 1], off = args[args.length - 2];
+        var pre = "";
+        if (rule[2]) {
+          pre = args[1] || "";
+          args.splice(1, 1);
+          args[0] = args[0].slice(pre.length);
+          off += pre.length;
+        }
+        return pre + abbrCase(rule[1].apply(null, args), full.slice(0, off), whole);
+      });
+    }
+    str = str.replace(ABBR_TOKEN_RE, function (m, pre, tok, off, full) {
+      var rep = (tok === "KN" && KN_PROTEST && !SRC_HAS_KHANG_NGHI) ? "protest" : ABBR_EN[tok];
+      if (rep == null) return m;
+      return pre + abbrCase(rep, full.slice(0, off + pre.length), whole);
+    });
+    return str.replace(/\u0001(\d+)\u0002/g, function (_, n) { return hold[+n]; });
+  }
+  function hasAbbr(s) { return s != null && ABBR_TEST.test(String(s)); }
+  /* Chuỗi chỉ gồm viết tắt, số hiệu, số và dấu câu (vd «TTLT 02/2018 · QĐ 50», «KS KN-TC») */
+  function abbrOnly(s) {
+    var t = String(s);
+    if (!ABBR_TEST.test(t)) return false;
+    for (var h = 0; h < HOLD_RES.length; h++) t = t.replace(HOLD_RES[h], " ");
+    t = t.replace(ABBR_TOKEN_RE, "$1 ").replace(/\bPL\d{2}\b/g, " ");
+    return !/[A-Za-zÀ-ỹĐđ]/.test(t);
+  }
+
   function translate(s) {
     if (s == null) return s;
     var raw = String(s);
-    if (!VN_RE.test(raw)) return raw;
+    var na = norm(raw);
+    SRC_HAS_KHANG_NGHI = /kháng nghị/i.test(raw);
+    if (na && ABBR_PHRASE[na] != null) return raw.match(/^\s*/)[0] + abbrEn(ABBR_PHRASE[na]) + raw.match(/\s*$/)[0];
+    /* Tên tệp (…/TB rut KN … DS.pdf) là định danh: chỉ bỏ dấu, không dịch */
+    if (/^[^\n\/]{1,200}\.(?:pdf|htm|html|docx?|xlsx?|txt|zip)$/i.test(na)) return deaccent(raw);
+    if (abbrOnly(raw)) return abbrEn(raw);
+    var cp = na && countPhrase(na);
+    if (cp) return raw.match(/^\s*/)[0] + cp + raw.match(/\s*$/)[0];
+    if (!VN_RE.test(raw)) {
+      if (!hasAbbr(raw)) return raw;
+      var n0 = norm(raw);
+      if (PHRASE[n0]) {
+        return raw.match(/^\s*/)[0] + abbrEn(PHRASE[n0]) + raw.match(/\s*$/)[0];
+      }
+      return abbrEn(raw);
+    }
+    return abbrEn(translateCore(raw)).replace(/(\d)\/\/(?=[A-Z])/g, "$1/");
+  }
+
+  function translateCore(raw) {
     if (/\S\s*\n\s*\S/.test(raw) && !PHRASE[norm(raw)] && smartTranslate(norm(raw), 0) == null) {
       return raw.split(/(\n+)/).map(function (part, i) { return i % 2 ? part : translate(part); }).join("");
     }
@@ -768,7 +1008,8 @@
         if (node.nodeValue !== orig) node.nodeValue = orig;
         return;
       }
-      var next = translate(orig);
+      var pe = node.parentElement;
+      var next = (pe && pe.classList && pe.classList.contains("hdr-icon") && ICON_EN[norm(orig)]) ? ICON_EN[norm(orig)] : translate(orig);
       node._knksTranslated = next;
       if (node.nodeValue !== next) node.nodeValue = next;
       return;
@@ -872,7 +1113,7 @@
   add("install.a2.html", "Tải xong, bấm vào thông báo <strong>KyNangKiemSat-1.0.0.apk</strong> (hoặc mở ứng dụng <strong>Tệp / Quản lý tệp → Tải xuống</strong>).", "After the download, tap the <strong>KyNangKiemSat-1.0.0.apk</strong> notification (or open <strong>Files / File Manager → Downloads</strong>).");
   add("install.a3.html", "Nếu máy báo <em>«Vì lý do bảo mật, điện thoại không được phép cài ứng dụng không rõ nguồn»</em>: bấm <strong>Cài đặt</strong> → bật <strong>Cho phép từ nguồn này</strong> → quay lại.", "If the phone says <em>“For security reasons, your phone is not allowed to install unknown apps”</em>: tap <strong>Settings</strong> → turn on <strong>Allow from this source</strong> → go back.");
   add("install.a4.html", "Bấm <strong>Cài đặt</strong>. Nếu Google Play Protect cảnh báo «ứng dụng chưa được xác minh / không rõ»: bấm <strong>Thông tin chi tiết</strong> → <strong>Vẫn cài đặt</strong> (ứng dụng chưa phát hành qua cửa hàng nên Google chưa biết).", "Tap <strong>Install</strong>. If Google Play Protect warns that the app is “not verified / unknown”: tap <strong>More details</strong> → <strong>Install anyway</strong> (the app is not yet on the Play Store, so Google does not recognize it).");
-  add("install.a5.html", "Bấm <strong>Mở</strong>. Biểu tượng <strong>KN Kiểm sát</strong> xuất hiện trên màn hình chính. Lần đầu mở cần có mạng để tải sẵn công cụ.", "Tap <strong>Open</strong>. The <strong>KN Kiểm sát</strong> icon appears on the Home Screen. The first launch needs a network connection to cache the tools.");
+  add("install.a5.html", "Bấm <strong>Mở</strong>. Biểu tượng <strong>KN Kiểm sát</strong> xuất hiện trên màn hình chính. Lần đầu mở cần có mạng để tải sẵn công cụ.", "Tap <strong>Open</strong>. The <strong>Prosecutorial Skills</strong> app icon appears on the Home Screen. The first launch needs a network connection to cache the tools.");
   add("install.unknownSum", "Không thấy mục «Cho phép từ nguồn này»? (theo hãng máy)", "Don’t see “Allow from this source”? (by phone brand)");
   add("install.samsung.html", "<strong>Samsung</strong>: Cài đặt → Ứng dụng → (⋮) Quyền truy cập đặc biệt → Cài đặt ứng dụng không rõ nguồn → chọn Chrome (hoặc Tệp của tôi) → Cho phép.", "<strong>Samsung</strong>: Settings → Apps → (⋮) Special access → Install unknown apps → choose Chrome (or My Files) → Allow.");
   add("install.xiaomi.html", "<strong>Xiaomi / Redmi / POCO</strong>: Cài đặt → Ứng dụng → Quyền đặc biệt (Quyền truy cập ứng dụng đặc biệt) → Cài đặt ứng dụng không rõ nguồn → chọn Chrome → Cho phép. Máy có thể yêu cầu chờ vài giây rồi bấm «Tôi hiểu rủi ro».", "<strong>Xiaomi / Redmi / POCO</strong>: Settings → Apps → Special permissions → Install unknown apps → choose Chrome → Allow. The phone may ask you to wait a few seconds, then tap “I understand the risk”.");
@@ -887,7 +1128,7 @@
   add("install.ios1.html", "Mở trang này bằng <strong>Safari</strong> (nếu đang ở Zalo: bấm <strong>⋯</strong> → <strong>Mở bằng trình duyệt</strong>).", "Open this page in <strong>Safari</strong> (if you are in Zalo: tap <strong>⋯</strong> → <strong>Open in browser</strong>).");
   add("install.ios2.html", "Bấm nút <strong>Chia sẻ</strong> (hình vuông có mũi tên đi lên, ở thanh dưới cùng).", "Tap the <strong>Share</strong> button (square with an up arrow, on the bottom bar).");
   add("install.ios3.html", "Kéo xuống, chọn <strong>Thêm vào MH chính</strong> (Thêm vào Màn hình chính) → <strong>Thêm</strong>.", "Scroll down, choose <strong>Add to Home Screen</strong> → <strong>Add</strong>.");
-  add("install.ios4.html", "Mở biểu tượng <strong>KN Kiểm sát</strong> trên màn hình chính.", "Open the <strong>KN Kiểm sát</strong> icon on the Home Screen.");
+  add("install.ios4.html", "Mở biểu tượng <strong>KN Kiểm sát</strong> trên màn hình chính.", "Open the <strong>Prosecutorial Skills</strong> app icon on the Home Screen.");
   add("install.openApp", "Mở trang ứng dụng", "Open the app page");
   add("install.pc", "Máy tính (Windows / Mac)", "Computer (Windows / Mac)");
   add("install.pcIntro", "Ứng dụng chạy trong cửa sổ riêng, có biểu tượng ngoài Desktop / Start Menu / Dock, không có thanh địa chỉ và tự cập nhật theo bản mới nhất.", "The app runs in its own window with an icon on the Desktop / Start Menu / Dock, no address bar, and updates itself to the latest version.");
@@ -895,7 +1136,7 @@
   add("install.recommended", "Khuyên dùng", "Recommended");
   add("install.pwaSub", "Dùng cho Windows và Mac, không hiện cảnh báo bảo mật.", "Works on Windows and Mac, with no security warnings.");
   add("install.pwaBtn", "🖥 Cài vào máy tính ngay", "🖥 Install on this computer");
-  add("install.pwaDone.html", "✓ Ứng dụng đã được cài trên máy này. Mở biểu tượng <strong>KN Kiểm sát</strong> ngoài màn hình (hoặc Start Menu / Launchpad).", "✓ The app is installed on this computer. Open the <strong>KN Kiểm sát</strong> icon on the desktop (or Start Menu / Launchpad).");
+  add("install.pwaDone.html", "✓ Ứng dụng đã được cài trên máy này. Mở biểu tượng <strong>KN Kiểm sát</strong> ngoài màn hình (hoặc Start Menu / Launchpad).", "✓ The app is installed on this computer. Open the <strong>Prosecutorial Skills</strong> app icon on the desktop (or Start Menu / Launchpad).");
   add("install.pwaHelpH", "Trình duyệt chưa hiện hộp cài tự động, anh/chị làm 2 bước:", "Your browser has not offered automatic install yet. Two quick steps:");
   add("install.pwaChrome.html", "<strong>Chrome / Edge</strong> (Windows, Mac): mở <a href=\"./\">trang ứng dụng</a>, bấm biểu tượng <strong>Cài đặt</strong> (màn hình có mũi tên ⤓) ở cuối thanh địa chỉ → <strong>Cài đặt</strong>. Không thấy biểu tượng thì bấm menu <strong>⋮</strong> / <strong>…</strong> → <strong>Ứng dụng</strong> → <strong>Cài đặt trang web này dưới dạng ứng dụng</strong>.", "<strong>Chrome / Edge</strong> (Windows, Mac): open the <a href=\"./\">app page</a>, click the <strong>Install</strong> icon (a screen with a ⤓ arrow) at the end of the address bar → <strong>Install</strong>. If you don't see it, open the <strong>⋮</strong> / <strong>…</strong> menu → <strong>Apps</strong> → <strong>Install this site as an app</strong>.");
   add("install.pwaSafari.html", "<strong>Safari trên Mac</strong> (macOS Sonoma trở lên): mở <a href=\"./\">trang ứng dụng</a>, bấm <strong>Tệp</strong> (File) → <strong>Thêm vào Dock</strong> (Add to Dock) → <strong>Thêm</strong>.", "<strong>Safari on Mac</strong> (macOS Sonoma or later): open the <a href=\"./\">app page</a>, choose <strong>File</strong> → <strong>Add to Dock</strong> → <strong>Add</strong>.");
@@ -1060,10 +1301,10 @@
       if (!isSimpleChrome(el)) continue;
       if (!el.hasAttribute("data-i18n-phrase-orig")) el.setAttribute("data-i18n-phrase-orig", norm(el.textContent));
       var orig = el.getAttribute("data-i18n-phrase-orig");
-      var en = PHRASE[orig];
+      var en = ABBR_PHRASE[orig] != null ? ABBR_PHRASE[orig] : PHRASE[orig];
       if (!en) continue;
       if (el.getAttribute("data-i18n-phrase-lang") === cur) continue;
-      setChromeText(el, cur === "en" ? en : orig);
+      setChromeText(el, cur === "en" ? abbrEn(en) : orig);
       el.setAttribute("data-i18n-phrase-lang", cur);
     }
     /* placeholder / title thuần Việt đã biết */
@@ -1073,7 +1314,7 @@
       if (inp.hasAttribute("data-i18n-placeholder")) continue;
       if (!inp.hasAttribute("data-ph-orig")) inp.setAttribute("data-ph-orig", inp.getAttribute("placeholder") || "");
       var po = inp.getAttribute("data-ph-orig");
-      inp.setAttribute("placeholder", cur === "en" && PHRASE[norm(po)] ? PHRASE[norm(po)] : po);
+      inp.setAttribute("placeholder", cur === "en" && PHRASE[norm(po)] ? abbrEn(PHRASE[norm(po)]) : po);
     }
   }
 
@@ -1121,7 +1362,7 @@
       if (!root || root === document || root === document.body) {
         applyTitle();
         lawNote();
-        if (isEn() && document.title && VN_RE.test(document.title)) {
+        if (isEn() && document.title && (VN_RE.test(document.title) || hasAbbr(document.title) || document._knksTitleOrig)) {
           if (!document._knksTitleOrig) document._knksTitleOrig = document.title;
           document.title = translate(document._knksTitleOrig);
         } else if (!isEn() && document._knksTitleOrig) {
@@ -1309,6 +1550,7 @@
       for (var qi = 0; qi < q0.length; qi++) {
         if (q0[qi].phrases) addPhrases(q0[qi].phrases);
         else if (q0[qi].words) addWords(q0[qi].words);
+        else if (q0[qi].abbrPhrases) addAbbrPhrases(q0[qi].abbrPhrases);
         else addPhrases(q0[qi]);
       }
     }
@@ -1348,6 +1590,6 @@
     onChange: onChange, PHRASE: PHRASE, VI: VI, EN: EN,
     addPhrases: addPhrases, addWords: addWords, translate: translate,
     loadPacks: loadPacks, placeName: function (n) { return PLACE_EN[n] || n; },
-    WORDS: WORDS
+    WORDS: WORDS, abbrEn: abbrEn, ABBR_EN: ABBR_EN, ABBR_KEYS: ABBR_KEYS, addAbbrPhrases: addAbbrPhrases
   };
 })(window);
